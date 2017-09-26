@@ -176,19 +176,22 @@ function formatTS(data) {
 }
 
 function parseData(url, callBack, resolvePromise) {
-	Papa.parse(url, {
-		download: true,
-		header: true,
-		complete: function (results) {
-			callBack(results.data);
+    Papa.parse(url, {
+        download: true,
+        header: true,
+        complete: function (results) {
 
-			// after we called the callback
-			// (which is synchronous, so we know it's safe here)
-			// we can resolve the promise
+            console.log(results);  // This is probably your data
+            console.log(results.data); // This is probably undefined
+            callBack(results.data);
 
-			resolvePromise();
-		}
-	});
+            // after we called the callback
+            // (which is synchronous, so we know it's safe here)
+            // we can resolve the promise
+
+            resolvePromise();
+        }
+    });
 }
 
 var p1 = new Promise(function (resolve, reject) {
