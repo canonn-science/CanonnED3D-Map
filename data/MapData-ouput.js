@@ -2,7 +2,6 @@
 
 //Define Categories
 var systemsData = {
-<<<<<<< HEAD
 	"categories": {
 		"Points of Interest": {
 			"100": {
@@ -103,7 +102,6 @@ var systemsData = {
 		},
 	]
 }
-=======
 	"categories":{
                 "Points of Interest":{
                         "100":{
@@ -203,5 +201,3 @@ var systemsData = {
                  },
 		]
 	}
-
->>>>>>> 19b249d088b64ecff5dd6a52ba5347750f9e2316
