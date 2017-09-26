@@ -157,7 +157,7 @@ function formatTS(data) {
 		tsSite["name"] = data[1];
 
 		//Check if Site is Active or Inactive, set Category to match
-		if (data[8].toLowerCase() == "y") {
+		if (data[8].toString().toLowerCase() == "y") {
 			tsSite["cat"] = [500];
 		} else {
 			tsSite["cat"] = [501];
