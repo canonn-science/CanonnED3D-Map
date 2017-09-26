@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function formatBN(data) {
     //Here you format BN JSON to ED3D acceptable object
 
