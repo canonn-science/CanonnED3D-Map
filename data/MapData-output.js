@@ -1,7 +1,7 @@
 // Pulls the JSON data from csv-to-json.js and api-to-json.js and outputs them for ED3D
 
 //Define Categories
-var systemsData = {
+window.systemsData = {
 	"categories": {
 		"Points of Interest": {
 			"100": {
