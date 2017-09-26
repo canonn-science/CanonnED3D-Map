@@ -126,10 +126,10 @@ function formatBN(data) {
 				"y": parseFloat(data[i].galacticY),
 				"z": parseFloat(data[i].galacticZ)
 			};
-		}
 
-		// We can then push the site to the object that stores all systems
-		window.systemsData.systems.push(bnSite);
+			// We can then push the site to the object that stores all systems
+			window.systemsData.systems.push(bnSite);
+		}
 
 	}
 
@@ -149,10 +149,10 @@ function formatBT(data) {
 				"y": parseFloat(data[i].galacticY),
 				"z": parseFloat(data[i].galacticZ)
 			};
-		}
 
-		// We can then push the site to the object that stores all systems
-		window.systemsData.systems.push(btSite);
+			// We can then push the site to the object that stores all systems
+			window.systemsData.systems.push(btSite);
+		}
 
 	}
 
@@ -178,10 +178,10 @@ function formatTS(data) {
 				"y": parseFloat(data[i].galacticY),
 				"z": parseFloat(data[i].galacticZ)
 			};
-		}
 
-		// We can then push the site to the object that stores all systems
-		window.systemsData.systems.push(tsSite);
+			// We can then push the site to the object that stores all systems
+			window.systemsData.systems.push(tsSite);
+		}
 
 	}
 
@@ -211,10 +211,10 @@ function formatGR(data) {
 				"y": parseFloat(data[i].galacticY),
 				"z": parseFloat(data[i].galacticZ)
 			};
-		}
 
-		// We can then push the site to the object that stores all systems
-		window.systemsData.systems.push(grSite);
+			// We can then push the site to the object that stores all systems
+			window.systemsData.systems.push(grSite);
+		}
 
 	}
 
