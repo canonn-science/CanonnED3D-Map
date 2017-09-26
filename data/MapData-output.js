@@ -195,7 +195,7 @@ function parseData(url, callBack, resolvePromise) {
 }
 
 var p1 = new Promise(function (resolve, reject) {
-		parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTCGOwaRT8ESad9j0GAQ7tMMNj8ObxipFW8fop3eaZ-HoCVo_k9dQsHVvs1oFvARrY5SC6o4uDAWKQA/pub?gid=0&single=true&output=csv", formatBN, resolve);
+		parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTCGOwaRT8ESad9j0GAQ7tMMNj8ObxipFW8fop3eaZ-HoCVo_k9dQsHVvs1oFvARrY5SC6o4uDAWKQA/pub?gid=290263950&single=true&output=csv", formatBN, resolve);
 	});
 
 var p2 = new Promise(function (resolve, reject) {
