@@ -3,7 +3,7 @@
 //Define Categories
 window.systemsData = {
 	"categories": {
-		"Points of Interest": {
+		"Points of Interest - POI": {
 			"100": {
 				"name": "System",
 				"color": "F7F7F7"
@@ -13,7 +13,7 @@ window.systemsData = {
 				"color": "f4f142"
 			}
 		},
-		"Barnacles": {
+		"Barnacles - (BN)": {
 			"200": {
 				"name": "Barnacle",
 				"color": "44f441"
@@ -28,13 +28,13 @@ window.systemsData = {
 			"color": "F7F7F7"
 			} */
 		},
-		"Brain Trees": {
+		"Brain Trees - (BT)": {
 			"300": {
 				"name": "Brain Tree",
 				"color": "41e5f4"
 			}
 		},
-		"Guardian Ruins": {
+		"Guardian Ruins - (GR)": {
 			"400": {
 				"name": "Alpha",
 				"color": "f44141"
@@ -48,7 +48,7 @@ window.systemsData = {
 				"color": "f441d0"
 			}
 		},
-		"Thargoid Structures": {
+		"Thargoid Structures - (TS)": {
 			"500": {
 				"name": "Active",
 				"color": "4152f4"
@@ -56,6 +56,12 @@ window.systemsData = {
 			"501": {
 				"name": "Inactive",
 				"color": "9d41f4"
+			}
+		},
+		"Error Sites": {
+			"600": {
+				"name": "Invalid Data Information",
+				"color": "150187"
 			}
 		}
 	},
@@ -175,52 +181,36 @@ function formatTS(data) {
 
 }
 
-/* AdmlAdam's Code
-// GR data from Canonn API and format
-var stellarInfo = 'https://api.canonn.technology/api/v1/stellar/systems';
-var systemList = 'https://api.canonn.technology/api/v1/maps/systemoverview';
+function formatGR(data) {
+	//Here you format GR JSON to ED3D acceptable object
 
-var stellarCoords = {}
+	// this is assuming data is an array []
+	for (var i = 0; i < data.length; i++) {
+		var grSite = {};
+		grSite["name"] = data[i].system;
 
-$.get(stellarInfo).done(function (stellarList) {
-	//Get the stellar coords and cache them
-	$.each(stellarList, function (index, info) {
-		stellarCoords[info.id] = {
-			'x': info.edsmCoordX,
-			'y': info.edsmCoordY,
-			'z': info.edsmCoordZ
+		//Check Site Type and match categories
+		if (data[i].type.toString() == "Alpha") {
+			grSite["cat"] = [400];
+		} else if (data[i].type.toString() == "Beta") {
+			grSite["cat"] = [401];
+		} else if (data[i].type.toString() == "Gamma") {
+			grSite["cat"] = [402];
+		} else {
+			grSite["cat"] = [600];
 		}
-	});
+		grSite["coords"] = {
+			"x": parseFloat(data[i].galacticX),
+			"y": parseFloat(data[i].galacticY),
+			"z": parseFloat(data[i].galacticZ)
+		};
 
-	$.get(systemList).done(function (systemList) {
-		$.each(systemList, function (index, system) {
-			//Create the system info
-			var sysId = system.systemId;
-			var sysName = system.systemName;
+		// We can then push the site to the object that stores all systems
+		window.systemsData.systems.push(grSite);
 
-			if (sysName.substr(0, 2) != 'z.') {
-				var newSystem = {
-					"name": sysName,
-					"coords": {
-						"x": stellarCoords[sysId].x,
-						"y": stellarCoords[sysId].y,
-						"z": stellarCoords[sysId].z
-					},
-					"cat": [
-						"100"
-					]
-				}
+	}
 
-				//Add system
-				systemsData["systems"].push(newSystem);
-			}
-		});
-	})
-	.fail(function (d, textStatus, error) {
-		alert("Error fetching Guardian Systems: " + error);
-	})
-})
-*/
+}
 
 function parseData(url, callBack, resolvePromise) {
 	Papa.parse(url, {
@@ -253,7 +243,11 @@ var p3 = new Promise(function (resolve, reject) {
 		parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vR4-rhi1p4BU7AlOSj7_78Kvk5Ox6vb39vzzlWU3yI-dqlaLxk-CFLWvAFKc-J7WhomFiQ_u0P7Stxz/pub?gid=0&single=true&output=csv", formatTS, resolve);
 	});
 
-Promise.all([p1, p2, p3]).then(function () {
+var p4 = new Promise(function (resolve, reject) {
+		parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTSvkdtHr0SbM4dYOCsDalp1hRilWt2I5Hz1l2OIgbfR8Hs-lOCat_ZUyhyBnuv9R9rXz9vnhaYif2-/pub?gid=0&single=true&output=csv", formatGR, resolve);
+	});
+
+Promise.all([p1, p2, p3, p4]).then(function () {
 	Ed3d.init({
 		container: 'edmap',
 		json: window.systemsData,
