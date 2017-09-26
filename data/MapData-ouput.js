@@ -203,8 +203,17 @@ var p3 = new Promise(function (resolve, reject) {
 		parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vR4-rhi1p4BU7AlOSj7_78Kvk5Ox6vb39vzzlWU3yI-dqlaLxk-CFLWvAFKc-J7WhomFiQ_u0P7Stxz/pub?gid=0&single=true&output=csv", formatTS, resolve);
 	});
 
-//Promise.all([p1,p2,p3]).then {
-//   console.dir(systemsData)
-//	return(systemsData)
-//}
-return (systemsData);
+
+Promise.all([p1,p2,p3]).then({
+    Ed3d.init({
+        container   : 'edmap',
+        jsonPath    : systemData,
+        withHudPanel : true,
+        hudMultipleSelect : true,
+        effectScaleSystem : [50,10000],
+        startAnim: false,
+        showGalaxyInfos: true,
+        cameraPos: [25,14100,-12900],
+        systemColor: '#FF9D00'
+    })
+});

@@ -63,33 +63,11 @@
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <!-- Three.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
-
-  <!-- Canonn MapData-output.js -->
-  <script src="data/MapData-output.js"></script>
-  
   <!-- Launch ED3Dmap -->
   <link href="css/styles.css" rel="stylesheet" type="text/css" />
   <script src="js/ed3dmap.min.js?v=6"></script>
-  <script type="text/javascript">
-
-    var d = new Date()
-    d.setDate(d.getDate() - 1);
-    var queryDate = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()+' '+d.getHours()+':00:00';
-
-    Ed3d.init({
-        container   : 'edmap',
-       // jsonPath    : "http://www.edsm.net/api-v1/systems?coords=1&known=1&startdatetime="+queryDate,
-        jsonPath    : "systemData",
-        withHudPanel : true,
-        hudMultipleSelect : true,
-        effectScaleSystem : [50,10000],
-        startAnim: false,
-        showGalaxyInfos: true,
-        cameraPos: [25,14100,-12900],
-        systemColor: '#FF9D00'
-    });
-
-  </script>
+  <!-- Canonn MapData-output.js -->
+  <script src="data/MapData-output.js"></script>
 
 </body>
 </html>
