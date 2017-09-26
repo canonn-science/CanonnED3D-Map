@@ -110,14 +110,14 @@ function formatBN(data) {
 	// this is assuming data is an array []
 	for (var i = 0; i < data.length; i++) {
 		var bnSite = {};
-		bnSite["name"] = data[1];
+		bnSite["name"] = data[i].system;
 
 		//Ripe or Dead Status not enabled yet, pending CSV fixes
 		bnSite["cat"] = [200];
 		bnSite["coords"] = {
-			"x": data[5],
-			"y": data[6],
-			"z": data[7]
+			"x": data[i].galacticX,
+			"y": data[i].galacticY,
+			"z": data[i].galacticZ
 		};
 
 		// We can then push the site to the object that stores all systems
@@ -133,12 +133,12 @@ function formatBT(data) {
 	// this is assuming data is an array []
 	for (var i = 0; i < data.length; i++) {
 		var btSite = {};
-		btSite["name"] = data[1];
+		btSite["name"] = data[i].system;
 		btSite["cat"] = [300];
 		btSite["coords"] = {
-			"x": data[5],
-			"y": data[6],
-			"z": data[7]
+			"x": data[i].galacticX,
+			"y": data[i].galacticY,
+			"z": data[i].galacticZ
 		};
 
 		// We can then push the site to the object that stores all systems
@@ -154,18 +154,18 @@ function formatTS(data) {
 	// this is assuming data is an array []
 	for (var i = 0; i < data.length; i++) {
 		var tsSite = {};
-		tsSite["name"] = data[1];
+		tsSite["name"] = data[i].system;
 
 		//Check if Site is Active or Inactive, set Category to match
-		if (data[8].toString().toLowerCase() == "y") {
+		if (data[i].active.toString().toLowerCase() == "y") {
 			tsSite["cat"] = [500];
 		} else {
 			tsSite["cat"] = [501];
 		}
 		tsSite["coords"] = {
-			"x": data[5],
-			"y": data[6],
-			"z": data[7]
+			"x": data[i].galacticX,
+			"y": data[i].galacticY,
+			"z": data[i].galacticZ
 		};
 
 		// We can then push the site to the object that stores all systems
@@ -210,7 +210,7 @@ var p3 = new Promise(function (resolve, reject) {
 Promise.all([p1,p2,p3]).then( function() {
     Ed3d.init({
         container   : 'edmap',
-        jsonPath    : systemData,
+        jsonPath    : systemsData,
         withHudPanel : true,
         hudMultipleSelect : true,
         effectScaleSystem : [50,10000],
