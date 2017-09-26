@@ -115,13 +115,13 @@ function formatBN(data) {
 		//Ripe or Dead Status not enabled yet, pending CSV fixes
 		bnSite["cat"] = [200];
 		bnSite["coords"] = {
-			"x": data[i].galacticX,
-			"y": data[i].galacticY,
-			"z": data[i].galacticZ
+			"x": parseFloat(data[i].galacticX),
+			"y": parseFloat(data[i].galacticY),
+			"z": parseFloat(data[i].galacticZ)
 		};
 
 		// We can then push the site to the object that stores all systems
-		systemsData.systems.push(bnSite);
+		window.systemsData.systems.push(bnSite);
 
 	}
 
@@ -136,13 +136,13 @@ function formatBT(data) {
 		btSite["name"] = data[i].system;
 		btSite["cat"] = [300];
 		btSite["coords"] = {
-			"x": data[i].galacticX,
-			"y": data[i].galacticY,
-			"z": data[i].galacticZ
+			"x": parseFloat(data[i].galacticX),
+			"y": parseFloat(data[i].galacticY),
+			"z": parseFloat(data[i].galacticZ)
 		};
 
 		// We can then push the site to the object that stores all systems
-		systemsData.systems.push(btSite);
+		window.systemsData.systems.push(btSite);
 
 	}
 
@@ -163,13 +163,13 @@ function formatTS(data) {
 			tsSite["cat"] = [501];
 		}
 		tsSite["coords"] = {
-			"x": data[i].galacticX,
-			"y": data[i].galacticY,
-			"z": data[i].galacticZ
+			"x": parseFloat(data[i].galacticX),
+			"y": parseFloat(data[i].galacticY),
+			"z": parseFloat(data[i].galacticZ)
 		};
 
 		// We can then push the site to the object that stores all systems
-		systemsData.systems.push(tsSite);
+		window.systemsData.systems.push(tsSite);
 
 	}
 
@@ -210,7 +210,7 @@ var p3 = new Promise(function (resolve, reject) {
 Promise.all([p1,p2,p3]).then( function() {
     Ed3d.init({
         container   : 'edmap',
-        jsonPath    : systemsData,
+        json    : window.systemsData,
         withHudPanel : true,
         hudMultipleSelect : true,
         effectScaleSystem : [50,10000],
