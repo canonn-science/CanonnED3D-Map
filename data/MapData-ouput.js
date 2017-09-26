@@ -121,7 +121,7 @@ function formatBN(data) {
 			};
 
 			// We can then push the site to the object that stores all systems
-			systemsData.systems.push(bnSite);
+			systemsData["systems"].push(bnSite);
 
     }
 
@@ -142,7 +142,7 @@ function formatBT(data) {
 			};
 
 			// We can then push the site to the object that stores all systems
-			systemsData.systems.push(btSite);
+			systemsData["systems"].push(btSite);
 
     }
 
@@ -169,7 +169,7 @@ function formatTS(data) {
 			};
 
 			// We can then push the site to the object that stores all systems
-			systemsData.systems.push(tsSite);
+			systemsData["systems"].push(tsSite);
 
     }
 
