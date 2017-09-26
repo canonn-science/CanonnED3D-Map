@@ -128,7 +128,7 @@ var canonnEd3d_all = {
 				};
 
 				// We can then push the site to the object that stores all systems
-				this.systemsData.systems.push(bnSite);
+				canonnEd3d_all.systemsData.systems.push(bnSite);
 			}
 
 		}
@@ -136,6 +136,7 @@ var canonnEd3d_all = {
 	},
 
 	formatBT: function (data) {
+
 		//Here you format BT JSON to ED3D acceptable object
 
 		// this is assuming data is an array []
@@ -151,7 +152,7 @@ var canonnEd3d_all = {
 				};
 
 				// We can then push the site to the object that stores all systems
-				this.systemsData.systems.push(btSite);
+				canonnEd3d_all.systemsData.systems.push(btSite);
 			}
 
 		}
@@ -180,7 +181,7 @@ var canonnEd3d_all = {
 				};
 
 				// We can then push the site to the object that stores all systems
-				this.systemsData.systems.push(tsSite);
+				canonnEd3d_all.systemsData.systems.push(tsSite);
 			}
 
 		}
@@ -213,7 +214,7 @@ var canonnEd3d_all = {
 				};
 
 				// We can then push the site to the object that stores all systems
-				this.systemsData.systems.push(grSite);
+				canonnEd3d_all.systemsData.systems.push(grSite);
 			}
 
 		}
@@ -226,8 +227,6 @@ var canonnEd3d_all = {
 			header: true,
 			complete: function (results) {
 
-				console.log(results); // This is probably your data
-				console.log(results.data); // This is probably undefined
 				callBack(results.data);
 
 				// after we called the callback
@@ -242,25 +241,25 @@ var canonnEd3d_all = {
 	init: function () {
 
 		var p1 = new Promise(function (resolve, reject) {
-				parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTCGOwaRT8ESad9j0GAQ7tMMNj8ObxipFW8fop3eaZ-HoCVo_k9dQsHVvs1oFvARrY5SC6o4uDAWKQA/pub?gid=290263950&single=true&output=csv", formatBN, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTCGOwaRT8ESad9j0GAQ7tMMNj8ObxipFW8fop3eaZ-HoCVo_k9dQsHVvs1oFvARrY5SC6o4uDAWKQA/pub?gid=290263950&single=true&output=csv", canonnEd3d_all.formatBN, resolve);
 			});
 
 		var p2 = new Promise(function (resolve, reject) {
-				parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vRdEQQByWyU8MlzfJw9SzEsaM9c_zDV_RJ49Fiox842EEELrUHpMPexLYhjqNB8SOzB564jJ_oLdBx2/pub?gid=0&single=true&output=csv", formatBT, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vRdEQQByWyU8MlzfJw9SzEsaM9c_zDV_RJ49Fiox842EEELrUHpMPexLYhjqNB8SOzB564jJ_oLdBx2/pub?gid=0&single=true&output=csv", canonnEd3d_all.formatBT, resolve);
 			});
 
 		var p3 = new Promise(function (resolve, reject) {
-				parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vR4-rhi1p4BU7AlOSj7_78Kvk5Ox6vb39vzzlWU3yI-dqlaLxk-CFLWvAFKc-J7WhomFiQ_u0P7Stxz/pub?gid=0&single=true&output=csv", formatTS, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vR4-rhi1p4BU7AlOSj7_78Kvk5Ox6vb39vzzlWU3yI-dqlaLxk-CFLWvAFKc-J7WhomFiQ_u0P7Stxz/pub?gid=0&single=true&output=csv", canonnEd3d_all.formatTS, resolve);
 			});
 
 		var p4 = new Promise(function (resolve, reject) {
-				parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTSvkdtHr0SbM4dYOCsDalp1hRilWt2I5Hz1l2OIgbfR8Hs-lOCat_ZUyhyBnuv9R9rXz9vnhaYif2-/pub?gid=0&single=true&output=csv", formatGR, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTSvkdtHr0SbM4dYOCsDalp1hRilWt2I5Hz1l2OIgbfR8Hs-lOCat_ZUyhyBnuv9R9rXz9vnhaYif2-/pub?gid=0&single=true&output=csv", canonnEd3d_all.formatGR, resolve);
 			});
 
 		Promise.all([p1, p2, p3, p4]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
-				json: this.systemsData,
+				json: canonnEd3d_all.systemsData,
 				withHudPanel: true,
 				hudMultipleSelect: true,
 				effectScaleSystem: [50, 10000],
