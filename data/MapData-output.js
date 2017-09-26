@@ -115,9 +115,9 @@ function formatBN(data) {
 		//Ripe or Dead Status not enabled yet, pending CSV fixes
 		bnSite["cat"] = [200];
 		bnSite["coords"] = {
-			"x": coords[0],
-			"y": coords[1],
-			"z": coords[2]
+			"x": data.coords[0],
+			"y": data.coords[1],
+			"z": data.coords[2]
 		};
 
 		// We can then push the site to the object that stores all systems
@@ -136,9 +136,9 @@ function formatBT(data) {
 		btSite["name"] = data[1];
 		btSite["cat"] = [300];
 		btSite["coords"] = {
-			"x": coords[0],
-			"y": coords[1],
-			"z": coords[2]
+			"x": data.coords[0],
+			"y": data.coords[1],
+			"z": data.coords[2]
 		};
 
 		// We can then push the site to the object that stores all systems
@@ -163,9 +163,9 @@ function formatTS(data) {
 			tsSite["cat"] = [501];
 		}
 		tsSite["coords"] = {
-			"x": coords[0],
-			"y": coords[1],
-			"z": coords[2]
+			"x": data.coords[0],
+			"y": data.coords[1],
+			"z": data.coords[2]
 		};
 
 		// We can then push the site to the object that stores all systems
