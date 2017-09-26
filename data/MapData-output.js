@@ -204,7 +204,7 @@ var p3 = new Promise(function (resolve, reject) {
 	});
 
 
-Promise.all([p1,p2,p3]).then({
+Promise.all([p1,p2,p3]).then( function() {
     Ed3d.init({
         container   : 'edmap',
         jsonPath    : systemData,
