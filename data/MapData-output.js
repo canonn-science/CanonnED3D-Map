@@ -121,7 +121,7 @@ function formatBN(data) {
 		};
 
 		// We can then push the site to the object that stores all systems
-		systemsData.systems.push(bnSite);
+		window.systemsData.systems.push(bnSite);
 
 	}
 
@@ -142,7 +142,7 @@ function formatBT(data) {
 		};
 
 		// We can then push the site to the object that stores all systems
-		systemsData.systems.push(btSite);
+		window.systemsData.systems.push(btSite);
 
 	}
 
@@ -169,7 +169,7 @@ function formatTS(data) {
 		};
 
 		// We can then push the site to the object that stores all systems
-		systemsData.systems.push(tsSite);
+		window.systemsData.systems.push(tsSite);
 
 	}
 
@@ -210,7 +210,7 @@ var p3 = new Promise(function (resolve, reject) {
 Promise.all([p1,p2,p3]).then( function() {
     Ed3d.init({
         container   : 'edmap',
-        jsonPath    : systemsData,
+        json    : window.systemsData,
         withHudPanel : true,
         hudMultipleSelect : true,
         effectScaleSystem : [50,10000],
