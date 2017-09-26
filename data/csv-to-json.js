@@ -5,6 +5,8 @@ function formatBN(data) {
     for( var i=0; i<data.length; i++ ) {
         var bnSite = {};
 			bnSite["name"] = data[1];
+			
+			//Ripe or Dead Status not enabled yet, pending CSV fixes
 			bnSite["cat"] = [200];
 			bnSite["coords"] = {
 				"x":coords[0],
@@ -47,6 +49,8 @@ function formatTS(data) {
     for( var i=0; i<data.length; i++ ) {
         var tsSite = {};
 			tsSite["name"] = data[1];
+			
+			//Check if Site is Active or Inactive, set Category to match
 			if(data[8].toLowerCase() == "y"){
 				tsSite["cat"] = [500]
 			}else{
@@ -82,36 +86,18 @@ function parseData(url, callBack, resolvePromise) {
 }
 
 var p1 = new Promise(function(resolve, reject) {
-    parseData("BN_URL", formatBN, resolve);    
+    parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTCGOwaRT8ESad9j0GAQ7tMMNj8ObxipFW8fop3eaZ-HoCVo_k9dQsHVvs1oFvARrY5SC6o4uDAWKQA/pub?gid=0&single=true&output=csv", formatBN, resolve);    
 }
 
 var p2 = new Promise(function(resolve, reject) {
-    parseData("BT_URL", formatBT, resolve);    
+    parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vRdEQQByWyU8MlzfJw9SzEsaM9c_zDV_RJ49Fiox842EEELrUHpMPexLYhjqNB8SOzB564jJ_oLdBx2/pub?gid=0&single=true&output=csv", formatBT, resolve);    
 }
 
 var p3 = new Promise(function(resolve, reject) {
-    parseData("TS_URL", formatTS, resolve);    
+    parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vR4-rhi1p4BU7AlOSj7_78Kvk5Ox6vb39vzzlWU3yI-dqlaLxk-CFLWvAFKc-J7WhomFiQ_u0P7Stxz/pub?gid=0&single=true&output=csv", formatTS, resolve);    
 }
 
 
 Promise.all([p1,p2,p3]).then(function() {
     // We now have all the data needed, this may take 200ms, or 5s, the code will wait.
 });
-=======
-function doStuff(data) {
-    //Data is usable here
-    console.log(data);
-}
-
-function parseData(url, callBack) {
-    Papa.parse(url, {
-        download: true,
-	header: true,
-        complete: function(results) {
-            callBack(results.data);
-        }
-    });
-}
-
-parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTCGOwaRT8ESad9j0GAQ7tMMNj8ObxipFW8fop3eaZ-HoCVo_k9dQsHVvs1oFvARrY5SC6o4uDAWKQA/pub?gid=0&single=true&output=csv", doStuff);
->>>>>>> 19b249d088b64ecff5dd6a52ba5347750f9e2316
