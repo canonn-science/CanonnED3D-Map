@@ -115,16 +115,18 @@ function formatBN(data) {
 
 	// this is assuming data is an array []
 	for (var i = 0; i < data.length; i++) {
-		var bnSite = {};
-		bnSite["name"] = data[i].system;
+		if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+			var bnSite = {};
+			bnSite["name"] = data[i].system;
 
-		//Ripe or Dead Status not enabled yet, pending CSV fixes
-		bnSite["cat"] = [200];
-		bnSite["coords"] = {
-			"x": parseFloat(data[i].galacticX),
-			"y": parseFloat(data[i].galacticY),
-			"z": parseFloat(data[i].galacticZ)
-		};
+			//Ripe or Dead Status not enabled yet, pending CSV fixes
+			bnSite["cat"] = [200];
+			bnSite["coords"] = {
+				"x": parseFloat(data[i].galacticX),
+				"y": parseFloat(data[i].galacticY),
+				"z": parseFloat(data[i].galacticZ)
+			};
+		}
 
 		// We can then push the site to the object that stores all systems
 		window.systemsData.systems.push(bnSite);
@@ -138,14 +140,16 @@ function formatBT(data) {
 
 	// this is assuming data is an array []
 	for (var i = 0; i < data.length; i++) {
-		var btSite = {};
-		btSite["name"] = data[i].system;
-		btSite["cat"] = [300];
-		btSite["coords"] = {
-			"x": parseFloat(data[i].galacticX),
-			"y": parseFloat(data[i].galacticY),
-			"z": parseFloat(data[i].galacticZ)
-		};
+		if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+			var btSite = {};
+			btSite["name"] = data[i].system;
+			btSite["cat"] = [300];
+			btSite["coords"] = {
+				"x": parseFloat(data[i].galacticX),
+				"y": parseFloat(data[i].galacticY),
+				"z": parseFloat(data[i].galacticZ)
+			};
+		}
 
 		// We can then push the site to the object that stores all systems
 		window.systemsData.systems.push(btSite);
@@ -159,20 +163,22 @@ function formatTS(data) {
 
 	// this is assuming data is an array []
 	for (var i = 0; i < data.length; i++) {
-		var tsSite = {};
-		tsSite["name"] = data[i].system;
+		if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+			var tsSite = {};
+			tsSite["name"] = data[i].system;
 
-		//Check if Site is Active or Inactive, set Category to match
-		if (data[i].active.toString().toLowerCase() == "y") {
-			tsSite["cat"] = [500];
-		} else {
-			tsSite["cat"] = [501];
+			//Check if Site is Active or Inactive, set Category to match
+			if (data[i].active.toString().toLowerCase() == "y") {
+				tsSite["cat"] = [500];
+			} else {
+				tsSite["cat"] = [501];
+			}
+			tsSite["coords"] = {
+				"x": parseFloat(data[i].galacticX),
+				"y": parseFloat(data[i].galacticY),
+				"z": parseFloat(data[i].galacticZ)
+			};
 		}
-		tsSite["coords"] = {
-			"x": parseFloat(data[i].galacticX),
-			"y": parseFloat(data[i].galacticY),
-			"z": parseFloat(data[i].galacticZ)
-		};
 
 		// We can then push the site to the object that stores all systems
 		window.systemsData.systems.push(tsSite);
@@ -186,24 +192,26 @@ function formatGR(data) {
 
 	// this is assuming data is an array []
 	for (var i = 0; i < data.length; i++) {
-		var grSite = {};
-		grSite["name"] = data[i].system;
+		if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+			var grSite = {};
+			grSite["name"] = data[i].system;
 
-		//Check Site Type and match categories
-		if (data[i].type.toString() == "Alpha") {
-			grSite["cat"] = [400];
-		} else if (data[i].type.toString() == "Beta") {
-			grSite["cat"] = [401];
-		} else if (data[i].type.toString() == "Gamma") {
-			grSite["cat"] = [402];
-		} else {
-			grSite["cat"] = [600];
+			//Check Site Type and match categories
+			if (data[i].type.toString() == "Alpha") {
+				grSite["cat"] = [400];
+			} else if (data[i].type.toString() == "Beta") {
+				grSite["cat"] = [401];
+			} else if (data[i].type.toString() == "Gamma") {
+				grSite["cat"] = [402];
+			} else {
+				grSite["cat"] = [600];
+			}
+			grSite["coords"] = {
+				"x": parseFloat(data[i].galacticX),
+				"y": parseFloat(data[i].galacticY),
+				"z": parseFloat(data[i].galacticZ)
+			};
 		}
-		grSite["coords"] = {
-			"x": parseFloat(data[i].galacticX),
-			"y": parseFloat(data[i].galacticY),
-			"z": parseFloat(data[i].galacticZ)
-		};
 
 		// We can then push the site to the object that stores all systems
 		window.systemsData.systems.push(grSite);
