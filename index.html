@@ -64,6 +64,9 @@
   <!-- Three.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
 
+  <!-- Canonn MapData-output.js -->
+  <script src="data/MapData-output.js"></script>
+  
   <!-- Launch ED3Dmap -->
   <link href="css/styles.css" rel="stylesheet" type="text/css" />
   <script src="js/ed3dmap.min.js?v=6"></script>
@@ -76,7 +79,7 @@
     Ed3d.init({
         container   : 'edmap',
        // jsonPath    : "http://www.edsm.net/api-v1/systems?coords=1&known=1&startdatetime="+queryDate,
-        jsonPath    : "json_samples/galnet.json",
+        jsonPath    : "systemData",
         withHudPanel : true,
         hudMultipleSelect : true,
         effectScaleSystem : [50,10000],

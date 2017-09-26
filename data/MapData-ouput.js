@@ -204,6 +204,8 @@ var p3 = new Promise(function(resolve, reject) {
 });
 
 
-if Promise.all([p1,p2,p3]).then {
-    console.log(systemsData)
-}
+//Promise.all([p1,p2,p3]).then {
+//   console.dir(systemsData)
+//	return(systemsData)
+//}
+return(systemsData);
