@@ -10,13 +10,13 @@ window.systemsData = {
 			},
 			"101": {
 				"name": "MegaShips",
-				"color": "F7F7F7"
+				"color": "f4f142"
 			}
 		},
 		"Barnacles": {
 			"200": {
 				"name": "Barnacle",
-				"color": "F7F7F7"
+				"color": "44f441"
 			}
 			// Disabled until output shows status
 			/*			"200": {
@@ -31,31 +31,31 @@ window.systemsData = {
 		"Brain Trees": {
 			"300": {
 				"name": "Brain Tree",
-				"color": "F7F7F7"
+				"color": "41e5f4"
 			}
 		},
 		"Guardian Ruins": {
 			"400": {
 				"name": "Alpha",
-				"color": "F7F7F7"
+				"color": "f44141"
 			},
 			"401": {
 				"name": "Beta",
-				"color": "F7F7F7"
+				"color": "f4b241"
 			},
 			"402": {
 				"name": "Gamma",
-				"color": "F7F7F7"
+				"color": "f441d0"
 			}
 		},
 		"Thargoid Structures": {
 			"500": {
 				"name": "Active",
-				"color": "F7F7F7"
+				"color": "4152f4"
 			},
 			"501": {
 				"name": "Inactive",
-				"color": "F7F7F7"
+				"color": "9d41f4"
 			}
 		}
 	},
@@ -175,23 +175,70 @@ function formatTS(data) {
 
 }
 
+/* AdmlAdam's Code
+// GR data from Canonn API and format
+var stellarInfo = 'https://api.canonn.technology/api/v1/stellar/systems';
+var systemList = 'https://api.canonn.technology/api/v1/maps/systemoverview';
+
+var stellarCoords = {}
+
+$.get(stellarInfo).done(function (stellarList) {
+	//Get the stellar coords and cache them
+	$.each(stellarList, function (index, info) {
+		stellarCoords[info.id] = {
+			'x': info.edsmCoordX,
+			'y': info.edsmCoordY,
+			'z': info.edsmCoordZ
+		}
+	});
+
+	$.get(systemList).done(function (systemList) {
+		$.each(systemList, function (index, system) {
+			//Create the system info
+			var sysId = system.systemId;
+			var sysName = system.systemName;
+
+			if (sysName.substr(0, 2) != 'z.') {
+				var newSystem = {
+					"name": sysName,
+					"coords": {
+						"x": stellarCoords[sysId].x,
+						"y": stellarCoords[sysId].y,
+						"z": stellarCoords[sysId].z
+					},
+					"cat": [
+						"100"
+					]
+				}
+
+				//Add system
+				systemsData["systems"].push(newSystem);
+			}
+		});
+	})
+	.fail(function (d, textStatus, error) {
+		alert("Error fetching Guardian Systems: " + error);
+	})
+})
+*/
+
 function parseData(url, callBack, resolvePromise) {
-    Papa.parse(url, {
-        download: true,
-        header: true,
-        complete: function (results) {
+	Papa.parse(url, {
+		download: true,
+		header: true,
+		complete: function (results) {
 
-            console.log(results);  // This is probably your data
-            console.log(results.data); // This is probably undefined
-            callBack(results.data);
+			console.log(results); // This is probably your data
+			console.log(results.data); // This is probably undefined
+			callBack(results.data);
 
-            // after we called the callback
-            // (which is synchronous, so we know it's safe here)
-            // we can resolve the promise
+			// after we called the callback
+			// (which is synchronous, so we know it's safe here)
+			// we can resolve the promise
 
-            resolvePromise();
-        }
-    });
+			resolvePromise();
+		}
+	});
 }
 
 var p1 = new Promise(function (resolve, reject) {
@@ -206,17 +253,16 @@ var p3 = new Promise(function (resolve, reject) {
 		parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vR4-rhi1p4BU7AlOSj7_78Kvk5Ox6vb39vzzlWU3yI-dqlaLxk-CFLWvAFKc-J7WhomFiQ_u0P7Stxz/pub?gid=0&single=true&output=csv", formatTS, resolve);
 	});
 
-
-Promise.all([p1,p2,p3]).then( function() {
-    Ed3d.init({
-        container   : 'edmap',
-        json    : window.systemsData,
-        withHudPanel : true,
-        hudMultipleSelect : true,
-        effectScaleSystem : [50,10000],
-        startAnim: false,
-        showGalaxyInfos: true,
-        cameraPos: [25,14100,-12900],
-        systemColor: '#FF9D00'
-    })
+Promise.all([p1, p2, p3]).then(function () {
+	Ed3d.init({
+		container: 'edmap',
+		json: window.systemsData,
+		withHudPanel: true,
+		hudMultipleSelect: true,
+		effectScaleSystem: [50, 10000],
+		startAnim: false,
+		showGalaxyInfos: true,
+		cameraPos: [25, 14100, -12900],
+		systemColor: '#FF9D00'
+	})
 });
