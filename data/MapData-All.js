@@ -262,7 +262,7 @@ var canonnEd3d_all = {
 				json: canonnEd3d_all.systemsData,
 				withHudPanel: true,
 				hudMultipleSelect: true,
-				effectScaleSystem: [50, 10000],
+				effectScaleSystem: [28, 10000],
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
