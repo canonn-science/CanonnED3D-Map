@@ -58,6 +58,57 @@ var canonnEd3d_all = {
 					"color": "9d41f4"
 				}
 			},
+			"Unidentified Signal Source - (USS)": {
+				"700": {
+					"name": "Non-Human Signal Source",
+					"color": "cc3333"
+				},
+				"701": {
+					"name": "Distress Call",
+					"color": "cc8033"
+				},
+				"702": {
+					"name": "Degraded Emissions",
+					"color": "cccc33"
+				},				
+				"703": {
+					"name": "Weapons Fire",
+					"color": "cc5933"
+				},								
+				"704": {
+					"name": "Encoded Emissions",
+					"color": "a6cc33"
+				},												
+				"705": {
+					"name": "Combat Aftermath",
+					"color": "cca633"
+				},																
+				"706": {
+					"name": "Mission Target",
+					"color": "33cccc"
+				},																				
+				"707": {
+					"name": "High Grade Emissions",
+					"color": "80cc33"
+				},																								
+				"708": {
+					"name": "Convoy Dispersal Pattern",
+					"color": "3380cc"
+				},	
+				"709": {
+					"name": "Ceremonial Comms",
+					"color": "5933cc"
+				},																																
+				"710": {
+					"name": "Trading Beacon",
+					"color": "a633cc"
+				},																																				
+				"711": {
+					"name": "Unknown",
+					"color": "cc3380"
+				}																																			
+				
+			},			
 			"Error Sites": {
 				"600": {
 					"name": "Invalid Data Information",
@@ -109,6 +160,69 @@ var canonnEd3d_all = {
 		]
 	},
 
+	formatTI: function (data) {
+		//Here you format BN JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].System && data[i].System.replace(" ", "").length > 1) {
+				var tiSite = {};
+				tiSite["name"] = data[i].System;
+		
+
+				switch(data[i].USSType) {
+				case '$USS_Type_NonHuman;':
+					tiSite["cat"] = [700];
+					break;
+				case '$USS_Type_DistressSignal;':
+					tiSite["cat"] = [701];
+					break;
+				case '$USS_Type_Salvage;':
+					tiSite["cat"] = [702];
+					break;
+				case '$USS_Type_WeaponsFire;':
+					tiSite["cat"] = [703];
+					break;					
+				case '$USS_Type_ValuableSalvage;':
+					tiSite["cat"] = [704];
+					break;					
+				case '$USS_Type_Aftermath;':
+					tiSite["cat"] = [705];
+					break;
+				case '$USS_Type_MissionTarget;':
+					tiSite["cat"] = [706];
+					break;					
+				case '$USS_Type_VeryValuableSalvage;':
+					tiSite["cat"] = [707];
+					break;					
+				case '$USS_Type_Convoy;':
+					tiSite["cat"] = [708];
+					break;										
+				case '$USS_Type_Ceremonial;':
+					tiSite["cat"] = [709];
+					break;					
+				case '$USS_Type_TradingBeacon;':
+					tiSite["cat"] = [710];
+					break;										
+				default:
+					tiSite["cat"] = [711];
+				} 			
+				
+				
+				tiSite["coords"] = {
+					"x": parseFloat(data[i].x),
+					"y": parseFloat(data[i].y),
+					"z": parseFloat(data[i].z)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_all.systemsData.systems.push(tiSite);
+			}
+
+		}
+
+	},	
+	
 	// Lets get data from CSV Files
 	formatBN: function (data) {
 		//Here you format BN JSON to ED3D acceptable object
@@ -255,8 +369,12 @@ var canonnEd3d_all = {
 		var p4 = new Promise(function (resolve, reject) {
 				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTSvkdtHr0SbM4dYOCsDalp1hRilWt2I5Hz1l2OIgbfR8Hs-lOCat_ZUyhyBnuv9R9rXz9vnhaYif2-/pub?gid=0&single=true&output=csv", canonnEd3d_all.formatGR, resolve);
 			});
+			
+		var p5 = new Promise(function (resolve, reject) {
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vROqL6zifWWxcwlZ0R6iLvrMrUdfJijnMoZee-SrN0NVPqhTdH3Zdx6E7RxP1wH2xgwfrhwfVWUHnKU/pub?gid=954889761&single=true&output=csv", canonnEd3d_all.formatTI, resolve);
+			});			
 
-		Promise.all([p1, p2, p3, p4]).then(function () {
+		Promise.all([p1, p2, p3, p4, p5]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_all.systemsData,
