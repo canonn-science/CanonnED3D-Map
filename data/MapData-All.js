@@ -66,7 +66,11 @@ var canonnEd3d_all = {
 				"801": {
 					"name": "End System",
 					"color": "ff0040"
-				}
+				},
+				"802": {
+					"name": "Route",
+					"color": "f2f2f2"
+				},
 			},			
 			"Unidentified Signal Source - (USS)": {
 				"700": {
@@ -207,6 +211,9 @@ var canonnEd3d_all = {
 				
 				hdRoute["title"]="CMDR "+data[i].CMDR+" "+data[i].From+" to "+data[i].To 
 				hdRoute["points"] = [{"s": data[i].From,"label": data[i].From},{"s": data[i].To,"label": data[i].To}]
+				hdRoute["cat"]=[802]
+				hdRoute["circle"]=false
+				
 				canonnEd3d_all.systemsData.routes.push(hdRoute);
 			}
 

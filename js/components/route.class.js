@@ -67,6 +67,7 @@ var Route = {
     var last = null;
     var color = Ed3d.material.orange;
     var colorLine = Ed3d.material.line;
+	var circle = true;
 
     var hideLast = (route.hideLast !== undefined && route.hideLast);
 
@@ -110,8 +111,17 @@ var Route = {
     routes[idRoute] = new THREE.Line(geometryL, colorLine);
 
     //-- Add object for start & end
-    //if(first!==null) this.addCircle('route-'+idRoute+'-first', first, color, 7);
-    //if(!hideLast && last!==null)  this.addCircle('route-'+idRoute+'-last', last, color, 3);
+	
+	if(route.circle != undefined) {
+      circle = route.circle
+    } else {
+	  circle = true	
+	}
+	
+	if (circle != false) { 
+	   if(first!==null) this.addCircle('route-'+idRoute+'-first', first, color, 7);
+      if(!hideLast && last!==null)  this.addCircle('route-'+idRoute+'-last', last, color, 3);
+	}
 
     routes[idRoute].name = 'route-'+idRoute;
 
