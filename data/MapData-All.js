@@ -58,6 +58,16 @@ var canonnEd3d_all = {
 					"color": "9d41f4"
 				}
 			},
+			"Hyperdictions": {
+				"800": {
+					"name": "Start System",
+					"color": "AE0D7A"
+				},
+				"801": {
+					"name": "End System",
+					"color": "EA202C"
+				}
+			},			
 			"Unidentified Signal Source - (USS)": {
 				"700": {
 					"name": "Non-Human Signal Source",
@@ -116,6 +126,7 @@ var canonnEd3d_all = {
 				}
 			}
 		},
+		"routes": [],
 		"systems": [{
 				"name": "Sol",
 				"coords": {
@@ -160,6 +171,49 @@ var canonnEd3d_all = {
 		]
 	},
 
+	formatHD: function (data) {
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].From && data[i].From.replace(" ", "").length > 1) {
+				
+				var hdFrom = {}
+				hdFrom["name"] = data[i].From;
+
+				//Ripe or Dead Status not enabled yet, pending CSV fixes
+				hdFrom["cat"] = [800];
+				hdFrom["coords"] = {
+					"x": parseFloat(data[i].FromX),
+					"y": parseFloat(data[i].FromY),
+					"z": parseFloat(data[i].FromZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_all.systemsData.systems.push(hdFrom);
+				
+				var hdTo = {}
+				hdTo["name"] = data[i].To;
+
+				//Ripe or Dead Status not enabled yet, pending CSV fixes
+				hdTo["cat"] = [801];
+				hdTo["coords"] = {
+					"x": parseFloat(data[i].ToX),
+					"y": parseFloat(data[i].ToY),
+					"z": parseFloat(data[i].ToZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_all.systemsData.systems.push(hdTo);
+				
+				var hdRoute = {};
+				
+				hdRoute["title"]="CMDR "+data[i].CMDR+" "+data[i].From+" to "+data[i].To 
+				hdRoute["points"] = [{"s": data[i].From,"label": data[i].From},{"s": data[i].To,"label": data[i].To}]
+				canonnEd3d_all.systemsData.routes.push(hdRoute);
+			}
+
+		}
+
+	},					
+	
 	formatTI: function (data) {
 		//Here you format BN JSON to ED3D acceptable object
 
@@ -374,7 +428,11 @@ var canonnEd3d_all = {
 				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vROqL6zifWWxcwlZ0R6iLvrMrUdfJijnMoZee-SrN0NVPqhTdH3Zdx6E7RxP1wH2xgwfrhwfVWUHnKU/pub?gid=954889761&single=true&output=csv", canonnEd3d_all.formatTI, resolve);
 			});			
 
-		Promise.all([p1, p2, p3, p4, p5]).then(function () {
+		var p6 = new Promise(function (resolve, reject) {			
+			canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vSEVt8eYMJgd5vXfCMiExWc23D1G5G0DCEfs5A6N3AQGupAp1KslajioBZgB0IGiMd7MR_Ur3RPsv39/pub?gid=1013174415&single=true&output=csv", canonnEd3d_all.formatHD, resolve);	
+		});						
+		
+		Promise.all([p1, p2, p3, p4, p5, p6]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_all.systemsData,
