@@ -110,8 +110,8 @@ var Route = {
     routes[idRoute] = new THREE.Line(geometryL, colorLine);
 
     //-- Add object for start & end
-    if(first!==null) this.addCircle('route-'+idRoute+'-first', first, color, 7);
-    if(!hideLast && last!==null)  this.addCircle('route-'+idRoute+'-last', last, color, 3);
+    //if(first!==null) this.addCircle('route-'+idRoute+'-first', first, color, 7);
+    //if(!hideLast && last!==null)  this.addCircle('route-'+idRoute+'-last', last, color, 3);
 
     routes[idRoute].name = 'route-'+idRoute;
 
