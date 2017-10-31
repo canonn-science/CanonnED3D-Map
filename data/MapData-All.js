@@ -61,11 +61,11 @@ var canonnEd3d_all = {
 			"Hyperdictions": {
 				"800": {
 					"name": "Start System",
-					"color": "AE0D7A"
+					"color": "0040ff"
 				},
 				"801": {
 					"name": "End System",
-					"color": "EA202C"
+					"color": "ff0040"
 				}
 			},			
 			"Unidentified Signal Source - (USS)": {
