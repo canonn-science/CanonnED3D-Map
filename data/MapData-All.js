@@ -416,7 +416,7 @@ var canonnEd3d_all = {
 	init: function () {
 
 		var p1 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTCGOwaRT8ESad9j0GAQ7tMMNj8ObxipFW8fop3eaZ-HoCVo_k9dQsHVvs1oFvARrY5SC6o4uDAWKQA/pub?gid=290263950&single=true&output=csv", canonnEd3d_all.formatBN, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTOVMrkFFKR4lrOzZGD84EPsJ0Tbm8yrVa9kh0AhAEdSqehf8prdskB6Jh_0LmAdsgdEjxEyP3OjpGv/pub?gid=290263950&single=true&output=csv", canonnEd3d_all.formatBN, resolve);
 			});
 
 		var p2 = new Promise(function (resolve, reject) {
