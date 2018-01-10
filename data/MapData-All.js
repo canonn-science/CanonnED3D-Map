@@ -420,7 +420,7 @@ var canonnEd3d_all = {
 			});
 
 		var p2 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vRdEQQByWyU8MlzfJw9SzEsaM9c_zDV_RJ49Fiox842EEELrUHpMPexLYhjqNB8SOzB564jJ_oLdBx2/pub?gid=0&single=true&output=csv", canonnEd3d_all.formatBT, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vRQSCeBTOT-UW6fw5SkQJMrsIcWsjg4aqa0kE024qbPJz0bK3JAafhlUK3eTnpoLoWIVTzzB6I_VsKg/pub?gid=290263950&single=true&output=csv", canonnEd3d_all.formatBT, resolve);
 			});
 
 		var p3 = new Promise(function (resolve, reject) {
