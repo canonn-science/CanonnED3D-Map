@@ -46,6 +46,10 @@ var canonnEd3d_all = {
 				"402": {
 					"name": "Gamma",
 					"color": "f441d0"
+				},
+				"403": {
+					"name": "Structure",
+					"color": "3380ff"
 				}
 			},
 			"Thargoid Structures - (TS)": {
@@ -379,6 +383,8 @@ var canonnEd3d_all = {
 					grSite["cat"] = [401];
 				} else if (data[i].type.toString() == "Gamma") {
 					grSite["cat"] = [402];
+				} else if (data[i].type.toString() == "Structure") {
+					grSite["cat"] = [403];
 				} else {
 					grSite["cat"] = [600];
 				}
