@@ -1,11 +1,11 @@
 var canonnEd3d_uss = {
 
 	//Define Categories
-	systeussData: {
+	systemsData: {
 		"categories": {
-			"POI Systeuss": {
+			"POI systems": {
 				"100": {
-					"name": "Systeuss - POI",
+					"name": "Systems - POI",
 					"color": "FF9D00"
 				}
 			},
@@ -21,46 +21,46 @@ var canonnEd3d_uss = {
 				"1402": {
 					"name": "Degraded Emissions",
 					"color": "11aabb"
-				},				
+				},
 				"1403": {
 					"name": "Weapons Fire",
 					"color": "22ccaa"
-				},								
+				},
 				"1404": {
 					"name": "Encoded Emissions",
 					"color": "a6cc33"
-				},												
+				},
 				"1405": {
 					"name": "Combat Aftermath",
 					"color": "69d025"
-				},																
+				},
 				"1406": {
 					"name": "Mission Target",
 					"color": "aacc22"
-				},																				
+				},
 				"1407": {
 					"name": "High Grade Emissions",
 					"color": "d0c310"
-				},																								
+				},
 				"1408": {
 					"name": "Convoy Dispersal Pattern",
 					"color": "ccbb33"
-				},	
+				},
 				"1409": {
-					"name": "Ceremonial Comuss",
+					"name": "Ceremonial Comms",
 					"color": "ff9933"
-				},																																
+				},
 				"1410": {
 					"name": "Trading Beacon",
 					"color": "ff6644"
-				},																																				
+				},
 				"1411": {
 					"name": "Unknown",
 					"color": "f80c12"
 				}
 			}
 		},
-		"systeuss": [{
+		"systems": [{
 				"name": "Sol",
 				"coords": {
 					"x": "0",
@@ -123,7 +123,7 @@ var canonnEd3d_uss = {
 					ussSite["cat"] = [1407];
 				} else if (data[i].type.toString() == "Convoy Dispersal Pattern") {
 					ussSite["cat"] = [1408];
-				} else if (data[i].type.toString() == "Ceremonial Comuss") {
+				} else if (data[i].type.toString() == "Ceremonial Comms") {
 					ussSite["cat"] = [1409];
 				} else if (data[i].type.toString() == "Trading Beacon") {
 					ussSite["cat"] = [1140];
@@ -136,8 +136,8 @@ var canonnEd3d_uss = {
 					"z": parseFloat(data[i].galacticZ)
 				};
 
-				// We can then push the site to the object that stores all systeuss
-				canonnEd3d_uss.systeussData.systeuss.push(ussSite);
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_uss.systemsData.systems.push(ussSite);
 			}
 
 		}
@@ -171,7 +171,7 @@ var canonnEd3d_uss = {
 		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
-				json: canonnEd3d_uss.systeussData,
+				json: canonnEd3d_uss.systemsData,
 				withFullscreenToggle: true,
 				withHudPanel: true,
 				hudMultipleSelect: true,

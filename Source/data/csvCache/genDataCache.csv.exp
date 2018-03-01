@@ -1,0 +1,10 @@
+siteID,name,system,orbitBody,directionSystem,distanceLS,listeningPost,galacticX,galacticY,galaticZ,discoveredBy
+GEN1,Generation Ship Artemis,Mu Cassiopeia,C 1,-,-,,-26.125,-24.625,17.34375,
+GEN2,Generation Ship Atlas,Charick Drift,A,-,-,,8.1875,26.71875,-6.0625,
+GEN3,Generation Ship Hyperion,Lalande 2966,4,Yemaki,7340,,-95.25,10.21875,-74.78125,
+GEN4,Generation Ship Lycaon,Alaunus,10,Horae,22365,,-0.65625,-52.28125,-5.96875,
+GEN5,Generation Ship Odysseus,Ross 859,B 1,-,-,,-31.8125,15.9375,162.125,
+GEN6,Generation Ship Pleione,Hez Ur,5,Teuten,8395,,149.96875,23.65625,-85.03125,
+GEN7,Generation Ship Thetis,Nefertem,6 A,-,-,,38.125,30.875,-21.25,
+GEN8,Generation Ship Venusian,Kitae,,Zephyrus ,2532,,-13.5,24.75,-56.46875,
+GEN9,Lazarus Expedition,Virudnir,6,-,-,,-12.78125,143.28125,-66.125,

@@ -1,1 +1,8 @@
 *Cache.csv
+
+# Ignore Symlinks
+thargoids
+ts
+
+# Ignore Redirect Folders
+all/
