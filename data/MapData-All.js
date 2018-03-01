@@ -486,7 +486,7 @@ var canonnEd3d_all = {
 
 		//BM Sites
 		var p1 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/Cache.csv", canonnEd3d_all.formatBM, resolve);
+				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/bmCache.csv", canonnEd3d_all.formatBM, resolve);
 			});
 
 		//BT Sites
