@@ -11,7 +11,7 @@ var canonnEd3d_all = {
 			},
 			"Bark Mounds - (BM)": {
 				"200": {
-					"name": "Systems - BT",
+					"name": "Systems - BM",
 					"color": "aca558"
 				}
 			},
