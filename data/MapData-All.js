@@ -506,7 +506,7 @@ var canonnEd3d_all = {
 
 		//GEN Ships
 		var p5 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vSlszRWQ2eTUxzzM2AxsCOnQ2Rg7C8zBx_YJGUR1BdpK-wwXv9DpeueiWEQPJTVF9AI5J3LExucx5Lh/pub?gid=827706542&single=true&output=csv", canonnEd3d_all.formatGEN, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vRmBzKonapgMMWeT-zc26w8xCNFvK_5l1F3fwF0_af7awhL0MNUGOKnIq4FSoEXe8TtD5HeZd4OuAUu/pub?gid=1451709127&single=true&output=csv", canonnEd3d_all.formatGEN, resolve);
 			});
 
 		//GR Sites
