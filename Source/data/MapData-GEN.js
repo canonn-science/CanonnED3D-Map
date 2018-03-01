@@ -58,7 +58,7 @@ var canonnEd3d_gen = {
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
 				var genSite = {};
-				genSite["name"] = data[i].system;
+				genSite["name"] = data[i].nameSystem;
 				genSite["cat"] = [600];
 				genSite["coords"] = {
 					"x": parseFloat(data[i].galacticX),
