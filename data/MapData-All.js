@@ -447,14 +447,14 @@ var canonnEd3d_all = {
 
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].System && data[i].System.replace(" ", "").length > 1) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
 				var ussSite = {};
-				ussSite["name"] = data[i].System;
+				ussSite["name"] = data[i].system;
 				ussSite["cat"] = [1400];
 				ussSite["coords"] = {
-					"x": parseFloat(data[i].x),
-					"y": parseFloat(data[i].y),
-					"z": parseFloat(data[i].z)
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
 				};
 
 				// We can then push the site to the object that stores all systems
@@ -486,37 +486,37 @@ var canonnEd3d_all = {
 
 		//BM Sites
 		var p1 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("", canonnEd3d_all.formatBM, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8QvI-CQYlDWcfyXonkisu9yUnlPNPQHgHt1_o3n0NjsFMNlRWy9EgVqFTZm8LTOWXgXp2c70GMGsr/pub?gid=0&single=true&output=csv", canonnEd3d_all.formatBM, resolve);
 			});
 
 		//BT Sites
 		var p2 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("", canonnEd3d_all.formatBT, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vR_8aPljkn5ZNMUXccsySkQCDFKZlhr6WD_R3eu61fpIW-LXf4airdgzzOqgjFUkTO20SX7l7JXjYFP/pub?gid=0&single=true&output=csv", canonnEd3d_all.formatBT, resolve);
 			});
 
 		//FG Sites
 		var p3 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("", canonnEd3d_all.formatFG, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vSvvfHhzfAeDiBuQoDrnmUgeh57XjeRXWJcVe-48BW0ugulqUMDrN7AoOtY96Suk7uQHv2tcZ_ek0ty/pub?gid=1615049300&single=true&output=csv", canonnEd3d_all.formatFG, resolve);
 			});
 
 		//FM Sites
 		var p4 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("", canonnEd3d_all.formatFM, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vSlszRWQ2eTUxzzM2AxsCOnQ2Rg7C8zBx_YJGUR1BdpK-wwXv9DpeueiWEQPJTVF9AI5J3LExucx5Lh/pub?gid=827706542&single=true&output=csv", canonnEd3d_all.formatFM, resolve);
 			});
 
 		//GEN Ships
 		var p5 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("", canonnEd3d_all.formatGEN, resolve);
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vSlszRWQ2eTUxzzM2AxsCOnQ2Rg7C8zBx_YJGUR1BdpK-wwXv9DpeueiWEQPJTVF9AI5J3LExucx5Lh/pub?gid=827706542&single=true&output=csv", canonnEd3d_all.formatGEN, resolve);
 			});
 
 		//GR Sites
 		var p6 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("", canonnEd3d_all.formatGR, resolve);	
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTYml1O4Qt2bDn9hnFJe1SeN0atyahK6dWBftGvW1YJ8b6JHBUF5WvL015_fmZF6oGkqVOGzl3mJqVI/pub?gid=756384248&single=true&output=csv", canonnEd3d_all.formatGR, resolve);	
 			});
 
 		//GY Sites
 		var p7 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("", canonnEd3d_all.formatGY, resolve);	
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vR70NkI6yp_9jwC_6FseydVBs22MrX3aWONiy4xvfx8EHz8pmI4mo1s25at8ihs3GrXRbEdoQDepy1m/pub?gid=962735107&single=true&output=csv", canonnEd3d_all.formatGY, resolve);	
 			});
 
 		//Hyperdiction Sites
@@ -526,27 +526,27 @@ var canonnEd3d_all = {
 
 		//LS Sites
 		var p9 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("", canonnEd3d_all.formatLS, resolve);	
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vQhAk6nZswglFQVpNpPfUwJNS0ifkN4sOLHsQeCmIrMiQM01N6tPEyvKqcHUnD-IRSO7a9bTCwa4tR6/pub?gid=220546017&single=true&output=csv", canonnEd3d_all.formatLS, resolve);	
 			});
 
 		//MS Sites
 		var p10 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("", canonnEd3d_all.formatMS, resolve);	
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vRSTnVpcJPN1yn5bcCrI3vYocYUVX08jcfsEUbbY3-u9G_uBqfGlllMu6gSa5LGt4sEO_fh3G5H2G0r/pub?gid=1120806489&single=true&output=csv", canonnEd3d_all.formatMS, resolve);	
 			});
 
 		//TB Sites
 		var p11 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("", canonnEd3d_all.formatTB, resolve);	
+				canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTyFAaquLIKghHUiN-FJaku3yzGw6f_lMFQHUPqLVoCfRE8gtlWb88mMpLhoTXjLhmot0m8w9Ol5cPs/pub?gid=1613553729&single=true&output=csv", canonnEd3d_all.formatTB, resolve);	
 			});
 
 		//TS Sites
 		var p12 = new Promise(function (resolve, reject) {			
-			canonnEd3d_all.parseData("", canonnEd3d_all.formatTS, resolve);	
+			canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vSYvun070NwUTxemgq05M5jSrFdbJXDd3unpohkt9WhlGjHfY67odla933_HWT1xe8X5-Ebq73gz61e/pub?gid=926585382&single=true&output=csv", canonnEd3d_all.formatTS, resolve);	
 		});
 
 		//USS Sites
 		var p13 = new Promise(function (resolve, reject) {			
-			canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vROqL6zifWWxcwlZ0R6iLvrMrUdfJijnMoZee-SrN0NVPqhTdH3Zdx6E7RxP1wH2xgwfrhwfVWUHnKU/pub?gid=954889761&single=true&output=csv", canonnEd3d_all.formatUSS, resolve);	
+			canonnEd3d_all.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vQM1TtPi_18DZ0hIJ2dW44F0BpW6_igwfXYbTuZS3IQZUIjmZLY5ElZFuWpLES7iBQNDsVs8vwXwJ1n/pub?gid=1735934279&single=true&output=csv", canonnEd3d_all.formatUSS, resolve);	
 		});
 		
 		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13]).then(function () {
