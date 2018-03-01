@@ -1,8 +1,14 @@
+# Ignore misc files
 *Cache.csv
+*.swp
 
 # Ignore Symlinks
-thargoids
-ts
+Source/thargoids
+Source/thargoid
+Source/ts
 
 # Ignore Redirect Folders
-all/
+Source/all/
+Source/beta/
+Source/us/
+Source/us2/
