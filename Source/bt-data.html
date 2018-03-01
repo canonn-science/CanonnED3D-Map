@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Canonn Map - BT</title>
+
+  <!-- Google Tracking Script -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-102148507-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- Misc Scripts -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:400" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link href="css/style.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <style type="text/css">
+    #systemDetails,
+    #hud {
+      width: 450px;
+    }
+
+    h1 {
+      position: fixed;
+      top: 2%;
+      left: 0;
+      width: 100%;
+      font-size: 1.3rem;
+      text-align: center;
+      color: #ccc;
+      font-family: "Orbitron";
+    }
+
+    h1 a {
+      color: inherit;
+    }
+
+    #edmap {
+      position: fixed;
+      top: 6%;
+      right: 0;
+      width: 100%;
+      height: 93%;
+      z-index: 1;
+    }
+
+    #debug {
+      position: fixed;
+      bottom: 5%;
+      right: 0;
+      width: 100%;
+      text-align: center;
+      color: #aaa;
+      font-family: "Helvetica";
+      font-size: 0.8rem;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <div>
+      <a class="h1" href="https://map.canonn.technology/bt-data.html">CanonnED3D - Brain Tree Map</a>
+      <ul id="lang-links">
+        <li>
+          <a href="https://map.canonn.technology/all">All</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/bm-data.html">Bm</a>
+        </li>
+        <li>
+          <a class="selected" href="https://map.canonn.technology/bt-data.html">Bt</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/fg-data.html">Fg</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/fm-data.html">Fm</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/gen-data.html">Gen</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/gr-data.html">Gr</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/gy-data.html">Gy</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/ls-data.html">Ls</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/ms-data.html">Ms</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/tb-data.html">Tb</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/ts">Ts</a>
+        </li>
+        <li>
+          <a href="https://map.canonn.technology/uss-data.html">Uss</a>
+        </li>
+    </div>
+  </header>
+
+  <div id="edmap"></div>
+
+  <div id="debug"></div>
+
+
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+  <!-- Launch ED3Dmap -->
+  <!-- PapaParse -->
+  <script src="vendor/papaparse/papaparse.min.js"></script>
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+  <script src="js/ed3dmap.min.js?v=6"></script>
+  <!-- Canonn MapData-output.js -->
+  <script src="data/MapData-BT.js"></script>
+  <script type "text/javascript">
+    canonnEd3d_bt.init();
+  </script>
+
+</body>
+
+</html>
