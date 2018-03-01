@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>Canonn | Unknown Site and Probe Signal Tools</title>
+
+
+  <link href="http://fonts.googleapis.com/css?family=Orbitron:400" rel="stylesheet" type="text/css" />
+  <!-- Custom CSS -->
+	<style>
+		html{
+			color: #cfd8dc;
+			font-family: open sans,sans-serif;
+		}
+		body{
+			background-color: #263238 !important;
+			color: white;
+			padding-left: 3em;
+		}
+	
+		h1{
+			color: #ffffff;
+			font-size: 40px;
+			padding-top:1em;
+			font-family: "Orbitron";
+		}
+
+		h2{
+			color: #82939c;
+			font-size: 34px;
+			
+		}
+
+		h3{
+			color: #ffffff;
+			font-size: 28px;
+		}
+
+		h4{
+		    font-size: 24px;
+		}
+
+
+		a{
+			text-decoration: none;
+		}
+
+		a.one{
+			color:#ffffff;
+		}
+
+		a.one:hover{
+			color:#69aaf0;
+		}
+
+		a.two{
+			color:#80cbc4;
+		}
+
+		a.two:hover{
+			color:#69aaf0;
+		}
+
+		a.three{
+			color:#b0bec5;
+		}
+
+		a.three:hover{
+			color:#69aaf0;
+		}
+
+		textarea{
+			width:80%;
+			height:10em;
+		}
+
+		button#decode{
+			background-color:#69aaf0;
+			border:0;
+			border-color: red;
+			clear:left;
+			display: block;
+			padding:1em;
+		}
+
+		button#decode:active{
+			background-color:#80cbc4;
+		}
+
+		div#notice{
+			margin:1em;
+			padding:1em;
+			color: black;
+			background-color: #b0bec5;
+			display:inline-block;
+			clear:left;
+		}
+ 
+	</style>	
+
+</head>
+
+  <body>
+
+    <h1>Canonn - Unknown Site and Probe Signal Tools</h1>
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			
+			function extrocts(octs){
+				var digits = '';
+				//Get the data
+				$.each(octs.split(' '),function(num,binary){
+					if(binary.length > 0){
+						digits = digits + String(parseInt(binary,2));
+					}
+				})
+				return parseInt(digits,8);
+			}
+
+			$('#decode').on('click',function(e){
+				//Clear any notice
+				$('#notice').hide();
+				$('#notice').text('');
+
+				//Get the string
+				var signal = $('#signal').val();
+
+				//translate shared values
+				signal = signal.replace(new RegExp('[Hh-]', 'g'), '0');
+				signal = signal.replace(new RegExp('[Ll.]', 'g'), '1');
+				signal = signal.replace(new RegExp('[#;]', 'g'), '\n');
+
+				//Ensure that only valid characters exist
+				if(/^[10/ \n]*$/.test(signal) == false) {
+				    //Clear any notice
+					$('#notice').text('Invalid character found.  Only valid characters are Hh-0 Ll.1 #; newline and space');
+					$('#notice').show();
+					return;
+				}
+
+				//Process each segment
+				var results = '';
+				$.each(signal.split('\n'),function(num,sigtext){
+					var comp = sigtext.split('/');
+					var num = comp[0];
+					var den = '';
+
+					if(comp.length > 1){
+						den = comp[1];
+					}
+
+					num = extrocts(num);
+					if(den != ''){
+						den = extrocts(den);
+						num = num / den;
+					}
+					
+					results = results + '\n' + num;
+				})
+
+				//Clean it up and break it into the respective segments
+				$('#results').val(results);
+
+			});
+		})
+	</script>
+	
+	<h2>Audio Octal Code Translation</h2>
+	<p>
+		Enter the signal code below and click Decode
+		<div>
+		Legend:
+			<ul>
+				<li>H, h, 0 or - for High tones</li>
+				<li>L, l, 1 or . for for Low tones</li>
+				<li>space for short gaps between sets of tones</li>
+				<li>/ or : for dolphin like division tones</li>
+				<li>#, ; or a new line for long gaps in audio</li>
+			</ul>
+		</div>
+	</p>
+	<p>
+		For example: hlh hlh lll / hhl lll lhl hhh;hhl / hll hhl;hhl llh lhl hhl / hhl lll lhl hhh
+	</p>
+	<p>
+		<h3>Signal</h3>
+		<textarea id="signal">hlh hlh lll / hhl lll lhl hhh;hhl / hll hhl;hhl llh lhl hhl / hhl lll lhl hhh</textarea>
+
+		<button type="button" id="decode">Decode</button> <div id="notice" style="display:none;">Test Notice</div>
+
+		<h3>Results</h3>
+		<textarea id="results"></textarea>
+	</p>
+    <p>
+      Thanks to Cmdr NanoExplorer for the original python code this cool is derived from
+    </p>
+</body>
+</html>
+

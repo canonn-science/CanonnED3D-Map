@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Canonn Map - All</title>
-
-  <!-- Google Tracking Script -->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -12,15 +9,12 @@
     ga('create', 'UA-102148507-1', 'auto');
     ga('send', 'pageview');
   </script>
-  
-  <!-- Misc Scripts -->
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>Canonn Map - BN</title>
   <link href="https://fonts.googleapis.com/css?family=Orbitron:400" rel="stylesheet" type="text/css" />
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-  <link href="css/style.css" rel="stylesheet"/>
-
   <!-- Custom CSS -->
   <style type="text/css">
   #systemDetails,
@@ -45,11 +39,10 @@
 
   #edmap {
     position: fixed;
-    top: 6%;
+    top: 10%;
     right: 0;
     width: 100%;
-    height: 93%;
-    z-index: 1;
+    height: 90%;
   }
   #debug {
     position: fixed;
@@ -67,12 +60,7 @@
 
   <body>
 
-    <header>
-      <div>
-        <a class="h1" href="https://map.canonn.technology/all">CanonnED3D - All Map</a>
-        <ul id="lang-links"><li><a  class="selected" href="https://map.canonn.technology/all">All</a></li><li><a  href="https://map.canonn.technology/bt">BT</a></li><li><a  href="https://map.canonn.technology/gr">GR</a></li><li><a  href="https://map.canonn.technology/tb">TB</a></li><li><a  href="https://map.canonn.technology/ts">TS</a></li><li><a  href="https://map.canonn.technology/gnosis">Gn</a></li><li><a  href="https://map.canonn.technology/thargoids">Th</a></li>
-      </div>
-    </header>
+    <h1>Canonn ED3D - Barnacles</h1>
 
     <div id="edmap"></div>
 
@@ -88,11 +76,11 @@
     <!-- PapaParse -->
   <script src="vendor/papaparse/papaparse.min.js"></script>
   <link href="css/styles.css" rel="stylesheet" type="text/css" />
-  <script src="js/ed3dmap.js?v=6"></script>
+  <script src="js/ed3dmap.min.js?v=6"></script>
   <!-- Canonn MapData-output.js -->
-  <script src="data/MapData-All.js"></script>
+  <script src="data/MapData-TB.js"></script>
   <script type"text/javascript">
-    canonnEd3d_all.init();
+    canonnEd3d_tb.init();
   </script>
 
 </body>
