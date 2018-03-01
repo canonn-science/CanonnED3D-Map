@@ -3,52 +3,10 @@ var canonnEd3d_all = {
 	//Define Categories
 	systemsData: {
 		"categories": {
-			"Points of Interest - POI": {
+			"POI Systems": {
 				"100": {
 					"name": "Systems - POI",
 					"color": "F7F7F7"
-				}
-			},
-			"Bark Mounds - (BM)": {
-				"200": {
-					"name": "Systems - BM",
-					"color": "aca558"
-				}
-			},
-			"Brain Trees - (BT)": {
-				"300": {
-					"name": "Systems - BT",
-					"color": "be6e40"
-				}
-			},
-			"Fungal Gourds - (FG)": {
-				"400": {
-					"name": "Systems - FG",
-					"color": "ff845b"
-				}
-			},
-			"Fumaroles - (FM)": {
-				"500": {
-					"name": "Systems - FM",
-					"color": "674e27"
-				}
-			},
-			"Generation Ships - (GEN)": {
-				"600": {
-					"name": "Systems - GEN",
-					"color": "ffb400"
-				}
-			},
-			"Guardian Ruins - (GR)": {
-				"700": {
-					"name": "Systems - GR",
-					"color": "a95e00"
-				}
-			},
-			"Geysers - (GY)": {
-				"800": {
-					"name": "Systems - GY",
-					"color": "5b84ff"
 				}
 			},
 			"Hyperdictions": {
@@ -65,34 +23,56 @@ var canonnEd3d_all = {
 					"color": "f2f2f2"
 				}
 			},
-			"Lave Spouts - (LS)": {
+			"Sites": {
+				"200": {
+					"name": "Systems - BM",
+					"color": "aca558"
+				},
+				"300": {
+					"name": "Systems - BT",
+					"color": "be6e40"
+				},
+				"400": {
+					"name": "Systems - FG",
+					"color": "ff845b"
+				},
+				"500": {
+					"name": "Systems - FM",
+					"color": "674e27"
+				},
+				"700": {
+					"name": "Systems - GR",
+					"color": "a95e00"
+				},
+				"800": {
+					"name": "Systems - GY",
+					"color": "5b84ff"
+				},
 				"1000": {
 					"name": "Systems - LS",
 					"color": "b32735"
-				}
-			},
-			"Megaships - (MS)": {
-				"1100": {
-					"name": "Systems - MS",
-					"color": "fae705"
-				}
-			},
-			"Thargoid Barnacles - (TB)": {
+				},
 				"1200": {
 					"name": "Systems - TB",
 					"color": "00ff00"
-				}
-			},
-			"Thargoid Structures - (TS)": {
+				},
 				"1300": {
 					"name": "Systems - TS",
 					"color": "17ff7b"
-				}
-			},			
-			"Unidentified Signal Source - (USS)": {
+				},
 				"1400": {
 					"name": "Systems - USS",
 					"color": "a7db26"
+				}
+			},
+			"Megaships": {
+				"600": {
+					"name": "Systems - GEN",
+					"color": "ffb400"
+				},
+				"1100": {
+					"name": "Systems - MS",
+					"color": "fae705"
 				}
 			}
 		},
@@ -486,67 +466,67 @@ var canonnEd3d_all = {
 
 		//BM Sites
 		var p1 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/bmCache.csv", canonnEd3d_all.formatBM, resolve);
+				canonnEd3d_all.parseData("data/csvCache/bmCache.csv", canonnEd3d_all.formatBM, resolve);
 			});
 
 		//BT Sites
 		var p2 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/btCache.csv", canonnEd3d_all.formatBT, resolve);
+				canonnEd3d_all.parseData("data/csvCache/btCache.csv", canonnEd3d_all.formatBT, resolve);
 			});
 
 		//FG Sites
 		var p3 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/fgCache.csv", canonnEd3d_all.formatFG, resolve);
+				canonnEd3d_all.parseData("data/csvCache/fgCache.csv", canonnEd3d_all.formatFG, resolve);
 			});
 
 		//FM Sites
 		var p4 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/fmCache.csv", canonnEd3d_all.formatFM, resolve);
+				canonnEd3d_all.parseData("data/csvCache/fmCache.csv", canonnEd3d_all.formatFM, resolve);
 			});
 
 		//GEN Ships
 		var p5 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/genCache.csv", canonnEd3d_all.formatGEN, resolve);
+				canonnEd3d_all.parseData("data/csvCache/genCache.csv", canonnEd3d_all.formatGEN, resolve);
 			});
 
 		//GR Sites
 		var p6 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/grCache.csv", canonnEd3d_all.formatGR, resolve);	
+				canonnEd3d_all.parseData("data/csvCache/grCache.csv", canonnEd3d_all.formatGR, resolve);	
 			});
 
 		//GY Sites
 		var p7 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/gyCache.csv", canonnEd3d_all.formatGY, resolve);	
+				canonnEd3d_all.parseData("data/csvCache/gyCache.csv", canonnEd3d_all.formatGY, resolve);	
 			});
 
 		//Hyperdiction Sites
 		var p8 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/hdCache.csv", canonnEd3d_all.formatHD, resolve);	
+				canonnEd3d_all.parseData("data/csvCache/hdCache.csv", canonnEd3d_all.formatHD, resolve);	
 			});
 
 		//LS Sites
 		var p9 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/lsCache.csv", canonnEd3d_all.formatLS, resolve);	
+				canonnEd3d_all.parseData("data/csvCache/lsCache.csv", canonnEd3d_all.formatLS, resolve);	
 			});
 
 		//MS Sites
 		var p10 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/msCache.csv", canonnEd3d_all.formatMS, resolve);	
+				canonnEd3d_all.parseData("data/csvCache/msCache.csv", canonnEd3d_all.formatMS, resolve);	
 			});
 
 		//TB Sites
 		var p11 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/tbCache.csv", canonnEd3d_all.formatTB, resolve);	
+				canonnEd3d_all.parseData("data/csvCache/tbCache.csv", canonnEd3d_all.formatTB, resolve);	
 			});
 
 		//TS Sites
 		var p12 = new Promise(function (resolve, reject) {			
-			canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/tsCache.csv", canonnEd3d_all.formatTS, resolve);	
+			canonnEd3d_all.parseData("data/csvCache/tsCache.csv", canonnEd3d_all.formatTS, resolve);	
 		});
 
 		//USS Sites
 		var p13 = new Promise(function (resolve, reject) {			
-			canonnEd3d_all.parseData("https://map.canonn.technology/all/data/csvCache/ussCache.csv", canonnEd3d_all.formatUSS, resolve);	
+			canonnEd3d_all.parseData("data/csvCache/ussCache.csv", canonnEd3d_all.formatUSS, resolve);	
 		});
 		
 		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13]).then(function () {
