@@ -63,8 +63,8 @@
 }
 /* Custom CSS Styles */
 #cssmenu {
-  background: #333;
-  border-bottom: 4px solid #ff9900;
+  background: rgb(32, 32, 32);
+  border-bottom: 4px solid rgb(182, 97, 0);
   font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
   font-size: 12px;
 }
@@ -83,12 +83,12 @@
 }
 */
 #cssmenu ul ul {
-  border-top: 4px solid #ff9900;
+  border-top: 4px solid rgb(182, 97, 0);
   text-transform: none;
   min-width: 190px;
 }
 #cssmenu ul ul a {
-  background: #ff9900;
+  background: rgb(182, 97, 0);
   color: #ffffff;
   border: 1px solid #cc7a00;
   border-top: 0 none;
@@ -116,9 +116,9 @@
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  -moz-box-shadow: 0 1px 0 #ff9900;
-  -webkit-box-shadow: 0 1px 0 #ff9900;
-  box-shadow: 0 1px 0 #ff9900;
+  -moz-box-shadow: 0 1px 0 rgb(182, 97, 0);
+  -webkit-box-shadow: 0 1px 0 rgb(182, 97, 0);
+  box-shadow: 0 1px 0 rgb(182, 97, 0);
 }
 #cssmenu ul ul li:last-child:hover > a {
   -moz-border-radius: 0 0 0 3px;
@@ -137,7 +137,7 @@
 }
 #cssmenu ul li:hover > a,
 #cssmenu ul li.active > a {
-  background: #ff9900;
+  background: rgb(182, 97, 0);
   color: #ffffff;
 }
 #cssmenu ul li.has-sub > a:after {
@@ -153,7 +153,7 @@
   right: 99.5%;
 }
 #cssmenu a {
-  background: #333;
+  background: rgb(32, 32, 32);
   color: #CBCBCB;
   padding: 0 20px;
 }
