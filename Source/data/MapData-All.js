@@ -371,7 +371,31 @@ var canonnEd3d_all = {
 
 		}
 
-	},					
+	},
+
+	formatNHSS: function (data) {
+
+		//Here you format NHSS JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+				var nhssSite = {};
+				nhssSite["name"] = data[i].system;
+				nhssSite["cat"] = [1400];
+				nhssSite["coords"] = {
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_all.systemsData.systems.push(nhssSite);
+			}
+
+		}
+
+	},				
 
 	formatTB: function (data) {
 
@@ -415,30 +439,6 @@ var canonnEd3d_all = {
 
 				// We can then push the site to the object that stores all systems
 				canonnEd3d_all.systemsData.systems.push(tsSite);
-			}
-
-		}
-
-	},
-
-	formatNHSS: function (data) {
-
-		//Here you format NHSS JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var nhssSite = {};
-				nhssSite["name"] = data[i].system;
-				nhssSite["cat"] = [1400];
-				nhssSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_nhss.systemsData.systems.push(nhssSite);
 			}
 
 		}
