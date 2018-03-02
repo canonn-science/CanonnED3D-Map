@@ -62,7 +62,7 @@ var canonnEd3d_all = {
 				},
 				"1400": {
 					"name": "Non-Human Signal Sources (NHSS)",
-					"color": "4444dd"
+					"color": "442299"
 				}
 			},
 			"Megaships": {
@@ -421,24 +421,24 @@ var canonnEd3d_all = {
 
 	},
 
-	formatUSS: function (data) {
+	formatNHSS: function (data) {
 
-		//Format USS JSON to ED3D acceptable object
+		//Here you format NHSS JSON to ED3D acceptable object
 
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var ussSite = {};
-				ussSite["name"] = data[i].system;
-				ussSite["cat"] = [1400];
-				ussSite["coords"] = {
+				var nhssSite = {};
+				nhssSite["name"] = data[i].system;
+				nhssSite["cat"] = [1400];
+				nhssSite["coords"] = {
 					"x": parseFloat(data[i].galacticX),
 					"y": parseFloat(data[i].galacticY),
 					"z": parseFloat(data[i].galacticZ)
 				};
 
 				// We can then push the site to the object that stores all systems
-				canonnEd3d_all.systemsData.systems.push(ussSite);
+				canonnEd3d_nhss.systemsData.systems.push(nhssSite);
 			}
 
 		}
@@ -524,9 +524,9 @@ var canonnEd3d_all = {
 			canonnEd3d_all.parseData("data/csvCache/tsSystemCache.csv", canonnEd3d_all.formatTS, resolve);	
 		});
 
-		//USS Sites
+		//NHSS Sites
 		var p13 = new Promise(function (resolve, reject) {			
-			canonnEd3d_all.parseData("data/csvCache/ussSystemCache.csv", canonnEd3d_all.formatUSS, resolve);	
+			canonnEd3d_all.parseData("data/csvCache/nhssDataCache.csv", canonnEd3d_all.formatNHSS, resolve);	
 		});
 		
 		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13]).then(function () {
