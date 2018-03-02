@@ -30,7 +30,7 @@ body {
 #hud,
 #systemDetails {
   font-weight: normal;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -70,7 +70,7 @@ body {
 #hud h2 {
   font-weight: bold;
   color: #eee;
-  font-size: 1rem;
+  font-size: 0.9rem;
   border-bottom: 1px solid #eee;
   margin: 0 0 5px;
   text-shadow: 1px 1px 2px rgb(0,0,0);
@@ -219,7 +219,7 @@ body {
   background: rgba(10,10,10,0.8);
   box-shadow: 1px 1px 3px #000;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
