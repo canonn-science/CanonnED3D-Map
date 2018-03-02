@@ -395,7 +395,7 @@ var canonnEd3d_all = {
 
 		}
 
-	},				
+	},
 
 	formatTB: function (data) {
 
@@ -533,7 +533,7 @@ var canonnEd3d_all = {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_all.systemsData,
-				withFullscreenToggle: true,
+				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
 				effectScaleSystem: [28, 10000],

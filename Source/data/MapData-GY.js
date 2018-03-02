@@ -102,7 +102,7 @@ var canonnEd3d_gy = {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_gy.systemsData,
-				withFullscreenToggle: true,
+				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
 				effectScaleSystem: [50, 10000],
