@@ -17,37 +17,36 @@ var canonnEd3d_bm = {
 			}
 		},
 		"systems": [{
-				"name": "Sol",
-				"coords": {
-					"x": "0",
-					"y": "0",
-					"z": "0"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "Merope",
-				"coords": {
-					"x": "-78.59375",
-					"y": "-149.625",
-					"z": "-340.53125"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "HIP 22460",
-				"coords": {
-					"x": "-41.3125",
-					"y": "-58.96875",
-					"z": "-354.78125"
-				},
-				"cat": [
-					"100"
-				]
-			}
-		]
+			"name": "Sol",
+			"coords": {
+				"x": "0",
+				"y": "0",
+				"z": "0"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "Merope",
+			"coords": {
+				"x": "-78.59375",
+				"y": "-149.625",
+				"z": "-340.53125"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "HIP 22460",
+			"coords": {
+				"x": "-41.3125",
+				"y": "-58.96875",
+				"z": "-354.78125"
+			},
+			"cat": [
+				"100"
+			]
+		}]
 	},
 
 	formatBM: function (data) {
@@ -96,7 +95,7 @@ var canonnEd3d_bm = {
 		//BM Sites
 		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_bm.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vT5BZ9lC7vqmpwIsGCGH-d1uQIOIdFEZQFyUv1MXPSsRKFd1_QS8loG1a4SQurINFC6W48yecNYX1n8/pub?gid=0&single=true&output=csv", canonnEd3d_bm.formatBM, resolve);
-			});
+		});
 
 		Promise.all([p1]).then(function () {
 			Ed3d.init({

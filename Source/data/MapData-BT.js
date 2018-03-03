@@ -17,57 +17,56 @@ var canonnEd3d_bt = {
 			}
 		},
 		"systems": [{
-				"name": "Sol",
-				"coords": {
-					"x": "0",
-					"y": "0",
-					"z": "0"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "Merope",
-				"coords": {
-					"x": "-78.59375",
-					"y": "-149.625",
-					"z": "-340.53125"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "HIP 22460",
-				"coords": {
-					"x": "-41.3125",
-					"y": "-58.96875",
-					"z": "-354.78125"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "Colonia",
-				"coords": {
-					"x": "-9530.5",
-					"y": "-910.28125",
-					"z": "19808.125"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "Canonnia",
-				"coords": {
-					"x": "-9522.9375",
-					"y": "-894.0625",
-					"z": "19791.875"
-				},
-				"cat": [
-					"100"
-				]
-			}
-		]
+			"name": "Sol",
+			"coords": {
+				"x": "0",
+				"y": "0",
+				"z": "0"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "Merope",
+			"coords": {
+				"x": "-78.59375",
+				"y": "-149.625",
+				"z": "-340.53125"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "HIP 22460",
+			"coords": {
+				"x": "-41.3125",
+				"y": "-58.96875",
+				"z": "-354.78125"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "Colonia",
+			"coords": {
+				"x": "-9530.5",
+				"y": "-910.28125",
+				"z": "19808.125"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "Canonnia",
+			"coords": {
+				"x": "-9522.9375",
+				"y": "-894.0625",
+				"z": "19791.875"
+			},
+			"cat": [
+				"100"
+			]
+		}]
 	},
 
 	formatBT: function (data) {
@@ -116,7 +115,7 @@ var canonnEd3d_bt = {
 		//BT Sites
 		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_bt.parseData("data/csvCache/btDataCache.csv", canonnEd3d_bt.formatBT, resolve);
-			});
+		});
 
 		Promise.all([p1]).then(function () {
 			Ed3d.init({

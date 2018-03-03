@@ -1,6 +1,6 @@
-var canonnEd3d_gr = {
+var canonnEd3d_hd = {
 
-	//Define Categories
+	//Define Categories and Static Data
 	systemsData: {
 		"categories": {
 			"POI Systems": {
@@ -9,29 +9,22 @@ var canonnEd3d_gr = {
 					"color": "FF9D00"
 				}
 			},
-			"Guardian Ruins - (GR)": {
-				"700": {
-					"name": "Alpha",
-					"color": "ff0000"
+			"Hyperdictions": {
+				"900": {
+					"name": "Start System",
+					"color": "99ff66"
 				},
-				"701": {
-					"name": "Beta",
-					"color": "0066ff"
+				"901": {
+					"name": "End System",
+					"color": "ff3300"
 				},
-				"702": {
-					"name": "Gamma",
-					"color": "00ff00"
-				},
-				"703": {
-					"name": "Structure",
-					"color": "ffff00"
-				},
-				"703": {
-					"name": "Unknown",
-					"color": "800000"
+				"902": {
+					"name": "Route",
+					"color": "f2f2f2"
 				}
 			}
 		},
+		"routes": [],
 		"systems": [{
 			"name": "Sol",
 			"coords": {
@@ -85,41 +78,55 @@ var canonnEd3d_gr = {
 		}]
 	},
 
-	// Lets get data from CSV Files
 
-	formatGR: function (data) {
-		//Here you format GR JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
+	formatHD: function (data) {
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var grSite = {};
-				grSite["name"] = data[i].system;
+			if (data[i].From && data[i].From.replace(" ", "").length > 1) {
 
-				//Check Site Type and match categories
-				if (data[i].type.toString() == "Alpha") {
-					grSite["cat"] = [700];
-				} else if (data[i].type.toString() == "Beta") {
-					grSite["cat"] = [701];
-				} else if (data[i].type.toString() == "Gamma") {
-					grSite["cat"] = [702];
-				} else if (data[i].type.toString() == "Structure") {
-					grSite["cat"] = [703];
-				} else {
-					grSite["cat"] = [704];
-				}
-				grSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
+				var hdFrom = {}
+				hdFrom["name"] = data[i].From;
+
+				//Ripe or Dead Status not enabled yet, pending CSV fixes
+				hdFrom["cat"] = [900];
+				hdFrom["coords"] = {
+					"x": parseFloat(data[i].FromX),
+					"y": parseFloat(data[i].FromY),
+					"z": parseFloat(data[i].FromZ)
 				};
 
 				// We can then push the site to the object that stores all systems
-				canonnEd3d_gr.systemsData.systems.push(grSite);
+				canonnEd3d_hd.systemsData.systems.push(hdFrom);
+
+				var hdTo = {}
+				hdTo["name"] = data[i].To;
+
+				//Ripe or Dead Status not enabled yet, pending CSV fixes
+				hdTo["cat"] = [901];
+				hdTo["coords"] = {
+					"x": parseFloat(data[i].ToX),
+					"y": parseFloat(data[i].ToY),
+					"z": parseFloat(data[i].ToZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_hd.systemsData.systems.push(hdTo);
+
+				var hdRoute = {};
+
+				hdRoute["title"] = "CMDR " + data[i].CMDR + " " + data[i].From + " to " + data[i].To
+				hdRoute["points"] = [{
+					"s": data[i].From,
+					"label": data[i].From
+				}, {
+					"s": data[i].To,
+					"label": data[i].To
+				}]
+				hdRoute["cat"] = [902]
+				hdRoute["circle"] = false
+
+				canonnEd3d_hd.systemsData.routes.push(hdRoute);
 			}
-
 		}
-
 	},
 
 	parseData: function (url, callBack, resolvePromise) {
@@ -141,18 +148,19 @@ var canonnEd3d_gr = {
 
 	init: function () {
 
+		//Hyperdiction Sites
 		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_gr.parseData("data/csvCache/grDataCache.csv", canonnEd3d_gr.formatGR, resolve);
+			canonnEd3d_hd.parseData("data/csvCache/hdSystemCache.csv", canonnEd3d_hd.formatHD, resolve);
 		});
 
 		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
-				json: canonnEd3d_gr.systemsData,
+				json: canonnEd3d_hd.systemsData,
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
-				effectScaleSystem: [50, 10000],
+				effectScaleSystem: [28, 10000],
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
