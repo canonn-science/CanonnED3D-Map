@@ -61,37 +61,36 @@ var canonnEd3d_uss = {
 			}
 		},
 		"systems": [{
-				"name": "Sol",
-				"coords": {
-					"x": "0",
-					"y": "0",
-					"z": "0"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "Merope",
-				"coords": {
-					"x": "-78.59375",
-					"y": "-149.625",
-					"z": "-340.53125"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "HIP 22460",
-				"coords": {
-					"x": "-41.3125",
-					"y": "-58.96875",
-					"z": "-354.78125"
-				},
-				"cat": [
-					"100"
-				]
-			}
-		]
+			"name": "Sol",
+			"coords": {
+				"x": "0",
+				"y": "0",
+				"z": "0"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "Merope",
+			"coords": {
+				"x": "-78.59375",
+				"y": "-149.625",
+				"z": "-340.53125"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "HIP 22460",
+			"coords": {
+				"x": "-41.3125",
+				"y": "-58.96875",
+				"z": "-354.78125"
+			},
+			"cat": [
+				"100"
+			]
+		}]
 	},
 
 	formatUSS: function (data) {
@@ -166,7 +165,7 @@ var canonnEd3d_uss = {
 		//USS Sites
 		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_uss.parseData("data/csvCache/ussDataCache.csv", canonnEd3d_uss.formatUSS, resolve);
-			});
+		});
 
 		Promise.all([p1]).then(function () {
 			Ed3d.init({

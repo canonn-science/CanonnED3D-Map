@@ -327,14 +327,14 @@ var HUD = {
       var distance = pointFar.distanceTo( center )+200;
 
       //-- Set new camera & target position
-      Ed3d.playerPos = [center.x,center.y,center.z];
-      Ed3d.cameraPos = [
-        center.x + (Math.floor((Math.random() * 100) + 1)-50), //-- Add a small rotation effect
-        center.y + distance,
-        center.z - distance
-      ];
+      //Ed3d.playerPos = [center.x,center.y,center.z];
+      //Ed3d.cameraPos = [
+      //  center.x + (Math.floor((Math.random() * 100) + 1)-50), //-- Add a small rotation effect
+      //  center.y + distance,
+      //  center.z - distance
+      //];
 
-      Action.moveInitalPosition();
+      //Action.moveInitalPosition();
     });
 
 

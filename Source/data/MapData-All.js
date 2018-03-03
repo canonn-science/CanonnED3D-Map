@@ -78,57 +78,56 @@ var canonnEd3d_all = {
 		},
 		"routes": [],
 		"systems": [{
-				"name": "Sol",
-				"coords": {
-					"x": "0",
-					"y": "0",
-					"z": "0"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "Merope",
-				"coords": {
-					"x": "-78.59375",
-					"y": "-149.625",
-					"z": "-340.53125"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "HIP 22460",
-				"coords": {
-					"x": "-41.3125",
-					"y": "-58.96875",
-					"z": "-354.78125"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "Colonia",
-				"coords": {
-					"x": "-9530.5",
-					"y": "-910.28125",
-					"z": "19808.125"
-				},
-				"cat": [
-					"100"
-				]
-			}, {
-				"name": "Canonnia",
-				"coords": {
-					"x": "-9522.9375",
-					"y": "-894.0625",
-					"z": "19791.875"
-				},
-				"cat": [
-					"100"
-				]
-			}
-		]
+			"name": "Sol",
+			"coords": {
+				"x": "0",
+				"y": "0",
+				"z": "0"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "Merope",
+			"coords": {
+				"x": "-78.59375",
+				"y": "-149.625",
+				"z": "-340.53125"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "HIP 22460",
+			"coords": {
+				"x": "-41.3125",
+				"y": "-58.96875",
+				"z": "-354.78125"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "Colonia",
+			"coords": {
+				"x": "-9530.5",
+				"y": "-910.28125",
+				"z": "19808.125"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "Canonnia",
+			"coords": {
+				"x": "-9522.9375",
+				"y": "-894.0625",
+				"z": "19791.875"
+			},
+			"cat": [
+				"100"
+			]
+		}]
 	},
 
 	formatBM: function (data) {
@@ -302,7 +301,7 @@ var canonnEd3d_all = {
 	formatHD: function (data) {
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].From && data[i].From.replace(" ", "").length > 1) {
-				
+
 				var hdFrom = {}
 				hdFrom["name"] = data[i].From;
 
@@ -316,7 +315,7 @@ var canonnEd3d_all = {
 
 				// We can then push the site to the object that stores all systems
 				canonnEd3d_all.systemsData.systems.push(hdFrom);
-				
+
 				var hdTo = {}
 				hdTo["name"] = data[i].To;
 
@@ -330,14 +329,20 @@ var canonnEd3d_all = {
 
 				// We can then push the site to the object that stores all systems
 				canonnEd3d_all.systemsData.systems.push(hdTo);
-				
+
 				var hdRoute = {};
-				
-				hdRoute["title"]="CMDR "+data[i].CMDR+" "+data[i].From+" to "+data[i].To 
-				hdRoute["points"] = [{"s": data[i].From,"label": data[i].From},{"s": data[i].To,"label": data[i].To}]
-				hdRoute["cat"]=[902]
-				hdRoute["circle"]=false
-				
+
+				hdRoute["title"] = "CMDR " + data[i].CMDR + " " + data[i].From + " to " + data[i].To
+				hdRoute["points"] = [{
+					"s": data[i].From,
+					"label": data[i].From
+				}, {
+					"s": data[i].To,
+					"label": data[i].To
+				}]
+				hdRoute["cat"] = [902]
+				hdRoute["circle"] = false
+
 				canonnEd3d_all.systemsData.routes.push(hdRoute);
 			}
 
@@ -486,69 +491,69 @@ var canonnEd3d_all = {
 
 		//BM Sites
 		var p1 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("data/csvCache/bmSystemCache.csv", canonnEd3d_all.formatBM, resolve);
-			});
+			canonnEd3d_all.parseData("data/csvCache/bmSystemCache.csv", canonnEd3d_all.formatBM, resolve);
+		});
 
 		//BT Sites
 		var p2 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("data/csvCache/btSystemCache.csv", canonnEd3d_all.formatBT, resolve);
-			});
+			canonnEd3d_all.parseData("data/csvCache/btSystemCache.csv", canonnEd3d_all.formatBT, resolve);
+		});
 
 		//FG Sites
 		var p3 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("data/csvCache/fgSystemCache.csv", canonnEd3d_all.formatFG, resolve);
-			});
+			canonnEd3d_all.parseData("data/csvCache/fgSystemCache.csv", canonnEd3d_all.formatFG, resolve);
+		});
 
 		//FM Sites
 		var p4 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("data/csvCache/fmSystemCache.csv", canonnEd3d_all.formatFM, resolve);
-			});
+			canonnEd3d_all.parseData("data/csvCache/fmSystemCache.csv", canonnEd3d_all.formatFM, resolve);
+		});
 
 		//GEN Ships
 		var p5 = new Promise(function (resolve, reject) {
-				canonnEd3d_all.parseData("data/csvCache/genSystemCache.csv", canonnEd3d_all.formatGEN, resolve);
-			});
+			canonnEd3d_all.parseData("data/csvCache/genSystemCache.csv", canonnEd3d_all.formatGEN, resolve);
+		});
 
 		//GR Sites
-		var p6 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("data/csvCache/grSystemCache.csv", canonnEd3d_all.formatGR, resolve);	
-			});
+		var p6 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/grSystemCache.csv", canonnEd3d_all.formatGR, resolve);
+		});
 
 		//GY Sites
-		var p7 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("data/csvCache/gySystemCache.csv", canonnEd3d_all.formatGY, resolve);	
-			});
+		var p7 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/gySystemCache.csv", canonnEd3d_all.formatGY, resolve);
+		});
 
 		//Hyperdiction Sites
-		var p8 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("data/csvCache/hdSystemCache.csv", canonnEd3d_all.formatHD, resolve);	
-			});
+		var p8 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/hdSystemCache.csv", canonnEd3d_all.formatHD, resolve);
+		});
 
 		//LS Sites
-		var p9 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("data/csvCache/lsSystemCache.csv", canonnEd3d_all.formatLS, resolve);	
-			});
+		var p9 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/lsSystemCache.csv", canonnEd3d_all.formatLS, resolve);
+		});
 
 		//MS Sites
-		var p10 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("data/csvCache/msSystemCache.csv", canonnEd3d_all.formatMS, resolve);	
-			});
+		var p10 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/msSystemCache.csv", canonnEd3d_all.formatMS, resolve);
+		});
 
 		//TB Sites
-		var p11 = new Promise(function (resolve, reject) {			
-				canonnEd3d_all.parseData("data/csvCache/tbSystemCache.csv", canonnEd3d_all.formatTB, resolve);	
-			});
+		var p11 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/tbSystemCache.csv", canonnEd3d_all.formatTB, resolve);
+		});
 
 		//TS Sites
-		var p12 = new Promise(function (resolve, reject) {			
-			canonnEd3d_all.parseData("data/csvCache/tsSystemCache.csv", canonnEd3d_all.formatTS, resolve);	
+		var p12 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/tsSystemCache.csv", canonnEd3d_all.formatTS, resolve);
 		});
 
 		//NHSS Sites
-		var p13 = new Promise(function (resolve, reject) {			
-			canonnEd3d_all.parseData("data/csvCache/nhssDataCache.csv", canonnEd3d_all.formatNHSS, resolve);	
+		var p13 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/nhssDataCache.csv", canonnEd3d_all.formatNHSS, resolve);
 		});
-		
+
 		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
