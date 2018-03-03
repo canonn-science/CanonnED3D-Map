@@ -421,7 +421,7 @@ var canonnEd3d_thargoids = {
 
         //Barnacles
         var p1 = new Promise(function (resolve, reject) {
-            canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTOVMrkFFKR4lrOzZGD84EPsJ0Tbm8yrVa9kh0AhAEdSqehf8prdskB6Jh_0LmAdsgdEjxEyP3OjpGv/pub?gid=290263950&single=true&output=csv", canonnEd3d_thargoids.formatBN, resolve);
+            canonnEd3d_thargoids.parseData("/data/csvCache/tbSystemCache.csv", canonnEd3d_thargoids.formatBN, resolve);
         });
 
         //Thargoid Site Links
@@ -446,7 +446,7 @@ var canonnEd3d_thargoids = {
 
         // Thargoid Hyperdictions
         var p6 = new Promise(function (resolve, reject) {
-            canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vSEVt8eYMJgd5vXfCMiExWc23D1G5G0DCEfs5A6N3AQGupAp1KslajioBZgB0IGiMd7MR_Ur3RPsv39/pub?gid=1013174415&single=true&output=csv", canonnEd3d_thargoids.formatHD, resolve);
+            canonnEd3d_thargoids.parseData("/data/csvCache/hdSystemCache.csv", canonnEd3d_thargoids.formatHD, resolve);
         });
 
         //var p7 = new Promise(function (resolve, reject) {
