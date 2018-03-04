@@ -26,7 +26,7 @@ var canonnEd3d_gr = {
 					"name": "Structure",
 					"color": "ffff00"
 				},
-				"703": {
+				"704": {
 					"name": "Unknown",
 					"color": "800000"
 				}
