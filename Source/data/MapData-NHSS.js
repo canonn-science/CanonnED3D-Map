@@ -88,21 +88,21 @@ var canonnEd3d_nhss = {
 
 				// Check Threat Level and apply group
 				if (data[i].Threat.toString() == "2") {
-					grSite["cat"] = [1400];
+					nhssSite["cat"] = [1400];
 				} else if (data[i].Threat.toString() == "3") {
-					grSite["cat"] = [1401];
+					nhssSite["cat"] = [1401];
 				} else if (data[i].Threat.toString() == "4") {
-					grSite["cat"] = [1402];
+					nhssSite["cat"] = [1402];
 				} else if (data[i].Threat.toString() == "5") {
-					grSite["cat"] = [1403];
+					nhssSite["cat"] = [1403];
 				} else if (data[i].Threat.toString() == "6") {
-					grSite["cat"] = [1404];
+					nhssSite["cat"] = [1404];
 				} else if (data[i].Threat.toString() == "7") {
-					grSite["cat"] = [1405];
+					nhssSite["cat"] = [1405];
 				} else if (data[i].Threat.toString() == "8") {
-					grSite["cat"] = [1406];
+					nhssSite["cat"] = [1406];
 				} else {
-					grSite["cat"] = [1407];
+					nhssSite["cat"] = [1407];
 				}
 
                 nhssSite["coords"] = {
