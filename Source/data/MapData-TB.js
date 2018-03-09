@@ -9,7 +9,7 @@ var canonnEd3d_tb = {
 					"color": "FF9D00"
 				}
 			},
-			"Barnacles - (TB)": {
+			"Thargoid Barnacles - (TB)": {
 				"1200": {
 					"name": "Barnacle",
 					"color": "009933"

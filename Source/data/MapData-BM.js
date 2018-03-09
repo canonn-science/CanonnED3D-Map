@@ -94,7 +94,7 @@ var canonnEd3d_bm = {
 
 		//BM Sites
 		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_bm.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vT5BZ9lC7vqmpwIsGCGH-d1uQIOIdFEZQFyUv1MXPSsRKFd1_QS8loG1a4SQurINFC6W48yecNYX1n8/pub?gid=0&single=true&output=csv", canonnEd3d_bm.formatBM, resolve);
+			canonnEd3d_bm.parseData("data/csvCache/bmDataCache.csv", canonnEd3d_bm.formatBM, resolve);
 		});
 
 		Promise.all([p1]).then(function () {
