@@ -558,7 +558,7 @@ TB556,Pleiades Sector FB-X C1-10,A 6,-56.0322,-14.575,Barnacle,Ripe,-25.0625,-13
 TB557,Pleiades Sector EH-U B3-2,C 2,5.55,62.9006,Barnacle,Ripe,-141.40625,-122.1875,-346.25,Panpiper
 TB558,Pleiades Sector EH-U B3-2,C 2,4.1,84.3244,Barnacle,Ripe,-141.40625,-122.1875,-346.25,Panpiper
 TB559,Pleiades Sector EH-U B3-2,C 1,-46.9612,-23.1987,Barnacle,Ripe,-141.40625,-122.1875,-346.25,Grimelinho
-TB560,Pleiades Sector HR-W D1-26,C 2,5.8269,-31.387,Barnacle,Ripe,-107.1875,-123.09375,-321.15625,Grimelinho
+TB560,Pleiades Sector GR-W D1-26,C 2,5.8269,-31.387,Barnacle,Ripe,,,,Grimelinho
 TB561,Pleiades Sector HR-W D1-26,E 3,-1.2769,143.5569,Barnacle,Ripe,-107.1875,-123.09375,-321.15625,Panpiper
 TB562,Pleiades Sector HR-W D1-26,E 3,-32.0152,171.5291,Barnacle,Ripe,-107.1875,-123.09375,-321.15625,Panpiper
 TB563,Pleiades Sector HR-W D1-26,E 5,27.7723,-141.7879,Barnacle,Ripe,-107.1875,-123.09375,-321.15625,Panpiper
@@ -609,3 +609,13 @@ TB607,Pleiades Sector UK-N B7-3,A 5,-65.6864,178.2738,Barnacle,Ripe,,,,Panpiper
 TB608,Pleiades Sector UK-N B7-3,A 5,-6.3042,139.2638,Barnacle,Ripe,,,,Robbie
 TB609,Pleiades Sector CL-Y D43,A 5,16.4669,162.9215,Barnacle,Ripe,,,,Grimelinho
 TB610,Pleiades Sector CL-Y D43,A 5,20.6135,88.3165,Barnacle,Ripe,,,,Panpiper
+TB611,Pleiades Sector LY-Q B5-2,A 2,4.3921,128.2576,Barnacle,Ripe,,,,"Robbie, Zebarmy"
+TB612,Pleiades Sector LY-Q B5-2,A 2,5.9402,127.1202,MegaBarnacle,Ripe,,,,"Robbie, Zebarmy"
+TB613,Pleiades Sector LY-Q B5-2,A 2,3.1577,118.6814,Barnacle,Ripe,,,,Robbie
+TB614,Pleiades Sector LY-Q B5-2,A 3,-37.2445,-48.1918,Barnacle,Ripe,,,,Robbie
+TB615,Pleiades Sector LY-Q B5-2,A 3,-33.8377,-43.1063,MegaBarnacle,Ripe,,,,Robbie
+TB616,Pleiades Sector LY-Q B5-2,A 2,18.7867,134.6658,Barnacle,Ripe,,,,Panpiper
+TB617,Pleiades Sector LY-Q B5-2,A 3,13.1032,-34.3245,Barnacle,Ripe,,,,Panpiper
+TB618,Pleiades Sector LY-Q B5-2,A 3,5.8235,-47.111,Barnacle,Ripe,,,,Panpiper
+TB619,Pleiades Sector CQ-P B5-0,B 2,-38.9718,68.5638,Barnacle,Ripe,-55.40625,-229.625,-324.875,Panpiper
+TB620,Pleiades Sector LY-Q B5-2,A 3,4.3208,-60.0722,Barnacle,Ripe,,,,Panpiper

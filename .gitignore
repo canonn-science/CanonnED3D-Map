@@ -2,13 +2,13 @@
 *Cache.csv
 *.swp
 
-# Ignore Symlinks
-Source/thargoids
-Source/thargoid
-Source/ts
-
 # Ignore Redirect Folders
 Source/all/
 Source/beta/
+Source/bt
+Source/gr
+Source/thargoids
+Source/thargoid
+Source/ts
 Source/us/
 Source/us2/
