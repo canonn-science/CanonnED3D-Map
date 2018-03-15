@@ -2,6 +2,9 @@
 *Cache.csv
 *.swp
 
+# Ignore symlinks
+Source/oldts
+
 # Ignore Redirect Folders
 Source/all/
 Source/beta/
