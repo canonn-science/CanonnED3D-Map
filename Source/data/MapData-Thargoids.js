@@ -218,7 +218,6 @@ var canonnEd3d_thargoids = {
         try {
             var subject = $.urlParam('Sigil');
         } catch (err) {
-            console.log(err)
             var subject = "4B-3";
         }
 
@@ -444,7 +443,6 @@ var canonnEd3d_thargoids = {
 		 try {
             var history = $.urlParam('history');
         } catch (err) {
-            console.log(err)
             var history = "all";
         }
 		
