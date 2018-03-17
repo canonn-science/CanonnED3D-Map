@@ -440,9 +440,24 @@ var canonnEd3d_thargoids = {
         });
 
         // Thargoid US
+		// We can default to everything or havea parameter to only show the last 100 systems
+		 try {
+            var history = $.urlParam('history');
+        } catch (err) {
+            console.log(err)
+            var history = "all";
+        }
+		
+		if ( history == "recent" ) {
         var p5 = new Promise(function (resolve, reject) {
-            canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vROqL6zifWWxcwlZ0R6iLvrMrUdfJijnMoZee-SrN0NVPqhTdH3Zdx6E7RxP1wH2xgwfrhwfVWUHnKU/pub?gid=1590459372&single=true&output=csv", canonnEd3d_thargoids.formatTI, resolve);
+			canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vROqL6zifWWxcwlZ0R6iLvrMrUdfJijnMoZee-SrN0NVPqhTdH3Zdx6E7RxP1wH2xgwfrhwfVWUHnKU/pub?gid=1692836450&single=true&output=csv", canonnEd3d_thargoids.formatTI, resolve);
         });
+		} else {
+		var p5 = new Promise(function (resolve, reject) {
+			canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vROqL6zifWWxcwlZ0R6iLvrMrUdfJijnMoZee-SrN0NVPqhTdH3Zdx6E7RxP1wH2xgwfrhwfVWUHnKU/pub?gid=1590459372&single=true&output=csv", canonnEd3d_thargoids.formatTI, resolve);
+        });	
+		}
+	
 
         // Thargoid Hyperdictions
         var p6 = new Promise(function (resolve, reject) {
