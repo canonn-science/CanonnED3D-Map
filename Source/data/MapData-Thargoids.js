@@ -220,38 +220,43 @@ var canonnEd3d_thargoids = {
         } catch (err) {
             var subject = "4B-3";
         }
+		
+		try {
+            var subject = $.urlParam('history');
+			// do nothing if history is set
+		} catch (err) {
+			canonnEd3d_thargoids.systemsData.categories["Thargoid Glyph"] = {
+				"302": {
+					"name": "<a href=\"https://tools.canonn.technology/thargoid_glyphs/#" + subject + "\"><img src=\"https://tools.canonn.technology/thargoid_glyphs/images/composite/" + subject + ".png\"  style=\"background-color:orange;border-radius: 5%;\"/></a>",
+					"color": "ff9900"
+				}
+			};
 
-        canonnEd3d_thargoids.systemsData.categories["Thargoid Glyph"] = {
-            "302": {
-                "name": "<a href=\"https://tools.canonn.technology/thargoid_glyphs/#" + subject + "\"><img src=\"https://tools.canonn.technology/thargoid_glyphs/images/composite/" + subject + ".png\"  style=\"background-color:orange;border-radius: 5%;\"/></a>",
-                "color": "ff9900"
-            }
-        };
+			for (var i = 0; i < data.length; i++) {
 
-        for (var i = 0; i < data.length; i++) {
+				var symbol = data[i].Sigil.split("-")
+				var inner = symbol[1]
+				var outer = symbol[0]
 
-            var symbol = data[i].Sigil.split("-")
-            var inner = symbol[1]
-            var outer = symbol[0]
+				if (data[i].From && data[i].From.replace(" ", "").length > 1 && data[i].Sigil == subject && data[i].Included == 'Y') {
 
-            if (data[i].From && data[i].From.replace(" ", "").length > 1 && data[i].Sigil == subject && data[i].Included == 'Y') {
+					var glyphRoute = {};
 
-                var glyphRoute = {};
+					glyphRoute["title"] = data[i].Sigi + " " + data[i].From + " to " + data[i].To
+					glyphRoute["points"] = [{
+						"s": data[i].From,
+						"label": data[i].From
+					}, {
+						"s": data[i].To,
+						"label": data[i].To
+					}]
+					glyphRoute["cat"] = [302]
+					glyphRoute["circle"] = false
 
-                glyphRoute["title"] = data[i].Sigi + " " + data[i].From + " to " + data[i].To
-                glyphRoute["points"] = [{
-                    "s": data[i].From,
-                    "label": data[i].From
-                }, {
-                    "s": data[i].To,
-                    "label": data[i].To
-                }]
-                glyphRoute["cat"] = [302]
-                glyphRoute["circle"] = false
-
-                canonnEd3d_thargoids.systemsData.routes.push(glyphRoute);
-            }
-        }
+					canonnEd3d_thargoids.systemsData.routes.push(glyphRoute);
+				}
+			}			
+		}
     },
 
     formatTI: function (data) {
@@ -382,7 +387,7 @@ var canonnEd3d_thargoids = {
                 tsSite["name"] = data[i].system;
 
                 //Check if Site is Active or Inactive, set Category to match
-                if (data[i].active.toString().toLowerCase() == "y") {
+                if (data[i].active.toString() == "✔") {
                     tsSite["cat"] = [500];
                 } else {
                     tsSite["cat"] = [501];
