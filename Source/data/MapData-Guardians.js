@@ -9,6 +9,12 @@ var canonnEd3d_guardians = {
 					"color": "FF9D00"
 				}
 			},
+			"Brain Trees - (BT)": {
+				"300": {
+					"name": "Brain Tree",
+					"color": "ff66cc"
+				}
+			},
 			"Guardian Ruins - (GR)": {
 				"700": {
 					"name": "Alpha",
@@ -23,18 +29,18 @@ var canonnEd3d_guardians = {
 					"color": "00ff00"
 				},
 				"703": {
-					"name": "Structure",
-					"color": "ffff00"
-				},
-				"704": {
 					"name": "Unknown",
 					"color": "800000"
 				}
 			},
-			"Brain Trees - (BT)": {
-				"300": {
-					"name": "Brain Tree",
-					"color": "ff66cc"
+			"Guardian Structures - (GS)": {
+				"704": {
+					"name": "Structure",
+					"color": "F6FF33"
+				},
+				"707": {
+					"name": "Unknown",
+					"color": "800000"
 				}
 			}
 		},
@@ -44,6 +50,16 @@ var canonnEd3d_guardians = {
 				"x": "0",
 				"y": "0",
 				"z": "0"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "Gamma Velorum",
+			"coords": {
+				"x": "1099.21875",
+				"y": "-146.6875",
+				"z": "-133.59375"
 			},
 			"cat": [
 				"100"
@@ -118,7 +134,6 @@ var canonnEd3d_guardians = {
 	},
 
 	formatGR: function (data) {
-
 		//Here you format GR JSON to ED3D acceptable object
 
 		// this is assuming data is an array []
@@ -134,10 +149,8 @@ var canonnEd3d_guardians = {
 					grSite["cat"] = [701];
 				} else if (data[i].type.toString() == "Gamma") {
 					grSite["cat"] = [702];
-				} else if (data[i].type.toString() == "Structure") {
-					grSite["cat"] = [703];
 				} else {
-					grSite["cat"] = [704];
+					grSite["cat"] = [703];
 				}
 				grSite["coords"] = {
 					"x": parseFloat(data[i].galacticX),
@@ -146,7 +159,36 @@ var canonnEd3d_guardians = {
 				};
 
 				// We can then push the site to the object that stores all systems
-				canonnEd3d_guardians.systemsData.systems.push(grSite);
+				canonnEd3d_gr.systemsData.systems.push(grSite);
+			}
+
+		}
+
+	},
+
+	formatGS: function (data) {
+		//Here you format GS JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+				var gsSite = {};
+				gsSite["name"] = data[i].system;
+
+				//Check Site Type and match categories
+				if (data[i].type.toString() == "Structure") {
+					gsSite["cat"] = [704];
+				} else {
+					gsSite["cat"] = [707];
+				}
+				gsSite["coords"] = {
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_gr.systemsData.systems.push(gsSite);
 			}
 
 		}
@@ -182,7 +224,12 @@ var canonnEd3d_guardians = {
 			canonnEd3d_guardians.parseData("data/csvCache/grDataCache.csv", canonnEd3d_guardians.formatGR, resolve);
 		});
 
-		Promise.all([p1, p2]).then(function () {
+		//GS Sites
+		var p3 = new Promise(function (resolve, reject) {
+			canonnEd3d_guardians.parseData("data/csvCache/gsDataCache.csv", canonnEd3d_guardians.formatGS, resolve);
+		});
+
+		Promise.all([p1, p2, p3]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_guardians.systemsData,

@@ -6,73 +6,77 @@ var canonnEd3d_all = {
 			"POI Systems": {
 				"100": {
 					"name": "Systems",
-					"color": "FF9D00"
+					"color": "#FF9D00"
 				}
 			},
 			"Hyperdictions": {
 				"900": {
 					"name": "Start System",
-					"color": "99ff66"
+					"color": "#99ff66"
 				},
 				"901": {
 					"name": "End System",
-					"color": "ff3300"
+					"color": "#ff3300"
 				},
 				"902": {
 					"name": "Route",
-					"color": "f2f2f2"
+					"color": "#f2f2f2"
 				}
 			},
 			"Sites": {
 				"200": {
 					"name": "Bark Mounds (BM)",
-					"color": "cdab7e"
+					"color": "#cdab7e"
 				},
 				"300": {
 					"name": "Brain Trees (BT)",
-					"color": "ff66cc"
+					"color": "#ff66cc"
 				},
 				"400": {
 					"name": "Fungal Gourds (FG)",
-					"color": "936c39"
+					"color": "#936c39"
 				},
 				"500": {
 					"name": "Fumaroles (FM)",
-					"color": "ffc266"
+					"color": "#ffc266"
 				},
 				"700": {
 					"name": "Guardian Ruins (GR)",
-					"color": "ffff00"
+					"color": "#ffff00"
+				},
+				"701": {
+					"name": "Guardian Ruins (GR)",
+					"color": "#FF9D90"
 				},
 				"800": {
 					"name": "Geysers (GY)",
-					"color": "99ccff"
+					"color": "#99ccff"
 				},
 				"1000": {
 					"name": "Lave Spouts (LS)",
-					"color": "ff4d4d"
+					"color": "#ff4d4d"
 				},
 				"1200": {
 					"name": "Thargoid Barnacles (TB)",
-					"color": "009933"
+					"color": "#009933"
 				},
 				"1300": {
 					"name": "Thargoid Structures (TS)",
-					"color": "17ff7b"
+					"color": "#17ff7b"
 				},
 				"1400": {
 					"name": "Non-Human Signal Sources (NHSS)",
-					"color": "442299"
+					"color": "#442299"
 				}
 			},
 			"Megaships": {
 				"600": {
 					"name": "Generation Ships (GEN)",
-					"color": "cc00cc"
+					"color": "#cc00cc"
 				},
 				"1100": {
 					"name": "Megaships (MS)",
-					"color": "ffb3ff"
+					"color": "#ffb3ff"
 				}
 			}
 		},
@@ -83,6 +87,16 @@ var canonnEd3d_all = {
 				"x": "0",
 				"y": "0",
 				"z": "0"
+			},
+			"cat": [
+				"100"
+			]
+		}, {
+			"name": "Gamma Velorum",
+			"coords": {
+				"x": "1099.21875",
+				"y": "-146.6875",
+				"z": "-133.59375"
 			},
 			"cat": [
 				"100"
@@ -268,6 +282,30 @@ var canonnEd3d_all = {
 
 				// We can then push the site to the object that stores all systems
 				canonnEd3d_all.systemsData.systems.push(grSite);
+			}
+
+		}
+
+	},
+
+	formatGS: function (data) {
+
+		//Format GS JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+				var gsSite = {};
+				gsSite["name"] = data[i].system;
+				gsSite["cat"] = [701];
+				gsSite["coords"] = {
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_all.systemsData.systems.push(gsSite);
 			}
 
 		}
@@ -519,42 +557,47 @@ var canonnEd3d_all = {
 			canonnEd3d_all.parseData("data/csvCache/grSystemCache.csv", canonnEd3d_all.formatGR, resolve);
 		});
 
-		//GY Sites
+		//GR Sites
 		var p7 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/gsSystemCache.csv", canonnEd3d_all.formatGS, resolve);
+		});
+
+		//GY Sites
+		var p8 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/gySystemCache.csv", canonnEd3d_all.formatGY, resolve);
 		});
 
 		//Hyperdiction Sites
-		var p8 = new Promise(function (resolve, reject) {
+		var p9 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/hdSystemCache.csv", canonnEd3d_all.formatHD, resolve);
 		});
 
 		//LS Sites
-		var p9 = new Promise(function (resolve, reject) {
+		var p10 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/lsSystemCache.csv", canonnEd3d_all.formatLS, resolve);
 		});
 
 		//MS Sites
-		var p10 = new Promise(function (resolve, reject) {
+		var p11 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/msSystemCache.csv", canonnEd3d_all.formatMS, resolve);
 		});
 
 		//TB Sites
-		var p11 = new Promise(function (resolve, reject) {
+		var p12 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/tbSystemCache.csv", canonnEd3d_all.formatTB, resolve);
 		});
 
 		//TS Sites
-		var p12 = new Promise(function (resolve, reject) {
+		var p13 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/tsSystemCache.csv", canonnEd3d_all.formatTS, resolve);
 		});
 
 		//NHSS Sites
-		var p13 = new Promise(function (resolve, reject) {
+		var p14 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/nhssDataCache.csv", canonnEd3d_all.formatNHSS, resolve);
 		});
 
-		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13]).then(function () {
+		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_all.systemsData,
