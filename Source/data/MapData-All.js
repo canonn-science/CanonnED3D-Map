@@ -45,7 +45,7 @@ var canonnEd3d_all = {
 					"color": "#ffff00"
 				},
 				"701": {
-					"name": "Guardian Ruins (GR)",
+					"name": "Guardian Structures (GS)",
 					"color": "#FF9D90"
 				},
 				"800": {

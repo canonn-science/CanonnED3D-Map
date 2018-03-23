@@ -159,7 +159,7 @@ var canonnEd3d_guardians = {
 				};
 
 				// We can then push the site to the object that stores all systems
-				canonnEd3d_gr.systemsData.systems.push(grSite);
+				canonnEd3d_guardians.systemsData.systems.push(grSite);
 			}
 
 		}
@@ -188,7 +188,7 @@ var canonnEd3d_guardians = {
 				};
 
 				// We can then push the site to the object that stores all systems
-				canonnEd3d_gr.systemsData.systems.push(gsSite);
+				canonnEd3d_guardians.systemsData.systems.push(gsSite);
 			}
 
 		}
