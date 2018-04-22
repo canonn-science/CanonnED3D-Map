@@ -15,7 +15,7 @@ var canonnEd3d_attacks = {
 			effectScaleSystem: [50, 10000],
 			startAnim: false,
 			showGalaxyInfos: true,
-			cameraPos: [25, 14100, -12900],
+			cameraPos: [-400, 300, 45],
 			systemColor: '#FF9D00'
 		});
 	}
