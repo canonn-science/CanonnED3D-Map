@@ -9,9 +9,9 @@ var canonnEd3d_tw = {
 					"color": "FF9D00"
 				}
 			},
-			"Tube Worms - (TW)": {
+			"Possible Tube Worm Locations": {
 				"500": {
-					"name": "Tube Worm",
+					"name": "Possible Tube Worm",
 					"color": "ffc266"
 				}
 			}
