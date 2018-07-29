@@ -12,15 +12,15 @@ var canonnEd3d_gr = {
 			"Guardian Ruins - (GR)": {
 				"700": {
 					"name": "Alpha",
-					"color": "ff0000"
+					"color": "FA8258"
 				},
 				"701": {
 					"name": "Beta",
-					"color": "0066ff"
+					"color": "F7D358"
 				},
 				"702": {
 					"name": "Gamma",
-					"color": "00ff00"
+					"color": "C8FE2E"
 				},
 				"703": {
 					"name": "Unknown",
@@ -29,10 +29,34 @@ var canonnEd3d_gr = {
 			},
 			"Guardian Structures - (GS)": {
 				"704": {
-					"name": "Structure",
-					"color": "F6FF33"
+					"name": "Lacrosse",
+					"color": "2EFEC8"
+				},
+				"705": {
+					"name": "Crossroads",
+					"color": "0080FF"
+				},
+				"706": {
+					"name": "Fistbump",
+					"color": "4000FF"
 				},
 				"707": {
+					"name": "Hammerbot",
+					"color": "BF00FF"
+				},
+				"708": {
+					"name": "Bear",
+					"color": "FF00FF"
+				},
+				"709": {
+					"name": "Bowl",
+					"color": "DF0174"
+				},
+				"710": {
+					"name": "Turtle",
+					"color": "0404B4"
+				},
+				"711": {
 					"name": "Unknown",
 					"color": "800000"
 				}
@@ -146,10 +170,22 @@ var canonnEd3d_gr = {
 				gsSite["name"] = data[i].system;
 
 				//Check Site Type and match categories
-				if (data[i].type.toString() == "Structure") {
+				if (data[i].type.toString() == "Lacrosse") {
 					gsSite["cat"] = [704];
-				} else {
+				} else if (data[i].type.toString() == "Crossroads") {
+					gsSite["cat"] = [705];
+				} else if (data[i].type.toString() == "Fistbump") {
+					gsSite["cat"] = [706];
+				} else if (data[i].type.toString() == "Hammerbot") {
 					gsSite["cat"] = [707];
+				} else if (data[i].type.toString() == "Bear") {
+					gsSite["cat"] = [708];
+				} else if (data[i].type.toString() == "Bowl") {
+					gsSite["cat"] = [709];
+				} else if (data[i].type.toString() == "Turtle") {
+					gsSite["cat"] = [710];
+				} else {
+					gsSite["cat"] = [711];
 				}
 				gsSite["coords"] = {
 					"x": parseFloat(data[i].galacticX),
