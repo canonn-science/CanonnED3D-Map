@@ -21,6 +21,12 @@ var canonnEd3d_cartographics = {
 					"color": "5d9a76"
 				}
 			},
+			"Orbital Installations (OI)": {
+				"1001": {
+					"name": "Orbital Installation",
+					"color": "ff764d"
+				},
+			},
 			"Unidentified Signal Source - (USS)": {
 				"1400": {
 					"name": "Non-Human Signal Source",
@@ -153,6 +159,30 @@ var canonnEd3d_cartographics = {
 
 	},
 
+	formatOI: function (data) {
+
+		//Here you format OI JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+				var oiSite = {};
+				oiSite["name"] = data[i].system;
+				oiSite["cat"] = [1001];
+				oiSite["coords"] = {
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_cartographics.systemsData.systems.push(oiSite);
+			}
+
+		}
+
+	},
+
 	formatUSS: function (data) {
 
 		//Here you format USS JSON to ED3D acceptable object
@@ -232,12 +262,17 @@ var canonnEd3d_cartographics = {
 			canonnEd3d_cartographics.parseData("data/csvCache/msDataCache.csv", canonnEd3d_cartographics.formatMS, resolve);
 		});
 
-		//USS Sites
+		//OI Sites
 		var p3 = new Promise(function (resolve, reject) {
+			canonnEd3d_cartographics.parseData("data/csvCache/oiDataCache.csv", canonnEd3d_cartographics.formatOI, resolve);
+		});
+
+		//USS Sites
+		var p4 = new Promise(function (resolve, reject) {
 			canonnEd3d_cartographics.parseData("data/csvCache/ussDataCache.csv", canonnEd3d_cartographics.formatUSS, resolve);
 		});
 
-		Promise.all([p1, p2, p3]).then(function () {
+		Promise.all([p1, p2, p3, p4]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_cartographics.systemsData,
