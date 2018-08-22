@@ -6,81 +6,81 @@ var canonnEd3d_all = {
 			"POI Systems": {
 				"100": {
 					"name": "Systems",
-					"color": "#FF9D00"
+					"color": "FF9D00"
 				}
 			},
 			"Hyperdictions": {
 				"900": {
 					"name": "Start System",
-					"color": "#99ff66"
+					"color": "99ff66"
 				},
 				"901": {
 					"name": "End System",
-					"color": "#ff3300"
+					"color": "ff3300"
 				},
 				"902": {
 					"name": "Route",
-					"color": "#f2f2f2"
+					"color": "f2f2f2"
 				}
 			},
 			"Sites": {
 				"200": {
 					"name": "Bark Mounds (BM)",
-					"color": "#cdab7e"
+					"color": "cdab7e"
 				},
 				"300": {
 					"name": "Brain Trees (BT)",
-					"color": "#ff66cc"
+					"color": "ff66cc"
 				},
 				"400": {
 					"name": "Fungal Gourds (FG)",
-					"color": "#936c39"
+					"color": "936c39"
 				},
 				"500": {
 					"name": "Fumaroles (FM)",
-					"color": "#ffc266"
+					"color": "ffc266"
 				},
 				"700": {
 					"name": "Guardian Ruins (GR)",
-					"color": "#ffff00"
+					"color": "ffff00"
 				},
 				"701": {
 					"name": "Guardian Structures (GS)",
-					"color": "#FF9D90"
+					"color": "FF9D90"
 				},
 				"800": {
 					"name": "Geysers (GY)",
-					"color": "#99ccff"
+					"color": "99ccff"
 				},
 				"1000": {
 					"name": "Lave Spouts (LS)",
-					"color": "#ff4d4d"
+					"color": "ff4d4d"
 				},
 				"1001": {
 					"name": "Orbital Installations (OI)",
-					"color": "#ff764d"
+					"color": "ff764d"
 				},
 				"1200": {
 					"name": "Thargoid Barnacles (TB)",
-					"color": "#009933"
+					"color": "009933"
 				},
 				"1300": {
 					"name": "Thargoid Structures (TS)",
-					"color": "#17ff7b"
+					"color": "17ff7b"
 				},
 				"1400": {
 					"name": "Non-Human Signal Sources (NHSS)",
-					"color": "#442299"
+					"color": "442299"
 				}
 			},
 			"Megaships": {
 				"600": {
 					"name": "Generation Ships (GEN)",
-					"color": "#cc00cc"
+					"color": "cc00cc"
 				},
 				"1100": {
 					"name": "Megaships (MS)",
-					"color": "#ffb3ff"
+					"color": "ffb3ff"
 				}
 			}
 		},

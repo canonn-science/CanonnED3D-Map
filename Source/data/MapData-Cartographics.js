@@ -24,7 +24,7 @@ var canonnEd3d_cartographics = {
 			"Orbital Installations (OI)": {
 				"1001": {
 					"name": "Orbital Installation",
-					"color": "#ff764d"
+					"color": "ff764d"
 				},
 			},
 			"Unidentified Signal Source - (USS)": {
