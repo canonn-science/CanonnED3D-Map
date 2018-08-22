@@ -12,7 +12,7 @@ var canonnEd3d_attacks = {
 			withFullscreenToggle: false,
 			withHudPanel: true,
 			hudMultipleSelect: true,
-			effectScaleSystem: [50, 10000],
+			effectScaleSystem: [20, 500],
 			startAnim: false,
 			showGalaxyInfos: true,
 			cameraPos: [-400, 300, 45],

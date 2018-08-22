@@ -160,7 +160,7 @@ var canonnEd3d_hd = {
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
-				effectScaleSystem: [28, 10000],
+				effectScaleSystem: [20, 500],
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],

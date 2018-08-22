@@ -481,7 +481,7 @@ var canonnEd3d_thargoids = {
                 json: canonnEd3d_thargoids.systemsData,
                 withHudPanel: true,
                 hudMultipleSelect: true,
-                effectScaleSystem: [28, 10000],
+                effectScaleSystem: [20, 500],
                 startAnim: false,
                 showGalaxyInfos: true,
                 cameraPos: [25, 14100, -12900],

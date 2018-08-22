@@ -174,7 +174,7 @@ var canonnEd3d_geology = {
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
-				effectScaleSystem: [50, 10000],
+				effectScaleSystem: [20, 500],
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
