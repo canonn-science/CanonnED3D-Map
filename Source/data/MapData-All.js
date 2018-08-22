@@ -56,6 +56,10 @@ var canonnEd3d_all = {
 					"name": "Lave Spouts (LS)",
 					"color": "#ff4d4d"
 				},
+				"1001": {
+					"name": "Orbital Installations (OI)",
+					"color": "#ff764d"
+				},
 				"1200": {
 					"name": "Thargoid Barnacles (TB)",
 					"color": "#009933"
@@ -412,6 +416,30 @@ var canonnEd3d_all = {
 
 	},
 
+	formatOI: function (data) {
+
+		//Here you format OI JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+				var oiSite = {};
+				oiSite["name"] = data[i].system;
+				oiSite["cat"] = [1001];
+				oiSite["coords"] = {
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_all.systemsData.systems.push(oiSite);
+			}
+
+		}
+
+	},
+
 	formatMS: function (data) {
 
 		//Format MS JSON to ED3D acceptable object
@@ -577,27 +605,32 @@ var canonnEd3d_all = {
 			canonnEd3d_all.parseData("data/csvCache/lsSystemCache.csv", canonnEd3d_all.formatLS, resolve);
 		});
 
-		//MS Sites
+		//OI Sites
 		var p11 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/oiSystemCache.csv", canonnEd3d_all.formatOI, resolve);
+		});
+
+		//MS Sites
+		var p12 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/msSystemCache.csv", canonnEd3d_all.formatMS, resolve);
 		});
 
 		//TB Sites
-		var p12 = new Promise(function (resolve, reject) {
+		var p13 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/tbSystemCache.csv", canonnEd3d_all.formatTB, resolve);
 		});
 
 		//TS Sites
-		var p13 = new Promise(function (resolve, reject) {
+		var p14 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/tsSystemCache.csv", canonnEd3d_all.formatTS, resolve);
 		});
 
 		//NHSS Sites
-		var p14 = new Promise(function (resolve, reject) {
+		var p15 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/nhssDataCache.csv", canonnEd3d_all.formatNHSS, resolve);
 		});
 
-		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]).then(function () {
+		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_all.systemsData,
