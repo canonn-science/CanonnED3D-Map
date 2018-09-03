@@ -19,6 +19,57 @@ var canonnEd3d_oi = {
 					"color": "FF9D00"
 				}
 			},
+			"Orbital Installations - (OI)": {
+				"1000": {
+					"name": "Agricultural Installation",
+					"color": "f9964c"
+				},
+				"1001": {
+					"name": "Civilian Installation",
+					"color": "ac9dcc"
+				},
+				"1002": {
+					"name": "Comms Installation",
+					"color": "09f24a"
+				},
+				"1003": {
+					"name": "Government Installation",
+					"color": "4b04af"
+				},
+				"1004": {
+					"name": "Industrial Installation",
+					"color": "fbacdd"
+				},
+				"1005": {
+					"name": "Medical Installation",
+					"color": "9330e6"
+				},
+				"1006": {
+					"name": "Military Installation",
+					"color": "70b8ea"
+				},
+				"1007": {
+					"name": "Scientific Installation",
+					"color": "11e8a3"
+				},
+				"1008": {
+					"name": "Security Installation",
+					"color": "659664"
+				},
+				"1009": {
+					"name": "Tourist Installation",
+					"color": "ff9a87"
+				},
+				"1010": {
+					"name": "Unauthorized Installation",
+					"color": "3b1ae4"
+				},
+				"1011": {
+					"name": "Other / None",
+					"color": "ff4d4d"
+				}
+			}
+		},
 		"systems": []
 	},
 
@@ -31,7 +82,33 @@ var canonnEd3d_oi = {
 			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
 				var oiSite = {};
 				oiSite["name"] = data[i].system;
-				oiSite["cat"] = [1000];
+
+				//Check Site Type and match categories
+				if (data[i].instanceTarget.toString() == "Agricultural Installation") {
+					oiSite["cat"] = [1000];
+				} else if (data[i].instanceTarget.toString() == "Civilian Installation") {
+					oiSite["cat"] = [1001];
+				} else if (data[i].instanceTarget.toString() == "Comms Installation") {
+					oiSite["cat"] = [1002];
+				} else if (data[i].instanceTarget.toString() == "Government Installation") {
+					oiSite["cat"] = [1003];
+				} else if (data[i].instanceTarget.toString() == "Industrial Installation") {
+					oiSite["cat"] = [1004];
+				} else if (data[i].instanceTarget.toString() == "Medical Installation") {
+					oiSite["cat"] = [1005];
+				} else if (data[i].instanceTarget.toString() == "Military Installation") {
+					oiSite["cat"] = [1006];
+				} else if (data[i].instanceTarget.toString() == "Scientific Installation") {
+					oiSite["cat"] = [1007];
+				} else if (data[i].instanceTarget.toString() == "Security Installation") {
+					oiSite["cat"] = [1008];
+				} else if (data[i].instanceTarget.toString() == "Tourist Installation") {
+					oiSite["cat"] = [1009];
+				} else if (data[i].instanceTarget.toString() == "Unauthorized Installation") {
+					oiSite["cat"] = [1010];
+				} else {
+					oiSite["cat"] = [1011];
+				}
 				oiSite["coords"] = {
 					"x": parseFloat(data[i].galacticX),
 					"y": parseFloat(data[i].galacticY),

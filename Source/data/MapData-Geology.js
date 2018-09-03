@@ -31,7 +31,7 @@ var canonnEd3d_geology = {
 					"color": "99ccff"
 				}
 			},
-			"Lave Spouts - (LS)": {
+			"Lava Spouts - (LS)": {
 				"1000": {
 					"name": "Lave Spout",
 					"color": "ff4d4d"

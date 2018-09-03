@@ -4,22 +4,21 @@ var canonnEd3d_nhss = {
 	systemsData: {
 		"categories": {
 			"POI systems": {
-				"POI Systems": {
-					"100": {
-						"name": "Systems",
-						"color": "F56D54"
-					},
-					"102": {
-						"name": "Other",
-						"color": "F79F8F"
-					}
+				"100": {
+					"name": "Systems",
+					"color": "F56D54"
 				},
-				"The Gnosis": {
-					"101": {
-						"name": "Current System",
-						"color": "FF9D00"
-					}
-				},
+				"102": {
+					"name": "Other",
+					"color": "F79F8F"
+				}
+			},
+			"The Gnosis": {
+				"101": {
+					"name": "Current System",
+					"color": "FF9D00"
+				}
+			},
 			"Non-Human Signal Source - (NHSS)":  {
                 "1400": {
                     "name": "Threat Level 2",

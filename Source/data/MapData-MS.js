@@ -113,7 +113,7 @@ var canonnEd3d_ms = {
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
 				var msSite = {};
-				msSite["name"] = data[i].system;
+				msSite["name"] = data[i].nameSystem;
 
 				//Check Site Type and match categories
 				if (data[i].type.toString() == "Megaship") {

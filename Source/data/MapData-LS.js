@@ -19,7 +19,7 @@ var canonnEd3d_ls = {
 					"color": "FF9D00"
 				}
 			},
-			"Lave Spouts - (LS)": {
+			"Lava Spouts - (LS)": {
 				"1000": {
 					"name": "Lave Spout",
 					"color": "ff4d4d"
