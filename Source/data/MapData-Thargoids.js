@@ -8,24 +8,34 @@ var canonnEd3d_thargoids = {
     //Define Categories
     systemsData: {
         "categories": {
-            "Points of Interest - POI": {
-                "100": {
-                    "name": "System",
-                    "color": "F7F7F7"
-                },
-                "101": {
+			"POI Systems": {
+				"100": {
+					"name": "Systems",
+					"color": "F56D54"
+				},
+                "102": {
                     "name": "Megaship",
                     "color": "42f4df"
                 },
-                "102": {
+                "103": {
                     "name": "Capital Ship",
                     "color": "f442e2"
                 },
-                "103": {
+                "104": {
                     "name": "INRA Base",
                     "color": "ffa500"
                 },
-            },
+				"105": {
+					"name": "Other",
+					"color": "F79F8F"
+				}
+			},
+			"The Gnosis": {
+				"101": {
+					"name": "Current System",
+					"color": "FF9D00"
+				}
+			},
             "Barnacles - (BN)": {
                 "200": {
                     "name": "Barnacle",
@@ -322,14 +332,6 @@ var canonnEd3d_thargoids = {
 
                 switch (data[i].Type) {
                     case 'Megaship':
-                        msSite["cat"] = [101];
-                        msSite["coords"] = {
-                            "x": parseFloat(data[i].x),
-                            "y": parseFloat(data[i].y),
-                            "z": parseFloat(data[i].z)
-                        }
-                        break;
-                    case 'Capital Ship':
                         msSite["cat"] = [102];
                         msSite["coords"] = {
                             "x": parseFloat(data[i].x),
@@ -337,8 +339,16 @@ var canonnEd3d_thargoids = {
                             "z": parseFloat(data[i].z)
                         }
                         break;
-                    case 'INRA Base':
+                    case 'Capital Ship':
                         msSite["cat"] = [103];
+                        msSite["coords"] = {
+                            "x": parseFloat(data[i].x),
+                            "y": parseFloat(data[i].y),
+                            "z": parseFloat(data[i].z)
+                        }
+                        break;
+                    case 'INRA Base':
+                        msSite["cat"] = [104];
                         msSite["coords"] = {
                             "x": parseFloat(data[i].x),
                             "y": parseFloat(data[i].y),
@@ -404,6 +414,37 @@ var canonnEd3d_thargoids = {
         }
     },
 
+	formatPOI: function (data) {
+		//Here you format POI & Gnosis JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+				var poiSite = {};
+				poiSite["name"] = data[i].system;
+
+				//Check Site Type and match categories
+				if (data[i].type.toString() == "gnosis") {
+					poiSite["cat"] = [101];
+				} else if (data[i].type.toString() == "POI") {
+					poiSite["cat"] = [100];
+				} else {
+					poiSite["cat"] = [102];
+				}
+				poiSite["coords"] = {
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_thargoids.systemsData.systems.push(poiSite);
+			}
+
+		}
+
+	},
+
     parseData: function (url, callBack, resolvePromise) {
         Papa.parse(url, {
             download: true,
@@ -443,6 +484,11 @@ var canonnEd3d_thargoids = {
             canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ9O_WQPF7gpL1dEWgI97GVD_EMN7Sgm4LYxj2N4SQtG5HNInyP08I1eDqkZHQhYeIVNHiwtiDOYlS/pub?gid=981173890&single=true&output=csv", canonnEd3d_thargoids.formatMS, resolve);
         });
 
+		//POI & Gnosis
+		var p7 = new Promise(function (resolve, reject) {
+			canonnEd3d_thargoids.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_thargoids.formatPOI, resolve);
+		});
+
         // Thargoid US
 		// We can default to everything or havea parameter to only show the last 100 systems
 		 try {
@@ -475,7 +521,7 @@ var canonnEd3d_thargoids = {
             canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vSlKb1HgU7PZDRRvlDqorEFHfo4sxZZorGRTaMc0qQt9tJGBox-bCxGTbg1gCLQfWi8hXdyltDZGL2t/pub?gid=29696533&single=true&output=csv", canonnEd3d_thargoids.formatGlyphs, resolve);
         });
 
-        Promise.all([p0, p1, p2, p3, p4, p5, p6]).then(function () {
+        Promise.all([p0, p1, p2, p3, p4, p5, p6, p7]).then(function () {
             Ed3d.init({
                 container: 'edmap',
                 json: canonnEd3d_thargoids.systemsData,

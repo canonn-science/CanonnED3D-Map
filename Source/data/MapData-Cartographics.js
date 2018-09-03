@@ -5,7 +5,17 @@ var canonnEd3d_cartographics = {
 		"categories": {
 			"POI Systems": {
 				"100": {
-					"name": "Systems - POI",
+					"name": "Systems",
+					"color": "F56D54"
+				},
+				"102": {
+					"name": "Other",
+					"color": "F79F8F"
+				}
+			},
+			"The Gnosis": {
+				"101": {
+					"name": "Current System",
 					"color": "FF9D00"
 				}
 			},
@@ -78,37 +88,7 @@ var canonnEd3d_cartographics = {
 				}
 			}
 		},
-		"systems": [{
-			"name": "Sol",
-			"coords": {
-				"x": "0",
-				"y": "0",
-				"z": "0"
-			},
-			"cat": [
-				"100"
-			]
-		}, {
-			"name": "Merope",
-			"coords": {
-				"x": "-78.59375",
-				"y": "-149.625",
-				"z": "-340.53125"
-			},
-			"cat": [
-				"100"
-			]
-		}, {
-			"name": "HIP 22460",
-			"coords": {
-				"x": "-41.3125",
-				"y": "-58.96875",
-				"z": "-354.78125"
-			},
-			"cat": [
-				"100"
-			]
-		}]
+		"systems": []
 	},
 
 	formatGEN: function (data) {
@@ -233,6 +213,37 @@ var canonnEd3d_cartographics = {
 
 	},
 
+	formatPOI: function (data) {
+		//Here you format POI & Gnosis JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+				var poiSite = {};
+				poiSite["name"] = data[i].system;
+
+				//Check Site Type and match categories
+				if (data[i].type.toString() == "gnosis") {
+					poiSite["cat"] = [101];
+				} else if (data[i].type.toString() == "POI") {
+					poiSite["cat"] = [100];
+				} else {
+					poiSite["cat"] = [102];
+				}
+				poiSite["coords"] = {
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_cartographics.systemsData.systems.push(poiSite);
+			}
+
+		}
+
+	},
+
 	parseData: function (url, callBack, resolvePromise) {
 		Papa.parse(url, {
 			download: true,
@@ -272,7 +283,12 @@ var canonnEd3d_cartographics = {
 			canonnEd3d_cartographics.parseData("data/csvCache/ussDataCache.csv", canonnEd3d_cartographics.formatUSS, resolve);
 		});
 
-		Promise.all([p1, p2, p3, p4]).then(function () {
+		//POI & Gnosis
+		var p5 = new Promise(function (resolve, reject) {
+			canonnEd3d_cartographics.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_cartographics.formatPOI, resolve);
+		});
+
+		Promise.all([p1, p2, p3, p4, p5]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_cartographics.systemsData,
