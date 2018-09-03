@@ -5,7 +5,17 @@ var canonnEd3d_nhss = {
 		"categories": {
 			"POI systems": {
 				"100": {
-					"name": "Systems - POI",
+					"name": "Systems",
+					"color": "F56D54"
+				},
+				"102": {
+					"name": "Other",
+					"color": "F79F8F"
+				}
+			},
+			"The Gnosis": {
+				"101": {
+					"name": "Current System",
 					"color": "FF9D00"
 				}
 			},
@@ -44,37 +54,7 @@ var canonnEd3d_nhss = {
                 }
             }
 		},
-		"systems": [{
-			"name": "Sol",
-			"coords": {
-				"x": "0",
-				"y": "0",
-				"z": "0"
-			},
-			"cat": [
-				"100"
-			]
-		}, {
-			"name": "Merope",
-			"coords": {
-				"x": "-78.59375",
-				"y": "-149.625",
-				"z": "-340.53125"
-			},
-			"cat": [
-				"100"
-			]
-		}, {
-			"name": "HIP 22460",
-			"coords": {
-				"x": "-41.3125",
-				"y": "-58.96875",
-				"z": "-354.78125"
-			},
-			"cat": [
-				"100"
-			]
-		}]
+		"systems": []
 	},
 
 	formatNHSS: function (data) {
@@ -117,6 +97,37 @@ var canonnEd3d_nhss = {
         }
     },
 
+	formatPOI: function (data) {
+		//Here you format POI & Gnosis JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+				var poiSite = {};
+				poiSite["name"] = data[i].system;
+
+				//Check Site Type and match categories
+				if (data[i].type.toString() == "gnosis") {
+					poiSite["cat"] = [101];
+				} else if (data[i].type.toString() == "POI") {
+					poiSite["cat"] = [100];
+				} else {
+					poiSite["cat"] = [102];
+				}
+				poiSite["coords"] = {
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_nhss.systemsData.systems.push(poiSite);
+			}
+
+		}
+
+	},
+
 	parseData: function (url, callBack, resolvePromise) {
 		Papa.parse(url, {
 			download: true,
@@ -141,7 +152,12 @@ var canonnEd3d_nhss = {
 			canonnEd3d_nhss.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vROqL6zifWWxcwlZ0R6iLvrMrUdfJijnMoZee-SrN0NVPqhTdH3Zdx6E7RxP1wH2xgwfrhwfVWUHnKU/pub?gid=1590459372&single=true&output=csv", canonnEd3d_nhss.formatNHSS, resolve);
 		});
 
-		Promise.all([p1]).then(function () {
+		//POI & Gnosis
+		var p2 = new Promise(function (resolve, reject) {
+			canonnEd3d_nhss.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_nhss.formatPOI, resolve);
+		});
+
+		Promise.all([p1, p2]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_nhss.systemsData,
