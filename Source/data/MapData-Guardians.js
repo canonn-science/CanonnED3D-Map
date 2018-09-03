@@ -35,10 +35,46 @@ var canonnEd3d_guardians = {
 			},
 			"Guardian Structures - (GS)": {
 				"704": {
-					"name": "Structure",
-					"color": "F6FF33"
+					"name": "Lacrosse",
+					"color": "2EFEC8"
+				},
+				"705": {
+					"name": "Crossroads",
+					"color": "0080FF"
+				},
+				"706": {
+					"name": "Fistbump",
+					"color": "4000FF"
 				},
 				"707": {
+					"name": "Hammerbot",
+					"color": "BF00FF"
+				},
+				"708": {
+					"name": "Bear",
+					"color": "FF00FF"
+				},
+				"709": {
+					"name": "Bowl",
+					"color": "DF0174"
+				},
+				"710": {
+					"name": "Turtle",
+					"color": "0404B4"
+				},
+				"711": {
+					"name": "Robolobster",
+					"color": "9AFE2E"
+				},
+				"712": {
+					"name": "Squid",
+					"color": "D0F5A9"
+				},
+				"713": {
+					"name": "Stickyhand",
+					"color": "D7DF01"
+				},
+				"714": {
 					"name": "Unknown",
 					"color": "800000"
 				}
@@ -176,10 +212,28 @@ var canonnEd3d_guardians = {
 				gsSite["name"] = data[i].system;
 
 				//Check Site Type and match categories
-				if (data[i].type.toString() == "Structure") {
+				if (data[i].type.toString() == "Lacrosse") {
 					gsSite["cat"] = [704];
-				} else {
+				} else if (data[i].type.toString() == "Crossroads") {
+					gsSite["cat"] = [705];
+				} else if (data[i].type.toString() == "Fistbump") {
+					gsSite["cat"] = [706];
+				} else if (data[i].type.toString() == "Hammerbot") {
 					gsSite["cat"] = [707];
+				} else if (data[i].type.toString() == "Bear") {
+					gsSite["cat"] = [708];
+				} else if (data[i].type.toString() == "Bowl") {
+					gsSite["cat"] = [709];
+				} else if (data[i].type.toString() == "Turtle") {
+					gsSite["cat"] = [710];
+				} else if (data[i].type.toString() == "Robolobster") {
+					gsSite["cat"] = [711];
+				} else if (data[i].type.toString() == "Squid") {
+					gsSite["cat"] = [712];
+				} else if (data[i].type.toString() == "Stickyhand") {
+					gsSite["cat"] = [713];
+				} else {
+					gsSite["cat"] = [714];
 				}
 				gsSite["coords"] = {
 					"x": parseFloat(data[i].galacticX),

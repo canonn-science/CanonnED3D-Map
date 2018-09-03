@@ -57,6 +57,18 @@ var canonnEd3d_gr = {
 					"color": "0404B4"
 				},
 				"711": {
+					"name": "Robolobster",
+					"color": "9AFE2E"
+				},
+				"712": {
+					"name": "Squid",
+					"color": "D0F5A9"
+				},
+				"713": {
+					"name": "Stickyhand",
+					"color": "D7DF01"
+				},
+				"714": {
 					"name": "Unknown",
 					"color": "800000"
 				}
@@ -184,8 +196,14 @@ var canonnEd3d_gr = {
 					gsSite["cat"] = [709];
 				} else if (data[i].type.toString() == "Turtle") {
 					gsSite["cat"] = [710];
-				} else {
+				} else if (data[i].type.toString() == "Robolobster") {
 					gsSite["cat"] = [711];
+				} else if (data[i].type.toString() == "Squid") {
+					gsSite["cat"] = [712];
+				} else if (data[i].type.toString() == "Stickyhand") {
+					gsSite["cat"] = [713];
+				} else {
+					gsSite["cat"] = [714];
 				}
 				gsSite["coords"] = {
 					"x": parseFloat(data[i].galacticX),
