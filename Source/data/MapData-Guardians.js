@@ -15,6 +15,12 @@ var canonnEd3d_guardians = {
 					"color": "ff66cc"
 				}
 			},
+			"Guardian Beacons - (GB)": {
+				"715": {
+					"name": "Beacon",
+					"color": "58FA82"
+				}
+			},
 			"Guardian Ruins - (GR)": {
 				"700": {
 					"name": "Alpha",
@@ -169,6 +175,29 @@ var canonnEd3d_guardians = {
 
 	},
 
+	formatGB: function (data) {
+		//Here you format GB JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+				var gbSite = {};
+				gbSite["name"] = data[i].system;
+				gbSite["cat"] = [715];
+				gbSite["coords"] = {
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_guardians.systemsData.systems.push(gbSite);
+			}
+
+		}
+
+	},
+
 	formatGR: function (data) {
 		//Here you format GR JSON to ED3D acceptable object
 
@@ -273,17 +302,22 @@ var canonnEd3d_guardians = {
 			canonnEd3d_guardians.parseData("data/csvCache/btDataCache.csv", canonnEd3d_guardians.formatBT, resolve);
 		});
 
-		//GR Sites
+		//GB Sites
 		var p2 = new Promise(function (resolve, reject) {
+			canonnEd3d_guardians.parseData("data/csvCache/gbDataCache.csv", canonnEd3d_guardians.formatGB, resolve);
+		});
+
+		//GR Sites
+		var p3 = new Promise(function (resolve, reject) {
 			canonnEd3d_guardians.parseData("data/csvCache/grDataCache.csv", canonnEd3d_guardians.formatGR, resolve);
 		});
 
 		//GS Sites
-		var p3 = new Promise(function (resolve, reject) {
+		var p4 = new Promise(function (resolve, reject) {
 			canonnEd3d_guardians.parseData("data/csvCache/gsDataCache.csv", canonnEd3d_guardians.formatGS, resolve);
 		});
 
-		Promise.all([p1, p2, p3]).then(function () {
+		Promise.all([p1, p2, p3, p4]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_guardians.systemsData,

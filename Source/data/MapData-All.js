@@ -41,10 +41,14 @@ var canonnEd3d_all = {
 					"color": "ffc266"
 				},
 				"700": {
-					"name": "Guardian Ruins (GR)",
+					"name": "Guardian Beacons (GB)",
 					"color": "ffff00"
 				},
 				"701": {
+					"name": "Guardian Ruins (GR)",
+					"color": "ffff00"
+				},
+				"702": {
 					"name": "Guardian Structures (GS)",
 					"color": "FF9D90"
 				},
@@ -53,7 +57,7 @@ var canonnEd3d_all = {
 					"color": "99ccff"
 				},
 				"1000": {
-					"name": "Lave Spouts (LS)",
+					"name": "Lava Spouts (LS)",
 					"color": "ff4d4d"
 				},
 				"1001": {
@@ -268,6 +272,30 @@ var canonnEd3d_all = {
 
 	},
 
+	formatGB: function (data) {
+
+		//Format GB JSON to ED3D acceptable object
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+				var gbSite = {};
+				gbSite["name"] = data[i].system;
+				gbSite["cat"] = [700];
+				gbSite["coords"] = {
+					"x": parseFloat(data[i].galacticX),
+					"y": parseFloat(data[i].galacticY),
+					"z": parseFloat(data[i].galacticZ)
+				};
+
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_all.systemsData.systems.push(gbSite);
+			}
+
+		}
+
+	},
+
 	formatGR: function (data) {
 
 		//Format GR JSON to ED3D acceptable object
@@ -277,7 +305,7 @@ var canonnEd3d_all = {
 			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
 				var grSite = {};
 				grSite["name"] = data[i].system;
-				grSite["cat"] = [700];
+				grSite["cat"] = [701];
 				grSite["coords"] = {
 					"x": parseFloat(data[i].galacticX),
 					"y": parseFloat(data[i].galacticY),
@@ -301,7 +329,7 @@ var canonnEd3d_all = {
 			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
 				var gsSite = {};
 				gsSite["name"] = data[i].system;
-				gsSite["cat"] = [701];
+				gsSite["cat"] = [702];
 				gsSite["coords"] = {
 					"x": parseFloat(data[i].galacticX),
 					"y": parseFloat(data[i].galacticY),
@@ -580,57 +608,62 @@ var canonnEd3d_all = {
 			canonnEd3d_all.parseData("data/csvCache/genSystemCache.csv", canonnEd3d_all.formatGEN, resolve);
 		});
 
-		//GR Sites
+		//GB Sites
 		var p6 = new Promise(function (resolve, reject) {
-			canonnEd3d_all.parseData("data/csvCache/grSystemCache.csv", canonnEd3d_all.formatGR, resolve);
+			canonnEd3d_all.parseData("data/csvCache/gbSystemCache.csv", canonnEd3d_all.formatGB, resolve);
 		});
 
 		//GR Sites
 		var p7 = new Promise(function (resolve, reject) {
+			canonnEd3d_all.parseData("data/csvCache/grSystemCache.csv", canonnEd3d_all.formatGR, resolve);
+		});
+
+		//GR Sites
+		var p8 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/gsSystemCache.csv", canonnEd3d_all.formatGS, resolve);
 		});
 
 		//GY Sites
-		var p8 = new Promise(function (resolve, reject) {
+		var p9 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/gySystemCache.csv", canonnEd3d_all.formatGY, resolve);
 		});
 
 		//Hyperdiction Sites
-		var p9 = new Promise(function (resolve, reject) {
+		var p10 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/hdSystemCache.csv", canonnEd3d_all.formatHD, resolve);
 		});
 
 		//LS Sites
-		var p10 = new Promise(function (resolve, reject) {
+		var p11 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/lsSystemCache.csv", canonnEd3d_all.formatLS, resolve);
 		});
 
 		//OI Sites
-		var p11 = new Promise(function (resolve, reject) {
+		var p12 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/oiSystemCache.csv", canonnEd3d_all.formatOI, resolve);
 		});
 
 		//MS Sites
-		var p12 = new Promise(function (resolve, reject) {
+		var p13 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/msSystemCache.csv", canonnEd3d_all.formatMS, resolve);
 		});
 
 		//TB Sites
-		var p13 = new Promise(function (resolve, reject) {
+		var p14 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/tbSystemCache.csv", canonnEd3d_all.formatTB, resolve);
 		});
 
 		//TS Sites
-		var p14 = new Promise(function (resolve, reject) {
+		var p15 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/tsSystemCache.csv", canonnEd3d_all.formatTS, resolve);
 		});
 
 		//NHSS Sites
-		var p15 = new Promise(function (resolve, reject) {
+		var p16 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/nhssDataCache.csv", canonnEd3d_all.formatNHSS, resolve);
 		});
 
-		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15]).then(function () {
+		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_all.systemsData,
