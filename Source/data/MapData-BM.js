@@ -31,18 +31,18 @@ var canonnEd3d_bm = {
 
 	formatBM: function (data) {
 
-		//Here you format BM JSON to ED3D acceptable object
+		var data = data.bmsites;
 
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+			if (data[i].system && data[i].system.systemName.replace(" ", "").length > 1) {
 				var bmSite = {};
-				bmSite["name"] = data[i].system;
+				bmSite["name"] = data[i].system.systemName;
 				bmSite["cat"] = [200];
 				bmSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
+					"x": parseFloat(data[i].system.edsmCoordX),
+					"y": parseFloat(data[i].system.edsmCoordY),
+					"z": parseFloat(data[i].system.edsmCoordZ)
 				};
 
 				// We can then push the site to the object that stores all systems
@@ -50,7 +50,6 @@ var canonnEd3d_bm = {
 			}
 
 		}
-
 	},
 
 	formatPOI: function (data) {
@@ -84,36 +83,74 @@ var canonnEd3d_bm = {
 
 	},
 
-	parseData: function (url, callBack, resolvePromise) {
-		Papa.parse(url, {
-			download: true,
-			header: true,
-			complete: function (results) {
+	parseData: function (url, query, callBack) {
 
-				callBack(results.data);
+		return fetch(url, {
+		  method: 'POST',
+		  headers: {
+		    'Content-Type': 'application/json',
+		    'Accept': 'application/json',
+		  },
+		  body: query
+		}).then(res => res.json()).then(res => callBack(res.data));
+    },
 
-				// after we called the callback
-				// (which is synchronous, so we know it's safe here)
-				// we can resolve the promise
+    parseCSVData: function (url, callBack, resolvePromise) {
+        Papa.parse(url, {
+            download: true,
+            header: true,
+            complete: function (results) {
 
-				resolvePromise();
-			}
-		});
-	},
+                callBack(results.data);
+
+                // after we called the callback
+                // (which is synchronous, so we know it's safe here)
+                // we can resolve the promise
+
+                resolvePromise();
+            }
+        });
+    },
 
 	init: function () {
 
+		var bmQuery = `query {
+			  bmsites (limit:1000) {
+			    system {
+			      systemName
+			      edsmCoordX
+			      edsmCoordY
+			      edsmCoordZ
+			    }
+			    type {
+			      type
+			    }
+			  }
+			}`;
+
+		var poiQuery = `query {
+			  bmsites (limit:1000) {
+			    system {
+			      systemName
+			      edsmCoordX
+			      edsmCoordY
+			      edsmCoordZ
+			    }
+			    type {
+			      type
+			    }
+			  }
+			}`;
+
 		//BM Sites
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_bm.parseData("data/csvCache/bmDataCache.csv", canonnEd3d_bm.formatBM, resolve);
-		});
+		var p1 = canonnEd3d_bm.parseData("https://api.canonn.tech:2083/graphql", JSON.stringify({query: bmQuery}), canonnEd3d_bm.formatBM);
 
 		//POI & Gnosis
 		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_bm.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_bm.formatPOI, resolve);
+            canonnEd3d_bm.parseCSVData("data/csvCache/poiDataCache.csv", canonnEd3d_bm.formatPOI, resolve);
 		});
 
-		Promise.all([p1, p2]).then(function () {
+		Promise.all([p1 , p2]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_bm.systemsData,
