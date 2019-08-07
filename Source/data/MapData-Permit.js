@@ -1,4 +1,4 @@
-var canonnEd3d_bm = {
+var canonnEd3d_permit = {
 
 	//Define Categories
 	systemsData: {
@@ -65,24 +65,24 @@ var canonnEd3d_bm = {
 		"systems": []
 	},
 
-	formatBM: function (data) {
+	formatPermit: function (data) {
 
-		var data = data.bmsites;
+		var data = data.permitsites;
 
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].system && data[i].system.systemName.replace(" ", "").length > 1) {
-				var bmSite = {};
-				bmSite["name"] = data[i].system.systemName;
-				bmSite["cat"] = [200];
-				bmSite["coords"] = {
+				var permitSite = {};
+				permitSite["name"] = data[i].system.systemName;
+				permitSite["cat"] = [200];
+				permitSite["coords"] = {
 					"x": parseFloat(data[i].system.edsmCoordX),
 					"y": parseFloat(data[i].system.edsmCoordY),
 					"z": parseFloat(data[i].system.edsmCoordZ)
 				};
 
 				// We can then push the site to the object that stores all systems
-				canonnEd3d_bm.systemsData.systems.push(bmSite);
+				canonnEd3d_permit.systemsData.systems.push(permitSite);
 			}
 
 		}
@@ -124,7 +124,7 @@ var canonnEd3d_bm = {
 				};
 
 				// We can then push the site to the object that stores all systems
-				canonnEd3d_bm.systemsData.systems.push(poiSite);
+				canonnEd3d_permit.systemsData.systems.push(poiSite);
 			}
 
 		}
@@ -156,7 +156,7 @@ var canonnEd3d_bm = {
 				};
 
 				// We can then push the site to the object that stores all systems
-				canonnEd3d_bm.systemsData.systems.push(poiSite);
+				canonnEd3d_permit.systemsData.systems.push(poiSite);
 			}
 
 		}
@@ -194,50 +194,19 @@ var canonnEd3d_bm = {
 
 	init: function () {
 
-		var bmQuery = `query {
-			  bmsites (limit:1000) {
-			    system {
-			      systemName
-			      edsmCoordX
-			      edsmCoordY
-			      edsmCoordZ
-			    }
-			    type {
-			      type
-			    }
-			  }
-			}`;
-
-		var poiQuery = `query {
-			  bmsites (limit:1000) {
-			    system {
-			      systemName
-			      edsmCoordX
-			      edsmCoordY
-			      edsmCoordZ
-			    }
-			    type {
-			      type
-			    }
-			  }
-			}`;
-
-		//BM Sites
-		//var p1 = canonnEd3d_bm.parseData("https://api.canonn.tech:2083/graphql", JSON.stringify({query: bmQuery}), canonnEd3d_bm.formatBM);
-
 		//POI & Gnosis
 		var p2 = new Promise(function (resolve, reject) {
-            canonnEd3d_bm.parseCSVData("data/csvCache/poiDataCache.csv", canonnEd3d_bm.formatPOI, resolve);
+            canonnEd3d_permit.parseCSVData("data/csvCache/poiDataCache.csv", canonnEd3d_permit.formatPOI, resolve);
 		});
         
         var p1 = new Promise(function (resolve, reject) {
-            canonnEd3d_bm.parseCSVData("data/csvCache/col70.csv", canonnEd3d_bm.formatCol, resolve);
+            canonnEd3d_permit.parseCSVData("data/csvCache/col70.csv", canonnEd3d_permit.formatCol, resolve);
 		});
 
 		Promise.all([p1 , p2]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
-				json: canonnEd3d_bm.systemsData,
+				json: canonnEd3d_permit.systemsData,
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
