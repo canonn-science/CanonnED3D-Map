@@ -10,7 +10,7 @@ const capi = axios.create({
 });
 
 let sites = {
-	bmsites: [],
+	apsites: [],
 };
 
 const go = async types => {
@@ -72,14 +72,14 @@ const reqSites = async (API_START, type) => {
 	return payload;
 };
 
-var canonnEd3d_bm = {
+var canonnEd3d_ap = {
 	//Define Categories
 	systemsData: {
 		categories: {
-			'Bark Mounds - (BM)': {
+			'Amphora Plants - (AP)': {
 				'200': {
-					name: 'Bark Mound',
-					color: 'cdab7e',
+					name: 'Amphora Plant',
+					color: 'DC143C',
 				},
 			},
 			'Unknown Type': {
@@ -105,7 +105,7 @@ var canonnEd3d_bm = {
 					poiSite['name'] = siteData[d].system.systemName;
 
 					//Check Site Type and match categories
-					if (siteData[d].type.type == 'Bark Mound') {
+					if (siteData[d].type.type == 'Amphora Plant') {
 						poiSite['cat'] = [200];
 					} else {
 						poiSite['cat'] = [2000];
@@ -117,7 +117,7 @@ var canonnEd3d_bm = {
 					};
 
 					// We can then push the site to the object that stores all systems
-					canonnEd3d_bm.systemsData.systems.push(poiSite);
+					canonnEd3d_ap.systemsData.systems.push(poiSite);
 				}
 			}
 		}
@@ -127,13 +127,13 @@ var canonnEd3d_bm = {
 	init: function() {
 		//Sites Data
 		var p1 = new Promise(function(resolve, reject) {
-			canonnEd3d_bm.formatSites(sites, resolve);
+			canonnEd3d_ap.formatSites(sites, resolve);
 		});
 
 		Promise.all([p1]).then(function() {
 			Ed3d.init({
 				container: 'edmap',
-				json: canonnEd3d_bm.systemsData,
+				json: canonnEd3d_ap.systemsData,
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,

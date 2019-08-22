@@ -1,90 +1,92 @@
+const API_ENDPOINT = `https://api.canonn.tech:2053`;
+const API_LIMIT = 1000;
+
+const capi = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		Accept: 'application/json',
+	},
+});
+
+let sites = {
+	apsites: [],
+	bmsites: [],
+	btsites: [],
+	fgsites: [],
+	tbsites: [],
+	twsites: [],
+};
+
+const go = async types => {
+	let typeKeys = Object.keys(types);
+	// loop through types to get all the data
+	for (i = 0; i < typeKeys.length; i++) {
+		sites[typeKeys[i]] = await getSites(typeKeys[i]);
+	}
+
+	return sites;
+};
+
+const getSites = async type => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSites(API_START, type);
+		let responseKeys = Object.keys(response.data.data);
+		await records.push.apply(records, response.data.data[responseKeys[0]]);
+		API_START += API_LIMIT;
+		if (response.data.data[responseKeys[0]].length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSites = async (API_START, type) => {
+	let typeQuery = type;
+	let where = {};
+	let query = `query ($limit:Int, $start:Int, $where:JSON){ 
+    ${typeQuery} (limit: $limit, start: $start, where: $where){ 
+      system{ 
+        systemName
+        edsmCoordX
+        edsmCoordY
+        edsmCoordZ
+      } 
+      siteID
+      type {
+        type
+      }
+    }
+  }`;
+
+	let payload = await capi({
+		url: '/graphql',
+		method: 'post',
+		data: {
+			query,
+			variables: {
+				start: API_START,
+				limit: API_LIMIT,
+				where,
+			},
+		},
+	});
+
+	return payload;
+};
+
 var canonnEd3d_cartographics = {
 
 	//Define Categories
 	systemsData: {
 		"categories": {
-			"POI Systems": {
-				"100": {
-					"name": "Systems",
-					"color": "F56D54"
-				},
-				"102": {
-					"name": "Other",
-					"color": "F79F8F"
-				}
-			},
-			"The Gnosis": {
-				"101": {
-					"name": "Current System",
-					"color": "FF9D00"
-				}
-			},
 			"Generation Ships - (GEN)": {
 				"600": {
 					"name": "Generation Ship",
 					"color": "cc00cc"
-				}
-			},
-			"Megaships - (MS)": {
-				"1100": {
-					"name": "Megaship",
-					"color": "5d9a76"
-				}
-			},
-			"Orbital Installations (OI)": {
-				"1001": {
-					"name": "Orbital Installation",
-					"color": "ff764d"
-				},
-			},
-			"Unidentified Signal Source - (USS)": {
-				"1400": {
-					"name": "Non-Human Signal Source",
-					"color": "442299"
-				},
-				"1401": {
-					"name": "Distress Call",
-					"color": "4444dd"
-				},
-				"1402": {
-					"name": "Degraded Emissions",
-					"color": "11aabb"
-				},
-				"1403": {
-					"name": "Weapons Fire",
-					"color": "22ccaa"
-				},
-				"1404": {
-					"name": "Encoded Emissions",
-					"color": "a6cc33"
-				},
-				"1405": {
-					"name": "Combat Aftermath",
-					"color": "69d025"
-				},
-				"1406": {
-					"name": "Mission Target",
-					"color": "aacc22"
-				},
-				"1407": {
-					"name": "High Grade Emissions",
-					"color": "d0c310"
-				},
-				"1408": {
-					"name": "Convoy Dispersal Pattern",
-					"color": "ccbb33"
-				},
-				"1409": {
-					"name": "Ceremonial Comms",
-					"color": "ff9933"
-				},
-				"1410": {
-					"name": "Trading Beacon",
-					"color": "ff6644"
-				},
-				"1411": {
-					"name": "Unknown",
-					"color": "f80c12"
 				}
 			}
 		},
