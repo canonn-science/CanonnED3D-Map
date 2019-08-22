@@ -1,119 +1,136 @@
-var canonnEd3d_tw = {
+const API_ENDPOINT = `https://api.canonn.tech:2053`;
+const API_LIMIT = 750;
 
+const capi = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		Accept: 'application/json',
+	},
+});
+
+let sites = {
+	twsites: [],
+};
+
+const go = async types => {
+	let typeKeys = Object.keys(types);
+	// loop through types to get all the data
+	for (i = 0; i < typeKeys.length; i++) {
+		sites[typeKeys[i]] = await getSites(typeKeys[i]);
+	}
+
+	return sites;
+};
+
+const getSites = async type => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSites(API_START, type);
+		let responseKeys = Object.keys(response.data.data);
+		await records.push.apply(records, response.data.data[responseKeys[0]]);
+		API_START += API_LIMIT;
+		if (response.data.data[responseKeys[0]].length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSites = async (API_START, type) => {
+	let typeQuery = type;
+	let where = {};
+	let query = `query ($limit:Int, $start:Int, $where:JSON){ 
+    ${typeQuery} (limit: $limit, start: $start, where: $where){ 
+      system{ 
+        systemName
+        edsmCoordX
+        edsmCoordY
+        edsmCoordZ
+      } 
+      type {
+        type
+      }
+    }
+  }`;
+
+	let payload = await capi({
+		url: '/graphql',
+		method: 'post',
+		data: {
+			query,
+			variables: {
+				start: API_START,
+				limit: API_LIMIT,
+				where,
+			},
+		},
+	});
+
+	return payload;
+};
+
+var canonnEd3d_tw = {
 	//Define Categories
 	systemsData: {
-		"categories": {
-			"POI Systems": {
-				"100": {
-					"name": "Systems",
-					"color": "F56D54"
+		categories: {
+			'Tube Worms - (TW)': {
+				'201': {
+					name: 'Roseum Sinuous Tubers',
+					color: 'ff66cc',
+				}
+			},
+			'Unknown Type': {
+				'2000': {
+					name: 'Unknown Site',
+					color: 'DC143C',
 				},
-				"102": {
-					"name": "Other",
-					"color": "F79F8F"
-				}
 			},
-			"The Gnosis": {
-				"101": {
-					"name": "Current System",
-					"color": "FF9D00"
-				}
-			},
-			"Possible Tube Worm Locations": {
-				"500": {
-					"name": "Possible Tube Worm",
-					"color": "ffc266"
-				}
-			}
 		},
-		"systems": []
+		systems: [],
 	},
 
-	formatTW: function (data) {
+	formatSites: async function(data, resolvePromise) {
+		await go(data);
 
-		//Here you format TW JSON to ED3D acceptable object
+		let siteTypes = Object.keys(data);
 
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var twSite = {};
-				twSite["name"] = data[i].system;
-				twSite["cat"] = [500];
-				twSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
+		for (var i = 0; i < siteTypes.length; i++) {
+			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
+				let siteData = sites[siteTypes[i]];
+				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
+					var poiSite = {};
+					poiSite['name'] = siteData[d].system.systemName;
 
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_tw.systemsData.systems.push(twSite);
-			}
+					//Check Site Type and match categories
+					if (siteData[d].type.type == 'Roseum Sinuous Tubers') {
+						poiSite['cat'] = [201];
+					} else {
+						poiSite['cat'] = [2000];
+					}
+					poiSite['coords'] = {
+						x: parseFloat(siteData[d].system.edsmCoordX),
+						y: parseFloat(siteData[d].system.edsmCoordY),
+						z: parseFloat(siteData[d].system.edsmCoordZ),
+					};
 
-		}
-
-	},
-
-	formatPOI: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var poiSite = {};
-				poiSite["name"] = data[i].system;
-
-				//Check Site Type and match categories
-				if (data[i].type.toString() == "gnosis") {
-					poiSite["cat"] = [101];
-				} else if (data[i].type.toString() == "POI") {
-					poiSite["cat"] = [100];
-				} else {
-					poiSite["cat"] = [102];
+					// We can then push the site to the object that stores all systems
+					canonnEd3d_tw.systemsData.systems.push(poiSite);
 				}
-				poiSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_tw.systemsData.systems.push(poiSite);
 			}
-
 		}
-
+		resolvePromise();
 	},
 
-	parseData: function (url, callBack, resolvePromise) {
-		Papa.parse(url, {
-			download: true,
-			header: true,
-			complete: function (results) {
-
-				callBack(results.data);
-
-				// after we called the callback
-				// (which is synchronous, so we know it's safe here)
-				// we can resolve the promise
-
-				resolvePromise();
-			}
-		});
-	},
-
-	init: function () {
-
-		//FM Sites
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_tw.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vTgopadbnAXaN2hOSut9bHTW7KixDHR3qzt1RtMrqPlUodimCg1HMs9WmdQ35ZXvLeSpu2azvC__IzB/pub?gid=926585382&single=true&output=csv", canonnEd3d_tw.formatTW, resolve);
+	init: function() {
+		//Sites Data
+		var p1 = new Promise(function(resolve, reject) {
+			canonnEd3d_tw.formatSites(sites, resolve);
 		});
 
-		//POI & Gnosis
-		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_tw.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_tw.formatPOI, resolve);
-		});
-
-		Promise.all([p1, p2]).then(function () {
+		Promise.all([p1]).then(function() {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_tw.systemsData,
@@ -124,8 +141,8 @@ var canonnEd3d_tw = {
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00'
+				systemColor: '#FF9D00',
 			});
 		});
-	}
+	},
 };

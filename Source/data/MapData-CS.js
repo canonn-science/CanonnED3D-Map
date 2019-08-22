@@ -5,12 +5,12 @@ const capi = axios.create({
 	baseURL: API_ENDPOINT,
 	headers: {
 		'Content-Type': 'application/json',
-		Accept: 'application/json',
+		'Accept': 'application/json',
 	},
 });
 
 let sites = {
-	tbsites: [],
+	cssites: [],
 };
 
 const go = async types => {
@@ -50,7 +50,7 @@ const reqSites = async (API_START, type) => {
         edsmCoordY
         edsmCoordZ
       } 
-      subtype {
+      type {
         type
       }
     }
@@ -72,37 +72,13 @@ const reqSites = async (API_START, type) => {
 	return payload;
 };
 
-var canonnEd3d_tb = {
+var canonnEd3d_cs = {
 	//Define Categories
 	systemsData: {
 		categories: {
-			'Thargoid Barnacles - (TB)': {
+			'Crystalline Shards - (CS)': {
 				'201': {
-					name: 'Mega',
-					color: 'ff66cc',
-				},
-				'202': {
-					name: 'Alpha',
-					color: 'ff66cc',
-				},
-				'203': {
-					name: 'Beta',
-					color: 'ff66cc',
-				},
-				'204': {
-					name: 'Gamma',
-					color: 'ff66cc',
-				},
-				'205': {
-					name: 'Delta',
-					color: 'ff66cc',
-				},
-				'206': {
-					name: 'Epsilon',
-					color: 'ff66cc',
-				},
-				'207': {
-					name: 'Zeta',
+					name: 'Crystalline Shards',
 					color: 'ff66cc',
 				}
 			},
@@ -129,20 +105,8 @@ var canonnEd3d_tb = {
 					poiSite['name'] = siteData[d].system.systemName;
 
 					//Check Site Type and match categories
-					if (siteData[d].subtype.type == 'Mega') {
+					if (siteData[d].type.type == 'Crystalline Shards') {
 						poiSite['cat'] = [201];
-					} else if (siteData[d].subtype.type == 'Alpha') {
-						poiSite['cat'] = [202];
-					} else if (siteData[d].subtype.type == 'Beta') {
-						poiSite['cat'] = [203];
-					} else if (siteData[d].subtype.type == 'Gamma') {
-						poiSite['cat'] = [204];
-					} else if (siteData[d].subtype.type == 'Delta') {
-						poiSite['cat'] = [205];
-					} else if (siteData[d].subtype.type == 'Epsilon') {
-						poiSite['cat'] = [206];
-					} else if (siteData[d].subtype.type == 'Zeta') {
-						poiSite['cat'] = [207];
 					} else {
 						poiSite['cat'] = [2000];
 					}
@@ -153,7 +117,7 @@ var canonnEd3d_tb = {
 					};
 
 					// We can then push the site to the object that stores all systems
-					canonnEd3d_tb.systemsData.systems.push(poiSite);
+					canonnEd3d_cs.systemsData.systems.push(poiSite);
 				}
 			}
 		}
@@ -163,13 +127,13 @@ var canonnEd3d_tb = {
 	init: function() {
 		//Sites Data
 		var p1 = new Promise(function(resolve, reject) {
-			canonnEd3d_tb.formatSites(sites, resolve);
+			canonnEd3d_cs.formatSites(sites, resolve);
 		});
 
 		Promise.all([p1]).then(function() {
 			Ed3d.init({
 				container: 'edmap',
-				json: canonnEd3d_tb.systemsData,
+				json: canonnEd3d_cs.systemsData,
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
