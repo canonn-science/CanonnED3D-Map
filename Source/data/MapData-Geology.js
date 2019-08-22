@@ -87,7 +87,7 @@ var canonnEd3d_geology = {
 				},
 				'202': {
 					name: 'Unknown CS',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Fumaroles - (FM)': {
@@ -133,7 +133,7 @@ var canonnEd3d_geology = {
 				},
 				'311': {
 					name: 'Unknown FM',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Gas Vents - (GV)': {
@@ -155,7 +155,7 @@ var canonnEd3d_geology = {
 				},
 				'405': {
 					name: 'Unknown GV',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Geysers - (GY)': {
@@ -185,7 +185,7 @@ var canonnEd3d_geology = {
 				},
 				'507': {
 					name: 'Unknown GY',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Lava Spouts - (LS)': {
@@ -199,13 +199,13 @@ var canonnEd3d_geology = {
 				},
 				'603': {
 					name: 'Unknown LS',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Unknown Type': {
 				'2000': {
 					name: 'Unknown Site',
-					color: 'DC143C',
+					color: '800000',
 				},
 			},
 		},

@@ -79,13 +79,13 @@ var canonnEd3d_ap = {
 			'Amphora Plants - (AP)': {
 				'200': {
 					name: 'Amphora Plant',
-					color: 'DC143C',
+					color: '800000',
 				},
 			},
 			'Unknown Type': {
 				'2000': {
 					name: 'Unknown Site',
-					color: 'DC143C',
+					color: '800000',
 				},
 			},
 		},

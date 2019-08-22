@@ -113,7 +113,7 @@ var canonnEd3d_bt = {
 			'Unknown Type': {
 				'2000': {
 					name: 'Unknown Site',
-					color: 'DC143C',
+					color: '800000',
 				},
 			},
 		},

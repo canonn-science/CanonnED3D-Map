@@ -88,7 +88,7 @@ var canonnEd3d_biology = {
 				},
 				'202': {
 					name: 'Unknown AP',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Bark Mounds - (BM)': {
@@ -98,7 +98,7 @@ var canonnEd3d_biology = {
 				},
 				'302': {
 					name: 'Unknown BM',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Brain Trees - (BT)': {
@@ -136,7 +136,7 @@ var canonnEd3d_biology = {
 				},
 				'409': {
 					name: 'Unknown BT',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Fungal Gourds - (FG)': {
@@ -174,7 +174,7 @@ var canonnEd3d_biology = {
 				},
 				'509': {
 					name: 'Unknown FG',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Thargoid Barnacles - (TB)': {
@@ -188,7 +188,7 @@ var canonnEd3d_biology = {
 				},
 				'603': {
 					name: 'Unknown TB',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Tube Worms - (TW)': {
@@ -198,13 +198,13 @@ var canonnEd3d_biology = {
 				},
 				'702': {
 					name: 'Unknown TW',
-					color: 'DC143C',
+					color: '800000',
 				}
 			},
 			'Unknown Type': {
 				'2000': {
 					name: 'Unknown Site',
-					color: 'DC143C',
+					color: '800000',
 				}
 			}
 		},
