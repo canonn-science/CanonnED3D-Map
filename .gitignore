@@ -17,3 +17,5 @@ Source/us/
 Source/us2/
 
 *.sln
+
+Web.config
