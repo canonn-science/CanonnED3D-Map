@@ -53,7 +53,10 @@ const reqSites = async (API_START, type) => {
         edsmCoordX
         edsmCoordY
         edsmCoordZ
-      }
+			}
+			type {
+				type
+			}
     }
   }`;
 
@@ -78,34 +81,126 @@ var canonnEd3d_geology = {
 	systemsData: {
 		categories: {
 			'Crystalline Shards - (CS)': {
-				'200': {
+				'201': {
 					name: 'Crystalline Shards',
 					color: '3a185d',
 				},
+				'202': {
+					name: 'Unknown CS',
+					color: 'DC143C',
+				}
 			},
 			'Fumaroles - (FM)': {
-				'300': {
-					name: 'Fumarole',
-					color: '3a185d',
+				'301': {
+					name: 'Sulphur Dioxide Fumarole',
+					color: 'ff66cc',
 				},
+				'302': {
+					name: 'Water Fumarole',
+					color: 'ff66cc',
+				},
+				'303': {
+					name: 'Silicate Vapour Fumarole',
+					color: 'ff66cc',
+				},
+				'304': {
+					name: 'Sulphur Dioxide Ice Fumarole',
+					color: 'ff66cc',
+				},
+				'305': {
+					name: 'Water Ice Fumarole',
+					color: 'ff66cc',
+				},
+				'306': {
+					name: 'Carbon Dioxide Ice Fumarole',
+					color: 'ff66cc',
+				},
+				'307': {
+					name: 'Ammonia Ice Fumarole',
+					color: 'ff66cc',
+				},
+				'308': {
+					name: 'Methane Ice Fumarole',
+					color: 'ff66cc',
+				},
+				'309': {
+					name: 'Nitrogen Ice Fumarole',
+					color: 'ff66cc',
+				},
+				'310': {
+					name: 'Silicate Vapour Ice Fumarole',
+					color: 'ff66cc',
+				},
+				'311': {
+					name: 'Unknown FM',
+					color: 'DC143C',
+				}
 			},
 			'Gas Vents - (GV)': {
-				'400': {
-					name: 'Gas Vent',
-					color: 'e32bc8',
+				'401': {
+					name: 'Sulphur Dioxide Gas Vent',
+					color: 'ff66cc',
 				},
+				'402': {
+					name: 'Water Gas Vent',
+					color: 'ff66cc',
+				},
+				'403': {
+					name: 'Carbon Dioxide Gas Vent',
+					color: 'ff66cc',
+				},
+				'404': {
+					name: 'Silicate Vapour Gas Vent',
+					color: 'ff66cc',
+				},
+				'405': {
+					name: 'Unknown GV',
+					color: 'DC143C',
+				}
 			},
 			'Geysers - (GY)': {
-				'500': {
-					name: 'Geyser',
-					color: '076a48',
+				'501': {
+					name: 'Water Geyser',
+					color: 'ff66cc',
 				},
+				'502': {
+					name: 'Water Ice Geyser',
+					color: 'ff66cc',
+				},
+				'503': {
+					name: 'Carbon Dioxide Ice Geyser',
+					color: 'ff66cc',
+				},
+				'504': {
+					name: 'Ammonia Ice Geyser',
+					color: 'ff66cc',
+				},
+				'505': {
+					name: 'Methane Ice Geyser',
+					color: 'ff66cc',
+				},
+				'506': {
+					name: 'Nitrogen Ice Geyser',
+					color: 'ff66cc',
+				},
+				'507': {
+					name: 'Unknown GY',
+					color: 'DC143C',
+				}
 			},
 			'Lava Spouts - (LS)': {
-				'600': {
-					name: 'Lava Spout',
-					color: 'f86f30',
+				'601': {
+					name: 'Silicate Magma Lava Spout',
+					color: 'ff66cc',
 				},
+				'602': {
+					name: 'Iron Magma Lava Spout',
+					color: 'ff66cc',
+				},
+				'603': {
+					name: 'Unknown LS',
+					color: 'DC143C',
+				}
 			},
 			'Unknown Type': {
 				'2000': {
@@ -130,16 +225,62 @@ var canonnEd3d_geology = {
 					poiSite['name'] = siteData[d].system.systemName;
 
 					//Check Site Type and match categories
-					if (siteTypes[i].toString() == 'cssites') {
-						poiSite['cat'] = [200];
-					} else if (siteTypes[i].toString() == 'fmsites') {
-						poiSite['cat'] = [300];
-					} else if (siteTypes[i].toString() == 'gvsites') {
-						poiSite['cat'] = [400];
-					} else if (siteTypes[i].toString() == 'gysites') {
-						poiSite['cat'] = [500];
-					} else if (siteTypes[i].toString() == 'lssites') {
-						poiSite['cat'] = [600];
+					if (siteTypes[i] == 'cssites' && siteData[d].type.type == 'Crystalline Shards') {
+						poiSite['cat'] = [201];
+					} else if (siteTypes[i] == 'cssites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [202];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Sulphur Dioxide Fumarole') {
+						poiSite['cat'] = [301];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Water Fumarole') {
+						poiSite['cat'] = [302];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Silicate Vapour Fumarole') {
+						poiSite['cat'] = [303];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Sulphur Dioxide Ice Fumarole') {
+						poiSite['cat'] = [304];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Water Ice Fumarole') {
+						poiSite['cat'] = [305];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Carbon Dioxide Ice Fumarole') {
+						poiSite['cat'] = [306];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Ammonia Ice Fumarole') {
+						poiSite['cat'] = [307];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Methane Ice Fumarole') {
+						poiSite['cat'] = [308];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Nitrogen Ice Fumarole') {
+						poiSite['cat'] = [309];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Silicate Vapour Ice Fumarole') {
+						poiSite['cat'] = [310];
+					} else if (siteTypes[i] == 'fmsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [311];
+					} else if (siteTypes[i] == 'gvsites' && siteData[d].type.type == 'Sulphur Dioxide Gas Vent') {
+						poiSite['cat'] = [401];
+					} else if (siteTypes[i] == 'gvsites' && siteData[d].type.type == 'Water Gas Vent') {
+						poiSite['cat'] = [402];
+					} else if (siteTypes[i] == 'gvsites' && siteData[d].type.type == 'Carbon Dioxide Gas Vent') {
+						poiSite['cat'] = [403];
+					} else if (siteTypes[i] == 'gvsites' && siteData[d].type.type == 'Silicate Vapour Gas Vent') {
+						poiSite['cat'] = [404];
+					} else if (siteTypes[i] == 'gvsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [405];
+					} else if (siteTypes[i] == 'gysites' && siteData[d].type.type == 'Water Geyser') {
+						poiSite['cat'] = [501];
+					} else if (siteTypes[i] == 'gysites' && siteData[d].type.type == 'Water Ice Geyser') {
+						poiSite['cat'] = [502];
+					} else if (siteTypes[i] == 'gysites' && siteData[d].type.type == 'Carbon Dioxide Ice Geyser') {
+						poiSite['cat'] = [503];
+					} else if (siteTypes[i] == 'gysites' && siteData[d].type.type == 'Ammonia Ice Geyser') {
+						poiSite['cat'] = [504];
+					} else if (siteTypes[i] == 'gysites' && siteData[d].type.type == 'Methane Ice Geyser') {
+						poiSite['cat'] = [505];
+					} else if (siteTypes[i] == 'gysites' && siteData[d].type.type == 'Nitrogen Ice Geyser') {
+						poiSite['cat'] = [506];
+					} else if (siteTypes[i] == 'gysites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [507];
+					} else if (siteTypes[i] == 'lssites' && siteData[d].type.type == 'Silicate Magma Lava Spout') {
+						poiSite['cat'] = [601];
+					} else if (siteTypes[i] == 'lssites' && siteData[d].type.type == 'Iron Magma Lava Spout') {
+						poiSite['cat'] = [602];
+					} else if (siteTypes[i] == 'lssites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [603];
 					} else {
 						poiSite['cat'] = [2000];
 					}
