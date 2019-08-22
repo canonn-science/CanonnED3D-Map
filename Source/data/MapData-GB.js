@@ -1,119 +1,136 @@
+const API_ENDPOINT = `https://api.canonn.tech:2053`;
+const API_LIMIT = 750;
+
+const capi = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json',
+	},
+});
+
+let sites = {
+	gbsites: [],
+};
+
+const go = async types => {
+	let typeKeys = Object.keys(types);
+	// loop through types to get all the data
+	for (i = 0; i < typeKeys.length; i++) {
+		sites[typeKeys[i]] = await getSites(typeKeys[i]);
+	}
+
+	return sites;
+};
+
+const getSites = async type => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSites(API_START, type);
+		let responseKeys = Object.keys(response.data.data);
+		await records.push.apply(records, response.data.data[responseKeys[0]]);
+		API_START += API_LIMIT;
+		if (response.data.data[responseKeys[0]].length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSites = async (API_START, type) => {
+	let typeQuery = type;
+	let where = {};
+	let query = `query ($limit:Int, $start:Int, $where:JSON){ 
+    ${typeQuery} (limit: $limit, start: $start, where: $where){ 
+      system{ 
+        systemName
+        edsmCoordX
+        edsmCoordY
+        edsmCoordZ
+			}
+    }
+	}`;
+
+	let payload = await capi({
+		url: '/graphql',
+		method: 'post',
+		data: {
+			query,
+			variables: {
+				start: API_START,
+				limit: API_LIMIT,
+				where,
+			},
+		},
+	});
+
+	return payload;
+};
+
 var canonnEd3d_gb = {
 
 	//Define Categories
 	systemsData: {
-		"categories": {
-			"POI Systems": {
-				"100": {
-					"name": "Systems",
-					"color": "F56D54"
-				},
-				"102": {
-					"name": "Other",
-					"color": "F79F8F"
-				}
-			},
-			"The Gnosis": {
-				"101": {
-					"name": "Current System",
-					"color": "FF9D00"
-				}
-			},
+		categories: {
 			"Guardian Beacons - (GB)": {
-				"715": {
-					"name": "Beacon",
-					"color": "58FA82"
+				"201": {
+					name: "Beacon",
+					color: "58FA82"
+				}
+			},
+			'Unknown Type': {
+				'2000': {
+					name: 'Unknown Site',
+					color: '800000',
 				}
 			}
 		},
-		"systems": []
+		systems: []
 	},
 
 	// Lets get data from CSV Files
 
-	formatGB: function (data) {
-		//Here you format GB JSON to ED3D acceptable object
+	formatSites: async function(data, resolvePromise) {
+		await go(data);
 
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var gbSite = {};
-				gbSite["name"] = data[i].system;
-				gbSite["cat"] = [715];
-				gbSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
+		let siteTypes = Object.keys(data);
 
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_gb.systemsData.systems.push(gbSite);
-			}
+		for (var i = 0; i < siteTypes.length; i++) {
+			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
+				let siteData = sites[siteTypes[i]];
+				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
+					var poiSite = {};
+					poiSite['name'] = siteData[d].system.systemName;
 
-		}
+					//Check Site Type and match categories
+					if (siteTypes[i] == 'gbsites') {
+						poiSite['cat'] = [201];
+					} else {
+						poiSite['cat'] = [2000];
+					}
+					poiSite['coords'] = {
+						x: parseFloat(siteData[d].system.edsmCoordX),
+						y: parseFloat(siteData[d].system.edsmCoordY),
+						z: parseFloat(siteData[d].system.edsmCoordZ),
+					};
 
-	},
-
-	formatPOI: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var poiSite = {};
-				poiSite["name"] = data[i].system;
-
-				//Check Site Type and match categories
-				if (data[i].type.toString() == "gnosis") {
-					poiSite["cat"] = [101];
-				} else if (data[i].type.toString() == "POI") {
-					poiSite["cat"] = [100];
-				} else {
-					poiSite["cat"] = [102];
+					// We can then push the site to the object that stores all systems
+					canonnEd3d_gb.systemsData.systems.push(poiSite);
 				}
-				poiSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_gb.systemsData.systems.push(poiSite);
 			}
-
 		}
-
-	},
-
-	parseData: function (url, callBack, resolvePromise) {
-		Papa.parse(url, {
-			download: true,
-			header: true,
-			complete: function (results) {
-
-				callBack(results.data);
-
-				// after we called the callback
-				// (which is synchronous, so we know it's safe here)
-				// we can resolve the promise
-
-				resolvePromise();
-			}
-		});
+		resolvePromise();
 	},
 
 	init: function () {
-
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_gb.parseData("data/csvCache/gbDataCache.csv", canonnEd3d_gb.formatGB, resolve);
+		//Sites Data
+		var p1 = new Promise(function(resolve, reject) {
+			canonnEd3d_gb.formatSites(sites, resolve);
 		});
 
-		//POI & Gnosis
-		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_gb.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_gb.formatPOI, resolve);
-		});
-
-		Promise.all([p1, p2]).then(function () {
+		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_gb.systemsData,

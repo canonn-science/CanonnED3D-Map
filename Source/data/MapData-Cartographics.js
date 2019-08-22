@@ -1,5 +1,5 @@
 const API_ENDPOINT = `https://api.canonn.tech:2053`;
-const API_LIMIT = 1000;
+const API_LIMIT = 750;
 
 const capi = axios.create({
 	baseURL: API_ENDPOINT,
@@ -10,12 +10,7 @@ const capi = axios.create({
 });
 
 let sites = {
-	apsites: [],
-	bmsites: [],
-	btsites: [],
-	fgsites: [],
-	tbsites: [],
-	twsites: [],
+	gensites: [],
 };
 
 const go = async types => {
@@ -49,18 +44,15 @@ const reqSites = async (API_START, type) => {
 	let where = {};
 	let query = `query ($limit:Int, $start:Int, $where:JSON){ 
     ${typeQuery} (limit: $limit, start: $start, where: $where){ 
+			shipName
       system{ 
         systemName
         edsmCoordX
         edsmCoordY
         edsmCoordZ
-      } 
-      siteID
-      type {
-        type
-      }
+			}
     }
-  }`;
+	}`;
 
 	let payload = await capi({
 		url: '/graphql',
@@ -82,176 +74,144 @@ var canonnEd3d_cartographics = {
 
 	//Define Categories
 	systemsData: {
-		"categories": {
+		categories: {
 			"Generation Ships - (GEN)": {
-				"600": {
-					"name": "Generation Ship",
-					"color": "cc00cc"
+				"201": {
+					name: "Generation Ship",
+					color: "58FA82"
+				}
+			},
+			'Permit Locked Regions': {
+				'1070': {
+					name: 'Col 70 Sector',
+					color: '442299',
+				},
+				'1097': {
+					name: 'Col 97 Sector',
+					color: '4444dd',
+				},
+				'1121': {
+					name: 'Col 121 Sector',
+					color: '11aabb',
+				},
+				'2000': {
+					name: 'Cone Sector',
+					color: '22ccaa',
+				},
+				'3000': {
+					name: 'Horsehead Dark Sector',
+					color: 'a6cc33',
+				},
+				'4000': {
+					name: 'M41',
+					color: '69d025',
+				},
+				'6647': {
+					name: 'NGC 1647',
+					color: 'aacc22',
+				},
+				'7264': {
+					name: 'NGC 2264',
+					color: 'd0c310',
+				},
+				'7286': {
+					name: 'NGC 2286',
+					color: 'ccbb33',
+				},
+				'8603': {
+					name: 'NGC 3603',
+					color: 'ff9933',
+				}
+			},
+			'Unknown Type': {
+				'2000': {
+					name: 'Unknown Site',
+					color: '800000',
 				}
 			}
 		},
-		"systems": []
+		systems: []
 	},
 
-	formatGEN: function (data) {
+	// Lets get data from CSV Files
 
-		//Here you format GEN JSON to ED3D acceptable object
+	formatSites: async function(data, resolvePromise) {
+		await go(data);
 
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var genSite = {};
-				genSite["name"] = data[i].nameSystem;
-				genSite["cat"] = [600];
-				genSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
+		let siteTypes = Object.keys(data);
 
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_cartographics.systemsData.systems.push(genSite);
-			}
+		for (var i = 0; i < siteTypes.length; i++) {
+			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
+				let siteData = sites[siteTypes[i]];
+				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
+					var poiSite = {};
+					poiSite['name'] = siteData[d].system.systemName + ' - ' + siteData[d].shipName;
 
-		}
+					//Check Site Type and match categories
+					if (siteTypes[i] == 'gensites') {
+						poiSite['cat'] = [201];
+					} else {
+						poiSite['cat'] = [2000];
+					}
+					poiSite['coords'] = {
+						x: parseFloat(siteData[d].system.edsmCoordX),
+						y: parseFloat(siteData[d].system.edsmCoordY),
+						z: parseFloat(siteData[d].system.edsmCoordZ),
+					};
 
-	},
-
-	formatMS: function (data) {
-
-		//Format MS JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var msSite = {};
-				msSite["name"] = data[i].system;
-				msSite["cat"] = [1100];
-				msSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_cartographics.systemsData.systems.push(msSite);
-			}
-
-		}
-
-	},
-
-	formatOI: function (data) {
-
-		//Here you format OI JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var oiSite = {};
-				oiSite["name"] = data[i].system;
-				oiSite["cat"] = [1001];
-				oiSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_cartographics.systemsData.systems.push(oiSite);
-			}
-
-		}
-
-	},
-
-	formatUSS: function (data) {
-
-		//Here you format USS JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var ussSite = {};
-				ussSite["name"] = data[i].system;
-
-				//Check Site Type and match categories
-				if (data[i].type.toString() == "Non-Human Signal Source") {
-					ussSite["cat"] = [1400];
-				} else if (data[i].type.toString() == "Distress Call") {
-					ussSite["cat"] = [1401];
-				} else if (data[i].type.toString() == "Degraded Emissions") {
-					ussSite["cat"] = [1402];
-				} else if (data[i].type.toString() == "Weapons Fire") {
-					ussSite["cat"] = [1403];
-				} else if (data[i].type.toString() == "Encoded Emissions") {
-					ussSite["cat"] = [1404];
-				} else if (data[i].type.toString() == "Combat Aftermath") {
-					ussSite["cat"] = [1405];
-				} else if (data[i].type.toString() == "Mission Target") {
-					ussSite["cat"] = [1406];
-				} else if (data[i].type.toString() == "High Grade Emissions") {
-					ussSite["cat"] = [1407];
-				} else if (data[i].type.toString() == "Convoy Dispersal Pattern") {
-					ussSite["cat"] = [1408];
-				} else if (data[i].type.toString() == "Ceremonial Comms") {
-					ussSite["cat"] = [1409];
-				} else if (data[i].type.toString() == "Trading Beacon") {
-					ussSite["cat"] = [1140];
-				} else {
-					ussSite["cat"] = [1419];
+					// We can then push the site to the object that stores all systems
+					canonnEd3d_cartographics.systemsData.systems.push(poiSite);
 				}
-				ussSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_cartographics.systemsData.systems.push(ussSite);
 			}
-
 		}
-
+		resolvePromise();
 	},
 
-	formatPOI: function (data) {
+	formatCol: function(data) {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
 
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
+			if (data[i].name && data[i].name.replace(' ', '').length > 1) {
 				var poiSite = {};
-				poiSite["name"] = data[i].system;
+				poiSite['name'] = data[i].name;
 
 				//Check Site Type and match categories
-				if (data[i].type.toString() == "gnosis") {
-					poiSite["cat"] = [101];
-				} else if (data[i].type.toString() == "POI") {
-					poiSite["cat"] = [100];
-				} else {
-					poiSite["cat"] = [102];
+
+				var component = data[i].name.split(' ');
+				if (component[0] == 'Col') {
+					poiSite['cat'] = [1000 + parseInt(component[1])];
 				}
-				poiSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
+				if (component[0] == 'Cone') {
+					poiSite['cat'] = [2000];
+				}
+				if (component[0] == 'Horsehead') {
+					poiSite['cat'] = [3000];
+				}
+				if (component[0] == 'M41') {
+					poiSite['cat'] = [4000];
+				}
+				if (component[0] == 'NGC') {
+					poiSite['cat'] = [5000 + parseInt(component[1])];
+				}
+
+				poiSite['coords'] = {
+					x: parseFloat(data[i].pos_x),
+					y: parseFloat(data[i].pos_y),
+					z: parseFloat(data[i].pos_z),
 				};
 
 				// We can then push the site to the object that stores all systems
 				canonnEd3d_cartographics.systemsData.systems.push(poiSite);
 			}
-
 		}
-
 	},
 
-	parseData: function (url, callBack, resolvePromise) {
+	parseCSVData: function(url, callBack, resolvePromise) {
 		Papa.parse(url, {
 			download: true,
 			header: true,
-			complete: function (results) {
-
+			complete: function(results) {
 				callBack(results.data);
 
 				// after we called the callback
@@ -259,38 +219,22 @@ var canonnEd3d_cartographics = {
 				// we can resolve the promise
 
 				resolvePromise();
-			}
+			},
 		});
 	},
 
 	init: function () {
-
-		//GEN Sites
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_cartographics.parseData("data/csvCache/genDataCache.csv", canonnEd3d_cartographics.formatGEN, resolve);
+		//Sites Data
+		var p1 = new Promise(function(resolve, reject) {
+			canonnEd3d_cartographics.formatSites(sites, resolve);
 		});
 
-		//MS Sites
-		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_cartographics.parseData("data/csvCache/msDataCache.csv", canonnEd3d_cartographics.formatMS, resolve);
+		var p2 = new Promise(function(resolve, reject) {
+			canonnEd3d_cartographics.parseCSVData('data/csvCache/col70.csv', canonnEd3d_cartographics.formatCol, resolve);
 		});
 
-		//OI Sites
-		var p3 = new Promise(function (resolve, reject) {
-			canonnEd3d_cartographics.parseData("data/csvCache/oiDataCache.csv", canonnEd3d_cartographics.formatOI, resolve);
-		});
 
-		//USS Sites
-		var p4 = new Promise(function (resolve, reject) {
-			canonnEd3d_cartographics.parseData("data/csvCache/ussDataCache.csv", canonnEd3d_cartographics.formatUSS, resolve);
-		});
-
-		//POI & Gnosis
-		var p5 = new Promise(function (resolve, reject) {
-			canonnEd3d_cartographics.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_cartographics.formatPOI, resolve);
-		});
-
-		Promise.all([p1, p2, p3, p4, p5]).then(function () {
+		Promise.all([p1, p2]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_cartographics.systemsData,

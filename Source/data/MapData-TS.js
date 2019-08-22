@@ -5,12 +5,12 @@ const capi = axios.create({
 	baseURL: API_ENDPOINT,
 	headers: {
 		'Content-Type': 'application/json',
-		'Accept': 'application/json',
+		Accept: 'application/json',
 	},
 });
 
 let sites = {
-	gensites: [],
+	tssites: [],
 };
 
 const go = async types => {
@@ -44,15 +44,17 @@ const reqSites = async (API_START, type) => {
 	let where = {};
 	let query = `query ($limit:Int, $start:Int, $where:JSON){ 
     ${typeQuery} (limit: $limit, start: $start, where: $where){ 
-			shipName
       system{ 
         systemName
         edsmCoordX
         edsmCoordY
         edsmCoordZ
-			}
+      } 
+      status {
+        status
+      }
     }
-	}`;
+  }`;
 
 	let payload = await capi({
 		url: '/graphql',
@@ -70,28 +72,23 @@ const reqSites = async (API_START, type) => {
 	return payload;
 };
 
-var canonnEd3d_gen = {
-
+var canonnEd3d_ts = {
 	//Define Categories
 	systemsData: {
 		categories: {
-			"Generation Ships - (GEN)": {
-				"201": {
-					name: "Generation Ship",
-					color: "58FA82"
-				}
-			},
-			'Unknown Type': {
-				'2000': {
-					name: 'Unknown Site',
+			'Thargoid Structures - (TS)': {
+				'201': {
+					name: 'Active',
+					color: '008000',
+				},
+				'202': {
+					name: 'Inactive',
 					color: '800000',
 				}
 			}
 		},
-		systems: []
+		systems: [],
 	},
-
-	// Lets get data from CSV Files
 
 	formatSites: async function(data, resolvePromise) {
 		await go(data);
@@ -103,13 +100,13 @@ var canonnEd3d_gen = {
 				let siteData = sites[siteTypes[i]];
 				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
 					var poiSite = {};
-					poiSite['name'] = siteData[d].system.systemName + ' - ' + siteData[d].shipName;
+					poiSite['name'] = siteData[d].system.systemName;
 
 					//Check Site Type and match categories
-					if (siteTypes[i] == 'gensites') {
+					if (siteData[d].status.status == 'Active') {
 						poiSite['cat'] = [201];
 					} else {
-						poiSite['cat'] = [2000];
+						poiSite['cat'] = [202];
 					}
 					poiSite['coords'] = {
 						x: parseFloat(siteData[d].system.edsmCoordX),
@@ -118,23 +115,23 @@ var canonnEd3d_gen = {
 					};
 
 					// We can then push the site to the object that stores all systems
-					canonnEd3d_gen.systemsData.systems.push(poiSite);
+					canonnEd3d_ts.systemsData.systems.push(poiSite);
 				}
 			}
 		}
 		resolvePromise();
 	},
 
-	init: function () {
+	init: function() {
 		//Sites Data
 		var p1 = new Promise(function(resolve, reject) {
-			canonnEd3d_gen.formatSites(sites, resolve);
+			canonnEd3d_ts.formatSites(sites, resolve);
 		});
 
-		Promise.all([p1]).then(function () {
+		Promise.all([p1]).then(function() {
 			Ed3d.init({
 				container: 'edmap',
-				json: canonnEd3d_gen.systemsData,
+				json: canonnEd3d_ts.systemsData,
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
@@ -142,8 +139,8 @@ var canonnEd3d_gen = {
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00'
+				systemColor: '#FF9D00',
 			});
 		});
-	}
+	},
 };

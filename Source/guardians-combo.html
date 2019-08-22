@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-
+  
   <!-- Google Analytics -->
   <script>
     window.ga = window.ga || function () {
@@ -25,8 +25,8 @@
 
   <!-- CSS Imports -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href='css/menu.css'>
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="css/menu.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
   <!-- End CSS Imports -->
 
   <!-- Custom CSS -->
@@ -62,154 +62,13 @@
 </head>
 
 <body bgcolor="#000000">
-  <div id="cssmenu">
-    <ul>
-      <li>
-        <a href="index.html">
-          <i class="fa fa-fw fa-home"></i> CanonnED3D</a>
-      </li>
-      <li class="active" class="has-sub">
-        <a href="guardians-combo.html">
-          <i class="fa fa-fw fa-bars"></i> Guardians</a>
-        <ul>
-          <li>
-            <a href="bt-data.html">Brain Trees</a>
-          </li>
-          <li>
-            <a href="gb-data.html">Guardian Beacons</a>
-          </li>
-          <li>
-            <a href="gr-data.html">Guardian Ruins</a>
-          </li>
-          <li class="has-sub">
-            <a href="guardians-combo.html">
-              <i class="fa fa-fw fa-bars"></i>Combo Maps</a>
-            <ul>
-              <li>
-                <a href="guardians-combo.html">Guardian Data Maps</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="has-sub">
-        <a href="thargoids-combo.html">
-          <i class="fa fa-fw fa-bars"></i> Thargoids</a>
-        <ul>
-          <li>
-            <a href="hd-data.html">Hyperdictions</a>
-          </li>
-          <li>
-            <a href="nhss-data.html">Non-Human Signal Sources</a>
-          </li>
-          <li>
-            <a href="tb-data.html">Thargoid Barnacles</a>
-          </li>
-          <li>
-            <a href="oldts/">Thargoid Structures</a>
-          </li>
-          <li>
-            <a href="thargoid-attacks.html">Thargoid Attacks</a>
-          </li>
-          <li class="has-sub">
-            <a href="thargoids-combo.html">
-              <i class="fa fa-fw fa-bars"></i>Combo Maps</a>
-            <ul>
-              <li>
-                <a href="thargoids-combo.html">Thargoid Data Maps</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="has-sub" >
-        <a href="cartographics-combo.html">
-          <i class="fa fa-fw fa-bars"></i> Cartographics</a>
-        <ul>
-          <li>
-            <a href="gen-data.html">Generation Ships</a>
-          </li>
-          <li>
-            <a href="oi-data.html">Orbital Installations</a>
-          </li>
-          <li>
-            <a href="permit-data.html">Permit Locked Regions</a>
-          </li>
-          <li class="has-sub">
-            <a href="cartographics-combo.html">
-              <i class="fa fa-fw fa-bars"></i>Combo Maps</a>
-            <ul>
-              <li>
-                <a href="cartographics-combo.html">Cartographics Data Maps</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="has-sub">
-        <a href="biology-combo.html">
-          <i class="fa fa-fw fa-bars"></i> Biology</a>
-        <ul>
-          <li>
-            <a href="bm-data.html">Bark Mounds</a>
-          </li>
-          <li>
-            <a href="bt-data.html">Brain Trees</a>
-          </li>
-          <li>
-            <a href="fg-data.html">Fungal Gourds</a>
-          </li>
-          <li>
-            <a href="tb-data.html">Thargoid Barnacles</a>
-          </li>
-          <li class="has-sub">
-            <a href="biology-combo.html">
-              <i class="fa fa-fw fa-bars"></i>Combo Maps</a>
-            <ul>
-              <li>
-                <a href="biology-combo.html">Biology Data Maps</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="has-sub">
-        <a href="geology-combo.html">
-          <i class="fa fa-fw fa-bars"></i> Geology</a>
-        <ul>
-          <li>
-            <a href="fm-data.html">Fumaroles</a>
-          </li>
-          <li>
-            <a href="gy-data.html">Geysers</a>
-          </li>
-          <li>
-            <a href="ls-data.html">Lava Spouts</a>
-          </li>
-          <li>
-            <a href="tw-data.html">Tube Worms</a>
-          </li>
-          <li class="has-sub">
-            <a href="geology-combo.html">
-              <i class="fa fa-fw fa-bars"></i>Combo Maps</a>
-            <ul>
-              <li>
-                <a href="geology-combo.html">Geology Data Maps</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://github.com/canonn-science" target="_blank">
-          <i class="fa fa-fw fa-github-square"></i> Canonn Github</a>
-      </li>
-      <li>
-        <a href="https://github.com/canonn-science/CanonnED3D-Map/issues/new">
-          <i class="fa fa-fw fa-bullhorn"></i> Suggest a Map</a>
-      </li>
-    </ul>
-  </div>
+  <script src="http://www.w3schools.com/lib/w3data.js"></script>
+  <div w3-include-html="include/nav.html"></div>
+
+  <script>
+    w3IncludeHTML();
+  </script>
+
   <div id="edmap"></div>
 
   <!-- Launch ED3Dmap -->

@@ -57,7 +57,8 @@ const reqSites = async (API_START, type) => {
 				type
 			}
     }
-  }`;
+	}`;
+
 	let gbquery = `query ($limit:Int, $start:Int, $where:JSON){ 
     ${typeQuery} (limit: $limit, start: $start, where: $where){ 
       system{ 
