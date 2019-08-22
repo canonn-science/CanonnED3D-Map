@@ -1,189 +1,169 @@
-var canonnEd3d_geology = {
+const API_ENDPOINT = `https://api.canonn.tech:2053`;
+const API_LIMIT = 750;
 
+const capi = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json',
+	},
+});
+
+let sites = {
+	cssites: [],
+	fmsites: [],
+	gvsites: [],
+	gysites: [],
+	lssites: [],
+};
+
+const go = async types => {
+	let typeKeys = Object.keys(types);
+	// loop through types to get all the data
+	for (i = 0; i < typeKeys.length; i++) {
+		sites[typeKeys[i]] = await getSites(typeKeys[i]);
+	}
+
+	return sites;
+};
+
+const getSites = async type => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSites(API_START, type);
+		let responseKeys = Object.keys(response.data.data);
+		await records.push.apply(records, response.data.data[responseKeys[0]]);
+		API_START += API_LIMIT;
+		if (response.data.data[responseKeys[0]].length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSites = async (API_START, type) => {
+	let typeQuery = type;
+	let where = {};
+	let query = `query ($limit:Int, $start:Int, $where:JSON){ 
+    ${typeQuery} (limit: $limit, start: $start, where: $where){ 
+      system{ 
+        systemName
+        edsmCoordX
+        edsmCoordY
+        edsmCoordZ
+      }
+    }
+  }`;
+
+	let payload = await capi({
+		url: '/graphql',
+		method: 'post',
+		data: {
+			query,
+			variables: {
+				start: API_START,
+				limit: API_LIMIT,
+				where,
+			},
+		},
+	});
+
+	return payload;
+};
+
+var canonnEd3d_geology = {
 	//Define Categories
 	systemsData: {
-		"categories": {
-			"POI Systems": {
-				"100": {
-					"name": "Systems",
-					"color": "F56D54"
+		categories: {
+			'Crystalline Shards - (CS)': {
+				'200': {
+					name: 'Crystalline Shards',
+					color: '3a185d',
 				},
-				"102": {
-					"name": "Other",
-					"color": "F79F8F"
-				}
 			},
-			"The Gnosis": {
-				"101": {
-					"name": "Current System",
-					"color": "FF9D00"
-				}
+			'Fumaroles - (FM)': {
+				'300': {
+					name: 'Fumarole',
+					color: '3a185d',
+				},
 			},
-			"Fumaroles - (FM)": {
-				"500": {
-					"name": "Fumarole",
-					"color": "ffc266"
-				}
+			'Gas Vents - (GV)': {
+				'400': {
+					name: 'Gas Vent',
+					color: 'e32bc8',
+				},
 			},
-			"Geysers - (GY)": {
-				"800": {
-					"name": "Geyser",
-					"color": "99ccff"
-				}
+			'Geysers - (GY)': {
+				'500': {
+					name: 'Geyser',
+					color: '076a48',
+				},
 			},
-			"Lava Spouts - (LS)": {
-				"1000": {
-					"name": "Lave Spout",
-					"color": "ff4d4d"
-				}
-			}
+			'Lava Spouts - (LS)': {
+				'600': {
+					name: 'Lava Spout',
+					color: 'f86f30',
+				},
+			},
+			'Unknown Type': {
+				'2000': {
+					name: 'Unknown Site',
+					color: 'DC143C',
+				},
+			},
 		},
-		"systems": []
+		systems: [],
 	},
 
-	formatFM: function (data) {
+	formatSites: async function(data, resolvePromise) {
+		await go(data);
 
-		//Here you format FM JSON to ED3D acceptable object
+		let siteTypes = Object.keys(data);
 
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var fmSite = {};
-				fmSite["name"] = data[i].system;
-				fmSite["cat"] = [500];
-				fmSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
+		for (var i = 0; i < siteTypes.length; i++) {
+			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
+				let siteData = sites[siteTypes[i]];
+				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
+					var poiSite = {};
+					poiSite['name'] = siteData[d].system.systemName;
 
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_geology.systemsData.systems.push(fmSite);
-			}
+					//Check Site Type and match categories
+					if (siteTypes[i].toString() == 'cssites') {
+						poiSite['cat'] = [200];
+					} else if (siteTypes[i].toString() == 'fmsites') {
+						poiSite['cat'] = [300];
+					} else if (siteTypes[i].toString() == 'gvsites') {
+						poiSite['cat'] = [400];
+					} else if (siteTypes[i].toString() == 'gysites') {
+						poiSite['cat'] = [500];
+					} else if (siteTypes[i].toString() == 'lssites') {
+						poiSite['cat'] = [600];
+					} else {
+						poiSite['cat'] = [2000];
+					}
+					poiSite['coords'] = {
+						x: parseFloat(siteData[d].system.edsmCoordX),
+						y: parseFloat(siteData[d].system.edsmCoordY),
+						z: parseFloat(siteData[d].system.edsmCoordZ),
+					};
 
-		}
-
-	},
-
-	formatGY: function (data) {
-
-		//Here you format GY JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var gySite = {};
-				gySite["name"] = data[i].system;
-				gySite["cat"] = [800];
-				gySite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_geology.systemsData.systems.push(gySite);
-			}
-
-		}
-
-	},
-
-	formatLS: function (data) {
-
-		//Here you format LS JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var lsSite = {};
-				lsSite["name"] = data[i].system;
-				lsSite["cat"] = [1000];
-				lsSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_geology.systemsData.systems.push(lsSite);
-			}
-
-		}
-
-	},
-
-	formatPOI: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var poiSite = {};
-				poiSite["name"] = data[i].system;
-
-				//Check Site Type and match categories
-				if (data[i].type.toString() == "gnosis") {
-					poiSite["cat"] = [101];
-				} else if (data[i].type.toString() == "POI") {
-					poiSite["cat"] = [100];
-				} else {
-					poiSite["cat"] = [102];
+					// We can then push the site to the object that stores all systems
+					canonnEd3d_geology.systemsData.systems.push(poiSite);
 				}
-				poiSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_geology.systemsData.systems.push(poiSite);
 			}
-
 		}
-
+		resolvePromise();
 	},
 
-	parseData: function (url, callBack, resolvePromise) {
-		Papa.parse(url, {
-			download: true,
-			header: true,
-			complete: function (results) {
-
-				callBack(results.data);
-
-				// after we called the callback
-				// (which is synchronous, so we know it's safe here)
-				// we can resolve the promise
-
-				resolvePromise();
-			}
-		});
-	},
-
-	init: function () {
-
-		//FM Sites
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_geology.parseData("data/csvCache/fmDataCache.csv", canonnEd3d_geology.formatFM, resolve);
+	init: function() {
+		//Sites Data
+		var p1 = new Promise(function(resolve, reject) {
+			canonnEd3d_geology.formatSites(sites, resolve);
 		});
 
-		//GY Sites
-		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_geology.parseData("data/csvCache/gyDataCache.csv", canonnEd3d_geology.formatGY, resolve);
-		});
-
-		//LS Sites
-		var p3 = new Promise(function (resolve, reject) {
-			canonnEd3d_geology.parseData("data/csvCache/lsDataCache.csv", canonnEd3d_geology.formatLS, resolve);
-		});
-
-		//POI & Gnosis
-		var p4 = new Promise(function (resolve, reject) {
-			canonnEd3d_geology.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_geology.formatPOI, resolve);
-		});
-
-		Promise.all([p1, p4]).then(function () {
+		Promise.all([p1]).then(function() {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_geology.systemsData,
@@ -194,8 +174,8 @@ var canonnEd3d_geology = {
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00'
+				systemColor: '#FF9D00',
 			});
 		});
-	}
+	},
 };
