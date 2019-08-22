@@ -239,7 +239,7 @@ var canonnEd3d_all = {
 			if (data[i].name && data[i].name.replace(' ', '').length > 1) {
 				var poiSite = {};
 				poiSite['name'] = data[i].name;
-				poiSite['cat'] = [3000];
+				poiSite['cat'] = [217];
 				poiSite['coords'] = {
 					x: parseFloat(data[i].pos_x),
 					y: parseFloat(data[i].pos_y),
