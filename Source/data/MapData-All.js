@@ -2,104 +2,94 @@ var canonnEd3d_all = {
 
 	//Define Categories and Static Data
 	systemsData: {
-		"categories": {
-			"POI Systems": {
-				"100": {
-					"name": "Systems",
-					"color": "F56D54"
-				},
-				"102": {
-					"name": "Other",
-					"color": "F79F8F"
-				}
-			},
-			"The Gnosis": {
-				"101": {
-					"name": "Current System",
-					"color": "FF9D00"
-				}
-			},
+		categories: {
 			"Hyperdictions": {
 				"900": {
-					"name": "Start System",
-					"color": "99ff66"
+					name: "Start System",
+					color: "99ff66"
 				},
 				"901": {
-					"name": "End System",
-					"color": "ff3300"
+					name: "End System",
+					color: "ff3300"
 				},
 				"902": {
-					"name": "Route",
-					"color": "f2f2f2"
+					name: "Route",
+					color: "f2f2f2"
 				}
 			},
 			"Sites": {
-				"200": {
-					"name": "Bark Mounds (BM)",
-					"color": "cdab7e"
+				"201": {
+					name: "Amphora Plants (AP)",
+					color: "cdab7e"
 				},
-				"300": {
-					"name": "Brain Trees (BT)",
-					"color": "ff66cc"
+				"201": {
+					name: "Bark Mounds (BM)",
+					color: "cdab7e"
 				},
-				"400": {
-					"name": "Fungal Gourds (FG)",
-					"color": "936c39"
+				"202": {
+					name: "Brain Trees (BT)",
+					color: "ff66cc"
 				},
-				"500": {
-					"name": "Fumaroles (FM)",
-					"color": "ffc266"
+				"202": {
+					name: "Crystalline Shards (CS)",
+					color: "ff66cc"
 				},
-				"700": {
-					"name": "Guardian Beacons (GB)",
-					"color": "ffff00"
+				"203": {
+					name: "Fungal Gourds (FG)",
+					color: "936c39"
 				},
-				"701": {
-					"name": "Guardian Ruins (GR)",
-					"color": "ffff00"
+				"204": {
+					name: "Fumaroles (FM)",
+					color: "ffc266"
 				},
-				"702": {
-					"name": "Guardian Structures (GS)",
-					"color": "FF9D90"
+				"205": {
+					name: "Generation Ships (GEN)",
+					color: "cc00cc"
 				},
-				"800": {
-					"name": "Geysers (GY)",
-					"color": "99ccff"
+				"206": {
+					name: "Guardian Beacons (GB)",
+					color: "ffff00"
 				},
-				"1000": {
-					"name": "Lava Spouts (LS)",
-					"color": "ff4d4d"
+				"207": {
+					name: "Guardian Ruins (GR)",
+					color: "ffff00"
 				},
-				"1001": {
-					"name": "Orbital Installations (OI)",
-					"color": "ff764d"
+				"208": {
+					name: "Guardian Structures (GS)",
+					color: "FF9D90"
 				},
-				"1200": {
-					"name": "Thargoid Barnacles (TB)",
-					"color": "009933"
+				"209": {
+					name: "Gas Vents (GV)",
+					color: "99ccff"
 				},
-				"1300": {
-					"name": "Thargoid Structures (TS)",
-					"color": "17ff7b"
+				"209": {
+					name: "Geysers (GY)",
+					color: "99ccff"
 				},
-				"1400": {
-					"name": "Non-Human Signal Sources (NHSS)",
-					"color": "442299"
-				}
-			},
-			"Megaships": {
-				"600": {
-					"name": "Generation Ships (GEN)",
-					"color": "cc00cc"
+				"210": {
+					name: "Lava Spouts (LS)",
+					color: "ff4d4d"
 				},
-				"1100": {
-					"name": "Megaships (MS)",
-					"color": "ffb3ff"
+				"211": {
+					name: "Non-Human Signal Sources (NHSS)",
+					color: "442299"
+				},
+				"212": {
+					name: "Thargoid Barnacles (TB)",
+					color: "009933"
+				},
+				"213": {
+					name: "Thargoid Structures (TS)",
+					color: "17ff7b"
+				},
+				"210": {
+					name: "Tube Worms (TW)",
+					color: "ff4d4d"
 				}
 			}
 		},
-		"routes": [],
-		"systems": []
+		routes: [],
+		systems: []
 	},
 
 	formatBM: function (data) {
@@ -624,11 +614,6 @@ var canonnEd3d_all = {
 			canonnEd3d_all.parseData("data/csvCache/oiSystemCache.csv", canonnEd3d_all.formatOI, resolve);
 		});
 
-		//MS Sites
-		var p13 = new Promise(function (resolve, reject) {
-			canonnEd3d_all.parseData("data/csvCache/msSystemCache.csv", canonnEd3d_all.formatMS, resolve);
-		});
-
 		//TB Sites
 		var p14 = new Promise(function (resolve, reject) {
 			canonnEd3d_all.parseData("data/csvCache/tbSystemCache.csv", canonnEd3d_all.formatTB, resolve);
@@ -644,12 +629,7 @@ var canonnEd3d_all = {
 			canonnEd3d_all.parseData("data/csvCache/nhssDataCache.csv", canonnEd3d_all.formatNHSS, resolve);
 		});
 
-		//POI & Gnosis
-		var p17 = new Promise(function (resolve, reject) {
-			canonnEd3d_all.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_all.formatPOI, resolve);
-		});
-
-		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17]).then(function () {
+		Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p14, p15, p16]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_all.systemsData,
