@@ -54,7 +54,10 @@ const reqSites = async (API_START, type) => {
         edsmCoordX
         edsmCoordY
         edsmCoordZ
-      }
+			}
+			type {
+				type
+			}
     }
   }`;
 
@@ -79,47 +82,131 @@ var canonnEd3d_biology = {
 	systemsData: {
 		categories: {
 			'Amphora Plants - (AP)': {
-				'200': {
+				'201': {
 					name: 'Amphora Plant',
 					color: '3a185d',
 				},
+				'202': {
+					name: 'Unknown AP',
+					color: 'DC143C',
+				}
 			},
 			'Bark Mounds - (BM)': {
-				'300': {
+				'301': {
 					name: 'Bark Mound',
 					color: '3a185d',
 				},
+				'302': {
+					name: 'Unknown BM',
+					color: 'DC143C',
+				}
 			},
 			'Brain Trees - (BT)': {
-				'400': {
-					name: 'Brain Tree',
-					color: 'e32bc8',
+				'401': {
+					name: 'Roseum Brain Tree',
+					color: 'ff66cc',
 				},
+				'402': {
+					name: 'Gypseeum Brain Tree',
+					color: 'ff66cc',
+				},
+				'403': {
+					name: 'Ostrinum Brain Tree',
+					color: 'ff66cc',
+				},
+				'404': {
+					name: 'Viride Brain Tree',
+					color: 'ff66cc',
+				},
+				'405': {
+					name: 'Lividum Brain Tree',
+					color: 'ff66cc',
+				},
+				'406': {
+					name: 'Aureum Brain Tree',
+					color: 'ff66cc',
+				},
+				'407': {
+					name: 'Puniceum Brain Tree',
+					color: 'ff66cc',
+				},
+				'408': {
+					name: 'Lindigoticum Brain Tree',
+					color: 'ff66cc',
+				},
+				'409': {
+					name: 'Unknown BT',
+					color: 'DC143C',
+				}
 			},
 			'Fungal Gourds - (FG)': {
-				'500': {
-					name: 'Fungal Gourd',
-					color: '076a48',
+				'501': {
+					name: 'Luteolum Anemone',
+					color: 'ff66cc',
 				},
+				'502': {
+					name: 'Croceum Anemone',
+					color: 'ff66cc',
+				},
+				'503': {
+					name: 'Puniceum Anemone',
+					color: 'ff66cc',
+				},
+				'504': {
+					name: 'Roseum Anemone',
+					color: 'ff66cc',
+				},
+				'505': {
+					name: 'Blatteum Bioluminescent Anemone',
+					color: 'ff66cc',
+				},
+				'506': {
+					name: 'Rubeum Bioluminescent Anemone',
+					color: 'ff66cc',
+				},
+				'507': {
+					name: 'Prasinum Bioluminescent Anemone',
+					color: 'ff66cc',
+				},
+				'508': {
+					name: 'Roseum Bioluminescent Anemone',
+					color: 'ff66cc',
+				},
+				'509': {
+					name: 'Unknown FG',
+					color: 'DC143C',
+				}
 			},
 			'Thargoid Barnacles - (TB)': {
-				'600': {
-					name: 'Barnacle',
-					color: 'f86f30',
+				'601': {
+					name: 'Common Thargoid Barnacle',
+					color: 'ff66cc',
 				},
+				'602': {
+					name: 'Large Thargoid Barnacle',
+					color: 'ff66cc',
+				},
+				'603': {
+					name: 'Unknown TB',
+					color: 'DC143C',
+				}
 			},
 			'Tube Worms - (TW)': {
-				'700': {
-					name: 'Tube Worm',
+				'701': {
+					name: 'Roseum Sinuous Tubers',
 					color: 'f86f30',
 				},
+				'702': {
+					name: 'Unknown TW',
+					color: 'DC143C',
+				}
 			},
 			'Unknown Type': {
 				'2000': {
 					name: 'Unknown Site',
 					color: 'DC143C',
-				},
-			},
+				}
+			}
 		},
 		systems: [],
 	},
@@ -137,18 +224,60 @@ var canonnEd3d_biology = {
 					poiSite['name'] = siteData[d].system.systemName;
 
 					//Check Site Type and match categories
-					if (siteTypes[i].toString() == 'apsites') {
-						poiSite['cat'] = [200];
-					} else if (siteTypes[i].toString() == 'bmsites') {
-						poiSite['cat'] = [300];
-					} else if (siteTypes[i].toString() == 'btsites') {
-						poiSite['cat'] = [400];
-					} else if (siteTypes[i].toString() == 'fgsites') {
-						poiSite['cat'] = [500];
-					} else if (siteTypes[i].toString() == 'tbsites') {
-						poiSite['cat'] = [600];
-					} else if (siteTypes[i].toString() == 'twsites') {
-						poiSite['cat'] = [700];
+					if (siteTypes[i] == 'apsites' && siteData[d].type.type == 'Amphora Plant') {
+						poiSite['cat'] = [201];
+					} else if (siteTypes[i] == 'apsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [202];
+					} else if (siteTypes[i] == 'bmsites' && siteData[d].type.type == 'Bark Mound') {
+						poiSite['cat'] = [301];
+					} else if (siteTypes[i] == 'bmsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [302];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Roseum Brain Tree') {
+						poiSite['cat'] = [401];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Gypseeum Brain Tree') {
+						poiSite['cat'] = [402];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Ostrinum Brain Tree') {
+						poiSite['cat'] = [403];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Viride Brain Tree') {
+						poiSite['cat'] = [404];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Lividum Brain Tree') {
+						poiSite['cat'] = [405];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Aureum Brain Tree') {
+						poiSite['cat'] = [406];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Puniceum Brain Tree') {
+						poiSite['cat'] = [407];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Lindigoticum Brain Tree') {
+						poiSite['cat'] = [408];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [409];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Luteolum Anemone') {
+						poiSite['cat'] = [501];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Croceum Anemone') {
+						poiSite['cat'] = [502];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Puniceum Anemone') {
+						poiSite['cat'] = [503];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Roseum Anemone') {
+						poiSite['cat'] = [504];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Blatteum Bioluminescent Anemone') {
+						poiSite['cat'] = [505];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Rubeum Bioluminescent Anemone') {
+						poiSite['cat'] = [506];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Prasinum Bioluminescent Anemone') {
+						poiSite['cat'] = [507];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Roseum Bioluminescent Anemone') {
+						poiSite['cat'] = [508];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [509];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].type.type == 'Common Thargoid Barnacle') {
+						poiSite['cat'] = [601];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].type.type == 'Large Thargoid Barnacle') {
+						poiSite['cat'] = [602];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [603];
+					} else if (siteTypes[i] == 'twsites' && siteData[d].type.type == 'Roseum Sinuous Tubers') {
+						poiSite['cat'] = [701];
+					} else if (siteTypes[i] == 'twsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [702];
 					} else {
 						poiSite['cat'] = [2000];
 					}
