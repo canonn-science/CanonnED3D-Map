@@ -155,12 +155,6 @@ var canonnEd3d_all = {
 					color: "ff4d4d"
 				}
 			},
-			'Permit Locked Regions': {
-				"217": {
-					name: "Permit Locked System",
-					color: "ff4d4d"
-				}
-			},
 			'Unknown Type': {
 				'2000': {
 					name: 'Unknown Site',
@@ -234,33 +228,6 @@ var canonnEd3d_all = {
 		resolvePromise();
 	},
 
-	formatCol: function(data) {
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].name && data[i].name.replace(' ', '').length > 1) {
-				var poiSite = {};
-				poiSite['name'] = data[i].name;
-				poiSite['cat'] = [217];
-				poiSite['coords'] = {
-					x: parseFloat(data[i].pos_x),
-					y: parseFloat(data[i].pos_y),
-					z: parseFloat(data[i].pos_z),
-				};
-				canonnEd3d_all.systemsData.systems.push(poiSite);
-			}
-		}
-	},
-
-	parseCSVData: function(url, callBack, resolvePromise) {
-		Papa.parse(url, {
-			download: true,
-			header: true,
-			complete: function(results) {
-				callBack(results.data);
-				resolvePromise();
-			},
-		});
-	},
-
 	init: function () {
 
 		//Sites
@@ -268,12 +235,7 @@ var canonnEd3d_all = {
 			canonnEd3d_all.formatSites(sites, resolve);
 		});
 
-		//Permit Locks
-		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_all.parseCSVData('data/csvCache/col70.csv', canonnEd3d_all.formatCol, resolve);
-		});
-
-		Promise.all([p1, p2]).then(function () {
+		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_all.systemsData,
