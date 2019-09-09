@@ -79,43 +79,43 @@ var canonnEd3d_fm = {
 			'Fumaroles - (FM)': {
 				'201': {
 					name: 'Sulphur Dioxide Fumarole',
-					color: 'ff66cc',
+					color: 'FF0000',
 				},
 				'202': {
 					name: 'Water Fumarole',
-					color: 'ff66cc',
+					color: 'B22222',
 				},
 				'203': {
 					name: 'Silicate Vapour Fumarole',
-					color: 'ff66cc',
+					color: 'FF7F50',
 				},
 				'204': {
 					name: 'Sulphur Dioxide Ice Fumarole',
-					color: 'ff66cc',
+					color: 'FFFF00',
 				},
 				'205': {
 					name: 'Water Ice Fumarole',
-					color: 'ff66cc',
+					color: '00FF00',
 				},
 				'206': {
 					name: 'Carbon Dioxide Ice Fumarole',
-					color: 'ff66cc',
+					color: '0000FF',
 				},
 				'207': {
 					name: 'Ammonia Ice Fumarole',
-					color: 'ff66cc',
+					color: 'EE82EE',
 				},
 				'208': {
 					name: 'Methane Ice Fumarole',
-					color: 'ff66cc',
+					color: 'FF00FF',
 				},
 				'209': {
 					name: 'Nitrogen Ice Fumarole',
-					color: 'ff66cc',
+					color: '800080',
 				},
 				'210': {
 					name: 'Silicate Vapour Ice Fumarole',
-					color: 'ff66cc',
+					color: 'A52A2A',
 				},
 			},
 			'Unknown Type': {

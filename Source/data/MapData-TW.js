@@ -79,7 +79,7 @@ var canonnEd3d_tw = {
 			'Tube Worms - (TW)': {
 				'201': {
 					name: 'Roseum Sinuous Tubers',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			'Unknown Type': {

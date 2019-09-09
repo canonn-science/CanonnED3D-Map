@@ -79,7 +79,7 @@ var canonnEd3d_cs = {
 			'Crystalline Shards - (CS)': {
 				'201': {
 					name: 'Crystalline Shards',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			'Unknown Type': {

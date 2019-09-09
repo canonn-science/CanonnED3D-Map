@@ -101,35 +101,35 @@ var canonnEd3d_guardians = {
 			'Brain Trees - (BT)': {
 				'201': {
 					name: 'Roseum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'202': {
 					name: 'Gypseeum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'203': {
 					name: 'Ostrinum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'204': {
 					name: 'Viride Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'205': {
 					name: 'Lividum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'206': {
 					name: 'Aureum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'207': {
 					name: 'Puniceum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'208': {
 					name: 'Lindigoticum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'209': {
 					name: 'Unknown BT',
@@ -139,21 +139,21 @@ var canonnEd3d_guardians = {
 			"Guardian Beacons - (GB)": {
 				"301": {
 					name: "Beacon",
-					color: "58FA82"
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			"Guardian Ruins - (GR)": {
 				"401": {
 					name: "Alpha",
-					color: "ff0000"
+					color: randomColor().replace('#', '').toString()
 				},
 				"402": {
 					name: "Beta",
-					color: "0066ff"
+					color: randomColor().replace('#', '').toString()
 				},
 				"403": {
 					name: "Gamma",
-					color: "00ff00"
+					color: randomColor().replace('#', '').toString()
 				},
 				"404": {
 					name: "Unknown GR",
@@ -163,43 +163,43 @@ var canonnEd3d_guardians = {
 			"Guardian Structures - (GS)": {
 				"501": {
 					name: "Lacrosse",
-					color: "2EFEC8"
+					color: randomColor().replace('#', '').toString()
 				},
 				"502": {
 					name: "Crossroads",
-					color: "0080FF"
+					color: randomColor().replace('#', '').toString()
 				},
 				"503": {
 					name: "Fistbump",
-					color: "4000FF"
+					color: randomColor().replace('#', '').toString()
 				},
 				"504": {
 					name: "Hammerbot",
-					color: "BF00FF"
+					color: randomColor().replace('#', '').toString()
 				},
 				"505": {
 					name: "Bear",
-					color: "FF00FF"
+					color: randomColor().replace('#', '').toString()
 				},
 				"506": {
 					name: "Bowl",
-					color: "DF0174"
+					color: randomColor().replace('#', '').toString()
 				},
 				"507": {
 					name: "Turtle",
-					color: "0404B4"
+					color: randomColor().replace('#', '').toString()
 				},
 				"508": {
 					name: "Robolobster",
-					color: "9AFE2E"
+					color: randomColor().replace('#', '').toString()
 				},
 				"509": {
 					name: "Squid",
-					color: "D0F5A9"
+					color: randomColor().replace('#', '').toString()
 				},
 				"510": {
 					name: "Stickyhand",
-					color: "D7DF01"
+					color: randomColor().replace('#', '').toString()
 				},
 				"511": {
 					name: "Unknown GS",

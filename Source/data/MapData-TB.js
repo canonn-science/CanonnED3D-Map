@@ -79,31 +79,31 @@ var canonnEd3d_tb = {
 			'Thargoid Barnacles - (TB)': {
 				'201': {
 					name: 'Mega',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'202': {
 					name: 'Alpha',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'203': {
 					name: 'Beta',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'204': {
 					name: 'Gamma',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'205': {
 					name: 'Delta',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'206': {
 					name: 'Epsilon',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'207': {
 					name: 'Zeta',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			'Unknown Type': {

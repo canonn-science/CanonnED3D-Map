@@ -83,7 +83,7 @@ var canonnEd3d_geology = {
 			'Crystalline Shards - (CS)': {
 				'201': {
 					name: 'Crystalline Shards',
-					color: '3a185d',
+					color: randomColor().replace('#', '').toString()
 				},
 				'202': {
 					name: 'Unknown CS',
@@ -93,43 +93,43 @@ var canonnEd3d_geology = {
 			'Fumaroles - (FM)': {
 				'301': {
 					name: 'Sulphur Dioxide Fumarole',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'302': {
 					name: 'Water Fumarole',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'303': {
 					name: 'Silicate Vapour Fumarole',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'304': {
 					name: 'Sulphur Dioxide Ice Fumarole',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'305': {
 					name: 'Water Ice Fumarole',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'306': {
 					name: 'Carbon Dioxide Ice Fumarole',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'307': {
 					name: 'Ammonia Ice Fumarole',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'308': {
 					name: 'Methane Ice Fumarole',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'309': {
 					name: 'Nitrogen Ice Fumarole',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'310': {
 					name: 'Silicate Vapour Ice Fumarole',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'311': {
 					name: 'Unknown FM',
@@ -139,19 +139,19 @@ var canonnEd3d_geology = {
 			'Gas Vents - (GV)': {
 				'401': {
 					name: 'Sulphur Dioxide Gas Vent',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'402': {
 					name: 'Water Gas Vent',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'403': {
 					name: 'Carbon Dioxide Gas Vent',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'404': {
 					name: 'Silicate Vapour Gas Vent',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'405': {
 					name: 'Unknown GV',
@@ -161,27 +161,27 @@ var canonnEd3d_geology = {
 			'Geysers - (GY)': {
 				'501': {
 					name: 'Water Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'502': {
 					name: 'Water Ice Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'503': {
 					name: 'Carbon Dioxide Ice Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'504': {
 					name: 'Ammonia Ice Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'505': {
 					name: 'Methane Ice Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'506': {
 					name: 'Nitrogen Ice Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'507': {
 					name: 'Unknown GY',
@@ -191,11 +191,11 @@ var canonnEd3d_geology = {
 			'Lava Spouts - (LS)': {
 				'601': {
 					name: 'Silicate Magma Lava Spout',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'602': {
 					name: 'Iron Magma Lava Spout',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'603': {
 					name: 'Unknown LS',

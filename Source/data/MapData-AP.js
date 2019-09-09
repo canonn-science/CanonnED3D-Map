@@ -79,7 +79,7 @@ var canonnEd3d_ap = {
 			'Amphora Plants - (AP)': {
 				'200': {
 					name: 'Amphora Plant',
-					color: '800000',
+					color: randomColor().replace('#', '').toString(),
 				},
 			},
 			'Unknown Type': {

@@ -78,7 +78,7 @@ var canonnEd3d_gen = {
 			"Generation Ships - (GEN)": {
 				"201": {
 					name: "Generation Ship",
-					color: "58FA82"
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			'Unknown Type': {

@@ -79,19 +79,19 @@ var canonnEd3d_gv = {
 			'Gas Vents - (GV)': {
 				'201': {
 					name: 'Sulphur Dioxide Gas Vent',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'202': {
 					name: 'Water Gas Vent',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'203': {
 					name: 'Carbon Dioxide Gas Vent',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'204': {
 					name: 'Silicate Vapour Gas Vent',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			'Unknown Type': {

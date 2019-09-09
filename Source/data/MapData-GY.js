@@ -79,27 +79,27 @@ var canonnEd3d_gy = {
 			'Geysers - (GY)': {
 				'201': {
 					name: 'Water Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'202': {
 					name: 'Water Ice Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'203': {
 					name: 'Carbon Dioxide Ice Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'204': {
 					name: 'Ammonia Ice Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'205': {
 					name: 'Methane Ice Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'206': {
 					name: 'Nitrogen Ice Geyser',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			'Unknown Type': {

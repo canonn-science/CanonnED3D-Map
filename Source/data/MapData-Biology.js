@@ -84,7 +84,7 @@ var canonnEd3d_biology = {
 			'Amphora Plants - (AP)': {
 				'201': {
 					name: 'Amphora Plant',
-					color: '3a185d',
+					color: randomColor().replace('#', '').toString()
 				},
 				'202': {
 					name: 'Unknown AP',
@@ -94,7 +94,7 @@ var canonnEd3d_biology = {
 			'Bark Mounds - (BM)': {
 				'301': {
 					name: 'Bark Mound',
-					color: '3a185d',
+					color: randomColor().replace('#', '').toString()
 				},
 				'302': {
 					name: 'Unknown BM',
@@ -104,35 +104,35 @@ var canonnEd3d_biology = {
 			'Brain Trees - (BT)': {
 				'401': {
 					name: 'Roseum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'402': {
 					name: 'Gypseeum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'403': {
 					name: 'Ostrinum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'404': {
 					name: 'Viride Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'405': {
 					name: 'Lividum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'406': {
 					name: 'Aureum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'407': {
 					name: 'Puniceum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'408': {
 					name: 'Lindigoticum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'409': {
 					name: 'Unknown BT',
@@ -142,35 +142,35 @@ var canonnEd3d_biology = {
 			'Fungal Gourds - (FG)': {
 				'501': {
 					name: 'Luteolum Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'502': {
 					name: 'Croceum Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'503': {
 					name: 'Puniceum Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'504': {
 					name: 'Roseum Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'505': {
 					name: 'Blatteum Bioluminescent Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'506': {
 					name: 'Rubeum Bioluminescent Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'507': {
 					name: 'Prasinum Bioluminescent Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'508': {
 					name: 'Roseum Bioluminescent Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'509': {
 					name: 'Unknown FG',
@@ -180,11 +180,11 @@ var canonnEd3d_biology = {
 			'Thargoid Barnacles - (TB)': {
 				'601': {
 					name: 'Common Thargoid Barnacle',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'602': {
 					name: 'Large Thargoid Barnacle',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'603': {
 					name: 'Unknown TB',
@@ -194,7 +194,7 @@ var canonnEd3d_biology = {
 			'Tube Worms - (TW)': {
 				'701': {
 					name: 'Roseum Sinuous Tubers',
-					color: 'f86f30',
+					color: randomColor().replace('#', '').toString()
 				},
 				'702': {
 					name: 'Unknown TW',

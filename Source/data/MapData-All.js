@@ -92,67 +92,67 @@ var canonnEd3d_all = {
 			"Sites": {
 				"201": {
 					name: "Amphora Plants (AP)",
-					color: "cdab7e"
+					color: randomColor().replace('#', '').toString()
 				},
 				"202": {
 					name: "Bark Mounds (BM)",
-					color: "cdab7e"
+					color: randomColor().replace('#', '').toString()
 				},
 				"203": {
 					name: "Brain Trees (BT)",
-					color: "ff66cc"
+					color: randomColor().replace('#', '').toString()
 				},
 				"204": {
 					name: "Crystalline Shards (CS)",
-					color: "ff66cc"
+					color: randomColor().replace('#', '').toString()
 				},
 				"205": {
 					name: "Fungal Gourds (FG)",
-					color: "936c39"
+					color: randomColor().replace('#', '').toString()
 				},
 				"206": {
 					name: "Fumaroles (FM)",
-					color: "ffc266"
+					color: randomColor().replace('#', '').toString()
 				},
 				"207": {
 					name: "Generation Ships (GEN)",
-					color: "cc00cc"
+					color: randomColor().replace('#', '').toString()
 				},
 				"208": {
 					name: "Guardian Beacons (GB)",
-					color: "ffff00"
+					color: randomColor().replace('#', '').toString()
 				},
 				"209": {
 					name: "Guardian Ruins (GR)",
-					color: "ffff00"
+					color: randomColor().replace('#', '').toString()
 				},
 				"210": {
 					name: "Guardian Structures (GS)",
-					color: "FF9D90"
+					color: randomColor().replace('#', '').toString()
 				},
 				"211": {
 					name: "Gas Vents (GV)",
-					color: "99ccff"
+					color: randomColor().replace('#', '').toString()
 				},
 				"212": {
 					name: "Geysers (GY)",
-					color: "99ccff"
+					color: randomColor().replace('#', '').toString()
 				},
 				"213": {
 					name: "Lava Spouts (LS)",
-					color: "ff4d4d"
+					color: randomColor().replace('#', '').toString()
 				},
 				"214": {
 					name: "Thargoid Barnacles (TB)",
-					color: "009933"
+					color: randomColor().replace('#', '').toString()
 				},
 				"215": {
 					name: "Thargoid Structures (TS)",
-					color: "17ff7b"
+					color: randomColor().replace('#', '').toString()
 				},
 				"216": {
 					name: "Tube Worms (TW)",
-					color: "ff4d4d"
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			'Unknown Type': {

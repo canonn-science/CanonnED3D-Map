@@ -79,35 +79,35 @@ var canonnEd3d_fg = {
 			'Fungal Gourds - (FG)': {
 				'201': {
 					name: 'Luteolum Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'202': {
 					name: 'Croceum Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'203': {
 					name: 'Puniceum Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'204': {
 					name: 'Roseum Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'205': {
 					name: 'Blatteum Bioluminescent Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'206': {
 					name: 'Rubeum Bioluminescent Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'207': {
 					name: 'Prasinum Bioluminescent Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'208': {
 					name: 'Roseum Bioluminescent Anemone',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 			},
 			'Unknown Type': {

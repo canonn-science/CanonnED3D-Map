@@ -79,7 +79,7 @@ var canonnEd3d_bm = {
 			'Bark Mounds - (BM)': {
 				'200': {
 					name: 'Bark Mound',
-					color: 'cdab7e',
+					color: randomColor().replace('#', '').toString()
 				},
 			},
 			'Unknown Type': {

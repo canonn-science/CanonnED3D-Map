@@ -81,57 +81,57 @@ var canonnEd3d_gr = {
 			"Guardian Ruins - (GR)": {
 				"201": {
 					name: "Alpha",
-					color: "FA8258"
+					color: randomColor().replace('#', '').toString()
 				},
 				"202": {
 					name: "Beta",
-					color: "F7D358"
+					color: randomColor().replace('#', '').toString()
 				},
 				"203": {
 					name: "Gamma",
-					color: "C8FE2E"
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			"Guardian Structures - (GS)": {
 				"204": {
 					name: "Lacrosse",
-					color: "2EFEC8"
+					color: randomColor().replace('#', '').toString()
 				},
 				"205": {
 					name: "Crossroads",
-					color: "0080FF"
+					color: randomColor().replace('#', '').toString()
 				},
 				"206": {
 					name: "Fistbump",
-					color: "4000FF"
+					color: randomColor().replace('#', '').toString()
 				},
 				"207": {
 					name: "Hammerbot",
-					color: "BF00FF"
+					color: randomColor().replace('#', '').toString()
 				},
 				"208": {
 					name: "Bear",
-					color: "FF00FF"
+					color: randomColor().replace('#', '').toString()
 				},
 				"209": {
 					name: "Bowl",
-					color: "DF0174"
+					color: randomColor().replace('#', '').toString()
 				},
 				"210": {
 					name: "Turtle",
-					color: "0404B4"
+					color: randomColor().replace('#', '').toString()
 				},
 				"211": {
 					name: "Robolobster",
-					color: "9AFE2E"
+					color: randomColor().replace('#', '').toString()
 				},
 				"212": {
 					name: "Squid",
-					color: "D0F5A9"
+					color: randomColor().replace('#', '').toString()
 				},
 				"213": {
 					name: "Stickyhand",
-					color: "D7DF01"
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			'Unknown Type': {

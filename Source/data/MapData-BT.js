@@ -79,35 +79,35 @@ var canonnEd3d_bt = {
 			'Brain Trees - (BT)': {
 				'201': {
 					name: 'Roseum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'202': {
 					name: 'Gypseeum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'203': {
 					name: 'Ostrinum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'204': {
 					name: 'Viride Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'205': {
 					name: 'Lividum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'206': {
 					name: 'Aureum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'207': {
 					name: 'Puniceum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'208': {
 					name: 'Lindigoticum Brain Tree',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 			},
 			'Unknown Type': {

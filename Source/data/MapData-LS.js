@@ -79,11 +79,11 @@ var canonnEd3d_ls = {
 			'Lava Spouts - (LS)': {
 				'201': {
 					name: 'Silicate Magma Lava Spout',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				},
 				'202': {
 					name: 'Iron Magma Lava Spout',
-					color: 'ff66cc',
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			'Unknown Type': {

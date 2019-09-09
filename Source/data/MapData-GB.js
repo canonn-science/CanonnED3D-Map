@@ -77,7 +77,7 @@ var canonnEd3d_gb = {
 			"Guardian Beacons - (GB)": {
 				"201": {
 					name: "Beacon",
-					color: "58FA82"
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			'Unknown Type': {
