@@ -163,6 +163,7 @@ var canonnEd3d_fg = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 

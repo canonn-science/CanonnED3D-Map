@@ -205,6 +205,7 @@ var canonnEd3d_thargoids = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 

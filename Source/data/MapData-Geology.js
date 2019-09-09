@@ -295,6 +295,7 @@ var canonnEd3d_geology = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 

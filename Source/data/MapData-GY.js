@@ -151,6 +151,7 @@ var canonnEd3d_gy = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 

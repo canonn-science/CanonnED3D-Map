@@ -175,6 +175,7 @@ var canonnEd3d_fm = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 

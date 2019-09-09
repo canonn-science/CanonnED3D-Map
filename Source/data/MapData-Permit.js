@@ -99,6 +99,7 @@ var canonnEd3d_permit = {
 				// (which is synchronous, so we know it's safe here)
 				// we can resolve the promise
 
+				document.getElementById("loading").style.display = "none";
 				resolvePromise();
 			},
 		});

@@ -127,6 +127,7 @@ var canonnEd3d_ls = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 

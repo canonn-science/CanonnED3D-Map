@@ -293,6 +293,7 @@ var canonnEd3d_guardians = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 

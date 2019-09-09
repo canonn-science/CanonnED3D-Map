@@ -164,6 +164,7 @@ var canonnEd3d_cartographics = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 

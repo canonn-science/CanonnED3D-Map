@@ -225,6 +225,7 @@ var canonnEd3d_all = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 

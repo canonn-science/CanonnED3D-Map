@@ -139,6 +139,7 @@ var canonnEd3d_gv = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 

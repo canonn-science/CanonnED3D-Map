@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-  
-  <!-- Google Analytics -->
+
   <script>
     window.ga = window.ga || function () {
       (ga.q = ga.q || []).push(arguments)
@@ -17,17 +15,14 @@
     ga('send', 'pageview');
   </script>
   <script async src='https://www.google-analytics.com/analytics.js'></script>
-  <!-- End Google Analytics -->
-
-  <!-- Font Inports -->
   <link href="https://fonts.googleapis.com/css?family=Orbitron:400" rel="stylesheet" type="text/css" />
-  <!-- End Font Inports -->
-
-  <!-- CSS Imports -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="vendor/papaparse/papaparse.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/menu.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <!-- End CSS Imports -->
 
   <!-- Custom CSS -->
   <style type="text/css">
@@ -42,18 +37,7 @@
       right: 0;
       width: 100%;
       height: 93%;
-      z-index: 1;
-    }
-
-    #debug {
-      position: fixed;
-      bottom: 5%;
-      right: 0;
-      width: 100%;
-      text-align: center;
-      color: #aaa;
-      font-family: "Helvetica";
-      font-size: 0.8rem;
+      z-index: -1;
     }
   </style>
 
@@ -69,25 +53,18 @@
     w3IncludeHTML();
   </script>
 
-  <div id="edmap"></div>
-
-  <!-- Launch ED3Dmap -->
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <!-- Three.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
-  <!-- Axios.js -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-  <!-- ED3D -->
-  <script src="js/ed3dmap.js?v=6"></script>
-  <link href="css/styles.css" rel="stylesheet" type="text/css" />
-  <!-- Canonn MapData-output.js -->
-  <script src="data/MapData-FG.js"></script>
-  <script type "text/javascript">
-    canonnEd3d_fg.init();
-  </script>
-
+  <div id="edmap">
+    <div id="loading">
+      <img src="/img/Canonn-Logo.gif" alt="Loading" height="300" width="300"/>
+    </div>
+    <!-- Launch ED3Dmap -->
+    <script src="js/ed3dmap.js?v=6"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <!-- Canonn MapData-output.js -->
+    <script src="data/MapData-FG.js"></script>
+    <script type "text/javascript">
+      canonnEd3d_fg.init();
+    </script>
+  </div>
 </body>
-
 </html>

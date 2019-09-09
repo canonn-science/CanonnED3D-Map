@@ -292,6 +292,7 @@ var canonnEd3d_biology = {
 				}
 			}
 		}
+		document.getElementById("loading").style.display = "none";
 		resolvePromise();
 	},
 
