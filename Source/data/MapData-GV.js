@@ -1,5 +1,5 @@
 const API_ENDPOINT = `https://api.canonn.tech`;
-const API_LIMIT = 750;
+const API_LIMIT = 100;
 
 const capi = axios.create({
 	baseURL: API_ENDPOINT,
