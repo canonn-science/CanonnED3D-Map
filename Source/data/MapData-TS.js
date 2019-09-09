@@ -10,7 +10,7 @@ const capi = axios.create({
 });
 
 let sites = {
-	twsites: [],
+	tssites: [],
 };
 
 const go = async types => {
@@ -48,22 +48,20 @@ const reqSites = async (API_START, type) => {
 	return payload;
 };
 
-var canonnEd3d_tw = {
+var canonnEd3d_ts = {
 	//Define Categories
 	systemsData: {
 		categories: {
-			'Tube Worms - (TW)': {
+			'Thargoid Structures - (TS)': {
 				'201': {
-					name: 'Roseum Sinuous Tubers',
-					color: randomColor().replace('#', '').toString()
-				}
-			},
-			'Unknown Type': {
-				'2000': {
-					name: 'Unknown Site',
-					color: '800000',
+					name: 'Active',
+					color: '008000',
 				},
-			},
+				'202': {
+					name: 'Inactive',
+					color: '800000',
+				}
+			}
 		},
 		systems: [],
 	},
@@ -81,10 +79,10 @@ var canonnEd3d_tw = {
 					poiSite['name'] = siteData[d].system.systemName;
 
 					//Check Site Type and match categories
-					if (siteData[d].type.type == 'Roseum Sinuous Tubers') {
+					if (siteData[d].status.status == 'Active') {
 						poiSite['cat'] = [201];
 					} else {
-						poiSite['cat'] = [2000];
+						poiSite['cat'] = [202];
 					}
 					poiSite['coords'] = {
 						x: parseFloat(siteData[d].system.edsmCoordX),
@@ -93,7 +91,7 @@ var canonnEd3d_tw = {
 					};
 
 					// We can then push the site to the object that stores all systems
-					canonnEd3d_tw.systemsData.systems.push(poiSite);
+					canonnEd3d_ts.systemsData.systems.push(poiSite);
 				}
 			}
 		}
@@ -104,13 +102,13 @@ var canonnEd3d_tw = {
 	init: function() {
 		//Sites Data
 		var p1 = new Promise(function(resolve, reject) {
-			canonnEd3d_tw.formatSites(sites, resolve);
+			canonnEd3d_ts.formatSites(sites, resolve);
 		});
 
 		Promise.all([p1]).then(function() {
 			Ed3d.init({
 				container: 'edmap',
-				json: canonnEd3d_tw.systemsData,
+				json: canonnEd3d_ts.systemsData,
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,

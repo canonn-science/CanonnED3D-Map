@@ -1,224 +1,284 @@
-var canonnEd3d_biology = {
+const API_ENDPOINT = `https://api.canonn.tech`;
+const API_LIMIT = 1000;
 
+const capi = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json',
+	},
+});
+
+let sites = {
+	apsites: [],
+	bmsites: [],
+	btsites: [],
+	fgsites: [],
+	tbsites: [],
+	twsites: [],
+};
+
+const go = async types => {
+	let typeKeys = Object.keys(types);
+	// loop through types to get all the data
+	for (i = 0; i < typeKeys.length; i++) {
+		sites[typeKeys[i]] = await getSites(typeKeys[i]);
+	}
+
+	return sites;
+};
+
+const getSites = async type => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSites(API_START, type);
+		await records.push.apply(records, response.data);
+		API_START += API_LIMIT;
+		if (response.data.length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSites = async (API_START, type) => {
+
+	let payload = await capi({
+		url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
+		method: 'get'
+	});
+
+	return payload;
+};
+
+var canonnEd3d_biology = {
 	//Define Categories
 	systemsData: {
-		"categories": {
-			"POI Systems": {
-				"100": {
-					"name": "Systems",
-					"color": "F56D54"
+		categories: {
+			'Amphora Plants - (AP)': {
+				'201': {
+					name: 'Amphora Plant',
+					color: randomColor().replace('#', '').toString()
 				},
-				"102": {
-					"name": "Other",
-					"color": "F79F8F"
+				'202': {
+					name: 'Unknown AP',
+					color: '800000',
 				}
 			},
-			"The Gnosis": {
-				"101": {
-					"name": "Current System",
-					"color": "FF9D00"
+			'Bark Mounds - (BM)': {
+				'301': {
+					name: 'Bark Mound',
+					color: randomColor().replace('#', '').toString()
+				},
+				'302': {
+					name: 'Unknown BM',
+					color: '800000',
 				}
 			},
-			"Bark Mounds - (BM)": {
-				"200": {
-					"name": "Bark Mound",
-					"color": "cdab7e"
+			'Brain Trees - (BT)': {
+				'401': {
+					name: 'Roseum Brain Tree',
+					color: randomColor().replace('#', '').toString()
+				},
+				'402': {
+					name: 'Gypseeum Brain Tree',
+					color: randomColor().replace('#', '').toString()
+				},
+				'403': {
+					name: 'Ostrinum Brain Tree',
+					color: randomColor().replace('#', '').toString()
+				},
+				'404': {
+					name: 'Viride Brain Tree',
+					color: randomColor().replace('#', '').toString()
+				},
+				'405': {
+					name: 'Lividum Brain Tree',
+					color: randomColor().replace('#', '').toString()
+				},
+				'406': {
+					name: 'Aureum Brain Tree',
+					color: randomColor().replace('#', '').toString()
+				},
+				'407': {
+					name: 'Puniceum Brain Tree',
+					color: randomColor().replace('#', '').toString()
+				},
+				'408': {
+					name: 'Lindigoticum Brain Tree',
+					color: randomColor().replace('#', '').toString()
+				},
+				'409': {
+					name: 'Unknown BT',
+					color: '800000',
 				}
 			},
-			"Brain Trees - (BT)": {
-				"300": {
-					"name": "Brain Tree",
-					"color": "ff66cc"
+			'Fungal Gourds - (FG)': {
+				'501': {
+					name: 'Luteolum Anemone',
+					color: randomColor().replace('#', '').toString()
+				},
+				'502': {
+					name: 'Croceum Anemone',
+					color: randomColor().replace('#', '').toString()
+				},
+				'503': {
+					name: 'Puniceum Anemone',
+					color: randomColor().replace('#', '').toString()
+				},
+				'504': {
+					name: 'Roseum Anemone',
+					color: randomColor().replace('#', '').toString()
+				},
+				'505': {
+					name: 'Blatteum Bioluminescent Anemone',
+					color: randomColor().replace('#', '').toString()
+				},
+				'506': {
+					name: 'Rubeum Bioluminescent Anemone',
+					color: randomColor().replace('#', '').toString()
+				},
+				'507': {
+					name: 'Prasinum Bioluminescent Anemone',
+					color: randomColor().replace('#', '').toString()
+				},
+				'508': {
+					name: 'Roseum Bioluminescent Anemone',
+					color: randomColor().replace('#', '').toString()
+				},
+				'509': {
+					name: 'Unknown FG',
+					color: '800000',
 				}
 			},
-			"Fungal Gourds - (FG)": {
-				"400": {
-					"name": "Fungal Gourd",
-					"color": "936c39"
+			'Thargoid Barnacles - (TB)': {
+				'601': {
+					name: 'Common Thargoid Barnacle',
+					color: randomColor().replace('#', '').toString()
+				},
+				'602': {
+					name: 'Large Thargoid Barnacle',
+					color: randomColor().replace('#', '').toString()
+				},
+				'603': {
+					name: 'Unknown TB',
+					color: '800000',
 				}
 			},
-			"Thargoid Barnacles - (TB)": {
-				"1200": {
-					"name": "Barnacle",
-					"color": "009933"
+			'Tube Worms - (TW)': {
+				'701': {
+					name: 'Roseum Sinuous Tubers',
+					color: randomColor().replace('#', '').toString()
+				},
+				'702': {
+					name: 'Unknown TW',
+					color: '800000',
+				}
+			},
+			'Unknown Type': {
+				'2000': {
+					name: 'Unknown Site',
+					color: '800000',
 				}
 			}
 		},
-		"systems": []
+		systems: [],
 	},
 
-	formatBM: function (data) {
+	formatSites: async function(data, resolvePromise) {
+		await go(data);
 
-		//Here you format BM JSON to ED3D acceptable object
+		let siteTypes = Object.keys(data);
 
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var bmSite = {};
-				bmSite["name"] = data[i].system;
-				bmSite["cat"] = [200];
-				bmSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
+		for (var i = 0; i < siteTypes.length; i++) {
+			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
+				let siteData = sites[siteTypes[i]];
+				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
+					var poiSite = {};
+					poiSite['name'] = siteData[d].system.systemName;
 
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_biology.systemsData.systems.push(bmSite);
-			}
+					//Check Site Type and match categories
+					if (siteTypes[i] == 'apsites' && siteData[d].type.type == 'Amphora Plant') {
+						poiSite['cat'] = [201];
+					} else if (siteTypes[i] == 'apsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [202];
+					} else if (siteTypes[i] == 'bmsites' && siteData[d].type.type == 'Bark Mound') {
+						poiSite['cat'] = [301];
+					} else if (siteTypes[i] == 'bmsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [302];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Roseum Brain Tree') {
+						poiSite['cat'] = [401];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Gypseeum Brain Tree') {
+						poiSite['cat'] = [402];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Ostrinum Brain Tree') {
+						poiSite['cat'] = [403];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Viride Brain Tree') {
+						poiSite['cat'] = [404];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Lividum Brain Tree') {
+						poiSite['cat'] = [405];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Aureum Brain Tree') {
+						poiSite['cat'] = [406];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Puniceum Brain Tree') {
+						poiSite['cat'] = [407];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Lindigoticum Brain Tree') {
+						poiSite['cat'] = [408];
+					} else if (siteTypes[i] == 'btsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [409];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Luteolum Anemone') {
+						poiSite['cat'] = [501];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Croceum Anemone') {
+						poiSite['cat'] = [502];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Puniceum Anemone') {
+						poiSite['cat'] = [503];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Roseum Anemone') {
+						poiSite['cat'] = [504];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Blatteum Bioluminescent Anemone') {
+						poiSite['cat'] = [505];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Rubeum Bioluminescent Anemone') {
+						poiSite['cat'] = [506];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Prasinum Bioluminescent Anemone') {
+						poiSite['cat'] = [507];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Roseum Bioluminescent Anemone') {
+						poiSite['cat'] = [508];
+					} else if (siteTypes[i] == 'fgsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [509];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].type.type == 'Common Thargoid Barnacle') {
+						poiSite['cat'] = [601];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].type.type == 'Large Thargoid Barnacle') {
+						poiSite['cat'] = [602];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [603];
+					} else if (siteTypes[i] == 'twsites' && siteData[d].type.type == 'Roseum Sinuous Tubers') {
+						poiSite['cat'] = [701];
+					} else if (siteTypes[i] == 'twsites' && siteData[d].type.type == 'Unknown') {
+						poiSite['cat'] = [702];
+					} else {
+						poiSite['cat'] = [2000];
+					}
+					poiSite['coords'] = {
+						x: parseFloat(siteData[d].system.edsmCoordX),
+						y: parseFloat(siteData[d].system.edsmCoordY),
+						z: parseFloat(siteData[d].system.edsmCoordZ),
+					};
 
-		}
-
-	},
-
-	formatBT: function (data) {
-
-		//Here you format BT JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var btSite = {};
-				btSite["name"] = data[i].system;
-				btSite["cat"] = [300];
-				btSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_biology.systemsData.systems.push(btSite);
-			}
-
-		}
-
-	},
-
-	formatFG: function (data) {
-
-		//Here you format FG JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var fgSite = {};
-				fgSite["name"] = data[i].system;
-				fgSite["cat"] = [400];
-				fgSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_biology.systemsData.systems.push(fgSite);
-			}
-
-		}
-
-	},
-
-	formatTB: function (data) {
-
-		//Here you format TB JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var tbSite = {};
-				tbSite["name"] = data[i].system;
-				tbSite["cat"] = [1200];
-				tbSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_biology.systemsData.systems.push(tbSite);
-			}
-
-		}
-
-	},
-
-	formatPOI: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var poiSite = {};
-				poiSite["name"] = data[i].system;
-
-				//Check Site Type and match categories
-				if (data[i].type.toString() == "gnosis") {
-					poiSite["cat"] = [101];
-				} else if (data[i].type.toString() == "POI") {
-					poiSite["cat"] = [100];
-				} else {
-					poiSite["cat"] = [102];
+					// We can then push the site to the object that stores all systems
+					canonnEd3d_biology.systemsData.systems.push(poiSite);
 				}
-				poiSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_biology.systemsData.systems.push(poiSite);
 			}
-
 		}
-
+		document.getElementById("loading").style.display = "none";
+		resolvePromise();
 	},
 
-	parseData: function (url, callBack, resolvePromise) {
-		Papa.parse(url, {
-			download: true,
-			header: true,
-			complete: function (results) {
-
-				callBack(results.data);
-
-				// after we called the callback
-				// (which is synchronous, so we know it's safe here)
-				// we can resolve the promise
-
-				resolvePromise();
-			}
-		});
-	},
-
-	init: function () {
-
-		//BM Sites
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_biology.parseData("data/csvCache/bmDataCache.csv", canonnEd3d_biology.formatBM, resolve);
+	init: function() {
+		//Sites Data
+		var p1 = new Promise(function(resolve, reject) {
+			canonnEd3d_biology.formatSites(sites, resolve);
 		});
 
-		//BT Sites
-		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_biology.parseData("data/csvCache/btDataCache.csv", canonnEd3d_biology.formatBT, resolve);
-		});
-
-		//FG Sites
-		var p3 = new Promise(function (resolve, reject) {
-			canonnEd3d_biology.parseData("data/csvCache/fgDataCache.csv", canonnEd3d_biology.formatFG, resolve);
-		});
-
-		//TB Sites
-		var p4 = new Promise(function (resolve, reject) {
-			canonnEd3d_biology.parseData("data/csvCache/tbDataCache.csv", canonnEd3d_biology.formatTB, resolve);
-		});
-
-		//POI & Gnosis
-		var p5 = new Promise(function (resolve, reject) {
-			canonnEd3d_biology.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_biology.formatPOI, resolve);
-		});
-
-		Promise.all([p1, p2, p3, p4, p5]).then(function () {
+		Promise.all([p1]).then(function() {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_biology.systemsData,
@@ -229,8 +289,8 @@ var canonnEd3d_biology = {
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00'
+				systemColor: '#FF9D00',
 			});
 		});
-	}
+	},
 };

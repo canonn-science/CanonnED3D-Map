@@ -1,119 +1,143 @@
-var canonnEd3d_gy = {
+const API_ENDPOINT = `https://api.canonn.tech`;
+const API_LIMIT = 1000;
 
+const capi = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json',
+	},
+});
+
+let sites = {
+	gysites: [],
+};
+
+const go = async types => {
+	let typeKeys = Object.keys(types);
+	// loop through types to get all the data
+	for (i = 0; i < typeKeys.length; i++) {
+		sites[typeKeys[i]] = await getSites(typeKeys[i]);
+	}
+
+	return sites;
+};
+
+const getSites = async type => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSites(API_START, type);
+		await records.push.apply(records, response.data);
+		API_START += API_LIMIT;
+		if (response.data.length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSites = async (API_START, type) => {
+
+	let payload = await capi({
+		url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
+		method: 'get'
+	});
+
+	return payload;
+};
+
+var canonnEd3d_gy = {
 	//Define Categories
 	systemsData: {
-		"categories": {
-			"POI Systems": {
-				"100": {
-					"name": "Systems",
-					"color": "F56D54"
+		categories: {
+			'Geysers - (GY)': {
+				'201': {
+					name: 'Water Geyser',
+					color: randomColor().replace('#', '').toString()
 				},
-				"102": {
-					"name": "Other",
-					"color": "F79F8F"
+				'202': {
+					name: 'Water Ice Geyser',
+					color: randomColor().replace('#', '').toString()
+				},
+				'203': {
+					name: 'Carbon Dioxide Ice Geyser',
+					color: randomColor().replace('#', '').toString()
+				},
+				'204': {
+					name: 'Ammonia Ice Geyser',
+					color: randomColor().replace('#', '').toString()
+				},
+				'205': {
+					name: 'Methane Ice Geyser',
+					color: randomColor().replace('#', '').toString()
+				},
+				'206': {
+					name: 'Nitrogen Ice Geyser',
+					color: randomColor().replace('#', '').toString()
 				}
 			},
-			"The Gnosis": {
-				"101": {
-					"name": "Current System",
-					"color": "FF9D00"
-				}
+			'Unknown Type': {
+				'2000': {
+					name: 'Unknown Site',
+					color: '800000',
+				},
 			},
-			"Geysers - (GY)": {
-				"800": {
-					"name": "Geyser",
-					"color": "99ccff"
-				}
-			}
 		},
-		"systems": []
+		systems: [],
 	},
 
-	formatGY: function (data) {
+	formatSites: async function(data, resolvePromise) {
+		await go(data);
 
-		//Here you format GY JSON to ED3D acceptable object
+		let siteTypes = Object.keys(data);
 
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var gySite = {};
-				gySite["name"] = data[i].system;
-				gySite["cat"] = [800];
-				gySite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
+		for (var i = 0; i < siteTypes.length; i++) {
+			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
+				let siteData = sites[siteTypes[i]];
+				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
+					var poiSite = {};
+					poiSite['name'] = siteData[d].system.systemName;
 
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_gy.systemsData.systems.push(gySite);
-			}
+					//Check Site Type and match categories
+					if (siteData[d].type.type == 'Water Geyser') {
+						poiSite['cat'] = [201];
+					} else if (siteData[d].type.type == 'Water Ice Geyser') {
+						poiSite['cat'] = [202];
+					} else if (siteData[d].type.type == 'Carbon Dioxide Ice Geyser') {
+						poiSite['cat'] = [203];
+					} else if (siteData[d].type.type == 'Ammonia Ice Geyser') {
+						poiSite['cat'] = [204];
+					} else if (siteData[d].type.type == 'Methane Ice Geyser') {
+						poiSite['cat'] = [205];
+					} else if (siteData[d].type.type == 'Nitrogen Ice Geyser') {
+						poiSite['cat'] = [206];
+					} else {
+						poiSite['cat'] = [2000];
+					}
+					poiSite['coords'] = {
+						x: parseFloat(siteData[d].system.edsmCoordX),
+						y: parseFloat(siteData[d].system.edsmCoordY),
+						z: parseFloat(siteData[d].system.edsmCoordZ),
+					};
 
-		}
-
-	},
-
-	formatPOI: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var poiSite = {};
-				poiSite["name"] = data[i].system;
-
-				//Check Site Type and match categories
-				if (data[i].type.toString() == "gnosis") {
-					poiSite["cat"] = [101];
-				} else if (data[i].type.toString() == "POI") {
-					poiSite["cat"] = [100];
-				} else {
-					poiSite["cat"] = [102];
+					// We can then push the site to the object that stores all systems
+					canonnEd3d_gy.systemsData.systems.push(poiSite);
 				}
-				poiSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_gy.systemsData.systems.push(poiSite);
 			}
-
 		}
-
+		document.getElementById("loading").style.display = "none";
+		resolvePromise();
 	},
 
-	parseData: function (url, callBack, resolvePromise) {
-		Papa.parse(url, {
-			download: true,
-			header: true,
-			complete: function (results) {
-
-				callBack(results.data);
-
-				// after we called the callback
-				// (which is synchronous, so we know it's safe here)
-				// we can resolve the promise
-
-				resolvePromise();
-			}
-		});
-	},
-
-	init: function () {
-
-		//GY Sites
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_gy.parseData("data/csvCache/gyDataCache.csv", canonnEd3d_gy.formatGY, resolve);
+	init: function() {
+		//Sites Data
+		var p1 = new Promise(function(resolve, reject) {
+			canonnEd3d_gy.formatSites(sites, resolve);
 		});
 
-		//POI & Gnosis
-		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_gy.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_gy.formatPOI, resolve);
-		});
-
-		Promise.all([p1, p2]).then(function () {
+		Promise.all([p1]).then(function() {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_gy.systemsData,
@@ -124,8 +148,8 @@ var canonnEd3d_gy = {
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00'
+				systemColor: '#FF9D00',
 			});
 		});
-	}
+	},
 };

@@ -15,3 +15,7 @@ Source/thargoid
 Source/ts
 Source/us/
 Source/us2/
+
+*.sln
+
+Web.config

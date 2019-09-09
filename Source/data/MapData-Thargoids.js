@@ -1,538 +1,188 @@
-$.urlParam = function (name) {
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    return results[1] || 0;
-}
+const API_ENDPOINT = `https://api.canonn.tech`;
+const API_LIMIT = 1000;
+
+const capi = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		Accept: 'application/json',
+	},
+});
+
+let sites = {
+	tbsites: [],
+	tssites: [],
+};
+
+const go = async types => {
+	let typeKeys = Object.keys(types);
+	// loop through types to get all the data
+	for (i = 0; i < typeKeys.length; i++) {
+		sites[typeKeys[i]] = await getSites(typeKeys[i]);
+	}
+
+	return sites;
+};
+
+const getSites = async type => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSites(API_START, type);
+		await records.push.apply(records, response.data);
+		API_START += API_LIMIT;
+		if (response.data.length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSites = async (API_START, type) => {
+
+	let payload = await capi({
+		url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
+		method: 'get'
+	});
+
+	return payload;
+};
 
 var canonnEd3d_thargoids = {
-
-    //Define Categories
-    systemsData: {
-        "categories": {
-			"POI Systems": {
-				"100": {
-					"name": "Systems",
-					"color": "F56D54"
+	//Define Categories
+	systemsData: {
+		categories: {
+			'Thargoid Barnacles - (TB)': {
+				'201': {
+					name: 'Mega',
+					color: randomColor().replace('#', '').toString()
 				},
-                "102": {
-                    "name": "Megaship",
-                    "color": "42f4df"
-                },
-                "103": {
-                    "name": "Capital Ship",
-                    "color": "f442e2"
-                },
-                "104": {
-                    "name": "INRA Base",
-                    "color": "ffa500"
-                },
-				"105": {
-					"name": "Other",
-					"color": "F79F8F"
+				'202': {
+					name: 'Alpha',
+					color: randomColor().replace('#', '').toString()
+				},
+				'203': {
+					name: 'Beta',
+					color: randomColor().replace('#', '').toString()
+				},
+				'204': {
+					name: 'Gamma',
+					color: randomColor().replace('#', '').toString()
+				},
+				'205': {
+					name: 'Delta',
+					color: randomColor().replace('#', '').toString()
+				},
+				'206': {
+					name: 'Epsilon',
+					color: randomColor().replace('#', '').toString()
+				},
+				'207': {
+					name: 'Zeta',
+					color: randomColor().replace('#', '').toString()
+				},
+				'208': {
+					name: 'Unknown TB',
+					color: '800000',
 				}
 			},
-			"The Gnosis": {
-				"101": {
-					"name": "Current System",
-					"color": "FF9D00"
+			'Thargoid Structures - (TS)': {
+				'301': {
+					name: 'Active',
+					color: '008000',
+				},
+				'302': {
+					name: 'Inactive',
+					color: '800000',
+				},
+				'303': {
+					name: 'Unknown TS',
+					color: '800000',
 				}
 			},
-            "Barnacles - (BN)": {
-                "200": {
-                    "name": "Barnacle",
-                    "color": "44f441"
-                }
-            },
-            "Thargoid Structures - (TS)": {
-                "500": {
-                    "name": "Active",
-                    "color": "4152f4"
-                },
-                "501": {
-                    "name": "Inactive",
-                    "color": "9d41f4"
-                },
-                "502": {
-                    "name": "Link",
-
-                    "color": "f2f2f2"
-                },
-            },
-            "Hyperdictions": {
-                "800": {
-                    "name": "Start System",
-                    "color": "0040ff"
-                },
-                "801": {
-                    "name": "End System",
-                    "color": "ff0040"
-                },
-                "802": {
-                    "name": "Route",
-                    "color": "50a830"
-                },
-            },
-            "Non Human Signal Sources": {
-                "702": {
-                    "name": "Threat 2",
-                    "color": "99b433"
-                },
-                "703": {
-                    "name": "Threat 3",
-                    "color": "1e7145"
-                },
-                "704": {
-                    "name": "Threat 4",
-                    "color": "ff0097"
-                },
-                "705": {
-                    "name": "Threat 5",
-                    "color": "b91d47"
-                },
-                "706": {
-                    "name": "Threat 6",
-                    "color": "e3a21a"
-                },
-                "707": {
-                    "name": "Threat 7",
-                    "color": "603cba"
-                },
-                "708": {
-                    "name": "Threat 8",
-                    "color": "da532c"
-                }
-            },
-            "Error Sites": {
-                "600": {
-                    "name": "Invalid Data Information",
-                    "color": "150187"
-                }
-            }
-        },
-        "routes": [],
-        "systems": [{
-            "name": "Sol",
-            "coords": {
-                "x": "0",
-                "y": "0",
-                "z": "0"
-            },
-            "cat": [
-                "100"
-            ]
-        }, {
-            "name": "Col 70 Sector FY-N c21-3",
-            "coords": {
-                "x": "687.0625",
-                "y": "-362.53125",
-                "z": "-697.0625"
-            },
-            "cat": [
-                "100"
-            ]
-        }, {
-            "name": "Merope",
-            "coords": {
-                "x": "-78.59375",
-                "y": "-149.625",
-                "z": "-340.53125"
-            },
-            "cat": [
-                "100"
-            ]
-        }, {
-            "name": "HIP 22460",
-            "coords": {
-                "x": "-41.3125",
-                "y": "-58.96875",
-                "z": "-354.78125"
-            },
-            "cat": [
-                "100"
-            ]
-        }, ]
-    },
-
-    formatTSL: function (data) {
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].From && data[i].From.replace(" ", "").length > 1) {
-
-                var tslRoute = {};
-
-                //hdRoute["title"]="CMDR "+data[i].CMDR+" "+data[i].From+" to "+data[i].To
-                tslRoute["points"] = [{
-                    "s": data[i].From,
-                    "label": data[i].From
-                }, {
-                    "s": data[i].To,
-                    "label": data[i].To
-                }]
-                tslRoute["cat"] = [502]
-                tslRoute["circle"] = false
-
-                canonnEd3d_thargoids.systemsData.routes.push(tslRoute);
-            }
-        }
-    },
-
-    formatHD: function (data) {
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].From && data[i].From.replace(" ", "").length > 1) {
-
-                var hdFrom = {}
-                hdFrom["name"] = data[i].From;
-
-                //Ripe or Dead Status not enabled yet, pending CSV fixes
-                hdFrom["cat"] = [800];
-                hdFrom["coords"] = {
-                    "x": parseFloat(data[i].FromX),
-                    "y": parseFloat(data[i].FromY),
-                    "z": parseFloat(data[i].FromZ)
-                };
-
-                // We can then push the site to the object that stores all systems
-                canonnEd3d_thargoids.systemsData.systems.push(hdFrom);
-
-                var hdTo = {}
-                hdTo["name"] = data[i].To;
-
-                //Ripe or Dead Status not enabled yet, pending CSV fixes
-                hdTo["cat"] = [801];
-                hdTo["coords"] = {
-                    "x": parseFloat(data[i].ToX),
-                    "y": parseFloat(data[i].ToY),
-                    "z": parseFloat(data[i].ToZ)
-                };
-
-                // We can then push the site to the object that stores all systems
-                canonnEd3d_thargoids.systemsData.systems.push(hdTo);
-
-                var hdRoute = {};
-
-                hdRoute["title"] = "CMDR " + data[i].CMDR + " " + data[i].From + " to " + data[i].To
-                hdRoute["points"] = [{
-                    "s": data[i].From,
-                    "label": data[i].From
-                }, {
-                    "s": data[i].To,
-                    "label": data[i].To
-                }]
-                hdRoute["cat"] = [802]
-                hdRoute["circle"] = false
-
-                canonnEd3d_thargoids.systemsData.routes.push(hdRoute);
-            }
-        }
-    },
-
-    formatGlyphs: function (data) {
-        try {
-            var subject = $.urlParam('Sigil');
-        } catch (err) {
-            var subject = "4B-3";
-        }
-		
-		try {
-            var subject = $.urlParam('history');
-			// do nothing if history is set
-		} catch (err) {
-			canonnEd3d_thargoids.systemsData.categories["Thargoid Glyph"] = {
-				"302": {
-					"name": "<a href=\"https://tools.canonn.technology/thargoid_glyphs/#" + subject + "\"><img src=\"https://tools.canonn.technology/thargoid_glyphs/images/composite/" + subject + ".png\"  style=\"background-color:orange;border-radius: 5%;\"/></a>",
-					"color": "ff9900"
-				}
-			};
-
-			for (var i = 0; i < data.length; i++) {
-
-				var symbol = data[i].Sigil.split("-")
-				var inner = symbol[1]
-				var outer = symbol[0]
-
-				if (data[i].From && data[i].From.replace(" ", "").length > 1 && data[i].Sigil == subject && data[i].Included == 'Y') {
-
-					var glyphRoute = {};
-
-					glyphRoute["title"] = data[i].Sigi + " " + data[i].From + " to " + data[i].To
-					glyphRoute["points"] = [{
-						"s": data[i].From,
-						"label": data[i].From
-					}, {
-						"s": data[i].To,
-						"label": data[i].To
-					}]
-					glyphRoute["cat"] = [302]
-					glyphRoute["circle"] = false
-
-					canonnEd3d_thargoids.systemsData.routes.push(glyphRoute);
-				}
-			}			
-		}
-    },
-
-    formatTI: function (data) {
-        //Here you format BN JSON to ED3D acceptable object
-
-        // this is assuming data is an array []
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].System && data[i].System.replace(" ", "").length > 1) {
-                var tiSite = {};
-                tiSite["name"] = data[i].System;
-
-                tiSite["coords"] = {
-                    "x": parseFloat(data[i].x),
-                    "y": parseFloat(data[i].y),
-                    "z": parseFloat(data[i].z)
-                }
-
-                switch (data[i].Threat) {
-                    case '2':
-                        tiSite["cat"] = [702];
-
-                        break;
-                    case '3':
-                        tiSite["cat"] = [703];
-
-                        break;
-                    case '4':
-                        tiSite["cat"] = [704];
-
-                        break;
-                    case '5':
-                        tiSite["cat"] = [705];
-
-                        break;
-                    case '7':
-                        tiSite["cat"] = [707];
-
-                        break;
-                    case '8':
-                        tiSite["cat"] = [708];
-
-                        break;
-                    case '6':
-                        tiSite["cat"] = [706];
-
-                        break;
-                }
-
-                // We can then push the site to the object that stores all systems
-                canonnEd3d_thargoids.systemsData.systems.push(tiSite);
-            }
-        }
-    },
-
-    formatMS: function (data) {
-        //Here you format BN JSON to ED3D acceptable object
-
-        // this is assuming data is an array []
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].System && data[i].System.replace(" ", "").length > 1) {
-                var msSite = {};
-                msSite["name"] = data[i].System;
-
-                switch (data[i].Type) {
-                    case 'Megaship':
-                        msSite["cat"] = [102];
-                        msSite["coords"] = {
-                            "x": parseFloat(data[i].x),
-                            "y": parseFloat(data[i].y),
-                            "z": parseFloat(data[i].z)
-                        }
-                        break;
-                    case 'Capital Ship':
-                        msSite["cat"] = [103];
-                        msSite["coords"] = {
-                            "x": parseFloat(data[i].x),
-                            "y": parseFloat(data[i].y),
-                            "z": parseFloat(data[i].z)
-                        }
-                        break;
-                    case 'INRA Base':
-                        msSite["cat"] = [104];
-                        msSite["coords"] = {
-                            "x": parseFloat(data[i].x),
-                            "y": parseFloat(data[i].y),
-                            "z": parseFloat(data[i].z)
-                        }
-                        break;
-                }
-
-                // We can then push the site to the object that stores all systems
-                canonnEd3d_thargoids.systemsData.systems.push(msSite);
-            }
-        }
-    },
-
-    // Lets get data from CSV Files
-    formatBN: function (data) {
-        //Here you format BN JSON to ED3D acceptable object
-
-        // this is assuming data is an array []
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-                var bnSite = {};
-                bnSite["name"] = data[i].system;
-
-                //Ripe or Dead Status not enabled yet, pending CSV fixes
-                bnSite["cat"] = [200];
-                bnSite["coords"] = {
-                    "x": parseFloat(data[i].galacticX),
-                    "y": parseFloat(data[i].galacticY),
-                    "z": parseFloat(data[i].galacticZ)
-                };
-
-                // We can then push the site to the object that stores all systems
-                canonnEd3d_thargoids.systemsData.systems.push(bnSite);
-            }
-        }
-    },
-
-    formatTS: function (data) {
-        //Here you format TS JSON to ED3D acceptable object
-
-        // this is assuming data is an array []
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-                var tsSite = {};
-                tsSite["name"] = data[i].system;
-
-                //Check if Site is Active or Inactive, set Category to match
-                if (data[i].active.toString() == "✔") {
-                    tsSite["cat"] = [500];
-                } else {
-                    tsSite["cat"] = [501];
-                }
-                tsSite["coords"] = {
-                    "x": parseFloat(data[i].galacticX),
-                    "y": parseFloat(data[i].galacticY),
-                    "z": parseFloat(data[i].galacticZ)
-                };
-
-                // We can then push the site to the object that stores all systems
-                canonnEd3d_thargoids.systemsData.systems.push(tsSite);
-            }
-        }
-    },
-
-	formatPOI: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var poiSite = {};
-				poiSite["name"] = data[i].system;
-
-				//Check Site Type and match categories
-				if (data[i].type.toString() == "gnosis") {
-					poiSite["cat"] = [101];
-				} else if (data[i].type.toString() == "POI") {
-					poiSite["cat"] = [100];
-				} else {
-					poiSite["cat"] = [102];
-				}
-				poiSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_thargoids.systemsData.systems.push(poiSite);
-			}
-
-		}
-
+			'Unknown Type': {
+				'2000': {
+					name: 'Unknown Site',
+					color: '800000',
+				},
+			},
+		},
+		systems: [],
 	},
 
-    parseData: function (url, callBack, resolvePromise) {
-        Papa.parse(url, {
-            download: true,
-            header: true,
-            complete: function (results) {
+	formatSites: async function(data, resolvePromise) {
+		await go(data);
 
-                callBack(results.data);
+    let siteTypes = Object.keys(data);
 
-                // after we called the callback
-                // (which is synchronous, so we know it's safe here)
-                // we can resolve the promise
+		for (var i = 0; i < siteTypes.length; i++) {
+			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
+				let siteData = sites[siteTypes[i]];
+				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
+					var poiSite = {};
+					poiSite['name'] = siteData[d].system.systemName;
 
-                resolvePromise();
-            }
-        });
-    },
+					//Check Site Type and match categories
+					if (siteTypes[i] == 'tbsites' && siteData[d].subtype.type == 'Mega') {
+						poiSite['cat'] = [201];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].subtype.type == 'Alpha') {
+						poiSite['cat'] = [202];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].subtype.type == 'Beta') {
+						poiSite['cat'] = [203];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].subtype.type == 'Gamma') {
+						poiSite['cat'] = [204];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].subtype.type == 'Delta') {
+						poiSite['cat'] = [205];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].subtype.type == 'Epsilon') {
+						poiSite['cat'] = [206];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].subtype.type == 'Zeta') {
+						poiSite['cat'] = [207];
+					} else if (siteTypes[i] == 'tbsites' && siteData[d].subtype.type == 'Unknown') {
+						poiSite['cat'] = [208];
+					} else if (siteTypes[i] == 'tssites' && siteData[d].status.status == 'Active') {
+						poiSite['cat'] = [301];
+					} else if (siteTypes[i] == 'tssites' && siteData[d].status.status == 'Inactive') {
+						poiSite['cat'] = [302];
+					} else if (siteTypes[i] == 'tssites') {
+						poiSite['cat'] = [303];
+					} else {
+						poiSite['cat'] = [2000];
+					}
+					poiSite['coords'] = {
+						x: parseFloat(siteData[d].system.edsmCoordX),
+						y: parseFloat(siteData[d].system.edsmCoordY),
+						z: parseFloat(siteData[d].system.edsmCoordZ),
+					};
 
-    init: function () {
+					// We can then push the site to the object that stores all systems
+					canonnEd3d_thargoids.systemsData.systems.push(poiSite);
+				}
+			}
+		}
+		document.getElementById("loading").style.display = "none";
+		resolvePromise();
+	},
 
-        //Barnacles
-        var p1 = new Promise(function (resolve, reject) {
-            canonnEd3d_thargoids.parseData("/data/csvCache/tbSystemCache.csv", canonnEd3d_thargoids.formatBN, resolve);
-        });
-
-        //Thargoid Site Links
-        var p2 = new Promise(function (resolve, reject) {
-            canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vShCRewOJojaJ3XCQ3hzaSihFD46Px2qB6cO0d7NAbNNrb8729fA4UqzTxoKP8UFsE60XomVK8juyXq/pub?gid=0&single=true&output=csv", canonnEd3d_thargoids.formatTSL, resolve);
-        });
-
-        //Thargoid Sites
-        var p3 = new Promise(function (resolve, reject) {
-            canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vR4-rhi1p4BU7AlOSj7_78Kvk5Ox6vb39vzzlWU3yI-dqlaLxk-CFLWvAFKc-J7WhomFiQ_u0P7Stxz/pub?gid=0&single=true&output=csv", canonnEd3d_thargoids.formatTS, resolve);
-        });
-
-        //Thargoid Sites
-        var p4 = new Promise(function (resolve, reject) {
-            canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ9O_WQPF7gpL1dEWgI97GVD_EMN7Sgm4LYxj2N4SQtG5HNInyP08I1eDqkZHQhYeIVNHiwtiDOYlS/pub?gid=981173890&single=true&output=csv", canonnEd3d_thargoids.formatMS, resolve);
-        });
-
-		//POI & Gnosis
-		var p7 = new Promise(function (resolve, reject) {
-			canonnEd3d_thargoids.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_thargoids.formatPOI, resolve);
+	init: function() {
+		//Sites Data
+		var p1 = new Promise(function(resolve, reject) {
+			canonnEd3d_thargoids.formatSites(sites, resolve);
 		});
 
-        // Thargoid US
-		// We can default to everything or havea parameter to only show the last 100 systems
-		 try {
-            var history = $.urlParam('history');
-        } catch (err) {
-            var history = "all";
-        }
-		
-		if ( history == "recent" ) {
-        var p5 = new Promise(function (resolve, reject) {
-			canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vROqL6zifWWxcwlZ0R6iLvrMrUdfJijnMoZee-SrN0NVPqhTdH3Zdx6E7RxP1wH2xgwfrhwfVWUHnKU/pub?gid=1692836450&single=true&output=csv", canonnEd3d_thargoids.formatTI, resolve);
-        });
-		} else {
-		var p5 = new Promise(function (resolve, reject) {
-			canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vROqL6zifWWxcwlZ0R6iLvrMrUdfJijnMoZee-SrN0NVPqhTdH3Zdx6E7RxP1wH2xgwfrhwfVWUHnKU/pub?gid=1590459372&single=true&output=csv", canonnEd3d_thargoids.formatTI, resolve);
-        });	
-		}
-	
-
-        // Thargoid Hyperdictions
-        var p6 = new Promise(function (resolve, reject) {
-            canonnEd3d_thargoids.parseData("/data/csvCache/hdSystemCache.csv", canonnEd3d_thargoids.formatHD, resolve);
-        });
-
-        //var p7 = new Promise(function (resolve, reject) {
-        //	canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vS3sabePivfqUNdCie_7UPA6cBHzXVNtFfTP6JnHfcQez4GWQoRRkTxvzIRBNnNbDV2ATfEg0iGK0Cj/pub?gid=640903479&single=true&output=csv", canonnEd3d_thargoids.formatVS, resolve);
-        //});
-
-        var p0 = new Promise(function (resolve, reject) {
-            canonnEd3d_thargoids.parseData("https://docs.google.com/spreadsheets/d/e/2PACX-1vSlKb1HgU7PZDRRvlDqorEFHfo4sxZZorGRTaMc0qQt9tJGBox-bCxGTbg1gCLQfWi8hXdyltDZGL2t/pub?gid=29696533&single=true&output=csv", canonnEd3d_thargoids.formatGlyphs, resolve);
-        });
-
-        Promise.all([p0, p1, p2, p3, p4, p5, p6, p7]).then(function () {
-            Ed3d.init({
-                container: 'edmap',
-                json: canonnEd3d_thargoids.systemsData,
-                withHudPanel: true,
-                hudMultipleSelect: true,
-                effectScaleSystem: [20, 500],
-                startAnim: false,
-                showGalaxyInfos: true,
-                cameraPos: [25, 14100, -12900],
-                systemColor: '#FF9D00'
-            });
-        });
-    }
+		Promise.all([p1]).then(function() {
+			Ed3d.init({
+				container: 'edmap',
+				json: canonnEd3d_thargoids.systemsData,
+				withFullscreenToggle: false,
+				withHudPanel: true,
+				hudMultipleSelect: true,
+				effectScaleSystem: [20, 500],
+				startAnim: false,
+				showGalaxyInfos: true,
+				cameraPos: [25, 14100, -12900],
+				systemColor: '#FF9D00',
+			});
+		});
+	},
 };

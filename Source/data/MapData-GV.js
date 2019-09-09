@@ -5,12 +5,12 @@ const capi = axios.create({
 	baseURL: API_ENDPOINT,
 	headers: {
 		'Content-Type': 'application/json',
-		Accept: 'application/json',
+		'Accept': 'application/json',
 	},
 });
 
 let sites = {
-	twsites: [],
+	gvsites: [],
 };
 
 const go = async types => {
@@ -48,13 +48,25 @@ const reqSites = async (API_START, type) => {
 	return payload;
 };
 
-var canonnEd3d_tw = {
+var canonnEd3d_gv = {
 	//Define Categories
 	systemsData: {
 		categories: {
-			'Tube Worms - (TW)': {
+			'Gas Vents - (GV)': {
 				'201': {
-					name: 'Roseum Sinuous Tubers',
+					name: 'Sulphur Dioxide Gas Vent',
+					color: randomColor().replace('#', '').toString()
+				},
+				'202': {
+					name: 'Water Gas Vent',
+					color: randomColor().replace('#', '').toString()
+				},
+				'203': {
+					name: 'Carbon Dioxide Gas Vent',
+					color: randomColor().replace('#', '').toString()
+				},
+				'204': {
+					name: 'Silicate Vapour Gas Vent',
 					color: randomColor().replace('#', '').toString()
 				}
 			},
@@ -81,8 +93,14 @@ var canonnEd3d_tw = {
 					poiSite['name'] = siteData[d].system.systemName;
 
 					//Check Site Type and match categories
-					if (siteData[d].type.type == 'Roseum Sinuous Tubers') {
+					if (siteData[d].type.type == 'Sulphur Dioxide Gas Vent') {
 						poiSite['cat'] = [201];
+					} else if (siteData[d].type.type == 'Water Gas Vent') {
+						poiSite['cat'] = [202];
+					} else if (siteData[d].type.type == 'Carbon Dioxide Gas Vent') {
+						poiSite['cat'] = [203];
+					} else if (siteData[d].type.type == 'Silicate Vapour Gas Vent') {
+						poiSite['cat'] = [204];
 					} else {
 						poiSite['cat'] = [2000];
 					}
@@ -93,7 +111,7 @@ var canonnEd3d_tw = {
 					};
 
 					// We can then push the site to the object that stores all systems
-					canonnEd3d_tw.systemsData.systems.push(poiSite);
+					canonnEd3d_gv.systemsData.systems.push(poiSite);
 				}
 			}
 		}
@@ -104,13 +122,13 @@ var canonnEd3d_tw = {
 	init: function() {
 		//Sites Data
 		var p1 = new Promise(function(resolve, reject) {
-			canonnEd3d_tw.formatSites(sites, resolve);
+			canonnEd3d_gv.formatSites(sites, resolve);
 		});
 
 		Promise.all([p1]).then(function() {
 			Ed3d.init({
 				container: 'edmap',
-				json: canonnEd3d_tw.systemsData,
+				json: canonnEd3d_gv.systemsData,
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,

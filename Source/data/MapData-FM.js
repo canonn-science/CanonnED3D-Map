@@ -1,119 +1,167 @@
-var canonnEd3d_fm = {
+const API_ENDPOINT = `https://api.canonn.tech`;
+const API_LIMIT = 1000;
 
+const capi = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		Accept: 'application/json',
+	},
+});
+
+let sites = {
+	fmsites: [],
+};
+
+const go = async types => {
+	let typeKeys = Object.keys(types);
+	// loop through types to get all the data
+	for (i = 0; i < typeKeys.length; i++) {
+		sites[typeKeys[i]] = await getSites(typeKeys[i]);
+	}
+
+	return sites;
+};
+
+const getSites = async type => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSites(API_START, type);
+		await records.push.apply(records, response.data);
+		API_START += API_LIMIT;
+		if (response.data.length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSites = async (API_START, type) => {
+
+	let payload = await capi({
+		url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
+		method: 'get'
+	});
+
+	return payload;
+};
+
+var canonnEd3d_fm = {
 	//Define Categories
 	systemsData: {
-		"categories": {
-			"POI Systems": {
-				"100": {
-					"name": "Systems",
-					"color": "F56D54"
+		categories: {
+			'Fumaroles - (FM)': {
+				'201': {
+					name: 'Sulphur Dioxide Fumarole',
+					color: 'FF0000',
 				},
-				"102": {
-					"name": "Other",
-					"color": "F79F8F"
-				}
+				'202': {
+					name: 'Water Fumarole',
+					color: 'B22222',
+				},
+				'203': {
+					name: 'Silicate Vapour Fumarole',
+					color: 'FF7F50',
+				},
+				'204': {
+					name: 'Sulphur Dioxide Ice Fumarole',
+					color: 'FFFF00',
+				},
+				'205': {
+					name: 'Water Ice Fumarole',
+					color: '00FF00',
+				},
+				'206': {
+					name: 'Carbon Dioxide Ice Fumarole',
+					color: '0000FF',
+				},
+				'207': {
+					name: 'Ammonia Ice Fumarole',
+					color: 'EE82EE',
+				},
+				'208': {
+					name: 'Methane Ice Fumarole',
+					color: 'FF00FF',
+				},
+				'209': {
+					name: 'Nitrogen Ice Fumarole',
+					color: '800080',
+				},
+				'210': {
+					name: 'Silicate Vapour Ice Fumarole',
+					color: 'A52A2A',
+				},
 			},
-			"The Gnosis": {
-				"101": {
-					"name": "Current System",
-					"color": "FF9D00"
-				}
+			'Unknown Type': {
+				'2000': {
+					name: 'Unknown Site',
+					color: '800000',
+				},
 			},
-			"Fumaroles - (FM)": {
-				"500": {
-					"name": "Fumarole",
-					"color": "ffc266"
-				}
-			}
 		},
-		"systems": []
+		systems: [],
 	},
 
-	formatFM: function (data) {
+	formatSites: async function(data, resolvePromise) {
+		await go(data);
 
-		//Here you format FM JSON to ED3D acceptable object
+		let siteTypes = Object.keys(data);
 
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var fmSite = {};
-				fmSite["name"] = data[i].system;
-				fmSite["cat"] = [500];
-				fmSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
+		for (var i = 0; i < siteTypes.length; i++) {
+			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
+				let siteData = sites[siteTypes[i]];
+				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
+					var poiSite = {};
+					poiSite['name'] = siteData[d].system.systemName;
 
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_fm.systemsData.systems.push(fmSite);
-			}
+					//Check Site Type and match categories
+					if (siteData[d].type.type == 'Sulphur Dioxide Fumarole') {
+						poiSite['cat'] = [201];
+					} else if (siteData[d].type.type == 'Water Fumarole') {
+						poiSite['cat'] = [202];
+					} else if (siteData[d].type.type == 'Silicate Vapour Fumarole') {
+						poiSite['cat'] = [203];
+					} else if (siteData[d].type.type == 'Sulphur Dioxide Ice Fumarole') {
+						poiSite['cat'] = [204];
+					} else if (siteData[d].type.type == 'Water Ice Fumarole') {
+						poiSite['cat'] = [205];
+					} else if (siteData[d].type.type == 'Carbon Dioxide Ice Fumarole') {
+						poiSite['cat'] = [206];
+					} else if (siteData[d].type.type == 'Ammonia Ice Fumarole') {
+						poiSite['cat'] = [207];
+					} else if (siteData[d].type.type == 'Methane Ice Fumarole') {
+						poiSite['cat'] = [208];
+					} else if (siteData[d].type.type == 'Nitrogen Ice Fumarole') {
+						poiSite['cat'] = [209];
+					} else if (siteData[d].type.type == 'Silicate Vapour Ice Fumarole') {
+						poiSite['cat'] = [210];
+					} else {
+						poiSite['cat'] = [2000];
+					}
+					poiSite['coords'] = {
+						x: parseFloat(siteData[d].system.edsmCoordX),
+						y: parseFloat(siteData[d].system.edsmCoordY),
+						z: parseFloat(siteData[d].system.edsmCoordZ),
+					};
 
-		}
-
-	},
-
-	formatPOI: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].system && data[i].system.replace(" ", "").length > 1) {
-				var poiSite = {};
-				poiSite["name"] = data[i].system;
-
-				//Check Site Type and match categories
-				if (data[i].type.toString() == "gnosis") {
-					poiSite["cat"] = [101];
-				} else if (data[i].type.toString() == "POI") {
-					poiSite["cat"] = [100];
-				} else {
-					poiSite["cat"] = [102];
+					// We can then push the site to the object that stores all systems
+					canonnEd3d_fm.systemsData.systems.push(poiSite);
 				}
-				poiSite["coords"] = {
-					"x": parseFloat(data[i].galacticX),
-					"y": parseFloat(data[i].galacticY),
-					"z": parseFloat(data[i].galacticZ)
-				};
-
-				// We can then push the site to the object that stores all systems
-				canonnEd3d_fm.systemsData.systems.push(poiSite);
 			}
-
 		}
-
+		document.getElementById("loading").style.display = "none";
+		resolvePromise();
 	},
 
-	parseData: function (url, callBack, resolvePromise) {
-		Papa.parse(url, {
-			download: true,
-			header: true,
-			complete: function (results) {
-
-				callBack(results.data);
-
-				// after we called the callback
-				// (which is synchronous, so we know it's safe here)
-				// we can resolve the promise
-
-				resolvePromise();
-			}
-		});
-	},
-
-	init: function () {
-
-		//FM Sites
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_fm.parseData("data/csvCache/fmDataCache.csv", canonnEd3d_fm.formatFM, resolve);
+	init: function() {
+		//Sites Data
+		var p1 = new Promise(function(resolve, reject) {
+			canonnEd3d_fm.formatSites(sites, resolve);
 		});
 
-		//POI & Gnosis
-		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_fm.parseData("data/csvCache/poiDataCache.csv", canonnEd3d_fm.formatPOI, resolve);
-		});
-
-		Promise.all([p1, p2]).then(function () {
+		Promise.all([p1]).then(function() {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_fm.systemsData,
@@ -124,8 +172,8 @@ var canonnEd3d_fm = {
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00'
+				systemColor: '#FF9D00',
 			});
 		});
-	}
+	},
 };

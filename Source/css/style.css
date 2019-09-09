@@ -26,10 +26,18 @@
 
 body {
   color: #fff;
-  background-color: #0a0a0a;
+  background-color: #000000;
   margin: 0;
   padding: 0;
   font-family: "Open Sans", Arial;
+}
+
+#loading {
+  position:absolute;
+  top:40%;
+  left:40%;
+  color:white;
+  z-index: 1;
 }
 
 body#wiki {
@@ -488,7 +496,7 @@ table tfoot td {
   font-size: 1rem;
   margin: 0;
   padding: 0;
-  background-color: #0a0a0a;
+  background-color: #000000;
   text-align: center;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   /*background-image: url('../img/background.jpg');
@@ -1121,5 +1129,3 @@ a .stellar:hover {
   background-color: rgba(0,0,0,0.5) !important;
   color: #999 !important;
 }
-
-
