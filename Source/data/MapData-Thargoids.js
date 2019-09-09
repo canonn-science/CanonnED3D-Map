@@ -1,5 +1,5 @@
 const API_ENDPOINT = `https://api.canonn.tech`;
-const API_LIMIT = 100;
+const API_LIMIT = 1000;
 
 const capi = axios.create({
 	baseURL: API_ENDPOINT,
@@ -30,10 +30,9 @@ const getSites = async type => {
 	let API_START = 0;
 	while (keepGoing) {
 		let response = await reqSites(API_START, type);
-		let responseKeys = Object.keys(response.data.data);
-		await records.push.apply(records, response.data.data[responseKeys[0]]);
+		await records.push.apply(records, response.data);
 		API_START += API_LIMIT;
-		if (response.data.data[responseKeys[0]].length < API_LIMIT) {
+		if (response.data.length < API_LIMIT) {
 			keepGoing = false;
 			return records;
 		}
@@ -41,54 +40,10 @@ const getSites = async type => {
 };
 
 const reqSites = async (API_START, type) => {
-	let typeQuery = type;
-	let where = {};
-	let query = `query ($limit:Int, $start:Int, $where:JSON){ 
-    ${typeQuery} (limit: $limit, start: $start, where: $where){ 
-      system{ 
-        systemName
-        edsmCoordX
-        edsmCoordY
-        edsmCoordZ
-      } 
-      subtype {
-        type
-      }
-    }
-  }`;
-
-	let tsquery = `query ($limit:Int, $start:Int, $where:JSON){ 
-    ${typeQuery} (limit: $limit, start: $start, where: $where){ 
-      system{ 
-        systemName
-        edsmCoordX
-        edsmCoordY
-        edsmCoordZ
-      }
-      status {
-        status
-      }
-    }
-  }`;
-
-	let newQuery = null;
-	if (type == 'tssites') {
-		newQuery = tsquery;
-	} else {
-		newQuery = query;
-	}
 
 	let payload = await capi({
-		url: '/graphql',
-		method: 'post',
-		data: {
-			query: newQuery,
-			variables: {
-				start: API_START,
-				limit: API_LIMIT,
-				where,
-			},
-		},
+		url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
+		method: 'get'
 	});
 
 	return payload;
