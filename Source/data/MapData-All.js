@@ -145,7 +145,7 @@ var canonnEd3d_all = {
 	},
 
 	formatSites: async function(data, resolvePromise) {
-		await go(data);
+		sites = await go(data);
 
 		let siteTypes = Object.keys(data);
 
