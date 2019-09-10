@@ -70,67 +70,67 @@ var canonnEd3d_all = {
 		categories: {
 			"Sites": {
 				"201": {
-					name: "Amphora Plants (AP)",
+					name: "(AP) Amphora Plants",
 					color: randomColor().replace('#', '').toString()
 				},
 				"202": {
-					name: "Bark Mounds (BM)",
+					name: "(BM) Bark Mounds",
 					color: randomColor().replace('#', '').toString()
 				},
 				"203": {
-					name: "Brain Trees (BT)",
+					name: "(BT) Brain Trees",
 					color: randomColor().replace('#', '').toString()
 				},
 				"204": {
-					name: "Crystalline Shards (CS)",
+					name: "(CS) Crystalline Shards",
 					color: randomColor().replace('#', '').toString()
 				},
 				"205": {
-					name: "Fungal Gourds (FG)",
+					name: "(FG) Fungal Gourds",
 					color: randomColor().replace('#', '').toString()
 				},
 				"206": {
-					name: "Fumaroles (FM)",
+					name: "(FM) Fumaroles",
 					color: randomColor().replace('#', '').toString()
 				},
 				"207": {
-					name: "Generation Ships (GEN)",
+					name: "(GEN) Generation Ships",
 					color: randomColor().replace('#', '').toString()
 				},
 				"208": {
-					name: "Guardian Beacons (GB)",
+					name: "(GB) Guardian Beacons",
 					color: randomColor().replace('#', '').toString()
 				},
 				"209": {
-					name: "Guardian Ruins (GR)",
+					name: "(GR) Guardian Ruins",
 					color: randomColor().replace('#', '').toString()
 				},
 				"210": {
-					name: "Guardian Structures (GS)",
+					name: "(GS) Guardian Structures",
 					color: randomColor().replace('#', '').toString()
 				},
 				"211": {
-					name: "Gas Vents (GV)",
+					name: "(GV) Gas Vents",
 					color: randomColor().replace('#', '').toString()
 				},
 				"212": {
-					name: "Geysers (GY)",
+					name: "(GY) Geysers",
 					color: randomColor().replace('#', '').toString()
 				},
 				"213": {
-					name: "Lava Spouts (LS)",
+					name: "(LS) Lava Spouts",
 					color: randomColor().replace('#', '').toString()
 				},
 				"214": {
-					name: "Thargoid Barnacles (TB)",
+					name: "(TB) Thargoid Barnacles",
 					color: randomColor().replace('#', '').toString()
 				},
 				"215": {
-					name: "Thargoid Structures (TS)",
+					name: "(TS) Thargoid Structure",
 					color: randomColor().replace('#', '').toString()
 				},
 				"216": {
-					name: "Tube Worms (TW)",
+					name: "(TW) Tube Worms",
 					color: randomColor().replace('#', '').toString()
 				}
 			},
