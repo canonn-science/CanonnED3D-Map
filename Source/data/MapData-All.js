@@ -29,13 +29,13 @@ let sites = {
 };
 
 const go = async types => {
-	let typeKeys = Object.keys(types);
-	// loop through types to get all the data
-	for (i = 0; i < typeKeys.length; i++) {
-		sites[typeKeys[i]] = await getSites(typeKeys[i]);
-	}
-
-	return sites;
+	const keys = Object.keys(types);
+	return (await Promise.all(
+			keys.map(type => getSites(type))
+	)).reduce((acc, res, i) => {
+			acc[keys[i]] = res;
+			return acc;
+	}, {});
 };
 
 const getSites = async type => {
