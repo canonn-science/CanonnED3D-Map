@@ -1,3 +1,53 @@
+const API_ENDPOINT = `https://api.canonn.tech`;
+const API_LIMIT = 1000;
+
+const capi = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		Accept: 'application/json',
+	},
+});
+
+let sites = {
+	permitlocks: [],
+};
+
+const go = async types => {
+	const keys = Object.keys(types);
+	return (await Promise.all(
+			keys.map(type => getSystems(type))
+	)).reduce((acc, res, i) => {
+			acc[keys[i]] = res;
+			return acc;
+	}, {});
+};
+
+const getSystems = async (type) => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSystems(API_START, type);
+		await records.push.apply(records, response.data);
+		API_START += API_LIMIT;
+		if (response.data.length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSystems = async (API_START, type) => {
+
+	let payload = await capi({
+		url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
+		method: 'get'
+	});
+
+	return payload;
+};
+
 var canonnEd3d_permit = {
 	//Define Categories
 	systemsData: {
@@ -49,7 +99,9 @@ var canonnEd3d_permit = {
 	},
 
 	formatCol: function(data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
+		sites = await go(data);
+
+		let siteTypes = Object.keys(data);
 
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
