@@ -2,7 +2,7 @@ var canonnEd3d_challenge = {
 	//Define Categories
 	systemsData: {
 		categories: {
-			'Permit Locked Regions': {
+			'Challenge': {
 				'10': {
 					name: 'Varati',
 					color: 'f5a142',
@@ -140,13 +140,14 @@ var canonnEd3d_challenge = {
 			if (data[i].name && data[i].name.replace(' ', '').length > 1) {
 				var poiSite = {};
 				poiSite['name'] = data[i].name;
-
+                poiSite['infos']= data[i].infos;
 				//Check Site Type and match categories
 
 				var component = data[i].name.split(' ');
 				if (poiSite['name'] == 'Varati') {
                     poiSite['details'] == 'Start and Finish';
 					poiSite['cat'] = [10];
+                    
 				} else {
                     poiSite['cat'] = [20];    
                 }
