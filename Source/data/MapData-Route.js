@@ -24,40 +24,37 @@ var canonnEd3d_route = {
 	//Define Categories
 	systemsData: {
 		categories: {
-			'Codex Categories': {
+			'Systems': {
 				'11': {
 					name: 'Start System',
-					color: '442199',
+					color: '72ec11',
 				},
 				'12': {
 					name: 'End System',
-					color: '442291',
+					color: 'ec4011',
 				},
+			},
+			'Codex Categories': {
 				'01': {
 					name: 'Biology',
-					color: '442299',
+					color: 'ffb533',
 				},
 				'02': {
 					name: 'Cloud',
-					color: '4444dd',
+					color: 'DAF7A6',
 				},
 				'03': {
 					name: 'Anomaly',
-					color: '11aabb',
+					color: 'FFC300',
 				},
 				'04': {
 					name: 'Thargoid',
-					color: '22ccaa',
+					color: 'FF5733',
 				},
 				'05': {
 					name: 'Guardian',
-					color: 'a6cc33',
+					color: '115eec',
 				},
-				'06': {
-					name: 'Other',
-					color: '69d025',
-				},
-
 			},
 		},
 		systems: [],
@@ -71,8 +68,11 @@ var canonnEd3d_route = {
 		startSystem = data[0].startSystem
 		endSystem = data[0].endSystem
 		console.log("route")
-		console.log(startSystem.name)
-		console.log(endSystem.name)
+		console.log(startSystem.name);
+		console.log(endSystem.name);
+
+		canonnEd3d_route.systemsData.categories['Systems']["11"].name = startSystem.name
+		canonnEd3d_route.systemsData.categories['Systems']["12"].name = endSystem.name
 
 		route = {
 			'points': [
@@ -86,6 +86,7 @@ var canonnEd3d_route = {
 		var endSite = {};
 		startSite['name'] = startSystem.name
 		startSite['cat'] = ["11"]
+		startSite['infos'] = 'Start of route<br>'
 		startSite['coords'] = {
 			x: parseFloat(startSystem.x),
 			y: parseFloat(startSystem.y),
@@ -94,10 +95,11 @@ var canonnEd3d_route = {
 		canonnEd3d_route.systemsData.systems.push(startSite);
 		endSite['cat'] = ["12"]
 		endSite['name'] = endSystem.name
+		endSite['infos'] = 'End of route<br>'
 		endSite['coords'] = {
-			x: parseFloat(endSite.x),
-			y: parseFloat(endSite.y),
-			z: parseFloat(endSite.z),
+			x: parseFloat(endSystem.x),
+			y: parseFloat(endSystem.y),
+			z: parseFloat(endSystem.z),
 		};
 		canonnEd3d_route.systemsData.systems.push(endSite);
 
@@ -107,6 +109,7 @@ var canonnEd3d_route = {
 		for (var i = 0; i < data.length; i++) {
 			var poiSite = {};
 			poiSite['name'] = data[i].system;
+			poiSite['infos'] = data[i].english_name + '<br>'
 
 			//Check Site Type and match categories
 
