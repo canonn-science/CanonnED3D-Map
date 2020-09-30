@@ -358,7 +358,11 @@ var canonnEd3d_route = {
 			category = data[i].category
 			subcategory = data[i].description
 
-			if (category != "Lagrange Cloud" & category != "FSS Signals") {
+			if (category == "Storm Cloud") {
+				category = "Lagrange Cloud"
+			}
+
+			if (category != "Storm Cloud" & category != "Lagrange Cloud" & category != "FSS Signals") {
 				subcategory = category
 				category = "Contents"
 			}
