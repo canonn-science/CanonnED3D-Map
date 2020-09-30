@@ -362,14 +362,13 @@ var canonnEd3d_route = {
 				category = "Lagrange Cloud"
 			}
 
-			if (category != "Storm Cloud" & category != "Lagrange Cloud" & category != "FSS Signals") {
+			if (category != "Lagrange Cloud" & category != "FSS Signals") {
 				subcategory = category
 				category = "Contents"
 			}
 
 
 			if (!categories[category]) {
-				console.log(category)
 				categories[category] = {}
 			}
 			if (!subcategories[subcategory]) {
