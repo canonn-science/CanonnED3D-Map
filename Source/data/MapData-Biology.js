@@ -21,10 +21,10 @@ let sites = {
 const go = async types => {
 	const keys = Object.keys(types);
 	return (await Promise.all(
-			keys.map(type => getSites(type))
+		keys.map(type => getSites(type))
 	)).reduce((acc, res, i) => {
-			acc[keys[i]] = res;
-			return acc;
+		acc[keys[i]] = res;
+		return acc;
 	}, {});
 };
 
@@ -187,10 +187,12 @@ var canonnEd3d_biology = {
 		systems: [],
 	},
 
-	formatSites: async function(data, resolvePromise) {
+	formatSites: async function (data, resolvePromise) {
 		sites = await go(data);
 
 		let siteTypes = Object.keys(data);
+
+
 
 		for (var i = 0; i < siteTypes.length; i++) {
 			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
@@ -198,6 +200,7 @@ var canonnEd3d_biology = {
 				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
 					var poiSite = {};
 					poiSite['name'] = siteData[d].system.systemName;
+					poiSite['infos'] = siteData[d].type.type + '<br>';
 
 					//Check Site Type and match categories
 					if (siteTypes[i] == 'apsites' && siteData[d].type.type == 'Amphora Plant') {
@@ -272,13 +275,57 @@ var canonnEd3d_biology = {
 		resolvePromise();
 	},
 
-	init: function() {
+	formatCol: function (data) {
+		//Here you format POI & Gnosis JSON to ED3D acceptable object
+
+
+		// this is assuming data is an array []
+		for (var i = 0; i < data.length; i++) {
+			var poiSite = {};
+
+			poiSite['name'] = data[i].system;
+			poiSite['infos'] = 'Unscanned Biology Signal'
+
+			//Check Site Type and match categories
+
+			poiSite['cat'] = [2000];
+
+			poiSite['coords'] = {
+				x: parseFloat(data[i].x),
+				y: parseFloat(data[i].y),
+				z: parseFloat(data[i].z),
+			};
+
+			// We can then push the site to the object that stores all systems
+			canonnEd3d_biology.systemsData.systems.push(poiSite);
+
+		}
+	},
+
+	parseGcloud: function (url, callBack, resolvePromise) {
+		let fetchDataFromApi = async (url, resolvePromise) => {
+			let response = await fetch(url);
+			let result = await response.json();
+			canonnEd3d_biology.formatCol(result)
+			resolvePromise();
+			return result;
+		}
+		fetchDataFromApi(url, resolvePromise)
+
+		//console.log(data)
+
+	},
+	init: function () {
 		//Sites Data
-		var p1 = new Promise(function(resolve, reject) {
+		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_biology.formatSites(sites, resolve);
 		});
 
-		Promise.all([p1]).then(function() {
+		var p2 = new Promise(function (resolve, reject) {
+			canonnEd3d_biology.parseGcloud('https://us-central1-canonn-api-236217.cloudfunctions.net/unknown_biosignals', canonnEd3d_biology.formatCol, resolve);
+		});
+
+		Promise.all([p1, p2]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_biology.systemsData,
