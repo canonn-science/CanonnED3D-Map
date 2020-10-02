@@ -44,7 +44,10 @@ var canonnEd3d_route = {
 	},
 
 	formatCol: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
+
+		merope = { name: "Merope", cat: ["Merope"], coords: { x: -78.59375, y: -149.625, z: -340.53125 } }
+		witchhead = { name: "Witch Head Sector IR-W c1-9", cat: ["Witch Head Sector IR-W c1-9"], coords: { x: 355.3125, y: -425.96875, z: -723.03125 } }
+		sol = { name: "Sol", cat: ["Sol"], coords: { x: 0, y: 0, z: 0 } }
 
 		categories = {}
 		categories["Reference Systems"] = {
@@ -59,8 +62,31 @@ var canonnEd3d_route = {
 		for (var i = 0; i < data.length; i++) {
 			var poiSite = {};
 
-			category = "Hyperdiction Year"
-			subcategory = data[i].year
+			category = data[i].year
+
+			poiSite['coords'] = {
+				x: parseFloat(data[i].x),
+				y: parseFloat(data[i].y),
+				z: parseFloat(data[i].z),
+			};
+
+			dmerope = Math.sqrt(Math.pow(poiSite.coords.x - merope.coords.x, 2) + Math.pow(poiSite.coords.y - merope.coords.y, 2) + Math.pow(poiSite.coords.z - merope.coords.z, 2))
+			dsol = Math.sqrt(Math.pow(poiSite.coords.x - sol.coords.x, 2) + Math.pow(poiSite.coords.y - sol.coords.y, 2) + Math.pow(poiSite.coords.z - sol.coords.z, 2))
+			dwitchhead = Math.sqrt(Math.pow(poiSite.coords.x - witchhead.coords.x, 2) + Math.pow(poiSite.coords.y - witchhead.coords.y, 2) + Math.pow(poiSite.coords.z - witchhead.coords.z, 2))
+
+			if (dmerope < dsol & dmerope < dwitchhead) {
+				subcategory = 'Merope ' + data[i].year
+				subname = "Merope"
+			}
+			if (dsol < dmerope & dsol < dwitchhead) {
+				subcategory = 'Sol ' + data[i].year
+				subname = "Sol"
+			}
+
+			if (dwitchhead < dmerope & dwitchhead < dsol) {
+				subcategory = 'Witchhead ' + data[i].year
+				subname = "Witchhead"
+			}
 
 			if (!categories[category]) {
 				categories[category] = {}
@@ -68,8 +94,9 @@ var canonnEd3d_route = {
 
 			if (!subcategories[subcategory]) {
 				subcategories[subcategory] = {}
+
 				colourkey = Object.keys(subcategories).length
-				categories[category][subcategory] = { name: subcategory, color: colours[colourkey + 2][0].replace('#', '') }
+				categories[category][subcategory] = { name: subname, color: colours[colourkey + 2][0].replace('#', '') }
 			}
 
 			poiSite['name'] = data[i].system;
@@ -89,9 +116,6 @@ var canonnEd3d_route = {
 
 		}
 
-		merope = { name: "Merope", cat: ["Merope"], coords: { x: -78.59375, y: -149.625, z: -340.53125 } }
-		witchhead = { name: "Witch Head Sector IR-W c1-9", cat: ["Witch Head Sector IR-W c1-9"], coords: { x: 355.3125, y: -425.96875, z: -723.03125 } }
-		sol = { name: "Sol", cat: ["Sol"], coords: { x: 0, y: 0, z: 0 } }
 		canonnEd3d_route.systemsData.systems.push(merope);
 		canonnEd3d_route.systemsData.systems.push(sol);
 		canonnEd3d_route.systemsData.systems.push(witchhead);
