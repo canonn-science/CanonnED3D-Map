@@ -16,10 +16,10 @@ let sites = {
 const go = async types => {
 	const keys = Object.keys(types);
 	return (await Promise.all(
-			keys.map(type => getSites(type))
+		keys.map(type => getSites(type))
 	)).reduce((acc, res, i) => {
-			acc[keys[i]] = res;
-			return acc;
+		acc[keys[i]] = res;
+		return acc;
 	}, {});
 };
 
@@ -96,7 +96,7 @@ var canonnEd3d_bt = {
 		systems: [],
 	},
 
-	formatSites: async function(data, resolvePromise) {
+	formatSites: async function (data, resolvePromise) {
 		sites = await go(data);
 
 		let siteTypes = Object.keys(data);
@@ -128,6 +128,7 @@ var canonnEd3d_bt = {
 					} else {
 						poiSite['cat'] = [2000];
 					}
+					poiSite['infos'] = siteData[d].type.type + '<br>'
 					poiSite['coords'] = {
 						x: parseFloat(siteData[d].system.edsmCoordX),
 						y: parseFloat(siteData[d].system.edsmCoordY),
@@ -143,13 +144,13 @@ var canonnEd3d_bt = {
 		resolvePromise();
 	},
 
-	init: function() {
+	init: function () {
 		//Sites Data
-		var p1 = new Promise(function(resolve, reject) {
+		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_bt.formatSites(sites, resolve);
 		});
 
-		Promise.all([p1]).then(function() {
+		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_bt.systemsData,
