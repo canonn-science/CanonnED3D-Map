@@ -17,10 +17,10 @@ let sites = {
 const go = async types => {
 	const keys = Object.keys(types);
 	return (await Promise.all(
-			keys.map(type => getSites(type))
+		keys.map(type => getSites(type))
 	)).reduce((acc, res, i) => {
-			acc[keys[i]] = res;
-			return acc;
+		acc[keys[i]] = res;
+		return acc;
 	}, {});
 };
 
@@ -66,6 +66,10 @@ var canonnEd3d_gr = {
 				"203": {
 					name: "Gamma",
 					color: randomColor().replace('#', '').toString()
+				},
+				"214": {
+					name: "Unknown",
+					color: randomColor().replace('#', '').toString()
 				}
 			},
 			"Guardian Structures - (GS)": {
@@ -109,18 +113,13 @@ var canonnEd3d_gr = {
 					name: "Stickyhand",
 					color: randomColor().replace('#', '').toString()
 				}
-			},
-			'Unknown Type': {
-				'2000': {
-					name: 'Unknown Site',
-					color: '800000',
-				},
-			},
+			}
 		},
 		"systems": []
 	},
+	siteNames: {},
 
-	formatSites: async function(data, resolvePromise) {
+	formatSites: async function (data, resolvePromise) {
 		sites = await go(data);
 
 		let siteTypes = Object.keys(data);
@@ -131,6 +130,7 @@ var canonnEd3d_gr = {
 				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
 					var poiSite = {};
 					poiSite['name'] = siteData[d].system.systemName;
+					canonnEd3d_gr.siteNames[siteData[d].system.systemName] = true
 
 					//Check Site Type and match categories
 					if (siteData[d].type.type == 'Alpha') {
@@ -173,17 +173,55 @@ var canonnEd3d_gr = {
 				}
 			}
 		}
-		document.getElementById("loading").style.display = "none";
+
 		resolvePromise();
 	},
 
-	init: function() {
-		//Sites Data
-		var p1 = new Promise(function(resolve, reject) {
-			canonnEd3d_gr.formatSites(sites, resolve);
+	formatUnknown: function (data) {
+		console.log(canonnEd3d_gr.siteNames)
+		console.log(data)
+		data.forEach(function (site) {
+			if (!canonnEd3d_gr.siteNames[site.system.toUpperCase()]) {
+				console.log("Not found: " + site.system)
+				var poiSite = {};
+				poiSite['cat'] = [214];
+				poiSite['name'] = site.system;
+				poiSite["coords"] = { x: site.x, y: site.y, z: site.z }
+				poiSite["infos"] = "Ancient Ruin<br>"
+				canonnEd3d_gr.systemsData.systems.push(poiSite);
+			}
 		});
 
-		Promise.all([p1]).then(function() {
+	},
+
+	gCloudData: [],
+
+	parseData: function (url, resolvePromise) {
+		let fetchDataFromApi = async (url, resolvePromise) => {
+			let response = await fetch(url);
+			let result = await response.json();
+			canonnEd3d_gr.gCloudData = result
+			resolvePromise();
+			console.log("data parsed")
+			return result;
+		}
+		fetchDataFromApi(url, resolvePromise)
+
+		//console.log(data)
+
+	},
+
+	init: function () {
+		//Sites Data
+		var p1 = new Promise(function (resolve, reject) {
+			canonnEd3d_gr.formatSites(sites, resolve);
+		});
+		var p2 = new Promise(function (resolve, reject) {
+			canonnEd3d_gr.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/get_gr_data', resolve);
+		});
+		Promise.all([p1, p2]).then(function () {
+			canonnEd3d_gr.formatUnknown(canonnEd3d_gr.gCloudData)
+			document.getElementById("loading").style.display = "none";
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_gr.systemsData,
