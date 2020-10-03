@@ -143,25 +143,25 @@ var canonnEd3d_gr = {
 						poiSite['infos'] = 'Ancient Ruins (' + siteData[d].type.type + ')<br><img src="https://ruins.canonn.tech/images/maps/' + siteData[d].type.type.toLowerCase() + '-thumbnail.png"><br>'
 						poiSite['cat'] = [203];
 					} else if (siteData[d].type.type == 'Lacrosse') {
-						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [204];
 					} else if (siteData[d].type.type == 'Crossroads') {
-						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [205];
 					} else if (siteData[d].type.type == 'Fistbump') {
-						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [206];
 					} else if (siteData[d].type.type == 'Hammerbot') {
-						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [207];
 					} else if (siteData[d].type.type == 'Bear') {
-						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [208];
 					} else if (siteData[d].type.type == 'Bowl') {
-						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [209];
 					} else if (siteData[d].type.type == 'Turtle') {
-						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [210];
 					} else if (siteData[d].type.type == 'Robolobster') {
 						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
