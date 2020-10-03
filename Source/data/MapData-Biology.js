@@ -178,7 +178,7 @@ var canonnEd3d_biology = {
 			var poiSite = {};
 
 			poiSite['name'] = data[i].system;
-			poiSite['infos'] = 'Unscanned Biology Signal'
+			poiSite['infos'] = '<a href="https://tools.canonn.tech/signals?system=' + data[i].system + '" target="_blank">Unscanned Biology Signal</a>'
 
 			//Check Site Type and match categories
 
