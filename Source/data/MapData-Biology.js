@@ -164,7 +164,7 @@ var canonnEd3d_biology = {
 				}
 			}
 		}
-		document.getElementById("loading").style.display = "none";
+
 		canonnEd3d_biology.systemsData.categories = Object.assign({}, canonnEd3d_biology.systemsData.categories, categories);
 		resolvePromise();
 	},
@@ -178,7 +178,7 @@ var canonnEd3d_biology = {
 			var poiSite = {};
 
 			poiSite['name'] = data[i].system;
-			poiSite['infos'] = 'Unscanned Biology Signal'
+			poiSite['infos'] = '<a href="https://tools.canonn.tech/signals?system=' + data[i].system + '" target="_blank">Unscanned Biology Signal</a>'
 
 			//Check Site Type and match categories
 
@@ -220,6 +220,7 @@ var canonnEd3d_biology = {
 		});
 
 		Promise.all([p1, p2]).then(function () {
+			document.getElementById("loading").style.display = "none";
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_biology.systemsData,
