@@ -35,6 +35,10 @@ var canonnEd3d_route = {
 				},
 			},
 			'Codex Categories': {
+				'00': {
+					name: 'Unknown Biology',
+					color: 'ff0000',
+				},
 				'01': {
 					name: 'Biology',
 					color: 'ffb533',
@@ -67,9 +71,9 @@ var canonnEd3d_route = {
 
 		startSystem = data[0].startSystem
 		endSystem = data[0].endSystem
-		console.log("route")
-		console.log(startSystem.name);
-		console.log(endSystem.name);
+		//console.log("route")
+		//console.log(startSystem.name);
+		//console.log(endSystem.name);
 
 		canonnEd3d_route.systemsData.categories['Systems']["11"].name = startSystem.name
 		canonnEd3d_route.systemsData.categories['Systems']["12"].name = endSystem.name
@@ -80,7 +84,7 @@ var canonnEd3d_route = {
 				{ 's': endSystem.name, 'label': endSystem.name }], 'circle': true
 		}
 
-		console.log(route)
+		//console.log(route)
 
 		var startSite = {};
 		var endSite = {};
@@ -114,8 +118,13 @@ var canonnEd3d_route = {
 			//Check Site Type and match categories
 
 			poiSite['cat'] = ["06"];
-			if (data[i].hud_category == 'Biology') {
-				poiSite['cat'] = ["01"];
+			if (data[i].english_name == 'Unknown Biology Scan') {
+				poiSite['infos'] = '<a href="https://tools.canonn.tech/signals?system=' + data[i].system + '" target="_blank">Unknown Biology Signal</a>'
+				poiSite['cat'] = ["00"];
+			} else {
+				if (data[i].hud_category == 'Biology') {
+					poiSite['cat'] = ["01"];
+				}
 			}
 			if (data[i].hud_category == 'Cloud') {
 				poiSite['cat'] = ["02"];
@@ -139,7 +148,7 @@ var canonnEd3d_route = {
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_route.systemsData.systems.push(poiSite);
 			document.getElementById("loading").style.display = "none";
-			console.log(canonnEd3d_route.systemsData.systems)
+			//	console.log(canonnEd3d_route.systemsData.systems)
 		}
 	},
 
