@@ -134,30 +134,43 @@ var canonnEd3d_gr = {
 
 					//Check Site Type and match categories
 					if (siteData[d].type.type == 'Alpha') {
+						poiSite['infos'] = 'Ancient Ruins (' + siteData[d].type.type + ')<br><img src="https://ruins.canonn.tech/images/maps/' + siteData[d].type.type.toLowerCase() + '-thumbnail.png"><br>'
 						poiSite['cat'] = [201];
 					} else if (siteData[d].type.type == 'Beta') {
+						poiSite['infos'] = 'Ancient Ruins (' + siteData[d].type.type + ')<br><img src="https://ruins.canonn.tech/images/maps/' + siteData[d].type.type.toLowerCase() + '-thumbnail.png"><br>'
 						poiSite['cat'] = [202];
 					} else if (siteData[d].type.type == 'Gamma') {
+						poiSite['infos'] = 'Ancient Ruins (' + siteData[d].type.type + ')<br><img src="https://ruins.canonn.tech/images/maps/' + siteData[d].type.type.toLowerCase() + '-thumbnail.png"><br>'
 						poiSite['cat'] = [203];
 					} else if (siteData[d].type.type == 'Lacrosse') {
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [204];
 					} else if (siteData[d].type.type == 'Crossroads') {
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [205];
 					} else if (siteData[d].type.type == 'Fistbump') {
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [206];
 					} else if (siteData[d].type.type == 'Hammerbot') {
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [207];
 					} else if (siteData[d].type.type == 'Bear') {
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [208];
 					} else if (siteData[d].type.type == 'Bowl') {
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [209];
 					} else if (siteData[d].type.type == 'Turtle') {
+						poiSite['infos'] = 'Ancient Structure (' + siteData[d].type.type + ')<br><img src="/img/' + siteData[d].type.type.toLowerCase() + '_thumbnail.png"><br>'
 						poiSite['cat'] = [210];
 					} else if (siteData[d].type.type == 'Robolobster') {
+						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
 						poiSite['cat'] = [211];
 					} else if (siteData[d].type.type == 'Squid') {
+						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
 						poiSite['cat'] = [212];
 					} else if (siteData[d].type.type == 'Stickyhand') {
+						poiSite['infos'] = "Ancient Structure (" + siteData[d].type.type + ")"
 						poiSite['cat'] = [213];
 					} else {
 						poiSite['cat'] = [2000];
