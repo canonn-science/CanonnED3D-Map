@@ -41,6 +41,45 @@ const colours = [
 	["#7F462C", "Sepia"], ["#C36241", "Rust"], ["#E56E94", "Blush"], ["#1589FF", "Dodger"], ["#835C3B", "Brown"], ["#A23BEC", "Jasmine"], ["#2B65EC", "Ocean"], ["#ECE5B6", "Tan"]
 ];
 
+const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/get_codex_route`;
+const API_LIMIT = 10000;
+
+const codex = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json',
+	},
+});
+
+
+
+const getSites = async (startSystem, endSystem, jumpRange) => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSites(API_START, startSystem, endSystem, jumpRange);
+		await records.push.apply(records, response.data);
+		API_START += API_LIMIT;
+		if (response.data.length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSites = async (API_START, startSystem, endSystem, jumpRange) => {
+
+	let payload = await codex({
+		url: `?startSystem=${startSystem}&endSystem=${endSystem}&jumpRange=${jumpRange}&limit=${API_LIMIT}&offset=${API_START}`,
+		method: 'get'
+	});
+	console.log("fetching data")
+	return payload;
+};
+
+
 function getColour(index) {
 	return colours[index][0].replace('#', '');
 }
@@ -53,19 +92,7 @@ function getUrlParameter(name) {
 };
 
 
-function fetchUrl(yUrl, callback) {
-	return fetch(yUrl)
-		.then(response => response.json())
-		.then(function (response) {
-			//alert(JSON.stringify(response.query));
-			//console.log(response)
-			callback(response);
-			return { response };
-		})
-		.catch(function (error) {
-			console.log(error);
-		});
-}
+
 
 var canonnEd3d_route = {
 	//Define Categories
@@ -201,13 +228,33 @@ var canonnEd3d_route = {
 			},
 		},
 		systems: [],
-		"routes": [],
+		routes: [],
+	},
+	codexData: [],
+	gmpData: [],
+
+	fetchCodexData: async function (sSystem, eSystem, jRange, resolvePromise) {
+		canonnEd3d_route.codexData = await getSites(sSystem, eSystem, jRange);
+		resolvePromise();
+	},
+
+	parseGmp: function (url, resolvePromise) {
+		let fetchDataFromApi = async (url, resolvePromise) => {
+			let response = await fetch(url);
+			let result = await response.json();
+			canonnEd3d_route.gmpData = result
+			resolvePromise();
+			return result;
+		}
+		fetchDataFromApi(url, resolvePromise)
+
+		//console.log(data)
+
 	},
 
 	formatCol: function (data) {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
-
+		canonnEd3d_route.codexData = data
 		startSystem = data[0].startSystem
 		endSystem = data[0].endSystem
 		//console.log("route")
@@ -303,21 +350,7 @@ var canonnEd3d_route = {
 			document.getElementById("loading").style.display = "none";
 			//	console.log(canonnEd3d_route.systemsData.systems)
 		}
-	},
 
-
-
-	parseData: function (url, callBack, resolvePromise) {
-		let fetchDataFromApi = async (url, resolvePromise) => {
-			let response = await fetch(url);
-			let result = await response.json();
-			canonnEd3d_route.formatCol(result)
-			resolvePromise();
-			return result;
-		}
-		fetchDataFromApi(url, resolvePromise)
-
-		//console.log(data)
 
 	},
 
@@ -326,10 +359,20 @@ var canonnEd3d_route = {
 			sSystem = getUrlParameter("startSystem");
 			eSystem = getUrlParameter("endSystem");
 			jRange = getUrlParameter("jumpRange");
-			canonnEd3d_route.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/full_codex_route-gmp?startSystem=' + sSystem + '&endSystem=' + eSystem + '&jumpRange=' + jRange, canonnEd3d_route.formatCol, resolve);
+			canonnEd3d_route.fetchCodexData(sSystem, eSystem, jRange, resolve)
+
 		});
 
-		Promise.all([p1]).then(function () {
+		var p2 = new Promise(function (resolve, reject) {
+			sSystem = getUrlParameter("startSystem");
+			eSystem = getUrlParameter("endSystem");
+			jRange = getUrlParameter("jumpRange");
+			canonnEd3d_route.parseGmp('https://us-central1-canonn-api-236217.cloudfunctions.net/get_gmp_route?startSystem=' + sSystem + '&endSystem=' + eSystem + '&jumpRange=' + jRange, resolve)
+		});
+
+		Promise.all([p1, p2]).then(function () {
+			canonnEd3d_route.formatCol(canonnEd3d_route.codexData)
+			canonnEd3d_route.formatCol(canonnEd3d_route.gmpData)
 			console.log(canonnEd3d_route.systemsData)
 			Ed3d.init({
 				container: 'edmap',
