@@ -118,18 +118,6 @@ var canonnEd3d_route = {
 					name: 'Sol',
 					color: getColour(0),
 				},
-				'01': {
-					name: 'Shinrarta Dezhra',
-					color: getColour(1),
-				},
-				'02': {
-					name: 'Controlled',
-					color: getColour(2),
-				},
-				'03': {
-					name: 'Present',
-					color: getColour(3),
-				},
 			},
 		},
 		systems: [],
@@ -213,7 +201,7 @@ var canonnEd3d_route = {
 				canonnEd3d_route.camerapos.y = parseFloat(data[i].system_details.y)
 				canonnEd3d_route.camerapos.z = parseFloat(data[i].system_details.z - 100)
 
-
+				canonnEd3d_route.systemsData.categories["Systems"]['01'] = { name: homeSystem, color: '00ff00' }
 				canonnEd3d_route.systemsData.systems.push(homeSite);
 			}
 
