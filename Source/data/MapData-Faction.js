@@ -45,6 +45,11 @@ function getColour(index) {
 	return colours[index][0].replace('#', '');
 }
 
+const capitalise = (s) => {
+	if (typeof s !== 'string') return ''
+	return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
 function getUrlParameter(name) {
 	name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
 	var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -52,8 +57,56 @@ function getUrlParameter(name) {
 	return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, '    '));
 };
 
+function renderConflicts(conflicts) {
+	if (conflicts.length == 0) {
+		return ""
+	}
+	retval = '<div  style="color: red; "><b>Conflicts:</b></div>'
+	conflicts.forEach(function (conflict) {
+		s = '&nbsp;' + capitalise(conflict.status) + ' ' + capitalise(conflict.type) + '<br>'
+		s = s + "&nbsp;&nbsp;" + conflict.faction1.name + '<br>&nbsp;&nbsp;vs<br>&nbsp;&nbsp;' + conflict.faction2.name + '<br>'
+	})
+	return retval + s
+}
 
+function renderSystem(f) {
+	controller = "Controlled by:<br>&nbsp;" + f.system_details.controlling_minor_faction_cased + "<br>"
+	influence = "Influence: " + Math.round(parseFloat(f.influence) * 100, 1) + "%<br>"
+	state = "State: " + capitalise(f.state) + '<br>'
+	pending = ""
+	if (f.pending_states.length > 0) {
+		pending = "<b>Pending States:</b><br>"
+		f.pending_states.forEach(function (s) {
+			pending = pending + "&nbsp;" + capitalise(s.state) + '<br>'
+		})
+	}
+	active_states = ""
+	if (f.active_states.length > 0) {
+		active_states = "<b>Active States:</b><br>"
+		f.active_states.forEach(function (s) {
+			active_states = active_states + "&nbsp;" + capitalise(s.state) + '<br>'
+		})
+	}
+	factions = "<b>Factions:</b><br>"
+	f.system_details.factions.forEach(function (f) {
+		factions = factions + '&nbsp;' + f.name + '<br>'
+	})
+	conflicts = renderConflicts(f.system_details.conflicts)
+	return controller + influence + state + active_states + pending + factions + conflicts
+}
 
+function parseStates(s) {
+	states = {}
+	c = 10
+	Object.keys(s).forEach(function (key) {
+		states[key] = {
+			name: key,
+			color: getColour(c)
+		}
+		c += 1
+	});
+	return states
+}
 
 var canonnEd3d_route = {
 	//Define Categories
@@ -85,6 +138,7 @@ var canonnEd3d_route = {
 	factionData: [],
 	camerapos: { x: 0, y: 0, z: 0 },
 
+
 	fetchCodexData: async function (sSystem, eSystem, jRange, resolvePromise) {
 		canonnEd3d_route.codexData = await getSites(sSystem, eSystem, jRange);
 		resolvePromise();
@@ -106,6 +160,9 @@ var canonnEd3d_route = {
 	formatCol: function (factionData, homeSystem) {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
 		faction = getUrlParameter("faction");
+		showRoute = getUrlParameter("showRoute");
+		states = {}
+
 		data = factionData.docs[0].faction_presence
 		solSite = {}
 		solSite['cat'] = ['00'];
@@ -127,10 +184,13 @@ var canonnEd3d_route = {
 					{ 's': homeSystem, 'label': homeSystem },
 					{ 's': data[i].system_name, 'label': data[i].system_name }], 'circle': false
 			}
+			console.log(data[i].state)
+			states[capitalise(data[i].state)] = capitalise(data[i].state)
 
 			var poiSite = {};
 			poiSite['name'] = data[i].system_name;
-			poiSite['infos'] = data[i].state + '<br>' + Math.round(parseFloat(data[i].influence) * 100, 1) + '%'
+
+			poiSite['infos'] = renderSystem(data[i])
 			poiSite['coords'] = {
 				x: parseFloat(data[i].system_details.x),
 				y: parseFloat(data[i].system_details.y),
@@ -157,20 +217,26 @@ var canonnEd3d_route = {
 				canonnEd3d_route.systemsData.systems.push(homeSite);
 			}
 
-			if (data[i].system_details.controlling_minor_faction.toUpperCase() == faction.toUpperCase()) {
-				poiSite['cat'] = ['02'];
-			} else {
-				poiSite['cat'] = ['03'];
-			}
+			//if (data[i].system_details.controlling_minor_faction.toUpperCase() == faction.toUpperCase()) {
+			//	poiSite['cat'] = ['02'];
+			//} else {
+			//	poiSite['cat'] = ['03'];
+			//}
+
+			poiSite['cat'] = [capitalise(data[i].state)]
 
 
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_route.systemsData.systems.push(poiSite);
 
-			canonnEd3d_route.systemsData.routes.push(route);
+			if (showRoute == '1') {
+				canonnEd3d_route.systemsData.routes.push(route);
+			}
 			//	console.log(canonnEd3d_route.systemsData.systems)
 		}
-
+		console.log("STATES")
+		console.log(states)
+		canonnEd3d_route.systemsData.categories["States"] = parseStates(states)
 
 	},
 
