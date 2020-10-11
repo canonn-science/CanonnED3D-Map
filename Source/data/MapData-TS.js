@@ -16,10 +16,10 @@ let sites = {
 const go = async types => {
 	const keys = Object.keys(types);
 	return (await Promise.all(
-			keys.map(type => getSites(type))
+		keys.map(type => getSites(type))
 	)).reduce((acc, res, i) => {
-			acc[keys[i]] = res;
-			return acc;
+		acc[keys[i]] = res;
+		return acc;
 	}, {});
 };
 
@@ -65,8 +65,8 @@ var canonnEd3d_ts = {
 		},
 		systems: [],
 	},
-
-	formatSites: async function(data, resolvePromise) {
+	startcoords: [],
+	formatSites: async function (data, resolvePromise) {
 		sites = await go(data);
 
 		let siteTypes = Object.keys(data);
@@ -92,6 +92,7 @@ var canonnEd3d_ts = {
 
 					// We can then push the site to the object that stores all systems
 					canonnEd3d_ts.systemsData.systems.push(poiSite);
+
 				}
 			}
 		}
@@ -99,13 +100,13 @@ var canonnEd3d_ts = {
 		resolvePromise();
 	},
 
-	init: function() {
+	init: function () {
 		//Sites Data
-		var p1 = new Promise(function(resolve, reject) {
+		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_ts.formatSites(sites, resolve);
 		});
 
-		Promise.all([p1]).then(function() {
+		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_ts.systemsData,
@@ -115,7 +116,8 @@ var canonnEd3d_ts = {
 				effectScaleSystem: [20, 500],
 				startAnim: false,
 				showGalaxyInfos: true,
-				cameraPos: [25, 14100, -12900],
+				//setting camera to Merope and adjusting
+				cameraPos: [-78.59375 - 500, -149.625, -340.53125 - 500],
 				systemColor: '#FF9D00',
 			});
 		});
