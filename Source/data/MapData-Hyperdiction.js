@@ -157,7 +157,8 @@ var canonnEd3d_route = {
 				effectScaleSystem: [20, 500],
 				startAnim: false,
 				showGalaxyInfos: true,
-				cameraPos: [25, 14100, -12900],
+				//setting camera to Merope and zoom out
+				cameraPos: [-78.59375 - 1000, -149.625, -340.53125 - 1000],
 				systemColor: '#FF9D00',
 			});
 		});
