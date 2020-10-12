@@ -1,4 +1,9 @@
+//https://learnui.design/tools/data-color-picker.html#divergent
 const colours = [
+	['003f5c'], ['2f4b7c'], ['665191'], ['a05195'], ['d45087'], ['f95d6a'], ['ff7c43'], ['ffa600'],
+	['4b9973'], ['75aa7c'], ['9abb8a'], ['bdcd9b'], ['dddeb0'], ['fcf1c8'], ['f4d7a6'], ['efbd88'], ['eaa16f'], ['e5835e'], ['de6254'],
+	['00876c'], ['439981'], ['6aaa96'], ['8cbcac'], ['aecdc2'], ['cfdfd9'], ['f1f1f1'], ['f1d4d4'], ['f0b8b8'], ['ec9c9d'], ['e67f83'], ['de6069'], ['d43d51'],
+	["daf7a6", "Greenish"], ["ffc370", "Dark Orange"], ["C70039", "Dark Red"],
 	["FF0000", "Red"], ["3090C7", "Blue"], ["7E587E", "Viola"], ["E78A61", "Tangerine"], ["#FAEBD7", "AntiqueWhite"], ["46C7C7", "Jellyfish"], ["F0FFFF", "Azure"], ["7F5A58", "Puce"],
 	["#81D8D0", "Tiffany"], ["#387C44", "Pine"], ["#4863A0", "Steel"], ["#D462FF", "Heliotrope"], ["D16587", "Pale"], ["B1FB17", "Green"], ["E67451", "Sunrise"], ["6CBB3C", "Green"],
 	["#85BB65", "Dollar"], ["#6D7B8D", "Light"], ["#4AA02C", "Spring"], ["#646D7E", "Mist"], ["#C88141", "Tiger"], ["#F9966B", "Light"], ["#E42217", "Lava"], ["#FFF8DC", "Cornsilk"],
@@ -47,7 +52,95 @@ function getColour(index) {
 
 const capitalise = (s) => {
 	if (typeof s !== 'string') return ''
+
 	return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+function pickState(states) {
+	skipexpansion = (getUrlParameter("keepExpansion") == 0);
+	keepexpansion = (!skipexpansion)
+
+	var seq = 0
+	function rank() {
+		retval = seq
+		seq++
+		return retval
+	}
+
+	const statemap = {
+		//Conflict States
+		'civilwar': { rank: rank(), name: "Civil War" },
+		'war': { rank: rank(), name: "war" },
+		'election': { rank: rank(), name: "Election" },
+		//Influence Penalty
+		'terrorism': { rank: rank(), name: "Terrorist Attack" },
+		'retreat': { rank: rank(), name: "Retreat" },
+		//Warning States
+		'lockdown': { rank: rank(), name: "Lockdown" },
+		'civilunrest': { rank: rank(), name: "Civil Unrest" },
+		'bust': { rank: rank(), name: "Bust" },
+
+		//Rollplaying States
+		'pirateattack': { rank: rank(), name: "Pirate Attack" },
+		'infrastructurefailure': { rank: rank(), name: "Infrastructure Failure" },
+		'outbreak': { rank: rank(), name: "Outbreak" },
+		'famine': { rank: rank(), name: "Famine" },
+		'drought': { rank: rank(), name: "Drought" },
+		'blight': { rank: rank(), name: "Blight" },
+
+		//missed off figure it fits here
+		'naturaldisaster': { rank: rank(), name: "Natural Disaster" },
+
+		//Profitable State
+		'publicholiday': { rank: rank(), name: "Public Holiday" },
+		'investment': { rank: rank(), name: "Investment" },
+		'boom': { rank: rank(), name: "Boom" },
+
+		//We don't know what this is
+		'colonisation': { rank: rank(), name: "colonisation" },
+		'revolution': { rank: rank(), name: "None" },
+		'coldwar': { rank: rank(), name: "coldwar" },
+		'technologicalleap': { rank: rank(), name: "technologicalleap" },
+		'tradewar': { rank: rank(), name: "tradewar" },
+		'historicevent': { rank: rank(), name: "historicevent" },
+		'expansion': { rank: rank(), name: "Expansion" },
+
+		// No interest
+		'civilliberty': { rank: rank(), name: "civilliberty" },
+		'none': { rank: rank(), name: "None" },
+	}
+
+	state = { rank: rank(), name: "None" }
+
+	states.forEach(function (a) {
+		if (a.state != 'expansion' | keepexpansion) {
+			//if (a.state != 'expansion') {
+			if (statemap[a.state].rank < state.rank) {
+				state = statemap[a.state]
+			}
+		}
+	})
+	return state.name
+}
+
+function getState(f) {
+
+	state = "None"
+	if (f.active_states.length > 0) {
+		state = pickState(f.active_states)
+	}
+	if (state == "None" & f.pending_states.length > 0) {
+		f.pending_states.forEach(function (a) {
+			newstate = pickState(f.pending_states)
+			if (newstate == "None") {
+				state = newstate
+			} else {
+				state = 'Pending ' + newstate
+			}
+		})
+	}
+
+	return state
 }
 
 function getUrlParameter(name) {
@@ -63,7 +156,7 @@ function renderConflicts(conflicts) {
 	}
 	retval = '<div  style="color: red; "><b>Conflicts:</b></div>'
 	conflicts.forEach(function (conflict) {
-		s = '&nbsp;' + capitalise(conflict.status) + ' ' + capitalise(conflict.type) + '<br>'
+		s = '&nbsp;' + capitalise(conflict.status) + ' ' + capitalise(conflict.type.replace("civil", "civil ")) + '<br>'
 		s = s + "&nbsp;&nbsp;" + conflict.faction1.name + '<br>&nbsp;&nbsp;vs<br>&nbsp;&nbsp;' + conflict.faction2.name + '<br>'
 	})
 	return retval + s
@@ -72,19 +165,19 @@ function renderConflicts(conflicts) {
 function renderSystem(f) {
 	controller = "Controlled by:<br>&nbsp;" + f.system_details.controlling_minor_faction_cased + "<br>"
 	influence = "Influence: " + Math.round(parseFloat(f.influence) * 100, 1) + "%<br>"
-	state = "State: " + capitalise(f.state) + '<br>'
+	state = "System State: " + capitalise(f.state.replace("civil", "civil ")) + '<br>'
 	pending = ""
 	if (f.pending_states.length > 0) {
 		pending = "<b>Pending States:</b><br>"
 		f.pending_states.forEach(function (s) {
-			pending = pending + "&nbsp;" + capitalise(s.state) + '<br>'
+			pending = pending + "&nbsp;" + capitalise(s.state.replace("civil", "civil ")) + '<br>'
 		})
 	}
 	active_states = ""
 	if (f.active_states.length > 0) {
 		active_states = "<b>Active States:</b><br>"
 		f.active_states.forEach(function (s) {
-			active_states = active_states + "&nbsp;" + capitalise(s.state) + '<br>'
+			active_states = active_states + "&nbsp;" + capitalise(s.state.replace("civil", "civil ")) + '<br>'
 		})
 	}
 	factions = "<b>Factions:</b><br>"
@@ -97,7 +190,7 @@ function renderSystem(f) {
 
 function parseStates(s) {
 	states = {}
-	c = 10
+	c = 1
 	Object.keys(s).forEach(function (key) {
 		states[key] = {
 			name: key,
@@ -116,7 +209,7 @@ var canonnEd3d_route = {
 			'Systems': {
 				'00': {
 					name: 'Sol',
-					color: getColour(0),
+					color: "ff0000",
 				},
 			},
 		},
@@ -149,7 +242,7 @@ var canonnEd3d_route = {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
 		faction = getUrlParameter("faction");
 		showRoute = getUrlParameter("showRoute");
-		states = {}
+		var states = {}
 
 		data = factionData.docs[0].faction_presence
 		solSite = {}
@@ -172,8 +265,12 @@ var canonnEd3d_route = {
 					{ 's': homeSystem, 'label': homeSystem },
 					{ 's': data[i].system_name, 'label': data[i].system_name }], 'circle': false
 			}
-			console.log(data[i].state)
-			states[capitalise(data[i].state)] = capitalise(data[i].state)
+
+
+			sa = getState(data[i])
+
+			states[sa] = sa
+
 
 			var poiSite = {};
 			poiSite['name'] = data[i].system_name;
@@ -201,7 +298,7 @@ var canonnEd3d_route = {
 				canonnEd3d_route.camerapos.y = parseFloat(data[i].system_details.y)
 				canonnEd3d_route.camerapos.z = parseFloat(data[i].system_details.z - 100)
 
-				canonnEd3d_route.systemsData.categories["Systems"]['01'] = { name: homeSystem, color: '00ff00' }
+				canonnEd3d_route.systemsData.categories["Systems"]['01'] = { name: homeSystem, color: 'd97f20' }
 				canonnEd3d_route.systemsData.systems.push(homeSite);
 			}
 
@@ -211,7 +308,8 @@ var canonnEd3d_route = {
 			//	poiSite['cat'] = ['03'];
 			//}
 
-			poiSite['cat'] = [capitalise(data[i].state)]
+
+			poiSite['cat'] = [getState(data[i])]
 
 
 			// We can then push the site to the object that stores all systems
@@ -222,8 +320,7 @@ var canonnEd3d_route = {
 			}
 			//	console.log(canonnEd3d_route.systemsData.systems)
 		}
-		console.log("STATES")
-		console.log(states)
+
 		canonnEd3d_route.systemsData.categories["States"] = parseStates(states)
 
 	},
@@ -239,7 +336,7 @@ var canonnEd3d_route = {
 		Promise.all([p1]).then(function () {
 			homeSystem = getUrlParameter("homeSystem");
 			canonnEd3d_route.formatCol(canonnEd3d_route.factionData, homeSystem)
-			console.log(canonnEd3d_route.camerapos)
+
 			document.getElementById("loading").style.display = "none";
 			Ed3d.init({
 				container: 'edmap',
