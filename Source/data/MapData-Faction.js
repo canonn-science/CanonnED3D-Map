@@ -56,17 +56,91 @@ const capitalise = (s) => {
 	return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
+function pickState(states) {
+	skipexpansion = (getUrlParameter("keepExpansion") == 0);
+	keepexpansion = (!skipexpansion)
+
+	var seq = 0
+	function rank() {
+		retval = seq
+		seq++
+		return retval
+	}
+
+	const statemap = {
+		//Conflict States
+		'civilwar': { rank: rank(), name: "Civil War" },
+		'war': { rank: rank(), name: "war" },
+		'election': { rank: rank(), name: "Election" },
+		//Influence Penalty
+		'terrorism': { rank: rank(), name: "Terrorist Attack" },
+		'retreat': { rank: rank(), name: "Retreat" },
+		//Warning States
+		'lockdown': { rank: rank(), name: "Lockdown" },
+		'civilunrest': { rank: rank(), name: "Civil Unrest" },
+		'bust': { rank: rank(), name: "Bust" },
+
+		//Rollplaying States
+		'pirateattack': { rank: rank(), name: "Pirate Attack" },
+		'infrastructurefailure': { rank: rank(), name: "Infrastructure Failure" },
+		'outbreak': { rank: rank(), name: "Outbreak" },
+		'famine': { rank: rank(), name: "Famine" },
+		'drought': { rank: rank(), name: "Drought" },
+		'blight': { rank: rank(), name: "Blight" },
+
+		//missed off figure it fits here
+		'naturaldisaster': { rank: rank(), name: "Natural Disaster" },
+
+		//Profitable State
+		'publicholiday': { rank: rank(), name: "Public Holiday" },
+		'investment': { rank: rank(), name: "Investment" },
+		'boom': { rank: rank(), name: "Boom" },
+
+		//We don't know what this is
+		'colonisation': { rank: rank(), name: "colonisation" },
+		'revolution': { rank: rank(), name: "None" },
+		'coldwar': { rank: rank(), name: "coldwar" },
+		'technologicalleap': { rank: rank(), name: "technologicalleap" },
+		'tradewar': { rank: rank(), name: "tradewar" },
+		'historicevent': { rank: rank(), name: "historicevent" },
+		'expansion': { rank: rank(), name: "Expansion" },
+
+		// No interest
+		'civilliberty': { rank: rank(), name: "civilliberty" },
+		'none': { rank: rank(), name: "None" },
+	}
+
+	state = { rank: rank(), name: "None" }
+
+	states.forEach(function (a) {
+		if (a.state != 'expansion' | keepexpansion) {
+			//if (a.state != 'expansion') {
+			if (statemap[a.state].rank < state.rank) {
+				state = statemap[a.state]
+			}
+		}
+	})
+	return state.name
+}
+
 function getState(f) {
+
+	state = "None"
 	if (f.active_states.length > 0) {
-		return capitalise(f.active_states[0].state.replace("civil", "civil "))
+		state = pickState(f.active_states)
 	}
-	if (f.pending_states.length > 0) {
-		return 'Pending ' + capitalise(f.pending_states[0].state.replace("civil", "civil "))
+	if (state == "None" & f.pending_states.length > 0) {
+		f.pending_states.forEach(function (a) {
+			newstate = pickState(f.pending_states)
+			if (newstate == "None") {
+				state = newstate
+			} else {
+				state = 'Pending ' + newstate
+			}
+		})
 	}
-	if (f.conflicts.length > 0) {
-		return capitalise(f.conflicts[0].status) + ' ' + capitalise(f.conflicts[0].type.replace("civil", "civil "))
-	}
-	return 'None'
+
+	return state
 }
 
 function getUrlParameter(name) {
@@ -168,7 +242,7 @@ var canonnEd3d_route = {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
 		faction = getUrlParameter("faction");
 		showRoute = getUrlParameter("showRoute");
-		states = {}
+		var states = {}
 
 		data = factionData.docs[0].faction_presence
 		solSite = {}
@@ -191,8 +265,12 @@ var canonnEd3d_route = {
 					{ 's': homeSystem, 'label': homeSystem },
 					{ 's': data[i].system_name, 'label': data[i].system_name }], 'circle': false
 			}
-			console.log(data[i].state)
-			states[getState(data[i])] = getState(data[i])
+
+
+			sa = getState(data[i])
+
+			states[sa] = sa
+
 
 			var poiSite = {};
 			poiSite['name'] = data[i].system_name;
@@ -230,6 +308,7 @@ var canonnEd3d_route = {
 			//	poiSite['cat'] = ['03'];
 			//}
 
+
 			poiSite['cat'] = [getState(data[i])]
 
 
@@ -257,7 +336,7 @@ var canonnEd3d_route = {
 		Promise.all([p1]).then(function () {
 			homeSystem = getUrlParameter("homeSystem");
 			canonnEd3d_route.formatCol(canonnEd3d_route.factionData, homeSystem)
-			console.log(canonnEd3d_route.camerapos)
+
 			document.getElementById("loading").style.display = "none";
 			Ed3d.init({
 				container: 'edmap',
