@@ -155,7 +155,7 @@ var canonnEd3d_route = {
 				withHudPanel: true,
 				hudMultipleSelect: true,
 				effectScaleSystem: [20, 500],
-				startAnim: false,
+				startAnim: true,
 				showGalaxyInfos: true,
 				//setting camera to Merope and zoom out
 				cameraPos: [-78.59375 - 1000, -149.625, -340.53125 - 1000],
