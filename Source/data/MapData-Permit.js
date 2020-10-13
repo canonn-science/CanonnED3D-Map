@@ -48,7 +48,7 @@ var canonnEd3d_permit = {
 		systems: [],
 	},
 
-	formatCol: function(data) {
+	formatCol: function (data) {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
 
 		// this is assuming data is an array []
@@ -88,11 +88,11 @@ var canonnEd3d_permit = {
 		}
 	},
 
-	parseCSVData: function(url, callBack, resolvePromise) {
+	parseCSVData: function (url, callBack, resolvePromise) {
 		Papa.parse(url, {
 			download: true,
 			header: true,
-			complete: function(results) {
+			complete: function (results) {
 				callBack(results.data);
 
 				// after we called the callback
@@ -105,12 +105,12 @@ var canonnEd3d_permit = {
 		});
 	},
 
-	init: function() {
-		var p1 = new Promise(function(resolve, reject) {
+	init: function () {
+		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_permit.parseCSVData('data/csvCache/col70.csv', canonnEd3d_permit.formatCol, resolve);
 		});
 
-		Promise.all([p1]).then(function() {
+		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_permit.systemsData,
@@ -118,9 +118,9 @@ var canonnEd3d_permit = {
 				withHudPanel: true,
 				hudMultipleSelect: true,
 				effectScaleSystem: [20, 500],
-				startAnim: false,
+				startAnim: true,
 				showGalaxyInfos: true,
-				cameraPos: [25, 14100, -12900],
+				cameraPos: [687.0625, -362.53125, -697.0625 - 5000],
 				systemColor: '#FF9D00',
 			});
 		});

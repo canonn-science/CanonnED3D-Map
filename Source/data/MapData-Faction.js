@@ -261,6 +261,7 @@ var canonnEd3d_route = {
 		for (var i = 0; i < data.length; i++) {
 
 			route = {
+				cat: ['02'],
 				'points': [
 					{ 's': homeSystem, 'label': homeSystem },
 					{ 's': data[i].system_name, 'label': data[i].system_name }], 'circle': false
@@ -294,7 +295,7 @@ var canonnEd3d_route = {
 					y: parseFloat(data[i].system_details.y),
 					z: parseFloat(data[i].system_details.z),
 				};
-				canonnEd3d_route.camerapos.x = parseFloat(data[i].system_details.x - 100)
+				canonnEd3d_route.camerapos.x = parseFloat(data[i].system_details.x - 200)
 				canonnEd3d_route.camerapos.y = parseFloat(data[i].system_details.y)
 				canonnEd3d_route.camerapos.z = parseFloat(data[i].system_details.z - 100)
 
@@ -316,6 +317,12 @@ var canonnEd3d_route = {
 			canonnEd3d_route.systemsData.systems.push(poiSite);
 
 			if (showRoute == '1') {
+				canonnEd3d_route.systemsData.categories['Route'] = {
+					'02': {
+						name: 'Route',
+						color: "303030",
+					},
+				}
 				canonnEd3d_route.systemsData.routes.push(route);
 			}
 			//	console.log(canonnEd3d_route.systemsData.systems)
@@ -345,7 +352,7 @@ var canonnEd3d_route = {
 				withHudPanel: true,
 				hudMultipleSelect: true,
 				effectScaleSystem: [20, 500],
-				startAnim: false,
+				startAnim: true,
 				showGalaxyInfos: true,
 				cameraPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],
 				systemColor: '#FF9D00',

@@ -114,7 +114,7 @@ var canonnEd3d_ts = {
 				withHudPanel: true,
 				hudMultipleSelect: true,
 				effectScaleSystem: [20, 500],
-				startAnim: false,
+				startAnim: true,
 				showGalaxyInfos: true,
 				//setting camera to Merope and adjusting
 				cameraPos: [-78.59375 - 500, -149.625, -340.53125 - 500],
