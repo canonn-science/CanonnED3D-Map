@@ -56,6 +56,20 @@ const capitalise = (s) => {
 	return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
+function getDistance(a, b) {
+	return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2) + Math.pow(a.z - b.z, 2))
+}
+
+function isClose(a, systems, dist) {
+	retval = false
+	Object.keys(systems).forEach(function (system) {
+		if (getDistance(a, systems[system]) <= dist) {
+			retval = true
+		}
+	});
+	return retval
+}
+
 function pickState(states) {
 	skipexpansion = (getUrlParameter("keepExpansion") == 0);
 	keepexpansion = (!skipexpansion)
@@ -211,6 +225,10 @@ var canonnEd3d_route = {
 					name: 'Sol',
 					color: "ff0000",
 				},
+				'04': {
+					name: 'Populated',
+					color: "202020",
+				},
 			},
 		},
 		systems: [],
@@ -238,6 +256,20 @@ var canonnEd3d_route = {
 		//console.log(data)
 	},
 
+	stationData: [],
+	parseStations: function (url, resolvePromise) {
+		let fetchDataFromApi = async (url, resolvePromise) => {
+			let response = await fetch(url);
+			let result = await response.json();
+			canonnEd3d_route.stationData = result
+			resolvePromise();
+			return result;
+		}
+		fetchDataFromApi(url, resolvePromise)
+
+		//console.log(data)
+	},
+	systemLookup: {},
 	formatCol: function (factionData, homeSystem) {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
 		faction = getUrlParameter("faction");
@@ -268,6 +300,7 @@ var canonnEd3d_route = {
 			}
 
 
+
 			sa = getState(data[i])
 
 			states[sa] = sa
@@ -282,6 +315,9 @@ var canonnEd3d_route = {
 				y: parseFloat(data[i].system_details.y),
 				z: parseFloat(data[i].system_details.z),
 			};
+
+			canonnEd3d_route.systemLookup[data[i].system_name] = poiSite.coords
+			canonnEd3d_route.systemLookup[data[i].system_name]["exists"] = true
 
 			//Check Site Type and match categories
 			// set a default
@@ -331,6 +367,38 @@ var canonnEd3d_route = {
 		canonnEd3d_route.systemsData.categories["States"] = parseStates(states)
 
 	},
+	formatStations: function (systems) {
+
+		systems.forEach(function (system) {
+
+			poiSite = []
+			poiSite['cat'] = ['04'];
+			poiSite['name'] = system.name
+			stations = system.stations.split(',')
+
+			infoText = "<div>Stations</div>"
+
+			stations.forEach(function (station) {
+				infoText += "&nbsp;" + station + "<br>"
+			});
+			poiSite['infos'] = infoText
+			poiSite['coords'] = {
+				x: parseFloat(system.pos_x),
+				y: parseFloat(system.pos_y),
+				z: parseFloat(system.pos_z),
+			};
+
+			a = poiSite['coords']
+			siteExists = (canonnEd3d_route.systemLookup[system.name])
+
+			if (isClose(a, canonnEd3d_route.systemLookup, 20) & !siteExists) {
+				canonnEd3d_route.systemsData.systems.push(poiSite);
+			}
+
+
+
+		});
+	},
 
 	init: function () {
 
@@ -340,9 +408,17 @@ var canonnEd3d_route = {
 			canonnEd3d_route.parseFaction('https://elitebgs.app/api/ebgs/v5/factions?name=' + faction + '&systemDetails=true', resolve)
 		});
 
-		Promise.all([p1]).then(function () {
+		var p2 = new Promise(function (resolve, reject) {
+			faction = getUrlParameter("faction");
+			canonnEd3d_route.parseStations('data/json_stations.json', resolve)
+			console.log("getting station data")
+		});
+
+
+		Promise.all([p1, p2]).then(function () {
 			homeSystem = getUrlParameter("homeSystem");
 			canonnEd3d_route.formatCol(canonnEd3d_route.factionData, homeSystem)
+			canonnEd3d_route.formatStations(canonnEd3d_route.stationData)
 
 			document.getElementById("loading").style.display = "none";
 			Ed3d.init({
