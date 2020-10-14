@@ -120,7 +120,8 @@ var canonnEd3d_permit = {
 				effectScaleSystem: [20, 500],
 				startAnim: true,
 				showGalaxyInfos: true,
-				cameraPos: [687.0625, -362.53125, -697.0625 - 5000],
+				playerPos: [687.0625, -362.53125, -697.0625],
+				cameraPos: [687.0625, -362.53125, -697.0625 - 3000],
 				systemColor: '#FF9D00',
 			});
 		});
