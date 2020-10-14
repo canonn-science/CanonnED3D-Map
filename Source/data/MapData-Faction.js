@@ -331,9 +331,9 @@ var canonnEd3d_route = {
 					y: parseFloat(data[i].system_details.y),
 					z: parseFloat(data[i].system_details.z),
 				};
-				canonnEd3d_route.camerapos.x = parseFloat(data[i].system_details.x - 200)
+				canonnEd3d_route.camerapos.x = parseFloat(data[i].system_details.x)
 				canonnEd3d_route.camerapos.y = parseFloat(data[i].system_details.y)
-				canonnEd3d_route.camerapos.z = parseFloat(data[i].system_details.z - 100)
+				canonnEd3d_route.camerapos.z = parseFloat(data[i].system_details.z)
 
 				canonnEd3d_route.systemsData.categories["Systems"]['01'] = { name: homeSystem, color: 'd97f20' }
 				canonnEd3d_route.systemsData.systems.push(homeSite);
@@ -420,6 +420,8 @@ var canonnEd3d_route = {
 			canonnEd3d_route.formatCol(canonnEd3d_route.factionData, homeSystem)
 			canonnEd3d_route.formatStations(canonnEd3d_route.stationData)
 
+			console.log(canonnEd3d_route.camerapos)
+
 			document.getElementById("loading").style.display = "none";
 			Ed3d.init({
 				container: 'edmap',
@@ -430,9 +432,12 @@ var canonnEd3d_route = {
 				effectScaleSystem: [20, 500],
 				startAnim: true,
 				showGalaxyInfos: true,
-				cameraPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],
+				//cameraPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],
+				cameraPos: [canonnEd3d_route.camerapos.x - 100, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z - 100],
+				playerPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],
 				systemColor: '#FF9D00',
 			});
+
 		});
 	},
 };

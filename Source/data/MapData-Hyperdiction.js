@@ -158,6 +158,7 @@ var canonnEd3d_route = {
 				startAnim: true,
 				showGalaxyInfos: true,
 				//setting camera to Merope and zoom out
+				playerPos: [-78.59375, -149.625, -340.53125],
 				cameraPos: [-78.59375 - 1000, -149.625, -340.53125 - 1000],
 				systemColor: '#FF9D00',
 			});

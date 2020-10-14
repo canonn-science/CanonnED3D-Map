@@ -181,6 +181,7 @@ var canonnEd3d_thargoids = {
 				startAnim: true,
 				showGalaxyInfos: true,
 				//setting camera to Merope and adjusting
+				playerPos: [-78.59375, -149.625, -340.53125],
 				cameraPos: [-78.59375 - 500, -149.625, -340.53125 - 1000],
 				systemColor: '#FF9D00',
 			});
