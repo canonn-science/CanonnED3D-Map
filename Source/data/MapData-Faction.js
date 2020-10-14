@@ -368,12 +368,22 @@ var canonnEd3d_route = {
 
 	},
 	formatStations: function (systems) {
-
+		highlights = []
+		hl = getUrlParameter("Highlight");
+		if (hl) {
+			canonnEd3d_route.systemsData.categories["Systems"]["05"] = { name: "Target Systems", color: "00ff00" }
+			hl.split(",").forEach(function (s) {
+				highlights[s] = true
+			})
+		}
 		systems.forEach(function (system) {
 
 			poiSite = []
-			poiSite['cat'] = ['04'];
-			poiSite['name'] = system.name
+			if (highlights[system.name]) {
+				poiSite['cat'] = ['05'];
+			} else {
+				poiSite['cat'] = ['04'];
+			} poiSite['name'] = system.name
 			stations = system.stations.split(',')
 
 			infoText = "<div>Stations</div>"
@@ -391,7 +401,11 @@ var canonnEd3d_route = {
 			a = poiSite['coords']
 			siteExists = (canonnEd3d_route.systemLookup[system.name])
 
-			if (isClose(a, canonnEd3d_route.systemLookup, 20) & !siteExists) {
+			pushit = (isClose(a, canonnEd3d_route.systemLookup, 20))
+			pushit = (pushit & !siteExists)
+			pushit = (pushit | highlights[system.name])
+
+			if (pushit) {
 				canonnEd3d_route.systemsData.systems.push(poiSite);
 			}
 
