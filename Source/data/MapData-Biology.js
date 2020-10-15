@@ -45,6 +45,10 @@ const colours = [
 const API_ENDPOINT = `https://api.canonn.tech`;
 const API_LIMIT = 1000;
 
+function signalLink(system, name) {
+	return '<a href="https://tools.canonn.tech/signals?system=' + system + '"  target="_blank">' + name + '</a></br>'
+}
+
 const capi = axios.create({
 	baseURL: API_ENDPOINT,
 	headers: {
@@ -150,7 +154,7 @@ var canonnEd3d_biology = {
 
 					var poiSite = {};
 					poiSite['name'] = siteData[d].system.systemName;
-					poiSite['infos'] = siteData[d].type.type + '<br>';
+					poiSite['infos'] = signalLink(siteData[d].system.systemName, siteData[d].type.type);
 					poiSite['cat'] = [subcategory];
 
 					poiSite['coords'] = {
