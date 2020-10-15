@@ -1,6 +1,11 @@
 const API_ENDPOINT = `https://api.canonn.tech`;
 const API_LIMIT = 1000;
 
+function signalLink(system, name) {
+	return '<a href="https://tools.canonn.tech/signals?system=' + system + '"  target="_blank">' + name + '</a></br>'
+}
+
+
 const capi = axios.create({
 	baseURL: API_ENDPOINT,
 	headers: {
@@ -128,7 +133,7 @@ var canonnEd3d_bt = {
 					} else {
 						poiSite['cat'] = [2000];
 					}
-					poiSite['infos'] = siteData[d].type.type + '<br>'
+					poiSite['infos'] = signalLink(siteData[d].system.systemName, siteData[d].type.type)
 					poiSite['coords'] = {
 						x: parseFloat(siteData[d].system.edsmCoordX),
 						y: parseFloat(siteData[d].system.edsmCoordY),

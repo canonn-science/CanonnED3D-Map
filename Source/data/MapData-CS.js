@@ -1,6 +1,9 @@
 const API_ENDPOINT = `https://api.canonn.tech`;
 const API_LIMIT = 1000;
 
+function signalLink(system, name) {
+	return '<a href="https://tools.canonn.tech/signals?system=' + system + '"  target="_blank">' + name + '</a></br>'
+}
 const colours = [
 	["#FF0000", "Red"], ["#3090C7", "Blue"], ["#7E587E", "Viola"], ["#E78A61", "Tangerine"], ["#FAEBD7", "AntiqueWhite"], ["#46C7C7", "Jellyfish"], ["#F0FFFF", "Azure"], ["#7F5A58", "Puce"],
 	["#81D8D0", "Tiffany"], ["#387C44", "Pine"], ["#4863A0", "Steel"], ["#D462FF", "Heliotrope"], ["#D16587", "Pale"], ["#B1FB17", "Green"], ["#E67451", "Sunrise"], ["#6CBB3C", "Green"],
@@ -123,7 +126,7 @@ var canonnEd3d_cs = {
 			}
 
 			poiSite['name'] = data[i].system;
-			poiSite['infos'] = data[i].english_name + '<br>'
+			poiSite['infos'] = signalLink(data[i].system, data[i].english_name)
 
 			//Check Site Type and match categories
 

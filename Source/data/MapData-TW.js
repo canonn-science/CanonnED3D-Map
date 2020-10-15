@@ -1,6 +1,10 @@
 const API_ENDPOINT = `https://api.canonn.tech`;
 const API_LIMIT = 1000;
 
+function signalLink(system, name) {
+	return '<a href="https://tools.canonn.tech/signals?system=' + system + '"  target="_blank">' + name + '</a></br>'
+}
+
 const capi = axios.create({
 	baseURL: API_ENDPOINT,
 	headers: {
@@ -68,7 +72,7 @@ var canonnEd3d_tw = {
 		systems: [],
 	},
 
-	formatSites: async function(data, resolvePromise) {
+	formatSites: async function (data, resolvePromise) {
 		sites = await go(data);
 
 		let siteTypes = Object.keys(data);
@@ -91,7 +95,7 @@ var canonnEd3d_tw = {
 						y: parseFloat(siteData[d].system.edsmCoordY),
 						z: parseFloat(siteData[d].system.edsmCoordZ),
 					};
-
+					poiSite["infos"] = signalLink(siteData[d].system.systemName, siteData[d].type.type)
 					// We can then push the site to the object that stores all systems
 					canonnEd3d_tw.systemsData.systems.push(poiSite);
 				}
@@ -101,13 +105,13 @@ var canonnEd3d_tw = {
 		resolvePromise();
 	},
 
-	init: function() {
+	init: function () {
 		//Sites Data
-		var p1 = new Promise(function(resolve, reject) {
+		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_tw.formatSites(sites, resolve);
 		});
 
-		Promise.all([p1]).then(function() {
+		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_tw.systemsData,

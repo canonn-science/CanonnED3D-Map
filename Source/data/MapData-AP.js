@@ -1,6 +1,11 @@
 const API_ENDPOINT = `https://api.canonn.tech`;
 const API_LIMIT = 1000;
 
+function signalLink(system, name) {
+	return '<a href="https://tools.canonn.tech/signals?system=' + system + '"  target="_blank">' + name + '</a></br>'
+}
+
+
 const capi = axios.create({
 	baseURL: API_ENDPOINT,
 	headers: {
@@ -16,10 +21,10 @@ let sites = {
 const go = async types => {
 	const keys = Object.keys(types);
 	return (await Promise.all(
-			keys.map(type => getSites(type))
+		keys.map(type => getSites(type))
 	)).reduce((acc, res, i) => {
-			acc[keys[i]] = res;
-			return acc;
+		acc[keys[i]] = res;
+		return acc;
 	}, {});
 };
 
@@ -68,7 +73,7 @@ var canonnEd3d_ap = {
 		systems: [],
 	},
 
-	formatSites: async function(data, resolvePromise) {
+	formatSites: async function (data, resolvePromise) {
 		sites = await go(data);
 
 		let siteTypes = Object.keys(data);
@@ -79,6 +84,7 @@ var canonnEd3d_ap = {
 				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
 					var poiSite = {};
 					poiSite['name'] = siteData[d].system.systemName;
+					poiSite["infos"] = signalLink(siteData[d].system.systemName, siteData[d].type.type)
 
 					//Check Site Type and match categories
 					if (siteData[d].type.type == 'Amphora Plant') {
@@ -101,13 +107,13 @@ var canonnEd3d_ap = {
 		resolvePromise();
 	},
 
-	init: function() {
+	init: function () {
 		//Sites Data
-		var p1 = new Promise(function(resolve, reject) {
+		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_ap.formatSites(sites, resolve);
 		});
 
-		Promise.all([p1]).then(function() {
+		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_ap.systemsData,
