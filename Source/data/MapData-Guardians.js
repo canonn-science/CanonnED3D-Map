@@ -19,10 +19,10 @@ let sites = {
 const go = async types => {
 	const keys = Object.keys(types);
 	return (await Promise.all(
-			keys.map(type => getSites(type))
+		keys.map(type => getSites(type))
 	)).reduce((acc, res, i) => {
-			acc[keys[i]] = res;
-			return acc;
+		acc[keys[i]] = res;
+		return acc;
 	}, {});
 };
 
@@ -173,8 +173,41 @@ var canonnEd3d_guardians = {
 		},
 		systems: []
 	},
+	siteNames: {},
+	formatUnknown: function (data) {
+		console.log(canonnEd3d_guardians.siteNames)
+		console.log(data)
+		data.forEach(function (site) {
+			if (!canonnEd3d_guardians.siteNames[site.system.toUpperCase()]) {
+				console.log("Not found: " + site.system)
+				var poiSite = {};
+				poiSite['cat'] = [404];
+				poiSite['name'] = site.system;
+				poiSite["coords"] = { x: site.x, y: site.y, z: site.z }
+				poiSite["infos"] = "Ancient Ruin<br>"
+				canonnEd3d_guardians.systemsData.systems.push(poiSite);
+			}
+		});
 
-	formatSites: async function(data, resolvePromise) {
+	},
+
+	gCloudData: [],
+
+	parseData: function (url, resolvePromise) {
+		let fetchDataFromApi = async (url, resolvePromise) => {
+			let response = await fetch(url);
+			let result = await response.json();
+			canonnEd3d_guardians.gCloudData = result
+			resolvePromise();
+			console.log("data parsed")
+			return result;
+		}
+		fetchDataFromApi(url, resolvePromise)
+
+		//console.log(data)
+
+	},
+	formatSites: async function (data, resolvePromise) {
 		sites = await go(data);
 
 		let siteTypes = Object.keys(data);
@@ -251,17 +284,21 @@ var canonnEd3d_guardians = {
 				}
 			}
 		}
-		document.getElementById("loading").style.display = "none";
+
 		resolvePromise();
 	},
 
 	init: function () {
 		//Sites Data
-		var p1 = new Promise(function(resolve, reject) {
+		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_guardians.formatSites(sites, resolve);
 		});
-
-		Promise.all([p1]).then(function () {
+		var p2 = new Promise(function (resolve, reject) {
+			canonnEd3d_guardians.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/get_gr_data', resolve);
+		});
+		Promise.all([p1, p2]).then(function () {
+			canonnEd3d_guardians.formatUnknown(canonnEd3d_guardians.gCloudData)
+			document.getElementById("loading").style.display = "none";
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_guardians.systemsData,
