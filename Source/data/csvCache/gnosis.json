@@ -329,14 +329,6 @@
   },
   {
     "Route": "exploration",
-    "System": "Cone Sector FN-J b9-0",
-    "x": "818.25",
-    "y": "99.59375",
-    "z": "-1944.375",
-    "Dates Visited": "September 6, 3304 - October 4, 3304"
-  },
-  {
-    "Route": "exploration",
     "System": "Outotz ST-I d9-6",
     "x": "604.15625",
     "y": "153.59375",

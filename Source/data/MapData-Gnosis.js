@@ -77,6 +77,7 @@ var canonnEd3d_route = {
 				'05': { name: 'IC 2391 Sector CQ-Y c16', color: getColour(6), },
 				'06': { name: 'Kappa-1 Volantis', color: getColour(7), },
 				'07': { name: 'Epsilon Indi', color: getColour(8), },
+				'10': { name: 'Cone Sector FN-J b9-0', color: getColour(12), },
 				'99': { name: 'Other System', color: getColour(11), },
 			},
 			"Routes": {
@@ -167,6 +168,9 @@ var canonnEd3d_route = {
 				case 'Epsilon Indi':
 					cat = ["99"]
 					break;
+				case 'Epsilon Indi':
+					cat = ["99"]
+					break;
 				default:
 				// code block
 			}
@@ -181,6 +185,17 @@ var canonnEd3d_route = {
 			};
 			canonnEd3d_route.systemsData.systems.push(poiSite);
 		});
+
+
+		poiSite['cat'] = ["10"];
+		poiSite['name'] = "Cone Sector FN-J b9-0"
+		poiSite['infos'] = 'The Gnosis was attacked by Thargoids and the jump aborted'
+		poiSite['coords'] = {
+			x: parseFloat(818.25),
+			y: parseFloat(99.59375),
+			z: parseFloat(-1944.375),
+		};
+		canonnEd3d_route.systemsData.systems.push(poiSite);
 	},
 
 	init: function () {
