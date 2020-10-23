@@ -140,7 +140,7 @@ var canonnEd3d_route = {
 	formatSystems: function (systems) {
 
 		systems.forEach(function (system) {
-
+			poiSite = []
 			poiSite['infos'] = system["Dates Visited"] + '<br></br>'
 			switch (system.System) {
 				case 'Varati':
@@ -170,7 +170,7 @@ var canonnEd3d_route = {
 				default:
 				// code block
 			}
-			poiSite = []
+
 			poiSite['cat'] = cat;
 			poiSite['name'] = system.System
 			poiSite['infos'] = system["Dates Visited"] + '<br></br>'
@@ -210,7 +210,7 @@ var canonnEd3d_route = {
 				startAnim: true,
 				showGalaxyInfos: true,
 				//cameraPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],
-				cameraPos: [canonnEd3d_route.camerapos.x - 100, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z - 100],
+				cameraPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y + 1200, canonnEd3d_route.camerapos.z],
 				playerPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],
 				systemColor: '#FF9D00',
 			});
