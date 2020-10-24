@@ -51,6 +51,70 @@ function getColour(index) {
 }
 
 
+function get_date(system) {
+	var startDate = dateFns.startOfDay(Date.UTC(2020, 8, 17, 0, 0, 0));
+	console.log("startDate: " + startDate)
+
+	var dates = {
+		"Varati": dateFns.addWeeks(startDate, 0),
+		"HIP 17862": dateFns.addWeeks(startDate, 1),
+		"Pleiades Sector PN-T b3-0": dateFns.addWeeks(startDate, 2),
+		"Synuefe PR-L b40-1": dateFns.addWeeks(startDate, 3),
+		"HIP 18120": dateFns.addWeeks(startDate, 4),
+		"IC 2391 Sector CQ-Y c16": dateFns.addWeeks(startDate, 5),
+		"Kappa-1 Volantis": dateFns.addWeeks(startDate, 6),
+		"Epsilon Indi": dateFns.addWeeks(startDate, 7)
+	}
+
+	var d = dates[system]
+
+	const dayINeed = 4; // for Thursday
+
+
+	const today = dateFns.startOfDay(new Date())
+
+
+	//const today = dateFns.startOfDay(new Date())
+	//console.log("today: " + dateFns.format(today, 'MMMM DD, YYYY'))
+	const todayDay = dateFns.getISODay(today);
+
+
+	var currentjump = dateFns.setISODay(today, dayINeed)
+	// if we haven't yet passed the day of the week that I need:
+	if (todayDay <= dayINeed) {
+		// then just give me this week's instance of that day
+		currentjump = dateFns.setISODay(dateFns.subWeeks(today, 1), dayINeed);
+	}
+
+	var weekstoadd = dateFns.differenceInWeeks(d, currentjump) % 8;
+	if (weekstoadd < 0) {
+		weekstoadd = 8 + weekstoadd
+	}
+	//weekstoadd %= 8
+
+
+	var newdate = dateFns.addWeeks(currentjump, weekstoadd)
+
+	console.log(system + " weeks-to-add: " + weekstoadd + '  ' + newdate)
+
+	begindate = dateFns.startOfDay(Date.UTC(dateFns.getYear(newdate) + 1286, dateFns.getMonth(newdate), dateFns.getDate(newdate), 0, 0, 0));
+	var enddate = dateFns.addWeeks(begindate, 1)
+	//return newdate.format('YYYY-MM-DD')
+
+	retval = dateFns.format(newdate, 'MMMM DD, YYYY') + ' - ' + dateFns.format(enddate, 'MMMM DD, YYYY')
+	console.log("Gettings dates for " + system + "  " + retval)
+
+	currentLocation = (dateFns.differenceInDays(newdate, currentjump) == 0)
+	console.log(newdate + ' vs ' + currentjump)
+
+
+
+	return { startdate: begindate, enddate: enddate, currentLocation: currentLocation }
+}
+
+
+
+
 function getDistance(a, b) {
 	return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2) + Math.pow(a.z - b.z, 2))
 }
@@ -142,7 +206,19 @@ var canonnEd3d_route = {
 
 		systems.forEach(function (system) {
 			poiSite = []
-			poiSite['infos'] = system["Dates Visited"] + '<br></br>'
+
+			if (system.Route == "final") {
+				di = get_date(system.System)
+				info = dateFns.format(di.startdate, 'MMMM DD, YYYY') + ' - ' + dateFns.format(di.enddate, 'MMMM DD, YYYY')
+				if (di.currentLocation) {
+					poiSite['infos'] = 'Gnosis Current Location<br></br>'
+				} else {
+					poiSite['infos'] = info + '<br></br>'
+				}
+			} else {
+				poiSite['infos'] = system["Dates Visited"] + '<br></br>'
+			}
+
 			switch (system.System) {
 				case 'Varati':
 					cat = ["00"]
@@ -175,9 +251,10 @@ var canonnEd3d_route = {
 				// code block
 			}
 
+
+
 			poiSite['cat'] = cat;
 			poiSite['name'] = system.System
-			poiSite['infos'] = system["Dates Visited"] + '<br></br>'
 			poiSite['coords'] = {
 				x: parseFloat(system.x),
 				y: parseFloat(system.y),
