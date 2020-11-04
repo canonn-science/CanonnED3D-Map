@@ -21,11 +21,11 @@ var canonnEd3d_challenge = {
 					color: '66ff66',
 				},
 				'60': {
-					name: 'Intersection',
+					name: 'Intersection of routes',
 					color: '666666',
 				},
 				'70': {
-					name: 'Route Through Waypoints ',
+					name: 'Line Through Waypoints ',
 					color: '666666',
 				},
 				'80': {
