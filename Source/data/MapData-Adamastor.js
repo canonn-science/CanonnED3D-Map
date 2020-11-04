@@ -26,7 +26,11 @@ var canonnEd3d_challenge = {
 				},
 				'70': {
 					name: 'Line',
-					color: '4444ff',
+					color: '666666',
+				},
+				'80': {
+					name: 'Return Journey',
+					color: '446644',
 				},
 			},
 		},
@@ -54,6 +58,12 @@ var canonnEd3d_challenge = {
 					{ 's': 'HIP 33386', 'label': 'HIP 33386' },
 					{ 's': 'Synuefe XE-Y c17-7', 'label': 'Synuefe XE-Y c17-7' },
 					{ 's': 'Musca Dark Region PJ-P B6-1', 'label': 'Musca Dark Region PJ-P B6-1' },
+					{ 's': 'HIP 69200', 'label': 'HIP 69200' },
+				], 'circle': false
+			},
+			{
+				cat: ["80"], 'points': [
+					{ 's': 'Chukchan', 'label': 'Chukchan' },
 					{ 's': 'HIP 69200', 'label': 'HIP 69200' },
 				], 'circle': false
 			},
