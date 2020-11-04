@@ -25,7 +25,7 @@ var canonnEd3d_challenge = {
 					color: '666666',
 				},
 				'70': {
-					name: 'Line',
+					name: 'Route Through Waypoints ',
 					color: '666666',
 				},
 				'80': {
