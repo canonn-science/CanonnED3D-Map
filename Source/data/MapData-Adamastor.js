@@ -116,7 +116,8 @@ var canonnEd3d_challenge = {
 				effectScaleSystem: [20, 500],
 				startAnim: false,
 				showGalaxyInfos: true,
-				cameraPos: [25, 14100, -12900],
+				playerPos: [142, 56, 40],
+				cameraPos: [218, 1000, -279],
 				systemColor: '#FF9D00',
 			});
 		});
