@@ -13,16 +13,24 @@ var canonnEd3d_challenge = {
 				},*/
 
 				'30': {
-					name: 'Adamastor Planned Route',
+					name: 'Adamastor Initial Route',
 					color: 'FF6666',
 				},
 				'40': {
-					name: 'Adamastor Actual Route',
+					name: 'Adamastor Diversion Route',
 					color: '66ff66',
 				},
-				'50': {
-					name: 'Extrapolated Route',
+				'60': {
+					name: 'Intersection of routes',
 					color: '666666',
+				},
+				'70': {
+					name: 'Line Through Waypoints ',
+					color: '666666',
+				},
+				'80': {
+					name: "Adamasor's Return Journey",
+					color: '446644',
 				},
 			},
 		},
@@ -30,15 +38,32 @@ var canonnEd3d_challenge = {
 		"routes": [
 			{
 				cat: ["30"], 'points': [
-					{ 's': 'Synuefe XE-Y c17-7', 'label': 'Synuefe XE-Y c17-7' },
+
 					{ 's': 'HIP 33386', 'label': 'HIP 33386' },
 					{ 's': 'HIP 39748', 'label': 'HIP 39748' },
+					{ 's': 'Chukchan', 'label': 'Chukchan' },
+
+				], 'circle': false
+			},
+			{
+				cat: ["70"], 'points': [
+					{ 's': 'Extention1', 'label': 'Extention1' },
+					{ 's': 'HIP 33386', 'label': 'HIP 33386' },
+					{ 's': 'HIP 39748', 'label': 'HIP 39748' },
+					{ 's': 'Extention2', 'label': 'Extention2' },
 				], 'circle': false
 			},
 			{
 				cat: ["40"], 'points': [
+					{ 's': 'HIP 33386', 'label': 'HIP 33386' },
 					{ 's': 'Synuefe XE-Y c17-7', 'label': 'Synuefe XE-Y c17-7' },
 					{ 's': 'Musca Dark Region PJ-P B6-1', 'label': 'Musca Dark Region PJ-P B6-1' },
+					{ 's': 'HIP 69200', 'label': 'HIP 69200' },
+				], 'circle': false
+			},
+			{
+				cat: ["80"], 'points': [
+					{ 's': 'Chukchan', 'label': 'Chukchan' },
 					{ 's': 'HIP 69200', 'label': 'HIP 69200' },
 				], 'circle': false
 			},
@@ -46,6 +71,14 @@ var canonnEd3d_challenge = {
 				cat: ["50"], 'points': [
 					{ 's': 'HIP 39748', 'label': 'HIP 39748' },
 					{ 's': 'Chukchan', 'label': 'Chukchan' },
+				], 'circle': false
+			},
+			{
+				cat: ["60"], 'points': [
+
+					{ 's': 'Chukchan', 'label': 'Chukchan' },
+					{ 's': 'Route Intersection', 'label': 'Route Intersection' },
+					{ 's': 'HIP 69200', 'label': 'HIP 69200' },
 				], 'circle': false
 			},
 		]
@@ -59,7 +92,11 @@ var canonnEd3d_challenge = {
 			if (data[i].name && data[i].name.replace(' ', '').length > 1) {
 				var poiSite = {};
 				poiSite['name'] = data[i].name;
-				poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '">Signals</a>';
+				if (data[i].infos) {
+					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '">Signals</a>';
+				} else {
+					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '">Signals</a>';
+				}
 				//Check Site Type and match categories
 
 				var component = data[i].name.split(' ');
