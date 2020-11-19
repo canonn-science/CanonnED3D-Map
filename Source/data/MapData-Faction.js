@@ -235,6 +235,7 @@ var canonnEd3d_route = {
 		routes: [],
 	},
 	factionData: [],
+	factionInfo: [],
 	camerapos: { x: 0, y: 0, z: 0 },
 
 
@@ -269,6 +270,18 @@ var canonnEd3d_route = {
 
 		//console.log(data)
 	},
+	parseInfo: function (url, resolvePromise) {
+		let fetchDataFromApi = async (url, resolvePromise) => {
+			let response = await fetch(url);
+			let result = await response.json();
+			canonnEd3d_route.factionInfo = result
+			resolvePromise();
+			return result;
+		}
+		fetchDataFromApi(url, resolvePromise)
+
+		//console.log(data)
+	},
 	systemLookup: {},
 	formatCol: function (factionData, homeSystem) {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
@@ -288,6 +301,18 @@ var canonnEd3d_route = {
 		};
 		canonnEd3d_route.systemsData.systems.push(solSite);
 
+		fiData = {}
+
+
+		canonnEd3d_route.factionInfo.forEach(function (fi) {
+
+			if (!fiData[fi.system]) {
+
+				fiData[fi.system] = []
+			}
+
+			fiData[fi.system].push(fi.interesting)
+		});
 
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
@@ -309,7 +334,19 @@ var canonnEd3d_route = {
 			var poiSite = {};
 			poiSite['name'] = data[i].system_name;
 
+
 			poiSite['infos'] = renderSystem(data[i])
+
+
+			if (fiData[data[i].system_name]) {
+				infoText = "<br>Sites<br>"
+				fiData[data[i].system_name].forEach(function (interesting) {
+					infoText += "&nbsp;" + interesting + "<br>"
+				});
+				poiSite['infos'] += infoText
+			}
+
+
 			poiSite['coords'] = {
 				x: parseFloat(data[i].system_details.x),
 				y: parseFloat(data[i].system_details.y),
@@ -376,6 +413,9 @@ var canonnEd3d_route = {
 				highlights[s] = true
 			})
 		}
+
+
+
 		systems.forEach(function (system) {
 
 			poiSite = []
@@ -391,6 +431,9 @@ var canonnEd3d_route = {
 			stations.forEach(function (station) {
 				infoText += "&nbsp;" + station + "<br>"
 			});
+
+
+
 			poiSite['infos'] = infoText
 			poiSite['coords'] = {
 				x: parseFloat(system.pos_x),
@@ -425,31 +468,49 @@ var canonnEd3d_route = {
 		var p2 = new Promise(function (resolve, reject) {
 			faction = getUrlParameter("faction");
 			canonnEd3d_route.parseStations('data/json_stations.json', resolve)
-			console.log("getting station data")
+			//console.log("getting station data")
 		});
 
 
 		Promise.all([p1, p2]).then(function () {
-			homeSystem = getUrlParameter("homeSystem");
-			canonnEd3d_route.formatCol(canonnEd3d_route.factionData, homeSystem)
-			canonnEd3d_route.formatStations(canonnEd3d_route.stationData)
 
-			console.log(canonnEd3d_route.camerapos)
+			var p3 = new Promise(function (resolve, reject) {
+				var arr = []
 
-			document.getElementById("loading").style.display = "none";
-			Ed3d.init({
-				container: 'edmap',
-				json: canonnEd3d_route.systemsData,
-				withFullscreenToggle: false,
-				withHudPanel: true,
-				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
-				startAnim: true,
-				showGalaxyInfos: true,
-				//cameraPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],
-				cameraPos: [canonnEd3d_route.camerapos.x - 100, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z - 100],
-				playerPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],
-				systemColor: '#FF9D00',
+				data = canonnEd3d_route.factionData.docs[0].faction_presence
+				data.forEach(function (x) {
+					arr.push(x.system_name)
+					//console.log(x)
+				});
+				faction_systems = arr.join(",")
+				//console.log(faction_systems)
+				canonnEd3d_route.parseInfo('https://us-central1-canonn-api-236217.cloudfunctions.net/get_compres?systems=' + faction_systems, resolve)
+			});
+
+			Promise.all([p3]).then(function () {
+
+				homeSystem = getUrlParameter("homeSystem");
+				canonnEd3d_route.formatCol(canonnEd3d_route.factionData, homeSystem)
+				canonnEd3d_route.formatStations(canonnEd3d_route.stationData)
+
+
+				//console.log(canonnEd3d_route.camerapos)
+
+				document.getElementById("loading").style.display = "none";
+				Ed3d.init({
+					container: 'edmap',
+					json: canonnEd3d_route.systemsData,
+					withFullscreenToggle: false,
+					withHudPanel: true,
+					hudMultipleSelect: true,
+					effectScaleSystem: [20, 500],
+					startAnim: true,
+					showGalaxyInfos: true,
+					//cameraPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],
+					cameraPos: [canonnEd3d_route.camerapos.x - 100, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z - 100],
+					playerPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],
+					systemColor: '#FF9D00',
+				});
 			});
 
 		});
