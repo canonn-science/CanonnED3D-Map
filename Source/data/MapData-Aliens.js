@@ -75,6 +75,10 @@ var canonnEd3d_guardians = {
                     name: "Guardian Structures - (GS)",
                     color: '6666ff'
                 },
+                "511": {
+                    name: "Other",
+                    color: '8888ff'
+                }
             },
             "Thargoid": {
                 "601": {
@@ -85,6 +89,21 @@ var canonnEd3d_guardians = {
                     name: "Thargoid Suface Sites",
                     color: '22ff22'
                 },
+                "711": {
+                    name: "Other",
+                    color: '44ff44'
+                }
+            },
+            "Human": {
+                "11": {
+                    name: "INRA Sites",
+                    color: 'ff2222'
+                },
+                "22": {
+                    name: "Sol",
+                    color: "f2fff2"
+                },
+
             }
 
         },
@@ -98,7 +117,7 @@ var canonnEd3d_guardians = {
             if (!canonnEd3d_guardians.siteNames[site.system.toUpperCase()]) {
                 console.log("Not found: " + site.system)
                 var poiSite = {};
-                poiSite['cat'] = [404];
+                poiSite['cat'] = [401];
                 poiSite['name'] = site.system;
                 poiSite["coords"] = { x: site.x, y: site.y, z: site.z }
                 poiSite["infos"] = "Ancient Ruin<br>"
@@ -107,14 +126,59 @@ var canonnEd3d_guardians = {
         });
 
     },
+    formatINRA: function (data) {
+        console.log(canonnEd3d_guardians.inradata)
+        console.log(data)
+        data.forEach(function (site) {
+            if (!canonnEd3d_guardians.siteNames[site.system.toUpperCase()]) {
+                console.log("Not found: " + site.system)
+                var poiSite = {};
+                if (site.category == "INRA") {
+                    poiSite['cat'] = [11];
+                }
+                if (site.category == "Guardian") {
+                    poiSite['cat'] = [511];
+                }
+                if (site.category == "Thargoid") {
+                    poiSite['cat'] = [711];
+                }
+                if (site.category == "Human" && site.name == "Sol") {
+                    poiSite['cat'] = [22];
+                }
 
+                poiSite['name'] = site.system;
+                poiSite["coords"] = { x: site.x, y: site.y, z: site.z }
+                if (site.img) {
+                    poiSite["infos"] = '<img src="' + site.img + '">' + site.html
+                } else {
+                    poiSite["infos"] = site.html
+                }
+                canonnEd3d_guardians.systemsData.systems.push(poiSite);
+            }
+        });
+
+    },
     gCloudData: [],
-
+    inradata: [],
     parseData: function (url, resolvePromise) {
         let fetchDataFromApi = async (url, resolvePromise) => {
             let response = await fetch(url);
             let result = await response.json();
             canonnEd3d_guardians.gCloudData = result
+            resolvePromise();
+            console.log("data parsed")
+            return result;
+        }
+        fetchDataFromApi(url, resolvePromise)
+
+        //console.log(data)
+
+    },
+    parseINRA: function (url, resolvePromise) {
+        let fetchDataFromApi = async (url, resolvePromise) => {
+            let response = await fetch(url);
+            let result = await response.json();
+            canonnEd3d_guardians.inradata = result
             resolvePromise();
             console.log("data parsed")
             return result;
@@ -173,8 +237,14 @@ var canonnEd3d_guardians = {
         var p2 = new Promise(function (resolve, reject) {
             canonnEd3d_guardians.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/get_gr_data', resolve);
         });
-        Promise.all([p1, p2]).then(function () {
+
+        var p3 = new Promise(function (resolve, reject) {
+            canonnEd3d_guardians.parseINRA('data/csvCache/notable_systems.json', resolve);
+        });
+
+        Promise.all([p1, p2, p3]).then(function () {
             canonnEd3d_guardians.formatUnknown(canonnEd3d_guardians.gCloudData)
+            canonnEd3d_guardians.formatINRA(canonnEd3d_guardians.inradata)
             document.getElementById("loading").style.display = "none";
             Ed3d.init({
                 container: 'edmap',
