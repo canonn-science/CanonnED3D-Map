@@ -347,18 +347,26 @@ var canonnEd3d_route = {
 			"Canonn Fleet": {
 				"01": {
 					"name": "Official Canonn Deployment",
-					"color": "ff0000"
+					"color": "eb9834"
 				},
 				"02": {
 					"name": "Canonn Research Vessel",
-					"color": "00ff00"
+					"color": "eb7434"
 				}
 			},
 			"Independent Carriers": {
 				"03": {
-					"name": "Fleet Carrier",
+					"name": "Other Carrier",
 					"color": "555555"
 				},
+				"04": {
+					"name": "DSSA Carrier",
+					"color": "3465eb"
+				},
+				"05": {
+					"name": "AXI Carrier",
+					"color": "62eb34"
+				}
 			},
 		},
 		systems: [],
@@ -376,23 +384,24 @@ var canonnEd3d_route = {
 			if (carrier.name) {
 				ocd = carrier.name.startsWith("OCD ")
 				crv = carrier.name.startsWith("CRV ")
+				dssa = carrier.name.startsWith("DSSA ")
+				axi = carrier.name.startsWith("[AXI] ")
 				poiSite['infos'] = carrier.name + " - " + carrier.serial_no + '<br>';
 			} else {
 				ocd = false
 				crv = false
+				dssa = false
+				axi = false
 				poiSite['infos'] = carrier.serial_no + '<br>';
 			}
 			//poiSite['infos'] = data[i].description + '<br>'
 
 			//Check Site Type and match categories
 			poiSite['cat'] = ["03"];
-			if (ocd) {
-				poiSite['cat'] = ["01"];
-			}
-			if (crv) {
-				poiSite['cat'] = ["02"];
-			}
-
+			if (ocd) { poiSite['cat'] = ["01"]; }
+			if (crv) { poiSite['cat'] = ["02"]; }
+			if (dssa) { poiSite['cat'] = ["04"]; }
+			if (axi) { poiSite['cat'] = ["05"]; }
 
 			poiSite['coords'] = {
 				x: parseFloat(carrier.current_x),
