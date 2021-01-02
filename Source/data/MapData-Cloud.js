@@ -339,6 +339,44 @@ function fetchUrl(yUrl, callback) {
 		});
 }
 
+
+
+const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/get_cloud_data`;
+const API_LIMIT = 10000;
+
+const codex = axios.create({
+	baseURL: API_ENDPOINT,
+	headers: {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json',
+	},
+});
+
+const getSites = async () => {
+	let records = [];
+	let keepGoing = true;
+	let API_START = 0;
+	while (keepGoing) {
+		let response = await reqSites(API_START);
+		await records.push.apply(records, response.data);
+		API_START += API_LIMIT;
+		if (response.data.length < API_LIMIT) {
+			keepGoing = false;
+			return records;
+		}
+	}
+};
+
+const reqSites = async (API_START) => {
+
+	let payload = await codex({
+		url: `?limit=${API_LIMIT}&offset=${API_START}`,
+		method: 'get'
+	});
+	console.log("fetching data")
+	return payload;
+};
+
 var canonnEd3d_route = {
 	//Define Categories
 	systemsData: {
@@ -399,6 +437,11 @@ var canonnEd3d_route = {
 	},
 
 
+	fetchCodexData: async function (resolvePromise) {
+		canonnEd3d_route.codexData = await getSites();
+		canonnEd3d_route.formatCol(canonnEd3d_route.codexData)
+		resolvePromise();
+	},
 
 	parseData: function (url, callBack, resolvePromise) {
 		let fetchDataFromApi = async (url, resolvePromise) => {
@@ -416,7 +459,7 @@ var canonnEd3d_route = {
 
 	init: function () {
 		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_route.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/get_cloud_data', canonnEd3d_route.formatCol, resolve);
+			canonnEd3d_route.fetchCodexData(resolve);
 
 		});
 
