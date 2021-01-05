@@ -99,7 +99,7 @@ var canonnEd3d_tslinks = {
     sitesByIDs: {},
 	systemsData: {
 		categories: {
-            'Thargoid Site Message': {
+            'Thargoid Link Message': {
                 '10': {
                     name: 'unspecified',
                     color: '888888',
