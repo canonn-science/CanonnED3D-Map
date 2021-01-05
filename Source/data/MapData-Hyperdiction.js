@@ -12,7 +12,9 @@ colours = [
 	["#81D8D0", "Tiffany"],
 	["#387C44", "Pine"],
 	["#4863A0", "Steel"],
+	["#333333", "Grey"]
 ];
+
 
 function getUrlParameter(name) {
 	name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -46,14 +48,16 @@ var canonnEd3d_route = {
 	formatCol: function (data) {
 
 		merope = { name: "Merope", cat: ["Merope"], coords: { x: -78.59375, y: -149.625, z: -340.53125 } }
-		witchhead = { name: "Witch Head Sector IR-W c1-9", cat: ["Witch Head Sector IR-W c1-9"], coords: { x: 355.3125, y: -425.96875, z: -723.03125 } }
+		witchhead = { name: "Witch Head Sector IR-W c1-9", cat: ["Witchhead"], coords: { x: 355.3125, y: -425.96875, z: -723.03125 } }
 		sol = { name: "Sol", cat: ["Sol"], coords: { x: 0, y: 0, z: 0 } }
+		coalsack = { name: "Musca Dark Region PJ-P b6-1", cat: ["Coalsack"], coords: { x: 432.625, y: 2.53125, z: 288.6875 } }
 
 		categories = {}
 		categories["Reference Systems"] = {
 			"Merope": { name: "Merope", color: colours[0][0].replace('#', '') },
 			"Sol": { name: "Sol", color: colours[1][0].replace('#', '') },
-			"Witch Head Sector IR-W c1-9": { name: "Witch Head Sector IR-W c1-9", color: colours[2][0].replace('#', '') },
+			"Witchhead": { name: "Witch Head Sector IR-W c1-9", color: colours[2][0].replace('#', '') },
+			"Coalsack": { name: "Musca Dark Region PJ-P b6-1", color: colours[3][0].replace('#', '') },
 		}
 		subcategories = {}
 
@@ -61,8 +65,6 @@ var canonnEd3d_route = {
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
 			var poiSite = {};
-
-			category = data[i].year
 
 			poiSite['coords'] = {
 				x: parseFloat(data[i].x),
@@ -73,7 +75,15 @@ var canonnEd3d_route = {
 			dmerope = Math.sqrt(Math.pow(poiSite.coords.x - merope.coords.x, 2) + Math.pow(poiSite.coords.y - merope.coords.y, 2) + Math.pow(poiSite.coords.z - merope.coords.z, 2))
 			dsol = Math.sqrt(Math.pow(poiSite.coords.x - sol.coords.x, 2) + Math.pow(poiSite.coords.y - sol.coords.y, 2) + Math.pow(poiSite.coords.z - sol.coords.z, 2))
 			dwitchhead = Math.sqrt(Math.pow(poiSite.coords.x - witchhead.coords.x, 2) + Math.pow(poiSite.coords.y - witchhead.coords.y, 2) + Math.pow(poiSite.coords.z - witchhead.coords.z, 2))
+			dcoalsack = Math.sqrt(Math.pow(poiSite.coords.x - coalsack.coords.x, 2) + Math.pow(poiSite.coords.y - coalsack.coords.y, 2) + Math.pow(poiSite.coords.z - coalsack.coords.z, 2))
 
+			//years as categories
+			category = data[i].year
+			if (!categories[category]) {
+				categories[category] = {}
+			}
+
+			//subcategories by distance to point of reference
 			if (dmerope < dsol & dmerope < dwitchhead) {
 				subcategory = 'Merope ' + data[i].year
 				subname = "Merope"
@@ -88,15 +98,24 @@ var canonnEd3d_route = {
 				subname = "Witchhead"
 			}
 
-			if (!categories[category]) {
-				categories[category] = {}
+			if (dcoalsack < dmerope & dcoalsack < dsol) {
+				subcategory = 'Coalsack ' + data[i].year
+				subname = "Coalsack"
 			}
 
 			if (!subcategories[subcategory]) {
 				subcategories[subcategory] = {}
 
-				colourkey = Object.keys(subcategories).length
-				categories[category][subcategory] = { name: subname, color: colours[colourkey + 2][0].replace('#', '') }
+				//taken from https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors and modified
+				//use: c as input color in rgb-hex #rrggbb, a as percentage between 0 and 1. it will simply multiply the rgb values with 0-1 relatively, thus lightens or darkens the color
+				var adjc = (c, a) => c.replace(/\w\w/g, m => Math.min(255, parseInt(Math.max(0, parseInt(m, 16) * parseFloat(a)))).toString(16).padStart(2,"0"))
+
+				//adjusting reference system category color, starting bright, getting darker. (assumes years appear in decreasing order)
+				//categories length grows per iteration starting at 2, so 1/length decreases the amount of dampening by diverging to 1
+				let amount = 1/Object.keys(categories).length
+				next_colour = adjc(categories["Reference Systems"][subname].color, amount)
+				//console.log(categories["Reference Systems"][subname].color, amount, next_colour)
+				categories[category][subcategory] = { name: subname, color: next_colour }
 			}
 
 			poiSite['name'] = data[i].system;
@@ -119,6 +138,7 @@ var canonnEd3d_route = {
 		canonnEd3d_route.systemsData.systems.push(merope);
 		canonnEd3d_route.systemsData.systems.push(sol);
 		canonnEd3d_route.systemsData.systems.push(witchhead);
+		canonnEd3d_route.systemsData.systems.push(coalsack);
 
 		document.getElementById("loading").style.display = "none";
 		canonnEd3d_route.systemsData.categories = categories
@@ -147,7 +167,7 @@ var canonnEd3d_route = {
 		});
 
 		Promise.all([p1]).then(function () {
-			console.log(canonnEd3d_route.systemsData)
+			//console.log(canonnEd3d_route.systemsData)
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_route.systemsData,
