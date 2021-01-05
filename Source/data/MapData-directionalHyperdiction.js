@@ -7,10 +7,10 @@ colours = [
 	["#00FFFF", "Cyan"],
 	["#8D38C9", "Violet"],
 	["#FAEBD7", "AntiqueWhite"],
-	["#46C7C7", "Jellyfish"],
-	["#F0FFFF", "Azure"],
 	["#7F5A58", "Puce"],
 	["#81D8D0", "Tiffany"],
+	["#46C7C7", "Jellyfish"],
+	["#F0FFFF", "Azure"],
 	["#387C44", "Pine"],
 	["#4863A0", "Steel"],
 	["#333333", "Grey"]
@@ -26,19 +26,19 @@ var canonnEd3d_direHypers = {
 				"Witchhead": { name: "Witch Head Sector IR-W c1-9", color: colours[2][0].replace('#', '') }
 			},
 			"Jumping From Bubble": {
-				"from_Merope": { name: "Merope", color: colours[0][0].replace('#', '') },
-				"from_Sol": { name: "Sol", color: colours[1][0].replace('#', '') },
-				"from_Witchhead": { name: "Witch Head Sector IR-W c1-9", color: colours[2][0].replace('#', '') }
+				"from_Merope": { name: "Merope", color: colours[4][0].replace('#', '') },
+				"from_Sol": { name: "Sol", color: colours[5][0].replace('#', '') },
+				"from_Witchhead": { name: "Witch Head Sector IR-W c1-9", color: colours[6][0].replace('#', '') }
 			},
 			"Jumping To Bubble": {
-				"to_Merope": { name: "Merope", color: colours[0][0].replace('#', '') },
-				"to_Sol": { name: "Sol", color: colours[1][0].replace('#', '') },
-				"to_Witchhead": { name: "Witch Head Sector IR-W c1-9", color: colours[2][0].replace('#', '') }
+				"to_Merope": { name: "Merope", color: colours[12][0].replace('#', '') },
+				"to_Sol": { name: "Sol", color: colours[11][0].replace('#', '') },
+				"to_Witchhead": { name: "Witch Head Sector IR-W c1-9", color: colours[9][0].replace('#', '') }
 			},
 			"Hyperdiction Line": {
-				"hd_Merope": { name: "Merope", color: colours[0][0].replace('#', '') },
-				"hd_Sol": { name: "Sol", color: colours[1][0].replace('#', '') },
-				"hd_Witchhead": { name: "Witch Head Sector IR-W c1-9", color: colours[2][0].replace('#', '') }
+				"hd_Merope": { name: "Merope", color: colours[7][0].replace('#', '') },
+				"hd_Sol": { name: "Sol", color: colours[11][0].replace('#', '') },
+				"hd_Witchhead": { name: "Witch Head Sector IR-W c1-9", color: colours[8][0].replace('#', '') }
 			},
 		},
 		systems: [],
@@ -76,7 +76,7 @@ var canonnEd3d_direHypers = {
     addRoute: (originSystem, targetSystem, category) => {
         var route = {};
         //todo 
-        route['cat'] = [category];
+		route['cat'] = [category];
         route['points'] = [
             { 's': originSystem.name.toUpperCase(), 'label': originSystem.name },
             { 's': targetSystem.name.toUpperCase(), 'label': targetSystem.name },
@@ -89,9 +89,9 @@ var canonnEd3d_direHypers = {
 
 	formatHypers: function (data) {
 
-		merope = { name: "Merope", cat: ["Merope"], coords: { x: -78.59375, y: -149.625, z: -340.53125 } };
-		witchhead = { name: "Witch Head Sector IR-W c1-9", cat: ["Witchhead"], coords: { x: 355.3125, y: -425.96875, z: -723.03125 } };
-		sol = { name: "Sol", cat: ["Sol"], coords: { x: 0, y: 0, z: 0 } };
+		merope = { name: "MEROPE", cat: ["Merope"], coords: { x: -78.59375, y: -149.625, z: -340.53125 } };
+		witchhead = { name: "WITCH HEAD SECTOR IR-W C1-9", cat: ["Witchhead"], coords: { x: 355.3125, y: -425.96875, z: -723.03125 } };
+		sol = { name: "SOL", cat: ["Sol"], coords: { x: 0, y: 0, z: 0 } };
 		canonnEd3d_direHypers.systemsData.systems.push(merope);
 		canonnEd3d_direHypers.systemsData.systems.push(sol);
 		canonnEd3d_direHypers.systemsData.systems.push(witchhead);
