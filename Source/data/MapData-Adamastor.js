@@ -2,7 +2,7 @@ var canonnEd3d_challenge = {
 	//Define Categories
 	systemsData: {
 		categories: {
-			'Challenge': {
+			'Adamastor Challenge': {
 				/*'10': {
 					name: 'Varati',
 					color: 'f5a142',
@@ -33,6 +33,20 @@ var canonnEd3d_challenge = {
 					color: '446644',
 				},
 			},
+			'Hesperus Challenge': {
+				'100': {
+					name: 'Hesperus & Dredger',
+					color: 'FF6666',
+				},
+				'200': {
+					name: '17 LPs',
+					color: '6666FF',
+				},
+				'300': {
+					name: 'Triangulation LPs',
+					color: '66FF66',
+				}
+			}
 		},
 		systems: [],
 		"routes": [
@@ -84,7 +98,7 @@ var canonnEd3d_challenge = {
 		]
 	},
 
-	formatChallenge: function (data) {
+	formatAdamastor: function (data) {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
 
 		// this is assuming data is an array []
@@ -120,7 +134,28 @@ var canonnEd3d_challenge = {
 			}
 		}
 	},
-
+	formatHesperus: function (data) {
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].name && data[i].name.replace(' ', '').length > 1) {
+				var poiSite = {};
+				poiSite['name'] = data[i].name;
+				if (data[i].infos) {
+					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '">Signals</a>';
+				} else {
+					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '">Signals</a>';
+				}
+				poiSite['url'] = "https://tools.canonn.tech/Signals/?system=" + poiSite['name']
+				poiSite['coords'] = {
+					x: parseFloat(data[i].pos_x),
+					y: parseFloat(data[i].pos_y),
+					z: parseFloat(data[i].pos_z),
+				};
+				poiSite['cat'] = data[i].categories.split(' ');
+				// We can then push the site to the object that stores all systems
+				canonnEd3d_challenge.systemsData.systems.push(poiSite);
+			}
+		}
+	},
 	parseCSVData: function (url, callBack, resolvePromise) {
 		Papa.parse(url, {
 			download: true,
@@ -140,10 +175,13 @@ var canonnEd3d_challenge = {
 
 	init: function () {
 		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_challenge.parseCSVData('data/csvCache/adamastor.csv', canonnEd3d_challenge.formatChallenge, resolve);
+			canonnEd3d_challenge.parseCSVData('data/csvCache/adamastor.csv', canonnEd3d_challenge.formatAdamastor, resolve);
+		});
+		var p2 = new Promise(function (resolve, reject) {
+			canonnEd3d_challenge.parseCSVData('data/csvCache/hesperus.csv', canonnEd3d_challenge.formatHesperus, resolve);
 		});
 
-		Promise.all([p1]).then(function () {
+		Promise.all([p1, p2]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_challenge.systemsData,
