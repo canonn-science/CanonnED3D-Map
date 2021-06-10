@@ -150,7 +150,7 @@ var canonnEd3d_challenge = {
 					y: parseFloat(data[i].pos_y),
 					z: parseFloat(data[i].pos_z),
 				};
-				poiSite['cat'] = data[i].categories.split(' ');
+				poiSite['cat'] = [data[i].category];
 				// We can then push the site to the object that stores all systems
 				canonnEd3d_challenge.systemsData.systems.push(poiSite);
 			}
