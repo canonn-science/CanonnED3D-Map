@@ -186,6 +186,11 @@ var canonnEd3d_challenge = {
 				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
 					var poiSite = {};
 					poiSite['name'] = siteData[d].system.systemName;
+					if (siteData[i].infos) {
+						poiSite['infos'] = siteData[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + siteData[i].system.systemName + '">Signals</a>';
+					} else {
+						poiSite['infos'] = '<a href="https://canonn.science/codex/guardian-beacons/">Guardian Beacon</a><br/><a href="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" target="_new"><img src="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" /></a><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + siteData[i].system.systemName + '">Signals</a>';
+					}
 
 					//Check Site Type and match categories
 					if (siteTypes[i] == 'gbsites') {
@@ -292,11 +297,12 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.parseCSVData('data/csvCache/hesperus.csv', canonnEd3d_challenge.formatHesperus, resolve);
 		});
 
-		var p3 = new Promise(function (resolve, reject) {
-			canonnEd3d_challenge.formatGSites(sites, resolve);
-		});
+		//uncomment to get guardian beacons, leaving them out for spoiler reasons
+		// var p3 = new Promise(function (resolve, reject) {
+		// 	canonnEd3d_challenge.formatGSites(sites, resolve);
+		// });
 
-		Promise.all([p1, p2, p3]).then(function () {
+		Promise.all([p1, p2/*, p3*/]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_challenge.systemsData,
