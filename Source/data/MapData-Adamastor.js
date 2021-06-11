@@ -21,7 +21,7 @@ var canonnEd3d_challenge = {
 					color: '66ff66',
 				},
 				'60': {
-					name: 'Intersection of routes',
+					name: 'Intersection of Routes',
 					color: '666666',
 				},
 				'70': {
@@ -29,7 +29,7 @@ var canonnEd3d_challenge = {
 					color: '666666',
 				},
 				'80': {
-					name: "Adamasor's Return Journey",
+					name: "Adamastor's Return Journey",
 					color: '446644',
 				},
 			},
@@ -89,10 +89,26 @@ var canonnEd3d_challenge = {
 			},
 			{
 				cat: ["60"], 'points': [
-
 					{ 's': 'Chukchan', 'label': 'Chukchan' },
 					{ 's': 'Route Intersection', 'label': 'Route Intersection' },
 					{ 's': 'HIP 69200', 'label': 'HIP 69200' },
+				], 'circle': false
+			},
+			{
+				cat: ["200"], 'points': [
+					{ 's': 'Li Chul', 'label': 'Li Chul' },
+					{ 's': 'HIP 44101', 'label': 'HIP 44101' },
+					{ 's': 'Col 285 Sector WH-O a22-2', 'label': 'Col 285 Sector WH-O a22-2' },
+					{ 's': 'COL 285 Sector NV-N B7-4', 'label': 'COL 285 Sector NV-N B7-4' },
+					{ 's': 'Synuefe RJ-U B21-0', 'label': 'Synuefe RJ-U B21-0' },
+					{ 's': 'Witch head sector OT-Q B5-0', 'label': 'Witch head sector OT-Q B5-0' },
+					{ 's': 'Horsehead Sector CB-O b6-0', 'label': 'Horsehead Sector CB-O b6-0' },
+					{ 's': 'Flame Sector PI-T b3-0', 'label': 'Flame Sector PI-T b3-0' },
+					{ 's': 'NGC 1999 Sector HN-S B4-0', 'label': 'NGC 1999 Sector HN-S B4-0' },
+					{ 's': 'NGC 1999 Sector ZU-X b1-0', 'label': 'NGC 1999 Sector ZU-X b1-0' },
+					{ 's': 'Trapezium Sector FH-U c3-3', 'label': 'Trapezium Sector FH-U c3-3' },
+					{ 's': 'Col 69 Sector VK-E c12-10', 'label': 'Col 69 Sector VK-E c12-10' },
+					{ 's': 'Col 69 sector LY-H C10-0', 'label': 'Col 69 sector LY-H C10-0' },
 				], 'circle': false
 			},
 		]
