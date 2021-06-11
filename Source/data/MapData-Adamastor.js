@@ -190,9 +190,9 @@ var canonnEd3d_challenge = {
 				hudMultipleSelect: true,
 				effectScaleSystem: [20, 500],
 				startAnim: false,
-				showGalaxyInfos: true,
-				playerPos: [-92, -69, -386],
-				cameraPos: [-30, 1500, -699],
+				showGalaxyInfos: false,
+				playerPos: [92, -69, -386],
+				cameraPos: [100, 2000, -699],
 				systemColor: '#FF9D00',
 			});
 		});
