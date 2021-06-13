@@ -85,15 +85,15 @@ var canonnEd3d_challenge = {
 			},
 			'Hesperus Challenge': {
 				'100': {
-					name: 'Hesperus & Dredger',
+					name: 'Hesperus, Dredger & Survivors',
 					color: 'FF6666',
 				},
 				'200': {
-					name: '17 LPs',
+					name: 'Hesperus 17 Beacon Route',
 					color: '6666FF',
 				},
 				'300': {
-					name: 'Triangulation LPs',
+					name: 'Hesperus Triangulation LPs',
 					color: '66FF66',
 				}
 			},
@@ -297,12 +297,11 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.parseCSVData('data/csvCache/hesperus.csv', canonnEd3d_challenge.formatHesperus, resolve);
 		});
 
-		//uncomment to get guardian beacons, leaving them out for spoiler reasons
-		// var p3 = new Promise(function (resolve, reject) {
-		// 	canonnEd3d_challenge.formatGSites(sites, resolve);
-		// });
+		var p3 = new Promise(function (resolve, reject) {
+			canonnEd3d_challenge.formatGSites(sites, resolve);
+		});
 
-		Promise.all([p1, p2/*, p3*/]).then(function () {
+		Promise.all([p1, p2, p3]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_challenge.systemsData,
