@@ -85,15 +85,15 @@ var canonnEd3d_challenge = {
 			},
 			'Hesperus Challenge': {
 				'100': {
-					name: 'Hesperus & Dredger',
+					name: 'Hesperus, Dredger & Survivors',
 					color: 'FF6666',
 				},
 				'200': {
-					name: '17 LPs',
+					name: 'Hesperus 17 Beacon Route',
 					color: '6666FF',
 				},
 				'300': {
-					name: 'Triangulation LPs',
+					name: 'Hesperus Triangulation LPs',
 					color: '66FF66',
 				}
 			},
