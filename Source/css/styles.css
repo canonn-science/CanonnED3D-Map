@@ -166,6 +166,31 @@ body {
   display: inline-block;
 }
 
+#filters {
+  overflow-y: scroll;
+  height:88%;
+  padding-right:5px;
+  margin-right:-11px;
+}
+/* width */
+#filters::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+#filters::-webkit-scrollbar-track {
+  background: rgb(32, 32, 32);
+}
+
+/* Handle */
+#filters::-webkit-scrollbar-thumb {
+  background: #cc7a00;
+}
+
+/* Handle on hover */
+#filters::-webkit-scrollbar-thumb:hover {
+  background: #ffad33;
+}
 
 #hud.enlarge #filters > div.open {
   columns: 250px;

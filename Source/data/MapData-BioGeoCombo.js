@@ -57,7 +57,10 @@ let urlParams = {
 	system: ""
 }
 function signalLink(system, name) {
-	return '<a href="https://tools.canonn.tech/signals?system=' + system + '"  target="_blank">' + name + '</a></br>'
+	return '<a href="https://tools.canonn.tech/signals?system=' + system + '" target="_blank" rel="noopener">' + name + '</a><br/>'
+}
+function edsmLink(system) {
+	return `<a href="https://www.edsm.net/en/system?systemName=${system}" target="_blank" rel="noopener">EDSM</a><br/>`
 }
 
 const capi = axios.create({
@@ -82,12 +85,15 @@ const getSites = async type => {
 	let records = [];
 	let keepGoing = true;
 	let API_START = 0;
+	let i = 0;
 	while (keepGoing) {
 		let response = await reqSites(API_START, type);
-		await records.push.apply(records, response.data); //TODO this expects data to be array of stuff but we get objects with hierarchys
-		//console.log(response, records)
+		console.log(response)
+		if (Array.isArray(response.data)) await records.push.apply(records, response.data);
+		else Object.assign(records, response.data)
+		if (++i == 5) break;
 		API_START += API_LIMIT;
-		if (!response.data || response.data.length < API_LIMIT) {
+		if (Object.keys(response.data).length < API_LIMIT) {
 			keepGoing = false;
 			return records;
 		}
@@ -103,6 +109,78 @@ const reqSites = async (API_START, type) => {
 	});
 	return payload;
 };
+const buildMenu = async (site_type_data) => {
+	/*
+"2401013": {
+	"category": "$Codex_Category_Biology;",
+	"english_name": "E01-Type Anomaly",
+	"entryid": 2401013,
+	"hud_category": "Anomaly",
+	"name": "$Codex_Ent_L_Phn_Part_Cld_013_Name;",
+	"platform": "legacy",
+	"sub_category": "$Codex_SubCategory_Geology_and_Anomalies;",
+	"sub_class": "E-Type Anomaly"
+},
+OR hud_category > sub_class > english_name hierarchy:
+"Anomaly": {
+	"E-Type Anomaly": {
+		"E01-Type Anomaly": {
+			"category": "$Codex_Category_Biology;",
+			"entryid": 2401013,
+			"name": "$Codex_Ent_L_Phn_Part_Cld_013_Name;",
+			"platform": "legacy",
+			"sub_category": "$Codex_SubCategory_Geology_and_Anomalies;"
+		},
+	*/
+	//creating menu from hierarchical data
+	/* TODO its not working as a menu for the maps, too much data.
+			so, menu options? only very top level is already 21 entries
+		a) we could do 3 dropdowns on top the filter section, one for each level of hierarchy.			
+		b) we could do more fake sections instead of bio&geo and spread subsections out more
+		c) ???
+	*/
+	let menu_blacklist = ['Anomaly', 'Cloud', 'Guardian', 'None', 'Thargoid', 'Tourist']
+	let hierarchy_data = site_type_data.data;
+	//main menu for hud_category
+	let hudmenu = $(`<ul>`).detach()
+	for (let hud_category in hierarchy_data) {
+		if (menu_blacklist.includes(hud_category)) continue
+		let huditem = $(`<li class="has-sub">`).detach()
+		huditem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}"> <i class="fa fa-fw fa-bars"></i> ${hud_category}</a>`);
+		//submenu for sub_class
+		let submenu = $(`<ul>`).detach()
+		let subitem;
+		for (let sub_class in hierarchy_data[hud_category]) {
+			subitem = $(`<li>`).detach()
+			subitem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}&sub_class=${sub_class}">${sub_class}</a>`)
+			//submenu2 for english_name
+			let namemenu = $(`<ul>`).detach()
+			let nameitem;
+			for (let english_name in hierarchy_data[hud_category][sub_class]) {
+				nameitem = $(`<li>`).detach()
+				nameitem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}&sub_class=${sub_class}&english_name=${english_name}">${english_name}</a>`)
+				namemenu.append(nameitem)
+			}
+			//avoid 1 subitem, link directly
+			if (Object.keys(hierarchy_data[hud_category]).length > 1) {
+				subitem.append(namemenu)
+				subitem.addClass("has-sub")
+				$('a', subitem).not('ul a').prepend(' <i class="fa fa-fw fa-bars"></i> ')
+				submenu.append(subitem)
+			} else {
+				submenu.append(nameitem)
+			}
+		}
+		//avoid 1 subitem, link directly
+		if (Object.keys(hierarchy_data[hud_category]).length > 1) {
+			huditem.append(submenu)
+			hudmenu.append(huditem)
+		} else {
+			hudmenu.append(subitem)
+		}
+	}
+	$('#biogeo-combo').append(hudmenu)
+}
 
 var canonnEd3d_biogeocombo = {
 	//Define Categories
@@ -115,76 +193,19 @@ var canonnEd3d_biogeocombo = {
 				}
 			}
 		},
-		systems: [],
+		systems: []
 	},
 
-	formatSites: async function (data, resolvePromise) {
+	formatSites: async function (data) {
 		//grabbing categories from /ref api
-		/*
-    "2401013": {
-        "category": "$Codex_Category_Biology;",
-        "english_name": "E01-Type Anomaly",
-        "entryid": 2401013,
-        "hud_category": "Anomaly",
-        "name": "$Codex_Ent_L_Phn_Part_Cld_013_Name;",
-        "platform": "legacy",
-        "sub_category": "$Codex_SubCategory_Geology_and_Anomalies;",
-        "sub_class": "E-Type Anomaly"
-    },
-	OR hud_category > sub_class > english_name hierarchy:
-	"Anomaly": {
-        "E-Type Anomaly": {
-            "E01-Type Anomaly": {
-                "category": "$Codex_Category_Biology;",
-                "entryid": 2401013,
-                "name": "$Codex_Ent_L_Phn_Part_Cld_013_Name;",
-                "platform": "legacy",
-                "sub_category": "$Codex_SubCategory_Geology_and_Anomalies;"
-            },
-		*/
-		site_type_data = await capi({
+		capi({
 			url: "/ref?hierarchy=1",
 			method: 'get'
+		})
+		.then(buildMenu, (reason)=>{
+			console.log("Error getting hierarchical data: ", reason)
 		});
-		let menu_blacklist = ['Anomaly', 'Cloud', 'Guardian', 'None', 'Thargoid', 'Tourist']
-		let hierarchy_data = site_type_data.data;
-		let rootmenu = $('#biogeo-combo');
-		//main menu for hud_category
-		let hudmenu = $(`<ul>`)
-		for (let hud_category in hierarchy_data) {
-			if (menu_blacklist.includes(hud_category)) continue
-			let huditem = $(`<li class="has-sub">`)
-			huditem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}"> <i class="fa fa-fw fa-bars"></i> ${hud_category}</a>`);
-			//submenu for sub_class
-			let submenu = $(`<ul>`)
-			let subitem;
-			for (let sub_class in hierarchy_data[hud_category]) {
-				subitem = $(`<li>`);
-				subitem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}&sub_class=${sub_class}">${sub_class}</a>`)
-				//submenu2 for english_name
-				let namemenu = $(`<ul>`)
-				let nameitem;
-				for (let english_name in hierarchy_data[hud_category][sub_class]) {
-					nameitem = $(`<li>`);
-					nameitem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}&sub_class=${sub_class}&english_name=${english_name}">${english_name}</a>`)
-				}
-				//avoid 1 subitem, link directly
-				if (Object.keys(hierarchy_data[hud_category]).length > 1) {
-					subitem.append(namemenu)
-					submenu.append(subitem)
-				} else {
-					submenu.append(nameitem)
-				}
-			}
-			//avoid 1 subitem, link directly
-			if (Object.keys(hierarchy_data[hud_category]).length > 1) {
-				huditem.append(submenu)
-				hudmenu.append(huditem)
-			} else {
-				hudmenu.append(subitem)
-			}
-		}
-		rootmenu.append(hudmenu)
+		
 
 		//get current url params and pass whitelist into API
 		let queryParams = {}
@@ -192,100 +213,62 @@ var canonnEd3d_biogeocombo = {
 			let v = getURLParameter(p)
 			if (v) queryParams[p] = v
 		}
-		console.log(queryParams)
+		//console.log("queryParamas", queryParams)
 		let query = "systems";
 		try {
 			query += '?'+$.param(queryParams);
-			console.log(query)
+			//console.log("query", query)
 		} catch (e) {
-			console.log("Error creating queryParams for API: " + e)
+			console.log("Error creating queryParams for API: ", e)
 		}
 		let sites = await getSites(query);
 		//let siteTypes = Object.keys(hierarchy_data);
-		console.log("sites", sites)
+		//console.log("sites", sites)
 
-		categories = {}
-		subcategories = {}
-		for (let i = 0; i < siteTypes.length; i++) {
-			for (let d = 0; d < sites[siteTypes[i]].length; d++) {
-				let siteData = sites[siteTypes[i]];
-
-
-
-				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
-
-					let category = siteInfo[siteTypes[i]]
-					subcategory = siteData[d].type.type
-
-					if (!categories[category]) {
-						categories[category] = {}
-					}
-					if (!subcategories[subcategory]) {
-						subcategories[subcategory] = {}
-						colourkey = Object.keys(subcategories).length
-						categories[category][subcategory] = { name: subcategory, color: colours[colourkey][0].replace('#', '') }
-					}
-
-					var poiSite = {};
-					poiSite['name'] = siteData[d].system.systemName;
-					poiSite['infos'] = signalLink(siteData[d].system.systemName, siteData[d].type.type);
-					poiSite['cat'] = [subcategory];
-
-					poiSite['coords'] = {
-						x: parseFloat(siteData[d].system.edsmCoordX),
-						y: parseFloat(siteData[d].system.edsmCoordY),
-						z: parseFloat(siteData[d].system.edsmCoordZ),
-					};
-
-					// We can then push the site to the object that stores all systems
-					canonnEd3d_biogeocombo.systemsData.systems.push(poiSite);
-				}
+		let categories = {}
+		let subcategories = {}
+		for (let system in sites) {
+			let poiSite = {
+				name: system,
+				coords: {
+					x: parseFloat(sites[system].coords[0]),
+					y: parseFloat(sites[system].coords[1]),
+					z: parseFloat(sites[system].coords[2])
+				},
+				infos: edsmLink(system),
+				cat: [],
 			}
-		}
+			for (let i in sites[system].codex) {
+				let codex = sites[system].codex[i]
+				//console.log("codex:", codex)
 
-		canonnEd3d_biogeocombo.systemsData.categories = Object.assign({}, canonnEd3d_biogeocombo.systemsData.categories, categories);
-		resolvePromise();
-	},
+				let category = codex.sub_class
+				subcategory = codex.english_name
 
-	formatCol: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
-
-		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
-			var poiSite = {};
-
-			poiSite['name'] = data[i].system;
-			poiSite['infos'] = '<a href="https://tools.canonn.tech/signals?system=' + data[i].system + '" target="_blank">Unscanned Biology Signal</a>'
-
-			//Check Site Type and match categories
-
-			poiSite['cat'] = ['Signals'];
-
-			poiSite['coords'] = {
-				x: parseFloat(data[i].x),
-				y: parseFloat(data[i].y),
-				z: parseFloat(data[i].z),
-			};
-
+				if (!categories[category]) {
+					categories[category] = {}
+				}
+				if (!subcategories[subcategory]) {
+					subcategories[subcategory] = {}
+					colourkey = Object.keys(subcategories).length
+					categories[category][subcategory] = { name: subcategory, color: colours[colourkey][0].replace('#', '') }
+				}
+				poiSite.cat = [subcategory];
+				poiSite.infos += signalLink(system, codex.english_name);
+			}
+			
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_biogeocombo.systemsData.systems.push(poiSite);
-
 		}
+
+		Object.assign(canonnEd3d_biogeocombo.systemsData.categories, categories);
 	},
 
-	parseCodex: function (url, callBack, resolvePromise) {
-		let fetchDataFromApi = async (url, resolvePromise) => {
-			let response = await fetch(url);
-			let result = await response.json();
-			callBack(result)
-			resolvePromise();
-			return result;
-		}
-		fetchDataFromApi(url, resolvePromise)
-
-		//console.log(data)
-
+	parseCodex: async function (url, callBack, resolvePromise) {
+		let response = await fetch(url);
+		let result = await response.json();
+		await callBack(result)
+		resolvePromise();
 	},
 	init: function () {
 
@@ -294,7 +277,7 @@ var canonnEd3d_biogeocombo = {
 		});
 
 		Promise.all([p1]).then(function () {
-			document.getElementById("loading").style.display = "none";
+			console.log("sysdata", canonnEd3d_biogeocombo.systemsData)
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_biogeocombo.systemsData,
@@ -307,6 +290,7 @@ var canonnEd3d_biogeocombo = {
 				cameraPos: [25, 14100, -12900],
 				systemColor: '#FF9D00',
 			});
+			document.getElementById("loading").style.display = "none";
 		});
 	},
 };
