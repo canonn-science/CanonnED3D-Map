@@ -1,5 +1,3 @@
-//const { get } = require("lodash");
-
 const colours = [
 	["#FF0000", "Red"], ["#3090C7", "Blue"], ["#7E587E", "Viola"], ["#E78A61", "Tangerine"], ["#FAEBD7", "AntiqueWhite"], ["#46C7C7", "Jellyfish"], ["#F0FFFF", "Azure"], ["#7F5A58", "Puce"],
 	["#81D8D0", "Tiffany"], ["#387C44", "Pine"], ["#4863A0", "Steel"], ["#D462FF", "Heliotrope"], ["#D16587", "Pale"], ["#B1FB17", "Green"], ["#E67451", "Sunrise"], ["#6CBB3C", "Green"],
@@ -85,13 +83,12 @@ const getSites = async type => {
 	let records = [];
 	let keepGoing = true;
 	let API_START = 0;
-	let i = 0;
 	while (keepGoing) {
 		let response = await reqSites(API_START, type);
-		console.log(response)
+		//console.log("response", response)
 		if (Array.isArray(response.data)) await records.push.apply(records, response.data);
 		else Object.assign(records, response.data)
-		if (++i == 5) break;
+
 		API_START += API_LIMIT;
 		if (Object.keys(response.data).length < API_LIMIT) {
 			keepGoing = false;
@@ -101,44 +98,29 @@ const getSites = async type => {
 };
 
 const reqSites = async (API_START, type) => {
+	//console.log("reqSites type: ", type)
 	if (type.indexOf('?')<0) type+='?'
 	else type+='&'
 	let payload = await capi({
-		url: `/${type}_limit=${API_LIMIT}&_start=${API_START}`,
+		url: `/${type}limit=${API_LIMIT}&offset=${API_START}`,
 		method: 'get'
 	});
 	return payload;
 };
+
 const buildMenu = async (site_type_data) => {
-	/*
-"2401013": {
-	"category": "$Codex_Category_Biology;",
-	"english_name": "E01-Type Anomaly",
-	"entryid": 2401013,
-	"hud_category": "Anomaly",
-	"name": "$Codex_Ent_L_Phn_Part_Cld_013_Name;",
-	"platform": "legacy",
-	"sub_category": "$Codex_SubCategory_Geology_and_Anomalies;",
-	"sub_class": "E-Type Anomaly"
-},
-OR hud_category > sub_class > english_name hierarchy:
-"Anomaly": {
-	"E-Type Anomaly": {
-		"E01-Type Anomaly": {
-			"category": "$Codex_Category_Biology;",
-			"entryid": 2401013,
-			"name": "$Codex_Ent_L_Phn_Part_Cld_013_Name;",
-			"platform": "legacy",
-			"sub_category": "$Codex_SubCategory_Geology_and_Anomalies;"
-		},
+	/* example data structure, one entry from codex/ref?hierarchy=1
+		"Anomaly": {
+			"E-Type Anomaly": {
+				"E01-Type Anomaly": {
+					"category": "$Codex_Category_Biology;",
+					"entryid": 2401013,
+					"name": "$Codex_Ent_L_Phn_Part_Cld_013_Name;",
+					"platform": "legacy",
+					"sub_category": "$Codex_SubCategory_Geology_and_Anomalies;"
+				},
 	*/
-	//creating menu from hierarchical data
-	/* TODO its not working as a menu for the maps, too much data.
-			so, menu options? only very top level is already 21 entries
-		a) we could do 3 dropdowns on top the filter section, one for each level of hierarchy.			
-		b) we could do more fake sections instead of bio&geo and spread subsections out more
-		c) ???
-	*/
+	//creating full menu from hierarchical data
 	let menu_blacklist = ['Anomaly', 'Cloud', 'Guardian', 'None', 'Thargoid', 'Tourist']
 	let hierarchy_data = site_type_data.data;
 	//main menu for hud_category
@@ -147,12 +129,15 @@ OR hud_category > sub_class > english_name hierarchy:
 		if (menu_blacklist.includes(hud_category)) continue
 		let huditem = $(`<li class="has-sub">`).detach()
 		huditem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}"> <i class="fa fa-fw fa-bars"></i> ${hud_category}</a>`);
+		
 		//submenu for sub_class
 		let submenu = $(`<ul>`).detach()
 		let subitem;
 		for (let sub_class in hierarchy_data[hud_category]) {
 			subitem = $(`<li>`).detach()
 			subitem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}&sub_class=${sub_class}">${sub_class}</a>`)
+
+			/* dont build submenu, just have sub_class
 			//submenu2 for english_name
 			let namemenu = $(`<ul>`).detach()
 			let nameitem;
@@ -161,6 +146,7 @@ OR hud_category > sub_class > english_name hierarchy:
 				nameitem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}&sub_class=${sub_class}&english_name=${english_name}">${english_name}</a>`)
 				namemenu.append(nameitem)
 			}
+
 			//avoid 1 subitem, link directly
 			if (Object.keys(hierarchy_data[hud_category]).length > 1) {
 				subitem.append(namemenu)
@@ -170,43 +156,158 @@ OR hud_category > sub_class > english_name hierarchy:
 			} else {
 				submenu.append(nameitem)
 			}
+			//*///comment following line if you want english_name submenus
+			submenu.append(subitem)
 		}
+
 		//avoid 1 subitem, link directly
+		if (hud_category == "Geology") {
+			if (Object.keys(hierarchy_data[hud_category]).length > 1) {
+				huditem.append(submenu)
+				$('#mi-geology').replaceWith(huditem);
+			} else $('#mi-geology').replaceWith(subitem);
+		}
+		/* dont build the menu, just add geology - keeping this for future reference
 		if (Object.keys(hierarchy_data[hud_category]).length > 1) {
 			huditem.append(submenu)
 			hudmenu.append(huditem)
 		} else {
 			hudmenu.append(subitem)
 		}
+		//*/
 	}
-	$('#biogeo-combo').append(hudmenu)
+	//$('#biogeo-combo').append(hudmenu)
+}
+
+const buildDropdownFilter = async (site_type_data) => {
+	buildMenu(site_type_data)
+	/*
+	same as buildMenu but with select dropdowns for each field, non-treeview
+	*/
+	let menu_blacklist = ['Anomaly', 'Cloud', 'Guardian', 'None', 'Thargoid', 'Tourist']
+	let hierarchy_data = site_type_data.data;
+
+	for (let p in urlParams) {
+		let v = getURLParameter(p)
+		if (v) urlParams[p] = v;
+	}
+	//main select for hud_category
+	let hudmenu = $(`<select name="hud_category" id="select_hud_category" class="filter_dropdown" ><option value="">-- Science --</option>`).detach()
+	let submenu = $(`<select name="sub_class" id="select_sub_class" class="filter_dropdown" ><option value="">-- Class --</option>`).detach()
+	let namemenu = $(`<select name="english_name" id="select_english_name" class="filter_dropdown" ><option value="">-- Name --</option>`).detach()
+	for (let hud_category in hierarchy_data) {
+		if (menu_blacklist.includes(hud_category)) continue
+		if (urlParams.hud_category && urlParams.hud_category != hud_category) continue
+
+		//build select for sub_class
+		let sub_found = false;
+		for (let sub_class in hierarchy_data[hud_category]) {
+			if (urlParams.sub_class && urlParams.sub_class != sub_class) continue
+
+			//build select for english_name
+			let name_found = false;
+			for (let english_name in hierarchy_data[hud_category][sub_class]) {
+				if (urlParams.english_name && urlParams.english_name != english_name) continue
+				nameitem = $(`<option value="${english_name}">${english_name}</option>`)
+				namemenu.append(nameitem)
+				name_found = true;
+			}
+			//hide sub_class if sublevel urlParams.english_name was set and not found
+			if (name_found) {
+				subitem = $(`<option value="${sub_class}">${sub_class}</option>`)
+				submenu.append(subitem)
+				sub_found = true;
+			}
+		}
+		//hide hud_category option if sublevel urlParams.sub_class or english_name was set and not found
+		if (sub_found) {
+			let huditem = $(`<option value="${hud_category}">${hud_category}</option>`);
+			hudmenu.append(huditem)
+		}
+	}
+	let filters_form = $(`<form id="filters_form" action="" method="get">`).detach()
+	//separate bio/geo links in nav.html// filters_form.append(hudmenu)
+	filters_form.append(submenu)
+	filters_form.append(namemenu)
+	//reflect selected choice in dropdowns
+	for (let p in urlParams) {
+		if (urlParams[p]) $(`#select_${p} option[value='${urlParams[p]}']`, filters_form).attr('selected','selected')
+	}
+	//changing a dropdown will refresh page with new parameters
+	$('select', filters_form).on('change', ()=>{filters_form.submit()})
+	$('#filters').prepend(filters_form);
+	
+	$('#filters h2').css('cursor', 'pointer').on('click', toggleFilterHeader)
+}
+
+toggleFilterHeader = (event) => {
+	let filters = $(event.target).next('div')
+	filters.toggle()
+	$('a', filters).trigger('click')
+}
+
+const recenterViewport = (center, distance) => {
+    //-- Set new camera & target position
+    Ed3d.playerPos = [center.x,center.y,center.z];
+    Ed3d.cameraPos = [
+      center.x + (Math.floor((Math.random() * 100) + 1)-50), //-- Add a small rotation effect
+      center.y + distance,
+      center.z - distance
+    ];
+
+    Action.moveInitalPosition();
+}
+
+recenterSearch = function () {
+	var term = $('#search input').val();
+	
+	var foundSystem = {};
+	for (key in canonnEd3d_biogeocombo.systemsData.systems) {
+		let system = canonnEd3d_biogeocombo.systemsData.systems[key];
+		if (system.name.indexOf(term) >= 0) {
+			foundSystem = system;
+			break;
+		}
+	}
+	if (!(Object.keys(foundSystem).length === 0)) {
+		recenterViewport(foundSystem.coords, 100);
+		
+	//console.log("addtext", "system_hover", systemname, 0, 4, 0, 3, threeObj);
+	/* how do we get threeObj? they dont have names. would like to show the mouseover text after search recenter
+			HUD.addText(-1, foundSystem.name,
+				0, 4, 0, 3//, foundSystem.coords, true
+			); 
+	//*/
+	}
+}
+	
+const getCodexMeta = (getHierarchy=true) => {
+	//grabbing categories from /ref api
+	capi({
+		url: "/ref?hierarchy="+(getHierarchy?1:0),
+		method: 'get'
+	})
+	.then(buildDropdownFilter, (reason)=>{
+		console.log("Error getting hierarchical data: ", reason)
+	});
 }
 
 var canonnEd3d_biogeocombo = {
 	//Define Categories
 	systemsData: {
 		categories: {
+			/*
 			'Unknown Biology Signals': {
 				'Signals': {
 					name: 'Biology Surface Scan',
 					color: colours[0][0].replace('#', ''),
 				}
-			}
+			}//*/
 		},
 		systems: []
 	},
 
-	formatSites: async function (data) {
-		//grabbing categories from /ref api
-		capi({
-			url: "/ref?hierarchy=1",
-			method: 'get'
-		})
-		.then(buildMenu, (reason)=>{
-			console.log("Error getting hierarchical data: ", reason)
-		});
-		
-
+	formatSites: async function (resolve) {
 		//get current url params and pass whitelist into API
 		let queryParams = {}
 		for (let p in urlParams) {
@@ -216,7 +317,7 @@ var canonnEd3d_biogeocombo = {
 		//console.log("queryParamas", queryParams)
 		let query = "systems";
 		try {
-			query += '?'+$.param(queryParams);
+			if (Object.keys(queryParams).length) query += '?'+$.param(queryParams);
 			//console.log("query", query)
 		} catch (e) {
 			console.log("Error creating queryParams for API: ", e)
@@ -262,18 +363,13 @@ var canonnEd3d_biogeocombo = {
 		}
 
 		Object.assign(canonnEd3d_biogeocombo.systemsData.categories, categories);
+		resolve();
 	},
 
-	parseCodex: async function (url, callBack, resolvePromise) {
-		let response = await fetch(url);
-		let result = await response.json();
-		await callBack(result)
-		resolvePromise();
-	},
 	init: function () {
 
 		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_biogeocombo.parseCodex('https://us-central1-canonn-api-236217.cloudfunctions.net/query/codex/ref', canonnEd3d_biogeocombo.formatSites, resolve);
+			return canonnEd3d_biogeocombo.formatSites(resolve);
 		});
 
 		Promise.all([p1]).then(function () {
@@ -290,6 +386,11 @@ var canonnEd3d_biogeocombo = {
 				cameraPos: [25, 14100, -12900],
 				systemColor: '#FF9D00',
 			});
+			getCodexMeta();//adding codex based dropdowns after filter list was built or it will be overwritten
+            setTimeout(()=>{
+                $('#search').css('display', 'block');
+                $('#search input').val('System').on('input', recenterSearch);
+            }, 1000);
 			document.getElementById("loading").style.display = "none";
 		});
 	},

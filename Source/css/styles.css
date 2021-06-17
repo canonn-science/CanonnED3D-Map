@@ -168,7 +168,7 @@ body {
 
 #filters {
   overflow-y: scroll;
-  height:88%;
+  height: 80%;
   padding-right:5px;
   margin-right:-11px;
 }
@@ -190,6 +190,27 @@ body {
 /* Handle on hover */
 #filters::-webkit-scrollbar-thumb:hover {
   background: #ffad33;
+}
+#filters_form {
+  margin-bottom: 10px
+}
+#filters_form select {
+  background:#000;
+  border: solid 1px #FFF;
+  padding: 4px 0 4px 0;
+  margin: 0 0px 0px 0;
+}
+#filters_form option {
+  background:rgb(30,30,30);
+}
+#filters_form option:checked,
+#filters_form option:hover,
+#filters_form option:active
+#filters_form option[selected=selected] {
+  background:#cc7a00;
+}
+div#search {
+  display:none;
 }
 
 #hud.enlarge #filters > div.open {
