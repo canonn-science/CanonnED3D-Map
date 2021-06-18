@@ -89,13 +89,27 @@ const getSites = async type => {
 		if (Array.isArray(response.data)) await records.push.apply(records, response.data);
 		else Object.assign(records, response.data)
 
+		let foldedSystem = true
+		let count = 0;
+		if (foldedSystem) {
+			for (let system in response.data) {
+				if (response.data[system].codex) count += response.data[system].codex
+			}
+		} else count = Object.keys(response.data).length
 		API_START += API_LIMIT;
-		if (Object.keys(response.data).length < API_LIMIT) {
+		if (count < API_LIMIT) {
 			keepGoing = false;
 			return records;
 		}
 	}
 };
+
+function sortObj(obj) {
+	return Object.keys(obj).sort().reduce(function (result, key) {
+		result[key] = (/boolean|number|string/).test(typeof obj[key])?obj[key]:sortObj(obj[key]);
+		return result;
+	}, {});
+}
 
 const reqSites = async (API_START, type) => {
 	//console.log("reqSites type: ", type)
@@ -351,7 +365,7 @@ var canonnEd3d_biogeocombo = {
 				}
 				if (!subcategories[subcategory]) {
 					subcategories[subcategory] = {}
-					colourkey = Object.keys(subcategories).length
+					colourkey = Object.keys(subcategories).length%colours.length
 					categories[category][subcategory] = { name: subcategory, color: colours[colourkey][0].replace('#', '') }
 				}
 				poiSite.cat = [subcategory];
@@ -362,7 +376,8 @@ var canonnEd3d_biogeocombo = {
 			canonnEd3d_biogeocombo.systemsData.systems.push(poiSite);
 		}
 
-		Object.assign(canonnEd3d_biogeocombo.systemsData.categories, categories);
+		Object.assign(canonnEd3d_biogeocombo.systemsData.categories, categories)
+		canonnEd3d_biogeocombo.systemsData.categories = sortObj(canonnEd3d_biogeocombo.systemsData.categories)
 		resolve();
 	},
 
