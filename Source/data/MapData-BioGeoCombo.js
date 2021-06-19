@@ -274,7 +274,7 @@ const recenterViewport = (center, distance) => {
 }
 
 recenterSearch = function () {
-	var term = $('#search input').val().normalize_space();
+	var term = $('#search input').val();
 	if (!term.trim()) return;
 	
 	var foundSystem = {};
