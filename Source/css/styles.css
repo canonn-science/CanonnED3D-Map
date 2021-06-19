@@ -209,6 +209,9 @@ body {
 #filters_form option[selected=selected] {
   background:#cc7a00;
 }
+#filters_form #select_hud_category {
+  display:none;
+}
 div#search {
   display:none;
 }

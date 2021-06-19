@@ -107,7 +107,7 @@ const getSites = async type => {
 
 function sortObj(obj) {
 	return Object.keys(obj).sort().reduce(function (result, key) {
-		result[key] = (/boolean|number|string/).test(typeof obj[key])?obj[key]:sortObj(obj[key]);
+		result[key] = (/boolean|number|string/).test(typeof obj[key])||!obj[key]?obj[key]:sortObj(obj[key]);
 		return result;
 	}, {});
 }
@@ -205,9 +205,12 @@ const buildDropdownFilter = async (site_type_data) => {
 		if (v) urlParams[p] = v;
 	}
 	//main select for hud_category
-	let hudmenu = $(`<select name="hud_category" id="select_hud_category" class="filter_dropdown" ><option value="">-- Science --</option>`).detach()
-	let submenu = $(`<select name="sub_class" id="select_sub_class" class="filter_dropdown" ><option value="">-- Class --</option>`).detach()
-	let namemenu = $(`<select name="english_name" id="select_english_name" class="filter_dropdown" ><option value="">-- Name --</option>`).detach()
+	let hudmenu = $(`<select name="hud_category" id="select_hud_category" class="filter_dropdown"><option value="">-- Science --</option>`).detach()
+	let submenu = $(`<select name="sub_class" id="select_sub_class" class="filter_dropdown"><option value="">-- Class --</option>`).detach()
+	let namemenu = $(`<select name="english_name" id="select_english_name" class="filter_dropdown"><option value="">-- Name --</option>`).detach()
+
+	sortObj(hierarchy_data)
+
 	for (let hud_category in hierarchy_data) {
 		if (menu_blacklist.includes(hud_category)) continue
 		if (urlParams.hud_category && urlParams.hud_category != hud_category) continue
@@ -239,7 +242,8 @@ const buildDropdownFilter = async (site_type_data) => {
 		}
 	}
 	let filters_form = $(`<form id="filters_form" action="" method="get">`).detach()
-	//separate bio/geo links in nav.html// filters_form.append(hudmenu)
+	//separate bio/geo links in nav.html
+	filters_form.append(hudmenu)
 	filters_form.append(submenu)
 	filters_form.append(namemenu)
 	//reflect selected choice in dropdowns
@@ -323,7 +327,14 @@ var canonnEd3d_biogeocombo = {
 				}
 			}//*/
 		},
-		systems: []
+		systems: [
+			{
+				"name": "Sol",
+				"coords": {"x": 0, "y": 0, "z": 0},
+				"infos": "Center of the Universe",
+				"cat": []
+			}
+		]
 	},
 
 	formatSites: async function (resolve) {
