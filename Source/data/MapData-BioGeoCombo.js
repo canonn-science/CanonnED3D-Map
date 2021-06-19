@@ -41,7 +41,6 @@ const colours = [
 	["#7F462C", "Sepia"], ["#C36241", "Rust"], ["#E56E94", "Blush"], ["#1589FF", "Dodger"], ["#835C3B", "Brown"], ["#A23BEC", "Jasmine"], ["#2B65EC", "Ocean"], ["#ECE5B6", "Tan"]
 ];
 
-
 //const API_ENDPOINT = `https://api.canonn.tech`;
 const API_ENDPOINT = 'https://us-central1-canonn-api-236217.cloudfunctions.net/query/codex'
 const API_LIMIT = 1000;
@@ -83,21 +82,23 @@ const getSites = async type => {
 	let records = [];
 	let keepGoing = true;
 	let API_START = 0;
+	const COUNT_T = 4;
 	while (keepGoing) {
-		let response = await reqSites(API_START, type);
-		//console.log("response", response)
-		if (Array.isArray(response.data)) await records.push.apply(records, response.data);
-		else Object.assign(records, response.data)
-
-		let foldedSystem = true
+		let p = [];
+		for (let i = 0; i < COUNT_T; i++)
+			p.push(reqSites(API_START + i*API_LIMIT, type))
+	
 		let count = 0;
-		if (foldedSystem) {
+		let responses = await Promise.all(p)
+		responses.map((response) => {
+			Object.assign(records, response.data)
 			for (let system in response.data) {
-				if (response.data[system].codex) count += response.data[system].codex
+				if (response.data[system].codex) count += response.data[system].codex.length
 			}
-		} else count = Object.keys(response.data).length
-		API_START += API_LIMIT;
-		if (count < API_LIMIT) {
+		})
+
+		API_START += API_LIMIT*COUNT_T;
+		if (count < API_LIMIT*COUNT_T) {
 			keepGoing = false;
 			return records;
 		}
@@ -195,9 +196,7 @@ const buildMenu = async (site_type_data) => {
 
 const buildDropdownFilter = async (site_type_data) => {
 	buildMenu(site_type_data)
-	/*
-	same as buildMenu but with select dropdowns for each field, non-treeview
-	*/
+	
 	let menu_blacklist = ['Anomaly', 'Cloud', 'Guardian', 'None', 'Thargoid', 'Tourist']
 	let hierarchy_data = site_type_data.data;
 
@@ -247,10 +246,12 @@ const buildDropdownFilter = async (site_type_data) => {
 	for (let p in urlParams) {
 		if (urlParams[p]) $(`#select_${p} option[value='${urlParams[p]}']`, filters_form).attr('selected','selected')
 	}
-	//changing a dropdown will refresh page with new parameters
-	$('select', filters_form).on('change', ()=>{filters_form.submit()})
-	$('#filters').prepend(filters_form);
 	
+	//changing a dropdown will refresh page with new parameters
+	$('select', filters_form).on('change', ()=>{
+		filters_form.submit()
+	})
+	$('#filters').prepend(filters_form);	
 	$('#filters h2').css('cursor', 'pointer').on('click', toggleFilterHeader)
 }
 
@@ -273,12 +274,13 @@ const recenterViewport = (center, distance) => {
 }
 
 recenterSearch = function () {
-	var term = $('#search input').val();
+	var term = $('#search input').val().normalize_space();
+	if (!term.trim()) return;
 	
 	var foundSystem = {};
 	for (key in canonnEd3d_biogeocombo.systemsData.systems) {
 		let system = canonnEd3d_biogeocombo.systemsData.systems[key];
-		if (system.name.indexOf(term) >= 0) {
+		if (system.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
 			foundSystem = system;
 			break;
 		}
@@ -292,6 +294,9 @@ recenterSearch = function () {
 				0, 4, 0, 3//, foundSystem.coords, true
 			); 
 	//*/
+		$('#search input:focus-visible').css("outline-color", "darkgreen")
+	} else {
+		$('#search input:focus-visible').css("outline-color", "red")
 	}
 }
 	
@@ -358,20 +363,19 @@ var canonnEd3d_biogeocombo = {
 				//console.log("codex:", codex)
 
 				let category = codex.sub_class
-				subcategory = codex.english_name
-
+				let subcategory = codex.english_name
+				
 				if (!categories[category]) {
 					categories[category] = {}
 				}
 				if (!subcategories[subcategory]) {
 					subcategories[subcategory] = {}
-					colourkey = Object.keys(subcategories).length%colours.length
+					colourkey = Object.keys(subcategories).length % colours.length
 					categories[category][subcategory] = { name: subcategory, color: colours[colourkey][0].replace('#', '') }
 				}
-				poiSite.cat = [subcategory];
+				poiSite.cat.push([subcategory]);
 				poiSite.infos += signalLink(system, codex.english_name);
 			}
-			
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_biogeocombo.systemsData.systems.push(poiSite);
 		}
@@ -388,7 +392,7 @@ var canonnEd3d_biogeocombo = {
 		});
 
 		Promise.all([p1]).then(function () {
-			console.log("sysdata", canonnEd3d_biogeocombo.systemsData)
+			//console.log("sysdata", canonnEd3d_biogeocombo.systemsData)
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_biogeocombo.systemsData,
