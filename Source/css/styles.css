@@ -198,7 +198,7 @@ body {
   background:#000;
   border: solid 1px #FFF;
   padding: 4px 0 4px 0;
-  margin: 0 0px 0px 0;
+  margin: 0;
 }
 #filters_form option {
   background:rgb(30,30,30);
@@ -212,6 +212,72 @@ body {
 #filters_form #select_hud_category {
   display:none;
 }
+#filters_form #filters_check_legacy {
+  margin-left: 10px;
+}
+
+#filters_form .checkbox {
+  position: relative;
+  padding-left: 40px;
+  padding-top: 4px;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+/* Hiding the initial checkbox */
+#filters_form .checkbox input[type=checkbox] {
+  visibility: hidden;
+}
+/* Creating a custom checkbox based on demand */
+.fakebox {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  height: 23px;
+  width: 23px;
+  background-color: black;
+  border: 1px solid white;
+}
+/* Specify the background color to be shown when hovering over checkbox */
+#filters_form .checkbox:hover input ~ .fakebox {
+  background-color: gray;
+}
+/* Specify the background color to be shown when checkbox is active */
+#filters_form .checkbox input:active ~ .fakebox {
+  background-color: white;
+}
+/* Specify the background color to be shown when checkbox is checked */
+#filters_form .checkbox input:checked ~ .fakebox {
+  background-color: orange;
+}
+/* Checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.fakebox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Display checkmark when checked */
+#filters_form .checkbox input:checked ~ .fakebox:after {
+  display: block;
+}
+/* Styling the checkmark using webkit */
+/* Rotated the rectangle by 45 degree and 
+showing only two border to make it look
+like a tickmark */
+#filters_form .checkbox .fakebox:after {
+  left: 7px;
+  bottom: 5px;
+  width: 7px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
 div#search {
   display:none;
 }
