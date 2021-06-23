@@ -224,7 +224,7 @@ const buildDropdownFilter = async (site_type_data) => {
 			let name_found = false;
 			let last_english_short = "";
 			for (let english_name in hierarchy_data[hud_category][sub_class]) {
-				if (urlParams.english_name && urlParams.english_name != english_name) continue
+				if (urlParams.english_name && english_name.indexOf(urlParams.english_name)<0) continue
 				
 				if (urlParams.platform
 					&& hierarchy_data[hud_category][sub_class][english_name].platform != urlParams.platform)
@@ -358,10 +358,11 @@ var canonnEd3d_biogeocombo = {
 	},
 
 	formatSites: async function (resolve) {
-		//get current url params and pass whitelist into API
+		//get current url params and pass into API
 		let queryParams = {}
 		for (let p in urlParams) {
 			let v = getURLParameter(p)
+			if (p == "english_name") p = "species"
 			if (v) queryParams[p] = v
 		}
 		//console.log("queryParamas", queryParams)
