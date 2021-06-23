@@ -124,79 +124,7 @@ const reqSites = async (API_START, type) => {
 	return payload;
 };
 
-const buildMenu = async (site_type_data) => {
-	/* example data structure, one entry from codex/ref?hierarchy=1
-		"Anomaly": {
-			"E-Type Anomaly": {
-				"E01-Type Anomaly": {
-					"category": "$Codex_Category_Biology;",
-					"entryid": 2401013,
-					"name": "$Codex_Ent_L_Phn_Part_Cld_013_Name;",
-					"platform": "legacy",
-					"sub_category": "$Codex_SubCategory_Geology_and_Anomalies;"
-				},
-	*/
-	//creating full menu from hierarchical data
-	let menu_blacklist = ['Anomaly', 'Cloud', 'Guardian', 'None', 'Thargoid', 'Tourist']
-	let hierarchy_data = site_type_data.data;
-	//main menu for hud_category
-	let hudmenu = $(`<ul>`).detach()
-	for (let hud_category in hierarchy_data) {
-		if (menu_blacklist.includes(hud_category)) continue
-		let huditem = $(`<li class="has-sub">`).detach()
-		huditem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}"> <i class="fa fa-fw fa-bars"></i> ${hud_category}</a>`);
-		
-		//submenu for sub_class
-		let submenu = $(`<ul>`).detach()
-		let subitem;
-		for (let sub_class in hierarchy_data[hud_category]) {
-			subitem = $(`<li>`).detach()
-			subitem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}&sub_class=${sub_class}">${sub_class}</a>`)
-
-			/* dont build submenu, just have sub_class
-			//submenu2 for english_name
-			let namemenu = $(`<ul>`).detach()
-			let nameitem;
-			for (let english_name in hierarchy_data[hud_category][sub_class]) {
-				nameitem = $(`<li>`).detach()
-				nameitem.append(`<a href="biogeo-combo.html?hud_category=${hud_category}&sub_class=${sub_class}&english_name=${english_name}">${english_name}</a>`)
-				namemenu.append(nameitem)
-			}
-
-			//avoid 1 subitem, link directly
-			if (Object.keys(hierarchy_data[hud_category]).length > 1) {
-				subitem.append(namemenu)
-				subitem.addClass("has-sub")
-				$('a', subitem).not('ul a').prepend(' <i class="fa fa-fw fa-bars"></i> ')
-				submenu.append(subitem)
-			} else {
-				submenu.append(nameitem)
-			}
-			//*///comment following line if you want english_name submenus
-			submenu.append(subitem)
-		}
-
-		//avoid 1 subitem, link directly
-		if (hud_category == "Geology") {
-			if (Object.keys(hierarchy_data[hud_category]).length > 1) {
-				huditem.append(submenu)
-				$('#mi-geology').replaceWith(huditem);
-			} else $('#mi-geology').replaceWith(subitem);
-		}
-		/* dont build the menu, just add geology - keeping this for future reference
-		if (Object.keys(hierarchy_data[hud_category]).length > 1) {
-			huditem.append(submenu)
-			hudmenu.append(huditem)
-		} else {
-			hudmenu.append(subitem)
-		}
-		//*/
-	}
-	//$('#biogeo-combo').append(hudmenu)
-}
-
 const buildDropdownFilter = async (site_type_data) => {
-	buildMenu(site_type_data)
 	
 	let hierarchy_data = site_type_data.data;
 	//console.log("hierarchy_data: ", hierarchy_data)
