@@ -197,7 +197,6 @@ const buildMenu = async (site_type_data) => {
 const buildDropdownFilter = async (site_type_data) => {
 	buildMenu(site_type_data)
 	
-	let menu_blacklist = ['Anomaly', 'Cloud', 'Guardian', 'None', 'Thargoid', 'Tourist']
 	let hierarchy_data = site_type_data.data;
 
 	for (let p in urlParams) {
@@ -212,7 +211,6 @@ const buildDropdownFilter = async (site_type_data) => {
 	sortObj(hierarchy_data)
 
 	for (let hud_category in hierarchy_data) {
-		if (menu_blacklist.includes(hud_category)) continue
 		if (urlParams.hud_category && urlParams.hud_category != hud_category) continue
 
 		//build select for sub_class
