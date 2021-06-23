@@ -229,8 +229,8 @@ recenterSearch = function () {
 	if (!term.trim()) return;
 	
 	var foundSystem = {};
-	for (key in canonnEd3d_biogeocombo.systemsData.systems) {
-		let system = canonnEd3d_biogeocombo.systemsData.systems[key];
+	for (key in canonnEd3d_codex.systemsData.systems) {
+		let system = canonnEd3d_codex.systemsData.systems[key];
 		if (system.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
 			foundSystem = system;
 			break;
@@ -263,7 +263,7 @@ const getCodexMeta = (getHierarchy=true) => {
 	});
 }
 
-var canonnEd3d_biogeocombo = {
+var canonnEd3d_codex = {
 	//Define Categories
 	systemsData: {
 		categories: {
@@ -341,25 +341,25 @@ var canonnEd3d_biogeocombo = {
 			}
 			// We can then push the site to the object that stores all systems
 			if (codexFound)
-				canonnEd3d_biogeocombo.systemsData.systems.push(poiSite);
+				canonnEd3d_codex.systemsData.systems.push(poiSite);
 		}
 
-		Object.assign(canonnEd3d_biogeocombo.systemsData.categories, categories)
-		canonnEd3d_biogeocombo.systemsData.categories = sortObj(canonnEd3d_biogeocombo.systemsData.categories)
+		Object.assign(canonnEd3d_codex.systemsData.categories, categories)
+		canonnEd3d_codex.systemsData.categories = sortObj(canonnEd3d_codex.systemsData.categories)
 		resolve();
 	},
 
 	init: function () {
 
 		var p1 = new Promise(function (resolve, reject) {
-			return canonnEd3d_biogeocombo.formatSites(resolve);
+			return canonnEd3d_codex.formatSites(resolve);
 		});
 
 		Promise.all([p1]).then(function () {
-			//console.log("sysdata", canonnEd3d_biogeocombo.systemsData)
+			//console.log("sysdata", canonnEd3d_codex.systemsData)
 			Ed3d.init({
 				container: 'edmap',
-				json: canonnEd3d_biogeocombo.systemsData,
+				json: canonnEd3d_codex.systemsData,
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
