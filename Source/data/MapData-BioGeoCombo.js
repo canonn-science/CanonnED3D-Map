@@ -98,7 +98,8 @@ const getSites = async type => {
 		})
 
 		API_START += API_LIMIT*COUNT_T;
-		if (count < API_LIMIT*COUNT_T) {
+		if (count < API_LIMIT*COUNT_T)
+		{
 			keepGoing = false;
 			return records;
 		}
@@ -198,6 +199,7 @@ const buildDropdownFilter = async (site_type_data) => {
 	buildMenu(site_type_data)
 	
 	let hierarchy_data = site_type_data.data;
+	//console.log("hierarchy_data: ", hierarchy_data)
 
 	for (let p in urlParams) {
 		let v = getURLParameter(p)
@@ -220,16 +222,18 @@ const buildDropdownFilter = async (site_type_data) => {
 
 			//build select for english_name
 			let name_found = false;
-			let last_english_short;
+			let last_english_short = "";
 			for (let english_name in hierarchy_data[hud_category][sub_class]) {
 				if (urlParams.english_name && urlParams.english_name != english_name) continue
 				
 				if (urlParams.platform
 					&& hierarchy_data[hud_category][sub_class][english_name].platform != urlParams.platform)
 					continue
+
 				english_short = english_name.split(' - ')[0]
 				if (english_short == last_english_short) continue
 				last_english_short = english_short
+
 				nameitem = $(`<option value="${english_short}">${english_short}</option>`)
 				namemenu.append(nameitem)
 				name_found = true;
@@ -239,12 +243,16 @@ const buildDropdownFilter = async (site_type_data) => {
 				subitem = $(`<option value="${sub_class}">${sub_class}</option>`)
 				submenu.append(subitem)
 				sub_found = true;
+			} else {
+				//console.log("no name found for sub_class: ", sub_class)
 			}
 		}
 		//hide hud_category option if sublevel urlParams.sub_class or english_name was set and not found
 		if (sub_found) {
 			let huditem = $(`<option value="${hud_category}">${hud_category}</option>`);
 			hudmenu.append(huditem)
+		} else {
+			//console.log("no sub_class (with name) found for hud_category: ", hud_category)
 		}
 	}
 	let filters_form = $(`<form id="filters_form" action="" method="get">`).detach()
@@ -381,6 +389,7 @@ var canonnEd3d_biogeocombo = {
 				infos: edsmLink(system),
 				cat: [],
 			}
+			let codexFound = false;
 			for (let i in sites[system].codex) {
 				let codex = sites[system].codex[i]
 				//console.log("codex:", codex)
@@ -389,7 +398,7 @@ var canonnEd3d_biogeocombo = {
 				let subcategory = codex.english_name
 
 				if (queryParams.platform && codex.platform != queryParams.platform) continue
-
+				codexFound = true;
 				if (!categories[category]) {
 					categories[category] = {}
 				}
@@ -402,7 +411,8 @@ var canonnEd3d_biogeocombo = {
 				poiSite.infos += signalLink(system, codex.english_name);
 			}
 			// We can then push the site to the object that stores all systems
-			canonnEd3d_biogeocombo.systemsData.systems.push(poiSite);
+			if (codexFound)
+				canonnEd3d_biogeocombo.systemsData.systems.push(poiSite);
 		}
 
 		Object.assign(canonnEd3d_biogeocombo.systemsData.categories, categories)
@@ -428,7 +438,7 @@ var canonnEd3d_biogeocombo = {
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00',
+				systemColor: '#FF9D00'
 			});
 			getCodexMeta();//adding codex based dropdowns after filter list was built or it will be overwritten
             setTimeout(()=>{
