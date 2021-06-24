@@ -706,7 +706,7 @@ function enableFarView (scale, withAnim) {
   }
 
   //-- Enable 2D galaxy
-  this.Galaxy.milkyway2D.visible = true;
+  this.Galaxy.milkyway2D.visible = this.Galaxy.milkyway[0].visible
   this.Galaxy.infosShow();
 
 
