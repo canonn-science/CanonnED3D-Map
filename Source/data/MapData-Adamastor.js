@@ -126,46 +126,60 @@ var canonnEd3d_challenge = {
 		},
 		systems: [
 			{
+				'name': "HIP 16538",
+				'infos': '<a href="https://www.elitedangerous.com/news/galnet/aegis-megaship-vanishes-hyperspace" target="_blank" rel="noopener">Galnet: Aegis Megaship Vanishes In Hyperspace</a>',
+				'url': "https://www.elitedangerous.com/news/galnet/aegis-megaship-vanishes-hyperspace",
+				'coords': {	x: -24.625, y: -84.0625, z: -139.34375},	
+				'cat': ["204"]
+			},
+			{
 				'name': "HIP 22460",
-				'infos': "Project Seraph - Fort Asch",
+				'infos': '<a href="https://canonn.science/codex/fort-asch/" target="_blank" rel="noopener">Project Seraph - Fort Asch</a>, the <a href="https://canonn.science/codex/overlook/" target="_blank" rel="noopener">Overlook</a> and two <a href="https://canonn.science/codex/the-unknown-structure/">Thargoid Imprint Sites</a>',
 				'url': "https://canonn.science/codex/fort-asch/",
 				'coords': {	x: -41.3125, y: -58.96875, z: -354.78125},	
 				'cat': ["302"]
 			},
 			{
 				'name': "HIP 26176",
-				'infos': "Project Seraph - Oaken Point and D-2's LP #1",
+				'infos': '<a href="https://canonn.science/codex/oaken-point/" target="_blank" rel="noopener">Project Seraph - Oaken Point</a> and <a href="https://canonn.science/codex/colonia-crash-site/" target="_blank" rel="noopener">D-2´s LP #1</a>',
 				'url': "https://canonn.science/codex/oaken-point/",
 				'coords': {	x: 394.4375, y: -323.53125, z: -1431.84375},	
 				'cat': ["302","301"]
 			},
 			{
 				'name': "Col 69 Sector JI-I c10-4",
-				'infos': "D-2's LP #2",
+				'infos': '<a href="https://canonn.science/codex/colonia-crash-site/" target="_blank" rel="noopener">D-2´s LP #2</a>',
 				'url': "https://canonn.science/codex/colonia-crash-site/",
 				'coords': {	x: 439.40625, y: -237.59375, z: -1208.71875},	
 				'cat': ["301"]
 			},
 			{
 				'name': "Wregoe DK-R b4-1",
-				'infos': "D-2's LP #3",
+				'infos': '<a href="https://canonn.science/codex/colonia-crash-site/" target="_blank" rel="noopener">D-2´s LP #3</a>',
 				'url': "https://canonn.science/codex/colonia-crash-site/",
 				'coords': {	x: 171.65625, y: 7.5625, z: -951.1875},	
 				'cat': ["301"]
 			},
 			{
 				'name': "Synuefe Gb-O c9-8",
-				'infos': "D-2's Permit LP",
+				'infos': '<a href="https://canonn.science/codex/colonia-crash-site/" target="_blank" rel="noopener">D-2´s Permit LP #4</a>',
 				'url': "https://canonn.science/codex/colonia-crash-site/",
 				'coords': {	x: -48.78125, y: -72.21875, z: -656.0625},	
 				'cat': ["301"]
 			},
 			{
 				'name': "Colonia",
-				'infos': "Hyford's Cache",
+				'infos': '<a href="https://canonn.science/codex/colonia-crash-site/" target="_blank" rel="noopener">Hyford´s Cache</a>',
 				'url': "https://canonn.science/codex/colonia-crash-site/",
 				'coords': {	x: -9530.5, y: -910.28125, z: 19808.125},	
 				'cat': ["301"]
+			},
+			{
+				'name': "Cornsar",
+				'infos': '<a href="https://www.elitedangerous.com/news/galnet/thargoid-strike-follows-salvations-prediction" target="_blank" rel="noopener">Galnet: Thargoid Strike Follows Salvation´s Prediction</a>',
+				'url': "https://www.elitedangerous.com/news/galnet/thargoid-strike-follows-salvations-prediction",
+				'coords': {	x: -94.15625, y: -53.5625, z: -15.90625},	
+				'cat': ["401"]
 			},
 		],
 		"routes": [
@@ -233,6 +247,15 @@ var canonnEd3d_challenge = {
 					{ 's': 'Trapezium Sector FH-U c3-3', 'label': 'Trapezium Sector FH-U c3-3' },
 					{ 's': 'Col 69 Sector VK-E c12-10', 'label': 'Col 69 Sector VK-E c12-10' },
 					{ 's': 'Col 69 sector LY-H C10-0', 'label': 'Col 69 sector LY-H C10-0' },
+				], 'circle': false
+			},
+			{
+				cat: ["301"], 'points': [
+					{ 's': 'HIP 26176', 'label': 'HIP 26176' },
+					{ 's': 'Col 69 Sector JI-I c10-4', 'label': 'Col 69 Sector JI-I c10-4' },
+					{ 's': 'Wregoe DK-R b4-1', 'label': 'Wregoe DK-R b4-1' },
+					{ 's': 'Synuefe Gb-O c9-8', 'label': 'Synuefe Gb-O c9-8' },
+					{ 's': 'HIP 22460', 'label': 'HIP 22460' },
 				], 'circle': false
 			},
 		]
