@@ -126,6 +126,13 @@ var canonnEd3d_challenge = {
 		},
 		systems: [
 			{
+				'name': "HIP 16538",
+				'infos': "Alexandria Vanished",
+				'url': "https://www.elitedangerous.com/news/galnet/aegis-megaship-vanishes-hyperspace",
+				'coords': {	x: -24.625, y: -84.0625, z: -139.34375},	
+				'cat': ["204"]
+			},
+			{
 				'name': "HIP 22460",
 				'infos': "Project Seraph - Fort Asch",
 				'url': "https://canonn.science/codex/fort-asch/",
@@ -166,6 +173,13 @@ var canonnEd3d_challenge = {
 				'url': "https://canonn.science/codex/colonia-crash-site/",
 				'coords': {	x: -9530.5, y: -910.28125, z: 19808.125},	
 				'cat': ["301"]
+			},
+			{
+				'name': "Cornsar",
+				'infos': "Thargoid Strike Follows Salvation's Prediction",
+				'url': "https://www.elitedangerous.com/news/galnet/thargoid-strike-follows-salvations-prediction",
+				'coords': {	x: -94.15625, y: -53.5625, z: -15.90625},	
+				'cat': ["401"]
 			},
 		],
 		"routes": [
