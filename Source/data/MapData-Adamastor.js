@@ -52,7 +52,7 @@ var canonnEd3d_challenge = {
 	//Define Categories
 	systemsData: {
 		categories: {
-			'Adamastor Challenge': {
+			'ACT I: Adamastor': {
 				/*'10': {
 					name: 'Varati',
 					color: 'f5a142',
@@ -62,52 +62,115 @@ var canonnEd3d_challenge = {
 					color: '42f557',
 				},*/
 
-				'30': {
+				'101': {
 					name: 'Adamastor Initial Route',
 					color: 'FF6666',
 				},
-				'40': {
+				'102': {
 					name: 'Adamastor Diversion Route',
 					color: '66ff66',
 				},
-				'60': {
+				'103': {
 					name: 'Intersection of Routes',
 					color: '666666',
 				},
-				'70': {
+				'104': {
 					name: 'Line Through Waypoints ',
 					color: '666666',
 				},
-				'80': {
+				'105': {
 					name: "Adamastor's Return Journey",
 					color: '446644',
 				},
 			},
-			'Hesperus Challenge': {
-				'100': {
+			'ACT II: Hesperus': {
+				'201': {
 					name: 'Hesperus, Dredger & Survivors',
 					color: 'FF6666',
 				},
-				'200': {
+				'202': {
 					name: 'Hesperus 17 Beacon Route',
 					color: '6666FF',
 				},
-				'300': {
+				'203': {
 					name: 'Hesperus Triangulation LPs',
+					color: '66FF66',
+				},
+				'204': {
+					name: "Aegis' Alexandria Disappeared",
 					color: '66FF66',
 				}
 			},
-			"Guardian Beacons - (GB)": {
-				"201": {
-					name: "Beacon",
+			'ACT III: Project Seraph': {
+				'301': {
+					name: "Hyford's Cache & D-2's LPs",
+					color: 'FF6666',
+				},
+				'302': {
+					name: 'Project Seraph Settlements',
+					color: '6666FF',
+				},
+			},
+			'ACT IV: (ongoing)': {
+				'401': {
+					name: "Battles of Cornsar",
+					color: 'FF6666',
+				},
+			},
+			"Points of Interest": {
+				"2001": {
+					name: "Guardian Beacons",
 					color: '66FFFF'
 				}
 			},
 		},
-		systems: [],
+		systems: [
+			{
+				'name': "HIP 22460",
+				'infos': "Project Seraph - Fort Asch",
+				'url': "https://canonn.science/codex/fort-asch/",
+				'coords': {	x: -41.3125, y: -58.96875, z: -354.78125},	
+				'cat': ["302"]
+			},
+			{
+				'name': "HIP 26176",
+				'infos': "Project Seraph - Oaken Point and D-2's LP #1",
+				'url': "https://canonn.science/codex/oaken-point/",
+				'coords': {	x: 394.4375, y: -323.53125, z: -1431.84375},	
+				'cat': ["302","301"]
+			},
+			{
+				'name': "Col 69 Sector JI-I c10-4",
+				'infos': "D-2's LP #2",
+				'url': "https://canonn.science/codex/colonia-crash-site/",
+				'coords': {	x: 439.40625, y: -237.59375, z: -1208.71875},	
+				'cat': ["301"]
+			},
+			{
+				'name': "Wregoe DK-R b4-1",
+				'infos': "D-2's LP #3",
+				'url': "https://canonn.science/codex/colonia-crash-site/",
+				'coords': {	x: 171.65625, y: 7.5625, z: -951.1875},	
+				'cat': ["301"]
+			},
+			{
+				'name': "Synuefe Gb-O c9-8",
+				'infos': "D-2's Permit LP",
+				'url': "https://canonn.science/codex/colonia-crash-site/",
+				'coords': {	x: -48.78125, y: -72.21875, z: -656.0625},	
+				'cat': ["301"]
+			},
+			{
+				'name': "Colonia",
+				'infos': "Hyford's Cache",
+				'url': "https://canonn.science/codex/colonia-crash-site/",
+				'coords': {	x: -9530.5, y: -910.28125, z: 19808.125},	
+				'cat': ["301"]
+			},
+		],
 		"routes": [
 			{
-				cat: ["30"], 'points': [
+				cat: ["101"], 'points': [
 
 					{ 's': 'HIP 33386', 'label': 'HIP 33386' },
 					{ 's': 'HIP 39748', 'label': 'HIP 39748' },
@@ -116,7 +179,7 @@ var canonnEd3d_challenge = {
 				], 'circle': false
 			},
 			{
-				cat: ["70"], 'points': [
+				cat: ["104"], 'points': [
 					{ 's': 'Extention1', 'label': 'Extention1' },
 					{ 's': 'HIP 33386', 'label': 'HIP 33386' },
 					{ 's': 'HIP 39748', 'label': 'HIP 39748' },
@@ -124,7 +187,7 @@ var canonnEd3d_challenge = {
 				], 'circle': false
 			},
 			{
-				cat: ["40"], 'points': [
+				cat: ["102"], 'points': [
 					{ 's': 'HIP 33386', 'label': 'HIP 33386' },
 					{ 's': 'Synuefe XE-Y c17-7', 'label': 'Synuefe XE-Y c17-7' },
 					{ 's': 'Musca Dark Region PJ-P B6-1', 'label': 'Musca Dark Region PJ-P B6-1' },
@@ -132,7 +195,7 @@ var canonnEd3d_challenge = {
 				], 'circle': false
 			},
 			{
-				cat: ["80"], 'points': [
+				cat: ["105"], 'points': [
 					{ 's': 'Chukchan', 'label': 'Chukchan' },
 					{ 's': 'HIP 69200', 'label': 'HIP 69200' },
 				], 'circle': false
@@ -144,14 +207,14 @@ var canonnEd3d_challenge = {
 				], 'circle': false
 			},
 			{
-				cat: ["60"], 'points': [
+				cat: ["103"], 'points': [
 					{ 's': 'Chukchan', 'label': 'Chukchan' },
 					{ 's': 'Route Intersection', 'label': 'Route Intersection' },
 					{ 's': 'HIP 69200', 'label': 'HIP 69200' },
 				], 'circle': false
 			},
 			{
-				cat: ["200"], 'points': [
+				cat: ["202"], 'points': [
 					{ 's': 'Li Chul', 'label': 'Li Chul' },
 					{ 's': 'HIP 44101', 'label': 'HIP 44101' },
 					{ 's': 'Col 285 Sector WH-O a22-2', 'label': 'Col 285 Sector WH-O a22-2' },
@@ -187,14 +250,14 @@ var canonnEd3d_challenge = {
 					var poiSite = {};
 					poiSite['name'] = siteData[d].system.systemName;
 					if (siteData[i].infos) {
-						poiSite['infos'] = siteData[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + siteData[i].system.systemName + '">Signals</a>';
+						poiSite['infos'] = siteData[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">Signals</a>';
 					} else {
-						poiSite['infos'] = '<a href="https://canonn.science/codex/guardian-beacons/">Guardian Beacon</a><br/><a href="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" target="_new"><img src="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" /></a><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + siteData[i].system.systemName + '">Signals</a>';
+						poiSite['infos'] = '<a href="https://canonn.science/codex/guardian-beacons/" target="_blank" rel="noopener">Guardian Beacon</a><br/><a href="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" target="_blank" rel="noopener"><img src="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" /></a><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">Signals</a>';
 					}
 
 					//Check Site Type and match categories
 					if (siteTypes[i] == 'gbsites') {
-						poiSite['cat'] = [201];
+						poiSite['cat'] = [2001];
 					} else {
 						poiSite['cat'] = [2000];
 					}
@@ -222,9 +285,9 @@ var canonnEd3d_challenge = {
 				var poiSite = {};
 				poiSite['name'] = data[i].name;
 				if (data[i].infos) {
-					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '">Signals</a>';
+					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
 				} else {
-					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '">Signals</a>';
+					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
 				}
 				//Check Site Type and match categories
 
@@ -255,9 +318,9 @@ var canonnEd3d_challenge = {
 				var poiSite = {};
 				poiSite['name'] = data[i].name;
 				if (data[i].infos) {
-					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '">Signals</a>';
+					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
 				} else {
-					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '">Signals</a>';
+					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
 				}
 				poiSite['url'] = "https://tools.canonn.tech/Signals/?system=" + poiSite['name']
 				poiSite['coords'] = {
