@@ -354,7 +354,7 @@ var canonnEd3d_codex = {
 		//let siteTypes = Object.keys(hierarchy_data);
 		//console.log("sites", sites)
 
-		function poiSite(site,cat){
+		function poiSite(site,cat,info){
 			return {
 				name: site["systemName"],
 				coords: {
@@ -362,7 +362,7 @@ var canonnEd3d_codex = {
 					y: parseFloat(site["y"]),
 					z: parseFloat(site["z"])
 				},
-				infos: site["bubble"],
+				infos: info+"<br>",
 				cat: [[cat]],
 			}
 			
@@ -375,38 +375,38 @@ var canonnEd3d_codex = {
 			
 
 			if ( sites[system]["threat_0"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"0"));
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"0","Threat 0: "+sites[system]["threat_0"]));
 			}
 			if ( sites[system]["threat_1"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"1"));
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"1","Threat 1: "+sites[system]["threat_1"]));
 			}
 			if ( sites[system]["threat_2"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"2"));
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"2","Threat 2: "+sites[system]["threat_2"]));
 			}
 			if ( sites[system]["threat_3"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"3"));
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"3","Threat 3: "+sites[system]["threat_3"]));
 			}
 			if ( sites[system]["threat_4"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"4"));
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"4","Threat 4: "+sites[system]["threat_4"]));
 			}
 			if ( sites[system]["threat_5"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"5"));
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"5","Threat 5: "+sites[system]["threat_5"]));
 			}
 			if ( sites[system]["threat_6"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"6"));
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"6","Threat 6: "+sites[system]["threat_6"]));
 			}
 			if ( sites[system]["threat_7"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"7"));
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"7","Threat 7: "+sites[system]["threat_7"]));
 			}
 			if ( sites[system]["threat_8"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"8"));
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"8","Threat 8: "+sites[system]["threat_8"]));
 			}
 			if ( sites[system]["threat_9"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"9"));
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"9","Threat 9: "+sites[system]["threat_9"]));
 			}
 			
 			
-			canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],sites[system]["bubble"]));
+			canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],sites[system]["bubble"],sites[system]["bubble"]));
 			// We can then push the site to the object that stores all systems
 			
 			//canonnEd3d_codex.systemsData.systems.push(poiSite);
