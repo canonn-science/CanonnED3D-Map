@@ -319,7 +319,7 @@ var canonnEd3d_route = {
 
 			//now override it
 			if (data[i].english_name == 'Unknown Biology Scan') {
-				poiSite['infos'] = '<a href="https://tools.canonn.tech/signals?system=' + data[i].system + '" target="_blank">Unknown Biology Signal</a>'
+				poiSite['infos'] = '<a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i].system + '" target="_blank">Unknown Biology Signal</a>'
 				poiSite['cat'] = ["00"];
 			} else {
 				if (data[i].hud_category == 'Biology') {

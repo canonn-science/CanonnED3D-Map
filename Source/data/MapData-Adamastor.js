@@ -273,9 +273,9 @@ var canonnEd3d_challenge = {
 					var poiSite = {};
 					poiSite['name'] = siteData[d].system.systemName;
 					if (siteData[i].infos) {
-						poiSite['infos'] = siteData[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">Signals</a>';
+						poiSite['infos'] = siteData[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">Signals</a>';
 					} else {
-						poiSite['infos'] = '<a href="https://canonn.science/codex/guardian-beacons/" target="_blank" rel="noopener">Guardian Beacon</a><br/><a href="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" target="_blank" rel="noopener"><img src="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" /></a><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">Signals</a>';
+						poiSite['infos'] = '<a href="https://canonn.science/codex/guardian-beacons/" target="_blank" rel="noopener">Guardian Beacon</a><br/><a href="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" target="_blank" rel="noopener"><img src="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" /></a><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">Signals</a>';
 					}
 
 					//Check Site Type and match categories
@@ -308,9 +308,9 @@ var canonnEd3d_challenge = {
 				var poiSite = {};
 				poiSite['name'] = data[i].name;
 				if (data[i].infos) {
-					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
+					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
 				} else {
-					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
+					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
 				}
 				//Check Site Type and match categories
 
@@ -323,7 +323,7 @@ var canonnEd3d_challenge = {
 					poiSite['cat'] = [20];
 				}
 
-				poiSite['url'] = "https://tools.canonn.tech/Signals/?system=" + poiSite['name']
+				poiSite['url'] = "https://canonn-science.github.io/canonn-signals/?system=" + poiSite['name']
 				poiSite['coords'] = {
 					x: parseFloat(data[i].pos_x),
 					y: parseFloat(data[i].pos_y),
@@ -341,11 +341,11 @@ var canonnEd3d_challenge = {
 				var poiSite = {};
 				poiSite['name'] = data[i].name;
 				if (data[i].infos) {
-					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
+					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
 				} else {
-					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
+					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
 				}
-				poiSite['url'] = "https://tools.canonn.tech/Signals/?system=" + poiSite['name']
+				poiSite['url'] = "https://canonn-science.github.io/canonn-signals/?system=" + poiSite['name']
 				poiSite['coords'] = {
 					x: parseFloat(data[i].pos_x),
 					y: parseFloat(data[i].pos_y),

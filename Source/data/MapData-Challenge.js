@@ -140,7 +140,7 @@ var canonnEd3d_challenge = {
 			if (data[i].name && data[i].name.replace(' ', '').length > 1) {
 				var poiSite = {};
 				poiSite['name'] = data[i].name;
-				poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://tools.canonn.tech/Signals/?system=' + data[i].name + '">Signals</a>';
+				poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i].name + '">Signals</a>';
 				//Check Site Type and match categories
 
 				var component = data[i].name.split(' ');
@@ -152,7 +152,7 @@ var canonnEd3d_challenge = {
 					poiSite['cat'] = [20];
 				}
 
-				poiSite['url'] = "https://tools.canonn.tech/Signals/?system=" + poiSite['name']
+				poiSite['url'] = "https://canonn-science.github.io/canonn-signals/?system=" + poiSite['name']
 				poiSite['coords'] = {
 					x: parseFloat(data[i].pos_x),
 					y: parseFloat(data[i].pos_y),

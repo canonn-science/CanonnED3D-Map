@@ -54,7 +54,7 @@ let urlParams = {
 	platform: ""
 }
 function signalLink(system, name) {
-	return '<a href="https://tools.canonn.tech/signals?system=' + system + '" target="_blank" rel="noopener">' + name + '</a><br/>'
+	return '<a href="https://canonn-science.github.io/canonn-signals/?system=' + system + '" target="_blank" rel="noopener">' + name + '</a><br/>'
 }
 function edsmLink(system) {
 	return `<a href="https://www.edsm.net/en/system?systemName=${system}" target="_blank" rel="noopener">EDSM</a><br/>`
