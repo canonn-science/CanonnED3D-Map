@@ -65,6 +65,7 @@ const capi = axios.create({
 	headers: {
 		'Content-Type': 'application/json',
 		'Accept': 'application/json',
+		'Access-Control-Max-Age': 86400,
 	},
 });
 
@@ -86,8 +87,8 @@ const getSites = async type => {
 	while (keepGoing) {
 		let p = [];
 		for (let i = 0; i < COUNT_T; i++)
-			p.push(reqSites(API_START + i*API_LIMIT, type))
-	
+			p.push(reqSites(API_START + i * API_LIMIT, type))
+
 		let count = 0;
 		let responses = await Promise.all(p)
 		responses.map((response) => {
@@ -97,9 +98,8 @@ const getSites = async type => {
 			}
 		})
 
-		API_START += API_LIMIT*COUNT_T;
-		if (count < API_LIMIT*COUNT_T)
-		{
+		API_START += API_LIMIT * COUNT_T;
+		if (count < API_LIMIT * COUNT_T) {
 			keepGoing = false;
 			return records;
 		}
@@ -108,15 +108,15 @@ const getSites = async type => {
 
 function sortObj(obj) {
 	return Object.keys(obj).sort().reduce(function (result, key) {
-		result[key] = (/boolean|number|string/).test(typeof obj[key])||!obj[key]?obj[key]:sortObj(obj[key]);
+		result[key] = (/boolean|number|string/).test(typeof obj[key]) || !obj[key] ? obj[key] : sortObj(obj[key]);
 		return result;
 	}, {});
 }
 
 const reqSites = async (API_START, type) => {
 	//console.log("reqSites type: ", type)
-	if (type.indexOf('?')<0) type+='?'
-	else type+='&'
+	if (type.indexOf('?') < 0) type += '?'
+	else type += '&'
 	let payload = await capi({
 		url: `/${type}limit=${API_LIMIT}&offset=${API_START}`,
 		method: 'get'
@@ -125,7 +125,7 @@ const reqSites = async (API_START, type) => {
 };
 
 const buildDropdownFilter = async (site_type_data) => {
-	
+
 	let hierarchy_data = site_type_data.data;
 	//console.log("hierarchy_data: ", hierarchy_data)
 
@@ -152,8 +152,8 @@ const buildDropdownFilter = async (site_type_data) => {
 			let name_found = false;
 			let last_english_short = "";
 			for (let english_name in hierarchy_data[hud_category][sub_class]) {
-				if (urlParams.english_name && english_name.indexOf(urlParams.english_name)<0) continue
-				
+				if (urlParams.english_name && english_name.indexOf(urlParams.english_name) < 0) continue
+
 				if (urlParams.platform
 					&& hierarchy_data[hud_category][sub_class][english_name].platform != urlParams.platform)
 					continue
@@ -194,15 +194,15 @@ const buildDropdownFilter = async (site_type_data) => {
 	filters_form.append(namemenu)
 	//reflect selected choice in dropdowns
 	for (let p in urlParams) {
-		if (p=="platform") continue
-		if (urlParams[p]) $(`#select_${p} option[value='${urlParams[p]}']`, filters_form).attr('selected','selected')
+		if (p == "platform") continue
+		if (urlParams[p]) $(`#select_${p} option[value='${urlParams[p]}']`, filters_form).attr('selected', 'selected')
 	}
-	
-	//changing a dropdown will refresh page with new parameters
-	$('select', filters_form).on('change', ()=>{filters_form.submit()})
-	$('.checkbox input', filters_form).on('change', ()=>{filters_form.submit()})
 
-	$('#filters').prepend(filters_form);	
+	//changing a dropdown will refresh page with new parameters
+	$('select', filters_form).on('change', () => { filters_form.submit() })
+	$('.checkbox input', filters_form).on('change', () => { filters_form.submit() })
+
+	$('#filters').prepend(filters_form);
 	$('#filters h2').css('cursor', 'pointer').on('click', toggleFilterHeader)
 }
 
@@ -213,21 +213,21 @@ toggleFilterHeader = (event) => {
 }
 
 const recenterViewport = (center, distance) => {
-    //-- Set new camera & target position
-    Ed3d.playerPos = [center.x,center.y,center.z];
-    Ed3d.cameraPos = [
-      center.x + (Math.floor((Math.random() * 100) + 1)-50), //-- Add a small rotation effect
-      center.y + distance,
-      center.z - distance
-    ];
+	//-- Set new camera & target position
+	Ed3d.playerPos = [center.x, center.y, center.z];
+	Ed3d.cameraPos = [
+		center.x + (Math.floor((Math.random() * 100) + 1) - 50), //-- Add a small rotation effect
+		center.y + distance,
+		center.z - distance
+	];
 
-    Action.moveInitalPosition();
+	Action.moveInitalPosition();
 }
 
 recenterSearch = function () {
 	var term = $('#search input').val();
 	if (!term.trim()) return;
-	
+
 	var foundSystem = {};
 	for (key in canonnEd3d_codex.systemsData.systems) {
 		let system = canonnEd3d_codex.systemsData.systems[key];
@@ -238,29 +238,29 @@ recenterSearch = function () {
 	}
 	if (!(Object.keys(foundSystem).length === 0)) {
 		recenterViewport(foundSystem.coords, 100);
-		
-	//console.log("addtext", "system_hover", systemname, 0, 4, 0, 3, threeObj);
-	/* how do we get threeObj? they dont have names. would like to show the mouseover text after search recenter
-			HUD.addText(-1, foundSystem.name,
-				0, 4, 0, 3//, foundSystem.coords, true
-			); 
-	//*/
+
+		//console.log("addtext", "system_hover", systemname, 0, 4, 0, 3, threeObj);
+		/* how do we get threeObj? they dont have names. would like to show the mouseover text after search recenter
+				HUD.addText(-1, foundSystem.name,
+					0, 4, 0, 3//, foundSystem.coords, true
+				); 
+		//*/
 
 		$('#search input:focus-visible').css("outline-color", "darkgreen")
 	} else {
 		$('#search input:focus-visible').css("outline-color", "red")
 	}
 }
-	
-const getCodexMeta = (getHierarchy=true) => {
+
+const getCodexMeta = (getHierarchy = true) => {
 	//grabbing categories from /ref api
 	capi({
-		url: "/ref?hierarchy="+(getHierarchy?1:0),
+		url: "/ref?hierarchy=" + (getHierarchy ? 1 : 0),
 		method: 'get'
 	})
-	.then(buildDropdownFilter, (reason)=>{
-		console.log("Error getting hierarchical data: ", reason)
-	});
+		.then(buildDropdownFilter, (reason) => {
+			console.log("Error getting hierarchical data: ", reason)
+		});
 }
 
 var canonnEd3d_codex = {
@@ -278,7 +278,7 @@ var canonnEd3d_codex = {
 		systems: [
 			{
 				"name": "Sol",
-				"coords": {"x": 0, "y": 0, "z": 0},
+				"coords": { "x": 0, "y": 0, "z": 0 },
 				"infos": "Center of the Universe",
 				"cat": []
 			}
@@ -296,7 +296,7 @@ var canonnEd3d_codex = {
 		//console.log("queryParamas", queryParams)
 		let query = "systems";
 		try {
-			if (Object.keys(queryParams).length) query += '?'+$.param(queryParams);
+			if (Object.keys(queryParams).length) query += '?' + $.param(queryParams);
 			//console.log("query", query)
 		} catch (e) {
 			console.log("Error creating queryParams for API: ", e)
@@ -370,10 +370,10 @@ var canonnEd3d_codex = {
 				systemColor: '#FF9D00'
 			});
 			getCodexMeta();//adding codex based dropdowns after filter list was built or it will be overwritten
-            setTimeout(()=>{
-                $('#search').css('display', 'block');
-                $('#search input').val('System').on('input', recenterSearch);
-            }, 1000);
+			setTimeout(() => {
+				$('#search').css('display', 'block');
+				$('#search input').val('System').on('input', recenterSearch);
+			}, 1000);
 			document.getElementById("loading").style.display = "none";
 		});
 	},
