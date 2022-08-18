@@ -2,7 +2,8 @@
 var System = {
 
   'particle' : null,
-  'particleGeo' : null,
+  //'particleGeo' : null,
+  'particleGeos' : [],
   'particleColor' : [],
   'particleInfos' : [],
   'count' : 0,
@@ -16,7 +17,7 @@ var System = {
    */
 
   'create' : function(val, withSolid) {
-
+    console.log("catobjs create", Ed3d.catObjs[Object.keys(Ed3d.catObjs)[Object.keys(Ed3d.catObjs).length - 1]])
     if(withSolid==undefined) withSolid = false;
 
     if(val.coords==undefined) return false;
@@ -27,54 +28,65 @@ var System = {
 
     //--------------------------------------------------------------------------
     //-- Particle for near and far view
-
-    var colors = [];
-    if(this.particleGeo !== null) {
-
-      //-- If system with info already registered, concat datas
-      var idSys = x+'_'+y+'_'+z;
-      if(val.infos != undefined && this.particleInfos[idSys]) {
-        var indexParticle = this.particleInfos[idSys];
-        this.particleGeo.vertices[indexParticle].infos += val.infos;
-        if(val.cat != undefined) Ed3d.addObjToCategories(indexParticle,val.cat);
-        return;
+    if(this.particleGeos.length == 0) this.initParticleSystem();
+    
+    //-- If system with info already registered, concat datas
+    var idSys = x+'_'+y+'_'+z;
+    if(val.infos != undefined && this.particleInfos[idSys]) {
+      var indexParticle = this.particleInfos[idSys];
+      //look for the correct particleGeo to update the info, where indexParticle is like a continuing index of all particleGeos
+      var minCounter, maxCounter = 0;
+      for (i=0; i<this.particleGeos.length; i++) {
+        maxCounter += this.particleGeos[i].length;
+        if (indexParticle < maxCounter) {
+          this.particleGeos[i].vertices[indexParticle-minCounter].infos += val.infos
+          break;
+        }
+        minCounter = maxCounter
       }
-
-      var particle = new THREE.Vector3(x, y, z);
-
-      //-- Get point color
-
-      if(val.cat != undefined && val.cat[0] != undefined && Ed3d.colors[val.cat[0]] != undefined) {
-        this.particleColor[this.count] = Ed3d.colors[val.cat[0]];
-      } else {
-        this.particleColor[this.count] = new THREE.Color(Ed3d.systemColor);
-      }
-
-      //-- If system got some categories, add it to cat list and save his main color
-
+      //this.particleGeo.vertices[indexParticle].infos += val.infos;
       if(val.cat != undefined) {
-        Ed3d.addObjToCategories(this.count,val.cat);
-        particle.color = this.particleColor[this.count];
+        Ed3d.addObjToCategories(indexParticle,val.cat);
+        console.log("indexParticle", indexParticle)
       }
-
-      //-- Attach name and set point as clickable
-
-      particle.clickable = true;
-      particle.visible = true;
-      particle.name = val.name;
-      if(val.infos != undefined) {
-        particle.infos = val.infos;
-        this.particleInfos[idSys] = this.count;
-      }
-      if(val.url != undefined) {
-        particle.url = val.url;
-      }
-
-      this.particleGeo.vertices.push(particle);
-
-      this.count++;
+      return;
     }
 
+    var particle = new THREE.Vector3(x, y, z);
+
+    //-- Get point color
+
+    if(val.cat != undefined && val.cat[0] != undefined && Ed3d.colors[val.cat[0]] != undefined) {
+      this.particleColor[this.count] = Ed3d.colors[val.cat[0]];
+    } else {
+      this.particleColor[this.count] = new THREE.Color(Ed3d.systemColor);
+    }
+
+    //-- If system got some categories, add it to cat list and save his main color
+
+    if(val.cat != undefined) {
+      Ed3d.addObjToCategories(this.count,val.cat);
+      particle.color = this.particleColor[this.count];
+    }
+
+    //-- Attach name and set point as clickable
+
+    particle.clickable = true;
+    particle.visible = true;
+    particle.name = val.name;
+    if(val.infos != undefined) {
+      particle.infos = val.infos;
+      this.particleInfos[idSys] = this.count;
+    }
+    if(val.url != undefined) {
+      particle.url = val.url;
+    }
+
+    this.particleGeos[this.particleGeos.length-1].vertices.push(particle);
+    this.particleGeos[this.particleGeos.length-1].colors.push(particle.color);
+
+    this.count++;
+    
     //--------------------------------------------------------------------------
     //-- Check if we have to add coords for a route
 
@@ -125,7 +137,8 @@ var System = {
    */
 
   'initParticleSystem' : function () {
-    this.particleGeo = new THREE.Geometry;
+    //this.particleGeo = new THREE.Geometry;
+    this.particleGeos.push(new THREE.Geometry)
   },
 
   /**
@@ -134,9 +147,9 @@ var System = {
 
   'endParticleSystem' : function () {
 
-    if(this.particleGeo == null) return;
+    if(this.particleGeos.length == 0) return;
 
-    this.particleGeo.colors = this.particleColor;
+    //this.particleGeo.colors = this.particleColor;
 
     var particleMaterial = new THREE.PointsMaterial({
       map: Ed3d.textures.flare_yellow,
@@ -149,7 +162,7 @@ var System = {
       depthWrite: false
     });
 
-    this.particle = new THREE.Points(this.particleGeo, particleMaterial);
+    this.particle = new THREE.Points(this.particleGeos[this.particleGeos.length-1], particleMaterial);
 
     this.particle.sortParticles = true;
     this.particle.clickable = true;

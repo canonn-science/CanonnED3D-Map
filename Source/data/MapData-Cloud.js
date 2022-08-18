@@ -1,3 +1,4 @@
+
 colours = [
 	["#3090C7", "Blue"],
 	["#7E587E", "Viola"],
@@ -339,10 +340,61 @@ function fetchUrl(yUrl, callback) {
 		});
 }
 
+const fakeSystems = [
+	[{
+		'system': "Sol",
+		x: 0, y: 0, z: 0,	
+		'category': "Test",
+		'description': ""
+	},
+	{
+		'system': "Sol2",
+		x: 110, y: 0, z: 0,	
+		'category': "Test",
+		'description': ""
+	},
+	{
+		'system': "Sol3",
+		x: 0, y: 110, z: 0,	
+		'category': "Test",
+		'description': ""
+	},
+	{
+		'system': "Sol4",
+		x: 0, y: 0, z: 110,	
+		'category': "Test2",
+		'description': ""
+	},
+	{
+		'system': "Sol5",
+		x: 110, y: 110, z: 0,	
+		'category': "Test2",
+		'description': ""
+	}],
+	[
+	{
+		'system': "Sol6",
+		x: 0, y: 110, z: 110,	
+		'category': "Test",
+		'description': ""
+	},
+	{
+		'system': "Sol7",
+		x: 110, y: 0, z: 110,	
+		'category': "Test",
+		'description': ""
+	},
+	{
+		'system': "Sol8",
+		x: 110, y: 110, z: 110,	
+		'category': "Test",
+		'description': ""
+	}]
+]
 
 
 const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/get_cloud_data`;
-const API_LIMIT = 10000;
+const API_LIMIT = 500;
 
 const codex = axios.create({
 	baseURL: API_ENDPOINT,
@@ -352,14 +404,27 @@ const codex = axios.create({
 		'Access-Control-Max-Age': 86400,
 	},
 });
-
-const getSites = async () => {
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+const getSites = async (cbFormatData) => {
 	let records = [];
 	let keepGoing = true;
 	let API_START = 0;
+	let c = 0
 	while (keepGoing) {
-		let response = await reqSites(API_START);
-		await records.push.apply(records, response.data);
+		//await sleep(10000)
+		//let response = await reqSites(API_START);
+		let response = { data: fakeSystems[c] }
+		//await records.push.apply(records, response.data);
+		console.log("received data count: ", response.data.length)
+		var newData = cbFormatData(response.data) //callback for live-update, non-deferred to keep in line
+		Ed3d.loadDatas(newData)				//load new systemsData structure into map
+		Ed3d.loadDatasComplete()			//calls init functions that update categories and view
+
+		c++;
+		if (c == fakeSystems.length) break;
+
 		API_START += API_LIMIT;
 		if (response.data.length < API_LIMIT) {
 			keepGoing = false;
@@ -382,12 +447,22 @@ var canonnEd3d_route = {
 	//Define Categories
 	systemsData: {
 		categories: {},
-		systems: [],
+		systems: [
+			{
+				'name': "Sol",
+				'coords': {	x: 0, y: 0, z: 0},	
+				'cat': []
+			},
+		]
 	},
 
 	formatCol: function (data) {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
+		//Define Categories
+		var systemsData = {
+			categories: {},
+			systems: []
+		}
 		categories = {}
 		subcategories = {}
 		// this is assuming data is an array []
@@ -431,16 +506,20 @@ var canonnEd3d_route = {
 
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_route.systemsData.systems.push(poiSite);
+			systemsData.systems.push(poiSite)
 
 		}
 		document.getElementById("loading").style.display = "none";
 		canonnEd3d_route.systemsData.categories = categories
+		systemsData.categories = categories
+		return systemsData
 	},
 
 
 	fetchCodexData: async function (resolvePromise) {
-		canonnEd3d_route.codexData = await getSites();
-		canonnEd3d_route.formatCol(canonnEd3d_route.codexData)
+		//canonnEd3d_route.codexData = 
+		await getSites(canonnEd3d_route.formatCol);
+		//canonnEd3d_route.formatCol(canonnEd3d_route.codexData)
 		resolvePromise();
 	},
 
@@ -459,25 +538,29 @@ var canonnEd3d_route = {
 	},
 
 	init: function () {
+
+		//Promise.all([p1]).then(function () {
+		//	console.log(canonnEd3d_route.systemsData)
+		Ed3d.init({
+			container: 'edmap',
+			json: canonnEd3d_route.systemsData,
+			withFullscreenToggle: false,
+			withHudPanel: true,
+			hudMultipleSelect: true,
+			effectScaleSystem: [20, 500],
+			startAnim: false,
+			showGalaxyInfos: true,
+			cameraPos: [25, 14100, -12900],
+			systemColor: '#FF9D00',
+		});
+		//});
 		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_route.fetchCodexData(resolve);
 
 		});
-
 		Promise.all([p1]).then(function () {
-			console.log(canonnEd3d_route.systemsData)
-			Ed3d.init({
-				container: 'edmap',
-				json: canonnEd3d_route.systemsData,
-				withFullscreenToggle: false,
-				withHudPanel: true,
-				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
-				startAnim: false,
-				showGalaxyInfos: true,
-				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00',
-			});
+			console.log("loading complete")
+			Ed3d.showScene()
 		});
 	},
 };

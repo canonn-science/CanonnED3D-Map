@@ -207,6 +207,8 @@ var HUD = {
     $('.map_filter').each(function(e) {
       var idCat = $(this).data('filter');
       var count = Ed3d.catObjs[idCat].length;
+      console.log("catObjs", Ed3d.catObjs[idCat])
+      $(this).text().replace(/\s\(\d+\)/, '')
       if(count>1) $(this).append(' ('+count+')');
     });
 
@@ -225,13 +227,14 @@ var HUD = {
         $('.map_filter').addClass('disabled');
 
         //-- Toggle systems particles
-        $(System.particleGeo.vertices).each(function(index, point) {
-          point.visible  = 0;
-          point.filtered = 0;
-          System.particleGeo.colors[index] = new THREE.Color('#111111');
-          active = 1;
+        $(System.particleGeos).each(function(geoIndex, vertices) {
+          vertices.each(function(index, point) {
+            point.visible  = 0;
+            point.filtered = 0;
+            System.particleGeos[geoIndex].colors[index] = new THREE.Color('#111111');
+            active = 1;
+          });
         });
-
 
         //-- Toggle routes
         if(Ed3d.catObjsRoutes.length>0)
@@ -273,16 +276,31 @@ var HUD = {
 
       $(Ed3d.catObjs[idCat]).each(function(key, indexPoint) {
 
-        obj = System.particleGeo.vertices[indexPoint];
+        var geoIndex = 0;
+        var geoOffset = 0;
+        var obj = null;
+        //look for the correct particleGeo to update the info, where indexParticle is like a continuing index of all particleGeos
+        var minCounter, maxCounter = 0;
+        for (i=0; i<System.particleGeos.length; i++) {
+          maxCounter += System.particleGeos[i].vertices.length;
+          if (indexPoint < maxCounter) {
+            geoIndex = i;
+            geoOffset = minCounter;
+            obj = System.particleGeos[i].vertices[indexPoint-minCounter];
+            break;
+          }
+          minCounter = maxCounter
+        }
+        //obj = System.particleGeo.vertices[indexPoint];
 
-        System.particleGeo.colors[indexPoint] = (active==1)
+        System.particleGeos[geoIndex].colors[indexPoint-geoOffset] = (active==1)
           ? obj.color
           : new THREE.Color('#111111');
 
         obj.visible = (active==1);
         obj.filtered = (active==1);
 
-        System.particleGeo.colorsNeedUpdate = true;
+        System.particleGeos[geoIndex].colorsNeedUpdate = true;
 
         //-- Sum coords to detect the center & detect the most far point
         if(center == null) {
@@ -375,8 +393,9 @@ var HUD = {
         var count = 0;
         var visible = true;
 
-        $('#filters').append('<h2>'+typeFilter+'</h2>');
-        $('#filters').append('<div id="'+groupId+'"></div>');
+        
+        if ($('#filters h2:contains("'+typeFilter+'")').length==0) $('#filters').append('<h2>'+typeFilter+'</h2>');
+        if ($('#filters div#'+groupId).length==0) $('#filters').append('<div id="'+groupId+'"></div>');
 
         $.each(values, function(key, val) {
 
@@ -462,12 +481,13 @@ var HUD = {
       addClass += ' hidden';
     }
 
-    //-- Add html link
-    $('#'+groupId).append(
-      '<a class="map_filter'+addClass+'" data-active="1" data-filter="' + idCat + '">'+
-      '<span class="check" style="background:'+back+'"> </span>' + val.name +
-      '</a>'
-    );
+    //-- Add html link if it doesnt exist
+    if ($('#'+groupId+' .map_filter'+addClass).length==0)
+      $('#'+groupId).append(
+        '<a class="map_filter'+addClass+'" data-active="1" data-filter="' + idCat + '">'+
+        '<span class="check" style="background:'+back+'"> </span>' + val.name +
+        '</a>'
+      );
   },
 
   /**

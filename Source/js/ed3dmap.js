@@ -154,7 +154,7 @@ var Ed3d = {
     Loader.update('Load core files');
 
     if(typeof isMinified !== 'undefined') return Ed3d.launchMap();
-
+    console.log("loading js files")
     $.when(
 
         $.getScript(Ed3d.basePath + "vendor/three-js/OrbitControls.js"),
@@ -179,7 +179,7 @@ var Ed3d = {
         })
 
     ).done(function() {
-
+      console.log("done loading js files")
       Loader.update('Done !');
       Ed3d.launchMap();
 
@@ -196,7 +196,7 @@ var Ed3d = {
     //-- Init Object
     this.Action = Action;
     this.Galaxy = Galaxy;
-
+    
   },
 
   /**
@@ -488,13 +488,7 @@ var Ed3d = {
 
       Loader.update('Systems...');
       $.each(list, function(key, val) {
-
-        system = System.create(val);
-        if(system != undefined) {
-          if(val.cat != undefined) Ed3d.addObjToCategories(system,val.cat);
-          if(val.cat != undefined) Ed3d.systems.push(system);
-        }
-
+        System.create(val);
       });
 
       //-- Routes
@@ -541,7 +535,7 @@ var Ed3d = {
    */
 
   'addObjToCategories' : function(index, catList) {
-
+    
     $.each(catList, function(keyArr, idCat) {
       if(Ed3d.catObjs[idCat] != undefined)
         Ed3d.catObjs[idCat].push(index);

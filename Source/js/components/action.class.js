@@ -183,7 +183,7 @@ var Action = {
     obj.raycaster.params.Points.threshold = obj.pointCastRadius;
 
     // create an array containing all objects in the scene with which the ray intersects
-    var intersects = obj.raycaster.intersectObjects(scene.children);
+    var intersects = obj.raycaster.intersectObjects(scene.children, true);
     if (intersects.length > 0) {
 
       for( var i = 0; i < intersects.length; i++ ) {
@@ -194,7 +194,7 @@ var Action = {
           var selPoint = intersection.object.geometry.vertices[indexPoint];
 
           if(selPoint.visible) {
-            Action.hoverOnObj(indexPoint);
+            Action.hoverOnObj(indexPoint, selPoint);
             return;
           }
         }
@@ -208,26 +208,23 @@ var Action = {
 
   },
 
-  'hoverOnObj' : function (indexPoint) {
+  'hoverOnObj' : function (indexPoint, selPoint) {
 
     if(this.objHover == indexPoint) return;
     this.outOnObj();
 
     this.objHover = indexPoint;
-
-    var sel = System.particleGeo.vertices[indexPoint];
-    this.addCursorOnHover(sel);
+    
+    //var sel = System.particleGeo.vertices[indexPoint];
+    this.addCursorOnHover(selPoint);
 
   },
 
   'outOnObj' : function () {
 
-    if(this.objHover === null || System.particleGeo.vertices[this.objHover] == undefined)
-      return;
-
+    if(this.objHover === null) return
     this.objHover = null;
     this.cursor.hover.visible = false;
-
   },
 
   /**
@@ -332,10 +329,23 @@ var Action = {
     while(!find) {
 
       //-- If next|previous is undefined, loop to the first|last
-      if (indexPoint < 0) indexPoint = System.particleGeo.vertices.length-1;
-      else if (System.particleGeo.vertices[indexPoint] == undefined) indexPoint = 0;
+      if (indexPoint < 0) indexPoint = System.particleGeos[System.particleGeos.length-1].vertices.length-1;
+      else {
+        //look for the correct particleGeo to update the info, where indexParticle is like a continuing index of all particleGeos
+        var geoIndex, geoOffset, minCounter, maxCounter = 0;
+        for (i=0; i<System.particleGeos.length; i++) {
+          maxCounter += System.particleGeos[i].vertices.length;
+          if (indexPoint < maxCounter) {
+            geoIndex = i
+            geoOffset = minCounter
+            if (System.particleGeos[i].vertices[indexPoint-minCounter] == undefined) indexPoint = 0;
+            break;
+          }
+          minCounter = maxCounter
+        }
+      }
 
-      if(System.particleGeo.vertices[indexPoint].visible == true) {
+      if(System.particleGeos[geoIndex].vertices[indexPoint-geoOffset].visible == true) {
         find = true;
       } else {
         indexPoint += increment
@@ -344,7 +354,7 @@ var Action = {
 
 
     //-- Move to
-    var selPoint = System.particleGeo.vertices[indexPoint];
+    var selPoint = System.particleGeos[geoIndex].vertices[indexPoint-geoOffset];
     this.moveToObj(indexPoint, selPoint);
 
   },
