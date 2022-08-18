@@ -216,7 +216,7 @@ var canonnEd3d_gr = {
 				"headers": {
 					'Content-Type': 'application/json',
 					'Accept': 'application/json',
-					'Access-Control-Max-Age': 86400,
+					'Access-Control-Max-Age': 86400
 				}
 			});
 			let result = await response.json();
