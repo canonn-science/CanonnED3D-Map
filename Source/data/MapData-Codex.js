@@ -41,7 +41,7 @@ const colours = [
 	["#7F462C", "Sepia"], ["#C36241", "Rust"], ["#E56E94", "Blush"], ["#1589FF", "Dodger"], ["#835C3B", "Brown"], ["#A23BEC", "Jasmine"], ["#2B65EC", "Ocean"], ["#ECE5B6", "Tan"]
 ];
 
-//const API_ENDPOINT = `https://api.canonn.tech`;
+
 const API_ENDPOINT = 'https://us-central1-canonn-api-236217.cloudfunctions.net/query/codex'
 const API_LIMIT = 1000;
 function getURLParameter(name) {
