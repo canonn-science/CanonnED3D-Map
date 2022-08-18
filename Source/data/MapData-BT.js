@@ -10,7 +10,8 @@ const capi = axios.create({
 	baseURL: API_ENDPOINT,
 	headers: {
 		'Content-Type': 'application/json',
-		Accept: 'application/json',
+		"Accept": 'application/json',
+		'Access-Control-Max-Age': 86400,
 	},
 });
 

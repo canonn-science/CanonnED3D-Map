@@ -65,6 +65,7 @@ const capi = axios.create({
 	headers: {
 		'Content-Type': 'application/json',
 		'Accept': 'application/json',
+		'Access-Control-Max-Age': 86400,
 	},
 });
 
@@ -96,15 +97,15 @@ const getSites = async type => {
 
 function sortObj(obj) {
 	return Object.keys(obj).sort().reduce(function (result, key) {
-		result[key] = (/boolean|number|string/).test(typeof obj[key])||!obj[key]?obj[key]:sortObj(obj[key]);
+		result[key] = (/boolean|number|string/).test(typeof obj[key]) || !obj[key] ? obj[key] : sortObj(obj[key]);
 		return result;
 	}, {});
 }
 
 const reqSites = async (API_START, type) => {
 	//console.log("reqSites type: ", type)
-	if (type.indexOf('?')<0) type+='?'
-	else type+='&'
+	if (type.indexOf('?') < 0) type += '?'
+	else type += '&'
 	let payload = await capi({
 		url: `/${type}limit=${API_LIMIT}&offset=${API_START}`,
 		method: 'get'
@@ -113,7 +114,7 @@ const reqSites = async (API_START, type) => {
 };
 
 const buildDropdownFilter = async (site_type_data) => {
-	
+
 	let hierarchy_data = site_type_data.data;
 	//console.log("hierarchy_data: ", hierarchy_data)
 
@@ -140,8 +141,8 @@ const buildDropdownFilter = async (site_type_data) => {
 			let name_found = false;
 			let last_english_short = "";
 			for (let english_name in hierarchy_data[hud_category][sub_class]) {
-				if (urlParams.english_name && english_name.indexOf(urlParams.english_name)<0) continue
-				
+				if (urlParams.english_name && english_name.indexOf(urlParams.english_name) < 0) continue
+
 				if (urlParams.platform
 					&& hierarchy_data[hud_category][sub_class][english_name].platform != urlParams.platform)
 					continue
@@ -182,15 +183,15 @@ const buildDropdownFilter = async (site_type_data) => {
 	filters_form.append(namemenu)
 	//reflect selected choice in dropdowns
 	for (let p in urlParams) {
-		if (p=="platform") continue
-		if (urlParams[p]) $(`#select_${p} option[value='${urlParams[p]}']`, filters_form).attr('selected','selected')
+		if (p == "platform") continue
+		if (urlParams[p]) $(`#select_${p} option[value='${urlParams[p]}']`, filters_form).attr('selected', 'selected')
 	}
-	
-	//changing a dropdown will refresh page with new parameters
-	$('select', filters_form).on('change', ()=>{filters_form.submit()})
-	$('.checkbox input', filters_form).on('change', ()=>{filters_form.submit()})
 
-	$('#filters').prepend(filters_form);	
+	//changing a dropdown will refresh page with new parameters
+	$('select', filters_form).on('change', () => { filters_form.submit() })
+	$('.checkbox input', filters_form).on('change', () => { filters_form.submit() })
+
+	$('#filters').prepend(filters_form);
 	$('#filters h2').css('cursor', 'pointer').on('click', toggleFilterHeader)
 }
 
@@ -201,21 +202,21 @@ toggleFilterHeader = (event) => {
 }
 
 const recenterViewport = (center, distance) => {
-    //-- Set new camera & target position
-    Ed3d.playerPos = [center.x,center.y,center.z];
-    Ed3d.cameraPos = [
-      center.x + (Math.floor((Math.random() * 100) + 1)-50), //-- Add a small rotation effect
-      center.y + distance,
-      center.z - distance
-    ];
+	//-- Set new camera & target position
+	Ed3d.playerPos = [center.x, center.y, center.z];
+	Ed3d.cameraPos = [
+		center.x + (Math.floor((Math.random() * 100) + 1) - 50), //-- Add a small rotation effect
+		center.y + distance,
+		center.z - distance
+	];
 
-    Action.moveInitalPosition();
+	Action.moveInitalPosition();
 }
 
 recenterSearch = function () {
 	var term = $('#search input').val();
 	if (!term.trim()) return;
-	
+
 	var foundSystem = {};
 	for (key in canonnEd3d_codex.systemsData.systems) {
 		let system = canonnEd3d_codex.systemsData.systems[key];
@@ -226,29 +227,29 @@ recenterSearch = function () {
 	}
 	if (!(Object.keys(foundSystem).length === 0)) {
 		recenterViewport(foundSystem.coords, 100);
-		
-	//console.log("addtext", "system_hover", systemname, 0, 4, 0, 3, threeObj);
-	/* how do we get threeObj? they dont have names. would like to show the mouseover text after search recenter
-			HUD.addText(-1, foundSystem.name,
-				0, 4, 0, 3//, foundSystem.coords, true
-			); 
-	//*/
+
+		//console.log("addtext", "system_hover", systemname, 0, 4, 0, 3, threeObj);
+		/* how do we get threeObj? they dont have names. would like to show the mouseover text after search recenter
+				HUD.addText(-1, foundSystem.name,
+					0, 4, 0, 3//, foundSystem.coords, true
+				); 
+		//*/
 
 		$('#search input:focus-visible').css("outline-color", "darkgreen")
 	} else {
 		$('#search input:focus-visible').css("outline-color", "red")
 	}
 }
-	
-const getCodexMeta = (getHierarchy=true) => {
+
+const getCodexMeta = (getHierarchy = true) => {
 	//grabbing categories from /ref api
 	capi({
-		url: "/ref?hierarchy="+(getHierarchy?1:0),
+		url: "/ref?hierarchy=" + (getHierarchy ? 1 : 0),
 		method: 'get'
 	})
-	.then(buildDropdownFilter, (reason)=>{
-		console.log("Error getting hierarchical data: ", reason)
-	});
+		.then(buildDropdownFilter, (reason) => {
+			console.log("Error getting hierarchical data: ", reason)
+		});
 }
 
 var canonnEd3d_codex = {
@@ -327,7 +328,7 @@ var canonnEd3d_codex = {
 		systems: [
 			{
 				"name": "Sol",
-				"coords": {"x": 0, "y": 0, "z": 0},
+				"coords": { "x": 0, "y": 0, "z": 0 },
 				"infos": "Center of the Universe",
 				"cat": []
 			}
@@ -345,7 +346,7 @@ var canonnEd3d_codex = {
 		//console.log("queryParamas", queryParams)
 		let query = "systems";
 		try {
-			if (Object.keys(queryParams).length) query += '?'+$.param(queryParams);
+			if (Object.keys(queryParams).length) query += '?' + $.param(queryParams);
 			//console.log("query", query)
 		} catch (e) {
 			console.log("Error creating queryParams for API: ", e)
@@ -354,7 +355,7 @@ var canonnEd3d_codex = {
 		//let siteTypes = Object.keys(hierarchy_data);
 		//console.log("sites", sites)
 
-		function poiSite(site,cat,info){
+		function poiSite(site, cat, info) {
 			return {
 				name: site["systemName"],
 				coords: {
@@ -362,53 +363,53 @@ var canonnEd3d_codex = {
 					y: parseFloat(site["y"]),
 					z: parseFloat(site["z"])
 				},
-				infos: info+"<br>",
+				infos: info + "<br>",
 				cat: [[cat]],
 			}
-			
+
 		}
 
 		let categories = {}
 		let subcategories = {}
 		for (let system in sites) {
-			
-			
 
-			if ( sites[system]["threat_0"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"0","Threat 0: "+sites[system]["threat_0"]));
+
+
+			if (sites[system]["threat_0"] > 0) {
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "0", "Threat 0: " + sites[system]["threat_0"]));
 			}
-			if ( sites[system]["threat_1"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"1","Threat 1: "+sites[system]["threat_1"]));
+			if (sites[system]["threat_1"] > 0) {
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "1", "Threat 1: " + sites[system]["threat_1"]));
 			}
-			if ( sites[system]["threat_2"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"2","Threat 2: "+sites[system]["threat_2"]));
+			if (sites[system]["threat_2"] > 0) {
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "2", "Threat 2: " + sites[system]["threat_2"]));
 			}
-			if ( sites[system]["threat_3"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"3","Threat 3: "+sites[system]["threat_3"]));
+			if (sites[system]["threat_3"] > 0) {
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "3", "Threat 3: " + sites[system]["threat_3"]));
 			}
-			if ( sites[system]["threat_4"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"4","Threat 4: "+sites[system]["threat_4"]));
+			if (sites[system]["threat_4"] > 0) {
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "4", "Threat 4: " + sites[system]["threat_4"]));
 			}
-			if ( sites[system]["threat_5"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"5","Threat 5: "+sites[system]["threat_5"]));
+			if (sites[system]["threat_5"] > 0) {
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "5", "Threat 5: " + sites[system]["threat_5"]));
 			}
-			if ( sites[system]["threat_6"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"6","Threat 6: "+sites[system]["threat_6"]));
+			if (sites[system]["threat_6"] > 0) {
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "6", "Threat 6: " + sites[system]["threat_6"]));
 			}
-			if ( sites[system]["threat_7"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"7","Threat 7: "+sites[system]["threat_7"]));
+			if (sites[system]["threat_7"] > 0) {
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "7", "Threat 7: " + sites[system]["threat_7"]));
 			}
-			if ( sites[system]["threat_8"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"8","Threat 8: "+sites[system]["threat_8"]));
+			if (sites[system]["threat_8"] > 0) {
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "8", "Threat 8: " + sites[system]["threat_8"]));
 			}
-			if ( sites[system]["threat_9"] > 0 ) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],"9","Threat 9: "+sites[system]["threat_9"]));
+			if (sites[system]["threat_9"] > 0) {
+				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "9", "Threat 9: " + sites[system]["threat_9"]));
 			}
-			
-			
-			canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system],sites[system]["bubble"],sites[system]["bubble"]));
+
+
+			canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], sites[system]["bubble"], sites[system]["bubble"]));
 			// We can then push the site to the object that stores all systems
-			
+
 			//canonnEd3d_codex.systemsData.systems.push(poiSite);
 		}
 
@@ -436,10 +437,10 @@ var canonnEd3d_codex = {
 				systemColor: '#FF9D00'
 			});
 			//getCodexMeta();//adding codex based dropdowns after filter list was built or it will be overwritten
-            setTimeout(()=>{
-                $('#search').css('display', 'block');
-                $('#search input').val('System').on('input', recenterSearch);
-            }, 1000);
+			setTimeout(() => {
+				$('#search').css('display', 'block');
+				$('#search input').val('System').on('input', recenterSearch);
+			}, 1000);
 			document.getElementById("loading").style.display = "none";
 		});
 	},

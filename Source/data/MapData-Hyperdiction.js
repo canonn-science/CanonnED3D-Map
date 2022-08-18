@@ -24,6 +24,7 @@ const codex = axios.create({
 	headers: {
 		'Content-Type': 'application/json',
 		'Accept': 'application/json',
+		'Access-Control-Max-Age': 86400,
 	},
 });
 
@@ -137,11 +138,11 @@ var canonnEd3d_route = {
 
 				//taken from https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors and modified
 				//use: c as input color in rgb-hex #rrggbb, a as percentage between 0 and 1. it will simply multiply the rgb values with 0-1 relatively, thus lightens or darkens the color
-				var adjc = (c, a) => c.replace(/\w\w/g, m => Math.min(255, parseInt(Math.max(0, parseInt(m, 16) * parseFloat(a)))).toString(16).padStart(2,"0"))
+				var adjc = (c, a) => c.replace(/\w\w/g, m => Math.min(255, parseInt(Math.max(0, parseInt(m, 16) * parseFloat(a)))).toString(16).padStart(2, "0"))
 
 				//adjusting reference system category color, starting bright, getting darker. (assumes years appear in decreasing order)
 				//categories length grows per iteration starting at 2, so 1/length decreases the amount of dampening by diverging to 1
-				let amount = 1/Object.keys(categories).length
+				let amount = 1 / Object.keys(categories).length
 				next_colour = adjc(categories["Reference Systems"][subname].color, amount)
 				//console.log(categories["Reference Systems"][subname].color, amount, next_colour)
 				categories[category][subcategory] = { name: subname, color: next_colour }

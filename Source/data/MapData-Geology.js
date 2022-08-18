@@ -6,6 +6,7 @@ const capi = axios.create({
 	headers: {
 		'Content-Type': 'application/json',
 		'Accept': 'application/json',
+		'Access-Control-Max-Age': 86400,
 	},
 });
 
@@ -20,10 +21,10 @@ let sites = {
 const go = async types => {
 	const keys = Object.keys(types);
 	return (await Promise.all(
-			keys.map(type => getSites(type))
+		keys.map(type => getSites(type))
 	)).reduce((acc, res, i) => {
-			acc[keys[i]] = res;
-			return acc;
+		acc[keys[i]] = res;
+		return acc;
 	}, {});
 };
 
@@ -188,7 +189,7 @@ var canonnEd3d_geology = {
 		systems: [],
 	},
 
-	formatSites: async function(data, resolvePromise) {
+	formatSites: async function (data, resolvePromise) {
 		sites = await go(data);
 
 		let siteTypes = Object.keys(data);
@@ -275,13 +276,13 @@ var canonnEd3d_geology = {
 		resolvePromise();
 	},
 
-	init: function() {
+	init: function () {
 		//Sites Data
-		var p1 = new Promise(function(resolve, reject) {
+		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_geology.formatSites(sites, resolve);
 		});
 
-		Promise.all([p1]).then(function() {
+		Promise.all([p1]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_geology.systemsData,

@@ -6,6 +6,7 @@ const capi = axios.create({
 	headers: {
 		'Content-Type': 'application/json',
 		'Accept': 'application/json',
+		'Access-Control-Max-Age': 86400,
 	},
 });
 
@@ -16,10 +17,10 @@ let sites = {
 const go = async types => {
 	const keys = Object.keys(types);
 	return (await Promise.all(
-			keys.map(type => getSites(type))
+		keys.map(type => getSites(type))
 	)).reduce((acc, res, i) => {
-			acc[keys[i]] = res;
-			return acc;
+		acc[keys[i]] = res;
+		return acc;
 	}, {});
 };
 
@@ -113,7 +114,7 @@ var canonnEd3d_cartographics = {
 
 	// Lets get data from CSV Files
 
-	formatSites: async function(data, resolvePromise) {
+	formatSites: async function (data, resolvePromise) {
 		sites = await go(data);
 
 		let siteTypes = Object.keys(data);
@@ -146,7 +147,7 @@ var canonnEd3d_cartographics = {
 		resolvePromise();
 	},
 
-	formatCol: function(data) {
+	formatCol: function (data) {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
 
 		// this is assuming data is an array []
@@ -186,11 +187,11 @@ var canonnEd3d_cartographics = {
 		}
 	},
 
-	parseCSVData: function(url, callBack, resolvePromise) {
+	parseCSVData: function (url, callBack, resolvePromise) {
 		Papa.parse(url, {
 			download: true,
 			header: true,
-			complete: function(results) {
+			complete: function (results) {
 				callBack(results.data);
 
 				// after we called the callback
@@ -204,11 +205,11 @@ var canonnEd3d_cartographics = {
 
 	init: function () {
 		//Sites Data
-		var p1 = new Promise(function(resolve, reject) {
+		var p1 = new Promise(function (resolve, reject) {
 			canonnEd3d_cartographics.formatSites(sites, resolve);
 		});
 
-		var p2 = new Promise(function(resolve, reject) {
+		var p2 = new Promise(function (resolve, reject) {
 			canonnEd3d_cartographics.parseCSVData('data/csvCache/col70.csv', canonnEd3d_cartographics.formatCol, resolve);
 		});
 

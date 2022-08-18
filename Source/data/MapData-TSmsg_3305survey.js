@@ -3,92 +3,94 @@ const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
 const API_LIMIT = 1000;
 
 const capi = axios.create({
-	baseURL: API_ENDPOINT,
-	headers: {
-		'Content-Type': 'application/json',
-		Accept: 'application/json',
-	},
+    baseURL: API_ENDPOINT,
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Max-Age': 86400,
+    },
 });
 
 let sites = {
-	tssites: [],
+    tssites: [],
 };
 
 const edsmapi = axios.create({
     baseURL: EDSM_ENDPOINT,
     headers: {
         'Content-Type': 'application/json',
-        Accept: 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Max-Age': 86400,
     },
 })
 
 const go = async types => {
-	const keys = Object.keys(types);
-	return (await Promise.all(
-		keys.map(type => getSites(type))
-	)).reduce((acc, res, i) => {
-		acc[keys[i]] = res;
-		return acc;
-	}, {});
+    const keys = Object.keys(types);
+    return (await Promise.all(
+        keys.map(type => getSites(type))
+    )).reduce((acc, res, i) => {
+        acc[keys[i]] = res;
+        return acc;
+    }, {});
 };
 
 const getSites = async type => {
-	let records = [];
-	let keepGoing = true;
-	let API_START = 0;
-	while (keepGoing) {
-		let response = await reqSites(API_START, type);
-		await records.push.apply(records, response.data);
-		API_START += API_LIMIT;
-		if (response.data.length < API_LIMIT) {
-			keepGoing = false;
-			return records;
-		}
-	}
+    let records = [];
+    let keepGoing = true;
+    let API_START = 0;
+    while (keepGoing) {
+        let response = await reqSites(API_START, type);
+        await records.push.apply(records, response.data);
+        API_START += API_LIMIT;
+        if (response.data.length < API_LIMIT) {
+            keepGoing = false;
+            return records;
+        }
+    }
 };
 
 const reqSites = async (API_START, type) => {
 
-	let payload = await capi({
-		url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
-		method: 'get'
-	});
+    let payload = await capi({
+        url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
+        method: 'get'
+    });
 
-	return payload;
+    return payload;
 };
 
 const reqSystemName = async (name) => {
 
-	let payload = await capi({
-		url: `/systems?systemName=${name}`,
-		method: 'get'
-	});
+    let payload = await capi({
+        url: `/systems?systemName=${name}`,
+        method: 'get'
+    });
 
-	return payload;
+    return payload;
 };
 
 const getSystemsEDSM = async (systemNames) => {
     if (Array.isArray(systemNames)) {
-        systemNames = "systemName[]="+systemNames.join("&systemName[]=");
+        systemNames = "systemName[]=" + systemNames.join("&systemName[]=");
     } else {
-        systemNames = "systemName="+systemNames;
+        systemNames = "systemName=" + systemNames;
     }
     //console.log("EDSM Query: ", systemNames);
-	let payload = await edsmapi({
-		url: `/systems?showCoordinates=1&${systemNames}`,
+    let payload = await edsmapi({
+        url: `/systems?showCoordinates=1&${systemNames}`,
         method: 'get'
-	});
+    });
 
-	return payload;
+    return payload;
 };
 
 const recenterViewport = (center, distance) => {
     //-- Set new camera & target position
-    Ed3d.playerPos = [center.x,center.y,center.z];
+    Ed3d.playerPos = [center.x, center.y, center.z];
     Ed3d.cameraPos = [
-      center.x + (Math.floor((Math.random() * 100) + 1)-50), //-- Add a small rotation effect
-      center.y + distance,
-      center.z - distance
+        center.x + (Math.floor((Math.random() * 100) + 1) - 50), //-- Add a small rotation effect
+        center.y + distance,
+        center.z - distance
     ];
 
     Action.moveInitalPosition();
@@ -97,8 +99,8 @@ const recenterViewport = (center, distance) => {
 var canonnEd3d_tslinks = {
     //Define Categories
     sitesByIDs: {},
-	systemsData: {
-		categories: {
+    systemsData: {
+        categories: {
             'Thargoid Link Message': {
                 '10': {
                     name: 'unspecified',
@@ -122,19 +124,19 @@ var canonnEd3d_tslinks = {
                 //2-3 barnacle forests also hand placed (out of usual bio env. parameters)
                 //
             },
-			'System Properties': {
-				'200': {
-					name: 'unspecified',
-					color: '333333',
-				},
-				'201': {
-					name: 'Active T-Structure',
-					color: '00FF00',
-				},
-				'202': {
-					name: 'Inactive T-Structure',
-					color: 'FF0000',
-				},
+            'System Properties': {
+                '200': {
+                    name: 'unspecified',
+                    color: '333333',
+                },
+                '201': {
+                    name: 'Active T-Structure',
+                    color: '00FF00',
+                },
+                '202': {
+                    name: 'Inactive T-Structure',
+                    color: 'FF0000',
+                },
                 '203': {
                     name: 'Populated System',
                     color: '0000FF',
@@ -143,7 +145,7 @@ var canonnEd3d_tslinks = {
                     name: 'Eagle Eye',
                     color: 'FFFF00',
                 },
-			},
+            },
             'Leviathan Category': {
                 '001': {
                     name: 'No Leviathans',
@@ -164,7 +166,7 @@ var canonnEd3d_tslinks = {
                 '111': {
                     name: 'unspecified',
                     color: '888888',
-                }   
+                }
             },
             'Leviathan Count': {
                 '0': {
@@ -202,12 +204,12 @@ var canonnEd3d_tslinks = {
                 '8': {
                     name: '8',
                     color: 'FFFFFF',
-                }  
+                }
             }
-		}
+        }
         , systems: []
         , routes: []
-	},
+    },
     startcoords: [],
     leviathanSystems: [],
     addLeviathans: (systemName, levType, levCount) => {
@@ -228,7 +230,7 @@ var canonnEd3d_tslinks = {
             console.log(systemName);
             return;
         }
-        
+
         let cat = [];
         //console.log(canonnEd3d_tslinks.systemsData.systems[key], systemName);
         if (levType.toUpperCase() === "No Leviathans".toUpperCase()) {
@@ -254,7 +256,7 @@ var canonnEd3d_tslinks = {
             cat
         );
 
-                
+
         levCount = parseInt(levCount);
         if (0 <= levCount && levCount <= 8) {
             cat = [levCount];
@@ -266,7 +268,7 @@ var canonnEd3d_tslinks = {
             system.coords.z,
             cat
         );
-    
+
         canonnEd3d_tslinks.leviathanSystems.push(systemName);
     },
     parseFormResponses: async (data) => {
@@ -277,7 +279,7 @@ var canonnEd3d_tslinks = {
             canonnEd3d_tslinks.addLeviathans(entry['System'], entry['Leviathans'], entry['Leviathan Count']);
 
             for (var i = 1; i < 4; i++) {
-                let msg = 'Link System '+i;
+                let msg = 'Link System ' + i;
                 if (!entry[msg]) continue; //empty value
                 let msgIsTS = false;
                 for (const siteID of Object.keys(canonnEd3d_tslinks.sitesByIDs)) {
@@ -295,7 +297,7 @@ var canonnEd3d_tslinks = {
                 }
             }
         }
-        
+
         await canonnEd3d_tslinks.fetchAddSystems();
     },
 
@@ -318,9 +320,9 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
         * manual names can include ()?* - like Sagittarius A* which broke a lot of tool (eg. screenshot with system in filename)
         */
         let hasLinkIndex = msg.indexOf('http');
-        cleanedMsg = msg.substring(0, (hasLinkIndex > 0 ? hasLinkIndex-1 : msg.length));
+        cleanedMsg = msg.substring(0, (hasLinkIndex > 0 ? hasLinkIndex - 1 : msg.length));
         let hasCommentIndex = msg.indexOf(' - ');
-        cleanedMsg = cleanedMsg.substring(0, (hasCommentIndex > 0 ? hasCommentIndex-1 : cleanedMsg.length));
+        cleanedMsg = cleanedMsg.substring(0, (hasCommentIndex > 0 ? hasCommentIndex - 1 : cleanedMsg.length));
         let nothingIndex = msg.indexOf('do not intersect');
         if (nothingIndex >= 0) return "";
         cleanedMsg = cleanedMsg.replace('\(All 3 consistent with spreadsheet\)', '');
@@ -330,7 +332,7 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
         cleanedMsg = cleanedMsg.replace('list index out of range', '');
         cleanedMsg = cleanedMsg.replace('LINK POINTS IN SYSTEM', '');
         cleanedMsg = cleanedMsg.replace('– Taylor Keep INRA base', '');
-        cleanedMsg = cleanedMsg.replace('13 Sep. 3304 (2018)', '');        
+        cleanedMsg = cleanedMsg.replace('13 Sep. 3304 (2018)', '');
         cleanedMsg = cleanedMsg.replace('\(\?\)', '');
         cleanedMsg = cleanedMsg.replace('N/A', '');
         cleanedMsg = cleanedMsg.replace('\n', '');
@@ -345,7 +347,7 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
         return cleanedMsg;
     },
 
-	formatTSSites: async (data) => {
+    formatTSSites: async (data) => {
         /*
         //not using the extensive json data as it seems to be older than the csv export from the survey sheet
         //also if link target is not thargoid site, it will be "null" while the csv mentions the system name
@@ -357,7 +359,7 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
 
         //create associative array with siteID as keys, as people use "TS123" to ID sites
         //altho in theory there is only 1 site per system, there is NO guarantee that siteID:system are 1:1 - maybe even siteID:system_planet is not 1:1?
-		for (var d = 0; d < data.length; d++) {
+        for (var d = 0; d < data.length; d++) {
             if (data[d].system && data[d].system.replace(' ', '').length > 1) {
                 canonnEd3d_tslinks.sitesByIDs[data[d].siteID] = data[d];
             }
@@ -374,7 +376,7 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
                 siteData.galacticZ,
                 siteData.status == '✔' ? ['201'] : ['202'] //thargoid sites have two states, active and inactive
             );
-            
+
             // adding routes to build the connections and show the msg links
             // arrows would be cool and reusable for hyperdictions map
             canonnEd3d_tslinks.addTSRoute(siteData.system, siteData.msg1);
@@ -383,14 +385,14 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
 
         }
     },
-    
+
     addingSystems: {//adding Eagle Eye manually
-        "HIP 17225": {done: false, type: "EagleEye"},
-        "HIP 17692": {done: false, type: "EagleEye"},
-        "HIP 17892": {done: false, type: "EagleEye"},
-        "HR 1185": {done: false, type: "EagleEye"},
-        "Pleiades Sector IR-W d1-55": {done: false, type: "EagleEye"},
-        "Pleiades Sector KC-V c2-4": {done: false, type: "EagleEye"},
+        "HIP 17225": { done: false, type: "EagleEye" },
+        "HIP 17692": { done: false, type: "EagleEye" },
+        "HIP 17892": { done: false, type: "EagleEye" },
+        "HR 1185": { done: false, type: "EagleEye" },
+        "Pleiades Sector IR-W d1-55": { done: false, type: "EagleEye" },
+        "Pleiades Sector KC-V c2-4": { done: false, type: "EagleEye" },
     },
     systemsWithStations: [],
     fetchAddSystems: async () => {
@@ -452,9 +454,8 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
         for (var q = 0; q < edsmQueues.length; q++) {
             //console.log("Queue:", q, edsmQueues[q]);
             let response = await getSystemsEDSM(edsmQueues[q]);
-            
-            if (response.data.length <= 0)
-            {
+
+            if (response.data.length <= 0) {
                 console.log("EDSM debug", response);
             }
             for (const index in response.data) {
@@ -491,8 +492,8 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
             }
         }
         //*/
-       
-        let unknownNames = [];        
+
+        let unknownNames = [];
         for (const names in canonnEd3d_tslinks.addingSystems) {
             if (!canonnEd3d_tslinks.addingSystems[names].done)
                 unknownNames.push(names);
@@ -556,14 +557,14 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
         if (!msg || !originSystem) {
             console.log(`Error trying to add Non TSS Route: ${originSystem} => ${msg}`);
             return;
-        } 
-        
+        }
+
         //add to system fetching queue, checking for stations and calling edsm later
         if (!(msg in canonnEd3d_tslinks.addingSystems)) {
-            canonnEd3d_tslinks.addingSystems[msg] = {done: false};
+            canonnEd3d_tslinks.addingSystems[msg] = { done: false };
             if (canonnEd3d_tslinks.addingSystems[msg].type == "EagleEye") cat.push('60');
         }
-            
+
 
         //console.log("adding Non TSS Route:", msg);
 
@@ -583,7 +584,7 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
         canonnEd3d_tslinks.systemsData.routes.push(route);
     },
 
-	parseCSVData: async (url, callBack) => {
+    parseCSVData: async (url, callBack) => {
         var parsePromise = new Promise(function (resolve, reject) {
             Papa.parse(url, {
                 download: true,
@@ -592,19 +593,19 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
             });
         });
         var results = await parsePromise;
-        
+
         await callBack(results.data);
 
         // after we called the callback
         // (which is synchronous, so we know it's safe here)
         // we can resolve the promise
 
-        document.getElementById("loading").style.display = "none";    
-	},
+        document.getElementById("loading").style.display = "none";
+    },
 
     recenterSearch: function () {
         var term = $('#search input').val();
-        
+
         var foundSystem = {};
         for (key in canonnEd3d_tslinks.systemsData.systems) {
             let system = canonnEd3d_tslinks.systemsData.systems[key];
@@ -615,18 +616,18 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
         }
         if (!(Object.keys(foundSystem).length === 0)) {
             recenterViewport(foundSystem.coords, 100);
-            
-//console.log("addtext", "system_hover", systemname, 0, 4, 0, 3, threeObj);
-/* how do we get threeObj? they dont have names. would like to show the mouseover text after search recenter
-            HUD.addText(-1, foundSystem.name,
-                0, 4, 0, 3//, foundSystem.coords, true
-            ); 
-//*/
+
+            //console.log("addtext", "system_hover", systemname, 0, 4, 0, 3, threeObj);
+            /* how do we get threeObj? they dont have names. would like to show the mouseover text after search recenter
+                        HUD.addText(-1, foundSystem.name,
+                            0, 4, 0, 3//, foundSystem.coords, true
+                        ); 
+            //*/
         }
     },
 
 
-	init: function () {
+    init: function () {
         var tssites = canonnEd3d_tslinks.parseCSVData(
             'data/csvCache/202011052200_Canonn Universal Science DB - TS Export - Export CSV Data.csv',
             canonnEd3d_tslinks.formatTSSites
@@ -638,25 +639,25 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
         );
 
         Promise.all([tssites, nonsiteTargets]).then(function () {
-			Ed3d.init({
-				container: 'edmap',
-				json: canonnEd3d_tslinks.systemsData,
-				withFullscreenToggle: false,
-				withHudPanel: true,
-				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
-				startAnim: true,
-				showGalaxyInfos: true,
-				//setting camera to Merope and adjusting
-				playerPos: [-78.59375, -149.625, -340.53125],
-				cameraPos: [-78.59375 - 500, -149.625, -340.53125 - 500],
-				systemColor: '#FF9D00',
+            Ed3d.init({
+                container: 'edmap',
+                json: canonnEd3d_tslinks.systemsData,
+                withFullscreenToggle: false,
+                withHudPanel: true,
+                hudMultipleSelect: true,
+                effectScaleSystem: [20, 500],
+                startAnim: true,
+                showGalaxyInfos: true,
+                //setting camera to Merope and adjusting
+                playerPos: [-78.59375, -149.625, -340.53125],
+                cameraPos: [-78.59375 - 500, -149.625, -340.53125 - 500],
+                systemColor: '#FF9D00',
             });
-            setTimeout(()=>{
+            setTimeout(() => {
                 $('#search').css('display', 'block');
                 $('#search input').on('input', canonnEd3d_tslinks.recenterSearch);
             }, 1000);
         });
-        
-	},
+
+    },
 };
