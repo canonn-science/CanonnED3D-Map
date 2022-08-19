@@ -195,7 +195,14 @@ var canonnEd3d_guardians = {
 
 	parseData: function (url, resolvePromise) {
 		let fetchDataFromApi = async (url, resolvePromise) => {
-			let response = await fetch(url);
+			let response = await fetch(url, {
+				"method": "GET",
+				"headers": {
+					'Content-Type': 'application/json',
+					'Accept': 'application/json',
+					'Access-Control-Max-Age': 86400
+				}
+			});
 			let result = await response.json();
 			canonnEd3d_guardians.gCloudData = result
 			resolvePromise();
