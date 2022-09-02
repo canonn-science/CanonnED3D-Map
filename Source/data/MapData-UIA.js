@@ -53,6 +53,10 @@ var canonnEd3d_challenge = {
 	systemsData: {
 		categories: {
 			'Unidentified Interstellar Anomaly': {
+				'100': {
+					'name': 'Estimated Position',
+					'color': '00FFFF',
+				},
 				'101': {
 					'name': 'Recorded Route',
 					'color': '66FF66',
@@ -86,6 +90,10 @@ var canonnEd3d_challenge = {
 				"1005": {
 					'name':"Measurement Endpoint",
 					'color': '999999'
+				},
+				"1006": {
+					'name':"Witch Head Nebula",
+					'color': 'FFFF66'
 				}
 			},
 		},
@@ -116,7 +124,7 @@ var canonnEd3d_challenge = {
 				'infos': "After the Unidentified Interstellar Anomaly traveled through Oochorrs UF-J c11-0, a few days after its first discovery, all reports of its new heading suggested it's new destination is this system.",
 				'url': "",
 				'coords': { x: 658.625, y: -384.21875, z: -1783.53125 },
-				'cat': ["1004"]
+				'cat': ["102"]
 			},
 			{
 				'name': "HIP 22460",
@@ -124,6 +132,13 @@ var canonnEd3d_challenge = {
 				'url': "https://canonn.science/codex/fort-asch/",
 				'coords': { x: -41.3125, y: -58.96875, z: -354.78125 },
 				'cat': ["1002"]
+			},
+			{
+				'name': "HIP 23759",
+				'infos': 'Witch Head Science Centre / HIP 23759 Geysers / Witch Head Nebula / Barnacle Sites - Witch Head Nebula',
+				'url': "",
+				'coords': { x: 359.84375, y: -385.53125, z: -718.375 },
+				'cat': ["1006"]
 			},
 			//measurement line endpoints
 			{
@@ -169,17 +184,45 @@ var canonnEd3d_challenge = {
 				'cat': ["1005"]
 			},
 			{
-				'name': "Oochorrs AM-H C12-0",
+				'name': "Oochorrs AM-H c12-0",
 				'infos': '',
 				'url': "",
 				'coords': { x: 735.8125, y: -383.21875, z: -1821.9375 },
 				'cat': ["1005"]
 			},
 			{
-				'name': "Oochorrs QJ-E B3-0",
+				'name': "Oochorrs QJ-E b3-0",
 				'infos': '',
 				'url': "",
 				'coords': { x: -8.5625, y: -267.875, z: -2272.90625 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochorrs XL-H c12-0",
+				'infos': '',
+				'url': "",
+				'coords': { x: 621.03125, y: -383.9375, z: -1806.25 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochoxt YR-F b16-0",
+				'infos': '',
+				'url': "",
+				'coords': { x: 1340.25, y: -279.34375, z: -2001.1875 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochorrs DS-F c13-0",
+				'infos': '',
+				'url': "",
+				'coords': { x: 698.75, y: -361.34375, z: -1782.59375 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Flyooe Eohn VS-M c22-0",
+				'infos': '',
+				'url': "",
+				'coords': { x: 307.46875, y: -661.34375, z: -2644.15625 },
 				'cat': ["1005"]
 			},
 			//measurement crossings
@@ -197,8 +240,15 @@ var canonnEd3d_challenge = {
 				'coords': { x: 688.305, y: -375.546, z: -1851.103 },
 				'cat': ["1004"]
 			},
+			{
+				'name': "Third Measurement",
+				'infos': 'calculated by Seventh_Circle',
+				'url': "",
+				'coords': { x: 680.665, y: -375.239, z: -1822.421 },
+				'cat': ["1004"]
+			},
 		],
-		"routes": [
+		"routes": [/*
 			{
 				//observed route of the UIA
 				cat: ["101"], 'points': [
@@ -206,7 +256,7 @@ var canonnEd3d_challenge = {
 					{ 's': 'Second Measurement', 'label': 'Second Measurement' },
 					{ 's': 'Oochorrs UF-J c11-0', 'label': 'Oochorrs UF-J c11-0' },
 				], 'circle': false
-			},
+			},*/
 			{
 				//first measurement, line one
 				cat: ["103"], 'points': [
@@ -231,8 +281,22 @@ var canonnEd3d_challenge = {
 			{
 				//second measurement, line two
 				cat: ["103"], 'points': [
-					{ 's': 'Oochorrs AM-H C12-0', 'label': 'Oochorrs AM-H C12-0' },
-					{ 's': 'Oochorrs QJ-E B3-0', 'label': 'Oochorrs QJ-E B3-0' },
+					{ 's': 'Oochorrs AM-H c12-0', 'label': 'Oochorrs AM-H c12-0' },
+					{ 's': 'Oochorrs QJ-E b3-0', 'label': 'Oochorrs QJ-E b3-0' },
+				], 'circle': false
+			},
+			{
+				//third measurement, line one
+				cat: ["103"], 'points': [
+					{ 's': 'Oochorrs XL-H c12-0', 'label': 'Oochorrs XL-H c12-0' },
+					{ 's': 'Oochoxt YR-F b16-0', 'label': 'Oochoxt YR-F b16-0' },
+				], 'circle': false
+			},
+			{
+				//third measurement, line two
+				cat: ["103"], 'points': [
+					{ 's': 'Oochorrs DS-F c13-0', 'label': 'Oochorrs DS-F c13-0' },
+					{ 's': 'Flyooe Eohn VS-M c22-0', 'label': 'Flyooe Eohn VS-M c22-0' },
 				], 'circle': false
 			},
 			//guesstimated direction of travel
@@ -240,7 +304,7 @@ var canonnEd3d_challenge = {
 				//assumed direction of origin
 				cat: ["102"], 'points': [
 					{ 's': 'NGC 2264 Sector RE-Y c14-0', 'label': 'NGC 2264 Sector RE-Y c14-0' },
-					{ 's': 'First Measurement', 'label': 'First Measurement' },
+					{ 's': 'Oochorrs UF-J c11-0', 'label': 'Oochorrs UF-J c11-0' },
 				], 'circle': false
 			},
 			{
@@ -381,6 +445,30 @@ var canonnEd3d_challenge = {
 		});
 
 		Promise.all([p3]).then(function () {*/
+		
+			const start = new THREE.Vector3(686.125, -372.875, -1832.375)
+			const end = new THREE.Vector3(658.625, -384.21875, -1783.53125)
+			const starttime = new Date("2022-09-01T18:17:39Z").getTime()
+			const endtime = new Date("2022-09-05T08:17:39Z").getTime()
+			const nowtime = new Date().getTime()
+			const timediff = endtime-starttime || 1
+			const nowdiff = nowtime-starttime
+			const percent = nowdiff/timediff
+			const vecdiff = end.sub(start)
+			const uia = start.addScaledVector(vecdiff, percent)
+
+			console.log("current estimated position of the UIA: ", uia)
+			if (uia.x && uia.y && uia.z) {
+				var uia_poi = {
+					'name': "Unidentified Interstellar Anomaly",
+					'infos': "This position is an <strong>estimate</strong> of the UIA's current position. It is assuming travel at constant speed along the red line.",
+					'url': "",
+					'coords': { x: uia.x, y: uia.y, z: uia.z },
+					'cat': ["100"]
+				}
+				canonnEd3d_challenge.systemsData.systems.push(uia_poi)
+			}
+
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_challenge.systemsData,
@@ -390,11 +478,11 @@ var canonnEd3d_challenge = {
 				effectScaleSystem: [20, 500],
 				startAnim: false,
 				showGalaxyInfos: false,
-				playerPos: [686, -372, -1832],
+				playerPos: [686.125, -372.875, -1832.375],
 				cameraPos: [100, 0, -1299],
 				systemColor: '#FF9D00',
 			});
-			
+
 			document.getElementById("loading").style.display = "none";
 		//});
 	},
