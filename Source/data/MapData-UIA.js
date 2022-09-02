@@ -92,28 +92,28 @@ var canonnEd3d_challenge = {
 		systems: [
 			{
 				'name': "Sol",
-				'infos': '',
+				'infos': "Home sweet home... I sure hope they don't come steal my succulents.",
 				'url': "",
 				'coords': { x: 0, y: 0, z: 0 },
 				'cat': ["1001"]
 			},
 			{
 				'name': "NGC 2264 Sector RE-Y c14-0",
-				'infos': '',
+				'infos': 'Permit locked system that matched nicely with the origin direction of the Unidentified Interstellar Anomaly upon first sightings. It is assumed that the UIA at least traveled through that system on its path.',
 				'url': "",
 				'coords': { x: 698, y: -384, z: -1904 }, //eyeballed via galmap, permit locked
 				'cat': ["102"]
 			},
 			{
 				'name': "Oochorrs UF-J c11-0", //initial center of attention
-				'infos': '',
+				'infos': "Initial center of attention. First reports of hyperdictions and 'something' made everyone go look. You will need a good FSD to travel this area (>40ly) and prepare to get hyperdicted by Thargoids! <br /><a href='https://media.discordapp.net/attachments/344094711339941890/1014537363332005929/unknown.png' target='_blank' rel='noopener'><img src='https://media.discordapp.net/attachments/344094711339941890/1014537363332005929/unknown.png?width=1131&height=686' width='280' height='150' /></a><br />The <a href='https://media.discordapp.net/attachments/344094711339941890/1014537363332005929/unknown.png' target='_blank' rel='noopener'>Unidentified Interstellar Anomaly</a> was first observed in this system.<br />(Image provided by CMDR Mallchad)",
 				'url': "",
 				'coords': { x: 686.125, y: -372.875, z: -1832.375 },
 				'cat': ["1003", "1004"]
 			},
 			{
 				'name': "Oochorrs CS-F c13-0",
-				'infos': '',
+				'infos': "After the Unidentified Interstellar Anomaly traveled through Oochorrs UF-J c11-0, a few days after its first discovery, all reports of its new heading suggested it's new destination is this system.",
 				'url': "",
 				'coords': { x: 658.625, y: -384.21875, z: -1783.53125 },
 				'cat': ["1004"]
@@ -185,14 +185,14 @@ var canonnEd3d_challenge = {
 			//measurement crossings
 			{
 				'name': "First Measurement",
-				'infos': '',
+				'infos': 'calculated by Seventh_Circle',
 				'url': "",
 				'coords': { x: 690.495, y: -377.143, z: -1862.790 },
 				'cat': ["1004"]
 			},
 			{
 				'name': "Second Measurement",
-				'infos': '',
+				'infos': 'calculated by Seventh_Circle',
 				'url': "",
 				'coords': { x: 688.305, y: -375.546, z: -1851.103 },
 				'cat': ["1004"]
@@ -205,8 +205,6 @@ var canonnEd3d_challenge = {
 					{ 's': 'First Measurement', 'label': 'First Measurement' },
 					{ 's': 'Second Measurement', 'label': 'Second Measurement' },
 					{ 's': 'Oochorrs UF-J c11-0', 'label': 'Oochorrs UF-J c11-0' },
-					{ 's': 'Oochorrs CS-F c13-0', 'label': 'Oochorrs CS-F c13-0' },
-
 				], 'circle': false
 			},
 			{
@@ -239,10 +237,17 @@ var canonnEd3d_challenge = {
 			},
 			//guesstimated direction of travel
 			{
-				//second measurement, line two
+				//assumed direction of origin
 				cat: ["102"], 'points': [
 					{ 's': 'NGC 2264 Sector RE-Y c14-0', 'label': 'NGC 2264 Sector RE-Y c14-0' },
 					{ 's': 'First Measurement', 'label': 'First Measurement' },
+				], 'circle': false
+			},
+			{
+				//assumed current route
+				cat: ["102"], 'points': [
+					{ 's': 'Oochorrs UF-J c11-0', 'label': 'Oochorrs UF-J c11-0' },
+					{ 's': 'Oochorrs CS-F c13-0', 'label': 'Oochorrs CS-F c13-0' },
 				], 'circle': false
 			},
 		]
