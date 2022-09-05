@@ -182,7 +182,7 @@ var Ed3d = {
 
       Loader.update('Done !');
       Ed3d.launchMap();
-
+      if(typeof options.finished === "function") options.finished();
     });
 
   },
@@ -317,6 +317,8 @@ var Ed3d = {
     this.textures.flare_white = texloader.load(Ed3d.basePath + "textures/lensflare/flare2.png");
     this.textures.flare_yellow = texloader.load(Ed3d.basePath + Ed3d.starSprite);
     this.textures.flare_center = texloader.load(Ed3d.basePath + "textures/lensflare/flare3.png");
+    this.textures.spiral = texloader.load(Ed3d.basePath + "textures/lensflare/spiral_joe.png");
+    this.textures.permit_zone = texloader.load(Ed3d.basePath + "textures/hydra_invert.jpg");
 
     //-- Load sprites
     Ed3d.material.glow_1 = new THREE.SpriteMaterial({
@@ -331,6 +333,23 @@ var Ed3d = {
       blending: THREE.AdditiveBlending,
       depthWrite: false,
       opacity: 0.5
+    });
+
+    Ed3d.material.spiral = new THREE.SpriteMaterial({
+      map: Ed3d.textures.spiral,
+      transparent: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      opacity: 1
+    });
+
+    Ed3d.material.permit_zone = new THREE.MeshBasicMaterial({
+      map: Ed3d.textures.white,
+      alphaMap: Ed3d.textures.permit_zone,
+      transparent: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      opacity: 0.33
     });
 
   },
