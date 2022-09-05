@@ -173,7 +173,7 @@ var canonnEd3d_challenge = {
 				'coords': { x: 698, y: -384, z: -1904 }, //eyeballed via galmap, permit locked
 				'cat': ["102"]
 			},
-			{	//waypoint 1
+			{//waypoint 1
 				'name': "Oochorrs UF-J c11-0", //initial center of attention
 				'infos': "Initial center of attention. First reports of hyperdictions and 'something' made everyone go look. You will need a good FSD to travel this area (>40ly) and prepare to get hyperdicted by Thargoids! <br /><a href='https://media.discordapp.net/attachments/344094711339941890/1014537363332005929/unknown.png' target='_blank' rel='noopener'><img src='https://media.discordapp.net/attachments/344094711339941890/1014537363332005929/unknown.png?width=1131&height=686' width='280' height='150' /></a><br />The <a href='https://media.discordapp.net/attachments/344094711339941890/1014537363332005929/unknown.png' target='_blank' rel='noopener'>Unidentified Interstellar Anomaly</a> was first observed in this system.<br />(Image provided by CMDR Mallchad)",
 				'url': "",
@@ -192,6 +192,13 @@ var canonnEd3d_challenge = {
 				'infos': "Estimated third waypoint after watching the UIA go past Oochorrs CS-F c13-0 and move towards this system.",
 				'url': "",
 				'coords': { x: 650.46875, y: -382.9375, z: -1777.0625},
+				'cat': ["102"]
+			},
+			{//waypoint 4
+				'name': "HD 38291",
+				'infos': "Estimated third waypoint after watching the UIA go past Oochorrs CS-F c13-0 and move towards this system.",
+				'url': "",
+				'coords': { x: 619.25, y: -358.375, z: -1721},
 				'cat': ["102"]
 			},
 			{
@@ -244,91 +251,6 @@ var canonnEd3d_challenge = {
 				name: "M41 Sector",
 				'cat': ["1007"]
 			},/*
-			//measurement line endpoints
-			{
-				'name': "Oochorrs GH-T d4-0",
-				'infos': '',
-				'url': "",
-				'coords': { x: 615.21875, y: -370.6875, z: -1944.625 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Oochorrs PY-G d11-5",
-				'infos': '',
-				'url': "",
-				'coords': { x: 1152.09375, y: -416.96875, z: -1358.84375 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Oochorrs UP-K c10-0",
-				'infos': '',
-				'url': "",
-				'coords': { x: 666.5, y: -441.1875, z: -1899.5625 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Outotz UY-I d9-7",
-				'infos': '',
-				'url': "",
-				'coords': { x: 941.5625, y: 288.65625, z: -1482.1875 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Oochorrs WP-K c10-0",
-				'infos': '',
-				'url': "",
-				'coords': { x: 739.65625, y: -460.28125, z: -1902.875 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Outotz KB-G b39-0",
-				'infos': '',
-				'url': "",
-				'coords': { x: 341.53125, y: 201.4375, z: -1501.9375 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Oochorrs AM-H c12-0",
-				'infos': '',
-				'url': "",
-				'coords': { x: 735.8125, y: -383.21875, z: -1821.9375 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Oochorrs QJ-E b3-0",
-				'infos': '',
-				'url': "",
-				'coords': { x: -8.5625, y: -267.875, z: -2272.90625 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Oochorrs XL-H c12-0",
-				'infos': '',
-				'url': "",
-				'coords': { x: 621.03125, y: -383.9375, z: -1806.25 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Oochoxt YR-F b16-0",
-				'infos': '',
-				'url': "",
-				'coords': { x: 1340.25, y: -279.34375, z: -2001.1875 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Oochorrs DS-F c13-0",
-				'infos': '',
-				'url': "",
-				'coords': { x: 698.75, y: -361.34375, z: -1782.59375 },
-				'cat': ["1005"]
-			},
-			{
-				'name': "Flyooe Eohn VS-M c22-0",
-				'infos': '',
-				'url': "",
-				'coords': { x: 307.46875, y: -661.34375, z: -2644.15625 },
-				'cat': ["1005"]
-			},
 			//measurement crossings
 			{
 				'name': "First Measurement",
@@ -353,55 +275,6 @@ var canonnEd3d_challenge = {
 			},*/
 		],
 		"routes": [
-			{
-				//observed route of the UIA
-				cat: ["101"], 'points': [
-					{ 's': 'Oochorrs UF-J c11-0', 'label': 'Oochorrs UF-J c11-0' },
-					{ 's': 'Oochorrs CS-F c13-0', 'label': 'Oochorrs CS-F c13-0' },
-				], 'circle': false
-			},/*
-			{
-				//first measurement, line one
-				cat: ["103"], 'points': [
-					{ 's': 'Oochorrs GH-T d4-0', 'label': 'Oochorrs GH-T d4-0' },
-					{ 's': 'Oochorrs PY-G d11-5', 'label': 'Oochorrs PY-G d11-5' },
-				], 'circle': false
-			},
-			{
-				//first measurement, line two
-				cat: ["103"], 'points': [
-					{ 's': 'Oochorrs UP-K c10-0', 'label': 'Oochorrs UP-K c10-0' },
-					{ 's': 'Outotz UY-I d9-7', 'label': 'Outotz UY-I d9-7' },
-				], 'circle': false
-			},
-			{
-				//second measurement, line one
-				cat: ["103"], 'points': [
-					{ 's': 'Oochorrs WP-K c10-0', 'label': 'Oochorrs WP-K c10-0' },
-					{ 's': 'Outotz KB-G b39-0', 'label': 'Outotz KB-G b39-0' },
-				], 'circle': false
-			},
-			{
-				//second measurement, line two
-				cat: ["103"], 'points': [
-					{ 's': 'Oochorrs AM-H c12-0', 'label': 'Oochorrs AM-H c12-0' },
-					{ 's': 'Oochorrs QJ-E b3-0', 'label': 'Oochorrs QJ-E b3-0' },
-				], 'circle': false
-			},
-			{
-				//third measurement, line one
-				cat: ["103"], 'points': [
-					{ 's': 'Oochorrs XL-H c12-0', 'label': 'Oochorrs XL-H c12-0' },
-					{ 's': 'Oochoxt YR-F b16-0', 'label': 'Oochoxt YR-F b16-0' },
-				], 'circle': false
-			},
-			{
-				//third measurement, line two
-				cat: ["103"], 'points': [
-					{ 's': 'Oochorrs DS-F c13-0', 'label': 'Oochorrs DS-F c13-0' },
-					{ 's': 'Flyooe Eohn VS-M c22-0', 'label': 'Flyooe Eohn VS-M c22-0' },
-				], 'circle': false
-			},*/
 			//guesstimated direction of travel
 			{
 				//assumed direction of origin
@@ -411,10 +284,19 @@ var canonnEd3d_challenge = {
 				], 'circle': false
 			},
 			{
-				//assumed current route
-				cat: ["102"], 'points': [
+				//observed route of the UIA
+				cat: ["101"], 'points': [
+					{ 's': 'Oochorrs UF-J c11-0', 'label': 'Oochorrs UF-J c11-0' },
 					{ 's': 'Oochorrs CS-F c13-0', 'label': 'Oochorrs CS-F c13-0' },
 					{ 's': 'Oochorrs BS-F c13-0', 'label': 'Oochorrs BS-F c13-0' },
+					//{ 's': 'HD 38291', 'label': 'HD 38291' },
+				], 'circle': false
+			},
+			{
+				//assumed current route
+				cat: ["102"], 'points': [
+					{ 's': 'Oochorrs BS-F c13-0', 'label': 'Oochorrs BS-F c13-0' },
+					{ 's': 'HD 38291', 'label': 'HD 38291' },
 				], 'circle': false
 			},
 		]
@@ -649,10 +531,10 @@ var canonnEd3d_challenge = {
 
 		Promise.all([p3]).then(function () {
 		
-			const start = new THREE.Vector3(658.625, -384.21875, -1783.53125)
-			const end = new THREE.Vector3(650.46875, -382.9375, -1777.0625)
-			const starttime = new Date("2022-09-05T05:09:12Z").getTime()
-			const endtime = new Date("2022-09-05T20:18:00Z").getTime()
+			const start = new THREE.Vector3(650.46875, -382.9375, -1777.0625)
+			const end = new THREE.Vector3(619.25,-358.375,-1721)
+			const starttime = new Date("2022-09-05T12:55:00Z").getTime()
+			const endtime = new Date("2022-09-05T16:47:12Z").getTime()
 			const nowtime = new Date().getTime()
 			const timediff = endtime-starttime || 1
 			const nowdiff = nowtime-starttime
