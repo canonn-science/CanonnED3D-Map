@@ -18,11 +18,7 @@ const edsmapi = axios.create({
 })
 
 let sites = {
-	reports: [
-		"Oochorrs UF-J c11-0",
-		"Oochorrs CS-F c13-0",
-		"Oochorrs BS-F c13-0"
-	],
+	reports: [],
 };
 
 const go = async types => {
@@ -287,6 +283,11 @@ var canonnEd3d_challenge = {
 			//Check Site Type and match categories
 			var waypointIndex = sites.reports.indexOf(other.system)
 			if (waypointIndex>maxWPI) maxWPI = waypointIndex
+			if (waypointIndex == -1)
+			{	//if the target wasnt the waypoint, see if the source was.
+				waypointIndex = sites.reports.indexOf(poi.system)
+			}
+			//if both are not a waypoint we get -1 and end up at 301 "Waypoint Area"
 			poiSite['cat'] = ["30"+(2+waypointIndex)];
 
 			if (hds[systemName].hostile == "Y")
@@ -328,13 +329,9 @@ var canonnEd3d_challenge = {
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
 			if (data[i]["System"] && data[i]["System"].replace(' ', '').length > 1) {
-				lastarrivaldate = arrivaldate
-				lastcoords = arrivalcoords
-				lastname = arrivalname
 
 				var poiSite = {};
 				poiSite['name'] = data[i]["System"];
-				arrivalname = poiSite['name']
 
 				poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i]["System"] + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i]["System"] + '" target="_blank" rel="noopener">Signals</a>';
 				
@@ -348,7 +345,12 @@ var canonnEd3d_challenge = {
 				//Check Site Type and match categories
 				poiSite['cat'] = ["102"]
 				var at = data[i]["Arrival Time"]
-				if (at != "N/A" && at != "TBD" && at) {
+				if (at != "N/A" && at != "TBD" && at != "" && at != undefined && at != null) {
+					lastarrivaldate = arrivaldate
+					lastcoords = arrivalcoords
+					lastname = arrivalname
+					arrivalname = poiSite['name']
+
 					poiSite['cat'] = ["1004"]
 					if (i == 1) {
 						poiSite['cat'].push("1003")
@@ -367,6 +369,7 @@ var canonnEd3d_challenge = {
 					arrivaldate = [ado.year,ado.month,ado.day].join("-")+"T"+[ado.hour,ado.minute,ado.second].join(":")+"Z"
 					arrivaldate = new Date(arrivaldate).getTime()
 					route['points'].push({ 's': data[i]["System"], 'label': data[i]["System"] })
+					sites.reports.push(data[i]["System"])
 				}
 				else {
 					if (i == data.length-1){
