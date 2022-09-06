@@ -256,7 +256,6 @@ var canonnEd3d_challenge = {
 			let hyperData = hypers.reports[d];
 		
 			var systemName = hyperData.start.system
-
 			if (hyperData.start.nearest.name != "UIA Route"
 			|| hyperData.destination.nearest.name != "UIA Route") continue
 
@@ -291,14 +290,15 @@ var canonnEd3d_challenge = {
 			poiSite['cat'] = ["30"+(2+waypointIndex)];
 
 			if (hds[systemName].hostile == "Y")
-			{ poiSite['cat'].push("300") }
-			
+			{
+				poiSite['cat'].push("300")
+			}
 			//console.log("adding poi with data:", poiSite, hds[systemName])
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_challenge.systemsData.systems.push(poiSite);
 		}
 
-		for (var i = 0; i < maxWPI; i++) {
+		for (var i = 0; i <= maxWPI; i++) {
 			canonnEd3d_challenge.systemsData.categories["Hyperdictions"]["30"+(2+i)] = {
 				'name': "Waypoint "+(i+1),
 				'color': 'FFFF66'
@@ -350,6 +350,9 @@ var canonnEd3d_challenge = {
 				var at = data[i]["Arrival Time"]
 				if (at != "N/A" && at != "TBD" && at) {
 					poiSite['cat'] = ["1004"]
+					if (i == 1) {
+						poiSite['cat'].push("1003")
+					}
 					//compute route and more depending on waypoints
 					arrivalcoords = poiSite['coords']
 					var dateform = at; //expecting dd/mm/yyyy hh:mm:ss for gsheet reasons
