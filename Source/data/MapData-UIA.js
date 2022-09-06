@@ -112,7 +112,7 @@ var canonnEd3d_challenge = {
 					'color': '66FF66'
 				},
 				"1003": {
-					'name':"Oochorrs UF-J c11-0",
+					'name':"First Visuals",
 					'color': '66FF66'
 				},
 				"1004": {
@@ -138,15 +138,43 @@ var canonnEd3d_challenge = {
 					'color': 'FF66FF'
 				},
 				"301": {
-					'name': "Waypoint 1",
+					'name': "Waypoint Area",
 					'color': 'FFFF66'
 				},
 				"302": {
-					'name': "Waypoint 2",
+					'name': "Waypoint 1",
 					'color': 'FFFF66'
 				},
 				"303": {
+					'name': "Waypoint 2",
+					'color': 'FFFF66'
+				},
+				"304": {
 					'name': "Waypoint 3",
+					'color': 'FFFF66'
+				},
+				"305": {
+					'name': "Waypoint 4",
+					'color': 'FFFF66'
+				},
+				"306": {
+					'name': "Waypoint 5",
+					'color': 'FFFF66'
+				},
+				"307": {
+					'name': "Waypoint 6",
+					'color': 'FFFF66'
+				},
+				"308": {
+					'name': "Waypoint 7",
+					'color': 'FFFF66'
+				},
+				"309": {
+					'name': "Waypoint 8",
+					'color': 'FFFF66'
+				},
+				"3010": {//yep, 3010 after 309, formatHDs() depends on it
+					'name': "Waypoint 9",
 					'color': 'FFFF66'
 				},
 			}
@@ -165,41 +193,6 @@ var canonnEd3d_challenge = {
 				'url': "",
 				'coords': { x: 594.90625, y:  -431.4375 , z: -1071.78125 }, 
 				'cat': ["1001"]
-			},
-			{
-				'name': "NGC 2264 Sector RE-Y c14-0",
-				'infos': 'Permit locked system that matched nicely with the origin direction of the Unidentified Interstellar Anomaly upon first sightings. It is assumed that the UIA at least traveled through that system on its path.',
-				'url': "",
-				'coords': { x: 698, y: -384, z: -1904 }, //eyeballed via galmap, permit locked
-				'cat': ["102"]
-			},
-			{//waypoint 1
-				'name': "Oochorrs UF-J c11-0", //initial center of attention
-				'infos': "Initial center of attention. First reports of hyperdictions and 'something' made everyone go look. You will need a good FSD to travel this area (>40ly) and prepare to get hyperdicted by Thargoids! <br /><a href='https://media.discordapp.net/attachments/344094711339941890/1014537363332005929/unknown.png' target='_blank' rel='noopener'><img src='https://media.discordapp.net/attachments/344094711339941890/1014537363332005929/unknown.png?width=1131&height=686' width='280' height='150' /></a><br />The <a href='https://media.discordapp.net/attachments/344094711339941890/1014537363332005929/unknown.png' target='_blank' rel='noopener'>Unidentified Interstellar Anomaly</a> was first observed in this system.<br />(Image provided by CMDR Mallchad)",
-				'url': "",
-				'coords': { x: 686.125, y: -372.875, z: -1832.375 },
-				'cat': ["1003", "1004"]
-			},
-			{//waypoint 2
-				'name': "Oochorrs CS-F c13-0",
-				'infos': "After the Unidentified Interstellar Anomaly traveled through Oochorrs UF-J c11-0, a few days after its first discovery, all reports of its new heading suggested it's new destination is this system.",
-				'url': "",
-				'coords': { x: 658.625, y: -384.21875, z: -1783.53125 },
-				'cat': ["1004"]
-			},
-			{//waypoint 3
-				'name': "Oochorrs BS-F c13-0",
-				'infos': "Estimated third waypoint after watching the UIA go past Oochorrs CS-F c13-0 and move towards this system.",
-				'url': "",
-				'coords': { x: 650.46875, y: -382.9375, z: -1777.0625},
-				'cat': ["102"]
-			},
-			{//waypoint 4
-				'name': "HD 38291",
-				'infos': "Estimated third waypoint after watching the UIA go past Oochorrs CS-F c13-0 and move towards this system.",
-				'url': "",
-				'coords': { x: 619.25, y: -358.375, z: -1721},
-				'cat': ["102"]
 			},
 			{
 				'name': "HIP 22460",
@@ -283,22 +276,6 @@ var canonnEd3d_challenge = {
 					{ 's': 'Oochorrs UF-J c11-0', 'label': 'Oochorrs UF-J c11-0' },
 				], 'circle': false
 			},
-			{
-				//observed route of the UIA
-				cat: ["101"], 'points': [
-					{ 's': 'Oochorrs UF-J c11-0', 'label': 'Oochorrs UF-J c11-0' },
-					{ 's': 'Oochorrs CS-F c13-0', 'label': 'Oochorrs CS-F c13-0' },
-					{ 's': 'Oochorrs BS-F c13-0', 'label': 'Oochorrs BS-F c13-0' },
-					//{ 's': 'HD 38291', 'label': 'HD 38291' },
-				], 'circle': false
-			},
-			{
-				//assumed current route
-				cat: ["102"], 'points': [
-					{ 's': 'Oochorrs BS-F c13-0', 'label': 'Oochorrs BS-F c13-0' },
-					{ 's': 'HD 38291', 'label': 'HD 38291' },
-				], 'circle': false
-			},
 		]
 	},
 	formatHDs: async function (data, resolvePromise) {
@@ -341,11 +318,9 @@ var canonnEd3d_challenge = {
 			poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + poi.system + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + poi.system + '" target="_blank" rel="noopener">Signals</a>';
 
 			//Check Site Type and match categories
-			poiSite['cat'] = ["30"+(1+sites.reports.indexOf(other.system))];
+			poiSite['cat'] = ["30"+(2+sites.reports.indexOf(other.system))];
 
-			if (hds[systemName].hostile != undefined
-			&& hds[systemName].hostile != null
-			&& hds[systemName].hostile != "N")
+			if (hds[systemName].hostile == "Y")
 			{ poiSite['cat'].push("300") }
 			
 			//console.log("adding poi with data:", poiSite, hds[systemName])
@@ -354,49 +329,119 @@ var canonnEd3d_challenge = {
 		}
 		resolvePromise();
 	},
-
-/*
-	formatAdamastor: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
-
+	uia: {},
+	formatWaypoints: function (data) {
+		//WP#	System	X	Y	Z	Distance	Arrival Time	Avg Speed Ly/h	Estimate	Remarks
+		var arrivaldate;
+		var arrivalcoords;
+		var arrivalname;
+		var lastarrivaldate;
+		var lastcoords;
+		var lastname;
+		var route = {
+			cat: ["101"],
+			circle: false,
+			points: []
+		}
+		var endroute = {
+			cat: ["102"],
+			circle: false,
+			points: []
+		}
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].name && data[i].name.replace(' ', '').length > 1) {
+			if (data[i]["System"] && data[i]["System"].replace(' ', '').length > 1) {
+				lastarrivaldate = arrivaldate
+				lastcoords = arrivalcoords
+				lastname = arrivalname
+
 				var poiSite = {};
-				poiSite['name'] = data[i].name;
-				if (data[i].infos) {
-					poiSite['infos'] = data[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
-				} else {
-					poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i].name + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i].name + '" target="_blank" rel="noopener">Signals</a>';
-				}
-				//Check Site Type and match categories
+				poiSite['name'] = data[i]["System"];
+				arrivalname = poiSite['name']
 
-				var component = data[i].name.split(' ');
-				if (poiSite['name'] == 'Varati') {
-					poiSite['details'] == 'Start and Finish';
-					poiSite['cat'] = [10];
-
-				} else {
-					poiSite['cat'] = [20];
-				}
-
+				poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i]["System"] + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i]["System"] + '" target="_blank" rel="noopener">Signals</a>';
+				
 				poiSite['url'] = "https://canonn-science.github.io/canonn-signals/?system=" + poiSite['name']
 				poiSite['coords'] = {
-					x: parseFloat(data[i].pos_x),
-					y: parseFloat(data[i].pos_y),
-					z: parseFloat(data[i].pos_z),
+					x: parseFloat(data[i]["X"]),
+					y: parseFloat(data[i]["Y"]),
+					z: parseFloat(data[i]["Z"]),
 				};
 
+				//Check Site Type and match categories
+				poiSite['cat'] = ["102"]
+				var at = data[i]["Arrival Time"]
+				if (at != "N/A" && at != "TBD" && at) {
+					poiSite['cat'] = ["101"]
+					//compute route and more depending on waypoints
+					arrivalcoords = poiSite['coords']
+					var dateform = at; //expecting dd/mm/yyyy hh:mm:ss for gsheet reasons
+					var ado = {
+						day: dateform.split(" ")[0].split("/")[0],
+						month: dateform.split(" ")[0].split("/")[1],
+						year: dateform.split(" ")[0].split("/")[2],
+						hour: dateform.split(" ")[1].split(":")[0],
+						minute: dateform.split(" ")[1].split(":")[1],
+						second: dateform.split(" ")[1].split(":")[2],
+					}
+					arrivaldate = [ado.year,ado.month,ado.day].join("-")+"T"+[ado.hour,ado.minute,ado.second].join(":")+"Z"
+					arrivaldate = new Date(arrivaldate).getTime()
+					route['points'].push({ 's': data[i]["System"], 'label': data[i]["System"] })
+				}
+				else {
+					if (i == data.length-1){
+						endroute['points'].push({ 's': lastname, 'label': lastname })
+						endroute['points'].push({ 's': arrivalname, 'label': arrivalname })
+					}
+				}
+				
 				// We can then push the site to the object that stores all systems
 				canonnEd3d_challenge.systemsData.systems.push(poiSite);
+
+				
 			}
 		}
+		canonnEd3d_challenge.systemsData.routes.push(route);
+		canonnEd3d_challenge.systemsData.routes.push(endroute);
+		//calculating UIA current estimated position
+		const start = new THREE.Vector3(lastcoords.x, lastcoords.y, lastcoords.z)
+		const end = new THREE.Vector3(arrivalcoords.x, arrivalcoords.y, arrivalcoords.z)
+		const starttime = new Date(lastarrivaldate).getTime()
+		const endtime = new Date(arrivaldate).getTime()
+		const nowtime = new Date().getTime()
+		const timediff = endtime-starttime || 1
+		const nowdiff = nowtime-starttime
+		const percent = nowdiff/timediff
+		const vecdiff = end.sub(start)
+		canonnEd3d_challenge.uia = start.addScaledVector(vecdiff, percent)
+
+		console.log("current estimated position of the UIA: ", canonnEd3d_challenge.uia)
+		if (canonnEd3d_challenge.uia.x
+		&& canonnEd3d_challenge.uia.y
+		&& canonnEd3d_challenge.uia.z) {
+			var uia_poi = {
+				'name': "Unidentified Interstellar Anomaly",
+				'infos': "This position is an <strong>estimate</strong> of the UIA's current position. It is assuming travel at constant speed along the red line.",
+				'url': "",
+				'coords': {
+					x: canonnEd3d_challenge.uia.x,
+					y: canonnEd3d_challenge.uia.y,
+					z: canonnEd3d_challenge.uia.z
+				},
+				'cat': ["100"]
+			}
+			//decided against putting the UIA as a point in the map
+			//see finishMap() for the sprite
+			//canonnEd3d_challenge.systemsData.systems.push(uia_poi)
+		}
+
 	},
-	*/
 	formatMeasurements: async function (data, resolvePromise) {
 		//console.log(data);
 		var measystems = {};
 		for (var i = 0; i < data.length; i++) {
+			if (data[i]["Permit Lock"]) continue
+			if (data[i]["Accuracy"] > 3) continue
 			if (data[i]["Current System"]
 			&& data[i]["Current System"].replace(/\s/g, '').length > 1
 			&& data[i]["Targetted System"]
@@ -463,65 +508,66 @@ var canonnEd3d_challenge = {
 		sphere.clickable = false;
 		scene.add(sphere);
 	},
-	finishMap: function(v3_uia) {
-		return function() {
-			if (v3_uia != undefined) {
-				var sprite = new THREE.Sprite(Ed3d.material.spiral);
-				//console.log("trying stargoid sprite: ", v3_uia)
-				sprite.position.set(v3_uia.x, v3_uia.y, -v3_uia.z);
-				sprite.scale.set(50, 50, 1);
-				scene.add(sprite); // this centers the glow at the mesh
-			}
-			var pls = [
-			  {
-				radius: 514.0,
-				coords: [508.68359, -372.59375, -1090.87891],
-				name: "Col 70 Sector"
-			  },
-			  {
-				radius: 510.0,
-				coords: [851.16406, 83.68359, -2005.22070],
-				name: "NGC 2264 Sector"
-			  },
-			  {
-				radius: 200.0,
-				coords: [608.46094, -404.64453, -1194.16992],
-				name: "Horsehead Dark Region"
-			  },
-			  {
-				radius: 205.0,
-				coords: [11.76172, -508.69531, -1684.84180],
-				name: "NGC 1647 Sector"
-			  },
-			  {
-				radius: 100.0,
-				coords: [855.44141, 84.45312, -2025.11328],
-				name: "Cone Sector"
-			  },
-			  {
-				radius: 250.0,
-				coords: [878.88281, -64.39062, -1850.92383],
-				name: "Col 97 Sector"
-			  },
-			  {
-				radius: 350.0,
-				coords: [1731.03125, -400.21094, -1396.76758],
-				name: "M41 Sector"
-			  }
-			]
-			
-			for (var i = 0; i < pls.length; i++) {
-				canonnEd3d_challenge.createSphere(pls[i])
-			}
-	  
-			document.getElementById("loading").style.display = "none";
+	finishMap: function() {
+		if (canonnEd3d_challenge.uia != undefined) {
+			var sprite = new THREE.Sprite(Ed3d.material.spiral);
+			//console.log("trying stargoid sprite: ", v3_uia)
+			sprite.position.set(
+				canonnEd3d_challenge.uia.x,
+				canonnEd3d_challenge.uia.y,
+				-canonnEd3d_challenge.uia.z //for some reason z is inverted
+			);
+			sprite.scale.set(50, 50, 1);
+			scene.add(sprite); // this centers the glow at the mesh
 		}
+		var pls = [
+			{
+			radius: 514.0,
+			coords: [508.68359, -372.59375, -1090.87891],
+			name: "Col 70 Sector"
+			},
+			{
+			radius: 510.0,
+			coords: [851.16406, 83.68359, -2005.22070],
+			name: "NGC 2264 Sector"
+			},
+			{
+			radius: 200.0,
+			coords: [608.46094, -404.64453, -1194.16992],
+			name: "Horsehead Dark Region"
+			},
+			{
+			radius: 205.0,
+			coords: [11.76172, -508.69531, -1684.84180],
+			name: "NGC 1647 Sector"
+			},
+			{
+			radius: 100.0,
+			coords: [855.44141, 84.45312, -2025.11328],
+			name: "Cone Sector"
+			},
+			{
+			radius: 250.0,
+			coords: [878.88281, -64.39062, -1850.92383],
+			name: "Col 97 Sector"
+			},
+			{
+			radius: 350.0,
+			coords: [1731.03125, -400.21094, -1396.76758],
+			name: "M41 Sector"
+			}
+		]
+		
+		for (var i = 0; i < pls.length; i++) {
+			canonnEd3d_challenge.createSphere(pls[i])
+		}
+	
+		document.getElementById("loading").style.display = "none";
 	},
-	init: function () {/*
+	init: function () {
 		var p1 = new Promise(function (resolve, reject) {
-			//canonnEd3d_challenge.parseCSVData('data/csvCache/adamastor.csv', canonnEd3d_challenge.formatAdamastor, resolve);
+			canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Waypoints.csv', canonnEd3d_challenge.formatWaypoints, resolve);
 		});
-*/
 		var p2 = new Promise(function (resolve, reject) {
 			canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Responses.csv', canonnEd3d_challenge.formatMeasurements, resolve);
 		});
@@ -530,30 +576,6 @@ var canonnEd3d_challenge = {
 		});
 
 		Promise.all([p3]).then(function () {
-		
-			const start = new THREE.Vector3(650.46875, -382.9375, -1777.0625)
-			const end = new THREE.Vector3(619.25,-358.375,-1721)
-			const starttime = new Date("2022-09-05T12:55:00Z").getTime()
-			const endtime = new Date("2022-09-05T16:47:12Z").getTime()
-			const nowtime = new Date().getTime()
-			const timediff = endtime-starttime || 1
-			const nowdiff = nowtime-starttime
-			const percent = nowdiff/timediff
-			const vecdiff = end.sub(start)
-			const uia = start.addScaledVector(vecdiff, percent)
-
-			console.log("current estimated position of the UIA: ", uia)
-			if (uia.x && uia.y && uia.z) {
-				var uia_poi = {
-					'name': "Unidentified Interstellar Anomaly",
-					'infos': "This position is an <strong>estimate</strong> of the UIA's current position. It is assuming travel at constant speed along the red line.",
-					'url': "",
-					'coords': { x: uia.x, y: uia.y, z: uia.z },
-					'cat': ["100"]
-				}
-				//canonnEd3d_challenge.systemsData.systems.push(uia_poi)
-			}
-
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_challenge.systemsData,
@@ -566,7 +588,7 @@ var canonnEd3d_challenge = {
 				playerPos: [650.46875, -382.9375, -1777.0625],
 				cameraPos: [-100, 0, -1899],
 				systemColor: '#FF9D00',
-				finished: canonnEd3d_challenge.finishMap(uia)
+				finished: canonnEd3d_challenge.finishMap
 			});
 		});
 	},
