@@ -128,7 +128,7 @@ var canonnEd3d_challenge = {
 					'color': 'FFFF66'
 				},
 				"1007": {
-					'name': "Permit Locked Regions",
+					'name': "Permit Locked Center",
 					'color': 'FF9999'
 				}
 			},
@@ -139,42 +139,6 @@ var canonnEd3d_challenge = {
 				},
 				"301": {
 					'name': "Waypoint Area",
-					'color': 'FFFF66'
-				},
-				"302": {
-					'name': "Waypoint 1",
-					'color': 'FFFF66'
-				},
-				"303": {
-					'name': "Waypoint 2",
-					'color': 'FFFF66'
-				},
-				"304": {
-					'name': "Waypoint 3",
-					'color': 'FFFF66'
-				},
-				"305": {
-					'name': "Waypoint 4",
-					'color': 'FFFF66'
-				},
-				"306": {
-					'name': "Waypoint 5",
-					'color': 'FFFF66'
-				},
-				"307": {
-					'name': "Waypoint 6",
-					'color': 'FFFF66'
-				},
-				"308": {
-					'name': "Waypoint 7",
-					'color': 'FFFF66'
-				},
-				"309": {
-					'name': "Waypoint 8",
-					'color': 'FFFF66'
-				},
-				"3010": {//yep, 3010 after 309, formatHDs() depends on it
-					'name': "Waypoint 9",
 					'color': 'FFFF66'
 				},
 			}
@@ -292,15 +256,18 @@ var canonnEd3d_challenge = {
 			let hyperData = hypers.reports[d];
 		
 			var systemName = hyperData.start.system
+			if (hyperData.start.nearest.name != "UIA Route"
+			|| hyperData.destination.nearest.name != "UIA Route") continue
 
-			if (sites.reports.indexOf(hyperData.start.system) == -1
-			&& sites.reports.indexOf(hyperData.destination.system) == -1) { continue }
-
-			if (Object.keys(hds).includes(systemName)) continue;
+			if (Object.keys(hds).includes(systemName)) {
+				if (hyperData.hostile == "Y") hds[systemName].hostile = "Y"
+				continue;
+			}
 			hds[systemName] = hyperData
 		}
 		
 		//then iterate that list without duplicates
+		var maxWPI = 0;
 		for (let systemName in hds) {
 			var poi = hds[systemName].start;
 			var other = hds[systemName].destination;
@@ -318,14 +285,24 @@ var canonnEd3d_challenge = {
 			poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + poi.system + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + poi.system + '" target="_blank" rel="noopener">Signals</a>';
 
 			//Check Site Type and match categories
-			poiSite['cat'] = ["30"+(2+sites.reports.indexOf(other.system))];
+			var waypointIndex = sites.reports.indexOf(other.system)
+			if (waypointIndex>maxWPI) maxWPI = waypointIndex
+			poiSite['cat'] = ["30"+(2+waypointIndex)];
 
 			if (hds[systemName].hostile == "Y")
-			{ poiSite['cat'].push("300") }
-			
+			{
+				poiSite['cat'].push("300")
+			}
 			//console.log("adding poi with data:", poiSite, hds[systemName])
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_challenge.systemsData.systems.push(poiSite);
+		}
+
+		for (var i = 0; i <= maxWPI; i++) {
+			canonnEd3d_challenge.systemsData.categories["Hyperdictions"]["30"+(2+i)] = {
+				'name': "Waypoint "+(i+1),
+				'color': 'FFFF66'
+			}
 		}
 		resolvePromise();
 	},
@@ -372,7 +349,10 @@ var canonnEd3d_challenge = {
 				poiSite['cat'] = ["102"]
 				var at = data[i]["Arrival Time"]
 				if (at != "N/A" && at != "TBD" && at) {
-					poiSite['cat'] = ["101"]
+					poiSite['cat'] = ["1004"]
+					if (i == 1) {
+						poiSite['cat'].push("1003")
+					}
 					//compute route and more depending on waypoints
 					arrivalcoords = poiSite['coords']
 					var dateform = at; //expecting dd/mm/yyyy hh:mm:ss for gsheet reasons
@@ -430,9 +410,8 @@ var canonnEd3d_challenge = {
 				},
 				'cat': ["100"]
 			}
-			//decided against putting the UIA as a point in the map
 			//see finishMap() for the sprite
-			//canonnEd3d_challenge.systemsData.systems.push(uia_poi)
+			canonnEd3d_challenge.systemsData.systems.push(uia_poi)
 		}
 
 	},
@@ -483,7 +462,7 @@ var canonnEd3d_challenge = {
 				z: parseFloat(measystems[systemName].coords.z),
 			};
 			//console.log(measystems[systemName])
-			poiSite['cat'] = ["103"];
+			poiSite['cat'] = ["1005"];
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_challenge.systemsData.systems.push(poiSite);
 		}
