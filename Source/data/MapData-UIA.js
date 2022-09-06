@@ -257,8 +257,8 @@ var canonnEd3d_challenge = {
 		
 			var systemName = hyperData.start.system
 
-			if (sites.reports.indexOf(hyperData.start.system) == -1
-			&& sites.reports.indexOf(hyperData.destination.system) == -1) { continue }
+			if (hyperData.start.nearest.name != "UIA Route"
+			|| hyperData.destination.nearest.name != "UIA Route") continue
 
 			if (Object.keys(hds).includes(systemName)) {
 				if (hyperData.hostile == "Y") hds[systemName].hostile = "Y"
