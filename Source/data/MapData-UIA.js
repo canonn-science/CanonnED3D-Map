@@ -316,6 +316,7 @@ var canonnEd3d_challenge = {
 		var lastarrivaldate;
 		var lastcoords;
 		var lastname;
+		var last_i;
 		var route = {
 			cat: ["101"],
 			circle: false,
@@ -345,10 +346,11 @@ var canonnEd3d_challenge = {
 				//Check Site Type and match categories
 				poiSite['cat'] = ["102"]
 				var at = data[i]["Arrival Time"]
-				if (at != "N/A" && at != "TBD" && at != "" && at != undefined && at != null) {
+				if (at.indexOf("/") > 0 && at.indexOf(":") > 0) {
 					lastarrivaldate = arrivaldate
 					lastcoords = arrivalcoords
 					lastname = arrivalname
+					last_i = i
 					arrivalname = poiSite['name']
 
 					poiSite['cat'] = ["1004"]
@@ -372,9 +374,11 @@ var canonnEd3d_challenge = {
 					sites.reports.push(data[i]["System"])
 				}
 				else {
-					if (i == data.length-1){
-						endroute['points'].push({ 's': lastname, 'label': lastname })
+					if (i == last_i+1){
 						endroute['points'].push({ 's': arrivalname, 'label': arrivalname })
+					}
+					if (i > last_i+1 || i == data.length-1) {
+						endroute['points'].push({ 's': poiSite['name'], 'label': poiSite['name'] })
 					}
 				}
 				
