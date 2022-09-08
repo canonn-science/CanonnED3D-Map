@@ -1,4 +1,4 @@
-const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/query/thargoid/hyperdiction`;
+const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/query`;
 const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
 const API_LIMIT = 1000;
 
@@ -18,7 +18,8 @@ const edsmapi = axios.create({
 })
 
 let sites = {
-	reports: [],
+	"thargoid/hyperdiction/reports": [],
+	"uia/waypoints": [],
 };
 
 const go = async types => {
@@ -239,17 +240,19 @@ var canonnEd3d_challenge = {
 		]
 	},
 	formatHDs: async function (data, resolvePromise) {
-		hypers = await go(data)
-		if (hypers.reports == undefined || hypers.reports.length < 1) {
-			console.log("didnt get hyperdiction reports", hypers)
+		apidata = await go(data)
+		var reports = apidata["thargoid/hyperdiction/reports"]
+		var wps = apidata["uia/waypoints"]
+		if (reports == undefined || reports.length < 1) {
+			console.log("didnt get hyperdiction reports", apidata)
 			resolvePromise()
 			return;
 		}
-		//console.log("get hyperdiction reports", hypers)
+		this.formatWaypoints(wps) //will has to go here, code down the line depends on global sites.wps
 		//first create a unique list of systems involved in hyperdictions
 		var hds = {};
-		for (var d = 0; d < hypers.reports.length; d++) {
-			let hyperData = hypers.reports[d];
+		for (var d = 0; d < reports.length; d++) {
+			let hyperData = reports[d];
 		
 			var systemName = hyperData.start.system
 			if (hyperData.start.nearest.name != "UIA Route"
@@ -268,7 +271,7 @@ var canonnEd3d_challenge = {
 			var poi = hds[systemName].start;
 			var other = hds[systemName].destination;
 			//console.log("throwing hyper away", poi, hyperData)
-			//ignoring hypers that are not connected to our waypoints
+			//ignoring  that are not connected to our waypoints
 			if (poi == undefined) { continue }
 			var poiSite = {};
 			poiSite['name'] = poi.system;
@@ -281,11 +284,11 @@ var canonnEd3d_challenge = {
 			poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + poi.system + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + poi.system + '" target="_blank" rel="noopener">Signals</a>';
 
 			//Check Site Type and match categories
-			var waypointIndex = sites.reports.indexOf(other.system)
+			var waypointIndex = sites.wps.indexOf(other.system)
 			if (waypointIndex>maxWPI) maxWPI = waypointIndex
 			if (waypointIndex == -1)
 			{	//if the target wasnt the waypoint, see if the source was.
-				waypointIndex = sites.reports.indexOf(poi.system)
+				waypointIndex = sites.wps.indexOf(poi.system)
 			}
 			//if both are not a waypoint we get -1 and end up at 301 "Waypoint Area"
 			poiSite['cat'] = ["30"+(2+waypointIndex)];
@@ -309,6 +312,20 @@ var canonnEd3d_challenge = {
 	},
 	uia: {},
 	formatWaypoints: function (data) {
+		var dictata = [];
+		if (data.length <= 1) {
+			console.log("no data for waypoints", data)
+			return
+		}
+		var headers = data[0];
+		for (var i = 1; i < data.length; i++) {
+			var line = {}
+			for (var c = 0; c < headers.length; c++) {
+				line[headers[c]] = data[i][c]
+			}
+			dictata.push(line)
+		}
+		var data = dictata;
 		//WP#	System	X	Y	Z	Distance	Arrival Time	Avg Speed Ly/h	Estimate	Remarks
 		var arrivaldate;
 		var arrivalcoords;
@@ -371,7 +388,8 @@ var canonnEd3d_challenge = {
 					arrivaldate = [ado.year,ado.month,ado.day].join("-")+"T"+[ado.hour,ado.minute,ado.second].join(":")+"Z"
 					arrivaldate = new Date(arrivaldate).getTime()
 					route['points'].push({ 's': data[i]["System"], 'label': data[i]["System"] })
-					sites.reports.push(data[i]["System"])
+					if (!sites.wps) sites.wps = [];
+					sites.wps.push(data[i]["System"])
 				}
 				else {
 					if (i == last_i+1){
@@ -551,9 +569,9 @@ var canonnEd3d_challenge = {
 		document.getElementById("loading").style.display = "none";
 	},
 	init: function () {
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Waypoints.csv', canonnEd3d_challenge.formatWaypoints, resolve);
-		});
+		//var p1 = new Promise(function (resolve, reject) {
+		//	canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Waypoints.csv', canonnEd3d_challenge.formatWaypoints, resolve);
+		//});
 		var p2 = new Promise(function (resolve, reject) {
 			canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Responses.csv', canonnEd3d_challenge.formatMeasurements, resolve);
 		});
