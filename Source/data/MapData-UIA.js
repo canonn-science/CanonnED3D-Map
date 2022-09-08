@@ -572,9 +572,9 @@ var canonnEd3d_challenge = {
 		//var p1 = new Promise(function (resolve, reject) {
 		//	canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Waypoints.csv', canonnEd3d_challenge.formatWaypoints, resolve);
 		//});
-		//var p2 = new Promise(function (resolve, reject) {
-		//	canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Responses.csv', canonnEd3d_challenge.formatMeasurements, resolve);
-		//});
+		var p2 = new Promise(function (resolve, reject) {
+			canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Responses.csv', canonnEd3d_challenge.formatMeasurements, resolve);
+		});
 		var p3 = new Promise(function (resolve, reject) {
 			canonnEd3d_challenge.formatHDs(sites, resolve);
 		});
