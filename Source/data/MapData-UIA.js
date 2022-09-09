@@ -227,6 +227,17 @@ var canonnEd3d_challenge = {
 				'coords': { x: 680.665, y: -375.239, z: -1822.421 },
 				'cat': ["1004"]
 			},*/
+			//temporary waypoint and measure data for second UIA
+			{
+				name: "Slegi GS-X b45-0",
+				coords: { x: -2016.65625 ,y:  -654.6875 ,z:  -2637.65625   },
+				cat: ["102"]
+			},
+			{
+				name: "Slegi JD-W b46-0",
+				coords: { x: -2000.40625 ,y: -640.75,z: -2624.5625 },
+				cat: ["102"]
+			},
 		],
 		"routes": [
 			//guesstimated direction of travel
@@ -235,6 +246,12 @@ var canonnEd3d_challenge = {
 				cat: ["102"], 'points': [
 					{ 's': 'NGC 2264 Sector RE-Y c14-0', 'label': 'NGC 2264 Sector RE-Y c14-0' },
 					{ 's': 'Oochorrs UF-J c11-0', 'label': 'Oochorrs UF-J c11-0' },
+				], 'circle': false
+			},
+			{
+				cat: ["102"], 'points': [
+					{ 's': 'Slegi GS-X b45-0', 'label': 'Slegi GS-X b45-0' },
+					{ 's': 'Slegi JD-W b46-0', 'label': 'Slegi JD-W b46-0' },
 				], 'circle': false
 			},
 		]
