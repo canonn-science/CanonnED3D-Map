@@ -20,6 +20,7 @@ const edsmapi = axios.create({
 let sites = {
 	"thargoid/hyperdiction/reports": [],
 	"uia/waypoints": [],
+	"uia/waypoints/2": [],
 };
 
 const go = async types => {
@@ -239,7 +240,7 @@ var canonnEd3d_challenge = {
 				cat: ["102"]
 			},
 		],
-		"routes": [
+		routes: [
 			//guesstimated direction of travel
 			{
 				//assumed direction of origin
@@ -259,13 +260,18 @@ var canonnEd3d_challenge = {
 	formatHDs: async function (data, resolvePromise) {
 		apidata = await go(data)
 		var reports = apidata["thargoid/hyperdiction/reports"]
-		var wps = apidata["uia/waypoints"]
+		var wps = []
+		wps.push(apidata["uia/waypoints"])
+		wps.push(apidata["uia/waypoints/2"])
 		if (reports == undefined || reports.length < 1) {
 			console.log("didnt get hyperdiction reports", apidata)
 			resolvePromise()
 			return;
 		}
-		this.formatWaypoints(wps) //will has to go here, code down the line depends on global sites.wps
+		//this will have to go here, bc code down the line depends on global sites.wps
+		for (var i = 0; i < wps.length; i++) {
+			this.formatWaypoints(wps[i]) 
+		}
 		//first create a unique list of systems involved in hyperdictions
 		var hds = {};
 		for (var d = 0; d < reports.length; d++) {
@@ -327,7 +333,7 @@ var canonnEd3d_challenge = {
 		}
 		resolvePromise();
 	},
-	uia: {},
+	uia: [],
 	formatWaypoints: function (data) {
 		var dictata = [];
 		if (data.length <= 1) {
@@ -435,27 +441,24 @@ var canonnEd3d_challenge = {
 		const nowdiff = nowtime-starttime
 		const percent = nowdiff/timediff
 		const vecdiff = end.sub(start)
-		canonnEd3d_challenge.uia = start.addScaledVector(vecdiff, percent)
+		canonnEd3d_challenge.uia.push(start.addScaledVector(vecdiff, percent))
 
 		console.log("current estimated position of the UIA: ", canonnEd3d_challenge.uia)
-		if (canonnEd3d_challenge.uia.x
-		&& canonnEd3d_challenge.uia.y
-		&& canonnEd3d_challenge.uia.z) {
+		for (var i = 0; i < canonnEd3d_challenge.uia.length; i++) {
 			var uia_poi = {
 				'name': "Unidentified Interstellar Anomaly",
-				'infos': "This position is an <strong>estimate</strong> of the UIA's current position. It is assuming travel at constant speed along the red line.",
+				'infos': "This position is an <strong>estimate</strong> of this UIA's current position. It is assuming travel at constant speed along the red line.",
 				'url': "",
 				'coords': {
-					x: canonnEd3d_challenge.uia.x,
-					y: canonnEd3d_challenge.uia.y,
-					z: canonnEd3d_challenge.uia.z
+					x: canonnEd3d_challenge.uia[i].x,
+					y: canonnEd3d_challenge.uia[i].y,
+					z: canonnEd3d_challenge.uia[i].z
 				},
 				'cat': ["100"]
 			}
 			//see finishMap() for the sprite
 			canonnEd3d_challenge.systemsData.systems.push(uia_poi)
 		}
-
 	},
 	formatMeasurements: async function (data, resolvePromise) {
 		//console.log(data);
@@ -530,13 +533,13 @@ var canonnEd3d_challenge = {
 		scene.add(sphere);
 	},
 	finishMap: function() {
-		if (canonnEd3d_challenge.uia != undefined) {
+		for (var i = 0; i < canonnEd3d_challenge.uia.length; i++) {
 			var sprite = new THREE.Sprite(Ed3d.material.spiral);
 			//console.log("trying stargoid sprite: ", v3_uia)
 			sprite.position.set(
-				canonnEd3d_challenge.uia.x,
-				canonnEd3d_challenge.uia.y,
-				-canonnEd3d_challenge.uia.z //for some reason z is inverted
+				canonnEd3d_challenge.uia[i].x,
+				canonnEd3d_challenge.uia[i].y,
+				-canonnEd3d_challenge.uia[i].z //for some reason z is inverted
 			);
 			sprite.scale.set(50, 50, 1);
 			scene.add(sprite); // this centers the glow at the mesh
