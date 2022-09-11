@@ -87,14 +87,42 @@ var canonnEd3d_challenge = {
 					'name': 'Recorded Route',
 					'color': '66FF66',
 				},
+				"1004": {
+					'name':"UIA Route Point",
+					'color': 'CCCC66'
+				},
 				'102': {
 					'name': 'Estimated Route',
-					'color': 'FF6666',
+					'color': '336600',
 				},
+				"1003": {
+					'name':"First Visuals",
+					'color': '66FF66'
+				},
+			},
+			"Measurements": {
 				'103': {
 					'name': 'Measurement Lines',
 					'color': '666666',
-				}
+				},
+				"1005": {
+					'name':"Measurement Endpoint",
+					'color': '999999'
+				},
+			},
+			"Hyperdictions": {
+				"299": {
+					name: "All Hyperdictions",
+					color: "999900"
+				},
+				"300": {
+					'name': "Hostile",
+					'color': 'FF0000'
+				},
+				"301": {
+					'name': "Waypoint Area",
+					'color': 'FFFF66'
+				},
 			},
 			"Points of Interest": {
 				"1000": {
@@ -109,18 +137,6 @@ var canonnEd3d_challenge = {
 					'name': "HIP 22460",
 					'color': '66FF66'
 				},
-				"1003": {
-					'name':"First Visuals",
-					'color': '66FF66'
-				},
-				"1004": {
-					'name':"UIA Route Point",
-					'color': 'CCCC66'
-				},
-				"1005": {
-					'name':"Measurement Endpoint",
-					'color': '999999'
-				},
 				"1006": {
 					'name':"Witch Head Nebula",
 					'color': 'FFFF66'
@@ -130,16 +146,6 @@ var canonnEd3d_challenge = {
 					'color': 'FF9999'
 				}
 			},
-			"Hyperdictions": {
-				"300": {
-					'name': "Hostile",
-					'color': 'FF66FF'
-				},
-				"301": {
-					'name': "Waypoint Area",
-					'color': 'FFFF66'
-				},
-			}
 		},
 		systems: [
 			{
@@ -205,56 +211,9 @@ var canonnEd3d_challenge = {
 				coords: { x: 1731.03125, y: -400.21094, z: -1396.76758 },
 				name: "M41 Sector",
 				'cat': ["1007"]
-			},/*
-			//measurement crossings
-			{
-				'name': "First Measurement",
-				'infos': 'calculated by Seventh_Circle',
-				'url': "",
-				'coords': { x: 690.495, y: -377.143, z: -1862.790 },
-				'cat': ["1004"]
-			},
-			{
-				'name': "Second Measurement",
-				'infos': 'calculated by Seventh_Circle',
-				'url': "",
-				'coords': { x: 688.305, y: -375.546, z: -1851.103 },
-				'cat': ["1004"]
-			},
-			{
-				'name': "Third Measurement",
-				'infos': 'calculated by Seventh_Circle',
-				'url': "",
-				'coords': { x: 680.665, y: -375.239, z: -1822.421 },
-				'cat': ["1004"]
-			},*/
-			//temporary waypoint and measure data for second UIA
-			{
-				name: "Slegi GS-X b45-0",
-				coords: { x: -2016.65625 ,y:  -654.6875 ,z:  -2637.65625   },
-				cat: ["102"]
-			},
-			{
-				name: "Slegi JD-W b46-0",
-				coords: { x: -2000.40625 ,y: -640.75,z: -2624.5625 },
-				cat: ["102"]
 			},
 		],
 		routes: [
-			//guesstimated direction of travel
-			{
-				//assumed direction of origin
-				cat: ["102"], 'points': [
-					{ 's': 'NGC 2264 Sector RE-Y c14-0', 'label': 'NGC 2264 Sector RE-Y c14-0' },
-					{ 's': 'Oochorrs UF-J c11-0', 'label': 'Oochorrs UF-J c11-0' },
-				], 'circle': false
-			},
-			{
-				cat: ["102"], 'points': [
-					{ 's': 'Slegi GS-X b45-0', 'label': 'Slegi GS-X b45-0' },
-					{ 's': 'Slegi JD-W b46-0', 'label': 'Slegi JD-W b46-0' },
-				], 'circle': false
-			},
 		]
 	},
 	formatHDs: async function (data, resolvePromise) {
@@ -269,8 +228,9 @@ var canonnEd3d_challenge = {
 			return;
 		}
 		//this will have to go here, bc code down the line depends on global sites.wps
+		sites['wps'] = []
 		for (var i = 0; i < wps.length; i++) {
-			this.formatWaypoints(wps[i]) 
+			sites.wps.push(this.formatWaypoints(wps[i]))
 		}
 		//first create a unique list of systems involved in hyperdictions
 		var hds = {};
@@ -278,8 +238,13 @@ var canonnEd3d_challenge = {
 			let hyperData = reports[d];
 		
 			var systemName = hyperData.start.system
-			if (hyperData.start.nearest.name != "UIA Route"
-			|| hyperData.destination.nearest.name != "UIA Route") continue
+			if ((hyperData.start.nearest.name != "UIA Route"
+			|| hyperData.destination.nearest.name != "UIA Route")
+			&& (hyperData.start.nearest.name != "UIA Route 2"
+			|| hyperData.destination.nearest.name != "UIA Route 2")) {
+				//console.log("nearest names:", hyperData.start.nearest, hyperData.destination.nearest)
+				continue
+			}
 
 			if (Object.keys(hds).includes(systemName)) {
 				if (hyperData.hostile == "Y") hds[systemName].hostile = "Y"
@@ -305,17 +270,22 @@ var canonnEd3d_challenge = {
 			}
 				
 			poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + poi.system + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + poi.system + '" target="_blank" rel="noopener">Signals</a>';
-
+			var waypointIndex=-1;
 			//Check Site Type and match categories
-			var waypointIndex = sites.wps.indexOf(other.system)
-			if (waypointIndex>maxWPI) maxWPI = waypointIndex
-			if (waypointIndex == -1)
-			{	//if the target wasnt the waypoint, see if the source was.
-				waypointIndex = sites.wps.indexOf(poi.system)
+			for (var i = 0; i < sites.wps.length; i++) {
+				waypointIndex = sites.wps[i].indexOf(other.system)
+				if (waypointIndex>maxWPI) maxWPI = waypointIndex
+				if (waypointIndex == -1)
+				{	//if the target wasnt the waypoint, see if the source was.
+					waypointIndex = sites.wps[i].indexOf(poi.system)
+				} else {
+					break
+				}
 			}
+			console.log("waypointIndex:", waypointIndex)
 			//if both are not a waypoint we get -1 and end up at 301 "Waypoint Area"
 			poiSite['cat'] = ["30"+(2+waypointIndex)];
-
+			poiSite['cat'].push("299")
 			if (hds[systemName].hostile == "Y")
 			{
 				poiSite['cat'].push("300")
@@ -323,15 +293,27 @@ var canonnEd3d_challenge = {
 			//console.log("adding poi with data:", poiSite, hds[systemName])
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_challenge.systemsData.systems.push(poiSite);
+			this.addRoute(poiSite.cat, [poiSite.name, other.system])
 		}
-
+		console.log("global waypoints list:", sites.wps)
 		for (var i = 0; i <= maxWPI; i++) {
 			canonnEd3d_challenge.systemsData.categories["Hyperdictions"]["30"+(2+i)] = {
 				'name': "Waypoint "+(i+1),
-				'color': 'FFFF66'
+				'color': '999900'
 			}
 		}
 		resolvePromise();
+	},
+	addRoute: (cat, systems, circle=false) => {
+		var route = {
+			cat: cat,
+			circle: circle,
+			points: []
+		}
+		for (var i = 0; i < systems.length; i++) {
+			route['points'].push({ 's': systems[i], 'label': systems[i] })
+		}
+		canonnEd3d_challenge.systemsData.routes.push(route);
 	},
 	uia: [],
 	formatWaypoints: function (data) {
@@ -357,6 +339,7 @@ var canonnEd3d_challenge = {
 		var lastcoords;
 		var lastname;
 		var last_i;
+		var wps;
 		var route = {
 			cat: ["101"],
 			circle: false,
@@ -376,7 +359,7 @@ var canonnEd3d_challenge = {
 
 				poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i]["System"] + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i]["System"] + '" target="_blank" rel="noopener">Signals</a>';
 				
-				poiSite['url'] = "https://canonn-science.github.io/canonn-signals/?system=" + poiSite['name']
+				//poiSite['url'] = "https://canonn-science.github.io/canonn-signals/?system=" + poiSite['name']
 				poiSite['coords'] = {
 					x: parseFloat(data[i]["X"]),
 					y: parseFloat(data[i]["Y"]),
@@ -411,8 +394,8 @@ var canonnEd3d_challenge = {
 					arrivaldate = [ado.year,ado.month,ado.day].join("-")+"T"+[ado.hour,ado.minute,ado.second].join(":")+"Z"
 					arrivaldate = new Date(arrivaldate).getTime()
 					route['points'].push({ 's': data[i]["System"], 'label': data[i]["System"] })
-					if (!sites.wps) sites.wps = [];
-					sites.wps.push(data[i]["System"])
+					if (!wps) wps = [];
+					wps.push(data[i]["System"])
 				}
 				else {
 					if (i == last_i+1){
@@ -459,6 +442,7 @@ var canonnEd3d_challenge = {
 			//see finishMap() for the sprite
 			canonnEd3d_challenge.systemsData.systems.push(uia_poi)
 		}
+		return wps
 	},
 	formatMeasurements: async function (data, resolvePromise) {
 		//console.log(data);
@@ -500,7 +484,7 @@ var canonnEd3d_challenge = {
 			var poiSite = {};
 			poiSite['name'] = measystems[systemName].name;			
 			poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + poiSite['name'] + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + poiSite['name'] + '" target="_blank" rel="noopener">Signals</a>';
-			poiSite['url'] = "https://canonn-science.github.io/canonn-signals/?system=" + poiSite['name']
+			//poiSite['url'] = "https://canonn-science.github.io/canonn-signals/?system=" + poiSite['name']
 			poiSite['coords'] = {
 				x: parseFloat(measystems[systemName].coords.x),
 				y: parseFloat(measystems[systemName].coords.y),
@@ -609,8 +593,8 @@ var canonnEd3d_challenge = {
 				effectScaleSystem: [20, 500],
 				startAnim: false,
 				showGalaxyInfos: false,
-				playerPos: [650.46875, -382.9375, -1777.0625],
-				cameraPos: [-100, 0, -1899],
+				playerPos: [-776, -83, 	 -2388],
+				cameraPos: [-776, -83+1000, -2388-1500],
 				systemColor: '#FF9D00',
 				finished: canonnEd3d_challenge.finishMap
 			});
