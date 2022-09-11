@@ -120,7 +120,7 @@ var canonnEd3d_challenge = {
 					'color': 'FF0000'
 				},
 				"301": {
-					'name': "Waypoint Area",
+					'name': "Waypoint Area Only",
 					'color': 'FFFF66'
 				},
 			},
@@ -279,11 +279,12 @@ var canonnEd3d_challenge = {
 				if (waypointIndex == -1)
 				{	//if the target wasnt the waypoint, see if the source was.
 					waypointIndex = sites.wps[i].indexOf(poi.system)
+					if (waypointIndex > -1) break
 				} else {
 					break
 				}
 			}
-			console.log("waypointIndex:", waypointIndex)
+			//console.log("waypointIndex:", waypointIndex)
 			//if both are not a waypoint we get -1 and end up at 301 "Waypoint Area"
 			poiSite['cat'] = ["30"+(2+waypointIndex)];
 			poiSite['cat'].push("299")
@@ -296,7 +297,7 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.systemsData.systems.push(poiSite);
 			this.addRoute(poiSite.cat, [poiSite.name, other.system])
 		}
-		console.log("global waypoints list:", sites.wps)
+		//console.log("global waypoints list:", sites.wps)
 		for (var i = 0; i <= maxWPI; i++) {
 			canonnEd3d_challenge.systemsData.categories["Hyperdictions"]["30"+(2+i)] = {
 				'name': "Waypoint "+(i+1),
