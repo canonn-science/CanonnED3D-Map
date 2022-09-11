@@ -1,6 +1,6 @@
 const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/query`;
 const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
-const API_LIMIT = 1000;
+const API_LIMIT = 1500;
 
 const capi = axios.create({
 	baseURL: API_ENDPOINT,
@@ -238,6 +238,7 @@ var canonnEd3d_challenge = {
 			let hyperData = reports[d];
 		
 			var systemName = hyperData.start.system
+			var destinationName = hyperData.destination.system
 			if ((hyperData.start.nearest.name != "UIA Route"
 			|| hyperData.destination.nearest.name != "UIA Route")
 			&& (hyperData.start.nearest.name != "UIA Route 2"
@@ -246,11 +247,11 @@ var canonnEd3d_challenge = {
 				continue
 			}
 
-			if (Object.keys(hds).includes(systemName)) {
-				if (hyperData.hostile == "Y") hds[systemName].hostile = "Y"
+			if (Object.keys(hds).includes(systemName+":::"+destinationName)) {
+				if (hyperData.hostile == "Y") hds[systemName+":::"+destinationName].hostile = "Y"
 				continue;
 			}
-			hds[systemName] = hyperData
+			hds[systemName+":::"+destinationName] = hyperData
 		}
 		
 		//then iterate that list without duplicates
