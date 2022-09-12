@@ -212,8 +212,29 @@ var canonnEd3d_challenge = {
 				name: "M41 Sector",
 				'cat': ["1007"]
 			},
+			//UIA3 manual input until sheet api
+			//Oochost OI-W c4-1	-447.78125	-207.90625	-2110.34375
+			//Oochost WU-S C6-0	-436.4375	-186.6875	-2038.1875
+			{
+				'name': "Oochost OI-W c4-1",
+				'coords': { x: -447.78125, y: -207.90625, z: -2110.34375 },
+				'cat': ["102"]
+			},
+			{
+				'name': "Oochost WU-S C6-0",
+				'coords': { x: -436.4375, y: -186.6875, z: -2038.1875 },
+				'cat': ["102"]
+			},
 		],
 		routes: [
+			{
+				cat: ["102"],
+				circle: false,
+				points: [
+					{ 's': "Oochost OI-W c4-1", 'label': "Oochost OI-W c4-1" },
+					{ 's': "Oochost WU-S C6-0", 'label': "Oochost WU-S C6-0" }
+				]
+			},
 		]
 	},
 	formatHDs: async function (data, resolvePromise) {
