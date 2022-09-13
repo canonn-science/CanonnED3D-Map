@@ -156,11 +156,15 @@ var Ed3d = {
     if(typeof isMinified !== 'undefined') return Ed3d.launchMap();
 
     $.when(
-
         $.getScript(Ed3d.basePath + "vendor/three-js/OrbitControls.js"),
         $.getScript(Ed3d.basePath + "vendor/three-js/CSS3DRenderer.js"),
         $.getScript(Ed3d.basePath + "vendor/three-js/Projector.js"),
         $.getScript(Ed3d.basePath + "vendor/three-js/FontUtils.js"),
+        $.Deferred(function( deferred ){
+            $( deferred.resolve );
+        })
+    ).done(function(){
+      $.when(
         $.getScript(Ed3d.basePath + "vendor/three-js/helvetiker_regular.typeface.js"),
 
         $.getScript(Ed3d.basePath + "js/components/grid.class.js"),
@@ -177,14 +181,14 @@ var Ed3d = {
         $.Deferred(function( deferred ){
             $( deferred.resolve );
         })
-
-    ).done(function() {
-
-      Loader.update('Done !');
-      Ed3d.launchMap();
-      if(typeof options.finished === "function") options.finished();
-    });
-
+      ).done(function() {
+        Loader.update('Done !');
+        Ed3d.launchMap();
+        if(typeof options.finished === "function") options.finished();
+      }).fail(function(jqXHR, textStatus, errorThrown){
+        console.log(errorThrown)
+      });
+    })
   },
 
   /**
