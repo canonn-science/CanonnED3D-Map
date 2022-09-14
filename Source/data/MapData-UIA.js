@@ -358,7 +358,6 @@ var canonnEd3d_challenge = {
 			dictata.push(line)
 		}
 		var data = dictata;
-		//WP#	System	X	Y	Z	Distance	Arrival Time	Avg Speed Ly/h	Estimate	Remarks
 		var arrivaldate;
 		var arrivalcoords;
 		var arrivalname;
@@ -400,7 +399,7 @@ var canonnEd3d_challenge = {
 
 				//Check Site Type and match categories
 				poiSite['cat'] = ["102"]
-				var at = data[i]["Arrival Time"]
+				var at = data[i]["Traversal Time"]
 				if (at.indexOf("/") > 0 && at.indexOf(":") > 0) {
 					lastarrivaldate = arrivaldate
 					lastcoords = arrivalcoords
