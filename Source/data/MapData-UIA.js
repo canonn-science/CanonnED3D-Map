@@ -239,7 +239,9 @@ var canonnEd3d_challenge = {
 		]
 	},
 	formatHDs: async function (data, resolvePromise) {
+		console.log("start sheet api query")
 		apidata = await go(data)
+		console.log("end sheet api query")
 		var reports = apidata["thargoid/hyperdiction/reports"]
 		var wps = []
 		wps.push(apidata["uia/waypoints"])
@@ -437,6 +439,25 @@ var canonnEd3d_challenge = {
 					}
 					if (i > last_i+1 || i == data.length-1) {
 						endroute['points'].push({ 's': poiSite['name'], 'label': poiSite['name'] })
+						//put the midpoint as arrival data for the UIA only to make it work without traversal ETA
+						var mp = data[i]["Midpoint Time"]
+						if (mp.indexOf("/") > 0 && mp.indexOf(":") > 0) {
+							lastarrivaldate = arrivaldate
+							lastcoords = arrivalcoords
+							var dateform = mp; //expecting dd/mm/yyyy hh:mm:ss for gsheet reasons
+							var ado = {
+								day: dateform.split(" ")[0].split("/")[0],
+								month: dateform.split(" ")[0].split("/")[1],
+								year: dateform.split(" ")[0].split("/")[2],
+								hour: dateform.split(" ")[1].split(":")[0],
+								minute: dateform.split(" ")[1].split(":")[1],
+								second: dateform.split(" ")[1].split(":")[2],
+							}
+							arrivaldate = [ado.year,ado.month,ado.day].join("-")+"T"+[ado.hour,ado.minute,ado.second].join(":")+"Z"
+							arrivaldate = new Date(arrivaldate).getTime()
+							arrivalcoords = poiSite['coords']
+						}
+						//console.log(i, last_i, mp, arrivalcoords, new Date(arrivaldate))
 					}
 					if (!lastname) {
 						startroute['points'].push({ 's': data[i]["System"], 'label': data[i]["System"] })
@@ -446,7 +467,6 @@ var canonnEd3d_challenge = {
 				// We can then push the site to the object that stores all systems
 				canonnEd3d_challenge.systemsData.systems.push(poiSite);
 
-				
 			}
 		}
 		canonnEd3d_challenge.systemsData.routes.push(startroute);
@@ -454,6 +474,7 @@ var canonnEd3d_challenge = {
 		canonnEd3d_challenge.systemsData.routes.push(endroute);
 		//calculating UIA current estimated position
 		if (lastcoords && lastarrivaldate) {
+			//console.log(lastcoords, lastarrivaldate, arrivalcoords, arrivaldate)
 			const start = new THREE.Vector3(lastcoords.x, lastcoords.y, lastcoords.z)
 			const end = new THREE.Vector3(arrivalcoords.x, arrivalcoords.y, arrivalcoords.z)
 			const starttime = new Date(lastarrivaldate).getTime()
@@ -464,11 +485,12 @@ var canonnEd3d_challenge = {
 			const percent = nowdiff/timediff
 			const vecdiff = end.sub(start)
 			canonnEd3d_challenge.uia.push(start.addScaledVector(vecdiff, percent))
+			//console.log("% of the way:", percent, new Date(lastarrivaldate).toString(), new Date(arrivaldate).toString())
 			var lastuia = canonnEd3d_challenge.uia.length-1
-			console.log("current estimated position of the UIA: ", canonnEd3d_challenge.uia[lastuia])
+			console.log("current estimated position of the UIA"+(lastuia+1)+": ", percent, canonnEd3d_challenge.uia[lastuia])
 			var uia_poi = {
 				'name': "Unidentified Interstellar Anomaly",
-				'infos': "This position is an <strong>estimate</strong> of this UIA's current position. It is assuming travel at constant speed along the red line.",
+				'infos': "This is an <strong>estimate</strong> of this UIA's current position.",
 				'url': "",
 				'coords': {
 					x: canonnEd3d_challenge.uia[lastuia].x,
