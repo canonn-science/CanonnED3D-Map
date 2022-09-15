@@ -566,10 +566,10 @@ var canonnEd3d_challenge = {
 			},
 		});
 	},
-	createSphere: function(data) {
+	createSphere: function(data, color) {
 		//console.log("making sphere: ", data)
 		var geometry = new THREE.SphereGeometry(data.radius, 40, 20);
-		var sphere = new THREE.Mesh(geometry, Ed3d.material.permit_zone);
+		var sphere = new THREE.Mesh(geometry, color);
 		//idk why but the z coordinate is twisted for this
 		sphere.position.set(data.coords[0], data.coords[1], -data.coords[2]);
 		sphere.name = data.name;
@@ -623,12 +623,134 @@ var canonnEd3d_challenge = {
 			radius: 350.0,
 			coords: [1731.03125, -400.21094, -1396.76758],
 			name: "M41 Sector"
+			},
+			{
+			radius: 459.0,
+			coords: [1246.80469, -278.00000, -860.11328],
+			name: "Col 121 Sector"
+			},
+			{
+			radius: 100.0,
+			coords: [1099.23828, -146.67188, -133.58008],
+			name: "Regor Sector"
 			}
 		]
-		
 		for (var i = 0; i < pls.length; i++) {
-			canonnEd3d_challenge.createSphere(pls[i])
+			canonnEd3d_challenge.createSphere(pls[i], Ed3d.material.permit_zone)
 		}
+
+		//permit UNlocked sectors
+		var puls = [
+			{
+				radius: 100.0,
+				coords: [726.50391,-365.36328,-1377.93555],
+				name: "Barnard's Loop Sector"
+			},
+			{
+				radius: 426.0,
+				coords: [1355.99609,-235.59766,-690.91602],
+				name: "Col 132 Sector"
+			},
+			{
+				radius: 150.0,
+				coords: [942.32812,-198.29688,-365.50586],
+				name: "Col 135 Sector"
+			},
+			{
+				radius: 162.0,
+				coords: [1186.89453,-181.42578,-548.42188],
+				name: "Col 140 Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [428.26172,-280.66797,-858.96289],
+				name: "Flame Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [411.68359,-272.99219,-811.47461],
+				name: "Horsehead Sector"
+			},
+			{
+				radius: 117.0,
+				coords: [1241.61328,86.52734,-1005.43945],
+				name: "M47 Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [665.03125,-395.19922,-1400.55469],
+				name: "Messier 78 Sector"
+			},
+			{
+				radius: 83.0,
+				coords: [178.12891,-512.99609,-1317.47070],
+				name: "NGC 1662 Sector"
+			},
+			{
+				radius: 106.0,
+				coords: [578.95703,-423.23828,-1084.28711],
+				name: "NGC 1981 Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [549.36719,-374.51172,-926.56445],
+				name: "NGC 1999 Sector"
+			},
+			{
+				radius: 154.0,
+				coords: [655.20312,-154.73828,-956.90234],
+				name: "NGC 2232 Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [596.77344,-311.86719,-1340.37305],
+				name: "Orion Dark Region"
+			},
+			{
+				radius: 100.0,
+				coords: [616.52344,-446.42578,-1107.67383],
+				name: "Orion Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [586.15625,-425.38281,-1079.56836],
+				name: "Running Man Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [577.89844,-452.66406,-819.22266],
+				name: "Spirograph Sector"
+			},
+			{
+				radius: 182.0,
+				coords: [594.46875,-431.80859,-1072.44922],
+				name: "Trapezium Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [991.18750,-121.87109,-51.94531],
+				name: "Vela Dark Region"
+			},
+			{
+				radius: 300.0,
+				coords: [366.92969,-299.39453,-1359.90039],
+				name: "Col 69 Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [369.41406,-401.57812,-715.72852],
+				name: "Witch Head Sector"
+			}
+		]
+		var blackmaterial = new THREE.MeshBasicMaterial({
+			color: 0x030303,
+			transparent: true,
+			opacity: 0.3
+		})
+		for (var i = 0; i < puls.length; i++) {
+			canonnEd3d_challenge.createSphere(puls[i], blackmaterial)
+		}
+		
 	
 		document.getElementById("loading").style.display = "none";
 	},
