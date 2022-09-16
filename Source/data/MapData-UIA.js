@@ -79,6 +79,20 @@ var canonnEd3d_challenge = {
 	//Define Categories
 	systemsData: {
 		categories: {
+			"Points of Interest": {
+				"1000": {
+					'name': "Populated Systems",
+					'color': 'FF9D00'
+				},
+				"1002": {
+					'name': "HIP 22460",
+					'color': '66FF66'
+				},
+				"1007": {
+					'name': "Permit Locked Centers",
+					'color': 'FF3333'
+				}
+			},
 			'Unidentified Interstellar Anomaly': {
 				'100': {
 					'name': 'Estimated Position',
@@ -88,10 +102,6 @@ var canonnEd3d_challenge = {
 					'name': 'Recorded Route',
 					'color': '66FF66',
 				},
-				"1004": {
-					'name':"UIA Route Point",
-					'color': 'CCCC66'
-				},
 				'102': {
 					'name': 'Estimated Route',
 					'color': '336600',
@@ -100,7 +110,7 @@ var canonnEd3d_challenge = {
 					'name':"First Visuals",
 					'color': '66FF66'
 				},
-			},
+			},/*
 			"Measurements": {
 				'103': {
 					'name': 'Measurement Lines',
@@ -110,7 +120,7 @@ var canonnEd3d_challenge = {
 					'name':"Measurement Endpoint",
 					'color': '999999'
 				},
-			},
+			},*/
 			"Hyperdictions": {
 				"299": {
 					name: "All Hyperdictions",
@@ -118,34 +128,12 @@ var canonnEd3d_challenge = {
 				},
 				"300": {
 					'name': "Hostile",
-					'color': 'FF0000'
+					'color': 'FFFF66'
 				},
 				"301": {
 					'name': "Waypoint Area Only",
 					'color': 'FFFF66'
 				},
-			},
-			"Points of Interest": {
-				"1000": {
-					'name': "Sol",
-					'color': 'FFFF66'
-				},
-				"1001": {
-					'name': "PMD2009 48",
-					'color': 'FFFF66'
-				},
-				"1002": {
-					'name': "HIP 22460",
-					'color': '66FF66'
-				},
-				"1006": {
-					'name':"Witch Head Nebula",
-					'color': 'FFFF66'
-				},
-				"1007": {
-					'name': "Permit Locked Center",
-					'color': 'FF9999'
-				}
 			},
 		},
 		systems: [
@@ -161,7 +149,7 @@ var canonnEd3d_challenge = {
 				'infos': 'Tourist Asteroid base',
 				'url': "",
 				'coords': { x: 594.90625, y:  -431.4375 , z: -1071.78125 }, 
-				'cat': ["1001"]
+				'cat': ["1000"]
 			},
 			{
 				'name': "HIP 22460",
@@ -175,7 +163,28 @@ var canonnEd3d_challenge = {
 				'infos': 'Witch Head Science Centre / HIP 23759 Geysers / Witch Head Nebula / Barnacle Sites - Witch Head Nebula',
 				'url': "",
 				'coords': { x: 359.84375, y: -385.53125, z: -718.375 },
-				'cat': ["1006"]
+				'cat': ["1000"]
+			},
+			{
+				'name': "42 n Persei",
+				'infos': '',
+				'url': "",
+				'coords': { x: -83.5625, y: -73.40625, z: -244.34375 },
+				'cat': ["1000"]
+			},
+			{
+				'name': "Chun Pindit",
+				'infos': '',
+				'url': "",
+				'coords': { x: -11.5625, y: -15.40625, z: -181.09375 },
+				'cat': ["1000"]
+			},
+			{
+				'name': "Tekkeitjal",
+				'infos': '',
+				'url': "",
+				'coords': { x: 76.5625, y: 9.34375, z: -183.4375 },
+				'cat': ["1000"]
 			},
 			// permit locked center points
 			{
@@ -409,7 +418,7 @@ var canonnEd3d_challenge = {
 					last_i = i
 					arrivalname = poiSite['name']
 
-					poiSite['cat'] = ["1004"]
+					poiSite['cat'] = ["101"]
 					if (i == 1) {
 						poiSite['cat'].push("1003")
 					}
@@ -456,8 +465,8 @@ var canonnEd3d_challenge = {
 							arrivaldate = [ado.year,ado.month,ado.day].join("-")+"T"+[ado.hour,ado.minute,ado.second].join(":")+"Z"
 							arrivaldate = new Date(arrivaldate).getTime()
 							arrivalcoords = poiSite['coords']
+							//console.log(i, last_i, mp, arrivalcoords, new Date(arrivaldate))
 						}
-						//console.log(i, last_i, mp, arrivalcoords, new Date(arrivaldate))
 					}
 					if (!lastname) {
 						startroute['points'].push({ 's': data[i]["System"], 'label': data[i]["System"] })
