@@ -95,8 +95,8 @@ var canonnEd3d_challenge = {
 			},
 			'Unidentified Interstellar Anomaly': {
 				'100': {
-					'name': 'Estimated Position',
-					'color': '00FFFF',
+					'name': 'Estimated Direction',
+					'color': '004F4F',
 				},
 				'101': {
 					'name': 'Recorded Route',
@@ -392,6 +392,10 @@ var canonnEd3d_challenge = {
 			circle: false,
 			points: []
 		}
+
+
+		var firstwp;
+		var sumX = 0, sumY = 0, sumZ = 0;
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
 			if (data[i]["System"] && data[i]["System"].replace(' ', '').length > 1) {
@@ -407,6 +411,9 @@ var canonnEd3d_challenge = {
 					y: parseFloat(data[i]["Y"]),
 					z: parseFloat(data[i]["Z"]),
 				};
+				sumX -= poiSite['coords'].x 
+				sumY -= poiSite['coords'].y 
+				sumZ -= poiSite['coords'].z 
 
 				//Check Site Type and match categories
 				poiSite['cat'] = ["102"]
@@ -473,11 +480,13 @@ var canonnEd3d_challenge = {
 					}
 				}
 				
+				if (i==0) firstwp = poiSite
 				// We can then push the site to the object that stores all systems
 				canonnEd3d_challenge.systemsData.systems.push(poiSite);
 
 			}
 		}
+
 		canonnEd3d_challenge.systemsData.routes.push(startroute);
 		canonnEd3d_challenge.systemsData.routes.push(route);
 		canonnEd3d_challenge.systemsData.routes.push(endroute);
@@ -510,7 +519,36 @@ var canonnEd3d_challenge = {
 			}
 			//see finishMap() for the sprite
 			canonnEd3d_challenge.systemsData.systems.push(uia_poi)
+
+			//paint a long line of potential where the UIA is heading at
+			var meanX = sumX/data.length
+			var meanY = sumY/data.length
+			var meanZ = sumZ/data.length
+			const v3_mean = new THREE.Vector3(meanX, meanY, meanZ)
+			v3_mean.normalize()
+			var v3_firstwp = new THREE.Vector3(firstwp.coords.x, firstwp.coords.y, firstwp.coords.z)
+			v3_firstwp.addScaledVector(v3_mean, v3_firstwp.length()*1.1)
+
+			//console.log(v3_mean, v3_firstwp)
+			var extension = {
+				'name': "extended mean direction of UIA#"+(lastuia+1),
+				'infos': "Extension system to paint the mean line of UIA#"+(lastuia+1),
+				'url': "",
+				'coords': { x: v3_firstwp.x, y: v3_firstwp.y, z: v3_firstwp.z },
+				'cat': ["100"]
+			}
+			canonnEd3d_challenge.systemsData.systems.push(extension)
+			var meanroute = {
+				cat: ["100"],
+				circle: false,
+				points: [
+					{s: firstwp.name, value: firstwp.name},
+					{s: extension.name, value: extension.name}
+				]
+			}
+			canonnEd3d_challenge.systemsData.routes.push(meanroute);
 		}
+
 		return wps
 	},
 	formatMeasurements: async function (data, resolvePromise) {
