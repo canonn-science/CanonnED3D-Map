@@ -95,8 +95,8 @@ var canonnEd3d_challenge = {
 			},
 			'Unidentified Interstellar Anomaly': {
 				'100': {
-					'name': 'Estimated Position',
-					'color': '006666',
+					'name': 'Estimated Direction',
+					'color': '004F4F',
 				},
 				'101': {
 					'name': 'Recorded Route',
