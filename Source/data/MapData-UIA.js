@@ -186,6 +186,28 @@ var canonnEd3d_challenge = {
 				'coords': { x: 76.5625, y: 9.34375, z: -183.4375 },
 				'cat': ["1000"]
 			},
+			//permit locked systems of special interest
+			{
+				'name': "Witch's Reach",
+				'infos': '',
+				'url': "",
+				'coords': { x: 28, y: -16.09375, z: 7.90625 },
+				'cat': ["1007"]
+			},
+			{
+				'name': "Alpha Hydri",
+				'infos': '',
+				'url': "",
+				'coords': { x: 40, y: -58.03125, z: 13.75 },
+				'cat': ["1007"]
+			},
+			{
+				'name': "Bellica",
+				'infos': '',
+				'url': "",
+				'coords': { x: -19.53125, y: -6.1875, z: -89.75 },
+				'cat': ["1007"]
+			},
 			// permit locked center points
 			{
 				coords: { x: 508.68359, y: -372.59375, z: -1090.87891 },
