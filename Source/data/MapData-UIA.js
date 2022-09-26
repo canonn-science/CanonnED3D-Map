@@ -98,6 +98,10 @@ var canonnEd3d_challenge = {
 					'name': 'Estimated Direction',
 					'color': '004F4F',
 				},
+				'103': {
+					'name': 'Current Direction',
+					'color': '4F0000',
+				},
 				'101': {
 					'name': 'Recorded Route',
 					'color': '66FF66',
@@ -243,28 +247,47 @@ var canonnEd3d_challenge = {
 				coords: { x: 1731.03125, y: -400.21094, z: -1396.76758 },
 				name: "M41 Sector",
 				'cat': ["1007"]
-			},/*
+			},
 			//UIA3 manual input until sheet api
-			//Oochost OI-W c4-1	-447.78125	-207.90625	-2110.34375
-			//Oochost WU-S C6-0	-436.4375	-186.6875	-2038.1875
-			{
-				'name': "Oochost OI-W c4-1",
-				'coords': { x: -447.78125, y: -207.90625, z: -2110.34375 },
-				'cat': ["102"]
+			//Oochost BI-U c19-0	-317.40625 / -176.90625 / -1475.40625
+			//Oochost CW-M b40-0	-406.84375 / -175.8125 / -1478.875
+			//24/09/22 07:59:24
+			/*{
+				'name': "Oochost BI-U c19-0",
+				'coords': { x: -317.40625, y: -176.90625, z: -1475.40625 },
+				'cat': ["1005"]
 			},
 			{
-				'name': "Oochost WU-S C6-0",
-				'coords': { x: -436.4375, y: -186.6875, z: -2038.1875 },
-				'cat': ["102"]
+				'name': "Oochost CW-M b40-0",
+				'coords': { x: -406.84375, y: -175.8125, z: -1478.875 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochost LC-L b41-0",
+				'coords': { x: -306.40625, y: -183.8125, z: -1448.90625 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochost IM-M a89-0",
+				'coords': { x: -460.71875, y: -39.09375, z: -1394.6875 },
+				'cat': ["1005"]
 			},*/
 		],
 		routes: [
 			/*{
-				cat: ["102"],
+				cat: ["103"],
 				circle: false,
 				points: [
-					{ 's': "Oochost OI-W c4-1", 'label': "Oochost OI-W c4-1" },
-					{ 's': "Oochost WU-S C6-0", 'label': "Oochost WU-S C6-0" }
+					{ 's': "Oochost BI-U c19-0", 'label': "Oochost BI-U c19-0" },
+					{ 's': "Oochost CW-M b40-0", 'label': "Oochost CW-M b40-0" }
+				]
+			},
+			{
+				cat: ["103"],
+				circle: false,
+				points: [
+					{ 's': "Oochost LC-L b41-0", 'label': "Oochost LC-L b41-0" },
+					{ 's': "Oochost IM-M a89-0", 'label': "Oochost IM-M a89-0" }
 				]
 			},*/
 		]
@@ -482,6 +505,7 @@ var canonnEd3d_challenge = {
 						if (mp.indexOf("/") > 0 && mp.indexOf(":") > 0) {
 							lastarrivaldate = arrivaldate
 							lastcoords = arrivalcoords
+							lastname = arrivalname
 							var dateform = mp; //expecting dd/mm/yyyy hh:mm:ss for gsheet reasons
 							var ado = {
 								day: dateform.split(" ")[0].split("/")[0],
@@ -524,12 +548,12 @@ var canonnEd3d_challenge = {
 			const nowdiff = nowtime-starttime
 			const percent = nowdiff/timediff
 			const vecdiff = end.sub(start)
-			canonnEd3d_challenge.uia.push(start.addScaledVector(vecdiff, percent))
-			//console.log("% of the way:", percent, new Date(lastarrivaldate).toString(), new Date(arrivaldate).toString())
+			canonnEd3d_challenge.uia.push(start.addScaledVector(vecdiff, percent).clone())
+			console.log("% of the way:", percent, new Date(lastarrivaldate).toString(), new Date(arrivaldate).toString())
 			var lastuia = canonnEd3d_challenge.uia.length-1
 			console.log("current estimated position of the UIA"+(lastuia+1)+": ", percent, canonnEd3d_challenge.uia[lastuia])
 			var uia_poi = {
-				'name': "Unidentified Interstellar Anomaly",
+				'name': "Unidentified Interstellar Anomaly "+(lastuia+1),
 				'infos': "This is an <strong>estimate</strong> of this UIA's current position.",
 				'url': "",
 				'coords': {
@@ -541,6 +565,8 @@ var canonnEd3d_challenge = {
 			}
 			//see finishMap() for the sprite
 			canonnEd3d_challenge.systemsData.systems.push(uia_poi)
+
+
 
 			//paint a long line of potential where the UIA is heading at
 			var meanX = sumX/data.length
@@ -569,6 +595,34 @@ var canonnEd3d_challenge = {
 				]
 			}
 			canonnEd3d_challenge.systemsData.routes.push(meanroute);
+
+			
+
+
+			//add fake lines for the UIAs in broken state
+			const fakev = start.addScaledVector(vecdiff, percent*25)
+			var fake_poi = {
+				'name': "current Vector "+(lastuia+1),
+				'infos': "This is the current static vector of this UIA.",
+				'url': "",
+				'coords': {
+					x: fakev.x,
+					y: fakev.y,
+					z: fakev.z
+				},
+				'cat': ["103"]
+			}
+			canonnEd3d_challenge.systemsData.systems.push(fake_poi)
+			var fakeroute = {
+				cat: ["103"],
+				circle: false,
+				points: [
+					{s: lastname, value: lastname},
+					{s: uia_poi.name, value: uia_poi.name},
+					{s: fake_poi.name, value: fake_poi.name}
+				]
+			}
+			canonnEd3d_challenge.systemsData.routes.push(fakeroute);
 		}
 
 		return wps
@@ -820,6 +874,7 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.createSphere(puls[i], blackmaterial)
 		}
 		
+		$("#search").html("<p>The UIAs have abandoned their route-behaviour and drift through space at constant speed along the red lines. Line length gives indication of relative speeds.</p>").css("display", "block").css("color", "#FF4F4F")
 	
 		document.getElementById("loading").style.display = "none";
 	},
