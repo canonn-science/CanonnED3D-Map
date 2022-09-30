@@ -114,17 +114,29 @@ var canonnEd3d_challenge = {
 					'name':"First Visuals",
 					'color': '66FF66'
 				},
-			},/*
+			},
 			"Measurements": {
 				'103': {
 					'name': 'Measurement Lines',
 					'color': '666666',
 				},
+				'104': {
+					'name': 'Measurement Lines',
+					'color': '996666',
+				},
+				'105': {
+					'name': 'Measurement Lines',
+					'color': '669966',
+				},
+				'106': {
+					'name': 'Measurement Lines',
+					'color': '666699',
+				},
 				"1005": {
 					'name':"Measurement Endpoint",
 					'color': '999999'
 				},
-			},*/
+			},
 			"Hyperdictions": {
 				"299": {
 					name: "All Hyperdictions",
@@ -252,7 +264,8 @@ var canonnEd3d_challenge = {
 			//Oochost BI-U c19-0	-317.40625 / -176.90625 / -1475.40625
 			//Oochost CW-M b40-0	-406.84375 / -175.8125 / -1478.875
 			//24/09/22 07:59:24
-			/*{
+			/*
+			{
 				'name': "Oochost BI-U c19-0",
 				'coords': { x: -317.40625, y: -176.90625, z: -1475.40625 },
 				'cat': ["1005"]
@@ -271,8 +284,85 @@ var canonnEd3d_challenge = {
 				'name': "Oochost IM-M a89-0",
 				'coords': { x: -460.71875, y: -39.09375, z: -1394.6875 },
 				'cat': ["1005"]
-			},*/
+			},
+			*/
+			{
+				'name': "Oochost SB-M c24-0",
+				'coords': { x:  -219.8125, y: -61.75, z: -1299.3125 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochost SB-M c24-2",
+				'coords': { x: -220.5625, y: -59.34375, z: -1304 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochost OJ-W b49-0",
+				'coords': { x: -222.34375, y: -64.21875, z: -1281.0625 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochost QE-W b49-0",
+				'coords': { x: -210.5, y: -68.15625, z: -1265.46875 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochost DP-N a61-1",
+				'coords': { x: -333.4375, y: -31.0625, z: -1694.5 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Outopps HC-V b16-0",
+				'coords': { x: -403.21875, y: 56.78125, z: -1980.5625 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Synuefai UH-R b10-0",
+				'coords': { x: -103, y: -177, z: -842.71875 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochoss DY-E b1-0",
+				'coords': { x: -1751.125, y: -593.09375, z: -2311.59375 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Outopps CF-G c24-1",
+				'coords': { x: -190.15625, y: -10.53125, z: -1281.15625 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Oochost BC-R b52-0",
+				'coords': { x:  -200.90625, y: -61.75, z: -1223.3125 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Col 69 Sector RY-R d4-13",
+				'coords': { x: 441.71875, y: -303.90625, z: -1243.375 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Synuefe QH-U c19-21",
+				'coords': { x: 495.53125, y: -147.28125, z: -224.59375 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Col 69 Sector LD-I c10-0",
+				'coords': { x: 419.15625, y: -303.4375, z: -1219.9375 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "Col 132 Sector NO-Q d5-41",
+				'coords': { x: 997.09375, y: -139.125, z: -607.5625 },
+				'cat': ["1005"]
+			},
+			{
+				'name': "HD 15360",
+				'coords': { x: -1000.9375, y: -1338.4375, z: -1769.59375 },
+				'cat': ["1005"]
+			},
 		],
+
 		routes: [
 			/*{
 				cat: ["103"],
@@ -289,7 +379,103 @@ var canonnEd3d_challenge = {
 					{ 's': "Oochost LC-L b41-0", 'label': "Oochost LC-L b41-0" },
 					{ 's': "Oochost IM-M a89-0", 'label': "Oochost IM-M a89-0" }
 				]
-			},*/
+			},
+			*/
+			/*
+				29/09 maintenance, uia3
+				Oochost SB-M c24-0 -> Oochost OJ-W b49-0 at 11:56utc
+				Oochost QE-W b49-0 to Oochost DP-N a61-1 at 11:30utc 
+				Oochost QE-W b49-0 to Outopps HC-V b16-0 at 13:13utc
+				Oochost SB-M c24-2 to Synuefai UH-R b10-0 at 13:25utc
+				30/09
+				Oochost BC-R b52-0 to Outopps CF-G c24-1 at 08:00utc
+			*/
+			{//UIA3 measures
+				cat: ["103"],
+				circle: false,
+				points: [
+					{ 's': "Oochost SB-M c24-0", 'label': "Oochost SB-M c24-0" },
+					{ 's': "Oochost OJ-W b49-0", 'label': "Oochost OJ-W b49-0" }
+				]
+			},
+			{
+				cat: ["103"],
+				circle: false,
+				points: [
+					{ 's': "Oochost QE-W b49-0", 'label': "Oochost QE-W b49-0" },
+					{ 's': "Oochost DP-N a61-1", 'label': "Oochost DP-N a61-1" }
+				]
+			},
+			{
+				cat: ["103"],
+				circle: false,
+				points: [
+					{ 's': "Oochost QE-W b49-0", 'label': "Oochost QE-W b49-0" },
+					{ 's': "Outopps HC-V b16-0", 'label': "Outopps HC-V b16-0" }
+				]
+			},
+			{
+				cat: ["103"],
+				circle: false,
+				points: [
+					{ 's': "Oochost SB-M c24-2", 'label': "Oochost SB-M c24-2" },
+					{ 's': "Synuefai UH-R b10-0", 'label': "Synuefai UH-R b10-0" }
+				]
+			},
+			{
+				cat: ["103"],
+				circle: false,
+				points: [
+					{ 's': "Outopps CF-G c24-1", 'label': "Outopps CF-G c24-1" },
+					{ 's': "Oochost BC-R b52-0", 'label': "Oochost BC-R b52-0" }
+				]
+			},
+			
+			/*
+				29/09 maintenance, uia2
+				UIA#2 Oochoss LL-D c1 to Oochoss DY-E b1-0 @ 20:45:29
+
+				30/09
+				Oochoss DY-E b1-0 to HD 15360 at 12:00
+			*/
+			{
+				cat: ["103"],
+				circle: false,
+				points: [
+					{ 's': "Oochoss LL-D c1", 'label': "Oochoss LL-D c1" },
+					{ 's': "Oochoss DY-E b1-0", 'label': "Oochoss DY-E b1-0" }
+				]
+			},
+			{
+				cat: ["103"],
+				circle: false,
+				points: [
+					{ 's': "HD 15360", 'label': "HD 15360" },
+					{ 's': "Oochoss DY-E b1-0", 'label': "Oochoss DY-E b1-0" }
+				]
+			},
+			/*
+				29/09 maintenance, uia1
+				UIA1 (Joe) Survey:  Col 69 Sector RY-R d4-13 to Synuefe QH-U c19-21 at 19:50:47 UTC.
+				UIA1 (Joe) Survey:  Col 69 Sector LD-I c10-0 to Col 132 Sector NO-Q d5-41 at 20:09:08 UTC
+				30/09
+			*/
+			{
+				cat: ["103"],
+				circle: false,
+				points: [
+					{ 's': "Col 69 Sector RY-R d4-13", 'label': "Col 69 Sector RY-R d4-13" },
+					{ 's': "Synuefe QH-U c19-21", 'label': "Synuefe QH-U c19-21" }
+				]
+			},
+			{
+				cat: ["103"],
+				circle: false,
+				points: [
+					{ 's': "Col 69 Sector LD-I c10-0", 'label': "Col 69 Sector LD-I c10-0" },
+					{ 's': "Col 132 Sector NO-Q d5-41", 'label': "Col 132 Sector NO-Q d5-41" }
+				]
+			},
 		]
 	},
 	formatHDs: async function (data, resolvePromise) {
@@ -598,7 +784,7 @@ var canonnEd3d_challenge = {
 
 			
 
-
+			/*
 			//add fake lines for the UIAs in broken state
 			const fakev = start.addScaledVector(vecdiff, percent*25)
 			var fake_poi = {
@@ -623,6 +809,7 @@ var canonnEd3d_challenge = {
 				]
 			}
 			canonnEd3d_challenge.systemsData.routes.push(fakeroute);
+			*/
 		}
 
 		return wps
@@ -874,7 +1061,7 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.createSphere(puls[i], blackmaterial)
 		}
 		
-		$("#search").html("<p>The UIAs have abandoned their route-behaviour and drift through space at constant speed along the red lines. Line length gives indication of relative speeds.</p>").css("display", "block").css("color", "#FF4F4F")
+		$("#search").html("<p>The UIAs have again changed their behaviour and teleported through space &quot;back&quot; to the route.</p>").css("display", "block").css("color", "#FF4F4F")
 	
 		document.getElementById("loading").style.display = "none";
 	},
