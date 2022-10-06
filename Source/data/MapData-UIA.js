@@ -1,6 +1,6 @@
 const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/query`;
 const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
-const API_LIMIT = 1500;
+const API_LIMIT = 2000;
 
 const capi = axios.create({
 	baseURL: API_ENDPOINT,
@@ -144,10 +144,10 @@ var canonnEd3d_challenge = {
 					'name': "Hostile",
 					'color': 'FFFF66'
 				},
-				"301": {
-					'name': "Waypoint Area Only",
-					'color': 'FFFF66'
-				},
+				//"301": {
+				//	'name': "Waypoint Area Only",
+				//	'color': 'FFFF66'
+				//},
 			},
 		},
 		systems: [
@@ -575,24 +575,45 @@ var canonnEd3d_challenge = {
 		]
 	},
 	formatHDs: async function (data, resolvePromise) {
-		console.log("start sheet api query")
-		apidata = await go(data)
+		//request and parse waypoint info here to use in hyperdiction filters
+		console.log("start hyperdiction sheet api query")
+		var apidata = await go(data)
 		console.log("end sheet api query")
-		var reports = apidata["thargoid/hyperdiction/reports"]
+
 		var wps = []
 		wps.push(apidata["uia/waypoints"])
 		wps.push(apidata["uia/waypoints/2"])
 		wps.push(apidata["uia/waypoints/3"])
+		//reformat, as first line is only headers
+
+		for (var uiai = 0; uiai < wps.length; uiai++) {
+			var uiawps = [];
+			if (wps[uiai].length <= 1) {
+				console.log("no data for waypoints", wps)
+				resolvePromise()
+				return
+			}
+			var headers = wps[uiai][0];
+			for (var l = 1; l < wps[uiai].length; l++) {
+				var line = {}
+				for (var c = 0; c < headers.length; c++) {
+					line[headers[c]] = wps[uiai][l][c]
+				}
+				uiawps.push(line)
+			}
+			//overwrite our data variable for later
+			wps[uiai] = uiawps;
+			//parse uia wps into poi and routes
+			this.formatWaypoints(wps[uiai])
+		}
+
+		var reports = apidata["thargoid/hyperdiction/reports"]
 		if (reports == undefined || reports.length < 1) {
 			console.log("didnt get hyperdiction reports", apidata)
 			resolvePromise()
 			return;
-		}
-		//this will have to go here, bc code down the line depends on global sites.wps
-		sites['wps'] = []
-		for (var i = 0; i < wps.length; i++) {
-			sites.wps.push(this.formatWaypoints(wps[i]))
-		}
+		}	
+
 		//first create a unique list of systems involved in hyperdictions
 		var hds = {};
 		for (var d = 0; d < reports.length; d++) {
@@ -600,15 +621,16 @@ var canonnEd3d_challenge = {
 		
 			var systemName = hyperData.start.system
 			var destinationName = hyperData.destination.system
-			if ((hyperData.start.nearest.name != "UIA Route"
-			|| hyperData.destination.nearest.name != "UIA Route")
-			&& (hyperData.start.nearest.name != "UIA Route 2"
-			|| hyperData.destination.nearest.name != "UIA Route 2")
-			&& (hyperData.start.nearest.name != "UIA Route 3"
-			|| hyperData.destination.nearest.name != "UIA Route 3")) {
-				//console.log("nearest names:", hyperData.start.nearest, hyperData.destination.nearest)
-				continue
-			}
+			//filter by nearest name as provided by plugin
+			//if ((hyperData.start.nearest.name != "UIA Route"
+			//|| hyperData.destination.nearest.name != "UIA Route")
+			//&& (hyperData.start.nearest.name != "UIA Route 2"
+			//|| hyperData.destination.nearest.name != "UIA Route 2")
+			//&& (hyperData.start.nearest.name != "UIA Route 3"
+			//|| hyperData.destination.nearest.name != "UIA Route 3")) {
+			//	//console.log("nearest names:", hyperData.start.nearest, hyperData.destination.nearest)
+			//	continue
+			//}
 
 			if (Object.keys(hds).includes(systemName+":::"+destinationName)) {
 				if (hyperData.hostile == "Y") hds[systemName+":::"+destinationName].hostile = "Y"
@@ -636,20 +658,44 @@ var canonnEd3d_challenge = {
 			poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + poi.system + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + poi.system + '" target="_blank" rel="noopener">Signals</a>';
 			var waypointIndex=-1;
 			//Check Site Type and match categories
-			for (var i = 0; i < sites.wps.length; i++) {
-				waypointIndex = sites.wps[i].indexOf(other.system)
-				if (waypointIndex>maxWPI) maxWPI = waypointIndex
-				if (waypointIndex == -1)
-				{	//if the target wasnt the waypoint, see if the source was.
-					waypointIndex = sites.wps[i].indexOf(poi.system)
-					if (waypointIndex > -1) break
-				} else {
-					break
+			uialoop:
+			for (var i = 0; i < wps.length; i++) { //uia1-3
+				//sysloop:
+				for (var sysi = 0; sysi < wps[i].length; sysi++) {
+					var sysdata = wps[i][sysi]
+					if (sysdata["System"] == other.system || sysdata["System"] == poi.system) {
+						waypointIndex = i//sysi
+						break uialoop
+					}
+				}
+			}
+			//if its not a wp on either end, it might still be within uia range of influence
+			if (waypointIndex == -1) {
+				const poi_v3 = new THREE.Vector3(parseFloat(poi.x), parseFloat(poi.y), parseFloat(poi.z))
+				const other_v3 = new THREE.Vector3(parseFloat(other.x), parseFloat(other.y), parseFloat(other.z))
+				const uia_range = 24//ly
+				uialoop:
+				for (var i = 0; i < wps.length; i++) {
+					//sysloop:
+					for (var sysi = 0; sysi < wps[i].length; sysi++) {
+						var sysdata = wps[i][sysi]
+						if (sysdata["Estimate"] == "N") {
+							const sys_v3 = new THREE.Vector3(parseFloat(sysdata["X"]), parseFloat(sysdata["Y"]), parseFloat(sysdata["Z"]))
+							if (sys_v3.distanceTo(poi_v3)<uia_range || sys_v3.distanceTo(other_v3)<uia_range) {
+								waypointIndex = i//sysi;
+								break uialoop
+							}
+						}
+					}
 				}
 			}
 			//console.log("waypointIndex:", waypointIndex)
-			//if both are not a waypoint we get -1 and end up at 301 "Waypoint Area"
-			poiSite['cat'] = ["30"+(2+waypointIndex)];
+			//discard this hyper as it is not affialiated with the UIAs
+			if (waypointIndex == -1) continue
+			//prepare the hyper categories
+			if (waypointIndex>maxWPI) maxWPI = waypointIndex
+			//with this we get increasing amounts of filter categories for the waypoints
+			poiSite['cat'] = ["30"+(1+waypointIndex)];
 			poiSite['cat'].push("299")
 			if (hds[systemName].hostile == "Y")
 			{
@@ -662,8 +708,8 @@ var canonnEd3d_challenge = {
 		}
 		//console.log("global waypoints list:", sites.wps)
 		for (var i = 0; i <= maxWPI; i++) {
-			canonnEd3d_challenge.systemsData.categories["Hyperdictions"]["30"+(2+i)] = {
-				'name': "Waypoint "+(i+1),
+			canonnEd3d_challenge.systemsData.categories["Hyperdictions"]["30"+(1+i)] = {
+				'name': "UIA "+(i+1),
 				'color': '999900'
 			}
 		}
@@ -682,27 +728,12 @@ var canonnEd3d_challenge = {
 	},
 	uia: [],
 	formatWaypoints: function (data) {
-		var dictata = [];
-		if (data.length <= 1) {
-			console.log("no data for waypoints", data)
-			return
-		}
-		var headers = data[0];
-		for (var i = 1; i < data.length; i++) {
-			var line = {}
-			for (var c = 0; c < headers.length; c++) {
-				line[headers[c]] = data[i][c]
-			}
-			dictata.push(line)
-		}
-		var data = dictata;
 		var arrivaldate;
 		var arrivalcoords;
 		var arrivalname;
 		var lastarrivaldate;
 		var lastcoords;
 		var lastname;
-		var wps;
 		var route = {
 			cat: ["101"],
 			circle: false,
@@ -750,9 +781,6 @@ var canonnEd3d_challenge = {
 							}
 						}
 						route.points.push({s:data[i]["System"]})
-						//add WPs for hyperdiction algorithm					
-						if (!wps) wps = [];
-						wps.push(data[i]["System"])
 						break;
 
 					//fake route points for weird behavior
@@ -919,7 +947,6 @@ var canonnEd3d_challenge = {
 			//*/
 		}
 
-		return wps
 	},
 	formatMeasurements: async function (data, resolvePromise) {
 		//console.log(data);
