@@ -107,6 +107,10 @@ var canonnEd3d_challenge = {
 				"1007": {
 					'name': "Permit Locked Centers",
 					'color': 'FF3333'
+				},
+				"1008": {
+					'name': "Permit UNLocked Centers",
+					'color': '3333FF'
 				}
 			},
 			'Unidentified Interstellar Anomaly': {
@@ -222,42 +226,6 @@ var canonnEd3d_challenge = {
 				'infos': '',
 				'url': "",
 				'coords': { x: -19.53125, y: -6.1875, z: -89.75 },
-				'cat': ["1007"]
-			},
-			// permit locked center points
-			{
-				coords: { x: 508.68359, y: -372.59375, z: -1090.87891 },
-				name: "Col 70 Sector",
-				'cat': ["1007"]
-			},
-			{
-				coords: { x: 851.16406, y: 83.68359, z: -2005.22070 },
-				name: "NGC 2264 Sector",
-				'cat': ["1007"]
-			},
-			{
-				coords: { x: 608.46094, y: -404.64453, z: -1194.16992 },
-				name: "Horsehead Dark Region",
-				'cat': ["1007"]
-			},
-			{
-				coords: { x: 11.76172, y: -508.69531, z: -1684.84180 },
-				name: "NGC 1647 Sector",
-				'cat': ["1007"]
-			},
-			{
-				coords: { x: 855.44141, y: 84.45312, z: -2025.11328 },
-				name: "Cone Sector",
-				'cat': ["1007"]
-			},
-			{
-				coords: { x: 878.88281, y: -64.39062, z: -1850.92383 },
-				name: "Col 97 Sector",
-				'cat': ["1007"]
-			},
-			{
-				coords: { x: 1731.03125, y: -400.21094, z: -1396.76758 },
-				name: "M41 Sector",
 				'cat': ["1007"]
 			},
 			//UIA3 manual input until sheet api
@@ -574,9 +542,188 @@ var canonnEd3d_challenge = {
 					{ 's': "Oochorrs WX-F d12-10", 'label': "Oochorrs WX-F d12-10" }
 				]
 			},*/
+		],
+		
+
+		//permit UNlocked sectors
+		puls: [
+			{
+				radius: 100.0,
+				coords: [726.50391,-365.36328,-1377.93555],
+				name: "Barnard's Loop Sector"
+			},
+			{
+				radius: 426.0,
+				coords: [1355.99609,-235.59766,-690.91602],
+				name: "Col 132 Sector"
+			},
+			{
+				radius: 150.0,
+				coords: [942.32812,-198.29688,-365.50586],
+				name: "Col 135 Sector"
+			},
+			{
+				radius: 162.0,
+				coords: [1186.89453,-181.42578,-548.42188],
+				name: "Col 140 Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [428.26172,-280.66797,-858.96289],
+				name: "Flame Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [411.68359,-272.99219,-811.47461],
+				name: "Horsehead Sector"
+			},
+			{
+				radius: 117.0,
+				coords: [1241.61328,86.52734,-1005.43945],
+				name: "M47 Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [665.03125,-395.19922,-1400.55469],
+				name: "Messier 78 Sector"
+			},
+			{
+				radius: 83.0,
+				coords: [178.12891,-512.99609,-1317.47070],
+				name: "NGC 1662 Sector"
+			},
+			{
+				radius: 106.0,
+				coords: [578.95703,-423.23828,-1084.28711],
+				name: "NGC 1981 Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [549.36719,-374.51172,-926.56445],
+				name: "NGC 1999 Sector"
+			},
+			{
+				radius: 154.0,
+				coords: [655.20312,-154.73828,-956.90234],
+				name: "NGC 2232 Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [596.77344,-311.86719,-1340.37305],
+				name: "Orion Dark Region"
+			},
+			{
+				radius: 100.0,
+				coords: [616.52344,-446.42578,-1107.67383],
+				name: "Orion Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [586.15625,-425.38281,-1079.56836],
+				name: "Running Man Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [577.89844,-452.66406,-819.22266],
+				name: "Spirograph Sector"
+			},
+			{
+				radius: 182.0,
+				coords: [594.46875,-431.80859,-1072.44922],
+				name: "Trapezium Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [991.18750,-121.87109,-51.94531],
+				name: "Vela Dark Region"
+			},
+			{
+				radius: 300.0,
+				coords: [366.92969,-299.39453,-1359.90039],
+				name: "Col 69 Sector"
+			},
+			{
+				radius: 100.0,
+				coords: [369.41406,-401.57812,-715.72852],
+				name: "Witch Head Sector"
+			}
+		],
+		pls: [
+			{
+			radius: 514.0,
+			coords: [508.68359, -372.59375, -1090.87891],
+			name: "Col 70 Sector"
+			},
+			{
+			radius: 510.0,
+			coords: [851.16406, 83.68359, -2005.22070],
+			name: "NGC 2264 Sector"
+			},
+			{
+			radius: 200.0,
+			coords: [608.46094, -404.64453, -1194.16992],
+			name: "Horsehead Dark Region"
+			},
+			{
+			radius: 205.0,
+			coords: [11.76172, -508.69531, -1684.84180],
+			name: "NGC 1647 Sector"
+			},
+			{
+			radius: 100.0,
+			coords: [855.44141, 84.45312, -2025.11328],
+			name: "Cone Sector"
+			},
+			{
+			radius: 250.0,
+			coords: [878.88281, -64.39062, -1850.92383],
+			name: "Col 97 Sector"
+			},
+			{
+			radius: 350.0,
+			coords: [1731.03125, -400.21094, -1396.76758],
+			name: "M41 Sector"
+			},
+			{
+			radius: 459.0,
+			coords: [1246.80469, -278.00000, -860.11328],
+			name: "Col 121 Sector"
+			},
+			{
+			radius: 100.0,
+			coords: [1099.23828, -146.67188, -133.58008],
+			name: "Regor Sector"
+			}
 		]
 	},
 	formatHDs: async function (data, resolvePromise) {
+		
+		for (var i = 0; i < canonnEd3d_challenge.systemsData.pls.length; i++) {
+			var plspoi = {
+				coords: {
+					x: canonnEd3d_challenge.systemsData.pls[i].coords[0],
+					y: canonnEd3d_challenge.systemsData.pls[i].coords[1],
+					z: canonnEd3d_challenge.systemsData.pls[i].coords[2]
+				},
+				name: canonnEd3d_challenge.systemsData.pls[i].name,
+				'cat': ["1007"]
+			}
+			canonnEd3d_challenge.systemsData.systems.push(plspoi)
+		}
+		for (var i = 0; i < canonnEd3d_challenge.systemsData.puls.length; i++) {
+			var pulspoi = {
+				coords: {
+					x: canonnEd3d_challenge.systemsData.puls[i].coords[0],
+					y: canonnEd3d_challenge.systemsData.puls[i].coords[1],
+					z: canonnEd3d_challenge.systemsData.puls[i].coords[2]
+				},
+				name: canonnEd3d_challenge.systemsData.puls[i].name,
+				'cat': ["1008"]
+			}
+			canonnEd3d_challenge.systemsData.systems.push(pulspoi)
+		}
+
+
 		//request and parse waypoint info here to use in hyperdiction filters
 		console.log("start hyperdiction sheet api query")
 		var apidata = await go(data)
@@ -1036,167 +1183,16 @@ var canonnEd3d_challenge = {
 			sprite.scale.set(50, 50, 1);
 			scene.add(sprite); // this centers the glow at the mesh
 		}
-		var pls = [
-			{
-			radius: 514.0,
-			coords: [508.68359, -372.59375, -1090.87891],
-			name: "Col 70 Sector"
-			},
-			{
-			radius: 510.0,
-			coords: [851.16406, 83.68359, -2005.22070],
-			name: "NGC 2264 Sector"
-			},
-			{
-			radius: 200.0,
-			coords: [608.46094, -404.64453, -1194.16992],
-			name: "Horsehead Dark Region"
-			},
-			{
-			radius: 205.0,
-			coords: [11.76172, -508.69531, -1684.84180],
-			name: "NGC 1647 Sector"
-			},
-			{
-			radius: 100.0,
-			coords: [855.44141, 84.45312, -2025.11328],
-			name: "Cone Sector"
-			},
-			{
-			radius: 250.0,
-			coords: [878.88281, -64.39062, -1850.92383],
-			name: "Col 97 Sector"
-			},
-			{
-			radius: 350.0,
-			coords: [1731.03125, -400.21094, -1396.76758],
-			name: "M41 Sector"
-			},
-			{
-			radius: 459.0,
-			coords: [1246.80469, -278.00000, -860.11328],
-			name: "Col 121 Sector"
-			},
-			{
-			radius: 100.0,
-			coords: [1099.23828, -146.67188, -133.58008],
-			name: "Regor Sector"
-			}
-		]
-		for (var i = 0; i < pls.length; i++) {
-			canonnEd3d_challenge.createSphere(pls[i], Ed3d.material.permit_zone)
+		for (var i = 0; i < canonnEd3d_challenge.systemsData.pls.length; i++) {
+			canonnEd3d_challenge.createSphere(canonnEd3d_challenge.systemsData.pls[i], Ed3d.material.permit_zone)
 		}
-
-		//permit UNlocked sectors
-		var puls = [
-			{
-				radius: 100.0,
-				coords: [726.50391,-365.36328,-1377.93555],
-				name: "Barnard's Loop Sector"
-			},
-			{
-				radius: 426.0,
-				coords: [1355.99609,-235.59766,-690.91602],
-				name: "Col 132 Sector"
-			},
-			{
-				radius: 150.0,
-				coords: [942.32812,-198.29688,-365.50586],
-				name: "Col 135 Sector"
-			},
-			{
-				radius: 162.0,
-				coords: [1186.89453,-181.42578,-548.42188],
-				name: "Col 140 Sector"
-			},
-			{
-				radius: 100.0,
-				coords: [428.26172,-280.66797,-858.96289],
-				name: "Flame Sector"
-			},
-			{
-				radius: 100.0,
-				coords: [411.68359,-272.99219,-811.47461],
-				name: "Horsehead Sector"
-			},
-			{
-				radius: 117.0,
-				coords: [1241.61328,86.52734,-1005.43945],
-				name: "M47 Sector"
-			},
-			{
-				radius: 100.0,
-				coords: [665.03125,-395.19922,-1400.55469],
-				name: "Messier 78 Sector"
-			},
-			{
-				radius: 83.0,
-				coords: [178.12891,-512.99609,-1317.47070],
-				name: "NGC 1662 Sector"
-			},
-			{
-				radius: 106.0,
-				coords: [578.95703,-423.23828,-1084.28711],
-				name: "NGC 1981 Sector"
-			},
-			{
-				radius: 100.0,
-				coords: [549.36719,-374.51172,-926.56445],
-				name: "NGC 1999 Sector"
-			},
-			{
-				radius: 154.0,
-				coords: [655.20312,-154.73828,-956.90234],
-				name: "NGC 2232 Sector"
-			},
-			{
-				radius: 100.0,
-				coords: [596.77344,-311.86719,-1340.37305],
-				name: "Orion Dark Region"
-			},
-			{
-				radius: 100.0,
-				coords: [616.52344,-446.42578,-1107.67383],
-				name: "Orion Sector"
-			},
-			{
-				radius: 100.0,
-				coords: [586.15625,-425.38281,-1079.56836],
-				name: "Running Man Sector"
-			},
-			{
-				radius: 100.0,
-				coords: [577.89844,-452.66406,-819.22266],
-				name: "Spirograph Sector"
-			},
-			{
-				radius: 182.0,
-				coords: [594.46875,-431.80859,-1072.44922],
-				name: "Trapezium Sector"
-			},
-			{
-				radius: 100.0,
-				coords: [991.18750,-121.87109,-51.94531],
-				name: "Vela Dark Region"
-			},
-			{
-				radius: 300.0,
-				coords: [366.92969,-299.39453,-1359.90039],
-				name: "Col 69 Sector"
-			},
-			{
-				radius: 100.0,
-				coords: [369.41406,-401.57812,-715.72852],
-				name: "Witch Head Sector"
-			}
-		]
 		var blackmaterial = new THREE.MeshBasicMaterial({
 			color: 0x030303,
 			transparent: true,
 			opacity: 0.3
 		})
-		for (var i = 0; i < puls.length; i++) {
-			canonnEd3d_challenge.createSphere(puls[i], blackmaterial)
+		for (var i = 0; i < canonnEd3d_challenge.systemsData.puls.length; i++) {
+			canonnEd3d_challenge.createSphere(canonnEd3d_challenge.systemsData.puls[i], blackmaterial)
 		}
 		
 		//$("#search").html("<p>Current positions are rough estimates.</p>").css("display", "block").css("color", "#FF4F4F")
