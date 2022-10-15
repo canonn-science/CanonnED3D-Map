@@ -807,6 +807,15 @@ var canonnEd3d_challenge = {
 			}
 				
 			poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + poi.system + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + poi.system + '" target="_blank" rel="noopener">Signals</a>';
+			var otherSite = {};
+			otherSite['name'] = other.system;
+			otherSite['coords'] = {
+				x: parseFloat(other.x),
+				y: parseFloat(other.y),
+				z: parseFloat(other.z),
+			}
+				
+			otherSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + other.system + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + other.system + '" target="_blank" rel="noopener">Signals</a>';
 			var waypointIndex=-1;
 			//Check Site Type and match categories
 			uialoop:
@@ -830,9 +839,10 @@ var canonnEd3d_challenge = {
 					//sysloop:
 					for (var sysi = 0; sysi < wps[i].length; sysi++) {
 						var sysdata = wps[i][sysi]
-						if (sysdata["Estimate"] == "N") {
+						if (sysdata["Estimate"] != "F") {
 							const sys_v3 = new THREE.Vector3(parseFloat(sysdata["X"]), parseFloat(sysdata["Y"]), parseFloat(sysdata["Z"]))
 							if (sys_v3.distanceTo(poi_v3)<uia_range || sys_v3.distanceTo(other_v3)<uia_range) {
+								
 								waypointIndex = i//sysi;
 								break uialoop
 							}
@@ -847,14 +857,17 @@ var canonnEd3d_challenge = {
 			if (waypointIndex>maxWPI) maxWPI = waypointIndex
 			//with this we get increasing amounts of filter categories for the waypoints
 			poiSite['cat'] = ["30"+(1+waypointIndex)];
-			poiSite['cat'].push("299")
+			otherSite['cat'] = ["30"+(1+waypointIndex)];
+			otherSite['cat'].push("299")
 			if (hds[systemName].hostile == "Y")
 			{
 				poiSite['cat'].push("300")
+				otherSite['cat'].push("300")
 			}
 			//console.log("adding poi with data:", poiSite, hds[systemName])
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_challenge.systemsData.systems.push(poiSite);
+			canonnEd3d_challenge.systemsData.systems.push(otherSite);
 			this.addRoute(poiSite.cat, [poiSite.name, other.system])
 		}
 		//console.log("global waypoints list:", sites.wps)
