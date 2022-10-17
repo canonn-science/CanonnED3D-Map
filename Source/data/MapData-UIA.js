@@ -860,6 +860,7 @@ var canonnEd3d_challenge = {
 			//with this we get increasing amounts of filter categories for the waypoints
 			poiSite['cat'] = ["30"+(1+waypointIndex)];
 			otherSite['cat'] = ["30"+(1+waypointIndex)];
+			poiSite['cat'].push("299")
 			otherSite['cat'].push("299")
 			if (hds[systemName].hostile == "Y")
 			{
