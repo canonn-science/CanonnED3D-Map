@@ -25,6 +25,7 @@ let sites = {
 	"uia/waypoints/4": [],
 	"uia/waypoints/5": [],
 	"uia/waypoints/6": [],
+	"uia/waypoints/7": [],
 };
 
 const go = async types => {
@@ -737,6 +738,7 @@ var canonnEd3d_challenge = {
 		wps.push(apidata["uia/waypoints/4"])
 		wps.push(apidata["uia/waypoints/5"])
 		wps.push(apidata["uia/waypoints/6"])
+		wps.push(apidata["uia/waypoints/7"])
 		//reformat, as first line is only headers
 
 		for (var uiai = 0; uiai < wps.length; uiai++) {
