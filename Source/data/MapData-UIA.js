@@ -1211,6 +1211,13 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.createSphere(canonnEd3d_challenge.systemsData.puls[i], blackmaterial)
 		}
 		
+
+		var popmaterial = new THREE.MeshBasicMaterial({
+			color: 0x333300,
+			transparent: true,
+			opacity: 0.3
+		})
+		canonnEd3d_challenge.createSphere({coords: [0,0,0], radius: 222, name: "Populated Bubble"}, popmaterial)
 		//$("#search").html("<p>Current positions are rough estimates.</p>").css("display", "block").css("color", "#FF4F4F")
 	
 		document.getElementById("loading").style.display = "none";
