@@ -19,15 +19,11 @@ const edsmapi = axios.create({
 
 let sites = {
 	"thargoid/hyperdiction/reports": [],
-	"uia/waypoints": [],
-	"uia/waypoints/2": [],
-	"uia/waypoints/3": [],
-	"uia/waypoints/4": [],
-	"uia/waypoints/5": [],
-	"uia/waypoints/6": [],
-	"uia/waypoints/7": [],
-	"uia/waypoints/8": [],
 };
+const numberOfUIAs = 8;
+for (var i=1; i<=numberOfUIAs; i++) {
+	sites["uia/waypoints/"+i] = []
+}
 
 const go = async types => {
 	const keys = Object.keys(types);
@@ -733,14 +729,9 @@ var canonnEd3d_challenge = {
 		console.log("end sheet api query")
 
 		var wps = []
-		wps.push(apidata["uia/waypoints"])
-		wps.push(apidata["uia/waypoints/2"])
-		wps.push(apidata["uia/waypoints/3"])
-		wps.push(apidata["uia/waypoints/4"])
-		wps.push(apidata["uia/waypoints/5"])
-		wps.push(apidata["uia/waypoints/6"])
-		wps.push(apidata["uia/waypoints/7"])
-		wps.push(apidata["uia/waypoints/8"])
+		for (var i=1; i<=numberOfUIAs; i++) {
+			wps.push(apidata["uia/waypoints/"+i])
+		}
 		//reformat, as first line is only headers
 
 		for (var uiai = 0; uiai < wps.length; uiai++) {
