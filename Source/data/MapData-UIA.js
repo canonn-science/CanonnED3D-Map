@@ -2,6 +2,10 @@ const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/q
 const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
 const API_LIMIT = 2000;
 
+const numberOfUIAs = 8;
+const predictionFactor = 2;
+
+
 const capi = axios.create({
 	baseURL: API_ENDPOINT,
 	headers: {
@@ -19,15 +23,10 @@ const edsmapi = axios.create({
 
 let sites = {
 	"thargoid/hyperdiction/reports": [],
-	"uia/waypoints": [],
-	"uia/waypoints/2": [],
-	"uia/waypoints/3": [],
-	"uia/waypoints/4": [],
-	"uia/waypoints/5": [],
-	"uia/waypoints/6": [],
-	"uia/waypoints/7": [],
-	"uia/waypoints/8": [],
 };
+for (var i=1; i<=numberOfUIAs; i++) {
+	sites["uia/waypoints/"+i] = []
+}
 
 const go = async types => {
 	const keys = Object.keys(types);
@@ -733,14 +732,9 @@ var canonnEd3d_challenge = {
 		console.log("end sheet api query")
 
 		var wps = []
-		wps.push(apidata["uia/waypoints"])
-		wps.push(apidata["uia/waypoints/2"])
-		wps.push(apidata["uia/waypoints/3"])
-		wps.push(apidata["uia/waypoints/4"])
-		wps.push(apidata["uia/waypoints/5"])
-		wps.push(apidata["uia/waypoints/6"])
-		wps.push(apidata["uia/waypoints/7"])
-		wps.push(apidata["uia/waypoints/8"])
+		for (var i=1; i<=numberOfUIAs; i++) {
+			wps.push(apidata["uia/waypoints/"+i])
+		}
 		//reformat, as first line is only headers
 
 		for (var uiai = 0; uiai < wps.length; uiai++) {
@@ -1078,7 +1072,7 @@ var canonnEd3d_challenge = {
 			const v3_mean = new THREE.Vector3(meanX, meanY, meanZ)
 			v3_mean.normalize()
 			var v3_firstwp = new THREE.Vector3(firstwp.coords.x, firstwp.coords.y, firstwp.coords.z)
-			v3_firstwp.addScaledVector(v3_mean, v3_firstwp.length()*1.1)
+			v3_firstwp.addScaledVector(v3_mean, v3_firstwp.length()*predictionFactor)
 
 			//console.log(v3_mean, v3_firstwp)
 			var extension = {
