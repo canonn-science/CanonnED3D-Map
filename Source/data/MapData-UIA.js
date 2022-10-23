@@ -995,9 +995,11 @@ var canonnEd3d_challenge = {
 					y: parseFloat(data[i]["Y"]),
 					z: parseFloat(data[i]["Z"]),
 				};
-				sumX -= poiSite['coords'].x 
-				sumY -= poiSite['coords'].y 
-				sumZ -= poiSite['coords'].z 
+				if (lastcoords) {
+					sumX += poiSite['coords'].x - lastcoords.x
+					sumY += poiSite['coords'].y - lastcoords.y
+					sumZ += poiSite['coords'].z - lastcoords.z
+				}
 				
 				//Check Site Type and match categories
 				poiSite['cat'] = [poicat]
