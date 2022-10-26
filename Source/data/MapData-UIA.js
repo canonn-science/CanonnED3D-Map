@@ -2,7 +2,7 @@ const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/q
 const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
 const API_LIMIT = 2000;
 
-const numberOfUIAs = 8;
+const numberOfUIAs = 9;
 const predictionFactor = 2;
 
 
@@ -103,7 +103,7 @@ var canonnEd3d_challenge = {
 					'color': 'FF9D00'
 				},
 				"1002": {
-					'name': "HIP 22460",
+					'name': "Thargoid Systems",
 					'color': '66FF66'
 				},
 				"1007": {
@@ -696,10 +696,28 @@ var canonnEd3d_challenge = {
 			coords: [1099.23828, -146.67188, -133.58008],
 			name: "Regor Sector"
 			}
+		],
+		hd_soi: [
+			{
+			radius: 150.0,
+			coords: [ -78.59375, -149.625, -340.53125],
+			name: "Merope"
+			},
+			{
+			radius: 50.0,
+			coords: [ -41.3125, -58.96875, -354.78125],
+			name: "HIP 22460"
+			},
+			{
+			radius: 70.0,
+			coords: [ 432.625, 2.53125, 288.6875],
+			name: "Musca Dark Region PJ-P b6-1"
+			},
 		]
 	},
 	formatHDs: async function (data, resolvePromise) {
 		
+		canonnEd3d_challenge.systemsData.pls.sort((a, b) => (a.radius > b.radius) ? 1 : -1)
 		for (var i = 0; i < canonnEd3d_challenge.systemsData.pls.length; i++) {
 			var plspoi = {
 				coords: {
@@ -712,6 +730,7 @@ var canonnEd3d_challenge = {
 			}
 			canonnEd3d_challenge.systemsData.systems.push(plspoi)
 		}
+		canonnEd3d_challenge.systemsData.puls.sort((a, b) => (a.radius > b.radius) ? 1 : -1)
 		for (var i = 0; i < canonnEd3d_challenge.systemsData.puls.length; i++) {
 			var pulspoi = {
 				coords: {
@@ -724,6 +743,19 @@ var canonnEd3d_challenge = {
 			}
 			canonnEd3d_challenge.systemsData.systems.push(pulspoi)
 		}
+		canonnEd3d_challenge.systemsData.hd_soi.sort((a, b) => (a.radius > b.radius) ? 1 : -1)
+		for (var i = 0; i < canonnEd3d_challenge.systemsData.hd_soi.length; i++) {
+			var hd_soipoi = {
+				coords: {
+					x: canonnEd3d_challenge.systemsData.hd_soi[i].coords[0],
+					y: canonnEd3d_challenge.systemsData.hd_soi[i].coords[1],
+					z: canonnEd3d_challenge.systemsData.hd_soi[i].coords[2]
+				},
+				name: canonnEd3d_challenge.systemsData.hd_soi[i].name,
+				'cat': ["1002"]
+			}
+			canonnEd3d_challenge.systemsData.systems.push(hd_soipoi)
+		}
 
 
 		//request and parse waypoint info here to use in hyperdiction filters
@@ -732,8 +764,11 @@ var canonnEd3d_challenge = {
 		console.log("end sheet api query")
 
 		var wps = []
-		for (var i=1; i<=numberOfUIAs; i++) {
-			wps.push(apidata["uia/waypoints/"+i])
+		for (var i=1; i<=Object.keys(apidata).length; i++) {
+			var tmpd = apidata["uia/waypoints/"+i]
+			if (!tmpd || tmpd.length < 1) continue;
+			if (!tmpd[1][1] || tmpd[1][1].length < 1 || tmpd[1][1] == "Placeholder") continue
+			wps.push(tmpd)
 		}
 		//reformat, as first line is only headers
 
@@ -1211,6 +1246,14 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.createSphere(canonnEd3d_challenge.systemsData.puls[i], blackmaterial)
 		}
 		
+		var ygmaterial = new THREE.MeshBasicMaterial({
+			color: 0x336600,
+			transparent: true,
+			opacity: 0.3
+		})
+		for (var i = 0; i < canonnEd3d_challenge.systemsData.hd_soi.length; i++) {
+			canonnEd3d_challenge.createSphere(canonnEd3d_challenge.systemsData.hd_soi[i], ygmaterial)
+		}
 
 		var popmaterial = new THREE.MeshBasicMaterial({
 			color: 0x333300,
