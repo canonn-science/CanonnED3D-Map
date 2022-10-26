@@ -395,6 +395,7 @@ var Ed3d = {
       antialias: true,
       alpha: true
     });
+    renderer.sortObjects = false
     renderer.setClearColor(0x000000, 1);
     renderer.setSize(container.offsetWidth, container.offsetHeight);
     renderer.domElement.style.zIndex = 5;
