@@ -1,6 +1,6 @@
 const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/query`;
 const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
-const API_LIMIT = 2000;
+const API_LIMIT = 2500;
 
 const numberOfUIAs = 9;
 const predictionFactor = 2;
@@ -844,7 +844,7 @@ var canonnEd3d_challenge = {
 			console.log("didnt get hyperdiction reports", apidata)
 			resolvePromise()
 			return;
-		}	
+		}
 
 		//first create a unique list of systems involved in hyperdictions
 		var hds = {};
@@ -952,6 +952,7 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.systemsData.systems.push(otherSite);
 			this.addRoute(poiSite.cat, [poiSite.name, other.system])
 		}
+		
 		//console.log("global waypoints list:", sites.wps)
 		for (var i = 0; i <= maxWPI; i++) {
 			canonnEd3d_challenge.systemsData.categories["Hyperdictions"]["30"+(1+i)] = {
