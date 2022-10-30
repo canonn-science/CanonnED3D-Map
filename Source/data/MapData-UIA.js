@@ -160,6 +160,20 @@ var canonnEd3d_challenge = {
 		},
 		systems: [
 			{
+				'name': "Col 70 Sector FY-N c21-3",
+				'infos': "",
+				'url': "",
+				'coords': { x:  687.06250, y: -362.53125, z: -697.06250 },
+				'cat': ["1002"]
+			},
+			{
+				'name': "Robigo",
+				'infos': "",
+				'url': "",
+				'coords': { x:  -303.40625, y: 7.3125, z: -314.15625 },
+				'cat': ["1000"]
+			},
+			{
 				'name': "Sol",
 				'infos': "Home sweet home... I sure hope they don't come steal my succulents.",
 				'url': "",
