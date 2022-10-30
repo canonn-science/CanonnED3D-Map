@@ -111,8 +111,8 @@ var canonnEd3d_challenge = {
 					'color': 'FF3333'
 				},
 				"1008": {
-					'name': "Permit UNLocked Centers",
-					'color': '3333FF'
+					'name': "Permit Unlocked Centers",
+					'color': '393939'
 				}
 			},
 			'Unidentified Interstellar Anomaly': {
@@ -175,9 +175,23 @@ var canonnEd3d_challenge = {
 			},
 			{
 				'name': "Sol",
-				'infos': "Home sweet home... I sure hope they don't come steal my succulents.",
+				'infos': "Federation Home System (and origin of humans but psshh don't tell the aliens).",
 				'url': "",
 				'coords': { x: 0, y: 0, z: 0 },
+				'cat': ["1000"]
+			},
+			{
+				'name': "Achenar",
+				'infos': "Imperial Home System",
+				'url': "",
+				'coords': { x: 67.5, y: -119.46875, z: 24.84375 },
+				'cat': ["1000"]
+			},
+			{
+				'name': "Alioth",
+				'infos': "Alliance Home System",
+				'url': "",
+				'coords': { x: -33.65625, y: 72.46875, z: -20.65625 },
 				'cat': ["1000"]
 			},
 			{
@@ -727,6 +741,24 @@ var canonnEd3d_challenge = {
 			coords: [ 432.625, 2.53125, 288.6875],
 			name: "Musca Dark Region PJ-P b6-1"
 			},
+			{
+			radius: 100.0,
+			coords: [ -319.81250, -216.75, -913.46875],
+			name: "California Sector BA-A e6"
+			},
+			{
+			radius: 120.0,
+			coords: [ 351.96875, -373.46875, -711.09375 ],
+			name: "Shenve"
+			},
+		],
+		g_soi: [
+			{
+			radius: 750.0,
+			coords: [ 1099.21875, -146.68750, -133.59375],
+			name: "Gamma Velorum"
+			},
+			
 		]
 	},
 	formatHDs: async function (data, resolvePromise) {
@@ -1275,6 +1307,15 @@ var canonnEd3d_challenge = {
 			opacity: 0.3
 		})
 		canonnEd3d_challenge.createSphere({coords: [0,0,0], radius: 222, name: "Populated Bubble"}, popmaterial)
+
+		var gmaterial = new THREE.MeshBasicMaterial({
+			color: 0x000099,
+			transparent: true,
+			opacity: 0.15
+		})
+		for (var i = 0; i < canonnEd3d_challenge.systemsData.g_soi.length; i++) {
+			canonnEd3d_challenge.createSphere(canonnEd3d_challenge.systemsData.g_soi[i], gmaterial)
+		}
 		//$("#search").html("<p>Current positions are rough estimates.</p>").css("display", "block").css("color", "#FF4F4F")
 	
 		document.getElementById("loading").style.display = "none";
