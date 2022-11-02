@@ -50,6 +50,45 @@ const reqSites = async (API_START, type) => {
 
 	return payload;
 };
+const recenterViewport = (center, distance) => {
+	//-- Set new camera & target position
+	Ed3d.playerPos = [center.x, center.y, center.z];
+	Ed3d.cameraPos = [
+		center.x + (Math.floor((Math.random() * 100) + 1) - 50), //-- Add a small rotation effect
+		center.y + distance,
+		center.z - distance
+	];
+
+	Action.moveInitalPosition();
+}
+
+recenterSearch = function () {
+	var term = $('#search input').val();
+	if (!term.trim()) return;
+
+	var foundSystem = {};
+	for (key in canonnEd3d_guardians.systemsData.systems) {
+		let system = canonnEd3d_guardians.systemsData.systems[key];
+		if (system.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
+			foundSystem = system;
+			break;
+		}
+	}
+	if (!(Object.keys(foundSystem).length === 0)) {
+		recenterViewport(foundSystem.coords, 100);
+
+		//console.log("addtext", "system_hover", systemname, 0, 4, 0, 3, threeObj);
+		/* how do we get threeObj? they dont have names. would like to show the mouseover text after search recenter
+				HUD.addText(-1, foundSystem.name,
+					0, 4, 0, 3//, foundSystem.coords, true
+				); 
+		//*/
+
+		$('#search input:focus-visible').css("outline-color", "darkgreen")
+	} else {
+		$('#search input:focus-visible').css("outline-color", "red")
+	}
+}
 
 var canonnEd3d_guardians = {
 
@@ -295,6 +334,10 @@ var canonnEd3d_guardians = {
 		resolvePromise();
 	},
 
+	finishMap: function() {
+		$('#search').css('display', 'block');
+		$('#search input').val('System').on('input', recenterSearch);
+	},
 	init: function () {
 		//Sites Data
 		var p1 = new Promise(function (resolve, reject) {
@@ -316,7 +359,8 @@ var canonnEd3d_guardians = {
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00'
+				systemColor: '#FF9D00',
+				finished: canonnEd3d_guardians.finishMap
 			});
 		});
 	}
