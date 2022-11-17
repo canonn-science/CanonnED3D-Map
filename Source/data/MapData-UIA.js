@@ -1,6 +1,6 @@
 const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/query`;
 const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
-const API_LIMIT = 2500;
+const API_LIMIT = 3000;
 
 const numberOfUIAs = 9;
 const predictionFactor = 2;
@@ -256,6 +256,13 @@ var canonnEd3d_challenge = {
 				'infos': '',
 				'url': "",
 				'coords': { x: -19.53125, y: -6.1875, z: -89.75 },
+				'cat': ["1007"]
+			},
+			{
+				'name': "Hyades Sector YO-Q b5-1",
+				'infos': '',
+				'url': "",
+				'coords': { x: 100.90625, y: -81.21875, z: -162.9375 },
 				'cat': ["1007"]
 			},
 			//UIA3 manual input until sheet api
