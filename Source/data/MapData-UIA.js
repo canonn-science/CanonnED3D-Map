@@ -1,6 +1,6 @@
 const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/query`;
 const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
-const API_LIMIT = 3000;
+const API_LIMIT = 1000;
 
 const numberOfUIAs = 9;
 const predictionFactor = 2;
@@ -22,7 +22,7 @@ const edsmapi = axios.create({
 })
 
 let sites = {
-	"thargoid/hyperdiction/reports": [],
+	//"thargoid/hyperdiction/reports": [],
 };
 for (var i=1; i<=numberOfUIAs; i++) {
 	sites["uia/waypoints/"+i] = []
@@ -150,7 +150,7 @@ var canonnEd3d_challenge = {
 				},
 				"300": {
 					'name': "Hostile",
-					'color': 'FFFF66'
+					'color': '660000'
 				},
 				//"301": {
 				//	'name': "Waypoint Area Only",
@@ -234,6 +234,13 @@ var canonnEd3d_challenge = {
 				'infos': '',
 				'url': "",
 				'coords': { x: 76.5625, y: 9.34375, z: -183.4375 },
+				'cat': ["1000"]
+			},
+			{
+				'name': "Varati",
+				'infos': 'Canonn Faction Home System',
+				'url': "",
+				'coords': { x: -178.65625, y: 77.125, z: -87.125 },
 				'cat': ["1000"]
 			},
 			//permit locked systems of special interest
@@ -768,7 +775,7 @@ var canonnEd3d_challenge = {
 			
 		]
 	},
-	formatHDs: async function (data, resolvePromise) {
+	formatHDs: async function (hddata, resolvePromise) {
 		
 		canonnEd3d_challenge.systemsData.pls.sort((a, b) => (a.radius > b.radius) ? 1 : -1)
 		for (var i = 0; i < canonnEd3d_challenge.systemsData.pls.length; i++) {
@@ -812,8 +819,8 @@ var canonnEd3d_challenge = {
 
 
 		//request and parse waypoint info here to use in hyperdiction filters
-		console.log("start hyperdiction sheet api query")
-		var apidata = await go(data)
+		console.log("start waypoints sheet api query")
+		var apidata = await go(sites)
 		console.log("end sheet api query")
 
 		var wps = []
@@ -843,23 +850,23 @@ var canonnEd3d_challenge = {
 			//overwrite our data variable for later
 			wps[uiai] = uiawps;
 			//parse uia wps into poi and routes
-			this.formatWaypoints(wps[uiai])
+			canonnEd3d_challenge.formatWaypoints(wps[uiai])
 		}
 
-		var reports = apidata["thargoid/hyperdiction/reports"]
-		if (reports == undefined || reports.length < 1) {
-			console.log("didnt get hyperdiction reports", apidata)
-			resolvePromise()
-			return;
-		}
+		//var reports = apidata["thargoid/hyperdiction/reports"]
+		//if (reports == undefined || reports.length < 1) {
+		//	console.log("didnt get hyperdiction reports", apidata)
+		//	resolvePromise()
+		//	return;
+		//}
 
 		//first create a unique list of systems involved in hyperdictions
 		var hds = {};
-		for (var d = 0; d < reports.length; d++) {
-			let hyperData = reports[d];
+		for (var d = 0; d < hddata.length; d++) {
+			let hyperData = hddata[d];
 		
-			var systemName = hyperData.start.system
-			var destinationName = hyperData.destination.system
+			var systemName = hyperData["System"]
+			var destinationName = hyperData["Destination"]
 			//filter by nearest name as provided by plugin
 			//if ((hyperData.start.nearest.name != "UIA Route"
 			//|| hyperData.destination.nearest.name != "UIA Route")
@@ -872,7 +879,7 @@ var canonnEd3d_challenge = {
 			//}
 
 			if (Object.keys(hds).includes(systemName+":::"+destinationName)) {
-				if (hyperData.hostile == "Y") hds[systemName+":::"+destinationName].hostile = "Y"
+				if (hyperData["Hostile"] == "Y") hds[systemName+":::"+destinationName].hostile = "Y"
 				continue;
 			}
 			hds[systemName+":::"+destinationName] = hyperData
@@ -881,8 +888,18 @@ var canonnEd3d_challenge = {
 		//then iterate that list without duplicates
 		var maxWPI = 0;
 		for (let systemName in hds) {
-			var poi = hds[systemName].start;
-			var other = hds[systemName].destination;
+			var poi = {
+				system: hds[systemName]["System"],
+				x: hds[systemName]["Sx"],
+				y: hds[systemName]["Sy"],
+				z: hds[systemName]["Sz"]
+			};
+			var other = {
+				system: hds[systemName]["Destination"],
+				x: hds[systemName]["Dx"],
+				y: hds[systemName]["Dy"],
+				z: hds[systemName]["Dz"]
+			};
 			//console.log("throwing hyper away", poi, hyperData)
 			//ignoring  that are not connected to our waypoints
 			if (poi == undefined) { continue }
@@ -957,7 +974,7 @@ var canonnEd3d_challenge = {
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_challenge.systemsData.systems.push(poiSite);
 			canonnEd3d_challenge.systemsData.systems.push(otherSite);
-			this.addRoute(poiSite.cat, [poiSite.name, other.system])
+			canonnEd3d_challenge.addRoute(poiSite.cat, [poiSite.name, other.system])
 		}
 		
 		//console.log("global waypoints list:", sites.wps)
@@ -1135,6 +1152,7 @@ var canonnEd3d_challenge = {
 			const nowdiff = nowtime-starttime
 			var percent = nowdiff/timediff
 			if (midptime) percent = percent/2
+			if (percent>1) percent=1
 			const vecdiff = end.clone().sub(start)
 			canonnEd3d_challenge.uia.push(start.clone().addScaledVector(vecdiff, percent))
 			console.log("% of the way:", percent, new Date(lastarrivaldate).toString(), new Date(arrivaldate).toString())
@@ -1154,7 +1172,7 @@ var canonnEd3d_challenge = {
 			//see finishMap() for the sprite
 			canonnEd3d_challenge.systemsData.systems.push(uia_poi)
 
-
+			canonnEd3d_challenge.uia[lastuia].percent = percent
 
 			//paint a long line of potential where the UIA is heading at
 			var meanX = sumX/data.length
@@ -1277,6 +1295,11 @@ var canonnEd3d_challenge = {
 		scene.add(sphere);
 	},
 	finishMap: function() {
+		var redmaterial = new THREE.MeshBasicMaterial({
+			color: 0xFF0000,
+			transparent: true,
+			opacity: 0.3
+		})
 		for (var i = 0; i < canonnEd3d_challenge.uia.length; i++) {
 			var sprite = new THREE.Sprite(Ed3d.material.spiral);
 			//console.log("trying stargoid sprite: ", v3_uia)
@@ -1287,6 +1310,18 @@ var canonnEd3d_challenge = {
 			);
 			sprite.scale.set(50, 50, 1);
 			scene.add(sprite); // this centers the glow at the mesh
+			var names = ["Taranis", "Leigong", "Indra", "Oya", "Cocijo", "Thor", "Raijin", "Hadad"]
+			if (canonnEd3d_challenge.uia[i].percent >= 1) {
+				canonnEd3d_challenge.createSphere({
+					radius: 25,
+					coords: [
+						canonnEd3d_challenge.uia[i].x,
+						canonnEd3d_challenge.uia[i].y,
+						canonnEd3d_challenge.uia[i].z
+					],
+					name: "Rogue Signal Source "+ (names[i] || (i+1))
+				}, redmaterial)
+			}
 		}
 		for (var i = 0; i < canonnEd3d_challenge.systemsData.pls.length; i++) {
 			canonnEd3d_challenge.createSphere(canonnEd3d_challenge.systemsData.pls[i], Ed3d.material.permit_zone)
@@ -1314,7 +1349,7 @@ var canonnEd3d_challenge = {
 			transparent: true,
 			opacity: 0.3
 		})
-		canonnEd3d_challenge.createSphere({coords: [0,0,0], radius: 222, name: "Populated Bubble"}, popmaterial)
+		//canonnEd3d_challenge.createSphere({coords: [0,0,0], radius: 222, name: "Populated Bubble"}, popmaterial)
 
 		var gmaterial = new THREE.MeshBasicMaterial({
 			color: 0x000099,
@@ -1324,6 +1359,7 @@ var canonnEd3d_challenge = {
 		for (var i = 0; i < canonnEd3d_challenge.systemsData.g_soi.length; i++) {
 			canonnEd3d_challenge.createSphere(canonnEd3d_challenge.systemsData.g_soi[i], gmaterial)
 		}
+
 		//$("#search").html("<p>Current positions are rough estimates.</p>").css("display", "block").css("color", "#FF4F4F")
 	
 		document.getElementById("loading").style.display = "none";
@@ -1332,14 +1368,11 @@ var canonnEd3d_challenge = {
 		//var p1 = new Promise(function (resolve, reject) {
 		//	canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Waypoints.csv', canonnEd3d_challenge.formatWaypoints, resolve);
 		//});
-		//var p2 = new Promise(function (resolve, reject) {
-		//	canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Responses.csv', canonnEd3d_challenge.formatMeasurements, resolve);
-		//});
-		var p3 = new Promise(function (resolve, reject) {
-			canonnEd3d_challenge.formatHDs(sites, resolve);
+		var p2 = new Promise(function (resolve, reject) {
+			canonnEd3d_challenge.parseCSVData('data/csvCache/route_UIA_Hyperdictions.csv', canonnEd3d_challenge.formatHDs, resolve);
 		});
 
-		Promise.all([p3]).then(function () {
+		Promise.all([p2]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_challenge.systemsData,
