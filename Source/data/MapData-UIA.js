@@ -1027,6 +1027,7 @@ var canonnEd3d_challenge = {
 		var lastcase = "X";
 		var lastdata = false;
 		var sumX = 0, sumY = 0, sumZ = 0;
+		var destination_reached = false;
 		// this is assuming data is an array []
 		for (var i = 0; i < data.length; i++) {
 
@@ -1134,6 +1135,9 @@ var canonnEd3d_challenge = {
 					arrivaldate = new Date(gsheetToZuluTimestamp(thetime)).getTime()
 				}
 			}
+			if (data[i]["Remarks"].search("Destination Reached") >= 0) {
+				destination_reached = true;
+			}
 		}
 
 		if (fakeroute.points.length>1) canonnEd3d_challenge.systemsData.routes.push(fakeroute);
@@ -1151,8 +1155,8 @@ var canonnEd3d_challenge = {
 			const timediff = endtime-starttime || 1
 			const nowdiff = nowtime-starttime
 			var percent = nowdiff/timediff
-			if (midptime) percent = percent/2
-			if (percent>1) percent=1
+			if (midptime) percent = percent/2;
+			if (destination_reached && percent>1) percent=1;
 			const vecdiff = end.clone().sub(start)
 			canonnEd3d_challenge.uia.push(start.clone().addScaledVector(vecdiff, percent))
 			console.log("% of the way:", percent, new Date(lastarrivaldate).toString(), new Date(arrivaldate).toString())
@@ -1172,7 +1176,7 @@ var canonnEd3d_challenge = {
 			//see finishMap() for the sprite
 			canonnEd3d_challenge.systemsData.systems.push(uia_poi)
 
-			canonnEd3d_challenge.uia[lastuia].percent = percent
+			canonnEd3d_challenge.uia[lastuia].destination_reached = destination_reached;
 
 			//paint a long line of potential where the UIA is heading at
 			var meanX = sumX/data.length
@@ -1311,7 +1315,7 @@ var canonnEd3d_challenge = {
 			sprite.scale.set(50, 50, 1);
 			scene.add(sprite); // this centers the glow at the mesh
 			var names = ["Taranis", "Leigong", "Indra", "Oya", "Cocijo", "Thor", "Raijin", "Hadad"]
-			if (canonnEd3d_challenge.uia[i].percent >= 1) {
+			if (canonnEd3d_challenge.uia[i].destination_reached) {
 				canonnEd3d_challenge.createSphere({
 					radius: 25,
 					coords: [
@@ -1382,8 +1386,8 @@ var canonnEd3d_challenge = {
 				effectScaleSystem: [20, 500],
 				startAnim: false,
 				showGalaxyInfos: false,
-				playerPos: [-776, -83, 	 -2388],
-				cameraPos: [-776, -83+1000, -2388-1500],
+				playerPos: [0, 0, 	 0],
+				cameraPos: [0, 0+1000, 0-1500],
 				systemColor: '#FF9D00',
 				finished: canonnEd3d_challenge.finishMap
 			});
