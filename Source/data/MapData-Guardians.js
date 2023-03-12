@@ -222,7 +222,7 @@ var canonnEd3d_guardians = {
 				var poiSite = {};
 				poiSite['cat'] = [404];
 				poiSite['name'] = site.system;
-				poiSite["coords"] = { x: site.x, y: site.y, z: site.z }
+				poiSite["coords"] = { x: parseFloat(site.x), y: parseFloat(site.y), z: parseFloat(site.z) }
 				poiSite["infos"] = "Ancient Ruin<br>"
 				canonnEd3d_guardians.systemsData.systems.push(poiSite);
 			}
