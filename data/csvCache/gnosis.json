@@ -1,0 +1,1218 @@
+﻿[
+  {
+    "Route": "exploration",
+    "System": "Varati",
+    "x": "-178.65625",
+    "y": "77.125",
+    "z": "-87.125",
+    "Dates Visited": "May 18, 3303 - September 28, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "Hyades Sector AQ-Y d81",
+    "x": "-83.4375",
+    "y": "-82.78125",
+    "z": "-244.21875",
+    "Dates Visited": "September 28, 3303 - October 5, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 18778",
+    "x": "11.46875",
+    "y": "-236.5625",
+    "z": "-398.21875",
+    "Dates Visited": "October 5, 3303 - October 12, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "Witch Head Sector DL-Y d8",
+    "x": "351.75",
+    "y": "-419.65625",
+    "z": "-706.5",
+    "Dates Visited": "October 12, 3303 - October 26, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "BD-12 1172",
+    "x": "577.875",
+    "y": "-452.6875",
+    "z": "-819.25",
+    "Dates Visited": "October 26, 3303 - November 2, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "Mintaka",
+    "x": "270.625",
+    "y": "-204.34375",
+    "z": "-603.78125",
+    "Dates Visited": "November 2, 3303 - November 9, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "Betelgeuse",
+    "x": "169.40625",
+    "y": "-72.5",
+    "z": "-462.625",
+    "Dates Visited": "November 9, 3303 - November 16, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "Merope",
+    "x": "-78.59375",
+    "y": "-149.625",
+    "z": "-340.53125",
+    "Dates Visited": "November 16, 3303 - November 23, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "Meene",
+    "x": "118.78125",
+    "y": "-56.4375",
+    "z": "-97.1875",
+    "Dates Visited": "November 23, 3303 - December 7, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "IC 2391 Sector YE-A d103",
+    "x": "489.03125",
+    "y": "-98.09375",
+    "z": "-34.96875",
+    "Dates Visited": "December 7, 3303 - December 14, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "Jackson's Lighthouse",
+    "x": "157",
+    "y": "-27",
+    "z": "-70",
+    "Dates Visited": "December 14, 3303 - December 21, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "Santa Muerte",
+    "x": "94.25",
+    "y": "46.1875",
+    "z": "58.03125",
+    "Dates Visited": "December 21, 3303 - December 28, 3303"
+  },
+  {
+    "Route": "exploration",
+    "System": "Varati",
+    "x": "-178.65625",
+    "y": "77.125",
+    "z": "-87.125",
+    "Dates Visited": "December 28, 3303 - January 11, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "LBN 623 Sector PD-S b4-5",
+    "x": "-499.90625",
+    "y": "-16.4375",
+    "z": "-332.5625",
+    "Dates Visited": "January 11, 3304 - January 18, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 17125",
+    "x": "-95.875",
+    "y": "-128.75",
+    "z": "-316.5625",
+    "Dates Visited": "January 18, 3304 - January 25, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Taygeta",
+    "x": "-88.5",
+    "y": "-159.6875",
+    "z": "-366.28125",
+    "Dates Visited": "January 25, 3304 - February 1, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Electra",
+    "x": "-86.0625",
+    "y": "-159.9375",
+    "z": "-361.65625",
+    "Dates Visited": "February 1, 3304 - Feburary 15, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Maia",
+    "x": "-81.78125",
+    "y": "-149.4375",
+    "z": "-343.375",
+    "Dates Visited": "Feburary 15, 3304 - March 8, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Evenses",
+    "x": "-133.875",
+    "y": "54.03125",
+    "z": "-80.5625",
+    "Dates Visited": "March 8, 3304 - March 15, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Meene",
+    "x": "118.78125",
+    "y": "-56.4375",
+    "z": "-97.1875",
+    "Dates Visited": "March 15, 3304 - March 22, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Synuefe XO-P c22-17",
+    "x": "546.90625",
+    "y": "-56.46875",
+    "z": "-97.8125",
+    "Dates Visited": "March 22, 3304 - March 29, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Vela Dark Region EG-X b1-1",
+    "x": "957.6875",
+    "y": "-143.34375",
+    "z": "-123.40625",
+    "Dates Visited": "March 29, 3304 - April 5, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "HD 63154",
+    "x": "979.46875",
+    "y": "-207.40625",
+    "z": "-131.59375",
+    "Dates Visited": "April 5, 3304 - April 12, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Vela Dark Region JS-T b3-0",
+    "x": "899.9375",
+    "y": "-142.1875",
+    "z": "-82.25",
+    "Dates Visited": "April 12, 3304 - April 19, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Synuefe EU-Q c21-10",
+    "x": "758.65625",
+    "y": "-176.90625",
+    "z": "-133.21875",
+    "Dates Visited": "April 19, 3304 - April 26, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Synuefe GT-H b43-1",
+    "x": "749",
+    "y": "-163.09375",
+    "z": "-128.0625",
+    "Dates Visited": "April 26, 3304 - May 3, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 39768",
+    "x": "866.59375",
+    "y": "-119.125",
+    "z": "-109.03125",
+    "Dates Visited": "May 3, 3304 - May 10, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Col 173 Sector ME-P d6-92",
+    "x": "891.65625",
+    "y": "-98.53125",
+    "z": "-157.1875",
+    "Dates Visited": "May 10, 3304 - May 17, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "IC 2391 Sector YE-A d103",
+    "x": "489.03125",
+    "y": "-98.09375",
+    "z": "-34.96875",
+    "Dates Visited": "May 17, 3304 - May 24, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Meene",
+    "x": "118.78125",
+    "y": "-56.4375",
+    "z": "-97.1875",
+    "Dates Visited": "May 24, 3304 - May 31, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Epsilon Indi",
+    "x": "3.125",
+    "y": "-8.875",
+    "z": "7.125",
+    "Dates Visited": "May 31, 3304 - June 21, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Jackson's Lighthouse",
+    "x": "157",
+    "y": "-27",
+    "z": "-70",
+    "Dates Visited": "June 21, 3304 - June 28, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Alpha Centauri",
+    "x": "3.03125",
+    "y": "-0.09375",
+    "z": "3.15625",
+    "Dates Visited": "June 28, 3304 - July 5, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "LHS 3447",
+    "x": "-43.1875",
+    "y": "-5.28125",
+    "z": "56.15625",
+    "Dates Visited": "July 5, 3304 - July 12, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Charick Drift",
+    "x": "8.1875",
+    "y": "26.71875",
+    "z": "-6.0625",
+    "Dates Visited": "July 12, 3304 - July 19, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Hermitage",
+    "x": "-28.75",
+    "y": "25",
+    "z": "10.4375",
+    "Dates Visited": "July 19, 3304 - July 26, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Bifrost",
+    "x": "58.6875",
+    "y": "54.28125",
+    "z": "-62.46875",
+    "Dates Visited": "July 26, 3304 - August 9, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Merope",
+    "x": "-78.59375",
+    "y": "-149.625",
+    "z": "-340.53125",
+    "Dates Visited": "August 9, 3304 - August 16, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "64 Orionis",
+    "x": "129.34375",
+    "y": "-7.1875",
+    "z": "-706.65625",
+    "Dates Visited": "August 16, 3304 - August 23, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "HD 51502",
+    "x": "411.25",
+    "y": "168.5625",
+    "z": "-1054.59375",
+    "Dates Visited": "August 23, 3304 - August 30, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Outotz ST-I d9-4",
+    "x": "609.4375",
+    "y": "154.25",
+    "z": "-1503.59375",
+    "Dates Visited": "August 30, 3304 - September 6, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Outotz ST-I d9-6",
+    "x": "604.15625",
+    "y": "153.59375",
+    "z": "-1514.9375",
+    "Dates Visited": "September 6, 3304 - September 27, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Outotz EH-M d7-5",
+    "x": "134.375",
+    "y": "208.40625",
+    "z": "-1664.6875",
+    "Dates Visited": "September 27, 3304 - October 4, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Outopps BU-R d4-4",
+    "x": "-284.78125",
+    "y": "235.1875",
+    "z": "-1906.84375",
+    "Dates Visited": "October 4, 3304 - October 11, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Outopps JB-X d1-1",
+    "x": "-705.53125",
+    "y": "251.15625",
+    "z": "-2145.90625",
+    "Dates Visited": "October 11, 3304 - October 18, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Ploi Thua YD-E c26-1",
+    "x": "-1101.25",
+    "y": "326.5625",
+    "z": "-2495.1875",
+    "Dates Visited": "October 18, 3304 - October 25, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Hegeia SY-O c20-0",
+    "x": "-1581.40625",
+    "y": "357.40625",
+    "z": "-2725.21875",
+    "Dates Visited": "October 25, 3304 - November 1, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Outorst WI-B d0",
+    "x": "-1822.09375",
+    "y": "545.9375",
+    "z": "-2338.96875",
+    "Dates Visited": "November 1, 3304 - November 8, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Outorst CW-K c9-0",
+    "x": "-2051.3125",
+    "y": "496.5625",
+    "z": "-1911.25",
+    "Dates Visited": "November 8, 3304 - November 15, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Outorst OA-U c17-0",
+    "x": "-2365.375",
+    "y": "310.28125",
+    "z": "-1579.40625",
+    "Dates Visited": "November 15, 3304 - November 22, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "NGC 7822 Sector BQ-Y d12",
+    "x": "-2454.1875",
+    "y": "299.0625",
+    "z": "-1326.0625",
+    "Dates Visited": "November 22, 3304 - November 29, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Plaa Eurk IR-W d1-14",
+    "x": "-2387.0625",
+    "y": "124",
+    "z": "-877.71875",
+    "Dates Visited": "November 29, 3304 - December 6, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Elephant's Trunk Sector BQ-Y d14",
+    "x": "-2670.84375",
+    "y": "224.46875",
+    "z": "-479.5625",
+    "Dates Visited": "December 6, 3304 - December 13, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Plaa Eurk QZ-D b26-0",
+    "x": "-2182.9375",
+    "y": "119.84375",
+    "z": "-500.25",
+    "Dates Visited": "December 13, 3304 - December 20, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Plaa Eurk JB-O d6-12",
+    "x": "-1687.53125",
+    "y": "146.5625",
+    "z": "-451.71875",
+    "Dates Visited": "December 20, 3304 - December 27, 3304"
+  },
+  {
+    "Route": "exploration",
+    "System": "Wredguia HO-Y c14-3",
+    "x": "-1189.46875",
+    "y": "145.46875",
+    "z": "-418.78125",
+    "Dates Visited": "December 27, 3304 - January 3, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Wredguia UE-V b30-1",
+    "x": "-691",
+    "y": "115.28125",
+    "z": "-397.84375",
+    "Dates Visited": "January 3, 3305 - January 10, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "MEL 22 Sector TB-J b10-0",
+    "x": "-245.21875",
+    "y": "-108.875",
+    "z": "-393.0625",
+    "Dates Visited": "January 10, 3305 - January 17, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "HR 1185",
+    "x": "-64.65625",
+    "y": "-148.9375",
+    "z": "-330.40625",
+    "Dates Visited": "January 17, 3305 - January 24, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Varati",
+    "x": "-178.65625",
+    "y": "77.125",
+    "z": "-87.125",
+    "Dates Visited": "January 24, 3305 - January 31, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Alpha Centauri",
+    "x": "3.03125",
+    "y": "-0.09375",
+    "z": "3.15625",
+    "Dates Visited": "January 31, 3305 - February 7, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Meene",
+    "x": "118.78125",
+    "y": "-56.4375",
+    "z": "-97.1875",
+    "Dates Visited": "February 7, 3305 - February 14, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "IC 2391 Sector HG-X b1-8",
+    "x": "603.9375",
+    "y": "-104.15625",
+    "z": "-61.5625",
+    "Dates Visited": "February 14, 3305 - February 21, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 36823",
+    "x": "640.4375",
+    "y": "-143.90625",
+    "z": "-118.3125",
+    "Dates Visited": "February 21, 3305 - February 28, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 39890",
+    "x": "648.5625",
+    "y": "-137.21875",
+    "z": "-0.3125",
+    "Dates Visited": "February 28, 3305 - March 7, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Synuefe LQ-T b50-1",
+    "x": "728.5",
+    "y": "-155.65625",
+    "z": "19.3125",
+    "Dates Visited": "March 7, 3305 - March 14, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Synuefe SP-F b44-0",
+    "x": "831.625",
+    "y": "-187.5625",
+    "z": "-121.84375",
+    "Dates Visited": "March 14, 3305 - March 21, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Col 173 Sector OD-J b25-2",
+    "x": "1008.375",
+    "y": "-201.5625",
+    "z": "-157.4375",
+    "Dates Visited": "March 21, 3305 - March 28, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Vela Dark Region FL-Y d63",
+    "x": "1064.5",
+    "y": "-144.03125",
+    "z": "-101.71875",
+    "Dates Visited": "March 28, 3305 - April 4, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Synuefe VN-W b46-0",
+    "x": "879.03125",
+    "y": "-604.78125",
+    "z": "-63.96875",
+    "Dates Visited": "April 4, 3305 - April 11, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Synuefe FE-S b46-0",
+    "x": "679.34375",
+    "y": "-1060.65625",
+    "z": "-62.25",
+    "Dates Visited": "April 11, 3305 - April 18, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Flyooe Dryeia LH-L c24-0",
+    "x": "456.34375",
+    "y": "-1503.59375",
+    "z": "-21.875",
+    "Dates Visited": "April 18, 3305 - April 25, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Flyooe Dryeia JJ-G d11-0",
+    "x": "228.21875",
+    "y": "-1936.625",
+    "z": "-67.875",
+    "Dates Visited": "April 25, 3305 - May 2, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 4099",
+    "x": "46.65625",
+    "y": "-2380.28125",
+    "z": "-9.15625",
+    "Dates Visited": "May 2, 3305 - May 9, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Prooe Dryeia XP-X d1-0",
+    "x": "20.15625",
+    "y": "-2099.9375",
+    "z": "383.8125",
+    "Dates Visited": "May 9, 3305 - May 16, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Prooe Dryeia SF-N d7-0",
+    "x": "-57.3125",
+    "y": "-2024.1875",
+    "z": "865.59375",
+    "Dates Visited": "May 16, 3305 - May 23, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Prooe Dryeia RQ-C d13-0",
+    "x": "61.59375",
+    "y": "-1980.5625",
+    "z": "1346.78125",
+    "Dates Visited": "May 23, 3305 - May 30 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Screagi FP-Z d0",
+    "x": "-115.8125",
+    "y": "-2001.625",
+    "z": "1588.40625",
+    "Dates Visited": "May 30, 3305 - June 6, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "IRAS 21565-3937",
+    "x": "-86.25",
+    "y": "-2376.875",
+    "z": "1828.375",
+    "Dates Visited": "June 6, 3305 - June 13, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Screagi BJ-B d0",
+    "x": "-138.3125",
+    "y": "-2015.75",
+    "z": "1501.21875",
+    "Dates Visited": "June 13, 3305 - June 20, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Nidgiae QJ-F d12-1",
+    "x": "-152.28125",
+    "y": "-1580.9375",
+    "z": "1274.65625",
+    "Dates Visited": "June 20, 3305 - June 27, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Swoilz II-K d8-0",
+    "x": "-53.9375",
+    "y": "-1217.09375",
+    "z": "949.53125",
+    "Dates Visited": "June 27, 3305 - July 4, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Swoilz GX-T d3-2",
+    "x": "-8.96875",
+    "y": "-851.65625",
+    "z": "613.65625",
+    "Dates Visited": "July 4, 3305 - July 11, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Swoilz UL-A c2-7",
+    "x": "18.5625",
+    "y": "-448.6875",
+    "z": "319.40625",
+    "Dates Visited": "July 11, 3305 - July 18, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Tonatiuh",
+    "x": "5.25",
+    "y": "-39.8125",
+    "z": "33.3125",
+    "Dates Visited": "July 18, 3305 - July 25, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 20960",
+    "x": "30.65625",
+    "y": "-189.53125",
+    "z": "-435",
+    "Dates Visited": "July 25, 3305 - August 1, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Witch Head Sector AL-X b1-0",
+    "x": "312.25",
+    "y": "-393.03125",
+    "z": "-773.46875",
+    "Dates Visited": "August 1, 3305 - August 8, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Wregoe JI-B b13-0",
+    "x": "44.6875",
+    "y": "-14.28125",
+    "z": "-782.9375",
+    "Dates Visited": "August 8, 3305 - August 15, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "California Sector LC-V c2-10",
+    "x": "-336.1875",
+    "y": "-237.78125",
+    "z": "-890.125",
+    "Dates Visited": "August 15, 3305 - August 22, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Oochorrs KF-D d13-5",
+    "x": "6.15625",
+    "y": "-469.3125",
+    "z": "-1150.28125",
+    "Dates Visited": "August 22, 3305 - August 29, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Col 69 Sector HR-M c7-6",
+    "x": "430.96875",
+    "y": "-427.15625",
+    "z": "-1331.75",
+    "Dates Visited": "August 29, 3305 - September 5, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Oort",
+    "x": "589.375",
+    "y": "-428.84375",
+    "z": "-1061.59375",
+    "Dates Visited": "September 5, 3305 - September 12, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Messier 78 Sector RD-T c3-8",
+    "x": "667.46875",
+    "y": "-426.96875",
+    "z": "-1314.125",
+    "Dates Visited": "September 12, 3305 - September 19, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Oochorrs FO-C c15-0",
+    "x": "643.71875",
+    "y": "-279.40625",
+    "z": "-1668",
+    "Dates Visited": "September 19, 3305 - September 26, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Outotz PI-K d8-0",
+    "x": "520.71875",
+    "y": "97.9375",
+    "z": "-1598.0625",
+    "Dates Visited": "September 26, 3305 - October 3, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Outotz ST-I d9-6",
+    "x": "604.15625",
+    "y": "153.59375",
+    "z": "-1514.9375",
+    "Dates Visited": "October 3, 3305 - October 10, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Col 69 Sector PH-U c3-0",
+    "x": "606.375",
+    "y": "-333.90625",
+    "z": "-1501.9375",
+    "Dates Visited": "October 10, 3305 - October 17, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "V1483 Orionis",
+    "x": "613.21875",
+    "y": "-446.25",
+    "z": "-1105",
+    "Dates Visited": "October 17, 3305 - October 24, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "PMD2009 48",
+    "x": "594.90625",
+    "y": "-431.4375",
+    "z": "-1071.78125",
+    "Dates Visited": "October 24, 3305 - October 31, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "BD-12 1172",
+    "x": "577.875",
+    "y": "-452.6875",
+    "z": "-819.25",
+    "Dates Visited": "October 31, 3305 - November 7, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Synuefe MJ-O d7-14",
+    "x": "489.78125",
+    "y": "-253.34375",
+    "z": "-378.25",
+    "Dates Visited": "November 7, 3305 - November 14, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Flame Sector XT-R b4-0",
+    "x": "497.40625",
+    "y": "-321.625",
+    "z": "-859.3125",
+    "Dates Visited": "November 14, 3305 - November 21, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 23759",
+    "x": "359.84375",
+    "y": "-385.53125",
+    "z": "-718.375",
+    "Dates Visited": "November 21, 3305 - November 28, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Synuefe NU-M d8-99",
+    "x": "370.96875",
+    "y": "-163.125",
+    "z": "-281.875",
+    "Dates Visited": "November 28, 3305 - December 5, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Epsilon Indi",
+    "x": "3.125",
+    "y": "-8.875",
+    "z": "7.125",
+    "Dates Visited": "December 5, 3305 - December 12, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "Varati",
+    "x": "-178.65625",
+    "y": "77.125",
+    "z": "-87.125",
+    "Dates Visited": "December 12, 3305 - December 26, 3305"
+  },
+  {
+    "Route": "exploration",
+    "System": "63 G. Capricorni",
+    "x": "-19.1875",
+    "y": "-44.8125",
+    "z": "52.53125",
+    "Dates Visited": "December 26, 3305 - January 2, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Alaunus",
+    "x": "-0.65625",
+    "y": "-52.28125",
+    "z": "-5.96875",
+    "Dates Visited": "January 2, 3306 - January 9, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 28170",
+    "x": "87.59375",
+    "y": "-18.40625",
+    "z": "-494.53125",
+    "Dates Visited": "January 9, 3306 - January 16, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Arietis Sector ZF-O b6-1",
+    "x": "-89.53125",
+    "y": "-102.4375",
+    "z": "-75.4375",
+    "Dates Visited": "January 16, 3306 - January 23, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 112240",
+    "x": "-132.59375",
+    "y": "-133.4375",
+    "z": "30.90625",
+    "Dates Visited": "January 23, 3306 - January 30, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Col 359 Sector TN-T d3-98",
+    "x": "-280.1875",
+    "y": "-146.1875",
+    "z": "445.6875",
+    "Dates Visited": "January 30, 3306 - February 6, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Col 359 Sector OI-K d8-10",
+    "x": "-530.21875",
+    "y": "-328.65625",
+    "z": "827.75",
+    "Dates Visited": "February 6, 3306 - February 13, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Swoiwns RJ-Q e5-2",
+    "x": "-708.21875",
+    "y": "-427.71875",
+    "z": "1232.625",
+    "Dates Visited": "February 13, 3306 - February 20, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Bleia Eohn TJ-Y d1-1",
+    "x": "-928.46875",
+    "y": "-469",
+    "z": "1661.9375",
+    "Dates Visited": "February 20, 3306 - February 27, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Bleia Eohn PE-P d6-5",
+    "x": "-1091.5",
+    "y": "-622.5625",
+    "z": "2102.28125",
+    "Dates Visited": "February 27, 3306 - March 5, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Bleia Eohn UO-K c23-0",
+    "x": "-1326.40625",
+    "y": "-718.75",
+    "z": "2524.21875",
+    "Dates Visited": "March 5, 3306 - March 12, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Drojeae WZ-M b9-0",
+    "x": "-1504.84375",
+    "y": "-821.4375",
+    "z": "2978.09375",
+    "Dates Visited": "March 12, 3306 - March 19, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Drojeae NM-M d7-0",
+    "x": "-1580.84375",
+    "y": "-994.25",
+    "z": "3428.84375",
+    "Dates Visited": "March 19, 3306 - March 26, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Drojeae UE-H d10-0",
+    "x": "-1912.1875",
+    "y": "-986.9375",
+    "z": "3724.8125",
+    "Dates Visited": "March 26, 3306 - April 2, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Blae Drye FF-A d2",
+    "x": "-2009.6875",
+    "y": "-1215.09375",
+    "z": "4114.375",
+    "Dates Visited": "April 2, 3306 - April 9, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Blae Drye PS-U e2-0",
+    "x": "-2137.28125",
+    "y": "-1287.96875",
+    "z": "4555.75",
+    "Dates Visited": "April 9, 3306 - April 16, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Blae Dryua RL-J d10-2",
+    "x": "-2371.84375",
+    "y": "-1332.90625",
+    "z": "4966.875",
+    "Dates Visited": "April 16, 3306 - April 23, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Chaluia FS-A d1-4",
+    "x": "-2486.15625",
+    "y": "-1483.625",
+    "z": "5426.65625",
+    "Dates Visited": "April 23, 3306 - April 30, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Blae Drye YK-P e5-1",
+    "x": "-2497.1875",
+    "y": "-1274.75",
+    "z": "5058.8125",
+    "Dates Visited": "April 30, 3306 - May 7, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Blae Drye CH-M D7-4",
+    "x": "-2597.9375",
+    "y": "-1078.90625",
+    "z": "4711.1875",
+    "Dates Visited": "May 7, 3306 - May 14, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Blae Drye GY-P c6-0",
+    "x": "-2542.75",
+    "y": "-819.4375",
+    "z": "4335.375",
+    "Dates Visited": "May 14, 3306 - May 21, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Drojo TO-E c26-2",
+    "x": "-2655.21875",
+    "y": "-894.75",
+    "z": "3899.15625",
+    "Dates Visited": "May 21, 3306 - May 28, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Drojo DP-X c15-1",
+    "x": "-2742",
+    "y": "-982.5625",
+    "z": "3456.3125",
+    "Dates Visited": "May 28, 3306 - June 4, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Drojo FA-Q d5-6",
+    "x": "-2821.53125",
+    "y": "-1020.625",
+    "z": "3288.90625",
+    "Dates Visited": "June 4, 3306 - June 11, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Drojeae DB-X D1-4",
+    "x": "-2504.0625",
+    "y": "-1057.65625",
+    "z": "2968",
+    "Dates Visited": "June 11, 3306 - June 18, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Drojeae AA-A h56",
+    "x": "-2164.59375",
+    "y": "-733.40625",
+    "z": "2923.875",
+    "Dates Visited": "June 18, 3306 - June 25, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Aucopp QO-U b47-0",
+    "x": "-1885.34375",
+    "y": "-624.21875",
+    "z": "2524.03125",
+    "Dates Visited": "June 25, 3306 - July 2, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Aucopp VJ-P d6-2",
+    "x": "-1670.5625",
+    "y": "-581.96875",
+    "z": "2094.21875",
+    "Dates Visited": "July 2, 3306 - July 9, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Aucopp BP-Y d1-35",
+    "x": "-1407.875",
+    "y": "-422.0625",
+    "z": "1704.3125",
+    "Dates Visited": "July 9, 3306 - July 16, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Phylur AP-B b13-1",
+    "x": "-1617.90625",
+    "y": "-1.65625",
+    "z": "1775.4375",
+    "Dates Visited": "July 16, 3306 - July 23, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Sifi PC-V b57-0",
+    "x": "-1999.53125",
+    "y": "20.21875",
+    "z": "1455.46875",
+    "Dates Visited": "July 23, 3306 - July 30, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Sifi BA-E B39-0",
+    "x": "-1799.65625",
+    "y": "-21.5",
+    "z": "1057.8125",
+    "Dates Visited": "July 30, 3306 - August 6, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Star of India",
+    "x": "-1840.5625",
+    "y": "95.25",
+    "z": "610.3125",
+    "Dates Visited": "August 6, 3306 - August 13, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Veil West Sector AQ-Y d43",
+    "x": "-1448.875",
+    "y": "-157.96875",
+    "z": "444.1875",
+    "Dates Visited": "August 13, 3306 - August 20, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Dumbbell Sector CL-X b1-2",
+    "x": "-979.5625",
+    "y": "-73.90625",
+    "z": "484.96875",
+    "Dates Visited": "August 20, 3306 - August 27, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Col 359 Sector MJ-D b14-3",
+    "x": "-603.875",
+    "y": "2.6875",
+    "z": "422.5625",
+    "Dates Visited": "August 27, 3306 - September 3, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "HIP 98182",
+    "x": "-545.90625",
+    "y": "7.09375",
+    "z": "223.1875",
+    "Dates Visited": "September 3, 3306 - September 10, 3306"
+  },
+  {
+    "Route": "exploration",
+    "System": "Varati",
+    "x": "-178.65625",
+    "y": "77.125",
+    "z": "-87.125",
+    "Dates Visited": "September 10, 3306 - September 17, 3306"
+  },
+  {
+    "Route": "final",
+    "System": "Varati",
+    "x": "-178.65625",
+    "y": "77.125",
+    "z": "-87.125",
+    "Dates Visited": ""
+  },
+  {
+    "Route": "final",
+    "System": "HIP 17862",
+    "x": "-81.4375",
+    "y": "-151.90625",
+    "z": "-359.59375",
+    "Dates Visited": ""
+  },
+  {
+    "Route": "final",
+    "System": "Pleiades Sector PN-T b3-0",
+    "x": "-79.53125",
+    "y": "-199.9375",
+    "z": "-361.59375",
+    "Dates Visited": ""
+  },
+  {
+    "Route": "final",
+    "System": "Synuefe PR-L b40-1",
+    "x": "365.78125",
+    "y": "-291.75",
+    "z": "-188.65625",
+    "Dates Visited": ""
+  },
+  {
+    "Route": "final",
+    "System": "HIP 18120",
+    "x": "345.75",
+    "y": "-435.71875",
+    "z": "-125.5",
+    "Dates Visited": ""
+  },
+  {
+    "Route": "final",
+    "System": "IC 2391 Sector CQ-Y c16",
+    "x": "559.875",
+    "y": "-87.15625",
+    "z": "-33.15625",
+    "Dates Visited": ""
+  },
+  {
+    "Route": "final",
+    "System": "Kappa-1 Volantis",
+    "x": "396.90625",
+    "y": "-142.5625",
+    "z": "106.09375",
+    "Dates Visited": ""
+  },
+  {
+    "Route": "final",
+    "System": "Epsilon Indi",
+    "x": "3.125",
+    "y": "-8.875",
+    "z": "7.125",
+    "Dates Visited": ""
+  }
+]
