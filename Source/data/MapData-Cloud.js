@@ -341,42 +341,25 @@ function fetchUrl(yUrl, callback) {
 
 
 
-const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/get_cloud_data`;
+const API_ENDPOINT = `https://storage.googleapis.com/canonn-downloads/clouds.json`;
 const API_LIMIT = 10000;
 
-const codex = axios.create({
-	baseURL: API_ENDPOINT,
-	headers: {
-		'Content-Type': 'application/json',
-		'Accept': 'application/json',
-		'Access-Control-Max-Age': 86400,
-	},
-});
 
-const getSites = async () => {
-	let records = [];
-	let keepGoing = true;
-	let API_START = 0;
-	while (keepGoing) {
-		let response = await reqSites(API_START);
-		await records.push.apply(records, response.data);
-		API_START += API_LIMIT;
-		if (response.data.length < API_LIMIT) {
-			keepGoing = false;
-			return records;
+async function getSites() {
+	const url = 'https://storage.googleapis.com/canonn-downloads/clouds.json';
+	try {
+		const response = await fetch(url);
+		if (!response.ok) {
+			throw new Error(`Error fetching cloud data: ${response.status}`);
 		}
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error('Error fetching cloud data:', error);
+		return null; // Or handle the error differently if needed
 	}
-};
+}
 
-const reqSites = async (API_START) => {
-
-	let payload = await codex({
-		url: `?limit=${API_LIMIT}&offset=${API_START}`,
-		method: 'get'
-	});
-	console.log("fetching data")
-	return payload;
-};
 
 var canonnEd3d_route = {
 	//Define Categories
