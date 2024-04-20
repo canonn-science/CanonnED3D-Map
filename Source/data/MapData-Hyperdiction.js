@@ -16,43 +16,22 @@ colours = [
 	["#333333", "Grey"] */
 ];
 
-const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/get_hd_data`;
-const API_LIMIT = 10000;
 
-const codex = axios.create({
-	baseURL: API_ENDPOINT,
-	headers: {
-		'Content-Type': 'application/json',
-		'Accept': 'application/json',
-		'Access-Control-Max-Age': 86400,
-	},
-});
-
-const getSites = async () => {
-	let records = [];
-	let keepGoing = true;
-	let API_START = 0;
-	while (keepGoing) {
-		let response = await reqSites(API_START);
-		await records.push.apply(records, response.data);
-		API_START += API_LIMIT;
-		if (response.data.length < API_LIMIT) {
-			keepGoing = false;
-			return records;
+async function getSites() {
+	const url = 'https://storage.googleapis.com/canonn-downloads/dumpr/hyperdictions.json';
+	try {
+		const response = await fetch(url);
+		if (!response.ok) {
+			throw new Error(`Error fetching cloud data: ${response.status}`);
 		}
+		const data = await response.json();
+
+		return data;
+	} catch (error) {
+		console.error('Error fetching cloud data:', error);
+		return null; // Or handle the error differently if needed
 	}
-};
-
-const reqSites = async (API_START) => {
-
-	let payload = await codex({
-		url: `?limit=${API_LIMIT}&offset=${API_START}`,
-		method: 'get'
-	});
-	console.log("fetching data")
-	return payload;
-};
-
+}
 
 function fetchUrl(yUrl, callback) {
 	return fetch(yUrl)
@@ -76,6 +55,8 @@ var canonnEd3d_route = {
 	},
 
 	formatCol: function (data) {
+
+
 
 		merope = { name: "Merope", cat: ["Merope"], coords: { x: -78.59375, y: -149.625, z: -340.53125 } }
 		witchhead = { name: "Witch Head Sector IR-W c1-9", cat: ["Witchhead"], coords: { x: 355.3125, y: -425.96875, z: -723.03125 } }
@@ -133,7 +114,15 @@ var canonnEd3d_route = {
 				subname = "Coalsack"
 			}
 
-			if (!subcategories[subcategory]) {
+			// Check if subcategory is defined
+			if (typeof subcategory === 'undefined') {
+				// Skip to the next iteration
+				console.log("cant work out sub category")
+				console.log(poiSite)
+				break;
+			}
+
+			if (!subcategories.hasOwnProperty(subcategory)) {
 				subcategories[subcategory] = {}
 
 				//taken from https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors and modified
