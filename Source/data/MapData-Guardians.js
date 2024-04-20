@@ -334,7 +334,7 @@ var canonnEd3d_guardians = {
 		resolvePromise();
 	},
 
-	finishMap: function() {
+	finishMap: function () {
 		$('#search').css('display', 'block');
 		$('#search input').val('System').on('input', recenterSearch);
 	},
@@ -344,7 +344,7 @@ var canonnEd3d_guardians = {
 			canonnEd3d_guardians.formatSites(sites, resolve);
 		});
 		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_guardians.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/get_gr_data', resolve);
+			canonnEd3d_guardians.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/query/get_gr_data', resolve);
 		});
 		Promise.all([p1, p2]).then(function () {
 			canonnEd3d_guardians.formatUnknown(canonnEd3d_guardians.gCloudData)

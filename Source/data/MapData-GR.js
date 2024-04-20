@@ -237,7 +237,7 @@ var canonnEd3d_gr = {
 			canonnEd3d_gr.formatSites(sites, resolve);
 		});
 		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_gr.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/get_gr_data', resolve);
+			canonnEd3d_gr.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/query/get_gr_data', resolve);
 		});
 		Promise.all([p1, p2]).then(function () {
 			canonnEd3d_gr.formatUnknown(canonnEd3d_gr.gCloudData)
