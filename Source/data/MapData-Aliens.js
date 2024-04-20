@@ -235,7 +235,7 @@ var canonnEd3d_guardians = {
             canonnEd3d_guardians.formatSites(sites, resolve);
         });
         var p2 = new Promise(function (resolve, reject) {
-            canonnEd3d_guardians.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/get_gr_data', resolve);
+            canonnEd3d_guardians.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/query/get_gr_data', resolve);
         });
 
         var p3 = new Promise(function (resolve, reject) {
