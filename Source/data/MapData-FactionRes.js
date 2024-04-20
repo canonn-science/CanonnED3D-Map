@@ -501,7 +501,7 @@ var canonnEd3d_route = {
 				});
 				faction_systems = arr.join(",")
 				//console.log(faction_systems)
-				canonnEd3d_route.parseInfo('https://us-central1-canonn-api-236217.cloudfunctions.net/get_compres?systems=' + faction_systems, resolve)
+				canonnEd3d_route.parseInfo('https://us-central1-canonn-api-236217.cloudfunctions.net/query/get_compres?systems=' + faction_systems, resolve)
 			});
 
 			Promise.all([p3]).then(function () {
