@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+
+  <script>
+    window.ga = window.ga || function () {
+      (ga.q = ga.q || []).push(arguments)
+    };
+    ga.l = +new Date;
+    ga('create', 'UA-102148507-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:400" rel="stylesheet" type="text/css" />
+  <script src="/js/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="vendor/papaparse/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.4/randomColor.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/menu.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <!-- Custom CSS -->
+  <style type="text/css">
+    #systemDetails,
+    #hud {
+      width: 350px;
+    }
+
+    #edmap {
+      position: fixed;
+      top: 6%;
+      right: 0;
+      width: 100%;
+      height: 93%;
+      z-index: -1;
+    }
+  </style>
+
+  <title>CanonnED3D - Maps</title>
+
+</head>
+
+<body bgcolor="#000000">
+  <script src="https://www.w3schools.com/lib/w3data.js"></script>
+  <div w3-include-html="include/nav.html"></div>
+
+  <script>
+    w3IncludeHTML();
+  </script>
+
+  <div id="edmap">
+    <div id="loading">
+      <img src="img/Canonn-Logo.gif" alt="Loading" height="300" width="300"/>
+    </div>
+    <!-- Launch ED3Dmap -->
+    <script src="js/ed3dmap.js?v=6"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <!-- Canonn MapData-output.js -->
+    <script src="data/MapData-LS.js"></script>
+    <script type "text/javascript">
+      canonnEd3d_ls.init();
+    </script>
+  </div>
+</body>
+</html>
