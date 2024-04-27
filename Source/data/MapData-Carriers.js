@@ -435,7 +435,7 @@ var canonnEd3d_route = {
 
 	init: function () {
 		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_route.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/postFleetCarriers?show=All', canonnEd3d_route.formatCol, resolve);
+			canonnEd3d_route.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/query/fleetCarriers', canonnEd3d_route.formatCol, resolve);
 
 		});
 
