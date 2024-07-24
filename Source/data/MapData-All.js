@@ -82,8 +82,6 @@ let sites = {
 
 };
 
-
-
 // Mapping site types to their corresponding URLs
 const urls = {
 	apsites: 'https://storage.googleapis.com/canonn-downloads/dumpr/Biology/2101400.csv',
@@ -156,15 +154,6 @@ const urls = {
 	// Add more mappings here as needed
 };
 
-
-// Function to fetch and parse CSV data
-async function fetchCSV(url) {
-	const response = await fetch(url);
-	const data = await response.text();
-	return parseCSV(data);
-}
-
-
 // Function to parse CSV data with manual headers
 function parseCSV(data) {
 	const lines = data.split('\n');
@@ -190,11 +179,15 @@ function parseCSV(data) {
 // Fetch data for each site type
 async function fetchData() {
 	const data = {};
-	for (const siteType in urls) {
-		const csvData = await fetchCSV(urls[siteType]);
-		data[siteType] = transformData(csvData);
-	}
-	return data;
+	const promises = Object.entries(urls).map( ([siteId,url]) =>
+		fetch(url).then( res => res.text() )
+			.then( resText => transformData(parseCSV(resText)) )
+			.then(siteData => [siteId,siteData] )
+	);
+
+	const resData = await Promise.all(promises);
+
+	return Object.fromEntries(resData);
 }
 
 // Transform parsed CSV data to the required format
