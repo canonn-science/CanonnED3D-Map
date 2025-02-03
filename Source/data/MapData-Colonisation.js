@@ -512,6 +512,27 @@ var canonnEd3d_route = {
 					category = '07'
 				}
 
+				infoText = "<b>" + route.end.main_star + "</b><br>"
+				if (route.end.connections == 0) {
+					infoText += "<b>Dead end</b><br>"
+					infoText += "There are no more systems within 10ly of this system<br><br>"
+				} else {
+					infoText += "<b>Connections Next Cycle:</b> " + route.end.connections + "<br><br>"
+				}
+				function formatNumber(num) {
+					return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				}
+				infoText += "<b>Distances</b><br>"
+				infoText += "&nbsp;<b>Sol:</b> " + route.end.solDistance + "<br>"
+				infoText += "&nbsp;<b>Varati:</b> " + route.end.varatiDistance + "<br>"
+				infoText += "&nbsp;<b>Polaris:</b> " + route.end.polarisDistance + "<br>"
+				infoText += "&nbsp;<b>Galactic Plane:</b> " + route.end.galactcPlaneDistance + "<br>"
+				infoText += "<br><b><a href=\"https://signals.canonn.tech/?system=" + route.end.name + "\" \"target\"=\"_blank\">Bodies (Click for Signals)</a></b><br>"
+				infoText += "&nbsp;<b>Body Count:</b> " + route.end.bodyCount + "<br>"
+
+				infoText += "&nbsp;<b>Mapping Value:</b> " + formatNumber(route.end.estimated_mapping_value) + "<br>";
+				infoText += "&nbsp;<b>Landmark Value:</b> " + formatNumber(route.end.landmark_value) + "<br>";
+
 				if (!canonnEd3d_route.systemLookup[route.end.name]) {
 					let endSystem = {
 						cat: [category],  // Generation 1 category
@@ -520,7 +541,8 @@ var canonnEd3d_route = {
 							x: parseFloat(route.end.x),
 							y: parseFloat(route.end.y),
 							z: parseFloat(route.end.z)
-						}
+						},
+						infos: infoText
 					};
 					canonnEd3d_route.systemsData.systems.push(endSystem);
 					canonnEd3d_route.systemLookup[route.end.name] = endSystem.coords;
@@ -585,7 +607,7 @@ var canonnEd3d_route = {
 				canonnEd3d_route.formatStations(canonnEd3d_route.stationData)
 
 
-				//console.log(canonnEd3d_route.camerapos)
+				console.log(canonnEd3d_route.systemsData)
 
 				document.getElementById("loading").style.display = "none";
 				Ed3d.init({
