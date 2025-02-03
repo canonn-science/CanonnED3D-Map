@@ -1,0 +1,6167 @@
+[
+    {
+        "start": {
+            "name": "Pegasi Sector BL-X c1-25",
+            "x": -157.09375,
+            "y": -11.21875,
+            "z": -62.125
+        },
+        "end": {
+            "name": "Pegasi Sector AL-W b2-2",
+            "x": -160.78125,
+            "y": -10.96875,
+            "z": -63.125,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Pents",
+            "x": -154.5625,
+            "y": -15.46875,
+            "z": -63.6875
+        },
+        "end": {
+            "name": "Pegasi Sector AL-W b2-0",
+            "x": -154.0,
+            "y": -15.46875,
+            "z": -58.8125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector BL-X c1-25",
+            "x": -157.09375,
+            "y": -11.21875,
+            "z": -62.125
+        },
+        "end": {
+            "name": "Pegasi Sector AL-W b2-1",
+            "x": -164.21875,
+            "y": -8.375,
+            "z": -59.25,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Pents",
+            "x": -154.5625,
+            "y": -15.46875,
+            "z": -63.6875
+        },
+        "end": {
+            "name": "Col 285 Sector PU-D b13-8",
+            "x": -150.1875,
+            "y": -9.09375,
+            "z": -67.03125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Jungkurara",
+            "x": -161.6875,
+            "y": 22.65625,
+            "z": -42.0625
+        },
+        "end": {
+            "name": "Col 285 Sector TQ-A b15-0",
+            "x": -162.53125,
+            "y": 17.90625,
+            "z": -43.03125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Jungkurara",
+            "x": -161.6875,
+            "y": 22.65625,
+            "z": -42.0625
+        },
+        "end": {
+            "name": "Col 285 Sector TQ-A b15-4",
+            "x": -159.5625,
+            "y": 20.25,
+            "z": -39.6875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Suhte",
+            "x": -168.90625,
+            "y": 27.375,
+            "z": -55.375
+        },
+        "end": {
+            "name": "Col 285 Sector VK-N c7-18",
+            "x": -167.09375,
+            "y": 26.71875,
+            "z": -55.375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-88",
+            "x": -173.40625,
+            "y": 11.78125,
+            "z": -62.15625
+        },
+        "end": {
+            "name": "Col 285 Sector XF-N c7-12",
+            "x": -175.46875,
+            "y": 13.25,
+            "z": -60.1875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Khun",
+            "x": -171.59375,
+            "y": 19.96875,
+            "z": -56.96875
+        },
+        "end": {
+            "name": "Col 285 Sector XF-N c7-24",
+            "x": -165.625,
+            "y": 13.53125,
+            "z": -55.6875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Ross 667",
+            "x": -170.53125,
+            "y": 5.71875,
+            "z": -49.1875
+        },
+        "end": {
+            "name": "Col 285 Sector QF-C b14-6",
+            "x": -170.46875,
+            "y": 14.5625,
+            "z": -49.875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Ross 667",
+            "x": -170.53125,
+            "y": 5.71875,
+            "z": -49.1875
+        },
+        "end": {
+            "name": "Col 285 Sector XF-N c7-23",
+            "x": -172.875,
+            "y": 11.25,
+            "z": -51.125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Igorot",
+            "x": -172.15625,
+            "y": 0.84375,
+            "z": -43.75
+        },
+        "end": {
+            "name": "Col 285 Sector UL-A b15-8",
+            "x": -174.25,
+            "y": 6.09375,
+            "z": -43.4375,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Ross 667",
+            "x": -170.53125,
+            "y": 5.71875,
+            "z": -49.1875
+        },
+        "end": {
+            "name": "Col 285 Sector UL-A b15-7",
+            "x": -172.46875,
+            "y": 10.75,
+            "z": -44.875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Ba Pin",
+            "x": -163.25,
+            "y": 7.90625,
+            "z": -40.09375
+        },
+        "end": {
+            "name": "Col 285 Sector VL-A b15-6",
+            "x": -163.84375,
+            "y": 4.03125,
+            "z": -44.90625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Ross 667",
+            "x": -170.53125,
+            "y": 5.71875,
+            "z": -49.1875
+        },
+        "end": {
+            "name": "Col 285 Sector UL-A b15-3",
+            "x": -174.625,
+            "y": 9.6875,
+            "z": -42.1875,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Krinda",
+            "x": -150.9375,
+            "y": -0.84375,
+            "z": -51.1875
+        },
+        "end": {
+            "name": "Pegasi Sector BL-X c1-29",
+            "x": -152.125,
+            "y": -1.71875,
+            "z": -49.34375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Wathlanukh",
+            "x": -149.21875,
+            "y": 5.25,
+            "z": -60.6875
+        },
+        "end": {
+            "name": "Col 285 Sector RF-C b14-3",
+            "x": -153.375,
+            "y": 5.3125,
+            "z": -57.125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Krinda",
+            "x": -150.9375,
+            "y": -0.84375,
+            "z": -51.1875
+        },
+        "end": {
+            "name": "Pegasi Sector BL-W b2-7",
+            "x": -144.1875,
+            "y": -7.3125,
+            "z": -52.125,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Haiden",
+            "x": -142.03125,
+            "y": -13.34375,
+            "z": -43.90625
+        },
+        "end": {
+            "name": "Pegasi Sector AL-W b2-3",
+            "x": -146.46875,
+            "y": -9.21875,
+            "z": -50.6875,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 110309",
+            "x": -152.4375,
+            "y": -4.9375,
+            "z": -34.25
+        },
+        "end": {
+            "name": "Pegasi Sector ER-U b3-5",
+            "x": -152.8125,
+            "y": -8.09375,
+            "z": -28.6875,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Kabijao",
+            "x": -163.125,
+            "y": -2.65625,
+            "z": -44.21875
+        },
+        "end": {
+            "name": "Pegasi Sector CW-U b3-1",
+            "x": -157.78125,
+            "y": -3.8125,
+            "z": -42.53125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 110309",
+            "x": -152.4375,
+            "y": -4.9375,
+            "z": -34.25
+        },
+        "end": {
+            "name": "HIP 108271",
+            "x": -151.8125,
+            "y": 2.40625,
+            "z": -27.59375,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Kongi",
+            "x": -149.21875,
+            "y": 14.25,
+            "z": -45.125
+        },
+        "end": {
+            "name": "Cephei Sector EG-Y c18",
+            "x": -148.5625,
+            "y": 14.75,
+            "z": -49.9375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kongi",
+            "x": -149.21875,
+            "y": 14.25,
+            "z": -45.125
+        },
+        "end": {
+            "name": "Cephei Sector EG-Y c13",
+            "x": -152.5,
+            "y": 13.59375,
+            "z": -49.5625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Kavalan",
+            "x": -144.375,
+            "y": 16,
+            "z": -40.25
+        },
+        "end": {
+            "name": "Cephei Sector JC-V b2-1",
+            "x": -140.5,
+            "y": 15.65625,
+            "z": -44.0,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Suhte",
+            "x": -168.90625,
+            "y": 27.375,
+            "z": -55.375
+        },
+        "end": {
+            "name": "Col 285 Sector OK-C b14-4",
+            "x": -168.09375,
+            "y": 30.53125,
+            "z": -59.125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Suhte",
+            "x": -168.90625,
+            "y": 27.375,
+            "z": -55.375
+        },
+        "end": {
+            "name": "Col 285 Sector VK-N c7-17",
+            "x": -165.625,
+            "y": 27.25,
+            "z": -51.59375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Suhte",
+            "x": -168.90625,
+            "y": 27.375,
+            "z": -55.375
+        },
+        "end": {
+            "name": "Col 285 Sector OK-C b14-1",
+            "x": -173.9375,
+            "y": 30.28125,
+            "z": -52.0625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Jarildekald",
+            "x": -164.9375,
+            "y": 23.21875,
+            "z": -62.875
+        },
+        "end": {
+            "name": "Col 285 Sector OK-C b14-5",
+            "x": -167.65625,
+            "y": 30.1875,
+            "z": -62.96875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Suhte",
+            "x": -168.90625,
+            "y": 27.375,
+            "z": -55.375
+        },
+        "end": {
+            "name": "Col 285 Sector OK-C b14-6",
+            "x": -174.40625,
+            "y": 34.21875,
+            "z": -58.4375,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Jetes",
+            "x": -141.21875,
+            "y": 16.28125,
+            "z": -59.3125
+        },
+        "end": {
+            "name": "Cephei Sector FW-W b1-3",
+            "x": -140.875,
+            "y": 17.46875,
+            "z": -61.5625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Jetes",
+            "x": -141.21875,
+            "y": 16.28125,
+            "z": -59.3125
+        },
+        "end": {
+            "name": "Cephei Sector FW-W b1-0",
+            "x": -143.25,
+            "y": 15.84375,
+            "z": -62.625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Jetes",
+            "x": -141.21875,
+            "y": 16.28125,
+            "z": -59.3125
+        },
+        "end": {
+            "name": "Cephei Sector HR-W b1-6",
+            "x": -133.75,
+            "y": 13.375,
+            "z": -56.34375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 111496",
+            "x": -136.75,
+            "y": 13.71875,
+            "z": -47.53125
+        },
+        "end": {
+            "name": "Cephei Sector BA-A d108",
+            "x": -135.9375,
+            "y": 11.1875,
+            "z": -53.4375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Jetes",
+            "x": -141.21875,
+            "y": 16.28125,
+            "z": -59.3125
+        },
+        "end": {
+            "name": "Cephei Sector HR-W b1-8",
+            "x": -133.84375,
+            "y": 10.34375,
+            "z": -60.03125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Cephei Sector BA-A d107",
+            "x": -137.25,
+            "y": 28.0625,
+            "z": -64.53125
+        },
+        "end": {
+            "name": "Cephei Sector BQ-Y b3",
+            "x": -144.0,
+            "y": 23.21875,
+            "z": -65.4375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Shona",
+            "x": -160.625,
+            "y": 5.84375,
+            "z": -62.96875
+        },
+        "end": {
+            "name": "Col 285 Sector RF-C b14-0",
+            "x": -162.15625,
+            "y": 2.03125,
+            "z": -59.375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Nyamad",
+            "x": -141.8125,
+            "y": 6.65625,
+            "z": -35.75
+        },
+        "end": {
+            "name": "Cephei Sector LX-U b2-4",
+            "x": -138.15625,
+            "y": 3.34375,
+            "z": -36.78125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Nyamad",
+            "x": -141.8125,
+            "y": 6.65625,
+            "z": -35.75
+        },
+        "end": {
+            "name": "Cephei Sector LX-U b2-6",
+            "x": -137.84375,
+            "y": 3.25,
+            "z": -34.09375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kavalan",
+            "x": -144.375,
+            "y": 16,
+            "z": -40.25
+        },
+        "end": {
+            "name": "Cephei Sector LX-U b2-0",
+            "x": -142.625,
+            "y": 14.8125,
+            "z": -37.34375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Nyamad",
+            "x": -141.8125,
+            "y": 6.65625,
+            "z": -35.75
+        },
+        "end": {
+            "name": "Cephei Sector LX-U b2-7",
+            "x": -135.46875,
+            "y": -0.21875,
+            "z": -36.75,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 111496",
+            "x": -136.75,
+            "y": 13.71875,
+            "z": -47.53125
+        },
+        "end": {
+            "name": "Cephei Sector HR-W b1-4",
+            "x": -131.90625,
+            "y": 9.1875,
+            "z": -45.4375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Kabijao",
+            "x": -163.125,
+            "y": -2.65625,
+            "z": -44.21875
+        },
+        "end": {
+            "name": "Pegasi Sector CW-U b3-5",
+            "x": -161.6875,
+            "y": 0.28125,
+            "z": -39.84375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Ba Pin",
+            "x": -163.25,
+            "y": 7.90625,
+            "z": -40.09375
+        },
+        "end": {
+            "name": "Pegasi Sector CW-U b3-4",
+            "x": -159.6875,
+            "y": 2.1875,
+            "z": -35.84375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kabijao",
+            "x": -163.125,
+            "y": -2.65625,
+            "z": -44.21875
+        },
+        "end": {
+            "name": "Pegasi Sector CW-U b3-3",
+            "x": -164.1875,
+            "y": -0.53125,
+            "z": -40.875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Ba Pin",
+            "x": -163.25,
+            "y": 7.90625,
+            "z": -40.09375
+        },
+        "end": {
+            "name": "Col 285 Sector UL-A b15-5",
+            "x": -172.03125,
+            "y": 9.84375,
+            "z": -39.4375,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Parinta",
+            "x": -155.65625,
+            "y": 8.71875,
+            "z": -64.875
+        },
+        "end": {
+            "name": "Col 285 Sector NZ-D b13-1",
+            "x": -152.0,
+            "y": 7.65625,
+            "z": -68.03125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Parinta",
+            "x": -155.65625,
+            "y": 8.71875,
+            "z": -64.875
+        },
+        "end": {
+            "name": "Col 285 Sector RF-C b14-6",
+            "x": -157.90625,
+            "y": 9.90625,
+            "z": -60.59375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HR 8133",
+            "x": -133.875,
+            "y": 26.28125,
+            "z": -28.96875
+        },
+        "end": {
+            "name": "HIP 103014",
+            "x": -132.46875,
+            "y": 33.25,
+            "z": -28.5625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "HR 8133",
+            "x": -133.875,
+            "y": 26.28125,
+            "z": -28.96875
+        },
+        "end": {
+            "name": "4 Cephei",
+            "x": -132.09375,
+            "y": 35.5,
+            "z": -27.875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Kume",
+            "x": -148.5625,
+            "y": 43.46875,
+            "z": -37.3125
+        },
+        "end": {
+            "name": "Cephei Sector GH-V b2-6",
+            "x": -153.03125,
+            "y": 40.25,
+            "z": -35.0625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Payatamu",
+            "x": -148.65625,
+            "y": 45.65625,
+            "z": -38.9375
+        },
+        "end": {
+            "name": "Cephei Sector CL-Y c13",
+            "x": -151.59375,
+            "y": 49.46875,
+            "z": -41.21875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kume",
+            "x": -148.5625,
+            "y": 43.46875,
+            "z": -37.3125
+        },
+        "end": {
+            "name": "Col 285 Sector RV-A b15-0",
+            "x": -156.53125,
+            "y": 44.125,
+            "z": -37.0,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Cephei Sector DL-Y c16",
+            "x": -143.3125,
+            "y": 49.75,
+            "z": -45.3125
+        },
+        "end": {
+            "name": "HR 8099",
+            "x": -146.0,
+            "y": 43.96875,
+            "z": -44.96875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kume",
+            "x": -148.5625,
+            "y": 43.46875,
+            "z": -37.3125
+        },
+        "end": {
+            "name": "Cephei Sector GH-V b2-1",
+            "x": -153.875,
+            "y": 37.78125,
+            "z": -34.9375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kume",
+            "x": -148.5625,
+            "y": 43.46875,
+            "z": -37.3125
+        },
+        "end": {
+            "name": "Cephei Sector HH-V b2-0",
+            "x": -143.09375,
+            "y": 40.5625,
+            "z": -42.8125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kume",
+            "x": -148.5625,
+            "y": 43.46875,
+            "z": -37.3125
+        },
+        "end": {
+            "name": "Cephei Sector DL-Y c23",
+            "x": -140.9375,
+            "y": 44.375,
+            "z": -33.84375,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Kume",
+            "x": -148.5625,
+            "y": 43.46875,
+            "z": -37.3125
+        },
+        "end": {
+            "name": "Cephei Sector GH-V b2-5",
+            "x": -152.0,
+            "y": 35.40625,
+            "z": -33.6875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Rishnum",
+            "x": -140.25,
+            "y": 20.84375,
+            "z": -40.8125
+        },
+        "end": {
+            "name": "Cephei Sector JC-V b2-3",
+            "x": -137.25,
+            "y": 17.0,
+            "z": -37.75,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Chacobog",
+            "x": -161.15625,
+            "y": 27.375,
+            "z": -72.75
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-16",
+            "x": -163.1875,
+            "y": 25.59375,
+            "z": -79.0,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Aknango",
+            "x": -155.40625,
+            "y": 30,
+            "z": -76.4375
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-13",
+            "x": -157.0625,
+            "y": 33.1875,
+            "z": -69.8125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 114099",
+            "x": -153.28125,
+            "y": 26.65625,
+            "z": -69.34375
+        },
+        "end": {
+            "name": "Col 285 Sector LE-E b13-4",
+            "x": -153.53125,
+            "y": 28.46875,
+            "z": -72.3125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 114099",
+            "x": -153.28125,
+            "y": 26.65625,
+            "z": -69.34375
+        },
+        "end": {
+            "name": "Col 285 Sector LE-E b13-1",
+            "x": -156.25,
+            "y": 24.59375,
+            "z": -65.34375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Chacobog",
+            "x": -161.15625,
+            "y": 27.375,
+            "z": -72.75
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-15",
+            "x": -168.40625,
+            "y": 28.5,
+            "z": -78.84375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Shona",
+            "x": -160.625,
+            "y": 5.84375,
+            "z": -62.96875
+        },
+        "end": {
+            "name": "Col 285 Sector MZ-D b13-7",
+            "x": -167.0,
+            "y": 3.21875,
+            "z": -65.78125,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Shona",
+            "x": -160.625,
+            "y": 5.84375,
+            "z": -62.96875
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-120",
+            "x": -161.90625,
+            "y": 10.28125,
+            "z": -56.65625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Shona",
+            "x": -160.625,
+            "y": 5.84375,
+            "z": -62.96875
+        },
+        "end": {
+            "name": "Col 285 Sector MZ-D b13-9",
+            "x": -166.28125,
+            "y": 0.03125,
+            "z": -67.53125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Candjinan",
+            "x": -143.25,
+            "y": 30.9375,
+            "z": -68.6875
+        },
+        "end": {
+            "name": "HIP 113905",
+            "x": -140.3125,
+            "y": 36.9375,
+            "z": -68.5,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Candjinan",
+            "x": -143.25,
+            "y": 30.9375,
+            "z": -68.6875
+        },
+        "end": {
+            "name": "Cephei Sector BQ-Y b4",
+            "x": -144.40625,
+            "y": 23.78125,
+            "z": -69.03125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Candjinan",
+            "x": -143.25,
+            "y": 30.9375,
+            "z": -68.6875
+        },
+        "end": {
+            "name": "Cephei Sector BQ-Y b6",
+            "x": -140.53125,
+            "y": 31.59375,
+            "z": -77.34375,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Cephei Sector BA-A d107",
+            "x": -137.25,
+            "y": 28.0625,
+            "z": -64.53125
+        },
+        "end": {
+            "name": "Cephei Sector DB-X b1-2",
+            "x": -136.75,
+            "y": 35.21875,
+            "z": -62.8125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Mehua",
+            "x": -134.71875,
+            "y": 24.46875,
+            "z": -57.5625
+        },
+        "end": {
+            "name": "Cephei Sector FW-W b1-4",
+            "x": -131.90625,
+            "y": 29.125,
+            "z": -60.875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Su Li Er",
+            "x": -151.3125,
+            "y": 31.5,
+            "z": -61.09375
+        },
+        "end": {
+            "name": "Cephei Sector DL-Y c15",
+            "x": -143.15625,
+            "y": 30.03125,
+            "z": -58.4375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Cephei Sector BA-A d107",
+            "x": -137.25,
+            "y": 28.0625,
+            "z": -64.53125
+        },
+        "end": {
+            "name": "Cephei Sector ZE-A c15",
+            "x": -133.1875,
+            "y": 20.9375,
+            "z": -68.1875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Cephei Sector BA-A d107",
+            "x": -137.25,
+            "y": 28.0625,
+            "z": -64.53125
+        },
+        "end": {
+            "name": "Cephei Sector DB-X b1-1",
+            "x": -133.5625,
+            "y": 36.25,
+            "z": -60.8125,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-88",
+            "x": -173.40625,
+            "y": 11.78125,
+            "z": -62.15625
+        },
+        "end": {
+            "name": "Col 285 Sector XF-N c7-11",
+            "x": -169.15625,
+            "y": 12.125,
+            "z": -64.46875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector XF-N c7-20",
+            "x": -163.0625,
+            "y": 14.03125,
+            "z": -64.5625
+        },
+        "end": {
+            "name": "Ross 214",
+            "x": -161.125,
+            "y": 16.78125,
+            "z": -58.46875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Parinta",
+            "x": -155.65625,
+            "y": 8.71875,
+            "z": -64.875
+        },
+        "end": {
+            "name": "HIP 114769",
+            "x": -155.5,
+            "y": 13.5625,
+            "z": -67.34375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector XF-N c7-20",
+            "x": -163.0625,
+            "y": 14.03125,
+            "z": -64.5625
+        },
+        "end": {
+            "name": "Col 285 Sector RF-C b14-7",
+            "x": -164.0625,
+            "y": 12.84375,
+            "z": -55.90625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector XF-N c7-20",
+            "x": -163.0625,
+            "y": 14.03125,
+            "z": -64.5625
+        },
+        "end": {
+            "name": "Col 285 Sector XF-N c7-15",
+            "x": -164.1875,
+            "y": 12.25,
+            "z": -55.21875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Hementrim",
+            "x": -160.4375,
+            "y": 13.90625,
+            "z": -70.125
+        },
+        "end": {
+            "name": "Col 285 Sector TZ-O c6-9",
+            "x": -165.5,
+            "y": 8.84375,
+            "z": -72.25,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Su Li Er",
+            "x": -151.3125,
+            "y": 31.5,
+            "z": -61.09375
+        },
+        "end": {
+            "name": "Col 285 Sector PK-C b14-5",
+            "x": -155.3125,
+            "y": 31.28125,
+            "z": -58.90625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 114099",
+            "x": -153.28125,
+            "y": 26.65625,
+            "z": -69.34375
+        },
+        "end": {
+            "name": "Col 285 Sector LE-E b13-2",
+            "x": -152.75,
+            "y": 28.96875,
+            "z": -65.78125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Su Li Er",
+            "x": -151.3125,
+            "y": 31.5,
+            "z": -61.09375
+        },
+        "end": {
+            "name": "Col 285 Sector PK-C b14-0",
+            "x": -157.625,
+            "y": 28.28125,
+            "z": -59.5,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Mehua",
+            "x": -134.71875,
+            "y": 24.46875,
+            "z": -57.5625
+        },
+        "end": {
+            "name": "Cephei Sector DL-Y c14",
+            "x": -126.40625,
+            "y": 20.09375,
+            "z": -57.3125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Hajangerni",
+            "x": -132.8125,
+            "y": 15.65625,
+            "z": -47.90625
+        },
+        "end": {
+            "name": "Cephei Sector LX-U b2-8",
+            "x": -128.03125,
+            "y": 9.75,
+            "z": -43.8125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-22",
+            "x": -157.25,
+            "y": 11.6875,
+            "z": -75.6875
+        },
+        "end": {
+            "name": "Col 285 Sector NZ-D b13-6",
+            "x": -156.15625,
+            "y": 4.40625,
+            "z": -72.09375,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-22",
+            "x": -157.25,
+            "y": 11.6875,
+            "z": -75.6875
+        },
+        "end": {
+            "name": "Col 285 Sector NZ-D b13-7",
+            "x": -162.9375,
+            "y": 4.78125,
+            "z": -75.90625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Parinta",
+            "x": -155.65625,
+            "y": 8.71875,
+            "z": -64.875
+        },
+        "end": {
+            "name": "Col 285 Sector NZ-D b13-4",
+            "x": -150.40625,
+            "y": 7.0625,
+            "z": -71.21875,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Popon",
+            "x": -156.78125,
+            "y": 20.84375,
+            "z": -76.75
+        },
+        "end": {
+            "name": "Col 285 Sector LE-E b13-5",
+            "x": -150.65625,
+            "y": 23.34375,
+            "z": -79.46875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Pents",
+            "x": -154.5625,
+            "y": -15.46875,
+            "z": -63.6875
+        },
+        "end": {
+            "name": "Pegasi Sector WE-Y b1-2",
+            "x": -158.09375,
+            "y": -17.625,
+            "z": -70.65625,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Pents",
+            "x": -154.5625,
+            "y": -15.46875,
+            "z": -63.6875
+        },
+        "end": {
+            "name": "Pegasi Sector WE-Y b1-1",
+            "x": -153.125,
+            "y": -24.28125,
+            "z": -66.1875,
+            "connections": 10
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-88",
+            "x": -173.40625,
+            "y": 11.78125,
+            "z": -62.15625
+        },
+        "end": {
+            "name": "Col 285 Sector MZ-D b13-2",
+            "x": -175.0,
+            "y": 13.21875,
+            "z": -67.5625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-88",
+            "x": -173.40625,
+            "y": 11.78125,
+            "z": -62.15625
+        },
+        "end": {
+            "name": "Col 285 Sector TZ-O c6-14",
+            "x": -172.25,
+            "y": 6.375,
+            "z": -67.3125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-88",
+            "x": -173.40625,
+            "y": 11.78125,
+            "z": -62.15625
+        },
+        "end": {
+            "name": "Col 285 Sector QF-C b14-5",
+            "x": -175.71875,
+            "y": 4.1875,
+            "z": -60.375,
+            "connections": 7
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-88",
+            "x": -173.40625,
+            "y": 11.78125,
+            "z": -62.15625
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-89",
+            "x": -180.46875,
+            "y": 6.90625,
+            "z": -63.8125,
+            "connections": 8
+        }
+    },
+    {
+        "start": {
+            "name": "Pi Dimshi",
+            "x": -140,
+            "y": 4.1875,
+            "z": -89.03125
+        },
+        "end": {
+            "name": "Col 285 Sector UZ-O c6-11",
+            "x": -138.6875,
+            "y": 0.53125,
+            "z": -92.71875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Pi Dimshi",
+            "x": -140,
+            "y": 4.1875,
+            "z": -89.03125
+        },
+        "end": {
+            "name": "Wolf 52",
+            "x": -136.8125,
+            "y": 3.40625,
+            "z": -95.15625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector UZ-O c6-23",
+            "x": -138.375,
+            "y": 2.78125,
+            "z": -82.40625
+        },
+        "end": {
+            "name": "Col 285 Sector OZ-D b13-1",
+            "x": -140.15625,
+            "y": -0.59375,
+            "z": -81.65625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector UZ-O c6-23",
+            "x": -138.375,
+            "y": 2.78125,
+            "z": -82.40625
+        },
+        "end": {
+            "name": "Col 285 Sector OZ-D b13-0",
+            "x": -143.65625,
+            "y": -2.84375,
+            "z": -83.75,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Varati",
+            "x": -178.65625,
+            "y": 77.125,
+            "z": -87.125
+        },
+        "end": {
+            "name": "Col 285 Sector GO-E b13-1",
+            "x": -181.0,
+            "y": 70.75,
+            "z": -81.90625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Cauan Tzu",
+            "x": -172.5,
+            "y": 48.34375,
+            "z": -100.9375
+        },
+        "end": {
+            "name": "Col 285 Sector ED-G b12-3",
+            "x": -178.8125,
+            "y": 47.59375,
+            "z": -100.5,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Cauan Tzu",
+            "x": -172.5,
+            "y": 48.34375,
+            "z": -100.9375
+        },
+        "end": {
+            "name": "Col 285 Sector ED-G b12-4",
+            "x": -177.5,
+            "y": 43.5,
+            "z": -97.3125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Cauan Tzu",
+            "x": -172.5,
+            "y": 48.34375,
+            "z": -100.9375
+        },
+        "end": {
+            "name": "HIP 116255",
+            "x": -177.5625,
+            "y": 52.90625,
+            "z": -96.625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Ix Chodharr",
+            "x": -163.3125,
+            "y": 51.71875,
+            "z": -96.34375
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-18",
+            "x": -166.84375,
+            "y": 48.0,
+            "z": -94.53125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Cauan Tzu",
+            "x": -172.5,
+            "y": 48.34375,
+            "z": -100.9375
+        },
+        "end": {
+            "name": "Col 285 Sector AX-H b11-1",
+            "x": -173.375,
+            "y": 45.65625,
+            "z": -109.53125,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Ix Chodharr",
+            "x": -163.3125,
+            "y": 51.71875,
+            "z": -96.34375
+        },
+        "end": {
+            "name": "Col 285 Sector CI-G b12-1",
+            "x": -167.0,
+            "y": 56.3125,
+            "z": -101.90625,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-124",
+            "x": -168.21875,
+            "y": 40.28125,
+            "z": -100.375
+        },
+        "end": {
+            "name": "Col 285 Sector ED-G b12-2",
+            "x": -172.0625,
+            "y": 38.84375,
+            "z": -95.90625,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-124",
+            "x": -168.21875,
+            "y": 40.28125,
+            "z": -100.375
+        },
+        "end": {
+            "name": "HIP 118117",
+            "x": -167.3125,
+            "y": 39.5,
+            "z": -94.21875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-124",
+            "x": -168.21875,
+            "y": 40.28125,
+            "z": -100.375
+        },
+        "end": {
+            "name": "Col 285 Sector GY-F b12-6",
+            "x": -166.40625,
+            "y": 34.53125,
+            "z": -102.40625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-124",
+            "x": -168.21875,
+            "y": 40.28125,
+            "z": -100.375
+        },
+        "end": {
+            "name": "Col 285 Sector FD-G b12-0",
+            "x": -162.5625,
+            "y": 37.40625,
+            "z": -101.0,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-124",
+            "x": -168.21875,
+            "y": 40.28125,
+            "z": -100.375
+        },
+        "end": {
+            "name": "Col 285 Sector GY-F b12-3",
+            "x": -167.3125,
+            "y": 34.09375,
+            "z": -102.78125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-124",
+            "x": -168.21875,
+            "y": 40.28125,
+            "z": -100.375
+        },
+        "end": {
+            "name": "Col 285 Sector GY-F b12-1",
+            "x": -167.96875,
+            "y": 33.375,
+            "z": -99.125,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-124",
+            "x": -168.21875,
+            "y": 40.28125,
+            "z": -100.375
+        },
+        "end": {
+            "name": "Col 285 Sector ED-G b12-0",
+            "x": -174.5,
+            "y": 36.9375,
+            "z": -101.8125,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-124",
+            "x": -168.21875,
+            "y": 40.28125,
+            "z": -100.375
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-65",
+            "x": -175.5,
+            "y": 38.71875,
+            "z": -101.75,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-124",
+            "x": -168.21875,
+            "y": 40.28125,
+            "z": -100.375
+        },
+        "end": {
+            "name": "HR 212",
+            "x": -165.0625,
+            "y": 34.9375,
+            "z": -106.9375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Aymarahuara",
+            "x": -151.5,
+            "y": 39.40625,
+            "z": -74.1875
+        },
+        "end": {
+            "name": "Col 285 Sector JJ-E b13-0",
+            "x": -154.65625,
+            "y": 40.34375,
+            "z": -82.78125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Arine",
+            "x": -143.6875,
+            "y": 40.6875,
+            "z": -77.5
+        },
+        "end": {
+            "name": "HIP 113628",
+            "x": -143.40625,
+            "y": 44.03125,
+            "z": -72.21875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Aymarahuara",
+            "x": -151.5,
+            "y": 39.40625,
+            "z": -74.1875
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-50",
+            "x": -153.875,
+            "y": 48.65625,
+            "z": -74.0625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "31 Cephei",
+            "x": -159.25,
+            "y": 41.625,
+            "z": -70.40625
+        },
+        "end": {
+            "name": "Col 285 Sector JJ-E b13-2",
+            "x": -160.34375,
+            "y": 42.28125,
+            "z": -70.65625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Meinjhalie",
+            "x": -140.65625,
+            "y": 44.8125,
+            "z": -64.53125
+        },
+        "end": {
+            "name": "Cephei Sector ZE-A c13",
+            "x": -140.125,
+            "y": 45.0625,
+            "z": -71.0,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Arine",
+            "x": -143.6875,
+            "y": 40.6875,
+            "z": -77.5
+        },
+        "end": {
+            "name": "Col 285 Sector FD-G b12-2",
+            "x": -149.5,
+            "y": 39.15625,
+            "z": -85.21875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Lumaragro",
+            "x": -162.28125,
+            "y": 33.0625,
+            "z": -92
+        },
+        "end": {
+            "name": "Col 285 Sector FD-G b12-4",
+            "x": -158.90625,
+            "y": 40.53125,
+            "z": -92.78125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Diabozo",
+            "x": -159.34375,
+            "y": 28.9375,
+            "z": -89.03125
+        },
+        "end": {
+            "name": "Col 285 Sector FD-G b12-3",
+            "x": -156.625,
+            "y": 36.6875,
+            "z": -85.75,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Diabozo",
+            "x": -159.34375,
+            "y": 28.9375,
+            "z": -89.03125
+        },
+        "end": {
+            "name": "HIP 115894",
+            "x": -163.03125,
+            "y": 34.15625,
+            "z": -82.6875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Lumaragro",
+            "x": -162.28125,
+            "y": 33.0625,
+            "z": -92
+        },
+        "end": {
+            "name": "Col 285 Sector GY-F b12-2",
+            "x": -169.6875,
+            "y": 30.5,
+            "z": -97.53125,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Goplatrugba",
+            "x": -154.4375,
+            "y": 49.1875,
+            "z": -46.25
+        },
+        "end": {
+            "name": "Col 285 Sector RV-A b15-2",
+            "x": -157.78125,
+            "y": 45.125,
+            "z": -42.6875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Can Nik",
+            "x": -153.90625,
+            "y": 32.46875,
+            "z": -53.71875
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-90",
+            "x": -159.90625,
+            "y": 31.84375,
+            "z": -54.90625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Can Nik",
+            "x": -153.90625,
+            "y": 32.46875,
+            "z": -53.71875
+        },
+        "end": {
+            "name": "Cephei Sector EW-W b1-6",
+            "x": -145.5625,
+            "y": 28.1875,
+            "z": -51.6875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Pachanu",
+            "x": -160.21875,
+            "y": 40.53125,
+            "z": -55.75
+        },
+        "end": {
+            "name": "Col 285 Sector NP-C b14-1",
+            "x": -159.28125,
+            "y": 38.90625,
+            "z": -59.15625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Jungkurara",
+            "x": -161.6875,
+            "y": 22.65625,
+            "z": -42.0625
+        },
+        "end": {
+            "name": "Col 285 Sector TQ-A b15-2",
+            "x": -162.71875,
+            "y": 26.65625,
+            "z": -40.59375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Jungkurara",
+            "x": -161.6875,
+            "y": 22.65625,
+            "z": -42.0625
+        },
+        "end": {
+            "name": "Col 285 Sector TQ-A b15-3",
+            "x": -158.3125,
+            "y": 25.5625,
+            "z": -43.3125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Jungkurara",
+            "x": -161.6875,
+            "y": 22.65625,
+            "z": -42.0625
+        },
+        "end": {
+            "name": "Col 285 Sector VK-N c7-23",
+            "x": -167.0625,
+            "y": 27.78125,
+            "z": -45.40625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Jungkurara",
+            "x": -161.6875,
+            "y": 22.65625,
+            "z": -42.0625
+        },
+        "end": {
+            "name": "Col 285 Sector SQ-A b15-6",
+            "x": -170.09375,
+            "y": 24.21875,
+            "z": -41.84375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Jungkurara",
+            "x": -161.6875,
+            "y": 22.65625,
+            "z": -42.0625
+        },
+        "end": {
+            "name": "Col 285 Sector SQ-A b15-5",
+            "x": -170.84375,
+            "y": 21.75,
+            "z": -39.8125,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Yi Trica",
+            "x": -117.5,
+            "y": 70.59375,
+            "z": -82.125
+        },
+        "end": {
+            "name": "Col 285 Sector HT-E b13-0",
+            "x": -121.90625,
+            "y": 75.75,
+            "z": -80.65625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Bactrimpox",
+            "x": -123.25,
+            "y": 82,
+            "z": -84
+        },
+        "end": {
+            "name": "Col 285 Sector QJ-P c6-6",
+            "x": -117.09375,
+            "y": 78.71875,
+            "z": -90.3125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Bactrimpox",
+            "x": -123.25,
+            "y": 82,
+            "z": -84
+        },
+        "end": {
+            "name": "HIP 43446",
+            "x": -116.09375,
+            "y": 84.34375,
+            "z": -90.4375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector IX-T d3-43",
+            "x": -174.75,
+            "y": 73.375,
+            "z": -92.84375
+        },
+        "end": {
+            "name": "Col 285 Sector AN-G b12-0",
+            "x": -167.375,
+            "y": 76.8125,
+            "z": -93.3125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector IX-T d3-43",
+            "x": -174.75,
+            "y": 73.375,
+            "z": -92.84375
+        },
+        "end": {
+            "name": "HIP 110229",
+            "x": -174.75,
+            "y": 81.3125,
+            "z": -95.96875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector IX-T d3-43",
+            "x": -174.75,
+            "y": 73.375,
+            "z": -92.84375
+        },
+        "end": {
+            "name": "Col 285 Sector CI-G b12-5",
+            "x": -179.34375,
+            "y": 71.125,
+            "z": -100.375,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector IX-T d3-43",
+            "x": -174.75,
+            "y": 73.375,
+            "z": -92.84375
+        },
+        "end": {
+            "name": "Col 285 Sector AN-G b12-1",
+            "x": -165.59375,
+            "y": 76.46875,
+            "z": -93.1875,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "3 Beta Lacertae",
+            "x": -166.03125,
+            "y": -12.625,
+            "z": -34.21875
+        },
+        "end": {
+            "name": "Pegasi Sector ER-U b3-4",
+            "x": -160.90625,
+            "y": -13.21875,
+            "z": -33.90625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "3 Beta Lacertae",
+            "x": -166.03125,
+            "y": -12.625,
+            "z": -34.21875
+        },
+        "end": {
+            "name": "Pegasi Sector ER-U b3-3",
+            "x": -164.5625,
+            "y": -15.25,
+            "z": -30.0,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Sun Aphu",
+            "x": -166.1875,
+            "y": -3.78125,
+            "z": -33.46875
+        },
+        "end": {
+            "name": "Pegasi Sector IT-N a8-0",
+            "x": -166.8125,
+            "y": -7.09375,
+            "z": -32.875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "9 Lacertae",
+            "x": -166.28125,
+            "y": -17.71875,
+            "z": -38.84375
+        },
+        "end": {
+            "name": "Pegasi Sector BL-X c1-4",
+            "x": -166.71875,
+            "y": -18.9375,
+            "z": -34.8125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "3 Beta Lacertae",
+            "x": -166.03125,
+            "y": -12.625,
+            "z": -34.21875
+        },
+        "end": {
+            "name": "Pegasi Sector ZU-Y d112",
+            "x": -159.625,
+            "y": -14.84375,
+            "z": -33.09375,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Hraeango",
+            "x": -173.75,
+            "y": -9.96875,
+            "z": -42.53125
+        },
+        "end": {
+            "name": "Pegasi Sector BL-X c1-9",
+            "x": -169.96875,
+            "y": -10.75,
+            "z": -41.25,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "3 Beta Lacertae",
+            "x": -166.03125,
+            "y": -12.625,
+            "z": -34.21875
+        },
+        "end": {
+            "name": "Pegasi Sector BL-X c1-5",
+            "x": -162.28125,
+            "y": -19.65625,
+            "z": -31.6875,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "9 Lacertae",
+            "x": -166.28125,
+            "y": -17.71875,
+            "z": -38.84375
+        },
+        "end": {
+            "name": "Pegasi Sector ZU-Y d59",
+            "x": -169.0625,
+            "y": -18.96875,
+            "z": -41.25,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Hraeango",
+            "x": -173.75,
+            "y": -9.96875,
+            "z": -42.53125
+        },
+        "end": {
+            "name": "Pegasi Sector ZU-Y d56",
+            "x": -171.6875,
+            "y": -5.03125,
+            "z": -41.40625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Leschanatya",
+            "x": -134.875,
+            "y": 12.40625,
+            "z": -74.59375
+        },
+        "end": {
+            "name": "Cephei Sector BA-A d86",
+            "x": -130.875,
+            "y": 18.75,
+            "z": -72.625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Leschanatya",
+            "x": -134.875,
+            "y": 12.40625,
+            "z": -74.59375
+        },
+        "end": {
+            "name": "Cephei Sector DL-Y b7",
+            "x": -130.0625,
+            "y": 10.5625,
+            "z": -66.59375,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Omanmatho",
+            "x": -157.53125,
+            "y": 20.96875,
+            "z": -29.46875
+        },
+        "end": {
+            "name": "HIP 106230",
+            "x": -161.09375,
+            "y": 16.90625,
+            "z": -28.75,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Omanmatho",
+            "x": -157.53125,
+            "y": 20.96875,
+            "z": -29.46875
+        },
+        "end": {
+            "name": "Cephei Sector IC-V b2-6",
+            "x": -151.90625,
+            "y": 22.53125,
+            "z": -25.4375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Omanmatho",
+            "x": -157.53125,
+            "y": 20.96875,
+            "z": -29.46875
+        },
+        "end": {
+            "name": "Cephei Sector IC-V b2-5",
+            "x": -152.28125,
+            "y": 26.3125,
+            "z": -29.53125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Halbarapii",
+            "x": -158.46875,
+            "y": 19.34375,
+            "z": -22.34375
+        },
+        "end": {
+            "name": "Col 285 Sector ZQ-L c8-22",
+            "x": -156.59375,
+            "y": 15.46875,
+            "z": -23.34375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Haiden",
+            "x": -142.03125,
+            "y": -13.34375,
+            "z": -43.90625
+        },
+        "end": {
+            "name": "Pegasi Sector FR-U b3-3",
+            "x": -142.15625,
+            "y": -13.5625,
+            "z": -39.21875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Haiden",
+            "x": -142.03125,
+            "y": -13.34375,
+            "z": -43.90625
+        },
+        "end": {
+            "name": "Pegasi Sector ER-U b3-7",
+            "x": -147.3125,
+            "y": -9.6875,
+            "z": -42.28125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Haiden",
+            "x": -142.03125,
+            "y": -13.34375,
+            "z": -43.90625
+        },
+        "end": {
+            "name": "Pegasi Sector CL-X c1-29",
+            "x": -136.28125,
+            "y": -13.6875,
+            "z": -47.84375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Haiden",
+            "x": -142.03125,
+            "y": -13.34375,
+            "z": -43.90625
+        },
+        "end": {
+            "name": "Cephei Sector NS-U b2-0",
+            "x": -135.90625,
+            "y": -9.25,
+            "z": -42.40625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-U b3-9",
+            "x": -138.0625,
+            "y": -19.25,
+            "z": -37.1875
+        },
+        "end": {
+            "name": "Pegasi Sector FR-U b3-8",
+            "x": -140.8125,
+            "y": -16.78125,
+            "z": -37.21875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-U b3-9",
+            "x": -138.0625,
+            "y": -19.25,
+            "z": -37.1875
+        },
+        "end": {
+            "name": "Pegasi Sector CL-X c1-17",
+            "x": -138.5,
+            "y": -20.3125,
+            "z": -41.28125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-U b3-9",
+            "x": -138.0625,
+            "y": -19.25,
+            "z": -37.1875
+        },
+        "end": {
+            "name": "HIP 114561",
+            "x": -136.6875,
+            "y": -19.5625,
+            "z": -45.21875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-U b3-9",
+            "x": -138.0625,
+            "y": -19.25,
+            "z": -37.1875
+        },
+        "end": {
+            "name": "Pegasi Sector FR-U b3-4",
+            "x": -140.65625,
+            "y": -17.71875,
+            "z": -36.96875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Haiden",
+            "x": -142.03125,
+            "y": -13.34375,
+            "z": -43.90625
+        },
+        "end": {
+            "name": "Pegasi Sector BL-W b2-8",
+            "x": -143.90625,
+            "y": -20.78125,
+            "z": -47.84375,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Yi Trica",
+            "x": -117.5,
+            "y": 70.59375,
+            "z": -82.125
+        },
+        "end": {
+            "name": "Col 285 Sector JO-E b13-0",
+            "x": -115.6875,
+            "y": 72.59375,
+            "z": -79.15625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Yi Trica",
+            "x": -117.5,
+            "y": 70.59375,
+            "z": -82.125
+        },
+        "end": {
+            "name": "Col 285 Sector QJ-P c6-9",
+            "x": -111.5,
+            "y": 74.25,
+            "z": -75.625,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Evenses",
+            "x": -133.875,
+            "y": 54.03125,
+            "z": -80.5625
+        },
+        "end": {
+            "name": "Col 285 Sector KJ-E b13-4",
+            "x": -132.71875,
+            "y": 51.375,
+            "z": -82.03125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Evenses",
+            "x": -133.875,
+            "y": 54.03125,
+            "z": -80.5625
+        },
+        "end": {
+            "name": "HIP 3420",
+            "x": -128.65625,
+            "y": 57.84375,
+            "z": -83.0,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Cnephtha",
+            "x": -127.09375,
+            "y": 52.46875,
+            "z": -76.71875
+        },
+        "end": {
+            "name": "HIP 116960",
+            "x": -129.625,
+            "y": 49.875,
+            "z": -75.40625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Chematja",
+            "x": -136.40625,
+            "y": 60.53125,
+            "z": -84.75
+        },
+        "end": {
+            "name": "HIP 114546",
+            "x": -139.71875,
+            "y": 59.875,
+            "z": -79.625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Masai",
+            "x": -138.90625,
+            "y": 52.75,
+            "z": -85.75
+        },
+        "end": {
+            "name": "Col 285 Sector KJ-E b13-2",
+            "x": -142.8125,
+            "y": 50.46875,
+            "z": -81.53125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Pipedu",
+            "x": -126.5,
+            "y": 47.8125,
+            "z": -82.71875
+        },
+        "end": {
+            "name": "HIP 2797",
+            "x": -129.03125,
+            "y": 45.71875,
+            "z": -81.71875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Diabozo",
+            "x": -159.34375,
+            "y": 28.9375,
+            "z": -89.03125
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-60",
+            "x": -166.40625,
+            "y": 24.90625,
+            "z": -85.90625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Azalai",
+            "x": -154.53125,
+            "y": 21.1875,
+            "z": -11.1875
+        },
+        "end": {
+            "name": "Col 285 Sector XW-Y b15-1",
+            "x": -158.9375,
+            "y": 19.71875,
+            "z": -7.6875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Azalai",
+            "x": -154.53125,
+            "y": 21.1875,
+            "z": -11.1875
+        },
+        "end": {
+            "name": "Col 285 Sector XW-Y b15-0",
+            "x": -158.15625,
+            "y": 15.25,
+            "z": -11.5,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Azalai",
+            "x": -154.53125,
+            "y": 21.1875,
+            "z": -11.1875
+        },
+        "end": {
+            "name": "Col 285 Sector XW-Y b15-3",
+            "x": -151.125,
+            "y": 19.5,
+            "z": -5.0625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Halbarapii",
+            "x": -158.46875,
+            "y": 19.34375,
+            "z": -22.34375
+        },
+        "end": {
+            "name": "Col 285 Sector ZQ-L c8-21",
+            "x": -157.375,
+            "y": 21.875,
+            "z": -18.15625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Halbarapii",
+            "x": -158.46875,
+            "y": 19.34375,
+            "z": -22.34375
+        },
+        "end": {
+            "name": "Col 285 Sector ZQ-L c8-10",
+            "x": -160.40625,
+            "y": 23.1875,
+            "z": -16.875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Azalai",
+            "x": -154.53125,
+            "y": 21.1875,
+            "z": -11.1875
+        },
+        "end": {
+            "name": "Col 285 Sector XW-Y b15-6",
+            "x": -146.8125,
+            "y": 24.96875,
+            "z": -10.09375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Azalai",
+            "x": -154.53125,
+            "y": 21.1875,
+            "z": -11.1875
+        },
+        "end": {
+            "name": "Col 285 Sector BD-X b16-3",
+            "x": -154.09375,
+            "y": 15.5,
+            "z": -4.15625,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Halbarapii",
+            "x": -158.46875,
+            "y": 19.34375,
+            "z": -22.34375
+        },
+        "end": {
+            "name": "Col 285 Sector XW-Y b15-5",
+            "x": -161.4375,
+            "y": 20.84375,
+            "z": -19.53125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Halbarapii",
+            "x": -158.46875,
+            "y": 19.34375,
+            "z": -22.34375
+        },
+        "end": {
+            "name": "Col 285 Sector ZQ-L c8-25",
+            "x": -163.0,
+            "y": 16.375,
+            "z": -18.40625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Halbarapii",
+            "x": -158.46875,
+            "y": 19.34375,
+            "z": -22.34375
+        },
+        "end": {
+            "name": "Col 285 Sector XW-Y b15-2",
+            "x": -164.0625,
+            "y": 15.15625,
+            "z": -19.3125,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Kabijao",
+            "x": -163.125,
+            "y": -2.65625,
+            "z": -44.21875
+        },
+        "end": {
+            "name": "Pegasi Sector CW-U b3-0",
+            "x": -160.6875,
+            "y": -2.375,
+            "z": -43.6875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Masai",
+            "x": -138.90625,
+            "y": 52.75,
+            "z": -85.75
+        },
+        "end": {
+            "name": "Col 285 Sector GD-G b12-3",
+            "x": -136.8125,
+            "y": 51.75,
+            "z": -91.1875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 2293",
+            "x": -142.96875,
+            "y": 56,
+            "z": -89.96875
+        },
+        "end": {
+            "name": "Col 285 Sector GD-G b12-4",
+            "x": -137.9375,
+            "y": 51.71875,
+            "z": -95.0,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 2293",
+            "x": -142.96875,
+            "y": 56,
+            "z": -89.96875
+        },
+        "end": {
+            "name": "Col 285 Sector DI-G b12-3",
+            "x": -151.09375,
+            "y": 58.8125,
+            "z": -93.09375,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 2293",
+            "x": -142.96875,
+            "y": 56,
+            "z": -89.96875
+        },
+        "end": {
+            "name": "Col 285 Sector GD-G b12-5",
+            "x": -140.3125,
+            "y": 49.8125,
+            "z": -96.4375,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Cephei Sector DL-Y c16",
+            "x": -143.3125,
+            "y": 49.75,
+            "z": -45.3125
+        },
+        "end": {
+            "name": "Cephei Sector BG-X b1-3",
+            "x": -144.84375,
+            "y": 56.8125,
+            "z": -45.90625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 112970",
+            "x": -176.25,
+            "y": 26.125,
+            "z": -72.6875
+        },
+        "end": {
+            "name": "HIP 112946",
+            "x": -179.03125,
+            "y": 26.5625,
+            "z": -73.78125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 112970",
+            "x": -176.25,
+            "y": 26.125,
+            "z": -72.6875
+        },
+        "end": {
+            "name": "Col 285 Sector KE-E b13-3",
+            "x": -179.3125,
+            "y": 27.71875,
+            "z": -74.28125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 112970",
+            "x": -176.25,
+            "y": 26.125,
+            "z": -72.6875
+        },
+        "end": {
+            "name": "Col 285 Sector KE-E b13-8",
+            "x": -174.71875,
+            "y": 27.75,
+            "z": -69.4375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector RE-P c6-5",
+            "x": -178.46875,
+            "y": 31.28125,
+            "z": -72.75
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-63",
+            "x": -176.25,
+            "y": 30.75,
+            "z": -71.59375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector RE-P c6-5",
+            "x": -178.46875,
+            "y": 31.28125,
+            "z": -72.75
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-6",
+            "x": -181.21875,
+            "y": 27.9375,
+            "z": -73.03125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector RE-P c6-8",
+            "x": -184.15625,
+            "y": 25,
+            "z": -78.4375
+        },
+        "end": {
+            "name": "Col 285 Sector KE-E b13-4",
+            "x": -181.28125,
+            "y": 26.34375,
+            "z": -76.15625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 112970",
+            "x": -176.25,
+            "y": 26.125,
+            "z": -72.6875
+        },
+        "end": {
+            "name": "Col 285 Sector KE-E b13-5",
+            "x": -178.875,
+            "y": 21.34375,
+            "z": -76.5,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector RE-P c6-5",
+            "x": -178.46875,
+            "y": 31.28125,
+            "z": -72.75
+        },
+        "end": {
+            "name": "Col 285 Sector KE-E b13-7",
+            "x": -178.21875,
+            "y": 29.34375,
+            "z": -78.625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 112970",
+            "x": -176.25,
+            "y": 26.125,
+            "z": -72.6875
+        },
+        "end": {
+            "name": "Col 285 Sector KE-E b13-6",
+            "x": -170.21875,
+            "y": 20.53125,
+            "z": -71.75,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector RE-P c6-5",
+            "x": -178.46875,
+            "y": 31.28125,
+            "z": -72.75
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-87",
+            "x": -182.21875,
+            "y": 29.21875,
+            "z": -66.15625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Pachanu",
+            "x": -160.21875,
+            "y": 40.53125,
+            "z": -55.75
+        },
+        "end": {
+            "name": "HIP 107055",
+            "x": -163.09375,
+            "y": 41.03125,
+            "z": -54.5625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Pachanu",
+            "x": -160.21875,
+            "y": 40.53125,
+            "z": -55.75
+        },
+        "end": {
+            "name": "Col 285 Sector NP-C b14-5",
+            "x": -157.5625,
+            "y": 46.3125,
+            "z": -54.5625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Pachanu",
+            "x": -160.21875,
+            "y": 40.53125,
+            "z": -55.75
+        },
+        "end": {
+            "name": "Col 285 Sector NP-C b14-3",
+            "x": -163.84375,
+            "y": 39.03125,
+            "z": -49.46875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Pachanu",
+            "x": -160.21875,
+            "y": 40.53125,
+            "z": -55.75
+        },
+        "end": {
+            "name": "Col 285 Sector NP-C b14-0",
+            "x": -163.15625,
+            "y": 39.34375,
+            "z": -63.21875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector SE-P c6-19",
+            "x": -132.375,
+            "y": 39.9375,
+            "z": -93.875
+        },
+        "end": {
+            "name": "Col 285 Sector SE-P c6-21",
+            "x": -130.8125,
+            "y": 37.21875,
+            "z": -97.71875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Dvorotri",
+            "x": -129.625,
+            "y": 39.40625,
+            "z": -91.28125
+        },
+        "end": {
+            "name": "Col 285 Sector GD-G b12-0",
+            "x": -125.09375,
+            "y": 35.5,
+            "z": -93.28125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 6596",
+            "x": -141.34375,
+            "y": 6.96875,
+            "z": -105.8125
+        },
+        "end": {
+            "name": "Col 285 Sector KT-F b12-4",
+            "x": -139.03125,
+            "y": 6.28125,
+            "z": -99.75,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector UZ-O c6-12",
+            "x": -144.5,
+            "y": 1.59375,
+            "z": -97.625
+        },
+        "end": {
+            "name": "Col 285 Sector KT-F b12-1",
+            "x": -136.6875,
+            "y": 2.4375,
+            "z": -100.4375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector UZ-O c6-12",
+            "x": -144.5,
+            "y": 1.59375,
+            "z": -97.625
+        },
+        "end": {
+            "name": "HIP 2716",
+            "x": -150.96875,
+            "y": 1.0625,
+            "z": -92.0,
+            "connections": 6
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-23",
+            "x": -174.1875,
+            "y": -8.09375,
+            "z": -76.25
+        },
+        "end": {
+            "name": "Col 285 Sector TZ-O c6-25",
+            "x": -180.40625,
+            "y": -7.5625,
+            "z": -76.96875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-23",
+            "x": -174.1875,
+            "y": -8.09375,
+            "z": -76.25
+        },
+        "end": {
+            "name": "Col 285 Sector TZ-O c6-24",
+            "x": -178.21875,
+            "y": -6.59375,
+            "z": -71.65625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-23",
+            "x": -174.1875,
+            "y": -8.09375,
+            "z": -76.25
+        },
+        "end": {
+            "name": "Col 285 Sector OU-D b13-9",
+            "x": -181.65625,
+            "y": -9.0,
+            "z": -78.46875,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-23",
+            "x": -174.1875,
+            "y": -8.09375,
+            "z": -76.25
+        },
+        "end": {
+            "name": "Pegasi Sector VE-Y b1-8",
+            "x": -168.15625,
+            "y": -11.59375,
+            "z": -72.03125,
+            "connections": 6
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 3587",
+            "x": -133.875,
+            "y": 10.8125,
+            "z": -85.90625
+        },
+        "end": {
+            "name": "Col 285 Sector ME-E b13-0",
+            "x": -139.40625,
+            "y": 16.4375,
+            "z": -83.40625,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector RE-P c6-5",
+            "x": -178.46875,
+            "y": 31.28125,
+            "z": -72.75
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-7",
+            "x": -182.59375,
+            "y": 32.1875,
+            "z": -76.65625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector RE-P c6-5",
+            "x": -178.46875,
+            "y": 31.28125,
+            "z": -72.75
+        },
+        "end": {
+            "name": "Col 285 Sector JE-E b13-1",
+            "x": -185.28125,
+            "y": 33.5625,
+            "z": -67.0,
+            "connections": 6
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 90760",
+            "x": -154.75,
+            "y": 82.6875,
+            "z": -38.375
+        },
+        "end": {
+            "name": "Col 285 Sector NF-B b15-0",
+            "x": -152.34375,
+            "y": 89.0,
+            "z": -38.46875,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 90760",
+            "x": -154.75,
+            "y": 82.6875,
+            "z": -38.375
+        },
+        "end": {
+            "name": "Col 285 Sector NF-B b15-4",
+            "x": -156.96875,
+            "y": 82.75,
+            "z": -31.1875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 90760",
+            "x": -154.75,
+            "y": 82.6875,
+            "z": -38.375
+        },
+        "end": {
+            "name": "HIP 89770",
+            "x": -149.5625,
+            "y": 82.09375,
+            "z": -32.0625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Cnephtha",
+            "x": -127.09375,
+            "y": 52.46875,
+            "z": -76.71875
+        },
+        "end": {
+            "name": "Cephei Sector ZE-A c10",
+            "x": -122.28125,
+            "y": 48.9375,
+            "z": -74.53125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Pipedu",
+            "x": -126.5,
+            "y": 47.8125,
+            "z": -82.71875
+        },
+        "end": {
+            "name": "Col 285 Sector FI-G b12-3",
+            "x": -124.78125,
+            "y": 56.6875,
+            "z": -85.53125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Rauratunab",
+            "x": -118.4375,
+            "y": 11.03125,
+            "z": -51.78125
+        },
+        "end": {
+            "name": "Cephei Sector DL-Y c13",
+            "x": -121.65625,
+            "y": 18.3125,
+            "z": -54.59375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Rauratunab",
+            "x": -118.4375,
+            "y": 11.03125,
+            "z": -51.78125
+        },
+        "end": {
+            "name": "Cephei Sector IR-W b1-6",
+            "x": -116.8125,
+            "y": 3.0,
+            "z": -54.0625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Rauratunab",
+            "x": -118.4375,
+            "y": 11.03125,
+            "z": -51.78125
+        },
+        "end": {
+            "name": "Cephei Sector MX-U b2-8",
+            "x": -119.71875,
+            "y": 5.65625,
+            "z": -44.5625,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Rauratunab",
+            "x": -118.4375,
+            "y": 11.03125,
+            "z": -51.78125
+        },
+        "end": {
+            "name": "Cephei Sector IR-W b1-2",
+            "x": -109.3125,
+            "y": 11.5,
+            "z": -53.40625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Rauratunab",
+            "x": -118.4375,
+            "y": 11.03125,
+            "z": -51.78125
+        },
+        "end": {
+            "name": "Cephei Sector IR-W b1-4",
+            "x": -117.40625,
+            "y": 3.78125,
+            "z": -57.71875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KZ-C b14-1",
+            "x": -133.21875,
+            "y": 79.1875,
+            "z": -64.84375
+        },
+        "end": {
+            "name": "Col 285 Sector KZ-C b14-2",
+            "x": -135.8125,
+            "y": 79.125,
+            "z": -65.0,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Nones",
+            "x": -136.84375,
+            "y": 78.28125,
+            "z": -69.84375
+        },
+        "end": {
+            "name": "HIP 96839",
+            "x": -133.25,
+            "y": 73.40625,
+            "z": -68.71875,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Nones",
+            "x": -136.84375,
+            "y": 78.28125,
+            "z": -69.84375
+        },
+        "end": {
+            "name": "HIP 88435",
+            "x": -140.28125,
+            "y": 84.71875,
+            "z": -69.875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Nones",
+            "x": -136.84375,
+            "y": 78.28125,
+            "z": -69.84375
+        },
+        "end": {
+            "name": "Col 285 Sector GT-E b13-1",
+            "x": -142.40625,
+            "y": 83.0,
+            "z": -71.71875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Nones",
+            "x": -136.84375,
+            "y": 78.28125,
+            "z": -69.84375
+        },
+        "end": {
+            "name": "Yildun",
+            "x": -131.90625,
+            "y": 82.03125,
+            "z": -74.125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Othelkan",
+            "x": -162.84375,
+            "y": 51.59375,
+            "z": -84.5
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-22",
+            "x": -159.125,
+            "y": 54.9375,
+            "z": -85.125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Othelkan",
+            "x": -162.84375,
+            "y": 51.59375,
+            "z": -84.5
+        },
+        "end": {
+            "name": "Col 285 Sector PJ-P c6-12",
+            "x": -164.40625,
+            "y": 56.59375,
+            "z": -83.90625,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Othelkan",
+            "x": -162.84375,
+            "y": 51.59375,
+            "z": -84.5
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-21",
+            "x": -158.46875,
+            "y": 54.53125,
+            "z": -87.28125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Othelkan",
+            "x": -162.84375,
+            "y": 51.59375,
+            "z": -84.5
+        },
+        "end": {
+            "name": "Col 285 Sector DI-G b12-1",
+            "x": -158.5,
+            "y": 55.03125,
+            "z": -87.5,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Othelkan",
+            "x": -162.84375,
+            "y": 51.59375,
+            "z": -84.5
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-23",
+            "x": -160.0,
+            "y": 52.375,
+            "z": -90.125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Othelkan",
+            "x": -162.84375,
+            "y": 51.59375,
+            "z": -84.5
+        },
+        "end": {
+            "name": "Col 285 Sector GO-E b13-3",
+            "x": -168.09375,
+            "y": 55.0625,
+            "z": -82.3125,
+            "connections": 6
+        }
+    },
+    {
+        "start": {
+            "name": "Othelkan",
+            "x": -162.84375,
+            "y": 51.59375,
+            "z": -84.5
+        },
+        "end": {
+            "name": "Col 285 Sector FD-G b12-1",
+            "x": -158.65625,
+            "y": 45.71875,
+            "z": -86.03125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Othelkan",
+            "x": -162.84375,
+            "y": 51.59375,
+            "z": -84.5
+        },
+        "end": {
+            "name": "Col 285 Sector HO-E b13-0",
+            "x": -159.84375,
+            "y": 57.84375,
+            "z": -81.65625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Othelkan",
+            "x": -162.84375,
+            "y": 51.59375,
+            "z": -84.5
+        },
+        "end": {
+            "name": "Col 285 Sector JJ-E b13-1",
+            "x": -158.0,
+            "y": 44.78125,
+            "z": -84.5625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Othelkan",
+            "x": -162.84375,
+            "y": 51.59375,
+            "z": -84.5
+        },
+        "end": {
+            "name": "Col 285 Sector FD-G b12-5",
+            "x": -154.9375,
+            "y": 53.65625,
+            "z": -86.90625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "31 Cephei",
+            "x": -159.25,
+            "y": 41.625,
+            "z": -70.40625
+        },
+        "end": {
+            "name": "Col 285 Sector JJ-E b13-5",
+            "x": -163.40625,
+            "y": 41.6875,
+            "z": -67.09375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-82",
+            "x": -169.21875,
+            "y": 35.3125,
+            "z": -71.84375
+        },
+        "end": {
+            "name": "Col 285 Sector IJ-E b13-6",
+            "x": -170.6875,
+            "y": 37.96875,
+            "z": -71.15625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "31 Cephei",
+            "x": -159.25,
+            "y": 41.625,
+            "z": -70.40625
+        },
+        "end": {
+            "name": "Col 285 Sector JJ-E b13-3",
+            "x": -161.5625,
+            "y": 46.84375,
+            "z": -67.0,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector JJ-E b13-4",
+            "x": -162.96875,
+            "y": 40.75,
+            "z": -72.5
+        },
+        "end": {
+            "name": "Col 285 Sector IJ-E b13-5",
+            "x": -168.15625,
+            "y": 40.28125,
+            "z": -80.0,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "11 Cephei",
+            "x": -167.3125,
+            "y": 43.96875,
+            "z": -57.875
+        },
+        "end": {
+            "name": "HIP 109384",
+            "x": -166.78125,
+            "y": 39.75,
+            "z": -63.5625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Tarasa",
+            "x": -159.78125,
+            "y": 53.09375,
+            "z": -56.6875
+        },
+        "end": {
+            "name": "Col 285 Sector NP-C b14-2",
+            "x": -163.09375,
+            "y": 50.8125,
+            "z": -62.09375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Chelka",
+            "x": -114.375,
+            "y": 61.90625,
+            "z": -77.25
+        },
+        "end": {
+            "name": "Cephei Sector ZE-A d69",
+            "x": -118.90625,
+            "y": 58.6875,
+            "z": -73.6875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector UZ-O c6-23",
+            "x": -138.375,
+            "y": 2.78125,
+            "z": -82.40625
+        },
+        "end": {
+            "name": "Col 285 Sector LS-T d3-92",
+            "x": -139.0,
+            "y": 1.625,
+            "z": -76.125,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Igorot",
+            "x": -172.15625,
+            "y": 0.84375,
+            "z": -43.75
+        },
+        "end": {
+            "name": "Pegasi Sector BW-U b3-1",
+            "x": -180.3125,
+            "y": -1.375,
+            "z": -42.96875,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "34 Omicron Cephei",
+            "x": -183.15625,
+            "y": 24.65625,
+            "z": -84.25
+        },
+        "end": {
+            "name": "Col 285 Sector FY-F b12-2",
+            "x": -189.71875,
+            "y": 27.5625,
+            "z": -85.4375,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "34 Omicron Cephei",
+            "x": -183.15625,
+            "y": 24.65625,
+            "z": -84.25
+        },
+        "end": {
+            "name": "Col 285 Sector KE-E b13-0",
+            "x": -183.21875,
+            "y": 17.375,
+            "z": -81.15625,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "34 Omicron Cephei",
+            "x": -183.15625,
+            "y": 24.65625,
+            "z": -84.25
+        },
+        "end": {
+            "name": "Col 285 Sector KE-E b13-2",
+            "x": -180.46875,
+            "y": 17.8125,
+            "z": -80.8125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "34 Omicron Cephei",
+            "x": -183.15625,
+            "y": 24.65625,
+            "z": -84.25
+        },
+        "end": {
+            "name": "Col 285 Sector KE-E b13-1",
+            "x": -181.75,
+            "y": 16.65625,
+            "z": -84.03125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "34 Omicron Cephei",
+            "x": -183.15625,
+            "y": 24.65625,
+            "z": -84.25
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-19",
+            "x": -176.53125,
+            "y": 30.84375,
+            "z": -86.84375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "34 Omicron Cephei",
+            "x": -183.15625,
+            "y": 24.65625,
+            "z": -84.25
+        },
+        "end": {
+            "name": "Col 285 Sector FY-F b12-3",
+            "x": -188.90625,
+            "y": 30.8125,
+            "z": -89.53125,
+            "connections": 7
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-78",
+            "x": -174.0625,
+            "y": 7.96875,
+            "z": -101.71875
+        },
+        "end": {
+            "name": "Col 285 Sector IT-F b12-6",
+            "x": -179.0625,
+            "y": 9.46875,
+            "z": -101.71875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-78",
+            "x": -174.0625,
+            "y": 7.96875,
+            "z": -101.71875
+        },
+        "end": {
+            "name": "Col 285 Sector TZ-O c6-18",
+            "x": -176.0,
+            "y": 4.3125,
+            "z": -97.28125,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-78",
+            "x": -174.0625,
+            "y": 7.96875,
+            "z": -101.71875
+        },
+        "end": {
+            "name": "HIP 1240",
+            "x": -169.53125,
+            "y": 6.46875,
+            "z": -95.40625,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-78",
+            "x": -174.0625,
+            "y": 7.96875,
+            "z": -101.71875
+        },
+        "end": {
+            "name": "Col 285 Sector TZ-O c6-19",
+            "x": -179.09375,
+            "y": 3.96875,
+            "z": -96.78125,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-78",
+            "x": -174.0625,
+            "y": 7.96875,
+            "z": -101.71875
+        },
+        "end": {
+            "name": "Col 285 Sector IT-F b12-1",
+            "x": -181.625,
+            "y": 11.1875,
+            "z": -99.125,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-78",
+            "x": -174.0625,
+            "y": 7.96875,
+            "z": -101.71875
+        },
+        "end": {
+            "name": "Col 285 Sector IT-F b12-5",
+            "x": -182.625,
+            "y": 7.0625,
+            "z": -104.3125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Undalibaluf",
+            "x": -178.6875,
+            "y": 19.4375,
+            "z": -93.40625
+        },
+        "end": {
+            "name": "Col 285 Sector IT-F b12-2",
+            "x": -179.25,
+            "y": 11.6875,
+            "z": -95.21875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Undalibaluf",
+            "x": -178.6875,
+            "y": 19.4375,
+            "z": -93.40625
+        },
+        "end": {
+            "name": "Col 285 Sector TZ-O c6-17",
+            "x": -177.8125,
+            "y": 10.875,
+            "z": -93.59375,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KS-T d3-78",
+            "x": -174.0625,
+            "y": 7.96875,
+            "z": -101.71875
+        },
+        "end": {
+            "name": "HIP 2717",
+            "x": -175.53125,
+            "y": 0.125,
+            "z": -106.90625,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Ix Chodharr",
+            "x": -163.3125,
+            "y": 51.71875,
+            "z": -96.34375
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-10",
+            "x": -161.21875,
+            "y": 49.375,
+            "z": -94.4375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Ix Chodharr",
+            "x": -163.3125,
+            "y": 51.71875,
+            "z": -96.34375
+        },
+        "end": {
+            "name": "Col 285 Sector ED-G b12-6",
+            "x": -165.4375,
+            "y": 53.125,
+            "z": -92.84375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Ix Chodharr",
+            "x": -163.3125,
+            "y": 51.71875,
+            "z": -96.34375
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-9",
+            "x": -161.15625,
+            "y": 54.75,
+            "z": -98.875,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Ix Chodharr",
+            "x": -163.3125,
+            "y": 51.71875,
+            "z": -96.34375
+        },
+        "end": {
+            "name": "Col 285 Sector DI-G b12-0",
+            "x": -164.46875,
+            "y": 57.78125,
+            "z": -99.9375,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Ix Chodharr",
+            "x": -163.3125,
+            "y": 51.71875,
+            "z": -96.34375
+        },
+        "end": {
+            "name": "Col 285 Sector DI-G b12-2",
+            "x": -157.4375,
+            "y": 56.0,
+            "z": -95.875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Ix Chodharr",
+            "x": -163.3125,
+            "y": 51.71875,
+            "z": -96.34375
+        },
+        "end": {
+            "name": "Col 285 Sector DI-G b12-4",
+            "x": -157.0,
+            "y": 55.46875,
+            "z": -96.0,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Ix Chodharr",
+            "x": -163.3125,
+            "y": 51.71875,
+            "z": -96.34375
+        },
+        "end": {
+            "name": "HIP 116551",
+            "x": -168.75,
+            "y": 59.78125,
+            "z": -95.6875,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Undalibaluf",
+            "x": -178.6875,
+            "y": 19.4375,
+            "z": -93.40625
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-131",
+            "x": -176.5,
+            "y": 20.25,
+            "z": -92.21875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Undalibaluf",
+            "x": -178.6875,
+            "y": 19.4375,
+            "z": -93.40625
+        },
+        "end": {
+            "name": "Col 285 Sector GY-F b12-4",
+            "x": -175.53125,
+            "y": 17.40625,
+            "z": -94.28125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Undalibaluf",
+            "x": -178.6875,
+            "y": 19.4375,
+            "z": -93.40625
+        },
+        "end": {
+            "name": "Col 285 Sector RE-P c6-3",
+            "x": -175.125,
+            "y": 23.03125,
+            "z": -90.375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Undalibaluf",
+            "x": -178.6875,
+            "y": 19.4375,
+            "z": -93.40625
+        },
+        "end": {
+            "name": "Col 285 Sector GY-F b12-5",
+            "x": -176.28125,
+            "y": 21.8125,
+            "z": -100.0625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Undalibaluf",
+            "x": -178.6875,
+            "y": 19.4375,
+            "z": -93.40625
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-130",
+            "x": -171.875,
+            "y": 14.96875,
+            "z": -90.5625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Undalibaluf",
+            "x": -178.6875,
+            "y": 19.4375,
+            "z": -93.40625
+        },
+        "end": {
+            "name": "Col 285 Sector TZ-O c6-16",
+            "x": -183.0,
+            "y": 12.28125,
+            "z": -96.40625,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Undalibaluf",
+            "x": -178.6875,
+            "y": 19.4375,
+            "z": -93.40625
+        },
+        "end": {
+            "name": "BD+65 1984",
+            "x": -170.96875,
+            "y": 14.03125,
+            "z": -91.96875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Tarasa",
+            "x": -159.78125,
+            "y": 53.09375,
+            "z": -56.6875
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-48",
+            "x": -153.03125,
+            "y": 48.0,
+            "z": -56.09375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Goplatrugba",
+            "x": -154.4375,
+            "y": 49.1875,
+            "z": -46.25
+        },
+        "end": {
+            "name": "Col 285 Sector LU-C b14-0",
+            "x": -159.4375,
+            "y": 57.1875,
+            "z": -47.875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TP-N c7-8",
+            "x": -162.0625,
+            "y": 69.46875,
+            "z": -61.90625
+        },
+        "end": {
+            "name": "Col 285 Sector TP-N c7-7",
+            "x": -157.125,
+            "y": 69.28125,
+            "z": -61.1875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Ngundjedes",
+            "x": -167.6875,
+            "y": 69.6875,
+            "z": -64.90625
+        },
+        "end": {
+            "name": "Col 285 Sector TP-N c7-10",
+            "x": -167.40625,
+            "y": 74.34375,
+            "z": -61.90625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TP-N c7-8",
+            "x": -162.0625,
+            "y": 69.46875,
+            "z": -61.90625
+        },
+        "end": {
+            "name": "Col 285 Sector TP-N c7-6",
+            "x": -160.0625,
+            "y": 75.65625,
+            "z": -58.21875,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector QJ-P c6-18",
+            "x": -136.25,
+            "y": 78.0625,
+            "z": -90.125
+        },
+        "end": {
+            "name": "Col 285 Sector CN-G b12-2",
+            "x": -140.0625,
+            "y": 81.09375,
+            "z": -93.78125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector QJ-P c6-18",
+            "x": -136.25,
+            "y": 78.0625,
+            "z": -90.125
+        },
+        "end": {
+            "name": "Col 285 Sector CN-G b12-4",
+            "x": -131.375,
+            "y": 75.9375,
+            "z": -95.0,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector QJ-P c6-18",
+            "x": -136.25,
+            "y": 78.0625,
+            "z": -90.125
+        },
+        "end": {
+            "name": "HIP 705",
+            "x": -143.4375,
+            "y": 76.4375,
+            "z": -91.0,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector QJ-P c6-18",
+            "x": -136.25,
+            "y": 78.0625,
+            "z": -90.125
+        },
+        "end": {
+            "name": "Col 285 Sector CN-G b12-3",
+            "x": -135.75,
+            "y": 75.09375,
+            "z": -98.09375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector EI-G b12-2",
+            "x": -135.0625,
+            "y": 66.84375,
+            "z": -90.28125
+        },
+        "end": {
+            "name": "Col 285 Sector IO-E b13-5",
+            "x": -137.40625,
+            "y": 71.125,
+            "z": -83.71875,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector QJ-P c6-18",
+            "x": -136.25,
+            "y": 78.0625,
+            "z": -90.125
+        },
+        "end": {
+            "name": "Col 285 Sector QJ-P c6-17",
+            "x": -135.375,
+            "y": 85.28125,
+            "z": -83.625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Goplatrugba",
+            "x": -154.4375,
+            "y": 49.1875,
+            "z": -46.25
+        },
+        "end": {
+            "name": "Col 285 Sector RV-A b15-3",
+            "x": -161.21875,
+            "y": 45.21875,
+            "z": -40.78125,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Meinjhalie",
+            "x": -140.65625,
+            "y": 44.8125,
+            "z": -64.53125
+        },
+        "end": {
+            "name": "HIP 112951",
+            "x": -139.59375,
+            "y": 41.6875,
+            "z": -68.15625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Meinjhalie",
+            "x": -140.65625,
+            "y": 44.8125,
+            "z": -64.53125
+        },
+        "end": {
+            "name": "Cephei Sector AA-A d51",
+            "x": -148.75,
+            "y": 44.3125,
+            "z": -63.40625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Elboongzi",
+            "x": -122.5,
+            "y": 48.34375,
+            "z": -95
+        },
+        "end": {
+            "name": "Col 285 Sector HD-G b12-1",
+            "x": -119.40625,
+            "y": 47.65625,
+            "z": -90.1875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Elboongzi",
+            "x": -122.5,
+            "y": 48.34375,
+            "z": -95
+        },
+        "end": {
+            "name": "HIP 13456",
+            "x": -123.625,
+            "y": 50.40625,
+            "z": -100.5,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Elboongzi",
+            "x": -122.5,
+            "y": 48.34375,
+            "z": -95
+        },
+        "end": {
+            "name": "Lyncis Sector VU-P b5-5",
+            "x": -116.40625,
+            "y": 48.65625,
+            "z": -99.53125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 89478",
+            "x": -166.6875,
+            "y": 96.46875,
+            "z": -62.90625
+        },
+        "end": {
+            "name": "Col 285 Sector GE-D b14-2",
+            "x": -165.75,
+            "y": 95.625,
+            "z": -64.25,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 89478",
+            "x": -166.6875,
+            "y": 96.46875,
+            "z": -62.90625
+        },
+        "end": {
+            "name": "Col 285 Sector GE-D b14-3",
+            "x": -168.53125,
+            "y": 95.09375,
+            "z": -60.59375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 89478",
+            "x": -166.6875,
+            "y": 96.46875,
+            "z": -62.90625
+        },
+        "end": {
+            "name": "Col 285 Sector GE-D b14-1",
+            "x": -165.75,
+            "y": 100.625,
+            "z": -58.0,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 89478",
+            "x": -166.6875,
+            "y": 96.46875,
+            "z": -62.90625
+        },
+        "end": {
+            "name": "Col 285 Sector GE-D b14-0",
+            "x": -165.4375,
+            "y": 103.46875,
+            "z": -61.25,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 89478",
+            "x": -166.6875,
+            "y": 96.46875,
+            "z": -62.90625
+        },
+        "end": {
+            "name": "HIP 90102",
+            "x": -162.5625,
+            "y": 94.09375,
+            "z": -69.375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 89478",
+            "x": -166.6875,
+            "y": 96.46875,
+            "z": -62.90625
+        },
+        "end": {
+            "name": "Col 285 Sector IZ-C b14-0",
+            "x": -168.34375,
+            "y": 88.25,
+            "z": -59.15625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 89478",
+            "x": -166.6875,
+            "y": 96.46875,
+            "z": -62.90625
+        },
+        "end": {
+            "name": "Col 285 Sector IZ-C b14-3",
+            "x": -171.625,
+            "y": 88.71875,
+            "z": -59.84375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Parinta",
+            "x": -155.65625,
+            "y": 8.71875,
+            "z": -64.875
+        },
+        "end": {
+            "name": "Cephei Sector EW-W b1-1",
+            "x": -151.875,
+            "y": 15.1875,
+            "z": -61.0,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Ngundjedes",
+            "x": -167.6875,
+            "y": 69.6875,
+            "z": -64.90625
+        },
+        "end": {
+            "name": "Col 285 Sector GO-E b13-0",
+            "x": -173.875,
+            "y": 70.59375,
+            "z": -71.0625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Kurung",
+            "x": -137.3125,
+            "y": 88.25,
+            "z": -38.03125
+        },
+        "end": {
+            "name": "Col 285 Sector JX-T d3-94",
+            "x": -135.84375,
+            "y": 85.8125,
+            "z": -43.8125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kurung",
+            "x": -137.3125,
+            "y": 88.25,
+            "z": -38.03125
+        },
+        "end": {
+            "name": "Col 285 Sector OF-B b15-2",
+            "x": -140.0625,
+            "y": 86.4375,
+            "z": -31.25,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Kurung",
+            "x": -137.3125,
+            "y": 88.25,
+            "z": -38.03125
+        },
+        "end": {
+            "name": "Col 285 Sector JX-T d3-93",
+            "x": -140.1875,
+            "y": 83.96875,
+            "z": -44.0,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kurung",
+            "x": -137.3125,
+            "y": 88.25,
+            "z": -38.03125
+        },
+        "end": {
+            "name": "Col 285 Sector NF-B b15-2",
+            "x": -145.3125,
+            "y": 92.84375,
+            "z": -39.0625,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Kurung",
+            "x": -137.3125,
+            "y": 88.25,
+            "z": -38.03125
+        },
+        "end": {
+            "name": "Col 285 Sector MK-B b15-1",
+            "x": -143.125,
+            "y": 95.03125,
+            "z": -41.25,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Kurung",
+            "x": -137.3125,
+            "y": 88.25,
+            "z": -38.03125
+        },
+        "end": {
+            "name": "Col 285 Sector OF-B b15-3",
+            "x": -139.21875,
+            "y": 83.90625,
+            "z": -29.40625,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Njoere",
+            "x": -118.59375,
+            "y": 64.03125,
+            "z": -92.25
+        },
+        "end": {
+            "name": "Lyncis Sector TZ-P b5-4",
+            "x": -113.875,
+            "y": 59.9375,
+            "z": -94.71875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Chentrima",
+            "x": -112.15625,
+            "y": 70.65625,
+            "z": -94.15625
+        },
+        "end": {
+            "name": "Lyncis Sector IC-V c2-7",
+            "x": -111.40625,
+            "y": 65.5,
+            "z": -91.9375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Njoere",
+            "x": -118.59375,
+            "y": 64.03125,
+            "z": -92.25
+        },
+        "end": {
+            "name": "Col 285 Sector FI-G b12-2",
+            "x": -119.9375,
+            "y": 57.09375,
+            "z": -89.03125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-U b3-9",
+            "x": -138.0625,
+            "y": -19.25,
+            "z": -37.1875
+        },
+        "end": {
+            "name": "Pegasi Sector FR-U b3-7",
+            "x": -138.875,
+            "y": -18.34375,
+            "z": -34.46875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-U b3-9",
+            "x": -138.0625,
+            "y": -19.25,
+            "z": -37.1875
+        },
+        "end": {
+            "name": "Pegasi Sector CL-X c1-18",
+            "x": -134.40625,
+            "y": -19.15625,
+            "z": -39.71875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-U b3-9",
+            "x": -138.0625,
+            "y": -19.25,
+            "z": -37.1875
+        },
+        "end": {
+            "name": "Pegasi Sector CL-X c1-25",
+            "x": -135.71875,
+            "y": -19.6875,
+            "z": -42.25,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-U b3-9",
+            "x": -138.0625,
+            "y": -19.25,
+            "z": -37.1875
+        },
+        "end": {
+            "name": "Pegasi Sector LD-P a7-4",
+            "x": -139.96875,
+            "y": -25.46875,
+            "z": -36.78125,
+            "connections": 7
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-U b3-9",
+            "x": -138.0625,
+            "y": -19.25,
+            "z": -37.1875
+        },
+        "end": {
+            "name": "Pegasi Sector CL-X c1-7",
+            "x": -132.625,
+            "y": -24.53125,
+            "z": -37.4375,
+            "connections": 6
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-U b3-9",
+            "x": -138.0625,
+            "y": -19.25,
+            "z": -37.1875
+        },
+        "end": {
+            "name": "Pegasi Sector LD-P a7-1",
+            "x": -139.21875,
+            "y": -26.90625,
+            "z": -38.625,
+            "connections": 7
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 34235",
+            "x": -124.78125,
+            "y": 85.6875,
+            "z": -105.46875
+        },
+        "end": {
+            "name": "Lyncis Sector RE-Q b5-1",
+            "x": -124.03125,
+            "y": 85.71875,
+            "z": -104.21875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Sekenks",
+            "x": -121.78125,
+            "y": 76.90625,
+            "z": -101.5625
+        },
+        "end": {
+            "name": "Col 285 Sector DN-G b12-2",
+            "x": -124.0625,
+            "y": 82.4375,
+            "z": -99.28125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 34235",
+            "x": -124.78125,
+            "y": 85.6875,
+            "z": -105.46875
+        },
+        "end": {
+            "name": "Col 285 Sector JX-T d3-75",
+            "x": -128.71875,
+            "y": 87.65625,
+            "z": -98.46875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Chankopa",
+            "x": -164.0625,
+            "y": 6.6875,
+            "z": -12.5625
+        },
+        "end": {
+            "name": "Col 285 Sector BM-L c8-29",
+            "x": -160.28125,
+            "y": 7.90625,
+            "z": -9.25,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Chankopa",
+            "x": -164.0625,
+            "y": 6.6875,
+            "z": -12.5625
+        },
+        "end": {
+            "name": "Col 285 Sector YR-Y b15-1",
+            "x": -166.90625,
+            "y": 12.09375,
+            "z": -16.625,
+            "connections": 6
+        }
+    },
+    {
+        "start": {
+            "name": "Chankopa",
+            "x": -164.0625,
+            "y": 6.6875,
+            "z": -12.5625
+        },
+        "end": {
+            "name": "Col 285 Sector YR-Y b15-4",
+            "x": -169.65625,
+            "y": 14.28125,
+            "z": -11.0625,
+            "connections": 7
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-V c2-23",
+            "x": -176.6875,
+            "y": -0.625,
+            "z": -21.375
+        },
+        "end": {
+            "name": "Pegasi Sector FR-V c2-24",
+            "x": -181.96875,
+            "y": 1.3125,
+            "z": -24.625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Pegasi Sector FR-V c2-23",
+            "x": -176.6875,
+            "y": -0.625,
+            "z": -21.375
+        },
+        "end": {
+            "name": "Pegasi Sector FC-T b4-0",
+            "x": -183.96875,
+            "y": -4.5,
+            "z": -21.375,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Korai",
+            "x": -164.4375,
+            "y": 70.09375,
+            "z": -25.6875
+        },
+        "end": {
+            "name": "Col 285 Sector PA-B b15-2",
+            "x": -164.875,
+            "y": 68.15625,
+            "z": -27.28125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Korai",
+            "x": -164.4375,
+            "y": 70.09375,
+            "z": -25.6875
+        },
+        "end": {
+            "name": "Col 285 Sector PA-B b15-3",
+            "x": -161.34375,
+            "y": 70.34375,
+            "z": -30.375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Korai",
+            "x": -164.4375,
+            "y": 70.09375,
+            "z": -25.6875
+        },
+        "end": {
+            "name": "Col 285 Sector TG-Z b15-4",
+            "x": -163.40625,
+            "y": 63.78125,
+            "z": -24.5,
+            "connections": 6
+        }
+    },
+    {
+        "start": {
+            "name": "Korai",
+            "x": -164.4375,
+            "y": 70.09375,
+            "z": -25.6875
+        },
+        "end": {
+            "name": "Col 285 Sector PA-B b15-0",
+            "x": -158.3125,
+            "y": 68.4375,
+            "z": -28.40625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Korai",
+            "x": -164.4375,
+            "y": 70.09375,
+            "z": -25.6875
+        },
+        "end": {
+            "name": "Col 285 Sector XV-L c8-6",
+            "x": -170.53125,
+            "y": 63.15625,
+            "z": -22.90625,
+            "connections": 7
+        }
+    },
+    {
+        "start": {
+            "name": "Kumata",
+            "x": -150.96875,
+            "y": 67.03125,
+            "z": -37.8125
+        },
+        "end": {
+            "name": "Col 285 Sector QA-B b15-3",
+            "x": -142.0,
+            "y": 67.625,
+            "z": -36.34375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 54529",
+            "x": -121.40625,
+            "y": 100.375,
+            "z": -89.78125
+        },
+        "end": {
+            "name": "Col 285 Sector BS-G b12-3",
+            "x": -117.34375,
+            "y": 96.84375,
+            "z": -89.25,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Gliese 506.2",
+            "x": -121.625,
+            "y": 92.03125,
+            "z": -76.84375
+        },
+        "end": {
+            "name": "Col 285 Sector FY-E b13-0",
+            "x": -121.40625,
+            "y": 98.59375,
+            "z": -81.625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 54529",
+            "x": -121.40625,
+            "y": 100.375,
+            "z": -89.78125
+        },
+        "end": {
+            "name": "Col 285 Sector JX-T d3-86",
+            "x": -127.71875,
+            "y": 101.875,
+            "z": -95.3125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 54529",
+            "x": -121.40625,
+            "y": 100.375,
+            "z": -89.78125
+        },
+        "end": {
+            "name": "Col 285 Sector AS-G b12-2",
+            "x": -128.59375,
+            "y": 100.03125,
+            "z": -94.65625,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 6596",
+            "x": -141.34375,
+            "y": 6.96875,
+            "z": -105.8125
+        },
+        "end": {
+            "name": "Col 285 Sector QT-Q c5-20",
+            "x": -144.78125,
+            "y": 9.59375,
+            "z": -106.21875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 6596",
+            "x": -141.34375,
+            "y": 6.96875,
+            "z": -105.8125
+        },
+        "end": {
+            "name": "Col 285 Sector KT-F b12-3",
+            "x": -134.03125,
+            "y": 6.5625,
+            "z": -103.1875,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 6596",
+            "x": -141.34375,
+            "y": 6.96875,
+            "z": -105.8125
+        },
+        "end": {
+            "name": "Col 285 Sector GN-H b11-6",
+            "x": -137.3125,
+            "y": 4.875,
+            "z": -112.34375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 6596",
+            "x": -141.34375,
+            "y": 6.96875,
+            "z": -105.8125
+        },
+        "end": {
+            "name": "Col 285 Sector GN-H b11-3",
+            "x": -133.65625,
+            "y": 4.96875,
+            "z": -106.375,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 6596",
+            "x": -141.34375,
+            "y": 6.96875,
+            "z": -105.8125
+        },
+        "end": {
+            "name": "Col 285 Sector GN-H b11-4",
+            "x": -142.46875,
+            "y": -1.59375,
+            "z": -108.21875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 6596",
+            "x": -141.34375,
+            "y": 6.96875,
+            "z": -105.8125
+        },
+        "end": {
+            "name": "Col 285 Sector QT-Q c5-21",
+            "x": -139.09375,
+            "y": 12.71875,
+            "z": -112.96875,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 95044",
+            "x": -151.625,
+            "y": 65.59375,
+            "z": -30.34375
+        },
+        "end": {
+            "name": "Col 285 Sector PA-B b15-4",
+            "x": -147.3125,
+            "y": 68.3125,
+            "z": -28.15625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kumata",
+            "x": -150.96875,
+            "y": 67.03125,
+            "z": -37.8125
+        },
+        "end": {
+            "name": "Col 285 Sector PA-B b15-5",
+            "x": -153.53125,
+            "y": 64.53125,
+            "z": -37.28125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kumata",
+            "x": -150.96875,
+            "y": 67.03125,
+            "z": -37.8125
+        },
+        "end": {
+            "name": "HIP 96512",
+            "x": -157.21875,
+            "y": 64.8125,
+            "z": -35.3125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 95044",
+            "x": -151.625,
+            "y": 65.59375,
+            "z": -30.34375
+        },
+        "end": {
+            "name": "Col 285 Sector TP-N c7-19",
+            "x": -145.0625,
+            "y": 63.28125,
+            "z": -33.875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 95044",
+            "x": -151.625,
+            "y": 65.59375,
+            "z": -30.34375
+        },
+        "end": {
+            "name": "Col 285 Sector IX-T d3-41",
+            "x": -148.0625,
+            "y": 71.375,
+            "z": -25.21875,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Kumata",
+            "x": -150.96875,
+            "y": 67.03125,
+            "z": -37.8125
+        },
+        "end": {
+            "name": "Cephei Sector FM-V b2-4",
+            "x": -142.4375,
+            "y": 62.03125,
+            "z": -38.5625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector RE-P c6-8",
+            "x": -184.15625,
+            "y": 25,
+            "z": -78.4375
+        },
+        "end": {
+            "name": "HR 8687",
+            "x": -190.03125,
+            "y": 30.625,
+            "z": -78.1875,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "9 Lacertae",
+            "x": -166.28125,
+            "y": -17.71875,
+            "z": -38.84375
+        },
+        "end": {
+            "name": "Pegasi Sector AL-W b2-7",
+            "x": -164.28125,
+            "y": -20.5625,
+            "z": -45.9375,
+            "connections": 9
+        }
+    },
+    {
+        "start": {
+            "name": "9 Lacertae",
+            "x": -166.28125,
+            "y": -17.71875,
+            "z": -38.84375
+        },
+        "end": {
+            "name": "Pegasi Sector JD-P a7-7",
+            "x": -164.0,
+            "y": -26.15625,
+            "z": -38.34375,
+            "connections": 11
+        }
+    },
+    {
+        "start": {
+            "name": "9 Lacertae",
+            "x": -166.28125,
+            "y": -17.71875,
+            "z": -38.84375
+        },
+        "end": {
+            "name": "Pegasi Sector ID-P a7-6",
+            "x": -169.59375,
+            "y": -26.375,
+            "z": -39.25,
+            "connections": 11
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector IX-T d3-81",
+            "x": -165.9375,
+            "y": 68.34375,
+            "z": -36.875
+        },
+        "end": {
+            "name": "Col 285 Sector OA-B b15-3",
+            "x": -168.125,
+            "y": 63.3125,
+            "z": -42.09375,
+            "connections": 6
+        }
+    },
+    {
+        "start": {
+            "name": "Potilo",
+            "x": -133.09375,
+            "y": 57.9375,
+            "z": -98.5625
+        },
+        "end": {
+            "name": "Col 285 Sector EI-G b12-5",
+            "x": -134.0,
+            "y": 62.09375,
+            "z": -100.46875,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Potilo",
+            "x": -133.09375,
+            "y": 57.9375,
+            "z": -98.5625
+        },
+        "end": {
+            "name": "Col 285 Sector EI-G b12-0",
+            "x": -141.0,
+            "y": 58.875,
+            "z": -100.25,
+            "connections": 6
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KJ-E b13-5",
+            "x": -137.6875,
+            "y": 53.1875,
+            "z": -78.90625
+        },
+        "end": {
+            "name": "Col 285 Sector HO-E b13-5",
+            "x": -145.15625,
+            "y": 56.5,
+            "z": -74.21875,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector KJ-E b13-5",
+            "x": -137.6875,
+            "y": 53.1875,
+            "z": -78.90625
+        },
+        "end": {
+            "name": "Col 285 Sector HO-E b13-4",
+            "x": -146.21875,
+            "y": 56.03125,
+            "z": -75.125,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TP-N c7-12",
+            "x": -149.6875,
+            "y": 84.9375,
+            "z": -52.28125
+        },
+        "end": {
+            "name": "Col 285 Sector TP-N c7-16",
+            "x": -150.375,
+            "y": 87.3125,
+            "z": -53.4375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TP-N c7-12",
+            "x": -149.6875,
+            "y": 84.9375,
+            "z": -52.28125
+        },
+        "end": {
+            "name": "Col 285 Sector TP-N c7-15",
+            "x": -147.9375,
+            "y": 83.5,
+            "z": -57.40625,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Mahatrents",
+            "x": -149.3125,
+            "y": 81.78125,
+            "z": -51.40625
+        },
+        "end": {
+            "name": "Col 285 Sector TP-N c7-13",
+            "x": -152.21875,
+            "y": 77.09375,
+            "z": -47.3125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TP-N c7-12",
+            "x": -149.6875,
+            "y": 84.9375,
+            "z": -52.28125
+        },
+        "end": {
+            "name": "Lalande 33311",
+            "x": -141.75,
+            "y": 86.71875,
+            "z": -51.8125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TP-N c7-12",
+            "x": -149.6875,
+            "y": 84.9375,
+            "z": -52.28125
+        },
+        "end": {
+            "name": "Col 285 Sector JZ-C b14-0",
+            "x": -147.1875,
+            "y": 89.0,
+            "z": -45.53125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 94126",
+            "x": -164.21875,
+            "y": 81.59375,
+            "z": -52.5625
+        },
+        "end": {
+            "name": "Col 285 Sector JZ-C b14-2",
+            "x": -157.34375,
+            "y": 80.28125,
+            "z": -57.09375,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Gilyan",
+            "x": -166.78125,
+            "y": 72.96875,
+            "z": -54.75
+        },
+        "end": {
+            "name": "Col 285 Sector IZ-C b14-4",
+            "x": -172.15625,
+            "y": 75.40625,
+            "z": -54.34375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Gilyan",
+            "x": -166.78125,
+            "y": 72.96875,
+            "z": -54.75
+        },
+        "end": {
+            "name": "Col 285 Sector LU-C b14-3",
+            "x": -163.40625,
+            "y": 70.59375,
+            "z": -49.0625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Gilyan",
+            "x": -166.78125,
+            "y": 72.96875,
+            "z": -54.75
+        },
+        "end": {
+            "name": "Col 285 Sector LU-C b14-1",
+            "x": -160.9375,
+            "y": 69.8125,
+            "z": -51.59375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Gilyan",
+            "x": -166.78125,
+            "y": 72.96875,
+            "z": -54.75
+        },
+        "end": {
+            "name": "Col 285 Sector LU-C b14-4",
+            "x": -162.28125,
+            "y": 66.0625,
+            "z": -52.4375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Gilyan",
+            "x": -166.78125,
+            "y": 72.96875,
+            "z": -54.75
+        },
+        "end": {
+            "name": "Col 285 Sector TP-N c7-11",
+            "x": -174.25,
+            "y": 76.125,
+            "z": -58.71875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 94126",
+            "x": -164.21875,
+            "y": 81.59375,
+            "z": -52.5625
+        },
+        "end": {
+            "name": "HIP 95178",
+            "x": -158.875,
+            "y": 77.8125,
+            "z": -54.5,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Gilyan",
+            "x": -166.78125,
+            "y": 72.96875,
+            "z": -54.75
+        },
+        "end": {
+            "name": "Col 285 Sector KU-C b14-3",
+            "x": -167.0625,
+            "y": 65.875,
+            "z": -48.75,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Gilyan",
+            "x": -166.78125,
+            "y": 72.96875,
+            "z": -54.75
+        },
+        "end": {
+            "name": "Col 285 Sector KU-C b14-4",
+            "x": -175.625,
+            "y": 71.3125,
+            "z": -52.21875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Hraeango",
+            "x": -173.75,
+            "y": -9.96875,
+            "z": -42.53125
+        },
+        "end": {
+            "name": "Pegasi Sector ZU-Y d114",
+            "x": -176.71875,
+            "y": -13.4375,
+            "z": -41.125,
+            "connections": 7
+        }
+    },
+    {
+        "start": {
+            "name": "Hraeango",
+            "x": -173.75,
+            "y": -9.96875,
+            "z": -42.53125
+        },
+        "end": {
+            "name": "Pegasi Sector BL-X c1-17",
+            "x": -178.15625,
+            "y": -17.84375,
+            "z": -43.8125,
+            "connections": 10
+        }
+    },
+    {
+        "start": {
+            "name": "Hraeango",
+            "x": -173.75,
+            "y": -9.96875,
+            "z": -42.53125
+        },
+        "end": {
+            "name": "Pegasi Sector ZU-Y d99",
+            "x": -176.09375,
+            "y": -18.84375,
+            "z": -41.8125,
+            "connections": 11
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 94126",
+            "x": -164.21875,
+            "y": 81.59375,
+            "z": -52.5625
+        },
+        "end": {
+            "name": "HR 7247",
+            "x": -163.0,
+            "y": 84.40625,
+            "z": -54.71875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 94126",
+            "x": -164.21875,
+            "y": 81.59375,
+            "z": -52.5625
+        },
+        "end": {
+            "name": "Col 285 Sector IZ-C b14-5",
+            "x": -173.25,
+            "y": 80.125,
+            "z": -50.1875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Waluk",
+            "x": -173.0625,
+            "y": 39.46875,
+            "z": -27
+        },
+        "end": {
+            "name": "Col 285 Sector UB-Z b15-6",
+            "x": -174.0,
+            "y": 41.46875,
+            "z": -23.78125,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Waluk",
+            "x": -173.0625,
+            "y": 39.46875,
+            "z": -27
+        },
+        "end": {
+            "name": "Col 285 Sector VK-N c7-20",
+            "x": -169.4375,
+            "y": 41.03125,
+            "z": -27.5,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector VK-N c7-22",
+            "x": -177.71875,
+            "y": 39.65625,
+            "z": -32.28125
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-96",
+            "x": -171.0625,
+            "y": 43.28125,
+            "z": -34.96875,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 110094",
+            "x": -188.59375,
+            "y": 12.5625,
+            "z": -53.3125
+        },
+        "end": {
+            "name": "Col 285 Sector UK-N c7-5",
+            "x": -192.90625,
+            "y": 18.1875,
+            "z": -51.4375,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 110094",
+            "x": -188.59375,
+            "y": 12.5625,
+            "z": -53.3125
+        },
+        "end": {
+            "name": "Col 285 Sector NK-C b14-5",
+            "x": -185.875,
+            "y": 18.4375,
+            "z": -58.09375,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 110094",
+            "x": -188.59375,
+            "y": 12.5625,
+            "z": -53.3125
+        },
+        "end": {
+            "name": "Col 285 Sector NK-C b14-3",
+            "x": -193.78125,
+            "y": 20.375,
+            "z": -53.625,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 110094",
+            "x": -188.59375,
+            "y": 12.5625,
+            "z": -53.3125
+        },
+        "end": {
+            "name": "Col 285 Sector OK-C b14-0",
+            "x": -181.84375,
+            "y": 16.84375,
+            "z": -47.6875,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-27",
+            "x": -166.375,
+            "y": -17.28125,
+            "z": -95.65625
+        },
+        "end": {
+            "name": "Col 285 Sector TZ-O c6-28",
+            "x": -172.1875,
+            "y": -15.125,
+            "z": -95.5625,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-27",
+            "x": -166.375,
+            "y": -17.28125,
+            "z": -95.65625
+        },
+        "end": {
+            "name": "Col 285 Sector KO-F b12-0",
+            "x": -172.25,
+            "y": -15.90625,
+            "z": -94.09375,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-27",
+            "x": -166.375,
+            "y": -17.28125,
+            "z": -95.65625
+        },
+        "end": {
+            "name": "Col 285 Sector TZ-O c6-26",
+            "x": -169.0,
+            "y": -22.0,
+            "z": -90.96875,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-27",
+            "x": -166.375,
+            "y": -17.28125,
+            "z": -95.65625
+        },
+        "end": {
+            "name": "Col 285 Sector VM-M a23-4",
+            "x": -168.5625,
+            "y": -25.53125,
+            "z": -97.0625,
+            "connections": 10
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-27",
+            "x": -166.375,
+            "y": -17.28125,
+            "z": -95.65625
+        },
+        "end": {
+            "name": "Col 285 Sector ZS-K a24-2",
+            "x": -169.75,
+            "y": -25.78125,
+            "z": -93.84375,
+            "connections": 8
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector TZ-O c6-27",
+            "x": -166.375,
+            "y": -17.28125,
+            "z": -95.65625
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-86",
+            "x": -169.875,
+            "y": -12.65625,
+            "z": -88.125,
+            "connections": 6
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector EI-G b12-2",
+            "x": -135.0625,
+            "y": 66.84375,
+            "z": -90.28125
+        },
+        "end": {
+            "name": "Col 285 Sector EI-G b12-3",
+            "x": -138.34375,
+            "y": 68.125,
+            "z": -95.28125,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector VK-N c7-22",
+            "x": -177.71875,
+            "y": 39.65625,
+            "z": -32.28125
+        },
+        "end": {
+            "name": "Col 285 Sector VK-N c7-15",
+            "x": -183.46875,
+            "y": 39.15625,
+            "z": -35.375,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector VK-N c7-22",
+            "x": -177.71875,
+            "y": 39.65625,
+            "z": -32.28125
+        },
+        "end": {
+            "name": "Col 285 Sector QV-A b15-5",
+            "x": -175.25,
+            "y": 37.4375,
+            "z": -37.96875,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector VK-N c7-22",
+            "x": -177.71875,
+            "y": 39.65625,
+            "z": -32.28125
+        },
+        "end": {
+            "name": "Col 285 Sector QV-A b15-6",
+            "x": -176.4375,
+            "y": 42.65625,
+            "z": -41.09375,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "Col 285 Sector VK-N c7-22",
+            "x": -177.71875,
+            "y": 39.65625,
+            "z": -32.28125
+        },
+        "end": {
+            "name": "Col 285 Sector UK-N c7-26",
+            "x": -185.4375,
+            "y": 45.78125,
+            "z": -32.78125,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Cnephtha",
+            "x": -127.09375,
+            "y": 52.46875,
+            "z": -76.71875
+        },
+        "end": {
+            "name": "Cephei Sector ZU-Y b1",
+            "x": -127.6875,
+            "y": 48.1875,
+            "z": -72.59375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Sekenks",
+            "x": -121.78125,
+            "y": 76.90625,
+            "z": -101.5625
+        },
+        "end": {
+            "name": "HIP 26160",
+            "x": -117.5625,
+            "y": 71.625,
+            "z": -104.5625,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Sekenks",
+            "x": -121.78125,
+            "y": 76.90625,
+            "z": -101.5625
+        },
+        "end": {
+            "name": "Lyncis Sector EW-W c1-11",
+            "x": -115.40625,
+            "y": 81.46875,
+            "z": -105.59375,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Sekenks",
+            "x": -121.78125,
+            "y": 76.90625,
+            "z": -101.5625
+        },
+        "end": {
+            "name": "Col 285 Sector EI-G b12-4",
+            "x": -125.71875,
+            "y": 69.78125,
+            "z": -97.90625,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Sekenks",
+            "x": -121.78125,
+            "y": 76.90625,
+            "z": -101.5625
+        },
+        "end": {
+            "name": "Lyncis Sector EW-W c1-16",
+            "x": -124.03125,
+            "y": 71.0,
+            "z": -108.59375,
+            "connections": 0
+        }
+    },
+    {
+        "start": {
+            "name": "Aje",
+            "x": -178.6875,
+            "y": -9.1875,
+            "z": -32.0625
+        },
+        "end": {
+            "name": "Pegasi Sector HT-N a8-0",
+            "x": -182.40625,
+            "y": -13.46875,
+            "z": -32.25,
+            "connections": 2
+        }
+    },
+    {
+        "start": {
+            "name": "Aje",
+            "x": -178.6875,
+            "y": -9.1875,
+            "z": -32.0625
+        },
+        "end": {
+            "name": "HR 8463",
+            "x": -176.0,
+            "y": -13.65625,
+            "z": -28.6875,
+            "connections": 4
+        }
+    },
+    {
+        "start": {
+            "name": "Aje",
+            "x": -178.6875,
+            "y": -9.1875,
+            "z": -32.0625
+        },
+        "end": {
+            "name": "Pegasi Sector DR-U b3-9",
+            "x": -182.34375,
+            "y": -16.625,
+            "z": -35.125,
+            "connections": 9
+        }
+    },
+    {
+        "start": {
+            "name": "Gliese 506.2",
+            "x": -121.625,
+            "y": 92.03125,
+            "z": -76.84375
+        },
+        "end": {
+            "name": "Col 285 Sector JX-T d3-82",
+            "x": -116.25,
+            "y": 92.59375,
+            "z": -73.90625,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "Gliese 506.2",
+            "x": -121.625,
+            "y": 92.03125,
+            "z": -76.84375
+        },
+        "end": {
+            "name": "Col 285 Sector GT-E b13-3",
+            "x": -127.5,
+            "y": 89.09375,
+            "z": -70.84375,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 101613",
+            "x": -195.3125,
+            "y": 52.5,
+            "z": -36.6875
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-80",
+            "x": -197.4375,
+            "y": 53.03125,
+            "z": -40.53125,
+            "connections": 3
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 101613",
+            "x": -195.3125,
+            "y": 52.5,
+            "z": -36.6875
+        },
+        "end": {
+            "name": "Col 285 Sector PV-A b15-2",
+            "x": -200.03125,
+            "y": 48.09375,
+            "z": -41.875,
+            "connections": 1
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 101613",
+            "x": -195.3125,
+            "y": 52.5,
+            "z": -36.6875
+        },
+        "end": {
+            "name": "Col 285 Sector PV-A b15-1",
+            "x": -196.90625,
+            "y": 50.1875,
+            "z": -44.5,
+            "connections": 5
+        }
+    },
+    {
+        "start": {
+            "name": "HIP 101613",
+            "x": -195.3125,
+            "y": 52.5,
+            "z": -36.6875
+        },
+        "end": {
+            "name": "Col 285 Sector KS-T d3-110",
+            "x": -193.75,
+            "y": 49.1875,
+            "z": -44.90625,
+            "connections": 6
+        }
+    }
+]
