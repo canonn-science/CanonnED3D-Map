@@ -529,9 +529,10 @@ var canonnEd3d_route = {
 				infoText += "&nbsp;<b>Galactic Plane:</b> " + route.end.galactcPlaneDistance + "<br>"
 				infoText += "<br><b><a href=\"https://signals.canonn.tech/?system=" + route.end.name + "\" \"target\"=\"_blank\">Bodies (Click for Signals)</a></b><br>"
 				infoText += "&nbsp;<b>Body Count:</b> " + route.end.bodyCount + "<br>"
-
+				infoText += "&nbsp;<b>Landable Bodies:</b> " + formatNumber(route.end.landable_count) + "<br>";
 				infoText += "&nbsp;<b>Mapping Value:</b> " + formatNumber(route.end.estimated_mapping_value) + "<br>";
 				infoText += "&nbsp;<b>Landmark Value:</b> " + formatNumber(route.end.landmark_value) + "<br>";
+
 
 				if (!canonnEd3d_route.systemLookup[route.end.name]) {
 					let endSystem = {
