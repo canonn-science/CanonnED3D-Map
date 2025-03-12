@@ -345,7 +345,8 @@ var canonnEd3d_route = {
 				});
 				poiSite['infos'] += infoText
 			}
-
+			poiSite['infos'] += "<br>"
+			poiSite['infos'] += '<a href="https://inara.cz/elite/starsystem/?search=' + data[i].system_name + '" target="_blank">Inara</a>'
 
 			poiSite['coords'] = {
 				x: parseFloat(data[i].system_details.x),
@@ -435,6 +436,8 @@ var canonnEd3d_route = {
 
 
 			poiSite['infos'] = infoText
+			poiSite['infos'] += "<br>"
+			poiSite['infos'] += '<a href="https://inara.cz/elite/starsystem/?search=' + system.name + '" target="_blank">Inara</a>'
 			poiSite['coords'] = {
 				x: parseFloat(system.pos_x),
 				y: parseFloat(system.pos_y),

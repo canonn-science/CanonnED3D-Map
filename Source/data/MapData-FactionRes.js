@@ -353,6 +353,9 @@ var canonnEd3d_route = {
 				poiSite['infos'] += infoText
 				//these override each other
 
+				poiSite['infos'] += "<br>"
+				poiSite['infos'] += '<a href="https://inara.cz/elite/starsystem/?search=' + data[i].system_name + '" target="_blank">Inara</a>'
+
 				hazres && (poiSite['cat'] = ["11"])
 				hires && (poiSite['cat'] = ["22"])
 				compnav && (poiSite['cat'] = ["33"])
@@ -452,6 +455,9 @@ var canonnEd3d_route = {
 
 
 			poiSite['infos'] = infoText
+			poiSite['infos'] += "<br>"
+			poiSite['infos'] += '<a href="https://inara.cz/elite/starsystem/?search=' + system.name + '" target="_blank">Inara</a>'
+
 			poiSite['coords'] = {
 				x: parseFloat(system.pos_x),
 				y: parseFloat(system.pos_y),
