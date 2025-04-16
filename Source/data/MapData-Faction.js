@@ -478,16 +478,52 @@ var canonnEd3d_route = {
 		Promise.all([p1, p2]).then(function () {
 
 			var p3 = new Promise(function (resolve, reject) {
-				var arr = []
+				var arr = [];
+				var allResults = [];
 
-				data = canonnEd3d_route.factionData.docs[0].faction_presence
+				data = canonnEd3d_route.factionData.docs[0].faction_presence;
 				data.forEach(function (x) {
-					arr.push(x.system_name)
-					//console.log(x)
+					arr.push(x.system_name);
 				});
-				faction_systems = arr.join(",")
-				//console.log(faction_systems)
-				canonnEd3d_route.parseInfo('https://us-central1-canonn-api-236217.cloudfunctions.net/query/get_compres?systems=' + faction_systems, resolve)
+
+				// Function to split array into chunks of 50
+				function chunkArray(array, size) {
+					const chunks = [];
+					for (let i = 0; i < array.length; i += size) {
+						chunks.push(array.slice(i, i + size));
+					}
+					return chunks;
+				}
+
+				// Split systems into chunks of 50
+				const systemChunks = chunkArray(arr, 50);
+				const promises = [];
+
+				// Create a promise for each chunk
+				systemChunks.forEach(chunk => {
+					const faction_systems = chunk.join(',');
+					promises.push(
+						new Promise(chunkResolve => {
+							canonnEd3d_route.parseInfo(
+								'https://us-central1-canonn-api-236217.cloudfunctions.net/query/get_compres?systems=' + faction_systems,
+								chunkResolve
+							);
+						})
+					);
+				});
+
+				// Wait for all chunks to complete and combine results
+				Promise.all(promises)
+					.then(results => {
+						// Combine all results
+						results.forEach(result => {
+							allResults = allResults.concat(result);
+						});
+						resolve(allResults);
+					})
+					.catch(error => {
+						reject(error);
+					});
 			});
 
 			Promise.all([p3]).then(function () {
