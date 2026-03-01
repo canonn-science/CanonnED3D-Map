@@ -69,18 +69,8 @@ const capi = axios.create({
 	},
 });
 
-const go = async types => {
-	const keys = Object.keys(types);
-	return (await Promise.all(
-		keys.map(type => getSites(type))
-	)).reduce((acc, res, i) => {
-		acc[keys[i]] = res;
-		return acc;
-	}, {});
-};
-
-const getSites = async type => {
-	let records = [];
+const getSitesStream = async (type, formatCallback) => {
+	let records = {};
 	let keepGoing = true;
 	let API_START = 0;
 	const COUNT_T = 4;
@@ -91,18 +81,25 @@ const getSites = async type => {
 
 		let count = 0;
 		let responses = await Promise.all(p)
+		let batchData = {};
 		responses.map((response) => {
-			Object.assign(records, response.data)
+			Object.assign(batchData, response.data)
 			for (let system in response.data) {
 				if (response.data[system].codex) count += response.data[system].codex.length
 			}
 		})
 
+		// Process this batch and stream it to the map
+		if (Object.keys(batchData).length > 0) {
+			await formatCallback(batchData);
+		}
+
 		API_START += API_LIMIT * COUNT_T;
 		if (count < API_LIMIT * COUNT_T) {
 			keepGoing = false;
-			return records;
 		}
+		// Yield to allow rendering between batches
+		await new Promise(resolve => setTimeout(resolve, 0));
 	}
 };
 
@@ -285,7 +282,7 @@ var canonnEd3d_codex = {
 		]
 	},
 
-	formatSites: async function (resolve) {
+	formatSitesStream: async function (siteDataBatch) {
 		//get current url params and pass into API
 		let queryParams = {}
 		for (let p in urlParams) {
@@ -293,35 +290,25 @@ var canonnEd3d_codex = {
 			if (p == "english_name") p = "species"
 			if (v) queryParams[p] = v
 		}
-		//console.log("queryParamas", queryParams)
-		let query = "systems";
-		try {
-			if (Object.keys(queryParams).length) query += '?' + $.param(queryParams);
-			//console.log("query", query)
-		} catch (e) {
-			console.log("Error creating queryParams for API: ", e)
-		}
-		let sites = await getSites(query);
-		//let siteTypes = Object.keys(hierarchy_data);
-		//console.log("sites", sites)
 
-		let categories = {}
+		let categories = canonnEd3d_codex.systemsData.categories || {}
 		let subcategories = {}
-		for (let system in sites) {
+		let batchSystems = []
+		
+		for (let system in siteDataBatch) {
 			let poiSite = {
 				name: system,
 				coords: {
-					x: parseFloat(sites[system].coords[0]),
-					y: parseFloat(sites[system].coords[1]),
-					z: parseFloat(sites[system].coords[2])
+					x: parseFloat(siteDataBatch[system].coords[0]),
+					y: parseFloat(siteDataBatch[system].coords[1]),
+					z: parseFloat(siteDataBatch[system].coords[2])
 				},
 				infos: edsmLink(system),
 				cat: [],
 			}
 			let codexFound = false;
-			for (let i in sites[system].codex) {
-				let codex = sites[system].codex[i]
-				//console.log("codex:", codex)
+			for (let i in siteDataBatch[system].codex) {
+				let codex = siteDataBatch[system].codex[i]
 
 				let category = codex.sub_class
 				let subcategory = codex.english_name
@@ -339,42 +326,62 @@ var canonnEd3d_codex = {
 				poiSite.cat.push([subcategory]);
 				poiSite.infos += signalLink(system, codex.english_name);
 			}
-			// We can then push the site to the object that stores all systems
-			if (codexFound)
+			// Collect this system if codex entries matched
+			if (codexFound) {
+				batchSystems.push(poiSite);
 				canonnEd3d_codex.systemsData.systems.push(poiSite);
+			}
 		}
 
 		Object.assign(canonnEd3d_codex.systemsData.categories, categories)
-		canonnEd3d_codex.systemsData.categories = sortObj(canonnEd3d_codex.systemsData.categories)
-		resolve();
+
+		// Stream this batch to the map — categories are passed so HUD filters are updated incrementally.
+		// initFilters is now idempotent: existing groups/items are never duplicated.
+		if (batchSystems.length > 0) {
+			Ed3d.addBatch({
+				systems: batchSystems,
+				categories: canonnEd3d_codex.systemsData.categories
+			});
+		}
 	},
 
 	init: function () {
-
-		var p1 = new Promise(function (resolve, reject) {
-			return canonnEd3d_codex.formatSites(resolve);
+		// Initialize the map immediately with empty data
+		Ed3d.init({
+			container: 'edmap',
+			json: canonnEd3d_codex.systemsData,
+			withFullscreenToggle: false,
+			withHudPanel: true,
+			hudMultipleSelect: true,
+			effectScaleSystem: [20, 500],
+			startAnim: false,
+			showGalaxyInfos: true,
+			cameraPos: [25, 14100, -12900],
+			systemColor: '#FF9D00'
 		});
-
-		Promise.all([p1]).then(function () {
-			//console.log("sysdata", canonnEd3d_codex.systemsData)
-			Ed3d.init({
-				container: 'edmap',
-				json: canonnEd3d_codex.systemsData,
-				withFullscreenToggle: false,
-				withHudPanel: true,
-				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
-				startAnim: false,
-				showGalaxyInfos: true,
-				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00'
-			});
-			getCodexMeta();//adding codex based dropdowns after filter list was built or it will be overwritten
-			setTimeout(() => {
-				$('#search').css('display', 'block');
-				$('#search input').val('System').on('input', recenterSearch);
-			}, 1000);
-			document.getElementById("loading").style.display = "none";
-		});
+		
+		document.getElementById("loading").style.display = "none";
+		getCodexMeta();//adding codex based dropdowns after filter list was built or it will be overwritten
+		
+		setTimeout(() => {
+			$('#search').css('display', 'block');
+			$('#search input').val('System').on('input', recenterSearch);
+		}, 1000);
+		
+		// Start streaming data immediately after map init
+		//get current url params and pass into API
+		let queryParams = {}
+		for (let p in urlParams) {
+			let v = getURLParameter(p)
+			if (p == "english_name") p = "species"
+			if (v) queryParams[p] = v
+		}
+		let query = "systems";
+		try {
+			if (Object.keys(queryParams).length) query += '?' + $.param(queryParams);
+		} catch (e) {
+			console.log("Error creating queryParams for API: ", e)
+		}
+		getSitesStream(query, canonnEd3d_codex.formatSitesStream.bind(canonnEd3d_codex));
 	},
 };

@@ -343,17 +343,12 @@ var canonnEd3d_codex = {
 			if (p == "english_name") p = "species"
 			if (v) queryParams[p] = v
 		}
-		//console.log("queryParamas", queryParams)
 		let query = "systems";
 		try {
 			if (Object.keys(queryParams).length) query += '?' + $.param(queryParams);
-			//console.log("query", query)
 		} catch (e) {
 			console.log("Error creating queryParams for API: ", e)
 		}
-		let sites = await getSites(query);
-		//let siteTypes = Object.keys(hierarchy_data);
-		//console.log("sites", sites)
 
 		function poiSite(site, cat, info) {
 			return {
@@ -366,82 +361,63 @@ var canonnEd3d_codex = {
 				infos: info + "<br>",
 				cat: [[cat]],
 			}
-
 		}
 
-		let categories = {}
-		let subcategories = {}
-		for (let system in sites) {
-
-
-
-			if (sites[system]["threat_0"] > 0) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "0", "Threat 0: " + sites[system]["threat_0"]));
+		// Stream page by page — each page is added to the live map as it arrives
+		let API_START = 0;
+		let keepGoing = true;
+		while (keepGoing) {
+			let response = await reqSites(API_START, query);
+			let pageSystems = [];
+			for (let system in response.data) {
+				let s = response.data[system];
+				if (s["threat_0"] > 0) pageSystems.push(poiSite(s, "0", "Threat 0: " + s["threat_0"]));
+				if (s["threat_1"] > 0) pageSystems.push(poiSite(s, "1", "Threat 1: " + s["threat_1"]));
+				if (s["threat_2"] > 0) pageSystems.push(poiSite(s, "2", "Threat 2: " + s["threat_2"]));
+				if (s["threat_3"] > 0) pageSystems.push(poiSite(s, "3", "Threat 3: " + s["threat_3"]));
+				if (s["threat_4"] > 0) pageSystems.push(poiSite(s, "4", "Threat 4: " + s["threat_4"]));
+				if (s["threat_5"] > 0) pageSystems.push(poiSite(s, "5", "Threat 5: " + s["threat_5"]));
+				if (s["threat_6"] > 0) pageSystems.push(poiSite(s, "6", "Threat 6: " + s["threat_6"]));
+				if (s["threat_7"] > 0) pageSystems.push(poiSite(s, "7", "Threat 7: " + s["threat_7"]));
+				if (s["threat_8"] > 0) pageSystems.push(poiSite(s, "8", "Threat 8: " + s["threat_8"]));
+				if (s["threat_9"] > 0) pageSystems.push(poiSite(s, "9", "Threat 9: " + s["threat_9"]));
+				pageSystems.push(poiSite(s, s["bubble"], s["bubble"]));
 			}
-			if (sites[system]["threat_1"] > 0) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "1", "Threat 1: " + sites[system]["threat_1"]));
+			if (pageSystems.length > 0) {
+				Ed3d.addBatch({
+					systems: pageSystems,
+					categories: canonnEd3d_codex.systemsData.categories
+				});
 			}
-			if (sites[system]["threat_2"] > 0) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "2", "Threat 2: " + sites[system]["threat_2"]));
+			API_START += API_LIMIT;
+			if (response.data.length < API_LIMIT) {
+				keepGoing = false;
 			}
-			if (sites[system]["threat_3"] > 0) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "3", "Threat 3: " + sites[system]["threat_3"]));
-			}
-			if (sites[system]["threat_4"] > 0) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "4", "Threat 4: " + sites[system]["threat_4"]));
-			}
-			if (sites[system]["threat_5"] > 0) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "5", "Threat 5: " + sites[system]["threat_5"]));
-			}
-			if (sites[system]["threat_6"] > 0) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "6", "Threat 6: " + sites[system]["threat_6"]));
-			}
-			if (sites[system]["threat_7"] > 0) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "7", "Threat 7: " + sites[system]["threat_7"]));
-			}
-			if (sites[system]["threat_8"] > 0) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "8", "Threat 8: " + sites[system]["threat_8"]));
-			}
-			if (sites[system]["threat_9"] > 0) {
-				canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], "9", "Threat 9: " + sites[system]["threat_9"]));
-			}
-
-
-			canonnEd3d_codex.systemsData.systems.push(poiSite(sites[system], sites[system]["bubble"], sites[system]["bubble"]));
-			// We can then push the site to the object that stores all systems
-
-			//canonnEd3d_codex.systemsData.systems.push(poiSite);
 		}
 
 		resolve();
 	},
 
 	init: function () {
-
-		var p1 = new Promise(function (resolve, reject) {
-			return canonnEd3d_codex.formatSites(resolve);
+		// Start the map immediately with static data, then stream NHSS sites in the background
+		Ed3d.init({
+			container: 'edmap',
+			json: canonnEd3d_codex.systemsData,
+			withFullscreenToggle: false,
+			withHudPanel: true,
+			hudMultipleSelect: true,
+			effectScaleSystem: [20, 500],
+			startAnim: false,
+			showGalaxyInfos: true,
+			cameraPos: [25, 14100, -12900],
+			systemColor: '#FF9D00'
 		});
+		document.getElementById("loading").style.display = "none";
+		setTimeout(() => {
+			$('#search').css('display', 'block');
+			$('#search input').val('System').on('input', recenterSearch);
+		}, 1000);
 
-		Promise.all([p1]).then(function () {
-			//console.log("sysdata", canonnEd3d_codex.systemsData)
-			Ed3d.init({
-				container: 'edmap',
-				json: canonnEd3d_codex.systemsData,
-				withFullscreenToggle: false,
-				withHudPanel: true,
-				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
-				startAnim: false,
-				showGalaxyInfos: true,
-				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00'
-			});
-			//getCodexMeta();//adding codex based dropdowns after filter list was built or it will be overwritten
-			setTimeout(() => {
-				$('#search').css('display', 'block');
-				$('#search input').val('System').on('input', recenterSearch);
-			}, 1000);
-			document.getElementById("loading").style.display = "none";
-		});
+		canonnEd3d_codex.formatSites(() => {});
 	},
 };

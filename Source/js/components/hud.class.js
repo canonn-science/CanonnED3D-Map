@@ -2,16 +2,39 @@
 var HUD = {
 
   'container' : null,
+  'initialized' : false,
 
   /**
-   *
+   * Called after each batch completes. Only runs full setup once;
+   * on subsequent calls just refreshes the per-category counts.
    */
   'init' : function() {
 
+    if (this.initialized) {
+      // Just refresh the counts — don't re-bind events or re-init controls
+      this.updateFilterCounts();
+      return;
+    }
+    this.initialized = true;
     Loader.update('Init HUD');
     this.initHudAction();
     this.initControls();
 
+  },
+
+  /**
+   * Update the (count) suffix on each filter label in place.
+   * Safe to call repeatedly — replaces any existing count span.
+   */
+  'updateFilterCounts' : function() {
+    $('.map_filter').each(function() {
+      var idCat = $(this).data('filter');
+      var count = (Ed3d.catObjs[idCat] && Ed3d.catObjs[idCat].length) || 0;
+      $(this).find('.filter-count').remove();
+      if (count > 1) {
+        $(this).append('<span class="filter-count"> ('+count+')</span>');
+      }
+    });
   },
 
   /**
@@ -203,15 +226,11 @@ var HUD = {
     );
     $( "#systemDetails" ).hide();
 
-    //-- Add Count filters
-    $('.map_filter').each(function(e) {
-      var idCat = $(this).data('filter');
-      var count = Ed3d.catObjs[idCat].length;
-      if(count>1) $(this).append(' ('+count+')');
-    });
+    //-- Add Count filters (initial pass — use updateFilterCounts for subsequent updates)
+    HUD.updateFilterCounts();
 
-    //-- Add map filters
-    $('.map_filter').click(function(e) {
+    //-- Add map filters (delegated so dynamically-added filters also respond)
+    $('#filters').on('click', '.map_filter', function(e) {
       e.preventDefault();
       var idCat = $(this).data('filter');
       var active = $(this).data('active');
@@ -338,15 +357,15 @@ var HUD = {
     });
 
 
-    //-- Add map link
-    $('.map_link').click(function(e) {
+    //-- Add map link (delegated)
+    $('#hud').on('click', '.map_link', function(e) {
 
       e.preventDefault();
       var elId = $(this).data('route');
       Action.moveToObj(routes[elId]);
     });
 
-    $('.map_link span').click(function(e) {
+    $('#hud').on('click', '.map_link span', function(e) {
 
       e.preventDefault();
 
@@ -358,51 +377,64 @@ var HUD = {
 
 
   /**
-   * Init filter list
+   * Init filter list — safe to call multiple times with growing category sets.
+   * New groups and items are appended; existing ones are skipped.
    */
 
   'initFilters' : function(categories) {
 
     Loader.update('HUD Filter...');
 
-    var grpNb = 1;
+    // Ensure we have a stable map of typeFilter → groupId so we can
+    // append new items into the correct existing group on subsequent calls.
+    if (!HUD.filterGroupIds) HUD.filterGroupIds = {};
+    var grpNb = Object.keys(HUD.filterGroupIds).length + 1;
+
     $.each(categories, function(typeFilter, values) {
 
       if(typeof values === "object" ) {
 
-        var groupId = 'group_'+grpNb;
-        var nbFilters = values.length;
-        var count = 0;
-        var visible = true;
+        var groupId;
+        var isNewGroup = !HUD.filterGroupIds[typeFilter];
 
-        $('#filters').append('<h2>'+typeFilter+'</h2>');
-        $('#filters').append('<div id="'+groupId+'"></div>');
+        if (isNewGroup) {
+          // Create the group header and container
+          groupId = 'group_' + grpNb;
+          HUD.filterGroupIds[typeFilter] = groupId;
+          $('#filters').append('<h2>'+typeFilter+'</h2>');
+          $('#filters').append('<div id="'+groupId+'"></div>');
+          grpNb++;
+        } else {
+          groupId = HUD.filterGroupIds[typeFilter];
+        }
+
+        var nbFilters = values.length;
+        var count = isNewGroup ? 0 : $('#' + groupId + ' .filter').length;
+        var visible = true;
+        var addedAny = false;
 
         $.each(values, function(key, val) {
+
+          // Skip items already registered
+          if (Ed3d.catObjs[key] !== undefined) return;
 
           visible = true;
 
           //-- Manage view limit if activated
-
           if(Ed3d.categoryAutoCollapseSize !== false) {
             count++;
             if(count>Ed3d.categoryAutoCollapseSize) visible = false;
           }
 
           //-- Add filter
-
           HUD.addFilter(groupId, key, val, visible);
           Ed3d.catObjs[key] = [];
+          addedAny = true;
 
         });
 
-        grpNb++;
-
-        //-- If more childs than 'categoryAutoCollapseSize' value
-        //-- add the button to toggle items
-
-        if(visible==false) {
-
+        // Add/update the "See more" toggle if needed
+        if (addedAny && visible == false && $('#'+groupId+' .show_childs').length === 0) {
           $('#'+groupId).append(
             '<a class="show_childs">'+
             '+ See more' +
@@ -410,7 +442,6 @@ var HUD = {
           ).click(function(){
             HUD.expandFilters(groupId);
           });
-
         }
       }
 

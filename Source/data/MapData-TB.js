@@ -13,28 +13,26 @@ let sites = {
 	tbsites: [],
 };
 
-const go = async types => {
-	const keys = Object.keys(types);
-	return (await Promise.all(
-		keys.map(type => getSites(type))
-	)).reduce((acc, res, i) => {
-		acc[keys[i]] = res;
-		return acc;
-	}, {});
-};
-
-const getSites = async type => {
-	let records = [];
-	let keepGoing = true;
+const streamSitesForType = async (type, formatCallback) => {
 	let API_START = 0;
+	let keepGoing = true;
 	while (keepGoing) {
 		let response = await reqSites(API_START, type);
-		await records.push.apply(records, response.data);
+		// Call the format callback with this batch
+		await formatCallback(response.data);
 		API_START += API_LIMIT;
 		if (response.data.length < API_LIMIT) {
 			keepGoing = false;
-			return records;
 		}
+		// Yield to event loop after each batch
+		await new Promise(resolve => setTimeout(resolve, 0));
+	}
+};
+
+const streamAllSites = async (callback) => {
+	const types = Object.keys(sites);
+	for (const type of types) {
+		await streamSitesForType(type, callback);
 	}
 };
 
@@ -92,71 +90,58 @@ var canonnEd3d_tb = {
 		systems: [],
 	},
 
-	formatSites: async function (data, resolvePromise) {
-		sites = await go(data);
+	formatSitesStream: async function (siteDataBatch) {
+		let formattedBatch = [];
+		for (var d = 0; d < siteDataBatch.length; d++) {
+			if (siteDataBatch[d].system.systemName && siteDataBatch[d].system.systemName.replace(' ', '').length > 1) {
+				var poiSite = {};
+				poiSite['name'] = siteDataBatch[d].system.systemName;
 
-		let siteTypes = Object.keys(data);
-
-		for (var i = 0; i < siteTypes.length; i++) {
-			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
-				let siteData = sites[siteTypes[i]];
-				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
-					var poiSite = {};
-					poiSite['name'] = siteData[d].system.systemName;
-
-					//Check Site Type and match categories
-					if (siteData[d].subtype.type == 'Mega') {
-						poiSite['cat'] = [201];
-					} else if (siteData[d].subtype.type == 'Alpha') {
-						poiSite['cat'] = [202];
-					} else if (siteData[d].subtype.type == 'Beta') {
-						poiSite['cat'] = [203];
-					} else if (siteData[d].subtype.type == 'Gamma') {
-						poiSite['cat'] = [204];
-					} else if (siteData[d].subtype.type == 'Delta') {
-						poiSite['cat'] = [205];
-					} else if (siteData[d].subtype.type == 'Epsilon') {
-						poiSite['cat'] = [206];
-					} else if (siteData[d].subtype.type == 'Zeta') {
-						poiSite['cat'] = [207];
-					} else {
-						poiSite['cat'] = [2000];
-					}
-					poiSite['coords'] = {
-						x: parseFloat(siteData[d].system.edsmCoordX),
-						y: parseFloat(siteData[d].system.edsmCoordY),
-						z: parseFloat(siteData[d].system.edsmCoordZ),
-					};
-
-					// We can then push the site to the object that stores all systems
-					canonnEd3d_tb.systemsData.systems.push(poiSite);
+				//Check Site Type and match categories
+				if (siteDataBatch[d].subtype.type == 'Mega') {
+					poiSite['cat'] = [201];
+				} else if (siteDataBatch[d].subtype.type == 'Alpha') {
+					poiSite['cat'] = [202];
+				} else if (siteDataBatch[d].subtype.type == 'Beta') {
+					poiSite['cat'] = [203];
+				} else if (siteDataBatch[d].subtype.type == 'Gamma') {
+					poiSite['cat'] = [204];
+				} else if (siteDataBatch[d].subtype.type == 'Delta') {
+					poiSite['cat'] = [205];
+				} else if (siteDataBatch[d].subtype.type == 'Epsilon') {
+					poiSite['cat'] = [206];
+				} else if (siteDataBatch[d].subtype.type == 'Zeta') {
+					poiSite['cat'] = [207];
+				} else {
+					poiSite['cat'] = [2000];
 				}
+				poiSite['coords'] = {
+					x: parseFloat(siteDataBatch[d].system.edsmCoordX),
+					y: parseFloat(siteDataBatch[d].system.edsmCoordY),
+					z: parseFloat(siteDataBatch[d].system.edsmCoordZ),
+				};
+
+				formattedBatch.push(poiSite);
 			}
 		}
-		document.getElementById("loading").style.display = "none";
-		resolvePromise();
+		Ed3d.addBatch({systems: formattedBatch});
 	},
 
 	init: function () {
-		//Sites Data
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_tb.formatSites(sites, resolve);
+		Ed3d.init({
+			container: 'edmap',
+			json: canonnEd3d_tb.systemsData,
+			withFullscreenToggle: false,
+			withHudPanel: true,
+			hudMultipleSelect: true,
+			effectScaleSystem: [20, 500],
+			startAnim: true,
+			showGalaxyInfos: true,
+			playerPos: [-78.59375, -149.625, -340.53125],
+			cameraPos: [-78.59375 - 1000, -149.625, -340.53125 - 1000],
+			systemColor: '#FF9D00',
 		});
-
-		Promise.all([p1]).then(function () {
-			Ed3d.init({
-				container: 'edmap',
-				json: canonnEd3d_tb.systemsData,
-				withFullscreenToggle: false,
-				withHudPanel: true,
-				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
-				startAnim: true,
-				showGalaxyInfos: true,
-				playerPos: [-78.59375, -149.625, -340.53125],
-				cameraPos: [-78.59375 - 1000, -149.625, -340.53125 - 1000],
-				systemColor: '#FF9D00',
-			});
-		});
+		document.getElementById("loading").style.display = "none";
+		streamAllSites(canonnEd3d_tb.formatSitesStream.bind(canonnEd3d_tb));
 	},
 };

@@ -389,7 +389,7 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
         "HIP 17692": { done: false, type: "EagleEye" },
         "HIP 17892": { done: false, type: "EagleEye" },
         "HR 1185": { done: false, type: "EagleEye" },
-        "Pleiades Sector IR-W d1-55": { done: false, type: "EagleEye" },
+        "Delphi": { done: false, type: "EagleEye" },
         "Pleiades Sector KC-V c2-4": { done: false, type: "EagleEye" },
     },
     systemsWithStations: [],
@@ -446,50 +446,40 @@ https://tool.canonn.tech/linkdecoder/?origin=Taurus+Dark+Region+CL-Y+d53&data=ll
         }
         edsmQueues.push(edsmQueue);
 
-        //*
-        //console.log("Queue:", edsmQueue);
-        //console.log("Queues:", edsmQueues);
-        for (var q = 0; q < edsmQueues.length; q++) {
-            //console.log("Queue:", q, edsmQueues[q]);
-            let response = await getSystemsEDSM(edsmQueues[q]);
+        // Static snapshot of EDSM eagle-eye system coordinates (fetched 2026-03-01).
+        // To refresh: query https://www.edsm.net/api-v1/systems?showCoordinates=1&systemName[]=...
+        // for the systems listed in addingSystems and update data/edsm-eagleeye-systems.json.
+        const edsmStaticResp = await fetch("data/edsm-eagleeye-systems.json");
+        const edsmStaticSystems = await edsmStaticResp.json();
 
-            if (response.data.length <= 0) {
-                console.log("EDSM debug", response);
-            }
-            for (const index in response.data) {
-                let system = response.data[index];
-                //*
-                //EDSM sometimes gives guessed results based on weird input
-                //since our input is very weird, i want the response to match what I search
-                let found = false;
-                for (const addSystemName in canonnEd3d_tslinks.addingSystems) {
-                    if (system.name.toUpperCase() === addSystemName.toUpperCase()) {
-                        if (canonnEd3d_tslinks.addingSystems[addSystemName].type == "EagleEye") {
-                            canonnEd3d_tslinks.addPOI(
-                                system.name,
-                                system.coords.x,
-                                system.coords.y,
-                                system.coords.z,
-                                ['206']
-                            );
-                        }
-                        found = true;
-                        break;
+        for (const system of edsmStaticSystems) {
+            if (!system.coords) continue;
+            let found = false;
+            for (const addSystemName in canonnEd3d_tslinks.addingSystems) {
+                if (system.name.toUpperCase() === addSystemName.toUpperCase()) {
+                    if (canonnEd3d_tslinks.addingSystems[addSystemName].type == "EagleEye") {
+                        canonnEd3d_tslinks.addPOI(
+                            system.name,
+                            system.coords.x,
+                            system.coords.y,
+                            system.coords.z,
+                            ['206']
+                        );
                     }
+                    found = true;
+                    break;
                 }
-                if (!found) continue; //if its not matched anything of what we searched, ignore it
-                //*/
-
-                canonnEd3d_tslinks.addPOI(
-                    system.name,
-                    system.coords.x,
-                    system.coords.y,
-                    system.coords.z,
-                    ['200']
-                );
             }
+            if (!found) continue;
+
+            canonnEd3d_tslinks.addPOI(
+                system.name,
+                system.coords.x,
+                system.coords.y,
+                system.coords.z,
+                ['200']
+            );
         }
-        //*/
 
         let unknownNames = [];
         for (const names in canonnEd3d_tslinks.addingSystems) {

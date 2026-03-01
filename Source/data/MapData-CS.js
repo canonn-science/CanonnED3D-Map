@@ -59,28 +59,27 @@ let sites = {
 	cssites: [],
 };
 
-const go = async types => {
-	const keys = Object.keys(types);
-	return (await Promise.all(
-		keys.map(type => getSites(type))
-	)).reduce((acc, res, i) => {
-		acc[keys[i]] = res;
-		return acc;
-	}, {});
-};
-
-const getSites = async type => {
-	let records = [];
-	let keepGoing = true;
+const streamSitesForType = async (type, formatCallback) => {
 	let API_START = 0;
+	let keepGoing = true;
 	while (keepGoing) {
 		let response = await reqSites(API_START, type);
-		await records.push.apply(records, response.data);
+		if (response.data && response.data.length > 0) {
+			await formatCallback(response.data);
+		}
 		API_START += API_LIMIT;
 		if (response.data.length < API_LIMIT) {
 			keepGoing = false;
-			return records;
 		}
+		// Yield to allow rendering between batches
+		await new Promise(resolve => setTimeout(resolve, 0));
+	}
+};
+
+const streamAllSites = async (callback) => {
+	const types = Object.keys(sites);
+	for (const type of types) {
+		await streamSitesForType(type, callback);
 	}
 };
 
@@ -101,17 +100,16 @@ var canonnEd3d_cs = {
 		systems: [],
 	},
 
-	formatCol: function (data) {
-		//Here you format POI & Gnosis JSON to ED3D acceptable object
+	formatColStream: function (siteDataBatch) {
+		categories = canonnEd3d_cs.systemsData.categories || {};
+		subcategories = canonnEd3d_cs.systemsData.subcategories || {};
 
-		categories = {}
-		subcategories = {}
 		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
+		for (var i = 0; i < siteDataBatch.length; i++) {
 			var poiSite = {};
 
 			category = 'Crystalline Shards'
-			subcategory = data[i].english_name
+			subcategory = siteDataBatch[i].english_name
 
 			if (!categories[category]) {
 				categories[category] = {}
@@ -125,61 +123,54 @@ var canonnEd3d_cs = {
 				categories[category][subcategory] = { name: subcategory, color: colours[colourkey - 1][0].replace('#', '') }
 			}
 
-			poiSite['name'] = data[i].system;
-			poiSite['infos'] = signalLink(data[i].system, data[i].english_name)
+			poiSite['name'] = siteDataBatch[i].system;
+			poiSite['infos'] = signalLink(siteDataBatch[i].system, siteDataBatch[i].english_name)
 
 			//Check Site Type and match categories
 
 			poiSite['cat'] = [subcategory];
 
 			poiSite['coords'] = {
-				x: parseFloat(data[i].x),
-				y: parseFloat(data[i].y),
-				z: parseFloat(data[i].z),
+				x: parseFloat(siteDataBatch[i].x),
+				y: parseFloat(siteDataBatch[i].y),
+				z: parseFloat(siteDataBatch[i].z),
 			};
 
 			// We can then push the site to the object that stores all systems
 			canonnEd3d_cs.systemsData.systems.push(poiSite);
-
 		}
-		//console.log("finished formatCol")
-		document.getElementById("loading").style.display = "none";
+
 		canonnEd3d_cs.systemsData.categories = categories
-		//console.log(subcategories)
-	},
-
-	parseData: function (url, callBack, resolvePromise) {
-		let fetchDataFromApi = async (url, resolvePromise) => {
-			let response = await fetch(url);
-			let result = await response.json();
-			canonnEd3d_cs.formatCol(result)
-			resolvePromise();
-			return result;
-		}
-		//console.log("in parseData")
-		fetchDataFromApi(url, resolvePromise)
-
-
+		canonnEd3d_cs.systemsData.subcategories = subcategories
+		Ed3d.addBatch({systems: canonnEd3d_cs.systemsData.systems.slice(-siteDataBatch.length)});
 	},
 	init: function () {
-		//Sites Data
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_cs.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/get_shard_data', canonnEd3d_cs.formatCol, resolve);
+		Ed3d.init({
+			container: 'edmap',
+			json: canonnEd3d_cs.systemsData,
+			withFullscreenToggle: false,
+			withHudPanel: true,
+			hudMultipleSelect: true,
+			effectScaleSystem: [20, 500],
+			startAnim: false,
+			showGalaxyInfos: true,
+			cameraPos: [25, 14100, -12900],
+			systemColor: '#FF9D00',
 		});
-
-		Promise.all([p1]).then(function () {
-			Ed3d.init({
-				container: 'edmap',
-				json: canonnEd3d_cs.systemsData,
-				withFullscreenToggle: false,
-				withHudPanel: true,
-				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
-				startAnim: false,
-				showGalaxyInfos: true,
-				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00',
-			});
-		});
+		document.getElementById("loading").style.display = "none";
+		
+		// Fetch and stream the data from cloud function in batches
+		let fetchDataFromApi = async (url) => {
+			let response = await fetch(url);
+			let result = await response.json();
+			// Process data in batches to enable streaming
+			const BATCH_SIZE = 500;
+			for (let i = 0; i < result.length; i += BATCH_SIZE) {
+				await canonnEd3d_cs.formatColStream(result.slice(i, i + BATCH_SIZE));
+				// Yield to allow rendering between batches
+				await new Promise(resolve => setTimeout(resolve, 0));
+			}
+		}
+		fetchDataFromApi('https://us-central1-canonn-api-236217.cloudfunctions.net/get_shard_data');
 	},
 };

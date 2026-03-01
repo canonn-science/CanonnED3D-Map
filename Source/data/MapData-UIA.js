@@ -1,83 +1,10 @@
-const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/query`;
-const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
-const API_LIMIT = 1000;
+// External API endpoints no longer used directly — data is cached as local static files.
+// To refresh: run fetch-uia-waypoints.ps1 from the repo root.
+// const API_ENDPOINT = `https://us-central1-canonn-api-236217.cloudfunctions.net/query`;
+// const EDSM_ENDPOINT = `https://www.edsm.net/api-v1`;
 
 const numberOfUIAs = 9;
 const predictionFactor = 2;
-
-
-const capi = axios.create({
-	baseURL: API_ENDPOINT,
-	headers: {
-		'Content-Type': 'application/json',
-		'Accept': 'application/json',
-	},
-});
-const edsmapi = axios.create({
-    baseURL: EDSM_ENDPOINT,
-    headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-    },
-})
-
-let sites = {
-	//"thargoid/hyperdiction/reports": [],
-};
-for (var i=1; i<=numberOfUIAs; i++) {
-	sites["uia/waypoints/"+i] = []
-}
-
-const go = async types => {
-	const keys = Object.keys(types);
-	return (await Promise.all(
-		keys.map(type => getSites(type, types[type]))
-	)).reduce((acc, res, i) => {
-		acc[keys[i]] = res;
-		return acc;
-	}, {});
-};
-
-const getSites = async (type, systems) => {
-	let records = [];
-	//for (var i = 0; i < systems.length; i++) {
-		let keepGoing = true;
-		let API_START = 0;
-		while (keepGoing) {
-			let response = await reqSites(API_START, type/*, systems[i]*/);
-			await records.push.apply(records, response.data);
-			API_START += API_LIMIT;
-			//if (response.data.length < API_LIMIT) {
-				keepGoing = false;
-			//}
-		}
-	//}
-	return records;
-};
-
-const reqSites = async (API_START, type, system) => {
-	//start = system.replace(/\s/g, "+")
-	let payload = await capi({
-		url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
-		method: 'get'
-	});
-
-	return payload;
-};
-const getSystemsEDSM = async (systemNames) => {
-    if (Array.isArray(systemNames)) {
-        systemNames = "systemName[]=" + systemNames.join("&systemName[]=");
-    } else {
-        systemNames = "systemName=" + systemNames;
-    }
-    //console.log("EDSM Query: ", systemNames);
-    let payload = await edsmapi({
-        url: `/systems?showCoordinates=1&${systemNames}`,
-        method: 'get'
-    });
-
-    return payload;
-};
 
 const gsheetToZuluTimestamp = (gsheetFormat) => {
 	var dateform = gsheetFormat; //expecting dd/mm/yyyy hh:mm:ss for gsheet reasons
@@ -776,7 +703,10 @@ var canonnEd3d_challenge = {
 		]
 	},
 	formatHDs: async function (hddata, resolvePromise) {
-		
+		// Record current lengths so we can slice only the newly added items for addBatch
+		const prevSystemCount = canonnEd3d_challenge.systemsData.systems.length;
+		const prevRouteCount  = canonnEd3d_challenge.systemsData.routes.length;
+
 		canonnEd3d_challenge.systemsData.pls.sort((a, b) => (a.radius > b.radius) ? 1 : -1)
 		for (var i = 0; i < canonnEd3d_challenge.systemsData.pls.length; i++) {
 			var plspoi = {
@@ -818,10 +748,18 @@ var canonnEd3d_challenge = {
 		}
 
 
-		//request and parse waypoint info here to use in hyperdiction filters
-		console.log("start waypoints sheet api query")
-		var apidata = await go(sites)
-		console.log("end sheet api query")
+		//request and parse waypoint info from local static snapshots (fetched 2026-03-01)
+		//To refresh: run fetch-uia.ps1 or manually download each uia/waypoints/N endpoint
+		var apidata = {};
+		for (var i = 1; i <= numberOfUIAs; i++) {
+			try {
+				var resp = await fetch('data/csvCache/uia_waypoints_' + i + '.json');
+				apidata['uia/waypoints/' + i] = await resp.json();
+			} catch(e) {
+				console.warn('Failed to load uia_waypoints_' + i + '.json', e);
+				apidata['uia/waypoints/' + i] = [];
+			}
+		}
 
 		var wps = []
 		for (var i=1; i<=Object.keys(apidata).length; i++) {
@@ -836,7 +774,7 @@ var canonnEd3d_challenge = {
 			var uiawps = [];
 			if (wps[uiai].length <= 1) {
 				console.log("no data for waypoints", wps)
-				resolvePromise()
+				if (resolvePromise) resolvePromise();
 				return
 			}
 			var headers = wps[uiai][0];
@@ -856,7 +794,7 @@ var canonnEd3d_challenge = {
 		//var reports = apidata["thargoid/hyperdiction/reports"]
 		//if (reports == undefined || reports.length < 1) {
 		//	console.log("didnt get hyperdiction reports", apidata)
-		//	resolvePromise()
+		//	if (resolvePromise) resolvePromise();
 		//	return;
 		//}
 
@@ -978,13 +916,19 @@ var canonnEd3d_challenge = {
 		}
 		
 		//console.log("global waypoints list:", sites.wps)
-		for (var i = 0; i <= maxWPI; i++) {
-			canonnEd3d_challenge.systemsData.categories["Hyperdictions"]["30"+(1+i)] = {
-				'name': "UIA "+(i+1),
-				'color': '999900'
-			}
+		// Categories for UIA 1-N are pre-added in init() so HUD is ready from the start
+
+		// Batch-add all newly collected waypoints and hyperdictions to the already-running map
+		var newSystems = canonnEd3d_challenge.systemsData.systems.slice(prevSystemCount);
+		var newRoutes  = canonnEd3d_challenge.systemsData.routes.slice(prevRouteCount);
+		if (newSystems.length > 0 || newRoutes.length > 0) {
+			Ed3d.addBatch({
+				systems:    newSystems,
+				routes:     newRoutes,
+				categories: canonnEd3d_challenge.systemsData.categories
+			});
 		}
-		resolvePromise();
+		if (resolvePromise) resolvePromise();
 	},
 	addRoute: (cat, systems, circle=false) => {
 		var route = {
@@ -1369,28 +1313,35 @@ var canonnEd3d_challenge = {
 		document.getElementById("loading").style.display = "none";
 	},
 	init: function () {
-		//var p1 = new Promise(function (resolve, reject) {
-		//	canonnEd3d_challenge.parseCSVData('data/csvCache/UIA Vector Survey (Responses) - Waypoints.csv', canonnEd3d_challenge.formatWaypoints, resolve);
-		//});
-		var p2 = new Promise(function (resolve, reject) {
-			canonnEd3d_challenge.parseCSVData('data/csvCache/route_UIA_Hyperdictions.csv', canonnEd3d_challenge.formatHDs, resolve);
+		// Pre-add UIA 1-N hyperdiction categories so HUD is ready before API data arrives
+		for (var i = 1; i <= numberOfUIAs; i++) {
+			canonnEd3d_challenge.systemsData.categories["Hyperdictions"]["30" + i] = {
+				'name': "UIA " + i,
+				'color': '999900'
+			};
+		}
+
+		// Start the map immediately with static systems/routes already defined in this file
+		Ed3d.init({
+			container: 'edmap',
+			json: canonnEd3d_challenge.systemsData,
+			withFullscreenToggle: false,
+			withHudPanel: true,
+			hudMultipleSelect: true,
+			effectScaleSystem: [20, 500],
+			startAnim: false,
+			showGalaxyInfos: false,
+			playerPos: [0, 0, 0],
+			cameraPos: [0, 0+1000, 0-1500],
+			systemColor: '#FF9D00',
+			finished: canonnEd3d_challenge.finishMap
 		});
 
-		Promise.all([p2]).then(function () {
-			Ed3d.init({
-				container: 'edmap',
-				json: canonnEd3d_challenge.systemsData,
-				withFullscreenToggle: false,
-				withHudPanel: true,
-				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
-				startAnim: false,
-				showGalaxyInfos: false,
-				playerPos: [0, 0, 	 0],
-				cameraPos: [0, 0+1000, 0-1500],
-				systemColor: '#FF9D00',
-				finished: canonnEd3d_challenge.finishMap
-			});
-		});
+		// Load dynamic data (CSV + API) in background; addBatch when ready
+		canonnEd3d_challenge.parseCSVData(
+			'data/csvCache/route_UIA_Hyperdictions.csv',
+			canonnEd3d_challenge.formatHDs,
+			null
+		);
 	},
 };
