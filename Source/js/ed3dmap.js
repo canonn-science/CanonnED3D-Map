@@ -273,8 +273,11 @@ var Ed3d = {
     Loader.update('Add Sagittarius A*');
     this.Galaxy.addGalaxyCenter();
 
-    // Load systems
-    Loader.update('Loading JSON file');
+    // Show the scene immediately so the galaxy/grid renders before data arrives
+    Ed3d.showScene();
+
+    // Stream system data in after the initial render
+    Loader.update('Loading data...');
     if(this.jsonPath != null)
     {
        Ed3d.loadDatasFromFile();
@@ -289,13 +292,11 @@ var Ed3d = {
     }
     else if(this.json != null)
     {
-       Ed3d.loadDatas(this.json);
-       Ed3d.loadDatasComplete();
-       Ed3d.showScene();
+       Ed3d.loadDatasAsync(this.json);
     }
     else
     {
-       Loader.update('No JSON found.');
+       Loader.stop();
     }
 
     if(!this.startAnim) {
@@ -435,16 +436,9 @@ var Ed3d = {
 
   'loadDatasFromFile' : function() {
 
-
     $.getJSON(this.jsonPath, function(data) {
 
-      Ed3d.loadDatas(data);
-
-    }).done(function() {
-
-      Ed3d.loadDatasComplete();
-
-      Ed3d.showScene();
+      Ed3d.loadDatasAsync(data);
 
     });
   },
@@ -459,18 +453,15 @@ var Ed3d = {
     } catch (e) {
       console.log("Can't load JSon for systems");
     }
-    if(json != null) Ed3d.loadDatas(json);
 
-    Ed3d.loadDatasComplete();
-
-    Ed3d.showScene();
+    if(json != null) Ed3d.loadDatasAsync(json);
+    else Ed3d.loadDatasComplete();
 
   },
 
 
   'loadDatasFromAttributes' : function() {
 
-    var content = $('#'+this.jsonContainer).html();
     var json = [];
     $('.ed3d-item').each(function(e) {
       var objName = $(this).html();
@@ -479,11 +470,100 @@ var Ed3d = {
         json.push({name:objName,coords:{x:coords[0],y:coords[1],z:coords[2]}});
     });
 
-    if(json != null) Ed3d.loadDatas(json);
+    if(json.length > 0) Ed3d.loadDatasAsync(json);
+    else Ed3d.loadDatasComplete();
 
-    Ed3d.loadDatasComplete();
+  },
 
-    Ed3d.showScene();
+
+  /**
+   * Stream data into an already-visible scene in batches so the browser
+   * can render between each chunk.  Callers may also call Ed3d.addBatch()
+   * directly to push additional data after the initial load.
+   *
+   * @param {object|Array} data      Full data object or plain systems array
+   * @param {number}       batchSize Systems to process per tick (default 500)
+   * @param {function}     [done]    Optional callback fired when finished
+   */
+  'loadDatasAsync' : function(data, batchSize, done, skipInit) {
+
+    var BATCH_SIZE = batchSize || 500;
+
+    //-- Initialise particle geometry only on first load, not when appending batches
+    if(!skipInit) System.initParticleSystem();
+
+    //-- Build HUD category filters right away so they are visible during streaming
+    if(data.categories != undefined) HUD.initFilters(data.categories);
+
+    //-- Register route waypoints so systems can be matched as they stream in
+    if(data.routes != undefined) {
+      $.each(data.routes, function(key, route) {
+        Route.initRoute(key, route);
+      });
+    }
+
+    var list  = (data.systems !== undefined) ? data.systems : data;
+    var total = (list && list.length) ? list.length : 0;
+    var offset = 0;
+
+    if(total === 0) {
+      Ed3d.loadDatasComplete();
+      if(typeof done === 'function') done();
+      return;
+    }
+
+    var processBatch = function() {
+
+      var end = Math.min(offset + BATCH_SIZE, total);
+
+      for(var i = offset; i < end; i++) {
+        var val    = list[i];
+        var system = System.create(val);
+        if(system != undefined) {
+          if(val.cat != undefined) Ed3d.addObjToCategories(system, val.cat);
+          if(val.cat != undefined) Ed3d.systems.push(system);
+        }
+      }
+
+      offset = end;
+
+      //-- Flush this batch to the scene so systems appear incrementally
+      System.endParticleSystem();
+
+      Loader.update('Systems... ' + offset + ' / ' + total);
+
+      if(offset < total) {
+        //-- Yield to the render loop so the browser paints the new particles
+        setTimeout(processBatch, 0);
+      } else {
+
+        //-- All systems done – finalise routes, heatmap and camera
+        if(data.routes != undefined) {
+          $.each(data.routes, function(key, route) {
+            Route.createRoute(key, route);
+          });
+        }
+
+        if(data.heatmap != undefined) {
+          Heatmap.create(data.heatmap);
+        }
+
+        if(Ed3d.startAnim && data.position != undefined) {
+          Ed3d.playerPos = [data.position.x, data.position.y, data.position.z];
+          var camX = (parseInt(data.position.x) - 500);
+          var camY = (parseInt(data.position.y) + 8500);
+          var camZ = (parseInt(data.position.z) - 8500);
+          Ed3d.cameraPos = [camX, camY, camZ];
+          Action.moveInitalPosition(4000);
+        }
+
+        Ed3d.loadDatasComplete();
+        if(typeof done === 'function') done();
+      }
+    };
+
+    //-- Kick off the first batch on the next tick so the scene renders first
+    setTimeout(processBatch, 0);
 
   },
 
@@ -557,6 +637,20 @@ var Ed3d = {
       System.endParticleSystem();
       HUD.init();
       this.Action.init();
+
+  },
+
+  /**
+   * Public API – push additional data into an already-rendered map.
+   * Can be called as many times as needed; each call is batched independently.
+   *
+   * @param {object|Array} data  Full data object (with optional categories /
+   *                             routes / heatmap) or a plain systems array.
+   * @param {function}     [done] Optional callback fired when the batch is done.
+   */
+  'addBatch' : function(data, done) {
+
+    Ed3d.loadDatasAsync(data, 500, done, true);
 
   },
 

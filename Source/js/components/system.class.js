@@ -129,14 +129,33 @@ var System = {
   },
 
   /**
-   * Create the particle system
+   * Create (or rebuild) the particle system.
+   * Safe to call after every streaming batch: the previous Points object is
+   * removed from the scene before a new one is constructed from the
+   * accumulated geometry, so incoming systems appear incrementally.
    */
 
   'endParticleSystem' : function () {
 
-    if(this.particleGeo == null) return;
+    if(this.particleGeo == null) {
+      return;
+    }
 
-    this.particleGeo.colors = this.particleColor;
+    //-- Remove the previous particle cloud before replacing it.
+    if(this.particle != null) {
+      scene.remove(this.particle);
+    }
+
+    //-- Wrap the accumulated vertex/color arrays in a brand-new Geometry
+    //   object on every flush.  Three.js r75 keys its internal GPU buffer
+    //   size to the geometry object's id; reusing the same geometry object
+    //   causes it to silently ignore all vertices beyond the first-upload
+    //   count.  A new wrapper object forces a correctly-sized GPU allocation
+    //   on each batch while still sharing the same underlying JS arrays
+    //   (no copying overhead).
+    var freshGeo = new THREE.Geometry();
+    freshGeo.vertices = this.particleGeo.vertices;
+    freshGeo.colors   = this.particleColor;
 
     var particleMaterial = new THREE.PointsMaterial({
       map: Ed3d.textures.flare_yellow,
@@ -149,12 +168,16 @@ var System = {
       depthWrite: false
     });
 
-    this.particle = new THREE.Points(this.particleGeo, particleMaterial);
+    this.particle = new THREE.Points(freshGeo, particleMaterial);
 
     this.particle.sortParticles = true;
     this.particle.clickable = true;
 
     scene.add(this.particle);
+
+    //-- Swap the accumulator to the fresh geometry so that future create()
+    //   calls push into the same arrays that the live Points object holds.
+    this.particleGeo = freshGeo;
   },
 
 

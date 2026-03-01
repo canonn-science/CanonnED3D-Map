@@ -18,28 +18,27 @@ let sites = {
 	btsites: [],
 };
 
-const go = async types => {
-	const keys = Object.keys(types);
-	return (await Promise.all(
-		keys.map(type => getSites(type))
-	)).reduce((acc, res, i) => {
-		acc[keys[i]] = res;
-		return acc;
-	}, {});
-};
-
-const getSites = async type => {
-	let records = [];
-	let keepGoing = true;
+const streamSitesForType = async (type, formatCallback) => {
 	let API_START = 0;
+	let keepGoing = true;
 	while (keepGoing) {
 		let response = await reqSites(API_START, type);
-		await records.push.apply(records, response.data);
+		if (response.data && response.data.length > 0) {
+			await formatCallback(response.data);
+		}
 		API_START += API_LIMIT;
 		if (response.data.length < API_LIMIT) {
 			keepGoing = false;
-			return records;
 		}
+		// Yield to allow rendering between batches
+		await new Promise(resolve => setTimeout(resolve, 0));
+	}
+};
+
+const streamAllSites = async (types, formatCallback) => {
+	const keys = Object.keys(types);
+	for (let key of keys) {
+		await streamSitesForType(key, formatCallback);
 	}
 };
 
@@ -101,73 +100,71 @@ var canonnEd3d_bt = {
 		systems: [],
 	},
 
-	formatSites: async function (data, resolvePromise) {
-		sites = await go(data);
+	formatSitesStream: async function (siteDataBatch) {
+		// Process a single batch of sites and add to the systems array
+		let formattedBatch = [];
+		
+		for (var d = 0; d < siteDataBatch.length; d++) {
+			if (siteDataBatch[d].system.systemName && siteDataBatch[d].system.systemName.replace(' ', '').length > 1) {
+				var poiSite = {};
+				poiSite['name'] = siteDataBatch[d].system.systemName;
 
-		let siteTypes = Object.keys(data);
-
-		for (var i = 0; i < siteTypes.length; i++) {
-			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
-				let siteData = sites[siteTypes[i]];
-				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
-					var poiSite = {};
-					poiSite['name'] = siteData[d].system.systemName;
-
-					//Check Site Type and match categories
-					if (siteData[d].type.type == 'Roseum Brain Tree') {
-						poiSite['cat'] = [201];
-					} else if (siteData[d].type.type == 'Gypseeum Brain Tree') {
-						poiSite['cat'] = [202];
-					} else if (siteData[d].type.type == 'Ostrinum Brain Tree') {
-						poiSite['cat'] = [203];
-					} else if (siteData[d].type.type == 'Viride Brain Tree') {
-						poiSite['cat'] = [204];
-					} else if (siteData[d].type.type == 'Lividum Brain Tree') {
-						poiSite['cat'] = [205];
-					} else if (siteData[d].type.type == 'Aureum Brain Tree') {
-						poiSite['cat'] = [206];
-					} else if (siteData[d].type.type == 'Puniceum Brain Tree') {
-						poiSite['cat'] = [207];
-					} else if (siteData[d].type.type == 'Lindigoticum Brain Tree') {
-						poiSite['cat'] = [208];
-					} else {
-						poiSite['cat'] = [2000];
-					}
-					poiSite['infos'] = signalLink(siteData[d].system.systemName, siteData[d].type.type)
-					poiSite['coords'] = {
-						x: parseFloat(siteData[d].system.edsmCoordX),
-						y: parseFloat(siteData[d].system.edsmCoordY),
-						z: parseFloat(siteData[d].system.edsmCoordZ),
-					};
-
-					// We can then push the site to the object that stores all systems
-					canonnEd3d_bt.systemsData.systems.push(poiSite);
+				//Check Site Type and match categories
+				if (siteDataBatch[d].type.type == 'Roseum Brain Tree') {
+					poiSite['cat'] = [201];
+				} else if (siteDataBatch[d].type.type == 'Gypseeum Brain Tree') {
+					poiSite['cat'] = [202];
+				} else if (siteDataBatch[d].type.type == 'Ostrinum Brain Tree') {
+					poiSite['cat'] = [203];
+				} else if (siteDataBatch[d].type.type == 'Viride Brain Tree') {
+					poiSite['cat'] = [204];
+				} else if (siteDataBatch[d].type.type == 'Lividum Brain Tree') {
+					poiSite['cat'] = [205];
+				} else if (siteDataBatch[d].type.type == 'Aureum Brain Tree') {
+					poiSite['cat'] = [206];
+				} else if (siteDataBatch[d].type.type == 'Puniceum Brain Tree') {
+					poiSite['cat'] = [207];
+				} else if (siteDataBatch[d].type.type == 'Lindigoticum Brain Tree') {
+					poiSite['cat'] = [208];
+				} else {
+					poiSite['cat'] = [2000];
 				}
+				poiSite['infos'] = signalLink(siteDataBatch[d].system.systemName, siteDataBatch[d].type.type)
+				poiSite['coords'] = {
+					x: parseFloat(siteDataBatch[d].system.edsmCoordX),
+					y: parseFloat(siteDataBatch[d].system.edsmCoordY),
+					z: parseFloat(siteDataBatch[d].system.edsmCoordZ),
+				};
+
+				formattedBatch.push(poiSite);
 			}
 		}
-		document.getElementById("loading").style.display = "none";
-		resolvePromise();
+		
+		// Stream this batch to the map immediately - do NOT pass categories as it causes visibility issues
+		if (formattedBatch.length > 0) {
+			Ed3d.addBatch({
+				systems: formattedBatch
+			});
+		}
 	},
 
 	init: function () {
-		//Sites Data
-		var p1 = new Promise(function (resolve, reject) {
-			canonnEd3d_bt.formatSites(sites, resolve);
+		// Initialize the map immediately with empty data
+		Ed3d.init({
+			container: 'edmap',
+			json: canonnEd3d_bt.systemsData,
+			withFullscreenToggle: false,
+			withHudPanel: true,
+			hudMultipleSelect: true,
+			effectScaleSystem: [20, 500],
+			startAnim: false,
+			showGalaxyInfos: true,
+			cameraPos: [25, 14100, -12900],
+			systemColor: '#FF9D00',
 		});
-
-		Promise.all([p1]).then(function () {
-			Ed3d.init({
-				container: 'edmap',
-				json: canonnEd3d_bt.systemsData,
-				withFullscreenToggle: false,
-				withHudPanel: true,
-				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
-				startAnim: false,
-				showGalaxyInfos: true,
-				cameraPos: [25, 14100, -12900],
-				systemColor: '#FF9D00',
-			});
-		});
+		
+		// Start streaming data immediately after map init
+		document.getElementById("loading").style.display = "none";
+		streamAllSites(sites, canonnEd3d_bt.formatSitesStream.bind(canonnEd3d_bt));
 	},
 };
