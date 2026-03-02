@@ -1,110 +1,89 @@
-const API_ENDPOINT = `https://api.canonn.tech`;
-const API_LIMIT = 1000;
-
-const capi = axios.create({
-	baseURL: API_ENDPOINT,
-	headers: {
-		'Content-Type': 'application/json',
-		'Accept': 'application/json',
-	},
-});
-
-let sites = {
-	tssites: [],
-};
-
-const streamSitesForType = async (type, formatCallback) => {
-	let API_START = 0;
-	let keepGoing = true;
-	while (keepGoing) {
-		let response = await reqSites(API_START, type);
-		// Call the format callback with this batch
-		await formatCallback(response.data);
-		API_START += API_LIMIT;
-		if (response.data.length < API_LIMIT) {
-			keepGoing = false;
-		}
-		// Yield to event loop after each batch
-		await new Promise(resolve => setTimeout(resolve, 0));
-	}
-};
-
-const streamAllSites = async (callback) => {
-	const types = Object.keys(sites);
-	for (const type of types) {
-		await streamSitesForType(type, callback);
-	}
-};
-
-const reqSites = async (API_START, type) => {
-
-	let payload = await capi({
-		url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
-		method: 'get'
-	});
-
-	return payload;
-};
-
 var canonnEd3d_ts = {
 	//Define Categories
 	systemsData: {
 		categories: {
-			'Thargoid Structures - (TS)': {
-				'201': {
-					name: 'Active',
-					color: '008000',
-				},
-				'202': {
-					name: 'Inactive',
-					color: '800000',
-				}
-			}
 		},
 		systems: [],
 	},
 	startcoords: [],
-	formatSitesStream: async function (siteDataBatch) {
+
+	// Format local surface_sites.json entries
+	formatLocalSurfaceSites: async function (localSites) {
 		let formattedBatch = [];
-		for (var d = 0; d < siteDataBatch.length; d++) {
-			if (siteDataBatch[d].system.systemName && siteDataBatch[d].system.systemName.replace(' ', '').length > 1) {
-				var poiSite = {};
-				poiSite['name'] = siteDataBatch[d].system.systemName;
-
-				//Check Site Type and match categories
-				if (siteDataBatch[d].status.status == 'Active') {
-					poiSite['cat'] = [201];
-				} else {
-					poiSite['cat'] = [202];
+		for (var i = 0; i < localSites.length; i++) {
+			let s = localSites[i];
+			if (!s.System || String(s.System).replace(' ', '').length <= 1) continue;
+			var poiSite = {};
+			poiSite['name'] = s.System;
+		// Only use Leviathan Count category (0-6)
+		poiSite['cat'] = [];
+			// Attach secondary category from "New Type/Sub" leading number (0..6)
+			try {
+				var sub = s["New Type/Sub"] || s["New Type / Sub"] || s.newTypeSub;
+				if (sub) {
+					sub = String(sub).trim();
+					var m = sub.match(/^\s*(\d)/);
+					if (m) {
+						var num = parseInt(m[1]);
+						if (!isNaN(num) && num >= 0 && num <= 6) poiSite['cat'].push(num);
+					}
 				}
-				poiSite['coords'] = {
-					x: parseFloat(siteDataBatch[d].system.edsmCoordX),
-					y: parseFloat(siteDataBatch[d].system.edsmCoordY),
-					z: parseFloat(siteDataBatch[d].system.edsmCoordZ),
-				};
-
-				formattedBatch.push(poiSite);
-			}
+			} catch (e) { }
+			poiSite['coords'] = {
+				x: parseFloat(s.x),
+				y: parseFloat(s.y),
+				z: parseFloat(s.z),
+			};
+			formattedBatch.push(poiSite);
 		}
-		Ed3d.addBatch({systems: formattedBatch});
+		// Append to systemsData for initialization
+		canonnEd3d_ts.systemsData.systems.push.apply(canonnEd3d_ts.systemsData.systems, formattedBatch);
+		document.getElementById("loading").style.display = "none";
 	},
 
 	init: function () {
-		Ed3d.init({
-			container: 'edmap',
-			json: canonnEd3d_ts.systemsData,
-			withFullscreenToggle: false,
-			withHudPanel: true,
-			hudMultipleSelect: true,
-			effectScaleSystem: [20, 500],
-			startAnim: true,
-			showGalaxyInfos: true,
-			//setting camera to Merope and adjusting
-			playerPos: [-78.59375, -149.625, -340.53125],
-			cameraPos: [-78.59375 - 500, -149.625, -340.53125 - 500],
-			systemColor: '#FF9D00',
+		// Prefer local surface_sites.json when present. Load data then initialize Ed3d (same pattern as GR)
+		fetch('data/surface_sites.json').then(function (r) { return r.json(); }).then(function (json) {
+			// Create fixed secondary categories 0..6 (based on leading digit of "New Type/Sub")
+			// Labels are: 0 Inactive, 1 Inactive, 2 Inactive, 3 Active, 4 Active, 5 Active, 6 Active
+			// Colors: Red shades for inactive (0-2), amber to green for active (3-6)
+			var categoryColors = {
+				'0': 'A63333',  // Dark red
+				'1': 'E63333',  // Red
+				'2': 'FF6B6B',  // Light red
+				'3': 'FFA500',  // Amber
+				'4': 'FFFF00',  // Yellow
+				'5': '90EE90',  // Light green
+				'6': '00FF00'   // Green
+			};
+			canonnEd3d_ts.systemsData.categories['Leviathan Count'] = {};
+			for (var n = 0; n <= 6; n++) {
+				var key = String(n);
+				var stateName = (n < 3) ? 'Inactive' : 'Active';
+				canonnEd3d_ts.systemsData.categories['Leviathan Count'][key] = {
+					name: n + ' ' + stateName,
+					color: categoryColors[key]
+				};
+			}
+
+			// Now format and collect systems
+			canonnEd3d_ts.formatLocalSurfaceSites(json);
+			// initialize after data collected
+			document.getElementById("loading").style.display = "none";
+			Ed3d.init({
+				container: 'edmap',
+				json: canonnEd3d_ts.systemsData,
+				withFullscreenToggle: false,
+				withHudPanel: true,
+				hudMultipleSelect: true,
+				effectScaleSystem: [20, 500],
+				startAnim: true,
+				showGalaxyInfos: true,
+				//setting camera to Merope and adjusting
+				playerPos: [-78.59375, -149.625, -340.53125],
+				cameraPos: [-78.59375 - 500, -149.625, -340.53125 - 500],
+				systemColor: '#FF9D00',
+			});
 		});
-		document.getElementById("loading").style.display = "none";
-		streamAllSites(canonnEd3d_ts.formatSitesStream.bind(canonnEd3d_ts));
 	},
 };

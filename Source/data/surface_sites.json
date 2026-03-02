@@ -1,0 +1,6256 @@
+[
+  {
+    "System": "Aries Dark Region AQ-Y d14",
+    "Active": "✘",
+    "Planet": "4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/nDihvrs.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -159.53125,
+    "y": -144.25,
+    "z": -268.90625
+  },
+  {
+    "System": "Aries Dark Region DB-X d1-63",
+    "Active": "✘",
+    "Planet": "A 7 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/8Tj0QmJ.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -119.625,
+    "y": -90.84375,
+    "z": -247.03125
+  },
+  {
+    "System": "Aries Dark Region FW-W d1-76",
+    "Active": "✘",
+    "Planet": "4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/emUlbHP.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -136.75,
+    "y": -130.34375,
+    "z": -207.90625
+  },
+  {
+    "System": "Aries Dark Region GW-W d1-48",
+    "Active": "✘",
+    "Planet": "6 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/vdlgWhn.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -35.25,
+    "y": -124.3125,
+    "z": -249.5
+  },
+  {
+    "System": "Aries Dark Region GW-W d1-86",
+    "Active": "✘",
+    "Planet": "1 B",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/1rYRe70.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -21.25,
+    "y": -129.75,
+    "z": -227.875
+  },
+  {
+    "System": "Aries Dark Region OI-T c3-8",
+    "Active": "✘",
+    "Planet": "1 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/DYPKYxA.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -114.53125,
+    "y": -210.25,
+    "z": -208.25
+  },
+  {
+    "System": "Col 285 Sector BQ-X c1-10",
+    "Active": "✘",
+    "Planet": "1 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/D7xtvKU.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -172.03125,
+    "y": -61.625,
+    "z": -272.34375
+  },
+  {
+    "System": "Col 285 Sector CV-Y d57",
+    "Active": "✘",
+    "Planet": "AB 4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/IwtfLHO.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -21.28125,
+    "y": -76.34375,
+    "z": -288.15625
+  },
+  {
+    "System": "Col 285 Sector IL-X c1-16",
+    "Active": "✘",
+    "Planet": "A 4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/78uQk9Y.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 29.71875,
+    "y": -76.96875,
+    "z": -296.3125
+  },
+  {
+    "System": "HIP 11457",
+    "Active": "✘",
+    "Planet": "1 C",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/wElRgH4.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -118.21875,
+    "y": -235.3125,
+    "z": -250.78125
+  },
+  {
+    "System": "HIP 19026",
+    "Active": "✘",
+    "Planet": "B 1 C",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/UcXVdO8.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -117.875,
+    "y": -65.125,
+    "z": -330.90625
+  },
+  {
+    "System": "HIP 22347",
+    "Active": "✘",
+    "Planet": "4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/5f4Vzk6.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 14.4375,
+    "y": -80.15625,
+    "z": -259.5625
+  },
+  {
+    "System": "Hyades Sector AQ-Y d93",
+    "Active": "✘",
+    "Planet": "2 B",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/Os1F6hw.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -74.59375,
+    "y": -70.9375,
+    "z": -253.96875
+  },
+  {
+    "System": "Hyades Sector DB-X c1-19",
+    "Active": "✘",
+    "Planet": "8 C",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/aij6dx9.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -79.9375,
+    "y": -88.375,
+    "z": -219.8125
+  },
+  {
+    "System": "Mel 22 Sector AX-A b14-1",
+    "Active": "✘",
+    "Planet": "1 B",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/lGxry0v.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -164.3125,
+    "y": -237.28125,
+    "z": -319.78125
+  },
+  {
+    "System": "Pleiades Sector GW-W d1-65",
+    "Active": "✘",
+    "Planet": "10 F",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/Lgo0f9F.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -8.9375,
+    "y": -94.6875,
+    "z": -343.96875
+  },
+  {
+    "System": "Pleiades Sector IR-W d1-38",
+    "Active": "✘",
+    "Planet": "ABCD 1 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/iFFQWFL.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -35.25,
+    "y": -171.8125,
+    "z": -324.4375
+  },
+  {
+    "System": "Pleiades Sector JS-T c3-17",
+    "Active": "✘",
+    "Planet": "1 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/fqTMrKK.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -122.5,
+    "y": -101.875,
+    "z": -289.75
+  },
+  {
+    "System": "Pleiades Sector KH-V c2-7",
+    "Active": "✘",
+    "Planet": "7 F",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/XGDFWgv.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 3.8125,
+    "y": -105.09375,
+    "z": -327.96875
+  },
+  {
+    "System": "Pleiades Sector LN-T c3-11",
+    "Active": "✘",
+    "Planet": "9 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/9CLpNpL.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -124.65625,
+    "y": -113.96875,
+    "z": -282.625
+  },
+  {
+    "System": "Pleiades Sector MX-U d2-63",
+    "Active": "✘",
+    "Planet": "1 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/c3s3FMV.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -49.84375,
+    "y": -178.84375,
+    "z": -256.6875
+  },
+  {
+    "System": "Pleiades Sector OS-U c2-7",
+    "Active": "✘",
+    "Planet": "4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/1IiAQMk.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -68.71875,
+    "y": -229.625,
+    "z": -325.6875
+  },
+  {
+    "System": "Pleiades Sector UZ-X b1-2",
+    "Active": "✘",
+    "Planet": "A 1 C",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/lAMbcVy.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -129.125,
+    "y": -99.09375,
+    "z": -402.5625
+  },
+  {
+    "System": "Pleiades Sector VK-N b7-0",
+    "Active": "✘",
+    "Planet": "C 1",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/ZweBv8t.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -81.625,
+    "y": -100.21875,
+    "z": -279.375
+  },
+  {
+    "System": "Synuefe UZ-X c17-12",
+    "Active": "✘",
+    "Planet": "AB 2 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://i.imgur.com/ClD0FpT.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 45.40625,
+    "y": -126.5,
+    "z": -288.34375
+  },
+  {
+    "System": "Aries Dark Region IM-V c2-5",
+    "Active": "✘",
+    "Planet": "12 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/L3To110.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -27.03125,
+    "y": -115.21875,
+    "z": -262.625
+  },
+  {
+    "System": "Aries Dark Region NN-T c3-12",
+    "Active": "✘",
+    "Planet": "1 D",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/FxA8AJ7.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -83.375,
+    "y": -179.125,
+    "z": -223.4375
+  },
+  {
+    "System": "Col 285 Sector EB-X d1-39",
+    "Active": "✘",
+    "Planet": "4 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/CnDTlt9.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -157.78125,
+    "y": -83.625,
+    "z": -260.5
+  },
+  {
+    "System": "Col 285 Sector GW-W d1-66",
+    "Active": "✘",
+    "Planet": "A 3",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/WVfi1Hm.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -180.125,
+    "y": -125.90625,
+    "z": -233.53125
+  },
+  {
+    "System": "Col 285 Sector RI-R b5-3",
+    "Active": "✘",
+    "Planet": "8 B",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/iGrClQt.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -118.6875,
+    "y": -72.28125,
+    "z": -239.5625
+  },
+  {
+    "System": "HIP 14702",
+    "Active": "✘",
+    "Planet": "1 C",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/ue5J2nj.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -30.21875,
+    "y": -228.84375,
+    "z": -254.1875
+  },
+  {
+    "System": "HIP 17862",
+    "Active": "✘",
+    "Planet": "11 E",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/P6pDvDY.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -81.4375,
+    "y": -151.90625,
+    "z": -359.59375
+  },
+  {
+    "System": "HIP 20964",
+    "Active": "✘",
+    "Planet": "3 B",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/xvg5kPc.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -35.78125,
+    "y": -61.375,
+    "z": -245.96875
+  },
+  {
+    "System": "HIP 22851",
+    "Active": "✘",
+    "Planet": "7 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/YourUh9.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 44.71875,
+    "y": -106.625,
+    "z": -313.21875
+  },
+  {
+    "System": "HIP 24934",
+    "Active": "✘",
+    "Planet": "A 3 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/wTBLV8x.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -27.28125,
+    "y": -13.84375,
+    "z": -319.90625
+  },
+  {
+    "System": "Pleiades Sector KH-V c2-1",
+    "Active": "✘",
+    "Planet": "2 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/p1FhVul.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -9.15625,
+    "y": -115.78125,
+    "z": -307.96875
+  },
+  {
+    "System": "Synuefe UZ-X c17-10",
+    "Active": "✘",
+    "Planet": "1 B",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/eitqLtU.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 46.0625,
+    "y": -114.5,
+    "z": -293.6875
+  },
+  {
+    "System": "Synuefe YP-X c17-8",
+    "Active": "✘",
+    "Planet": "2 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://i.imgur.com/zc06oCe.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 27.375,
+    "y": -219.0,
+    "z": -271.4375
+  },
+  {
+    "System": "HIP 12916",
+    "Active": "✘",
+    "Planet": "4 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://i.imgur.com/9WEPfrJ.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -126.71875,
+    "y": -138.625,
+    "z": -236.875
+  },
+  {
+    "System": "HIP 16692",
+    "Active": "✘",
+    "Planet": "4 C",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://i.imgur.com/ZtZeZMc.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -109.9375,
+    "y": -61.5625,
+    "z": -235.8125
+  },
+  {
+    "System": "HIP 25274",
+    "Active": "✘",
+    "Planet": "8 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://i.imgur.com/IRoanoN.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 18.8125,
+    "y": -39.40625,
+    "z": -320.0
+  },
+  {
+    "System": "Hyades Sector DB-X c1-8",
+    "Active": "✘",
+    "Planet": "3 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://i.imgur.com/hX4q72w.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -85.75,
+    "y": -85.375,
+    "z": -219.3125
+  },
+  {
+    "System": "Hyades Sector PC-V b2-3",
+    "Active": "✘",
+    "Planet": "2 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://i.imgur.com/z5FaajO.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 13.125,
+    "y": -152.0,
+    "z": -221.96875
+  },
+  {
+    "System": "Hyades Sector XO-A c15",
+    "Active": "✘",
+    "Planet": "2 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://i.imgur.com/sPWNKps.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -13.125,
+    "y": -67.875,
+    "z": -275.25
+  },
+  {
+    "System": "Pleiades Sector DG-X c1-11",
+    "Active": "✘",
+    "Planet": "A 3 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://i.imgur.com/2zc3m52.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -49.25,
+    "y": -70.4375,
+    "z": -360.8125
+  },
+  {
+    "System": "Pleiades Sector IM-V c2-16",
+    "Active": "✘",
+    "Planet": "ABC 2 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://i.imgur.com/vMfPxl1.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -9.875,
+    "y": -99.53125,
+    "z": -329.03125
+  },
+  {
+    "System": "Aries Dark Region DB-X d1-64",
+    "Active": "✘",
+    "Planet": "4 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/OyI0ZyA.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -107.5625,
+    "y": -99.90625,
+    "z": -239.25
+  },
+  {
+    "System": "Aries Dark Region FW-W d1-59",
+    "Active": "✘",
+    "Planet": "A 5 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/k48uMao.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -108.65625,
+    "y": -128.28125,
+    "z": -223.03125
+  },
+  {
+    "System": "Aries Dark Region IH-V c2-9",
+    "Active": "✘",
+    "Planet": "6 B",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/dcakgJg.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -105.59375,
+    "y": -172.65625,
+    "z": -233.375
+  },
+  {
+    "System": "Aries Dark Region JS-T c3-1",
+    "Active": "✘",
+    "Planet": "1 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/hA4FzrS.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -166.125,
+    "y": -139.375,
+    "z": -224.875
+  },
+  {
+    "System": "Aries Dark Region JW-W c1-4",
+    "Active": "✘",
+    "Planet": "7 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/AXv70a0.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -6.21875,
+    "y": -195.53125,
+    "z": -269.71875
+  },
+  {
+    "System": "Aries Dark Region MS-T c3-15",
+    "Active": "✘",
+    "Planet": "1 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/tv3lXxb.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -57.21875,
+    "y": -134.28125,
+    "z": -215.34375
+  },
+  {
+    "System": "Aries Dark Region MS-T c3-2",
+    "Active": "✘",
+    "Planet": "A 1 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/i1ei8Dv.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -29.3125,
+    "y": -138.25,
+    "z": -221.90625
+  },
+  {
+    "System": "Col 285 Sector CV-Y d71",
+    "Active": "✘",
+    "Planet": "5 D",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/I7IysUf.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -45.5625,
+    "y": -31.71875,
+    "z": -324.65625
+  },
+  {
+    "System": "Col 285 Sector IL-X c1-4",
+    "Active": "✘",
+    "Planet": "A 2 C",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/bmxiwIM.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 30.3125,
+    "y": -65.21875,
+    "z": -294.8125
+  },
+  {
+    "System": "Col 285 Sector YO-Z c19",
+    "Active": "✘",
+    "Planet": "B 2 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/1ho7Zwb.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -48.3125,
+    "y": -5.5,
+    "z": -334.09375
+  },
+  {
+    "System": "Col 285 Sector ZZ-Y d22",
+    "Active": "✘",
+    "Planet": "2 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/1tSkuXc.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -71.9375,
+    "y": -1.9375,
+    "z": -330.5625
+  },
+  {
+    "System": "Hind Sector GR-W d1-13",
+    "Active": "✘",
+    "Planet": "8 H",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/cwEA15d.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -78.28125,
+    "y": -199.59375,
+    "z": -473.1875
+  },
+  {
+    "System": "HIP 11154",
+    "Active": "✘",
+    "Planet": "B 9 B",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/yN0UYnv.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -104.1875,
+    "y": -195.8125,
+    "z": -206.25
+  },
+  {
+    "System": "HIP 12967",
+    "Active": "✘",
+    "Planet": "1 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/gvWSyTI.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -152.5625,
+    "y": -98.65625,
+    "z": -237.78125
+  },
+  {
+    "System": "HIP 14756",
+    "Active": "✘",
+    "Planet": "2 E",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/vJX7kON.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -159.53125,
+    "y": -104.53125,
+    "z": -297.5
+  },
+  {
+    "System": "HIP 14908",
+    "Active": "✘",
+    "Planet": "A 2 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/z5bTu78.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -74.84375,
+    "y": -127.65625,
+    "z": -218.28125
+  },
+  {
+    "System": "HIP 15134",
+    "Active": "✘",
+    "Planet": "3 B",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/m7rtgQ9.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -48.09375,
+    "y": -136.65625,
+    "z": -198.8125
+  },
+  {
+    "System": "HIP 16572",
+    "Active": "✘",
+    "Planet": "A 4 E",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/znKX07W.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -40.4375,
+    "y": -194.5,
+    "z": -300.25
+  },
+  {
+    "System": "HIP 17694",
+    "Active": "✘",
+    "Planet": "B 7 F",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/TMGyUtR.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -72.25,
+    "y": -152.53125,
+    "z": -338.6875
+  },
+  {
+    "System": "Hyades Sector ZU-Y c16",
+    "Active": "✘",
+    "Planet": "6 B",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/OeKBBfa.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -75.65625,
+    "y": -72.625,
+    "z": -236.96875
+  },
+  {
+    "System": "Outotz ST-I d9-6",
+    "Active": "✘",
+    "Planet": "2 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/w4EeL5Y.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 604.15625,
+    "y": 153.59375,
+    "z": -1514.9375
+  },
+  {
+    "System": "Pleiades Sector IR-W d1-61",
+    "Active": "✘",
+    "Planet": "BC 1 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/2OXVDvr.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": -50.09375,
+    "y": -180.84375,
+    "z": -291.46875
+  },
+  {
+    "System": "Synuefe WU-X c17-8",
+    "Active": "✘",
+    "Planet": "2 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://i.imgur.com/tZr5gNW.jpg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "x": 30.21875,
+    "y": -171.0625,
+    "z": -287.34375
+  },
+  {
+    "System": "HIP 16795",
+    "Active": "✔",
+    "Planet": "A 10 F",
+    "Leviathons": "T+R+R",
+    "New Type/Sub": "3/A",
+    "Changed": "N",
+    "Old Type/Sub": "3/A",
+    "Aerials": "https://i.imgur.com/1xHogFJ.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector DB-X d1-46",
+      "location": null,
+      "x": -170.3125,
+      "y": -157.65625,
+      "z": -433.71875
+    },
+    "MSG2": {
+      "system": "HIP 15889",
+      "location": null,
+      "x": -171.53125,
+      "y": -170.28125,
+      "z": -422.59375
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region CL-Y d53",
+      "location": null,
+      "x": -150.625,
+      "y": -143.71875,
+      "z": -439.625
+    },
+    "x": -149.4375,
+    "y": -167.15625,
+    "z": -432.125
+  },
+  {
+    "System": "Pleiades Sector BG-X c1-10",
+    "Active": "✔",
+    "Planet": "14 A",
+    "Leviathons": "T+R+R",
+    "New Type/Sub": "3/A",
+    "Changed": "N",
+    "Old Type/Sub": "3/A",
+    "Aerials": "https://i.imgur.com/uu8YyLJ.jpg",
+    "MSG1": {
+      "system": "Jambin",
+      "location": null,
+      "x": 17.71875,
+      "y": 101.15625,
+      "z": 53.625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector JM-W d1-52",
+      "location": null,
+      "x": -93.78125,
+      "y": -198.84375,
+      "z": -332.5625
+    },
+    "MSG3": null,
+    "x": -127.0625,
+    "y": -92.90625,
+    "z": -384.375
+  },
+  {
+    "System": "HIP 19665",
+    "Active": "✔",
+    "Planet": "8 B",
+    "Leviathons": "LR++++R",
+    "New Type/Sub": "3/B",
+    "Changed": "N",
+    "Old Type/Sub": "3/B",
+    "Aerials": "https://i.imgur.com/6t5U5VL.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region QN-T b3-0",
+      "location": null,
+      "x": -40.125,
+      "y": -144.0625,
+      "z": -460.6875
+    },
+    "MSG2": {
+      "system": "HIP 20644",
+      "location": null,
+      "x": -50.34375,
+      "y": -142.375,
+      "z": -465.125
+    },
+    "MSG3": {
+      "system": "Pleiades Sector DQ-Y c4",
+      "location": null,
+      "x": -60.40625,
+      "y": -182.3125,
+      "z": -420.03125
+    },
+    "x": -47.125,
+    "y": -177.75,
+    "z": -457.9375
+  },
+  {
+    "System": "Mel 22 Sector IS-S c4-6",
+    "Active": "✔",
+    "Planet": "ABC 2 B",
+    "Leviathons": "LR++++R",
+    "New Type/Sub": "3/B",
+    "Changed": "N",
+    "Old Type/Sub": "3/B",
+    "Aerials": "https://i.imgur.com/LZzRExx.jpg",
+    "MSG1": {
+      "system": "Oraon",
+      "location": "Quaglia Dock",
+      "x": 56.5,
+      "y": 96.84375,
+      "z": -47.8125
+    },
+    "MSG2": {
+      "system": "Etain",
+      "location": null,
+      "x": 12.5,
+      "y": 35.03125,
+      "z": -37.1875
+    },
+    "MSG3": null,
+    "x": -135.8125,
+    "y": -36.375,
+    "z": -408.96875
+  },
+  {
+    "System": "Synuefai YQ-X c17-7",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "LR++++R",
+    "New Type/Sub": "3/B",
+    "Changed": "N",
+    "Old Type/Sub": "3/B",
+    "Aerials": "https://i.imgur.com/q7c12nI.jpg",
+    "MSG1": {
+      "system": "Synuefai WV-X c17-12",
+      "location": null,
+      "x": -212.71875,
+      "y": -177.75,
+      "z": -293.125
+    },
+    "MSG2": {
+      "system": "Synuefai YQ-X c17-8",
+      "location": null,
+      "x": -192.875,
+      "y": -205.6875,
+      "z": -289.375
+    },
+    "MSG3": {
+      "system": "Aries Dark Region HR-W d1-44",
+      "location": null,
+      "x": -135.71875,
+      "y": -194.6875,
+      "z": -236.5625
+    },
+    "x": -209.15625,
+    "y": -190.78125,
+    "z": -295.0625
+  },
+  {
+    "System": "Mel 22 Sector FM-V d2-38",
+    "Active": "✔",
+    "Planet": "A 3 A",
+    "Leviathons": "T+R++F",
+    "New Type/Sub": "3/C",
+    "Changed": "N",
+    "Old Type/Sub": "3/C",
+    "Aerials": "https://i.imgur.com/QrHkx8q.jpg",
+    "MSG1": {
+      "system": "Punuri",
+      "location": "Shaw Dock",
+      "x": -97.8125,
+      "y": -49.65625,
+      "z": 51.78125
+    },
+    "MSG2": {
+      "system": "HIP 24007",
+      "location": null,
+      "x": -1.5,
+      "y": -52.90625,
+      "z": -347.46875
+    },
+    "MSG3": null,
+    "x": -172.8125,
+    "y": -80.53125,
+    "z": -366.34375
+  },
+  {
+    "System": "Mel 22 Sector MX-U d2-14",
+    "Active": "✔",
+    "Planet": "AB 1 A",
+    "Leviathons": "T+R++F",
+    "New Type/Sub": "3/C",
+    "Changed": "N",
+    "Old Type/Sub": "3/C",
+    "Aerials": "https://i.imgur.com/qC31RDJ.jpg",
+    "MSG1": {
+      "system": "Argestes",
+      "location": null,
+      "x": 21.78125,
+      "y": -20.15625,
+      "z": -58.9375
+    },
+    "MSG2": {
+      "system": "HIP 15329",
+      "location": null,
+      "x": -87.84375,
+      "y": -52.0,
+      "z": -167.375
+    },
+    "MSG3": null,
+    "x": -107.5625,
+    "y": -280.25,
+    "z": -397.5
+  },
+  {
+    "System": "Mel 22 Sector HH-V d2-37",
+    "Active": "✔",
+    "Planet": "AB 1 A",
+    "Leviathons": "TL++R",
+    "New Type/Sub": "3/D",
+    "Changed": "N",
+    "Old Type/Sub": "3/D",
+    "Aerials": "https://i.imgur.com/jLR0Dr8.jpg",
+    "MSG1": {
+      "system": "HIP 17225",
+      "location": null,
+      "x": -86.15625,
+      "y": -165.59375,
+      "z": -356.8125
+    },
+    "MSG2": {
+      "system": "G 69-11",
+      "location": null,
+      "x": -45.34375,
+      "y": -32.09375,
+      "z": -26.5
+    },
+    "MSG3": null,
+    "x": -155.75,
+    "y": -179.3125,
+    "z": -406.6875
+  },
+  {
+    "System": "Mel 22 Sector SK-E b12-1",
+    "Active": "✔",
+    "Planet": "2",
+    "Leviathons": "RT+++R",
+    "New Type/Sub": "3/E",
+    "Changed": "N",
+    "Old Type/Sub": "3/E",
+    "Aerials": "https://i.imgur.com/KepPFza.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector CB-O c6-4",
+      "location": null,
+      "x": -122.65625,
+      "y": -267.5,
+      "z": -336.84375
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector JC-V d2-14",
+      "location": null,
+      "x": -174.15625,
+      "y": -200.96875,
+      "z": -361.71875
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector JC-V d2-15",
+      "location": null,
+      "x": -176.09375,
+      "y": -203.34375,
+      "z": -368.65625
+    },
+    "x": -149.3125,
+    "y": -228.09375,
+    "z": -351.25
+  },
+  {
+    "System": "Synuefai UA-Y c17-4",
+    "Active": "✔",
+    "Planet": "7 A",
+    "Leviathons": "RTL",
+    "New Type/Sub": "3/F",
+    "Changed": "N",
+    "Old Type/Sub": "3/F",
+    "Aerials": "https://i.imgur.com/ZgcjOio.jpg",
+    "MSG1": {
+      "system": "Synuefai WV-X c17-12",
+      "location": null,
+      "x": -212.71875,
+      "y": -177.75,
+      "z": -293.125
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector LN-T d3-64",
+      "location": null,
+      "x": -214.15625,
+      "y": -136.125,
+      "z": -334.0625
+    },
+    "MSG3": {
+      "system": "Aries Dark Region HR-W d1-54",
+      "location": null,
+      "x": -143.78125,
+      "y": -229.1875,
+      "z": -260.1875
+    },
+    "x": -205.625,
+    "y": -140.9375,
+    "z": -296.40625
+  },
+  {
+    "System": "Taurus Dark Region CL-Y d53",
+    "Active": "✔",
+    "Planet": "A 4",
+    "Leviathons": "RT++++F",
+    "New Type/Sub": "3/G",
+    "Changed": "N",
+    "Old Type/Sub": "3/G",
+    "Aerials": "https://i.imgur.com/fK23qed.jpg",
+    "MSG1": {
+      "system": "HIP 21559",
+      "location": null,
+      "x": -42.09375,
+      "y": -7.40625,
+      "z": -129.5
+    },
+    "MSG2": {
+      "system": "Ceti Sector DL-X b1-6",
+      "location": null,
+      "x": 21.625,
+      "y": -90.1875,
+      "z": -46.375
+    },
+    "MSG3": null,
+    "x": -150.625,
+    "y": -143.71875,
+    "z": -439.625
+  },
+  {
+    "System": "Taurus Dark Region IR-W d1-47",
+    "Active": "✔",
+    "Planet": "A 3 A",
+    "Leviathons": "F+R+L",
+    "New Type/Sub": "3/H",
+    "Changed": "N",
+    "Old Type/Sub": "3/H",
+    "Aerials": "https://i.imgur.com/hxrMZ7M.jpg",
+    "MSG1": {
+      "system": "HIP 21251",
+      "location": null,
+      "x": -2.09375,
+      "y": -143.65625,
+      "z": -413.59375
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region OX-U c2-10",
+      "location": null,
+      "x": 11.71875,
+      "y": -147.65625,
+      "z": -400.25
+    },
+    "MSG3": {
+      "system": "Struve's Lost Sector NN-T c3-6",
+      "location": null,
+      "x": 8.15625,
+      "y": -178.40625,
+      "z": -410.09375
+    },
+    "x": 0.34375,
+    "y": -145.03125,
+    "z": -422.4375
+  },
+  {
+    "System": "Mel 22 Sector JC-V d2-19",
+    "Active": "✔",
+    "Planet": "4 B",
+    "Leviathons": "RF++++R",
+    "New Type/Sub": "3/I",
+    "Changed": "N",
+    "Old Type/Sub": "3/I",
+    "Aerials": "https://i.imgur.com/qp8xUGL.jpg",
+    "MSG1": {
+      "system": "Kareco",
+      "location": null,
+      "x": 20.8125,
+      "y": -109.28125,
+      "z": -22.75
+    },
+    "MSG2": {
+      "system": "Pleiades Sector AB-W b2-4",
+      "location": null,
+      "x": -137.5625,
+      "y": -118.25,
+      "z": -380.4375
+    },
+    "MSG3": null,
+    "x": -203.1875,
+    "y": -219.625,
+    "z": -356.65625
+  },
+  {
+    "System": "Taurus Dark Region QO-Q b5-0",
+    "Active": "✔",
+    "Planet": "B 2 A",
+    "Leviathons": "R++F+R",
+    "New Type/Sub": "3/J",
+    "Changed": "N",
+    "Old Type/Sub": "3/J",
+    "Aerials": "https://i.imgur.com/Nk7kvMf.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector AV-Y c7",
+      "location": null,
+      "x": -65.0625,
+      "y": -110.625,
+      "z": -424.3125
+    },
+    "MSG2": {
+      "system": "HIP 22375",
+      "location": null,
+      "x": -66.90625,
+      "y": -66.75,
+      "z": -454.25
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region FW-W c1-3",
+      "location": null,
+      "x": -122.34375,
+      "y": -115.78125,
+      "z": -434.53125
+    },
+    "x": -83.75,
+    "y": -84.21875,
+    "z": -419.5625
+  },
+  {
+    "System": "Aries Dark Region DB-X c1-2",
+    "Active": "✔",
+    "Planet": "B 1",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/XlDwecH.jpg",
+    "MSG1": {
+      "system": "Aries Dark Region DB-X c1-7",
+      "location": null,
+      "x": -168.125,
+      "y": -173.90625,
+      "z": -281.15625
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector LN-T d3-60",
+      "location": null,
+      "x": -183.53125,
+      "y": -179.5,
+      "z": -314.375
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector WK-O c6-1",
+      "location": null,
+      "x": -191.90625,
+      "y": -221.3125,
+      "z": -320.375
+    },
+    "x": -182.78125,
+    "y": -172.84375,
+    "z": -293.375
+  },
+  {
+    "System": "Aries Dark Region DB-X c1-7",
+    "Active": "✔",
+    "Planet": "A 9 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/ne3D3nd.png",
+    "MSG1": {
+      "system": "Aries Dark Region DB-X c1-2",
+      "location": null,
+      "x": -182.78125,
+      "y": -172.84375,
+      "z": -293.375
+    },
+    "MSG2": {
+      "system": "Aries Dark Region AQ-Y d14",
+      "location": null,
+      "x": -159.53125,
+      "y": -144.25,
+      "z": -268.90625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector LN-T d3-60",
+      "location": null,
+      "x": -183.53125,
+      "y": -179.5,
+      "z": -314.375
+    },
+    "x": -168.125,
+    "y": -173.90625,
+    "z": -281.15625
+  },
+  {
+    "System": "Aries Dark Region HR-W c1-1",
+    "Active": "✔",
+    "Planet": "8 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/sUeSVWg.jpg",
+    "MSG1": {
+      "system": "Dulerce",
+      "location": "Kazantsev Dock",
+      "x": 49.03125,
+      "y": 25.6875,
+      "z": -73.0
+    },
+    "MSG2": {
+      "system": "Pleiades Sector LN-T c3-4",
+      "location": null,
+      "x": -110.53125,
+      "y": -120.09375,
+      "z": -282.09375
+    },
+    "MSG3": null,
+    "x": -169.46875,
+    "y": -231.34375,
+    "z": -298.71875
+  },
+  {
+    "System": "Aries Dark Region HR-W d1-34",
+    "Active": "✔",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/5uw9THF.jpg",
+    "MSG1": {
+      "system": "Aries Dark Region VT-R b4-0",
+      "location": null,
+      "x": -61.375,
+      "y": -220.8125,
+      "z": -261.46875
+    },
+    "MSG2": {
+      "system": "Hyades Sector PC-V b2-3",
+      "location": null,
+      "x": 13.125,
+      "y": -152.0,
+      "z": -221.96875
+    },
+    "MSG3": {
+      "system": "Aries Dark Region NN-T c3-12",
+      "location": null,
+      "x": -83.375,
+      "y": -179.125,
+      "z": -223.4375
+    },
+    "x": -69.34375,
+    "y": -197.6875,
+    "z": -253.875
+  },
+  {
+    "System": "Aries Dark Region HR-W d1-44",
+    "Active": "✔",
+    "Planet": "B 2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/4QsdewK.jpg",
+    "MSG1": {
+      "system": "HIP 12916",
+      "location": null,
+      "x": -126.71875,
+      "y": -138.625,
+      "z": -236.875
+    },
+    "MSG2": {
+      "system": "Aries Dark Region JC-V c2-6",
+      "location": null,
+      "x": -154.65625,
+      "y": -222.375,
+      "z": -241.71875
+    },
+    "MSG3": {
+      "system": "Aries Dark Region FW-W d1-76",
+      "location": null,
+      "x": -136.75,
+      "y": -130.34375,
+      "z": -207.90625
+    },
+    "x": -135.71875,
+    "y": -194.6875,
+    "z": -236.5625
+  },
+  {
+    "System": "Aries Dark Region HR-W d1-53",
+    "Active": "✔",
+    "Planet": "7 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/64ZzFRW.jpg",
+    "MSG1": {
+      "system": "Aries Dark Region PY-R b4-1",
+      "location": null,
+      "x": -142.875,
+      "y": -198.15625,
+      "z": -257.1875
+    },
+    "MSG2": {
+      "system": "Aries Dark Region DB-X d1-63",
+      "location": null,
+      "x": -119.625,
+      "y": -90.84375,
+      "z": -247.03125
+    },
+    "MSG3": {
+      "system": "Aries Dark Region JC-V c2-4",
+      "location": null,
+      "x": -152.46875,
+      "y": -220.5,
+      "z": -238.3125
+    },
+    "x": -140.25,
+    "y": -213.25,
+    "z": -253.0625
+  },
+  {
+    "System": "Aries Dark Region HR-W d1-54",
+    "Active": "✔",
+    "Planet": "2 C A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/S8sO0gB.jpg",
+    "MSG1": {
+      "system": "Aries Dark Region HR-W d1-53",
+      "location": null,
+      "x": -140.25,
+      "y": -213.25,
+      "z": -253.0625
+    },
+    "MSG2": {
+      "system": "Aries Dark Region JC-V c2-6",
+      "location": null,
+      "x": -154.65625,
+      "y": -222.375,
+      "z": -241.71875
+    },
+    "MSG3": {
+      "system": "Aries Dark Region MX-U c2-8",
+      "location": null,
+      "x": -142.0,
+      "y": -251.84375,
+      "z": -259.4375
+    },
+    "x": -143.78125,
+    "y": -229.1875,
+    "z": -260.1875
+  },
+  {
+    "System": "Aries Dark Region JC-V c2-6",
+    "Active": "✔",
+    "Planet": "A 4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/XheF2jl.jpg",
+    "MSG1": {
+      "system": "Aries Dark Region HR-W d1-53",
+      "location": null,
+      "x": -140.25,
+      "y": -213.25,
+      "z": -253.0625
+    },
+    "MSG2": {
+      "system": "Aries Dark Region IH-V c2-9",
+      "location": null,
+      "x": -105.59375,
+      "y": -172.65625,
+      "z": -233.375
+    },
+    "MSG3": {
+      "system": "Aries Dark Region PY-R b4-1",
+      "location": null,
+      "x": -142.875,
+      "y": -198.15625,
+      "z": -257.1875
+    },
+    "x": -154.65625,
+    "y": -222.375,
+    "z": -241.71875
+  },
+  {
+    "System": "Aries Dark Region KH-V c2-4",
+    "Active": "✔",
+    "Planet": "7 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/4PDDBHR.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector MX-U d2-63",
+      "location": null,
+      "x": -49.84375,
+      "y": -178.84375,
+      "z": -256.6875
+    },
+    "MSG2": {
+      "system": "Aries Dark Region JW-W c1-4",
+      "location": null,
+      "x": -6.21875,
+      "y": -195.53125,
+      "z": -269.71875
+    },
+    "MSG3": {
+      "system": "Aries Dark Region HR-W d1-34",
+      "location": null,
+      "x": -69.34375,
+      "y": -197.6875,
+      "z": -253.875
+    },
+    "x": -33.21875,
+    "y": -180.25,
+    "z": -245.0
+  },
+  {
+    "System": "Aries Dark Region MX-U c2-10",
+    "Active": "✔",
+    "Planet": "1 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/4gwnGQH.jpg",
+    "MSG1": {
+      "system": "Nogambe",
+      "location": null,
+      "x": 121.40625,
+      "y": 9.40625,
+      "z": -76.0
+    },
+    "MSG2": {
+      "system": "HIP 15329",
+      "location": null,
+      "x": -87.84375,
+      "y": -52.0,
+      "z": -167.375
+    },
+    "MSG3": null,
+    "x": -105.5,
+    "y": -235.875,
+    "z": -229.25
+  },
+  {
+    "System": "Aries Dark Region MX-U c2-8",
+    "Active": "✔",
+    "Planet": "A 7 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/eTvedGb.jpg",
+    "MSG1": {
+      "system": "HIP 9141",
+      "location": "Karachkina Orbital",
+      "x": 11.34375,
+      "y": -127.875,
+      "z": -36.28125
+    },
+    "MSG2": {
+      "system": "Hermitage",
+      "location": "Hollis Gateway INRA Base",
+      "x": -28.75,
+      "y": 25.0,
+      "z": 10.4375
+    },
+    "MSG3": null,
+    "x": -142.0,
+    "y": -251.84375,
+    "z": -259.4375
+  },
+  {
+    "System": "Aries Dark Region PY-R b4-1",
+    "Active": "✔",
+    "Planet": "A 4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/FuZW3iD.jpg",
+    "MSG1": {
+      "system": "Gertrud",
+      "location": null,
+      "x": -13.28125,
+      "y": 6.90625,
+      "z": -56.59375
+    },
+    "MSG2": {
+      "system": "Conn",
+      "location": "Almeida Landing INRA Base",
+      "x": -36.59375,
+      "y": -9.1875,
+      "z": -20.5
+    },
+    "MSG3": null,
+    "x": -142.875,
+    "y": -198.15625,
+    "z": -257.1875
+  },
+  {
+    "System": "Aries Dark Region VT-R b4-0",
+    "Active": "✔",
+    "Planet": "A 6",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/Is825Xr.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector MX-U d2-54",
+      "location": null,
+      "x": -53.34375,
+      "y": -122.53125,
+      "z": -260.28125
+    },
+    "MSG2": {
+      "system": "HIP 14702",
+      "location": null,
+      "x": -30.21875,
+      "y": -228.84375,
+      "z": -254.1875
+    },
+    "MSG3": {
+      "system": "Pleiades Sector MX-U d2-63",
+      "location": null,
+      "x": -49.84375,
+      "y": -178.84375,
+      "z": -256.6875
+    },
+    "x": -61.375,
+    "y": -220.8125,
+    "z": -261.46875
+  },
+  {
+    "System": "Delphi",
+    "Active": "✔",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/KAoXJRs.jpg",
+    "MSG1": {
+      "system": "Bok",
+      "location": null,
+      "x": 84.40625,
+      "y": -44.78125,
+      "z": -21.125
+    },
+    "MSG2": {
+      "system": "Gree",
+      "location": null,
+      "x": -36.5,
+      "y": 65.15625,
+      "z": -45.59375
+    },
+    "MSG3": null,
+    "x": -63.59375,
+    "y": -147.40625,
+    "z": -319.09375
+  },
+  {
+    "System": "HIP 11700",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/hJ0dLc7.jpg",
+    "MSG1": {
+      "system": "Aries Dark Region MX-U c2-8",
+      "location": null,
+      "x": -142.0,
+      "y": -251.84375,
+      "z": -259.4375
+    },
+    "MSG2": {
+      "system": "HIP 11457",
+      "location": null,
+      "x": -118.21875,
+      "y": -235.3125,
+      "z": -250.78125
+    },
+    "MSG3": {
+      "system": "Aries Dark Region HR-W d1-54",
+      "location": null,
+      "x": -143.78125,
+      "y": -229.1875,
+      "z": -260.1875
+    },
+    "x": -114.53125,
+    "y": -262.96875,
+    "z": -270.71875
+  },
+  {
+    "System": "HIP 11981",
+    "Active": "✔",
+    "Planet": "A 5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/qPyznaw.jpg",
+    "MSG1": {
+      "system": "Aries Dark Region JS-T c3-1",
+      "location": null,
+      "x": -166.125,
+      "y": -139.375,
+      "z": -224.875
+    },
+    "MSG2": {
+      "system": "HIP 12967",
+      "location": null,
+      "x": -152.5625,
+      "y": -98.65625,
+      "z": -237.78125
+    },
+    "MSG3": {
+      "system": "Col 285 Sector GW-W d1-66",
+      "location": null,
+      "x": -180.125,
+      "y": -125.90625,
+      "z": -233.53125
+    },
+    "x": -153.59375,
+    "y": -123.5,
+    "z": -234.4375
+  },
+  {
+    "System": "HIP 14746",
+    "Active": "✔",
+    "Planet": "6 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/yXFRZVA.jpg",
+    "MSG1": {
+      "system": "HIP 15443",
+      "location": null,
+      "x": -8.21875,
+      "y": -259.78125,
+      "z": -284.78125
+    },
+    "MSG2": {
+      "system": "Synuefe MK-M d8-20",
+      "location": null,
+      "x": 2.53125,
+      "y": -266.9375,
+      "z": -307.40625
+    },
+    "MSG3": {
+      "system": "Synuefe CW-V c18-6",
+      "location": null,
+      "x": 19.6875,
+      "y": -223.625,
+      "z": -263.65625
+    },
+    "x": -22.03125,
+    "y": -276.0,
+    "z": -290.375
+  },
+  {
+    "System": "HIP 14909",
+    "Active": "✔",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/0aYp1Ub.jpg",
+    "MSG1": {
+      "system": "Atroco",
+      "location": null,
+      "x": -17.28125,
+      "y": -95.75,
+      "z": 37.65625
+    },
+    "MSG2": {
+      "system": "HIP 20644",
+      "location": null,
+      "x": -50.34375,
+      "y": -142.375,
+      "z": -465.125
+    },
+    "MSG3": {
+      "system": "Pleiades Sector DQ-Y c4",
+      "location": null,
+      "x": -60.40625,
+      "y": -182.3125,
+      "z": -420.03125
+    },
+    "x": -84.375,
+    "y": -259.28125,
+    "z": -358.65625
+  },
+  {
+    "System": "HIP 14969",
+    "Active": "✔",
+    "Planet": "CD 2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/xYqn6mC.jpg",
+    "MSG1": {
+      "system": "Synuefai RK-Y c17-3",
+      "location": null,
+      "x": -180.1875,
+      "y": -64.375,
+      "z": -300.6875
+    },
+    "MSG2": {
+      "system": "Col 285 Sector BQ-X c1-10",
+      "location": null,
+      "x": -172.03125,
+      "y": -61.625,
+      "z": -272.34375
+    },
+    "MSG3": {
+      "system": "Synuefai UZ-M d8-63",
+      "location": null,
+      "x": -198.5625,
+      "y": -99.3125,
+      "z": -269.25
+    },
+    "x": -193.96875,
+    "y": -72.75,
+    "z": -315.09375
+  },
+  {
+    "System": "HIP 15443",
+    "Active": "✔",
+    "Planet": "AB 4 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/vQw7m9n.jpg",
+    "MSG1": {
+      "system": "HIP 14746",
+      "location": null,
+      "x": -22.03125,
+      "y": -276.0,
+      "z": -290.375
+    },
+    "MSG2": {
+      "system": "Synuefe MK-M d8-20",
+      "location": null,
+      "x": 2.53125,
+      "y": -266.9375,
+      "z": -307.40625
+    },
+    "MSG3": {
+      "system": "HIP 14702",
+      "location": null,
+      "x": -30.21875,
+      "y": -228.84375,
+      "z": -254.1875
+    },
+    "x": -8.21875,
+    "y": -259.78125,
+    "z": -284.78125
+  },
+  {
+    "System": "HIP 16704",
+    "Active": "✔",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/9oFlkut.jpg",
+    "MSG1": {
+      "system": "Lusonda",
+      "location": "Lee Orbital",
+      "x": -34.28125,
+      "y": -67.03125,
+      "z": 45.125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector LN-T c3-4",
+      "location": "Planet 2 Crashed Scout",
+      "x": -110.53125,
+      "y": -120.09375,
+      "z": -282.09375
+    },
+    "MSG3": null,
+    "x": -118.4375,
+    "y": -170.78125,
+    "z": -387.375
+  },
+  {
+    "System": "HIP 17837",
+    "Active": "✔",
+    "Planet": "A 4 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/dl9hQKb.jpg",
+    "MSG1": {
+      "system": "Nogambe",
+      "location": null,
+      "x": 121.40625,
+      "y": 9.40625,
+      "z": -76.0
+    },
+    "MSG2": {
+      "system": "Yembo",
+      "location": null,
+      "x": -97.40625,
+      "y": -10.125,
+      "z": 49.8125
+    },
+    "MSG3": null,
+    "x": -52.15625,
+    "y": -130.75,
+    "z": -279.9375
+  },
+  {
+    "System": "HIP 18117",
+    "Active": "✔",
+    "Planet": "5 D",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/lvDLEgu.jpg",
+    "MSG1": {
+      "system": "Struve's Lost Sector OI-T c3-3",
+      "location": null,
+      "x": -32.28125,
+      "y": -219.6875,
+      "z": -405.125
+    },
+    "MSG2": {
+      "system": "HIP 18117",
+      "location": "HIP 18117 5 D",
+      "x": -19.5,
+      "y": -243.46875,
+      "z": -415.28125
+    },
+    "MSG3": {
+      "system": "HIP 18778",
+      "location": null,
+      "x": 11.46875,
+      "y": -236.5625,
+      "z": -398.21875
+    },
+    "x": -19.5,
+    "y": -243.46875,
+    "z": -415.28125
+  },
+  {
+    "System": "HIP 18730",
+    "Active": "✔",
+    "Planet": "3 G A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/YgyJvGB.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector MM-V b2-2",
+      "location": null,
+      "x": -21.03125,
+      "y": -179.78125,
+      "z": -383.75
+    },
+    "MSG2": {
+      "system": "HIP 18778",
+      "location": null,
+      "x": 11.46875,
+      "y": -236.5625,
+      "z": -398.21875
+    },
+    "MSG3": {
+      "system": "HIP 19549",
+      "location": null,
+      "x": -29.65625,
+      "y": -169.25,
+      "z": -398.25
+    },
+    "x": -24.125,
+    "y": -186.6875,
+    "z": -369.25
+  },
+  {
+    "System": "HIP 18909",
+    "Active": "✔",
+    "Planet": "A 4 E A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/RpuWYmS.jpg",
+    "MSG1": {
+      "system": "HIP 15134",
+      "location": null,
+      "x": -48.09375,
+      "y": -136.65625,
+      "z": -198.8125
+    },
+    "MSG2": {
+      "system": "Aries Dark Region GW-W d1-86",
+      "location": null,
+      "x": -21.25,
+      "y": -129.75,
+      "z": -227.875
+    },
+    "MSG3": {
+      "system": "Aries Dark Region IM-V c2-5",
+      "location": null,
+      "x": -27.03125,
+      "y": -115.21875,
+      "z": -262.625
+    },
+    "x": -24.5625,
+    "y": -107.3125,
+    "z": -237.75
+  },
+  {
+    "System": "HIP 19549",
+    "Active": "✔",
+    "Planet": "A 2 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/ZJaNOoF.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector MM-V b2-2",
+      "location": null,
+      "x": -21.03125,
+      "y": -179.78125,
+      "z": -383.75
+    },
+    "MSG2": {
+      "system": "HIP 18730",
+      "location": null,
+      "x": -24.125,
+      "y": -186.6875,
+      "z": -369.25
+    },
+    "MSG3": {
+      "system": "Pleiades Sector DQ-Y c4",
+      "location": null,
+      "x": -60.40625,
+      "y": -182.3125,
+      "z": -420.03125
+    },
+    "x": -29.65625,
+    "y": -169.25,
+    "z": -398.25
+  },
+  {
+    "System": "HIP 20486",
+    "Active": "✔",
+    "Planet": "A 3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/TvxQGwR.jpg",
+    "MSG1": {
+      "system": "Synuefe WU-X c17-8",
+      "location": null,
+      "x": 30.21875,
+      "y": -171.0625,
+      "z": -287.34375
+    },
+    "MSG2": {
+      "system": "Synuefe YP-X c17-1",
+      "location": null,
+      "x": 32.25,
+      "y": -199.34375,
+      "z": -295.40625
+    },
+    "MSG3": {
+      "system": "Synuefe UK-V b35-0",
+      "location": null,
+      "x": 34.53125,
+      "y": -201.53125,
+      "z": -290.59375
+    },
+    "x": 59.78125,
+    "y": -177.34375,
+    "z": -300.21875
+  },
+  {
+    "System": "HIP 20830",
+    "Active": "✔",
+    "Planet": "A 8 F",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/t4ut2s3.jpg",
+    "MSG1": {
+      "system": "HIP 20318",
+      "location": null,
+      "x": 28.375,
+      "y": -196.90625,
+      "z": -400.09375
+    },
+    "MSG2": {
+      "system": "Struve's Lost Sector NN-T c3-1",
+      "location": null,
+      "x": 13.53125,
+      "y": -173.15625,
+      "z": -387.96875
+    },
+    "MSG3": {
+      "system": "Struve's Lost Sector NN-T c3-6",
+      "location": null,
+      "x": 8.15625,
+      "y": -178.40625,
+      "z": -410.09375
+    },
+    "x": 37.78125,
+    "y": -181.21875,
+    "z": -384.09375
+  },
+  {
+    "System": "HIP 20989",
+    "Active": "✔",
+    "Planet": "3 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/oVAT6XC.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region BQ-Y c12",
+      "location": null,
+      "x": -106.59375,
+      "y": -120.625,
+      "z": -477.46875
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region DL-Y d54",
+      "location": null,
+      "x": -88.53125,
+      "y": -124.65625,
+      "z": -453.40625
+    },
+    "MSG3": {
+      "system": "HIP 21373",
+      "location": null,
+      "x": -76.6875,
+      "y": -93.03125,
+      "z": -460.65625
+    },
+    "x": -78.96875,
+    "y": -106.40625,
+    "z": -467.6875
+  },
+  {
+    "System": "HIP 21373",
+    "Active": "✔",
+    "Planet": "2 F",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/uHtIbId.jpg",
+    "MSG1": {
+      "system": "Valkups",
+      "location": null,
+      "x": 40.84375,
+      "y": 8.46875,
+      "z": -107.875
+    },
+    "MSG2": {
+      "system": "HIP 16217",
+      "location": "Penal Colony",
+      "x": -107.84375,
+      "y": -155.5625,
+      "z": -333.28125
+    },
+    "MSG3": null,
+    "x": -76.6875,
+    "y": -93.03125,
+    "z": -460.65625
+  },
+  {
+    "System": "HIP 22118",
+    "Active": "✔",
+    "Planet": "B 3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/gjmiBWe.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector GW-W d1-65",
+      "location": null,
+      "x": -8.9375,
+      "y": -94.6875,
+      "z": -343.96875
+    },
+    "MSG2": {
+      "system": "HIP 17044",
+      "location": null,
+      "x": -74.25,
+      "y": -129.53125,
+      "z": -283.15625
+    },
+    "MSG3": {
+      "system": "Pleiades Sector KH-V c2-7",
+      "location": null,
+      "x": 3.8125,
+      "y": -105.09375,
+      "z": -327.96875
+    },
+    "x": -7.78125,
+    "y": -92.4375,
+    "z": -349.9375
+  },
+  {
+    "System": "HIP 22382",
+    "Active": "✔",
+    "Planet": "5 E",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/449Xo3M.jpg",
+    "MSG1": {
+      "system": "HIP 23022",
+      "location": null,
+      "x": -30.375,
+      "y": -51.1875,
+      "z": -338.15625
+    },
+    "MSG2": {
+      "system": "Col 285 Sector CV-Y d57",
+      "location": null,
+      "x": -21.28125,
+      "y": -76.34375,
+      "z": -288.15625
+    },
+    "MSG3": {
+      "system": "Col 285 Sector CV-Y d71",
+      "location": null,
+      "x": -45.5625,
+      "y": -31.71875,
+      "z": -324.65625
+    },
+    "x": -28.90625,
+    "y": -60.03125,
+    "z": -315.34375
+  },
+  {
+    "System": "HIP 23022",
+    "Active": "✔",
+    "Planet": "B 2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/Um471Pz.jpg",
+    "MSG1": {
+      "system": "Synuefe LD-A c17-3",
+      "location": null,
+      "x": -23.03125,
+      "y": -62.875,
+      "z": -339.375
+    },
+    "MSG2": {
+      "system": "Synuefe LD-A c17-1",
+      "location": null,
+      "x": -20.5625,
+      "y": -61.75,
+      "z": -344.0625
+    },
+    "MSG3": {
+      "system": "Col 285 Sector YO-Z c19",
+      "location": null,
+      "x": -48.3125,
+      "y": -5.5,
+      "z": -334.09375
+    },
+    "x": -30.375,
+    "y": -51.1875,
+    "z": -338.15625
+  },
+  {
+    "System": "HIP 23269",
+    "Active": "✔",
+    "Planet": "A 1 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/QcGAaBb.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region DB-X d1-26",
+      "location": null,
+      "x": -69.375,
+      "y": -22.1875,
+      "z": -396.125
+    },
+    "MSG2": {
+      "system": "Wredguia VX-L d7-80",
+      "location": null,
+      "x": -95.375,
+      "y": -12.15625,
+      "z": -371.4375
+    },
+    "MSG3": {
+      "system": "Wregoe RA-W c15-18",
+      "location": null,
+      "x": -17.28125,
+      "y": -19.0625,
+      "z": -379.65625
+    },
+    "x": -63.6875,
+    "y": -33.0,
+    "z": -399.3125
+  },
+  {
+    "System": "HIP 24007",
+    "Active": "✔",
+    "Planet": "1 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/xGxA7qb.jpg",
+    "MSG1": {
+      "system": "Synuefe LD-A c17-1",
+      "location": null,
+      "x": -20.5625,
+      "y": -61.75,
+      "z": -344.0625
+    },
+    "MSG2": {
+      "system": "Synuefe LD-A c17-3",
+      "location": null,
+      "x": -23.03125,
+      "y": -62.875,
+      "z": -339.375
+    },
+    "MSG3": {
+      "system": "HIP 22382",
+      "location": null,
+      "x": -28.90625,
+      "y": -60.03125,
+      "z": -315.34375
+    },
+    "x": -1.5,
+    "y": -52.90625,
+    "z": -347.46875
+  },
+  {
+    "System": "Hyades Sector AQ-Y d81",
+    "Active": "✔",
+    "Planet": "AB 3 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/BehFQES.jpg",
+    "MSG1": {
+      "system": "Zavijah",
+      "location": "Wheelock Ring",
+      "x": 17.375,
+      "y": 31.09375,
+      "z": 0.5625
+    },
+    "MSG2": {
+      "system": "Etain",
+      "location": "The Sanctum",
+      "x": 12.5,
+      "y": 35.03125,
+      "z": -37.1875
+    },
+    "MSG3": null,
+    "x": -83.4375,
+    "y": -82.78125,
+    "z": -244.21875
+  },
+  {
+    "System": "Mel 22 Sector CB-O c6-4",
+    "Active": "✔",
+    "Planet": "3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/MJSzcKm.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector OS-U c2-6",
+      "location": null,
+      "x": -104.3125,
+      "y": -239.25,
+      "z": -336.5625
+    },
+    "MSG2": {
+      "system": "HIP 14909",
+      "location": null,
+      "x": -84.375,
+      "y": -259.28125,
+      "z": -358.65625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector SK-E b12-1",
+      "location": null,
+      "x": -149.3125,
+      "y": -228.09375,
+      "z": -351.25
+    },
+    "x": -122.65625,
+    "y": -267.5,
+    "z": -336.84375
+  },
+  {
+    "System": "Mel 22 Sector DG-O c6-0",
+    "Active": "✔",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/QQeITyE.jpg",
+    "MSG1": {
+      "system": "Synuefe MK-M d8-20",
+      "location": null,
+      "x": 2.53125,
+      "y": -266.9375,
+      "z": -307.40625
+    },
+    "MSG2": {
+      "system": "HIP 15443",
+      "location": null,
+      "x": -8.21875,
+      "y": -259.78125,
+      "z": -284.78125
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector BV-P c5-2",
+      "location": null,
+      "x": -11.0,
+      "y": -270.625,
+      "z": -363.21875
+    },
+    "x": 5.6875,
+    "y": -256.8125,
+    "z": -323.5625
+  },
+  {
+    "System": "Mel 22 Sector HH-V d2-53",
+    "Active": "✔",
+    "Planet": "1 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/5CVSiP8.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region MY-R b4-1",
+      "location": null,
+      "x": -159.875,
+      "y": -117.53125,
+      "z": -427.8125
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector JX-T c3-9",
+      "location": null,
+      "x": -183.8125,
+      "y": -152.25,
+      "z": -432.5
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region CL-Y d53",
+      "location": null,
+      "x": -150.625,
+      "y": -143.71875,
+      "z": -439.625
+    },
+    "x": -170.3125,
+    "y": -126.46875,
+    "z": -423.0625
+  },
+  {
+    "System": "Mel 22 Sector LN-T d3-60",
+    "Active": "✔",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/kiblM9G.jpg",
+    "MSG1": {
+      "system": "Aries Dark Region DB-X c1-2",
+      "location": null,
+      "x": -182.78125,
+      "y": -172.84375,
+      "z": -293.375
+    },
+    "MSG2": {
+      "system": "Synuefai YQ-X c17-7",
+      "location": null,
+      "x": -209.15625,
+      "y": -190.78125,
+      "z": -295.0625
+    },
+    "MSG3": {
+      "system": "Synuefai WV-X c17-12",
+      "location": null,
+      "x": -212.71875,
+      "y": -177.75,
+      "z": -293.125
+    },
+    "x": -183.53125,
+    "y": -179.5,
+    "z": -314.375
+  },
+  {
+    "System": "Mel 22 Sector NX-U d2-27",
+    "Active": "✔",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/odVHNKd.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector NX-U d2-31",
+      "location": null,
+      "x": -64.40625,
+      "y": -269.5625,
+      "z": -373.59375
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector ZU-P c5-1",
+      "location": null,
+      "x": -75.4375,
+      "y": -284.5,
+      "z": -361.8125
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector YU-F b11-1",
+      "location": null,
+      "x": -33.96875,
+      "y": -268.4375,
+      "z": -384.53125
+    },
+    "x": -57.125,
+    "y": -274.71875,
+    "z": -373.6875
+  },
+  {
+    "System": "Mel 22 Sector UT-R c4-4",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/UrnGy3Q.jpg",
+    "MSG1": {
+      "system": "HR 3499",
+      "location": "Goddard Hub",
+      "x": 13.59375,
+      "y": 58.0625,
+      "z": -70.6875
+    },
+    "MSG2": {
+      "system": "Synuefai UA-Y c17-4",
+      "location": null,
+      "x": -205.625,
+      "y": -140.9375,
+      "z": -296.40625
+    },
+    "MSG3": null,
+    "x": -35.5625,
+    "y": -260.03125,
+    "z": -390.625
+  },
+  {
+    "System": "Pleiades Sector BG-X c1-14",
+    "Active": "✔",
+    "Planet": "5 D",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/UrE5mZj.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector BG-X c1-10",
+      "location": null,
+      "x": -127.0625,
+      "y": -92.90625,
+      "z": -384.375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector UZ-X b1-2",
+      "location": null,
+      "x": -129.125,
+      "y": -99.09375,
+      "z": -402.5625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector FM-V d2-38",
+      "location": null,
+      "x": -172.8125,
+      "y": -80.53125,
+      "z": -366.34375
+    },
+    "x": -133.78125,
+    "y": -71.96875,
+    "z": -373.3125
+  },
+  {
+    "System": "Pleiades Sector DG-X c1-14",
+    "Active": "✔",
+    "Planet": "AB 1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/d5Gatzb.jpg",
+    "MSG1": {
+      "system": "HIP 22334",
+      "location": null,
+      "x": -24.03125,
+      "y": -85.5,
+      "z": -393.78125
+    },
+    "MSG2": {
+      "system": "HIP 24934",
+      "location": null,
+      "x": -27.28125,
+      "y": -13.84375,
+      "z": -319.90625
+    },
+    "MSG3": {
+      "system": "HIP 21348",
+      "location": null,
+      "x": -26.84375,
+      "y": -107.90625,
+      "z": -379.40625
+    },
+    "x": -45.625,
+    "y": -80.78125,
+    "z": -376.4375
+  },
+  {
+    "System": "Pleiades Sector EB-X c1-2",
+    "Active": "✔",
+    "Planet": "ABC 3 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/u59t7pa.jpg",
+    "MSG1": {
+      "system": "HIP 17862",
+      "location": null,
+      "x": -81.4375,
+      "y": -151.90625,
+      "z": -359.59375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector AV-Y c7",
+      "location": null,
+      "x": -65.0625,
+      "y": -110.625,
+      "z": -424.3125
+    },
+    "MSG3": {
+      "system": "HIP 20859",
+      "location": null,
+      "x": -31.15625,
+      "y": -120.65625,
+      "z": -384.5
+    },
+    "x": -82.65625,
+    "y": -121.15625,
+    "z": -380.125
+  },
+  {
+    "System": "Pleiades Sector EC-U b3-0",
+    "Active": "✔",
+    "Planet": "4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/S2KcIPF.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector OO-Q c5-6",
+      "location": null,
+      "x": -190.78125,
+      "y": -143.75,
+      "z": -354.46875
+    },
+    "MSG2": {
+      "system": "Pleiades Sector KT-Q b5-3",
+      "location": null,
+      "x": -169.71875,
+      "y": -116.6875,
+      "z": -322.3125
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector NT-Q c5-11",
+      "location": null,
+      "x": -174.0625,
+      "y": -104.96875,
+      "z": -372.625
+    },
+    "x": -166.4375,
+    "y": -132.78125,
+    "z": -351.46875
+  },
+  {
+    "System": "Pleiades Sector FW-W d1-37",
+    "Active": "✔",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/h039pnD.jpg",
+    "MSG1": {
+      "system": "HIP 18909",
+      "location": null,
+      "x": -24.5625,
+      "y": -107.3125,
+      "z": -237.75
+    },
+    "MSG2": {
+      "system": "HIP 14908",
+      "location": null,
+      "x": -74.84375,
+      "y": -127.65625,
+      "z": -218.28125
+    },
+    "MSG3": {
+      "system": "HIP 20964",
+      "location": null,
+      "x": -35.78125,
+      "y": -61.375,
+      "z": -245.96875
+    },
+    "x": -79.6875,
+    "y": -79.28125,
+    "z": -279.5625
+  },
+  {
+    "System": "Pleiades Sector GW-W d1-54",
+    "Active": "✔",
+    "Planet": "2 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/lQjWFyN.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector OY-R c4-19",
+      "location": null,
+      "x": -73.8125,
+      "y": -98.625,
+      "z": -262.3125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector LS-T c3-2",
+      "location": null,
+      "x": -58.96875,
+      "y": -81.5625,
+      "z": -296.53125
+    },
+    "MSG3": {
+      "system": "HIP 22347",
+      "location": null,
+      "x": 14.4375,
+      "y": -80.15625,
+      "z": -259.5625
+    },
+    "x": -46.625,
+    "y": -91.6875,
+    "z": -271.03125
+  },
+  {
+    "System": "Pleiades Sector HH-V c2-13",
+    "Active": "✔",
+    "Planet": "A 1 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/fn1mkEX.jpg",
+    "MSG1": {
+      "system": "Pemepatung",
+      "location": null,
+      "x": 75.46875,
+      "y": -69.4375,
+      "z": -76.9375
+    },
+    "MSG2": {
+      "system": "Alnath",
+      "location": "INRA Base Klatt Enterprises",
+      "x": -3.875,
+      "y": -7.375,
+      "z": -133.65625
+    },
+    "MSG3": null,
+    "x": -134.875,
+    "y": -139.375,
+    "z": -327.90625
+  },
+  {
+    "System": "Pleiades Sector HH-V c2-6",
+    "Active": "✔",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/vh9pUdZ.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector HR-W d1-57",
+      "location": null,
+      "x": -86.40625,
+      "y": -125.15625,
+      "z": -301.84375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector JC-V d2-62",
+      "location": null,
+      "x": -82.1875,
+      "y": -100.9375,
+      "z": -260.59375
+    },
+    "MSG3": {
+      "system": "Pleiades Sector JC-V c2-9",
+      "location": null,
+      "x": -131.40625,
+      "y": -150.8125,
+      "z": -343.625
+    },
+    "x": -112.3125,
+    "y": -127.125,
+    "z": -318.84375
+  },
+  {
+    "System": "Pleiades Sector IH-V c2-3",
+    "Active": "✔",
+    "Planet": "1 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/Jjd3k7c.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector HH-V c2-6",
+      "location": null,
+      "x": -112.3125,
+      "y": -127.125,
+      "z": -318.84375
+    },
+    "MSG2": {
+      "system": "Delphi",
+      "location": null,
+      "x": -63.59375,
+      "y": -147.40625,
+      "z": -319.09375
+    },
+    "MSG3": {
+      "system": "HIP 17694",
+      "location": null,
+      "x": -72.25,
+      "y": -152.53125,
+      "z": -338.6875
+    },
+    "x": -91.28125,
+    "y": -114.625,
+    "z": -323.75
+  },
+  {
+    "System": "Pleiades Sector IR-W d1-76",
+    "Active": "✔",
+    "Planet": "B 3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/XKM9cMw.jpg",
+    "MSG1": {
+      "system": "CW Ursae Majoris",
+      "location": "Halley Port",
+      "x": 2.65625,
+      "y": 36.78125,
+      "z": -14.90625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector LN-T c3-4",
+      "location": null,
+      "x": -110.53125,
+      "y": -120.09375,
+      "z": -282.09375
+    },
+    "MSG3": null,
+    "x": -40.8125,
+    "y": -124.5625,
+    "z": -325.375
+  },
+  {
+    "System": "Pleiades Sector IX-S b4-1",
+    "Active": "✔",
+    "Planet": "10 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/z4DEydv.jpg",
+    "MSG1": {
+      "system": "HIP 23022",
+      "location": null,
+      "x": -30.375,
+      "y": -51.1875,
+      "z": -338.15625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector DG-X c1-14",
+      "location": null,
+      "x": -45.625,
+      "y": -80.78125,
+      "z": -376.4375
+    },
+    "MSG3": {
+      "system": "HIP 22382",
+      "location": null,
+      "x": -28.90625,
+      "y": -60.03125,
+      "z": -315.34375
+    },
+    "x": -60.78125,
+    "y": -79.53125,
+    "z": -344.90625
+  },
+  {
+    "System": "Pleiades Sector JC-V c2-9",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/ZuD5EDn.jpg",
+    "MSG1": {
+      "system": "Mentor",
+      "location": "Lasswitz Terminal",
+      "x": -27.65625,
+      "y": -3.5,
+      "z": -85.53125
+    },
+    "MSG2": {
+      "system": "HIP 12099",
+      "location": null,
+      "x": -101.90625,
+      "y": -95.46875,
+      "z": -165.59375
+    },
+    "MSG3": {
+      "system": "12 Trianguli",
+      "location": null,
+      "x": -77.15625,
+      "y": -76.8125,
+      "z": -120.6875
+    },
+    "x": -131.40625,
+    "y": -150.8125,
+    "z": -343.625
+  },
+  {
+    "System": "Pleiades Sector JM-W d1-52",
+    "Active": "✔",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/T3wQOWi.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector OD-S b4-1",
+      "location": null,
+      "x": -93.40625,
+      "y": -164.0,
+      "z": -341.59375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector OS-U c2-7",
+      "location": null,
+      "x": -68.71875,
+      "y": -229.625,
+      "z": -325.6875
+    },
+    "MSG3": {
+      "system": "Pleiades Sector OS-U c2-6",
+      "location": null,
+      "x": -104.3125,
+      "y": -239.25,
+      "z": -336.5625
+    },
+    "x": -93.78125,
+    "y": -198.84375,
+    "z": -332.5625
+  },
+  {
+    "System": "Pleiades Sector KH-V c2-3",
+    "Active": "✔",
+    "Planet": "3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/o0Wefgz.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector HR-W d1-17",
+      "location": null,
+      "x": -84.875,
+      "y": -123.8125,
+      "z": -315.25
+    },
+    "MSG2": {
+      "system": "Wolf 636",
+      "location": null,
+      "x": -8.75,
+      "y": 11.90625,
+      "z": 31.125
+    },
+    "MSG3": null,
+    "x": -23.1875,
+    "y": -115.375,
+    "z": -339.6875
+  },
+  {
+    "System": "Pleiades Sector KM-W d1-40",
+    "Active": "✔",
+    "Planet": "B 10 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/25hKb3R.jpg",
+    "MSG1": {
+      "system": "HIP 16572",
+      "location": null,
+      "x": -40.4375,
+      "y": -194.5,
+      "z": -300.25
+    },
+    "MSG2": {
+      "system": "Pleiades Sector OS-U c2-7",
+      "location": null,
+      "x": -68.71875,
+      "y": -229.625,
+      "z": -325.6875
+    },
+    "MSG3": {
+      "system": "HIP 18368",
+      "location": null,
+      "x": 0.25,
+      "y": -174.8125,
+      "z": -286.46875
+    },
+    "x": -33.0,
+    "y": -211.9375,
+    "z": -327.75
+  },
+  {
+    "System": "Pleiades Sector LS-T c3-2",
+    "Active": "✔",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/JVOSruZ.jpg",
+    "MSG1": {
+      "system": "Hyades Sector DB-X c1-19",
+      "location": null,
+      "x": -79.9375,
+      "y": -88.375,
+      "z": -219.8125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector GW-W d1-54",
+      "location": null,
+      "x": -46.625,
+      "y": -91.6875,
+      "z": -271.03125
+    },
+    "MSG3": {
+      "system": "Pleiades Sector FW-W d1-37",
+      "location": null,
+      "x": -79.6875,
+      "y": -79.28125,
+      "z": -279.5625
+    },
+    "x": -58.96875,
+    "y": -81.5625,
+    "z": -296.53125
+  },
+  {
+    "System": "Pleiades Sector LX-U c2-2",
+    "Active": "✔",
+    "Planet": "AB 4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/6SyNNjG.jpg",
+    "MSG1": {
+      "system": "Merope",
+      "location": "Distress Call",
+      "x": -78.59375,
+      "y": -149.625,
+      "z": -340.53125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector XE-Q b5-2",
+      "location": null,
+      "x": -43.84375,
+      "y": -176.875,
+      "z": -311.90625
+    },
+    "MSG3": null,
+    "x": -134.53125,
+    "y": -189.28125,
+    "z": -317.0
+  },
+  {
+    "System": "Pleiades Sector MC-V c2-0",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/f6hMls1.jpg",
+    "MSG1": {
+      "system": "Synuefe UZ-X c17-10",
+      "location": null,
+      "x": 46.0625,
+      "y": -114.5,
+      "z": -293.6875
+    },
+    "MSG2": {
+      "system": "Pleiades Sector MC-V c2-8",
+      "location": null,
+      "x": 3.46875,
+      "y": -159.59375,
+      "z": -313.84375
+    },
+    "MSG3": {
+      "system": "HIP 20785",
+      "location": null,
+      "x": -20.75,
+      "y": -106.3125,
+      "z": -318.34375
+    },
+    "x": -5.125,
+    "y": -168.34375,
+    "z": -343.875
+  },
+  {
+    "System": "Pleiades Sector MC-V c2-6",
+    "Active": "✔",
+    "Planet": "B 4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/OtirOKt.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector MC-V c2-8",
+      "location": null,
+      "x": 3.46875,
+      "y": -159.59375,
+      "z": -313.84375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector MC-V c2-0",
+      "location": null,
+      "x": -5.125,
+      "y": -168.34375,
+      "z": -343.875
+    },
+    "MSG3": {
+      "system": "Synuefe JU-M d8-50",
+      "location": null,
+      "x": 44.6875,
+      "y": -149.0,
+      "z": -326.84375
+    },
+    "x": 6.84375,
+    "y": -152.09375,
+    "z": -327.25
+  },
+  {
+    "System": "Pleiades Sector MC-V c2-8",
+    "Active": "✔",
+    "Planet": "8 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/2eiuq78.jpg",
+    "MSG1": {
+      "system": "Synuefe TF-U b36-2",
+      "location": null,
+      "x": 47.125,
+      "y": -135.6875,
+      "z": -282.0
+    },
+    "MSG2": {
+      "system": "HIP 18368",
+      "location": null,
+      "x": 0.25,
+      "y": -174.8125,
+      "z": -286.46875
+    },
+    "MSG3": {
+      "system": "Pleiades Sector MC-V c2-0",
+      "location": null,
+      "x": -5.125,
+      "y": -168.34375,
+      "z": -343.875
+    },
+    "x": 3.46875,
+    "y": -159.59375,
+    "z": -313.84375
+  },
+  {
+    "System": "Pleiades Sector MX-U d2-54",
+    "Active": "✔",
+    "Planet": "4 E",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/ia9urZS.jpg",
+    "MSG1": {
+      "system": "Aries Dark Region GW-W d1-48",
+      "location": null,
+      "x": -35.25,
+      "y": -124.3125,
+      "z": -249.5
+    },
+    "MSG2": {
+      "system": "HIP 17837",
+      "location": null,
+      "x": -52.15625,
+      "y": -130.75,
+      "z": -279.9375
+    },
+    "MSG3": {
+      "system": "HIP 16440",
+      "location": null,
+      "x": -74.375,
+      "y": -133.0,
+      "z": -267.34375
+    },
+    "x": -53.34375,
+    "y": -122.53125,
+    "z": -260.28125
+  },
+  {
+    "System": "Pleiades Sector OD-S b4-1",
+    "Active": "✔",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/e55TkQH.jpg",
+    "MSG1": {
+      "system": "Magec",
+      "location": "Xiaoguan Hub",
+      "x": -32.875,
+      "y": 36.15625,
+      "z": 15.5
+    },
+    "MSG2": {
+      "system": "Nu-1 Columbae",
+      "location": null,
+      "x": 90.0,
+      "y": -58.65625,
+      "z": -70.3125
+    },
+    "MSG3": null,
+    "x": -93.40625,
+    "y": -164.0,
+    "z": -341.59375
+  },
+  {
+    "System": "Pleiades Sector OY-R c4-19",
+    "Active": "✔",
+    "Planet": "A 3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/umft4F9.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector VK-N b7-0",
+      "location": null,
+      "x": -81.625,
+      "y": -100.21875,
+      "z": -279.375
+    },
+    "MSG2": {
+      "system": "Hyades Sector AQ-Y d81",
+      "location": null,
+      "x": -83.4375,
+      "y": -82.78125,
+      "z": -244.21875
+    },
+    "MSG3": {
+      "system": "Col 285 Sector RI-R b5-3",
+      "location": null,
+      "x": -118.6875,
+      "y": -72.28125,
+      "z": -239.5625
+    },
+    "x": -73.8125,
+    "y": -98.625,
+    "z": -262.3125
+  },
+  {
+    "System": "Pleiades Sector WE-Q b5-2",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/IlAIjhw.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector IR-W d1-61",
+      "location": null,
+      "x": -50.09375,
+      "y": -180.84375,
+      "z": -291.46875
+    },
+    "MSG2": {
+      "system": "HIP 16572",
+      "location": null,
+      "x": -40.4375,
+      "y": -194.5,
+      "z": -300.25
+    },
+    "MSG3": {
+      "system": "Pleiades Sector IR-W d1-38",
+      "location": null,
+      "x": -35.25,
+      "y": -171.8125,
+      "z": -324.4375
+    },
+    "x": -52.59375,
+    "y": -180.46875,
+    "z": -306.4375
+  },
+  {
+    "System": "Synuefai RK-Y c17-3",
+    "Active": "✔",
+    "Planet": "A 1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/OXxBUaC.jpg",
+    "MSG1": {
+      "system": "HIP 14969",
+      "location": null,
+      "x": -193.96875,
+      "y": -72.75,
+      "z": -315.09375
+    },
+    "MSG2": {
+      "system": "HIP 16692",
+      "location": null,
+      "x": -109.9375,
+      "y": -61.5625,
+      "z": -235.8125
+    },
+    "MSG3": {
+      "system": "HIP 14756",
+      "location": null,
+      "x": -159.53125,
+      "y": -104.53125,
+      "z": -297.5
+    },
+    "x": -180.1875,
+    "y": -64.375,
+    "z": -300.6875
+  },
+  {
+    "System": "Synuefai UZ-M d8-63",
+    "Active": "✔",
+    "Planet": "B 1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/GM1nuZ4.jpg",
+    "MSG1": {
+      "system": "Col 285 Sector EB-X d1-39",
+      "location": null,
+      "x": -157.78125,
+      "y": -83.625,
+      "z": -260.5
+    },
+    "MSG2": {
+      "system": "Col 285 Sector BQ-X c1-10",
+      "location": null,
+      "x": -172.03125,
+      "y": -61.625,
+      "z": -272.34375
+    },
+    "MSG3": {
+      "system": "Col 285 Sector GW-W d1-66",
+      "location": null,
+      "x": -180.125,
+      "y": -125.90625,
+      "z": -233.53125
+    },
+    "x": -198.5625,
+    "y": -99.3125,
+    "z": -269.25
+  },
+  {
+    "System": "Synuefai WV-X c17-12",
+    "Active": "✔",
+    "Planet": "2 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/SUSiUv2.jpg",
+    "MSG1": {
+      "system": "Synuefai YQ-X c17-7",
+      "location": null,
+      "x": -209.15625,
+      "y": -190.78125,
+      "z": -295.0625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector KT-Q b5-3",
+      "location": null,
+      "x": -169.71875,
+      "y": -116.6875,
+      "z": -322.3125
+    },
+    "MSG3": {
+      "system": "Synuefai YQ-X c17-8",
+      "location": null,
+      "x": -192.875,
+      "y": -205.6875,
+      "z": -289.375
+    },
+    "x": -212.71875,
+    "y": -177.75,
+    "z": -293.125
+  },
+  {
+    "System": "Synuefe CW-V c18-6",
+    "Active": "✔",
+    "Planet": "A 3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/TTGvlXD.jpg",
+    "MSG1": {
+      "system": "Synuefe YP-X c17-8",
+      "location": null,
+      "x": 27.375,
+      "y": -219.0,
+      "z": -271.4375
+    },
+    "MSG2": {
+      "system": "Synuefe OV-K d9-56",
+      "location": null,
+      "x": 11.3125,
+      "y": -208.5,
+      "z": -256.34375
+    },
+    "MSG3": {
+      "system": "Synuefe UK-V b35-0",
+      "location": null,
+      "x": 34.53125,
+      "y": -201.53125,
+      "z": -290.59375
+    },
+    "x": 19.6875,
+    "y": -223.625,
+    "z": -263.65625
+  },
+  {
+    "System": "Synuefe HZ-M d8-69",
+    "Active": "✔",
+    "Planet": "B 7 F",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/pUA24ct.jpg",
+    "MSG1": {
+      "system": "RMK 6",
+      "location": "Zudov Hub",
+      "x": 98.375,
+      "y": -30.03125,
+      "z": -10.8125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector PN-T b3-0",
+      "location": null,
+      "x": -79.53125,
+      "y": -199.9375,
+      "z": -361.59375
+    },
+    "MSG3": null,
+    "x": 28.03125,
+    "y": -89.375,
+    "z": -338.6875
+  },
+  {
+    "System": "Synuefe JU-M d8-50",
+    "Active": "✔",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/xjdqEoJ.jpg",
+    "MSG1": {
+      "system": "Synuefe RT-Z c16-13",
+      "location": null,
+      "x": 56.9375,
+      "y": -142.03125,
+      "z": -339.9375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector MC-V c2-6",
+      "location": null,
+      "x": 6.84375,
+      "y": -152.09375,
+      "z": -327.25
+    },
+    "MSG3": {
+      "system": "HIP 20486",
+      "location": null,
+      "x": 59.78125,
+      "y": -177.34375,
+      "z": -300.21875
+    },
+    "x": 44.6875,
+    "y": -149.0,
+    "z": -326.84375
+  },
+  {
+    "System": "Synuefe LD-A c17-1",
+    "Active": "✔",
+    "Planet": "B 1 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/n9mjiko.jpg",
+    "MSG1": {
+      "system": "Synuefe LD-A c17-3",
+      "location": null,
+      "x": -23.03125,
+      "y": -62.875,
+      "z": -339.375
+    },
+    "MSG2": {
+      "system": "HIP 25274",
+      "location": null,
+      "x": 18.8125,
+      "y": -39.40625,
+      "z": -320.0
+    },
+    "MSG3": {
+      "system": "Col 285 Sector IL-X c1-4",
+      "location": null,
+      "x": 30.3125,
+      "y": -65.21875,
+      "z": -294.8125
+    },
+    "x": -20.5625,
+    "y": -61.75,
+    "z": -344.0625
+  },
+  {
+    "System": "Synuefe LD-A c17-3",
+    "Active": "✔",
+    "Planet": "AB 2 F",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/hpf9fpw.jpg",
+    "MSG1": {
+      "system": "Synuefe LD-A c17-1",
+      "location": null,
+      "x": -20.5625,
+      "y": -61.75,
+      "z": -344.0625
+    },
+    "MSG2": {
+      "system": "HIP 22118",
+      "location": null,
+      "x": -7.78125,
+      "y": -92.4375,
+      "z": -349.9375
+    },
+    "MSG3": {
+      "system": "Pleiades Sector IM-V c2-16",
+      "location": null,
+      "x": -9.875,
+      "y": -99.53125,
+      "z": -329.03125
+    },
+    "x": -23.03125,
+    "y": -62.875,
+    "z": -339.375
+  },
+  {
+    "System": "Synuefe MK-M d8-20",
+    "Active": "✔",
+    "Planet": "A 2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/Jcw1sEw.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector KM-W d1-40",
+      "location": null,
+      "x": -33.0,
+      "y": -211.9375,
+      "z": -327.75
+    },
+    "MSG2": {
+      "system": "HIP 15443",
+      "location": null,
+      "x": -8.21875,
+      "y": -259.78125,
+      "z": -284.78125
+    },
+    "MSG3": {
+      "system": "HIP 14746",
+      "location": null,
+      "x": -22.03125,
+      "y": -276.0,
+      "z": -290.375
+    },
+    "x": 2.53125,
+    "y": -266.9375,
+    "z": -307.40625
+  },
+  {
+    "System": "Synuefe OV-K d9-56",
+    "Active": "✔",
+    "Planet": "9 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/cHontI2.jpg",
+    "MSG1": {
+      "system": "Synuefe YP-X c17-1",
+      "location": null,
+      "x": 32.25,
+      "y": -199.34375,
+      "z": -295.40625
+    },
+    "MSG2": {
+      "system": "Synuefe CW-V c18-6",
+      "location": null,
+      "x": 19.6875,
+      "y": -223.625,
+      "z": -263.65625
+    },
+    "MSG3": {
+      "system": "HIP 18368",
+      "location": null,
+      "x": 0.25,
+      "y": -174.8125,
+      "z": -286.46875
+    },
+    "x": 11.3125,
+    "y": -208.5,
+    "z": -256.34375
+  },
+  {
+    "System": "Synuefe RT-Z c16-13",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/K5leZBF.jpg",
+    "MSG1": {
+      "system": "Synuefe JU-M d8-50",
+      "location": null,
+      "x": 44.6875,
+      "y": -149.0,
+      "z": -326.84375
+    },
+    "MSG2": {
+      "system": "HIP 22851",
+      "location": null,
+      "x": 44.71875,
+      "y": -106.625,
+      "z": -313.21875
+    },
+    "MSG3": {
+      "system": "Pleiades Sector MC-V c2-6",
+      "location": null,
+      "x": 6.84375,
+      "y": -152.09375,
+      "z": -327.25
+    },
+    "x": 56.9375,
+    "y": -142.03125,
+    "z": -339.9375
+  },
+  {
+    "System": "Synuefe UK-V b35-0",
+    "Active": "✔",
+    "Planet": "A 4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/thbbHj7.jpg",
+    "MSG1": {
+      "system": "Synuefe CW-V c18-6",
+      "location": null,
+      "x": 19.6875,
+      "y": -223.625,
+      "z": -263.65625
+    },
+    "MSG2": {
+      "system": "Synuefe YP-X c17-1",
+      "location": null,
+      "x": 32.25,
+      "y": -199.34375,
+      "z": -295.40625
+    },
+    "MSG3": {
+      "system": "Synuefe RT-Z c16-13",
+      "location": null,
+      "x": 56.9375,
+      "y": -142.03125,
+      "z": -339.9375
+    },
+    "x": 34.53125,
+    "y": -201.53125,
+    "z": -290.59375
+  },
+  {
+    "System": "Synuefe YP-X c17-1",
+    "Active": "✔",
+    "Planet": "5 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/DWWOjm8.jpg",
+    "MSG1": {
+      "system": "Synuefe UK-V b35-0",
+      "location": null,
+      "x": 34.53125,
+      "y": -201.53125,
+      "z": -290.59375
+    },
+    "MSG2": {
+      "system": "Synuefe OV-K d9-56",
+      "location": null,
+      "x": 11.3125,
+      "y": -208.5,
+      "z": -256.34375
+    },
+    "MSG3": {
+      "system": "Synuefe YP-X c17-8",
+      "location": null,
+      "x": 27.375,
+      "y": -219.0,
+      "z": -271.4375
+    },
+    "x": 32.25,
+    "y": -199.34375,
+    "z": -295.40625
+  },
+  {
+    "System": "Taurus Dark Region CQ-Y d31",
+    "Active": "✔",
+    "Planet": "3 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/I7vVP7o.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region BV-Y c11",
+      "location": null,
+      "x": -34.53125,
+      "y": -104.71875,
+      "z": -468.84375
+    },
+    "MSG2": {
+      "system": "HIP 22375",
+      "location": null,
+      "x": -66.90625,
+      "y": -66.75,
+      "z": -454.25
+    },
+    "MSG3": {
+      "system": "Pleiades Sector ZZ-Y c14",
+      "location": null,
+      "x": -38.1875,
+      "y": -100.25,
+      "z": -411.5625
+    },
+    "x": -40.9375,
+    "y": -90.09375,
+    "z": -446.375
+  },
+  {
+    "System": "Taurus Dark Region DB-X d1-26",
+    "Active": "✔",
+    "Planet": "6 E A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/6URcUDq.jpg",
+    "MSG1": {
+      "system": "HIP 23269",
+      "location": null,
+      "x": -63.6875,
+      "y": -33.0,
+      "z": -399.3125
+    },
+    "MSG2": {
+      "system": "Wredguia VX-L d7-80",
+      "location": null,
+      "x": -95.375,
+      "y": -12.15625,
+      "z": -371.4375
+    },
+    "MSG3": {
+      "system": "Wregoe RA-W c15-18",
+      "location": null,
+      "x": -17.28125,
+      "y": -19.0625,
+      "z": -379.65625
+    },
+    "x": -69.375,
+    "y": -22.1875,
+    "z": -396.125
+  },
+  {
+    "System": "Taurus Dark Region DL-Y d54",
+    "Active": "✔",
+    "Planet": "ABC 1 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/o3XWyob.jpg",
+    "MSG1": {
+      "system": "HIP 20989",
+      "location": null,
+      "x": -78.96875,
+      "y": -106.40625,
+      "z": -467.6875
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region BQ-Y c12",
+      "location": null,
+      "x": -106.59375,
+      "y": -120.625,
+      "z": -477.46875
+    },
+    "MSG3": {
+      "system": "HIP 21373",
+      "location": null,
+      "x": -76.6875,
+      "y": -93.03125,
+      "z": -460.65625
+    },
+    "x": -88.53125,
+    "y": -124.65625,
+    "z": -453.40625
+  },
+  {
+    "System": "Taurus Dark Region JH-V c2-9",
+    "Active": "✔",
+    "Planet": "AB 1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/5LhpZ6s.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region CQ-Y d36",
+      "location": null,
+      "x": 5.0,
+      "y": -94.625,
+      "z": -435.0
+    },
+    "MSG2": {
+      "system": "Pleiades Sector ZZ-Y c14",
+      "location": null,
+      "x": -38.1875,
+      "y": -100.25,
+      "z": -411.5625
+    },
+    "MSG3": {
+      "system": "HIP 22743",
+      "location": null,
+      "x": -11.34375,
+      "y": -86.5,
+      "z": -399.84375
+    },
+    "x": -35.125,
+    "y": -77.3125,
+    "z": -408.3125
+  },
+  {
+    "System": "Wredguia VX-L d7-80",
+    "Active": "✔",
+    "Planet": "5 F",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/mlWAl9l.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region DB-X d1-26",
+      "location": null,
+      "x": -69.375,
+      "y": -22.1875,
+      "z": -396.125
+    },
+    "MSG2": {
+      "system": "HIP 23269",
+      "location": null,
+      "x": -63.6875,
+      "y": -33.0,
+      "z": -399.3125
+    },
+    "MSG3": {
+      "system": "Col 285 Sector ZZ-Y d22",
+      "location": null,
+      "x": -71.9375,
+      "y": -1.9375,
+      "z": -330.5625
+    },
+    "x": -95.375,
+    "y": -12.15625,
+    "z": -371.4375
+  },
+  {
+    "System": "Wregoe RA-W c15-18",
+    "Active": "✔",
+    "Planet": "A 1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/5p9EFiH.jpg",
+    "MSG1": {
+      "system": "Kamadhenu",
+      "location": null,
+      "x": 110.0,
+      "y": -99.96875,
+      "z": -13.375
+    },
+    "MSG2": {
+      "system": "HIP 16217",
+      "location": null,
+      "x": -107.84375,
+      "y": -155.5625,
+      "z": -333.28125
+    },
+    "MSG3": null,
+    "x": -17.28125,
+    "y": -19.0625,
+    "z": -379.65625
+  },
+  {
+    "System": "HIP 22711",
+    "Active": "✔",
+    "Planet": "7 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://i.imgur.com/HqORXZn.jpg",
+    "MSG1": {
+      "system": "HIP 22460",
+      "location": null,
+      "x": -41.3125,
+      "y": -58.96875,
+      "z": -354.78125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector DG-X c1-11",
+      "location": null,
+      "x": -49.25,
+      "y": -70.4375,
+      "z": -360.8125
+    },
+    "MSG3": null,
+    "x": -35.75,
+    "y": -60.84375,
+    "z": -366.90625
+  },
+  {
+    "System": "HIP 16440",
+    "Active": "✔",
+    "Planet": "1 E",
+    "Leviathons": "RT+R+R",
+    "New Type/Sub": "4/B",
+    "Changed": "N",
+    "Old Type/Sub": "4/B",
+    "Aerials": "https://i.imgur.com/ptmGCXU.jpg",
+    "MSG1": {
+      "system": "Nauni",
+      "location": null,
+      "x": -33.5,
+      "y": -70.1875,
+      "z": -162.1875
+    },
+    "MSG2": {
+      "system": "HIP 12099",
+      "location": null,
+      "x": -101.90625,
+      "y": -95.46875,
+      "z": -165.59375
+    },
+    "MSG3": null,
+    "x": -74.375,
+    "y": -133.0,
+    "z": -267.34375
+  },
+  {
+    "System": "HIP 18778",
+    "Active": "✔",
+    "Planet": "A 2 A",
+    "Leviathons": "RT+R+R",
+    "New Type/Sub": "4/B",
+    "Changed": "N",
+    "Old Type/Sub": "4/B",
+    "Aerials": "https://i.imgur.com/AQMgTBn.jpg",
+    "MSG1": {
+      "system": "HIP 18117",
+      "location": null,
+      "x": -19.5,
+      "y": -243.46875,
+      "z": -415.28125
+    },
+    "MSG2": {
+      "system": "HIP 20318",
+      "location": null,
+      "x": 28.375,
+      "y": -196.90625,
+      "z": -400.09375
+    },
+    "MSG3": {
+      "system": "Struve's Lost Sector OI-T c3-3",
+      "location": null,
+      "x": -32.28125,
+      "y": -219.6875,
+      "z": -405.125
+    },
+    "x": 11.46875,
+    "y": -236.5625,
+    "z": -398.21875
+  },
+  {
+    "System": "HIP 22375",
+    "Active": "✔",
+    "Planet": "3 A",
+    "Leviathons": "RT+R+R",
+    "New Type/Sub": "4/B",
+    "Changed": "N",
+    "Old Type/Sub": "4/B",
+    "Aerials": "https://i.imgur.com/3I2bKHy.jpg",
+    "MSG1": {
+      "system": "Iota Pictoris A",
+      "location": "Barmin Dock",
+      "x": 92.75,
+      "y": -76.21875,
+      "z": -14.46875
+    },
+    "MSG2": {
+      "system": "Opet",
+      "location": "Henry Class Megaship",
+      "x": 87.25,
+      "y": -85.71875,
+      "z": -51.5
+    },
+    "MSG3": null,
+    "x": -66.90625,
+    "y": -66.75,
+    "z": -454.25
+  },
+  {
+    "System": "Struve's Lost Sector OI-T c3-3",
+    "Active": "✔",
+    "Planet": "2 B",
+    "Leviathons": "RT+R+R",
+    "New Type/Sub": "4/B",
+    "Changed": "Y",
+    "Old Type/Sub": "4/Q",
+    "Aerials": "https://i.imgur.com/ld6626A.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector GG-Y d33",
+      "location": null,
+      "x": -37.5,
+      "y": -204.25,
+      "z": -386.3125
+    },
+    "MSG2": {
+      "system": "HIP 18117",
+      "location": null,
+      "x": -19.5,
+      "y": -243.46875,
+      "z": -415.28125
+    },
+    "MSG3": {
+      "system": "Pleiades Sector DQ-Y c4",
+      "location": null,
+      "x": -60.40625,
+      "y": -182.3125,
+      "z": -420.03125
+    },
+    "x": -32.28125,
+    "y": -219.6875,
+    "z": -405.125
+  },
+  {
+    "System": "HIP 21251",
+    "Active": "✔",
+    "Planet": "A 8 C",
+    "Leviathons": "LR+RF",
+    "New Type/Sub": "4/C",
+    "Changed": "N",
+    "Old Type/Sub": "4/C",
+    "Aerials": "https://i.imgur.com/YZ048Oj.jpg",
+    "MSG1": {
+      "system": "Outotz QJ-O c20-0",
+      "location": null,
+      "x": 670.71875,
+      "y": 240.1875,
+      "z": -1439.28125
+    },
+    "MSG2": {
+      "system": "Outotz PX-J b51-0",
+      "location": null,
+      "x": 609.78125,
+      "y": 285.40625,
+      "z": -1238.59375
+    },
+    "MSG3": null,
+    "x": -2.09375,
+    "y": -143.65625,
+    "z": -413.59375
+  },
+  {
+    "System": "HIP 17044",
+    "Active": "✔",
+    "Planet": "1 B",
+    "Leviathons": "LR+RF",
+    "New Type/Sub": "4/C",
+    "Changed": "N",
+    "Old Type/Sub": "4/C",
+    "Aerials": "https://i.imgur.com/c2zWzag.jpg",
+    "MSG1": {
+      "system": "Aries Dark Region KH-V c2-4",
+      "location": null,
+      "x": -33.21875,
+      "y": -180.25,
+      "z": -245.0
+    },
+    "MSG2": {
+      "system": "HIP 17837",
+      "location": null,
+      "x": -52.15625,
+      "y": -130.75,
+      "z": -279.9375
+    },
+    "MSG3": {
+      "system": "HIP 11981",
+      "location": null,
+      "x": -153.59375,
+      "y": -123.5,
+      "z": -234.4375
+    },
+    "x": -74.25,
+    "y": -129.53125,
+    "z": -283.15625
+  },
+  {
+    "System": "Mel 22 Sector NT-Q c5-11",
+    "Active": "✔",
+    "Planet": "8 A",
+    "Leviathons": "LR+RF",
+    "New Type/Sub": "4/C",
+    "Changed": "N",
+    "Old Type/Sub": "4/C",
+    "Aerials": "https://i.imgur.com/Vi4xIwy.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector ZM-H b11-3",
+      "location": null,
+      "x": -171.0625,
+      "y": -92.09375,
+      "z": -382.75
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector FM-V d2-38",
+      "location": null,
+      "x": -172.8125,
+      "y": -80.53125,
+      "z": -366.34375
+    },
+    "MSG3": {
+      "system": "HIP 14756",
+      "location": null,
+      "x": -159.53125,
+      "y": -104.53125,
+      "z": -297.5
+    },
+    "x": -174.0625,
+    "y": -104.96875,
+    "z": -372.625
+  },
+  {
+    "System": "HIP 19266",
+    "Active": "✔",
+    "Planet": "6 A",
+    "Leviathons": "RF+R++R",
+    "New Type/Sub": "4/D",
+    "Changed": "N",
+    "Old Type/Sub": "4/D",
+    "Aerials": "https://i.imgur.com/i8ZcRtY.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector MC-V d2-19",
+      "location": null,
+      "x": 31.5625,
+      "y": -231.6875,
+      "z": -351.4375
+    },
+    "MSG2": {
+      "system": "HIP 20830",
+      "location": null,
+      "x": 37.78125,
+      "y": -181.21875,
+      "z": -384.09375
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector DG-O c6-0",
+      "location": null,
+      "x": 5.6875,
+      "y": -256.8125,
+      "z": -323.5625
+    },
+    "x": 45.25,
+    "y": -223.28125,
+    "z": -346.84375
+  },
+  {
+    "System": "HIP 20859",
+    "Active": "✔",
+    "Planet": "A 1 A",
+    "Leviathons": "RF+R++R",
+    "New Type/Sub": "4/D",
+    "Changed": "Y",
+    "Old Type/Sub": "4/N",
+    "Aerials": "https://i.imgur.com/YBONFwO.jpg",
+    "MSG1": {
+      "system": "Agastani",
+      "location": null,
+      "x": 22.375,
+      "y": -17.6875,
+      "z": -7.78125
+    },
+    "MSG2": {
+      "system": "HIP 16613",
+      "location": null,
+      "x": -63.9375,
+      "y": -186.6875,
+      "z": -325.4375
+    },
+    "MSG3": null,
+    "x": -31.15625,
+    "y": -120.65625,
+    "z": -384.5
+  },
+  {
+    "System": "Pleiades Sector OS-U c2-6",
+    "Active": "✔",
+    "Planet": "A 5 B",
+    "Leviathons": "RF+R++R",
+    "New Type/Sub": "4/D",
+    "Changed": "N",
+    "Old Type/Sub": "4/D",
+    "Aerials": "https://i.imgur.com/P1LPo1i.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector CB-O c6-4",
+      "location": null,
+      "x": -122.65625,
+      "y": -267.5,
+      "z": -336.84375
+    },
+    "MSG2": {
+      "system": "HIP 14909",
+      "location": null,
+      "x": -84.375,
+      "y": -259.28125,
+      "z": -358.65625
+    },
+    "MSG3": {
+      "system": "Pleiades Sector KM-W d1-40",
+      "location": null,
+      "x": -33.0,
+      "y": -211.9375,
+      "z": -327.75
+    },
+    "x": -104.3125,
+    "y": -239.25,
+    "z": -336.5625
+  },
+  {
+    "System": "HIP 20318",
+    "Active": "✔",
+    "Planet": "3 A",
+    "Leviathons": "RTL++R",
+    "New Type/Sub": "4/E",
+    "Changed": "N",
+    "Old Type/Sub": "4/E",
+    "Aerials": "https://i.imgur.com/vLUGIUr.jpg",
+    "MSG1": {
+      "system": "HIP 20830",
+      "location": null,
+      "x": 37.78125,
+      "y": -181.21875,
+      "z": -384.09375
+    },
+    "MSG2": {
+      "system": "Struve's Lost Sector NN-T c3-6",
+      "location": null,
+      "x": 8.15625,
+      "y": -178.40625,
+      "z": -410.09375
+    },
+    "MSG3": {
+      "system": "Struve's Lost Sector NN-T c3-1",
+      "location": null,
+      "x": 13.53125,
+      "y": -173.15625,
+      "z": -387.96875
+    },
+    "x": 28.375,
+    "y": -196.90625,
+    "z": -400.09375
+  },
+  {
+    "System": "HIP 21348",
+    "Active": "✔",
+    "Planet": "A 2 B",
+    "Leviathons": "RTLR",
+    "New Type/Sub": "4/F",
+    "Changed": "N",
+    "Old Type/Sub": "4/F",
+    "Aerials": "https://i.imgur.com/tUsNLXm.jpg",
+    "MSG1": {
+      "system": "HIP 20859",
+      "location": null,
+      "x": -31.15625,
+      "y": -120.65625,
+      "z": -384.5
+    },
+    "MSG2": {
+      "system": "HIP 22334",
+      "location": null,
+      "x": -24.03125,
+      "y": -85.5,
+      "z": -393.78125
+    },
+    "MSG3": {
+      "system": "Pleiades Sector DG-X c1-14",
+      "location": null,
+      "x": -45.625,
+      "y": -80.78125,
+      "z": -376.4375
+    },
+    "x": -26.84375,
+    "y": -107.90625,
+    "z": -379.40625
+  },
+  {
+    "System": "Struve's Lost Sector NN-T c3-6",
+    "Active": "✔",
+    "Planet": "1 C",
+    "Leviathons": "RTLR",
+    "New Type/Sub": "4/F",
+    "Changed": "N",
+    "Old Type/Sub": "4/F",
+    "Aerials": "https://i.imgur.com/uR1cKJ6.jpg",
+    "MSG1": {
+      "system": "Struve's Lost Sector NN-T c3-1",
+      "location": null,
+      "x": 13.53125,
+      "y": -173.15625,
+      "z": -387.96875
+    },
+    "MSG2": {
+      "system": "HIP 20318",
+      "location": null,
+      "x": 28.375,
+      "y": -196.90625,
+      "z": -400.09375
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region OX-U c2-10",
+      "location": null,
+      "x": 11.71875,
+      "y": -147.65625,
+      "z": -400.25
+    },
+    "x": 8.15625,
+    "y": -178.40625,
+    "z": -410.09375
+  },
+  {
+    "System": "Mel 22 Sector DB-X d1-46",
+    "Active": "✔",
+    "Planet": "A 8 A",
+    "Leviathons": "RTL+++F",
+    "New Type/Sub": "4/G",
+    "Changed": "N",
+    "Old Type/Sub": "4/G",
+    "Aerials": "https://i.imgur.com/y08jn3V.jpg",
+    "MSG1": {
+      "system": "Deciat",
+      "location": null,
+      "x": 122.625,
+      "y": -0.8125,
+      "z": -47.28125
+    },
+    "MSG2": {
+      "system": "Deciat",
+      "location": null,
+      "x": 122.625,
+      "y": -0.8125,
+      "z": -47.28125
+    },
+    "MSG3": null,
+    "x": -170.3125,
+    "y": -157.65625,
+    "z": -433.71875
+  },
+  {
+    "System": "Pleiades Sector AV-Y c7",
+    "Active": "✔",
+    "Planet": "1 B",
+    "Leviathons": "RTL+++F",
+    "New Type/Sub": "4/G",
+    "Changed": "N",
+    "Old Type/Sub": "4/G",
+    "Aerials": "https://i.imgur.com/PnCjwsW.jpg",
+    "MSG1": {
+      "system": "Dhanhopi",
+      "location": null,
+      "x": -6.90625,
+      "y": 79.625,
+      "z": -27.625
+    },
+    "MSG2": {
+      "system": "HIP 19026",
+      "location": null,
+      "x": -117.875,
+      "y": -65.125,
+      "z": -330.90625
+    },
+    "MSG3": null,
+    "x": -65.0625,
+    "y": -110.625,
+    "z": -424.3125
+  },
+  {
+    "System": "Mel 22 Sector FM-V d2-67",
+    "Active": "✔",
+    "Planet": "2 A",
+    "Leviathons": "RT+R++F",
+    "New Type/Sub": "4/H",
+    "Changed": "N",
+    "Old Type/Sub": "4/H",
+    "Aerials": "https://i.imgur.com/iWL9eW4.jpg",
+    "MSG1": {
+      "system": "63 G. Capricorni",
+      "location": "Skvortsov Orbital",
+      "x": -19.1875,
+      "y": -44.8125,
+      "z": 52.53125
+    },
+    "MSG2": {
+      "system": "HIP 16795",
+      "location": null,
+      "x": -149.4375,
+      "y": -167.15625,
+      "z": -432.125
+    },
+    "MSG3": null,
+    "x": -202.09375,
+    "y": -81.78125,
+    "z": -365.5
+  },
+  {
+    "System": "Mel 22 Sector UE-G b11-0",
+    "Active": "✔",
+    "Planet": "A 2",
+    "Leviathons": "RT+R++F",
+    "New Type/Sub": "4/H",
+    "Changed": "Y",
+    "Old Type/Sub": "4/P",
+    "Aerials": "https://i.imgur.com/eVTW4Vp.jpg",
+    "MSG1": {
+      "system": "Ross 129",
+      "location": null,
+      "x": 41.9375,
+      "y": 74.65625,
+      "z": 3.4375
+    },
+    "MSG2": {
+      "system": "Aries Dark Region DB-X d1-64",
+      "location": null,
+      "x": -107.5625,
+      "y": -99.90625,
+      "z": -239.25
+    },
+    "MSG3": null,
+    "x": -39.5,
+    "y": -239.625,
+    "z": -380.625
+  },
+  {
+    "System": "Mel 22 Sector ZU-P c5-1",
+    "Active": "✔",
+    "Planet": "4 A",
+    "Leviathons": "RF+R+L",
+    "New Type/Sub": "4/I",
+    "Changed": "N",
+    "Old Type/Sub": "4/I",
+    "Aerials": "https://i.imgur.com/Nx6b03z.jpg",
+    "MSG1": {
+      "system": "LHS 2524",
+      "location": null,
+      "x": 57.59375,
+      "y": 96.6875,
+      "z": 15.9375
+    },
+    "MSG2": {
+      "system": "HIP 14702",
+      "location": null,
+      "x": -30.21875,
+      "y": -228.84375,
+      "z": -254.1875
+    },
+    "MSG3": null,
+    "x": -75.4375,
+    "y": -284.5,
+    "z": -361.8125
+  },
+  {
+    "System": "Synuefai YQ-X c17-8",
+    "Active": "✔",
+    "Planet": "3 A",
+    "Leviathons": "LR++F+R",
+    "New Type/Sub": "4/J",
+    "Changed": "N",
+    "Old Type/Sub": "4/J",
+    "Aerials": "https://i.imgur.com/g47yftM.jpg",
+    "MSG1": {
+      "system": "Synuefai YQ-X c17-7",
+      "location": null,
+      "x": -209.15625,
+      "y": -190.78125,
+      "z": -295.0625
+    },
+    "MSG2": {
+      "system": "Synuefai UA-Y c17-4",
+      "location": null,
+      "x": -205.625,
+      "y": -140.9375,
+      "z": -296.40625
+    },
+    "MSG3": {
+      "system": "Aries Dark Region DB-X c1-2",
+      "location": null,
+      "x": -182.78125,
+      "y": -172.84375,
+      "z": -293.375
+    },
+    "x": -192.875,
+    "y": -205.6875,
+    "z": -289.375
+  },
+  {
+    "System": "Taurus Dark Region CQ-Y d36",
+    "Active": "✔",
+    "Planet": "7 A",
+    "Leviathons": "RF++T+R",
+    "New Type/Sub": "4/K",
+    "Changed": "N",
+    "Old Type/Sub": "4/K",
+    "Aerials": "https://i.imgur.com/hsv9dR6.jpg",
+    "MSG1": {
+      "system": "HIP 22743",
+      "location": null,
+      "x": -11.34375,
+      "y": -86.5,
+      "z": -399.84375
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region CQ-Y d31",
+      "location": null,
+      "x": -40.9375,
+      "y": -90.09375,
+      "z": -446.375
+    },
+    "MSG3": {
+      "system": "Pleiades Sector ZZ-Y c14",
+      "location": null,
+      "x": -38.1875,
+      "y": -100.25,
+      "z": -411.5625
+    },
+    "x": 5.0,
+    "y": -94.625,
+    "z": -435.0
+  },
+  {
+    "System": "Mel 22 Sector JC-V d2-41",
+    "Active": "✔",
+    "Planet": "A 1 A",
+    "Leviathons": "LR+R++R",
+    "New Type/Sub": "4/L",
+    "Changed": "N",
+    "Old Type/Sub": "4/L",
+    "Aerials": "https://i.imgur.com/8FGmatl.jpg",
+    "MSG1": {
+      "system": "Oraon",
+      "location": "Quaglia Dock",
+      "x": 56.5,
+      "y": 96.84375,
+      "z": -47.8125
+    },
+    "MSG2": {
+      "system": "Etain",
+      "location": null,
+      "x": 12.5,
+      "y": 35.03125,
+      "z": -37.1875
+    },
+    "MSG3": null,
+    "x": -189.84375,
+    "y": -214.71875,
+    "z": -350.8125
+  },
+  {
+    "System": "Taurus Dark Region QN-T b3-0",
+    "Active": "✔",
+    "Planet": "1 B",
+    "Leviathons": "LR+R++R",
+    "New Type/Sub": "4/L",
+    "Changed": "N",
+    "Old Type/Sub": "4/L",
+    "Aerials": "https://i.imgur.com/Kf3BCx0.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region BV-Y c11",
+      "location": null,
+      "x": -34.53125,
+      "y": -104.71875,
+      "z": -468.84375
+    },
+    "MSG2": {
+      "system": "HIP 19665",
+      "location": null,
+      "x": -47.125,
+      "y": -177.75,
+      "z": -457.9375
+    },
+    "MSG3": {
+      "system": "HIP 20644",
+      "location": null,
+      "x": -50.34375,
+      "y": -142.375,
+      "z": -465.125
+    },
+    "x": -40.125,
+    "y": -144.0625,
+    "z": -460.6875
+  },
+  {
+    "System": "HIP 15889",
+    "Active": "✔",
+    "Planet": "11 B",
+    "Leviathons": "RF++TL",
+    "New Type/Sub": "4/M",
+    "Changed": "N",
+    "Old Type/Sub": "4/M",
+    "Aerials": "https://i.imgur.com/cLBOobj.jpg",
+    "MSG1": {
+      "system": "HIP 16704",
+      "location": null,
+      "x": -118.4375,
+      "y": -170.78125,
+      "z": -387.375
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector JX-T c3-9",
+      "location": null,
+      "x": -183.8125,
+      "y": -152.25,
+      "z": -432.5
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector HH-V d2-37",
+      "location": null,
+      "x": -155.75,
+      "y": -179.3125,
+      "z": -406.6875
+    },
+    "x": -171.53125,
+    "y": -170.28125,
+    "z": -422.59375
+  },
+  {
+    "System": "Mel 22 Sector IO-G b11-1",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "TLR++F",
+    "New Type/Sub": "4/N",
+    "Changed": "Y",
+    "Old Type/Sub": "4/O",
+    "Aerials": "https://i.imgur.com/BnKaYeG.jpg",
+    "MSG1": {
+      "system": "Brib",
+      "location": "Dominique Holdings",
+      "x": 90.65625,
+      "y": -106.5,
+      "z": 11.25
+    },
+    "MSG2": {
+      "system": "Pleiades Sector JC-U b3-2",
+      "location": "Bugged TL",
+      "x": -73.625,
+      "y": -135.75,
+      "z": -359.71875
+    },
+    "MSG3": null,
+    "x": -198.09375,
+    "y": -202.34375,
+    "z": -381.90625
+  },
+  {
+    "System": "Taurus Dark Region OX-U c2-10",
+    "Active": "✔",
+    "Planet": "4 B",
+    "Leviathons": "TLR+R",
+    "New Type/Sub": "4/O",
+    "Changed": "Y",
+    "Old Type/Sub": "4/R",
+    "Aerials": "https://i.imgur.com/5FnDAPn.jpg",
+    "MSG1": {
+      "system": "HIP 21251",
+      "location": null,
+      "x": -2.09375,
+      "y": -143.65625,
+      "z": -413.59375
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region IR-W d1-47",
+      "location": null,
+      "x": 0.34375,
+      "y": -145.03125,
+      "z": -422.4375
+    },
+    "MSG3": {
+      "system": "Struve's Lost Sector NN-T c3-1",
+      "location": null,
+      "x": 13.53125,
+      "y": -173.15625,
+      "z": -387.96875
+    },
+    "x": 11.71875,
+    "y": -147.65625,
+    "z": -400.25
+  },
+  {
+    "System": "HIP 20644",
+    "Active": "✔",
+    "Planet": "A 2 D",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://i.imgur.com/1qQYJvD.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region BV-Y c11",
+      "location": null,
+      "x": -34.53125,
+      "y": -104.71875,
+      "z": -468.84375
+    },
+    "MSG2": {
+      "system": "Hind Sector GR-W d1-13",
+      "location": null,
+      "x": -78.28125,
+      "y": -199.59375,
+      "z": -473.1875
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region QN-T b3-0",
+      "location": null,
+      "x": -40.125,
+      "y": -144.0625,
+      "z": -460.6875
+    },
+    "x": -50.34375,
+    "y": -142.375,
+    "z": -465.125
+  },
+  {
+    "System": "HIP 20785",
+    "Active": "✔",
+    "Planet": "6 B",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://i.imgur.com/KfzAchJ.jpg",
+    "MSG1": {
+      "system": "Otherni",
+      "location": "Ryazanski Enterprise",
+      "x": 73.71875,
+      "y": -62.5,
+      "z": -61.125
+    },
+    "MSG2": {
+      "system": "HIP 19792",
+      "location": null,
+      "x": -70.15625,
+      "y": -103.21875,
+      "z": -355.84375
+    },
+    "MSG3": null,
+    "x": -20.75,
+    "y": -106.3125,
+    "z": -318.34375
+  },
+  {
+    "System": "Mel 22 Sector BV-P c5-2",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://i.imgur.com/hrLiiNg.jpg",
+    "MSG1": {
+      "system": "HIP 30045",
+      "location": null,
+      "x": 109.0625,
+      "y": -48.0625,
+      "z": -50.75
+    },
+    "MSG2": {
+      "system": "HIP 16217",
+      "location": null,
+      "x": -107.84375,
+      "y": -155.5625,
+      "z": -333.28125
+    },
+    "MSG3": null,
+    "x": -11.0,
+    "y": -270.625,
+    "z": -363.21875
+  },
+  {
+    "System": "Mel 22 Sector JX-T c3-9",
+    "Active": "✔",
+    "Planet": "6 A",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://i.imgur.com/ywNz0OS.jpg",
+    "MSG1": {
+      "system": "Dulerce",
+      "location": null,
+      "x": 49.03125,
+      "y": 25.6875,
+      "z": -73.0
+    },
+    "MSG2": {
+      "system": "HIP 7158",
+      "location": null,
+      "x": -3.78125,
+      "y": -143.84375,
+      "z": -33.8125
+    },
+    "MSG3": null,
+    "x": -183.8125,
+    "y": -152.25,
+    "z": -432.5
+  },
+  {
+    "System": "Mel 22 Sector LN-T d3-64",
+    "Active": "✔",
+    "Planet": "ABC 1 C",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://i.imgur.com/Om0l0Mf.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector OO-Q c5-6",
+      "location": null,
+      "x": -190.78125,
+      "y": -143.75,
+      "z": -354.46875
+    },
+    "MSG2": {
+      "system": "Synuefai UA-Y c17-4",
+      "location": null,
+      "x": -205.625,
+      "y": -140.9375,
+      "z": -296.40625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector OO-Q c5-10",
+      "location": null,
+      "x": -219.6875,
+      "y": -112.28125,
+      "z": -369.0
+    },
+    "x": -214.15625,
+    "y": -136.125,
+    "z": -334.0625
+  },
+  {
+    "System": "Mel 22 Sector OY-R c4-5",
+    "Active": "✔",
+    "Planet": "2 A",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://i.imgur.com/MHJLG83.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector JC-V d2-14",
+      "location": null,
+      "x": -174.15625,
+      "y": -200.96875,
+      "z": -361.71875
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector JC-V d2-15",
+      "location": null,
+      "x": -176.09375,
+      "y": -203.34375,
+      "z": -368.65625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector IO-G b11-1",
+      "location": null,
+      "x": -198.09375,
+      "y": -202.34375,
+      "z": -381.90625
+    },
+    "x": -194.375,
+    "y": -207.0,
+    "z": -388.65625
+  },
+  {
+    "System": "Pleiades Sector KT-Q b5-3",
+    "Active": "✔",
+    "Planet": "5 A",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://i.imgur.com/9OYYUq1.jpg",
+    "MSG1": {
+      "system": "HIP 19026",
+      "location": null,
+      "x": -117.875,
+      "y": -65.125,
+      "z": -330.90625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector EC-U b3-0",
+      "location": null,
+      "x": -166.4375,
+      "y": -132.78125,
+      "z": -351.46875
+    },
+    "MSG3": {
+      "system": "Hyades Sector XO-A c15",
+      "location": null,
+      "x": -13.125,
+      "y": -67.875,
+      "z": -275.25
+    },
+    "x": -169.71875,
+    "y": -116.6875,
+    "z": -322.3125
+  },
+  {
+    "System": "Taurus Dark Region FW-W c1-3",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "RTL++RF",
+    "New Type/Sub": "5/B",
+    "Changed": "N",
+    "Old Type/Sub": "5/B",
+    "Aerials": "https://i.imgur.com/xZghKf6.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector IS-S c4-6",
+      "location": null,
+      "x": -135.8125,
+      "y": -36.375,
+      "z": -408.96875
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region OJ-Q b5-3",
+      "location": null,
+      "x": -151.34375,
+      "y": -93.65625,
+      "z": -423.96875
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region DL-Y d54",
+      "location": null,
+      "x": -88.53125,
+      "y": -124.65625,
+      "z": -453.40625
+    },
+    "x": -122.34375,
+    "y": -115.78125,
+    "z": -434.53125
+  },
+  {
+    "System": "Mel 22 Sector KC-V d2-28",
+    "Active": "✔",
+    "Planet": "1 C",
+    "Leviathons": "RTL++RF",
+    "New Type/Sub": "5/B",
+    "Changed": "N",
+    "Old Type/Sub": "5/B",
+    "Aerials": "https://i.imgur.com/sdhuWbE.jpg",
+    "MSG1": {
+      "system": "Outotz ST-I d9-6",
+      "location": null,
+      "x": 604.15625,
+      "y": 153.59375,
+      "z": -1514.9375
+    },
+    "MSG2": {
+      "system": "HIP 17862",
+      "location": null,
+      "x": -81.4375,
+      "y": -151.90625,
+      "z": -359.59375
+    },
+    "MSG3": null,
+    "x": -78.4375,
+    "y": -258.25,
+    "z": -404.0625
+  },
+  {
+    "System": "Mel 22 Sector OO-Q c5-10",
+    "Active": "✔",
+    "Planet": "7 B",
+    "Leviathons": "RTL++RF",
+    "New Type/Sub": "5/B",
+    "Changed": "N",
+    "Old Type/Sub": "5/B",
+    "Aerials": "https://i.imgur.com/GjNZa5P.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector OO-Q c5-6",
+      "location": null,
+      "x": -190.78125,
+      "y": -143.75,
+      "z": -354.46875
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector LN-T d3-64",
+      "location": null,
+      "x": -214.15625,
+      "y": -136.125,
+      "z": -334.0625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector FM-V d2-67",
+      "location": null,
+      "x": -202.09375,
+      "y": -81.78125,
+      "z": -365.5
+    },
+    "x": -219.6875,
+    "y": -112.28125,
+    "z": -369.0
+  },
+  {
+    "System": "Mel 22 Sector WK-O c6-1",
+    "Active": "✔",
+    "Planet": "5 C",
+    "Leviathons": "RTL++RF",
+    "New Type/Sub": "5/B",
+    "Changed": "N",
+    "Old Type/Sub": "5/B",
+    "Aerials": "https://i.imgur.com/AypdGRv.jpg",
+    "MSG1": {
+      "system": "LHS 6187",
+      "location": "Hooke Gateway",
+      "x": 77.6875,
+      "y": 73.0,
+      "z": -24.1875
+    },
+    "MSG2": {
+      "system": "HIP 20644",
+      "location": null,
+      "x": -50.34375,
+      "y": -142.375,
+      "z": -465.125
+    },
+    "MSG3": null,
+    "x": -191.90625,
+    "y": -221.3125,
+    "z": -320.375
+  },
+  {
+    "System": "Taurus Dark Region BQ-Y c12",
+    "Active": "✔",
+    "Planet": "2 A",
+    "Leviathons": "RTL++RF",
+    "New Type/Sub": "5/B",
+    "Changed": "N",
+    "Old Type/Sub": "5/B",
+    "Aerials": "https://i.imgur.com/HjP2eAC.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region DL-Y d54",
+      "location": null,
+      "x": -88.53125,
+      "y": -124.65625,
+      "z": -453.40625
+    },
+    "MSG2": {
+      "system": "HIP 20989",
+      "location": null,
+      "x": -78.96875,
+      "y": -106.40625,
+      "z": -467.6875
+    },
+    "MSG3": {
+      "system": "HIP 21373",
+      "location": null,
+      "x": -76.6875,
+      "y": -93.03125,
+      "z": -460.65625
+    },
+    "x": -106.59375,
+    "y": -120.625,
+    "z": -477.46875
+  },
+  {
+    "System": "Mel 22 Sector MC-V d2-19",
+    "Active": "✔",
+    "Planet": "BC 1 B",
+    "Leviathons": "RT+R+RF",
+    "New Type/Sub": "5/C",
+    "Changed": "N",
+    "Old Type/Sub": "5/C",
+    "Aerials": "https://i.imgur.com/9I90rhY.jpg",
+    "MSG1": {
+      "system": "Wayutabal",
+      "location": "Kaiser Terminal",
+      "x": 101.3125,
+      "y": -81.90625,
+      "z": -9.09375
+    },
+    "MSG2": {
+      "system": "Ngaiawang",
+      "location": "Dornier Terminal",
+      "x": 62.375,
+      "y": -89.90625,
+      "z": -13.0
+    },
+    "MSG3": null,
+    "x": 31.5625,
+    "y": -231.6875,
+    "z": -351.4375
+  },
+  {
+    "System": "Mel 22 Sector ZM-H b11-3",
+    "Active": "✔",
+    "Planet": "B 3",
+    "Leviathons": "RT+R+RF",
+    "New Type/Sub": "5/C",
+    "Changed": "N",
+    "Old Type/Sub": "5/C",
+    "Aerials": "https://i.imgur.com/BUzejsa.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector NT-Q c5-11",
+      "location": null,
+      "x": -174.0625,
+      "y": -104.96875,
+      "z": -372.625
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector FM-V d2-38",
+      "location": null,
+      "x": -172.8125,
+      "y": -80.53125,
+      "z": -366.34375
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector FM-V d2-67",
+      "location": null,
+      "x": -202.09375,
+      "y": -81.78125,
+      "z": -365.5
+    },
+    "x": -171.0625,
+    "y": -92.09375,
+    "z": -382.75
+  },
+  {
+    "System": "Pleiades Sector EL-Y d23",
+    "Active": "✔",
+    "Planet": "ABCD 1 A",
+    "Leviathons": "RT+R+RF",
+    "New Type/Sub": "5/C",
+    "Changed": "N",
+    "Old Type/Sub": "5/C",
+    "Aerials": "https://i.imgur.com/WCycZ18.jpg",
+    "MSG1": {
+      "system": "HIP 20859",
+      "location": null,
+      "x": -31.15625,
+      "y": -120.65625,
+      "z": -384.5
+    },
+    "MSG2": {
+      "system": "Pleiades Sector IX-S b4-1",
+      "location": null,
+      "x": -60.78125,
+      "y": -79.53125,
+      "z": -344.90625
+    },
+    "MSG3": {
+      "system": "Pleiades Sector AV-Y c7",
+      "location": null,
+      "x": -65.0625,
+      "y": -110.625,
+      "z": -424.3125
+    },
+    "x": -39.625,
+    "y": -133.125,
+    "z": -410.625
+  },
+  {
+    "System": "Pleiades Sector MM-V b2-2",
+    "Active": "✔",
+    "Planet": "1 B",
+    "Leviathons": "RT+R+RF",
+    "New Type/Sub": "5/C",
+    "Changed": "N",
+    "Old Type/Sub": "5/C",
+    "Aerials": "https://i.imgur.com/RXpILgq.jpg",
+    "MSG1": {
+      "system": "HIP 18730",
+      "location": null,
+      "x": -24.125,
+      "y": -186.6875,
+      "z": -369.25
+    },
+    "MSG2": {
+      "system": "HIP 19549",
+      "location": null,
+      "x": -29.65625,
+      "y": -169.25,
+      "z": -398.25
+    },
+    "MSG3": {
+      "system": "Pleiades Sector GG-Y d33",
+      "location": null,
+      "x": -37.5,
+      "y": -204.25,
+      "z": -386.3125
+    },
+    "x": -21.03125,
+    "y": -179.78125,
+    "z": -383.75
+  },
+  {
+    "System": "Taurus Dark Region MY-R b4-1",
+    "Active": "✔",
+    "Planet": "1 B",
+    "Leviathons": "RT+R+RF",
+    "New Type/Sub": "5/C",
+    "Changed": "N",
+    "Old Type/Sub": "5/C",
+    "Aerials": "https://i.imgur.com/3d49JF9.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector HH-V d2-53",
+      "location": null,
+      "x": -170.3125,
+      "y": -126.46875,
+      "z": -423.0625
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector FH-U c3-9",
+      "location": null,
+      "x": -172.0625,
+      "y": -104.4375,
+      "z": -446.34375
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region CL-Y d53",
+      "location": null,
+      "x": -150.625,
+      "y": -143.71875,
+      "z": -439.625
+    },
+    "x": -159.875,
+    "y": -117.53125,
+    "z": -427.8125
+  },
+  {
+    "System": "Pleiades Sector DQ-Y c4",
+    "Active": "✔",
+    "Planet": "6 A",
+    "Leviathons": "TLR+RF",
+    "New Type/Sub": "5/D",
+    "Changed": "N",
+    "Old Type/Sub": "5/D",
+    "Aerials": "https://i.imgur.com/ayujQxf.jpg",
+    "MSG1": {
+      "system": "HIP 19792",
+      "location": null,
+      "x": -70.15625,
+      "y": -103.21875,
+      "z": -355.84375
+    },
+    "MSG2": {
+      "system": "Dhanhopi",
+      "location": "Plucker Enterprise",
+      "x": -6.90625,
+      "y": 79.625,
+      "z": -27.625
+    },
+    "MSG3": null,
+    "x": -60.40625,
+    "y": -182.3125,
+    "z": -420.03125
+  },
+  {
+    "System": "Struve's Lost Sector NN-T c3-1",
+    "Active": "✔",
+    "Planet": "ABCD 1 A",
+    "Leviathons": "TLR+RF",
+    "New Type/Sub": "5/D",
+    "Changed": "N",
+    "Old Type/Sub": "5/D",
+    "Aerials": "https://i.imgur.com/Im1jyWd.jpg",
+    "MSG1": {
+      "system": "Di Jian",
+      "location": "Preuss Terminal",
+      "x": -16.5625,
+      "y": 108.25,
+      "z": 5.34375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector JN-S b4-3",
+      "location": null,
+      "x": -112.78125,
+      "y": -109.03125,
+      "z": -333.71875
+    },
+    "MSG3": null,
+    "x": 13.53125,
+    "y": -173.15625,
+    "z": -387.96875
+  },
+  {
+    "System": "HIP 22334",
+    "Active": "✔",
+    "Planet": "1 D",
+    "Leviathons": "RTLR++F",
+    "New Type/Sub": "5/E",
+    "Changed": "Y",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://i.imgur.com/bMGPNLU.jpg",
+    "MSG1": {
+      "system": "HIP 22743",
+      "location": null,
+      "x": -11.34375,
+      "y": -86.5,
+      "z": -399.84375
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region JH-V c2-9",
+      "location": null,
+      "x": -35.125,
+      "y": -77.3125,
+      "z": -408.3125
+    },
+    "MSG3": {
+      "system": "HIP 21348",
+      "location": null,
+      "x": -26.84375,
+      "y": -107.90625,
+      "z": -379.40625
+    },
+    "x": -24.03125,
+    "y": -85.5,
+    "z": -393.78125
+  },
+  {
+    "System": "Mel 22 Sector NX-U d2-31",
+    "Active": "✔",
+    "Planet": "3 A",
+    "Leviathons": "RTLR++F",
+    "New Type/Sub": "5/E",
+    "Changed": "Y",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/QGfQbNv.jpg",
+    "MSG1": {
+      "system": "Outotz ST-I d9-6",
+      "location": null,
+      "x": 604.15625,
+      "y": 153.59375,
+      "z": -1514.9375
+    },
+    "MSG2": {
+      "system": "Outotz ZC-Y c28-2",
+      "location": null,
+      "x": 460.84375,
+      "y": 150.53125,
+      "z": -1094.40625
+    },
+    "MSG3": null,
+    "x": -64.40625,
+    "y": -269.5625,
+    "z": -373.59375
+  },
+  {
+    "System": "Mel 22 Sector OO-Q c5-6",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "RTLR++F",
+    "New Type/Sub": "5/E",
+    "Changed": "Y",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://i.imgur.com/yv96mIN.jpg",
+    "MSG1": {
+      "system": "12 Trianguli",
+      "location": null,
+      "x": -77.15625,
+      "y": -76.8125,
+      "z": -120.6875
+    },
+    "MSG2": {
+      "system": "Tascheter Sector CL-Y d115",
+      "location": null,
+      "x": -3.5625,
+      "y": -15.5,
+      "z": -88.90625
+    },
+    "MSG3": null,
+    "x": -190.78125,
+    "y": -143.75,
+    "z": -354.46875
+  },
+  {
+    "System": "HIP 15746",
+    "Active": "✔",
+    "Planet": "AB 1 B",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/vxLZo0d.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector LN-T c3-11",
+      "location": null,
+      "x": -124.65625,
+      "y": -113.96875,
+      "z": -282.625
+    },
+    "MSG2": {
+      "system": "HIP 16704",
+      "location": null,
+      "x": -118.4375,
+      "y": -170.78125,
+      "z": -387.375
+    },
+    "MSG3": {
+      "system": "Pleiades Sector EC-U b3-0",
+      "location": null,
+      "x": -166.4375,
+      "y": -132.78125,
+      "z": -351.46875
+    },
+    "x": -143.9375,
+    "y": -159.15625,
+    "z": -367.15625
+  },
+  {
+    "System": "HIP 16985",
+    "Active": "✔",
+    "Planet": "A 4 E",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/jr0ilNV.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector UE-G b11-0",
+      "location": null,
+      "x": -39.5,
+      "y": -239.625,
+      "z": -380.625
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector BV-P c5-2",
+      "location": null,
+      "x": -11.0,
+      "y": -270.625,
+      "z": -363.21875
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector KC-V d2-28",
+      "location": null,
+      "x": -78.4375,
+      "y": -258.25,
+      "z": -404.0625
+    },
+    "x": -54.59375,
+    "y": -242.15625,
+    "z": -401.5
+  },
+  {
+    "System": "HIP 18368",
+    "Active": "✔",
+    "Planet": "2 H",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/ULuooz7.jpg",
+    "MSG1": {
+      "system": "Byeru Bese",
+      "location": "Garnier Station",
+      "x": -55.84375,
+      "y": -91.03125,
+      "z": 45.1875
+    },
+    "MSG2": {
+      "system": "12 Trianguli",
+      "location": null,
+      "x": -77.15625,
+      "y": -76.8125,
+      "z": -120.6875
+    },
+    "MSG3": null,
+    "x": 0.25,
+    "y": -174.8125,
+    "z": -286.46875
+  },
+  {
+    "System": "HIP 22743",
+    "Active": "✔",
+    "Planet": "B 1 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/AfcaPeg.jpg",
+    "MSG1": {
+      "system": "LDS 883",
+      "location": "Smith Reserve",
+      "x": -28.71875,
+      "y": -35.71875,
+      "z": -61.4375
+    },
+    "MSG2": {
+      "system": "Bhal",
+      "location": "Dionysus Class Wrecked Megaship near AB 3",
+      "x": -87.03125,
+      "y": -71.6875,
+      "z": -134.65625
+    },
+    "MSG3": null,
+    "x": -11.34375,
+    "y": -86.5,
+    "z": -399.84375
+  },
+  {
+    "System": "Mel 22 Sector FH-U c3-9",
+    "Active": "✔",
+    "Planet": "A 1 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/PSwQ4Rv.jpg",
+    "MSG1": {
+      "system": "Oitbi",
+      "location": "Wiener City",
+      "x": -44.09375,
+      "y": -74.1875,
+      "z": 87.40625
+    },
+    "MSG2": {
+      "system": "HIP 23022",
+      "location": null,
+      "x": -30.375,
+      "y": -51.1875,
+      "z": -338.15625
+    },
+    "MSG3": null,
+    "x": -172.0625,
+    "y": -104.4375,
+    "z": -446.34375
+  },
+  {
+    "System": "Mel 22 Sector JC-V d2-14",
+    "Active": "✔",
+    "Planet": "A 4 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/LSIM1hQ.jpg",
+    "MSG1": {
+      "system": "Ngaiawang",
+      "location": "Bellmarsh class megaship wreck",
+      "x": 62.375,
+      "y": -89.90625,
+      "z": -13.0
+    },
+    "MSG2": {
+      "system": "Pleiades Sector IH-V c2-16",
+      "location": "unknown target",
+      "x": -92.0,
+      "y": -143.5,
+      "z": -341.3125
+    },
+    "MSG3": null,
+    "x": -174.15625,
+    "y": -200.96875,
+    "z": -361.71875
+  },
+  {
+    "System": "Mel 22 Sector JC-V d2-15",
+    "Active": "✔",
+    "Planet": "ABC 1 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/dlSvJ6x.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector JC-V d2-14",
+      "location": null,
+      "x": -174.15625,
+      "y": -200.96875,
+      "z": -361.71875
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector JC-V d2-41",
+      "location": null,
+      "x": -189.84375,
+      "y": -214.71875,
+      "z": -350.8125
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector IO-G b11-1",
+      "location": null,
+      "x": -198.09375,
+      "y": -202.34375,
+      "z": -381.90625
+    },
+    "x": -176.09375,
+    "y": -203.34375,
+    "z": -368.65625
+  },
+  {
+    "System": "Mel 22 Sector TT-R c4-2",
+    "Active": "✔",
+    "Planet": "3 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/lqCbOsB.jpg",
+    "MSG1": {
+      "system": "HR 1257",
+      "location": "Jakobi Platform",
+      "x": 13.65625,
+      "y": -64.84375,
+      "z": -94.5625
+    },
+    "MSG2": {
+      "system": "LP 389-95",
+      "location": "Velasquez INRA base",
+      "x": 98.84375,
+      "y": 7.0,
+      "z": -7.71875
+    },
+    "MSG3": null,
+    "x": -97.375,
+    "y": -255.21875,
+    "z": -419.78125
+  },
+  {
+    "System": "Mel 22 Sector YU-F b11-1",
+    "Active": "✔",
+    "Planet": "AB 5 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/nk1yMPn.jpg",
+    "MSG1": {
+      "system": "Outotz EH-M d7-5",
+      "location": "EE Gnosis",
+      "x": 134.375,
+      "y": 208.40625,
+      "z": -1664.6875
+    },
+    "MSG2": {
+      "system": "Outotz SU-W b57-0",
+      "location": null,
+      "x": 459.125,
+      "y": 200.34375,
+      "z": -1100.59375
+    },
+    "MSG3": null,
+    "x": -33.96875,
+    "y": -268.4375,
+    "z": -384.53125
+  },
+  {
+    "System": "Pleiades Sector GG-Y d33",
+    "Active": "✔",
+    "Planet": "3 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/HVpo1Xh.jpg",
+    "MSG1": {
+      "system": "Pleiades Sector LY-Q b5-2",
+      "location": null,
+      "x": -121.59375,
+      "y": -85.78125,
+      "z": -306.34375
+    },
+    "MSG2": {
+      "system": "Kung Mu",
+      "location": "Foda Port",
+      "x": -92.8125,
+      "y": -16.21875,
+      "z": -35.65625
+    },
+    "MSG3": null,
+    "x": -37.5,
+    "y": -204.25,
+    "z": -386.3125
+  },
+  {
+    "System": "Pleiades Sector ZZ-Y c14",
+    "Active": "✔",
+    "Planet": "A 1 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/bXyS9DH.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region JH-V c2-9",
+      "location": null,
+      "x": -35.125,
+      "y": -77.3125,
+      "z": -408.3125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector IX-S b4-1",
+      "location": null,
+      "x": -60.78125,
+      "y": -79.53125,
+      "z": -344.90625
+    },
+    "MSG3": {
+      "system": "Pleiades Sector AV-Y c7",
+      "location": null,
+      "x": -65.0625,
+      "y": -110.625,
+      "z": -424.3125
+    },
+    "x": -38.1875,
+    "y": -100.25,
+    "z": -411.5625
+  },
+  {
+    "System": "Taurus Dark Region BV-Y c11",
+    "Active": "✔",
+    "Planet": "8 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/5k3iWXC.jpg",
+    "MSG1": {
+      "system": "Taurus Dark Region CQ-Y d31",
+      "location": null,
+      "x": -40.9375,
+      "y": -90.09375,
+      "z": -446.375
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region QN-T b3-0",
+      "location": null,
+      "x": -40.125,
+      "y": -144.0625,
+      "z": -460.6875
+    },
+    "MSG3": {
+      "system": "HIP 20644",
+      "location": null,
+      "x": -50.34375,
+      "y": -142.375,
+      "z": -465.125
+    },
+    "x": -34.53125,
+    "y": -104.71875,
+    "z": -468.84375
+  },
+  {
+    "System": "Wredguia UB-W c15-0",
+    "Active": "✔",
+    "Planet": "1 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://i.imgur.com/qBMwb3u.jpg",
+    "MSG1": {
+      "system": "Mel 22 Sector IS-S c4-6",
+      "location": null,
+      "x": -135.8125,
+      "y": -36.375,
+      "z": -408.96875
+    },
+    "MSG2": {
+      "system": "Pleiades Sector BG-X c1-14",
+      "location": null,
+      "x": -133.78125,
+      "y": -71.96875,
+      "z": -373.3125
+    },
+    "MSG3": {
+      "system": "Wredguia VX-L d7-80",
+      "location": null,
+      "x": -95.375,
+      "y": -12.15625,
+      "z": -371.4375
+    },
+    "x": -142.5625,
+    "y": -24.75,
+    "z": -380.90625
+  },
+  {
+    "System": "Mel 22 Sector JC-V d2-31",
+    "Active": "✔",
+    "Planet": "A 16 B",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "Y",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://i.imgur.com/xRX6Z4p.jpg",
+    "MSG1": {
+      "system": "Thraskias",
+      "location": "Pettit Ring",
+      "x": 46.71875,
+      "y": 46.625,
+      "z": -1.65625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector JN-S b4-3",
+      "location": null,
+      "x": -112.78125,
+      "y": -109.03125,
+      "z": -333.71875
+    },
+    "MSG3": null,
+    "x": -158.59375,
+    "y": -232.78125,
+    "z": -392.96875
+  }
+]
