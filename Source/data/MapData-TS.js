@@ -35,7 +35,8 @@ var canonnEd3d_ts = {
 				z: parseFloat(s.z),
 			};
 			// Build info HTML with image and site details
-			let infoHtml = '<h3>' + s.System + '</h3>';
+			let systemUrl = 'https://signals.canonn.tech/?system=' + encodeURIComponent(s.System);
+			let infoHtml = '<h3><a href="' + systemUrl + '" target="_blank" style="color: #FF9D00; text-decoration: none;">' + s.System + '</a></h3>';
 			let hasDetails = false;
 			if (s.Planet) {
 				infoHtml += '<p><strong>Planet:</strong> ' + s.Planet + '</p>';
