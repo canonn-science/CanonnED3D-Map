@@ -34,6 +34,35 @@ var canonnEd3d_ts = {
 				y: parseFloat(s.y),
 				z: parseFloat(s.z),
 			};
+			// Build info HTML with image and site details
+			let infoHtml = '<h3>' + s.System + '</h3>';
+			let hasDetails = false;
+			if (s.Planet) {
+				infoHtml += '<p><strong>Planet:</strong> ' + s.Planet + '</p>';
+				hasDetails = true;
+			}
+			if (s.Leviathons) {
+				infoHtml += '<p><strong>Leviathans:</strong> ' + s.Leviathons + '</p>';
+				hasDetails = true;
+			}
+			if (s["New Type/Sub"]) {
+				infoHtml += '<p><strong>Type:</strong> ' + s["New Type/Sub"] + '</p>';
+				hasDetails = true;
+			}
+			if (s.Active) {
+				infoHtml += '<p><strong>Status:</strong> ' + s.Active + '</p>';
+				hasDetails = true;
+			}
+			// Add image if available
+			if (s.Aerials) {
+				infoHtml += '<div style="margin-top: 10px;"><img src="' + s.Aerials + '" style="max-width: 100%; height: auto; border: 1px solid #666; display: block; cursor: pointer;" title="Click to view fullscreen"></div>';
+				hasDetails = true;
+			}
+			// Always set infos so systems are clickable, even with minimal data
+			if (!hasDetails) {
+				infoHtml += '<p style="color: #999; font-size: 12px;">No additional details available</p>';
+			}
+			poiSite['infos'] = infoHtml;
 			formattedBatch.push(poiSite);
 		}
 		// Append to systemsData for initialization
