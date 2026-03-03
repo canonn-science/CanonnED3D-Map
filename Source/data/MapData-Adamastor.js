@@ -1,53 +1,3 @@
-const API_ENDPOINT = `https://api.canonn.tech`;
-const API_LIMIT = 1000;
-
-const capi = axios.create({
-	baseURL: API_ENDPOINT,
-	headers: {
-		'Content-Type': 'application/json',
-		'Accept': 'application/json',
-	},
-});
-
-let sites = {
-	gbsites: [],
-};
-
-const go = async types => {
-	const keys = Object.keys(types);
-	return (await Promise.all(
-		keys.map(type => getSites(type))
-	)).reduce((acc, res, i) => {
-		acc[keys[i]] = res;
-		return acc;
-	}, {});
-};
-
-const getSites = async type => {
-	let records = [];
-	let keepGoing = true;
-	let API_START = 0;
-	while (keepGoing) {
-		let response = await reqSites(API_START, type);
-		await records.push.apply(records, response.data);
-		API_START += API_LIMIT;
-		if (response.data.length < API_LIMIT) {
-			keepGoing = false;
-			return records;
-		}
-	}
-};
-
-const reqSites = async (API_START, type) => {
-
-	let payload = await capi({
-		url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
-		method: 'get'
-	});
-
-	return payload;
-};
-
 var canonnEd3d_challenge = {
 	//Define Categories
 	systemsData: {
@@ -261,44 +211,6 @@ var canonnEd3d_challenge = {
 		]
 	},
 
-	formatGSites: async function (data, resolvePromise) {
-		sites = await go(data);
-
-		let siteTypes = Object.keys(data);
-
-		for (var i = 0; i < siteTypes.length; i++) {
-			for (var d = 0; d < sites[siteTypes[i]].length; d++) {
-				let siteData = sites[siteTypes[i]];
-				if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
-					var poiSite = {};
-					poiSite['name'] = siteData[d].system.systemName;
-					if (siteData[i].infos) {
-						poiSite['infos'] = siteData[i].infos + '<br/><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">Signals</a>';
-					} else {
-						poiSite['infos'] = '<a href="https://canonn.science/codex/guardian-beacons/" target="_blank" rel="noopener">Guardian Beacon</a><br/><a href="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" target="_blank" rel="noopener"><img src="https://canonn.science/wp-content/uploads/2018/08/Guardian-Beacon.png" /></a><a href="https://www.edsm.net/en/system?systemName=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + siteData[i].system.systemName + '" target="_blank" rel="noopener">Signals</a>';
-					}
-
-					//Check Site Type and match categories
-					if (siteTypes[i] == 'gbsites') {
-						poiSite['cat'] = [2001];
-					} else {
-						poiSite['cat'] = [2000];
-					}
-					poiSite['coords'] = {
-						x: parseFloat(siteData[d].system.edsmCoordX),
-						y: parseFloat(siteData[d].system.edsmCoordY),
-						z: parseFloat(siteData[d].system.edsmCoordZ),
-					};
-
-					// We can then push the site to the object that stores all systems
-					canonnEd3d_challenge.systemsData.systems.push(poiSite);
-				}
-			}
-		}
-		document.getElementById("loading").style.display = "none";
-		resolvePromise();
-	},
-
 	formatAdamastor: function (data) {
 		//Here you format POI & Gnosis JSON to ED3D acceptable object
 
@@ -383,11 +295,7 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.parseCSVData('data/csvCache/hesperus.csv', canonnEd3d_challenge.formatHesperus, resolve);
 		});
 
-		var p3 = new Promise(function (resolve, reject) {
-			canonnEd3d_challenge.formatGSites(sites, resolve);
-		});
-
-		Promise.all([p1, p2, p3]).then(function () {
+		Promise.all([p1, p2]).then(function () {
 			Ed3d.init({
 				container: 'edmap',
 				json: canonnEd3d_challenge.systemsData,
