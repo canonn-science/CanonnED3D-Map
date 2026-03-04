@@ -30,17 +30,34 @@ var Galaxy = {
 
   'addGalaxyCenter' : function () {
 
-    var objVal = new Object;
-    objVal.name = 'Sagittarius A*';
-    objVal.coords = {'x':this.y,'y':this.y,'z':this.z};
-    objVal.cat = [];
+    // Scene coordinates (Z is negated to match Three.js convention)
+    var sceneX = this.x;
+    var sceneY = this.y;
+    var sceneZ = -this.z;
 
-    this.obj = System.create(objVal, true);
+    // this.obj is required by getHeightData() as the parent container for
+    // the milkyway particle clouds — keep it as a plain Object3D.
+    this.obj = new THREE.Object3D();
+    this.obj.position.set(sceneX, sceneY, sceneZ);
+    scene.add(this.obj);
 
+    // Black hole sphere — depthWrite:true so it properly occludes the centre
+    // of the glow sprite, producing a dark-centre / bright-ring appearance.
+    var blackGeo = new THREE.SphereGeometry(1, 32, 32);
+    var blackMat = new THREE.MeshBasicMaterial({
+      color: 0x000000,
+      depthWrite: true
+    });
+    var blackDisc = new THREE.Mesh(blackGeo, blackMat);
+    blackDisc.position.set(sceneX, sceneY, sceneZ);
+    scene.add(blackDisc);
 
-    var sprite = new THREE.Sprite( Ed3d.material.glow_2 );
-    sprite.scale.set(50, 40, 2.0);
-    this.obj.add(sprite); /// this centers the glow at the mesh
+    // Additive glow — slightly larger than the sphere so the bright-centre of
+    // the texture is hidden, leaving a visible glowing ring around the void.
+    var glowSprite = new THREE.Sprite(Ed3d.material.glow_2);
+    glowSprite.position.set(sceneX, sceneY, sceneZ);
+    glowSprite.scale.set(7.5, 7.5, 1.0);
+    scene.add(glowSprite);
 
     this.createParticles();
     this.add2DPlane();

@@ -328,8 +328,11 @@ var Ed3d = {
     //-- Load sprites
     Ed3d.material.glow_1 = new THREE.SpriteMaterial({
       map: this.textures.flare_yellow,
-      color: 0xffffff, transparent: false,
-       fog: true
+      color: 0xffffff,
+      transparent: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      fog: true
     });
     Ed3d.material.glow_2 = new THREE.SpriteMaterial({
 
@@ -490,7 +493,11 @@ var Ed3d = {
     var BATCH_SIZE = batchSize || 500;
 
     //-- Initialise particle geometry only on first load, not when appending batches
-    if(!skipInit) System.initParticleSystem();
+    if(!skipInit) {
+      System.initParticleSystem();
+      //-- Always register Sagittarius A* as a clickable particle so it behaves like any other system
+      System.create({ name: 'Sagittarius A*', coords: { x: Galaxy.x, y: Galaxy.y, z: Galaxy.z } });
+    }
 
     //-- Build HUD category filters right away so they are visible during streaming
     if(data.categories != undefined) HUD.initFilters(data.categories);
@@ -572,6 +579,8 @@ var Ed3d = {
 
       //-- Init Particle system
       System.initParticleSystem();
+      //-- Always register Sagittarius A* as a clickable particle so it behaves like any other system
+      System.create({ name: 'Sagittarius A*', coords: { x: Galaxy.x, y: Galaxy.y, z: Galaxy.z } });
 
       //-- Load cat filters
       if(data.categories != undefined) HUD.initFilters(data.categories);
