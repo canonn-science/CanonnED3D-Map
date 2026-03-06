@@ -1122,21 +1122,21 @@ var canonnEd3d_challenge = {
 
 			canonnEd3d_challenge.uia[lastuia].destination_reached = destination_reached;
 
-			//paint a long line of potential where the UIA is heading at
+			//paint a long line of potential where the UIA is heading, extending to the galaxy edge
 			var meanX = sumX/data.length
 			var meanY = sumY/data.length
 			var meanZ = sumZ/data.length
 			const v3_mean = new THREE.Vector3(meanX, meanY, meanZ)
 			v3_mean.normalize()
-			var v3_firstwp = new THREE.Vector3(firstwp.coords.x, firstwp.coords.y, firstwp.coords.z)
-			v3_firstwp.addScaledVector(v3_mean, v3_firstwp.length()*predictionFactor)
 
-			//console.log(v3_mean, v3_firstwp)
+			// Extend 65,000 ly away from Sol (opposite the inbound mean direction) from firstwp
+			var v3_forward = new THREE.Vector3(firstwp.coords.x, firstwp.coords.y, firstwp.coords.z)
+			v3_forward.addScaledVector(v3_mean, -65000)
 			var extension = {
 				'name': "extended mean direction of UIA#"+(lastuia+1),
-				'infos': "Extension system to paint the mean line of UIA#"+(lastuia+1),
+				'infos': "Galaxy-edge extension of UIA#"+(lastuia+1)+" mean direction",
 				'url': "",
-				'coords': { x: v3_firstwp.x, y: v3_firstwp.y, z: v3_firstwp.z },
+				'coords': { x: v3_forward.x, y: v3_forward.y, z: v3_forward.z },
 				'cat': ["100"]
 			}
 			canonnEd3d_challenge.systemsData.systems.push(extension)
