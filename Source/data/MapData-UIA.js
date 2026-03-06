@@ -1271,17 +1271,131 @@ var canonnEd3d_challenge = {
 				}, redmaterial)
 			}
 		}
-		for (var i = 0; i < canonnEd3d_challenge.systemsData.pls.length; i++) {
-			canonnEd3d_challenge.createSphere(canonnEd3d_challenge.systemsData.pls[i], Ed3d.material.permit_zone)
-		}
-		var blackmaterial = new THREE.MeshBasicMaterial({
-			color: 0x030303,
+		// Build sphere arrays for shader-based CSG subtraction.
+		// z is negated to match the Three.js world space convention used in createSphere.
+		var puls = canonnEd3d_challenge.systemsData.puls;
+		var pls  = canonnEd3d_challenge.systemsData.pls;
+
+		var pulCenters = puls.length > 0
+			? puls.map(function(p) { return new THREE.Vector3(p.coords[0], p.coords[1], -p.coords[2]); })
+			: [new THREE.Vector3(0, 1e9, 0)];
+		var pulRadii = puls.length > 0
+			? puls.map(function(p) { return p.radius; })
+			: [0.0];
+		var pulN = pulCenters.length;
+
+		var plCenters = pls.length > 0
+			? pls.map(function(p) { return new THREE.Vector3(p.coords[0], p.coords[1], -p.coords[2]); })
+			: [new THREE.Vector3(0, 1e9, 0)];
+		var plRadii = pls.length > 0
+			? pls.map(function(p) { return p.radius; })
+			: [0.0];
+		var plN = plCenters.length;
+
+		// Pass 1 — PL sphere outer surface with holes punched where PUL spheres overlap.
+		// depthWrite: false so the PUL inner cap can show through the holes via additive blending.
+		var plSubtractMat = new THREE.ShaderMaterial({
+			uniforms: {
+				alphaMap:   { type: 't',   value: Ed3d.textures.permit_zone },
+				opacity:    { type: 'f',   value: 0.75 },
+				pulCenters: { type: 'v3v', value: pulCenters },
+				pulRadii:   { type: 'fv1', value: pulRadii }
+			},
+			vertexShader: [
+				'varying vec2 vUv;',
+				'varying vec3 vWorldPos;',
+				'varying vec3 vNormal;',
+				'void main() {',
+				'    vUv = uv;',
+				'    vWorldPos = (modelMatrix * vec4(position, 1.0)).xyz;',
+				'    vNormal = normalize(normalMatrix * normal);',
+				'    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);',
+				'}'
+			].join('\n'),
+			fragmentShader: [
+				'uniform sampler2D alphaMap;',
+				'uniform float opacity;',
+				'uniform vec3 pulCenters[' + pulN + '];',
+				'uniform float pulRadii[' + pulN + '];',
+				'varying vec2 vUv;',
+				'varying vec3 vWorldPos;',
+				'varying vec3 vNormal;',
+				'void main() {',
+				'    for (int i = 0; i < ' + pulN + '; i++) {',
+				'        if (distance(vWorldPos, pulCenters[i]) < pulRadii[i]) discard;',
+				'    }',
+				'    vec3 lightDir = normalize(vec3(-1.0, 1.5, 1.0));',
+				'    float diff = max(dot(vNormal, lightDir), 0.0);',
+				'    float light = 0.35 + 0.65 * diff;',
+				'    vec3 tint = vec3(0.2, 0.7, 1.0);',  // sky blue — permit LOCKED (colour-blind safe)
+				'    float a = texture2D(alphaMap, vUv).r;',
+				'    gl_FragColor = vec4(tint * light, a * opacity);',
+				'}'
+			].join('\n'),
 			transparent: true,
-			opacity: 0.3
-		})
-		for (var i = 0; i < canonnEd3d_challenge.systemsData.puls.length; i++) {
-			canonnEd3d_challenge.createSphere(canonnEd3d_challenge.systemsData.puls[i], blackmaterial)
+			blending: THREE.AdditiveBlending,
+			depthWrite: false
+		});
+
+		for (var i = 0; i < pls.length; i++) {
+			canonnEd3d_challenge.createSphere(pls[i], plSubtractMat);
 		}
+
+		// Pass 2 — PUL inner cap: front faces of each PUL sphere, clipped to inside the PL volume.
+		// When the camera looks through a hole in the PL surface, the near-facing hemisphere of
+		// the PUL sphere (front faces) is the curved concave inner wall that becomes visible.
+		// Same texture and opacity as the PL shell so the colour matches.
+		var pulCapMat = new THREE.ShaderMaterial({
+			uniforms: {
+				alphaMap:  { type: 't',   value: Ed3d.textures.permit_zone },
+				opacity:   { type: 'f',   value: 0.75 },
+				plCenters: { type: 'v3v', value: plCenters },
+				plRadii:   { type: 'fv1', value: plRadii }
+			},
+			vertexShader: [
+				'varying vec2 vUv;',
+				'varying vec3 vWorldPos;',
+				'varying vec3 vNormal;',
+				'void main() {',
+				'    vUv = uv;',
+				'    vWorldPos = (modelMatrix * vec4(position, 1.0)).xyz;',
+				'    vNormal = normalize(normalMatrix * normal);',
+				'    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);',
+				'}'
+			].join('\n'),
+			fragmentShader: [
+				'uniform sampler2D alphaMap;',
+				'uniform float opacity;',
+				'uniform vec3 plCenters[' + plN + '];',
+				'uniform float plRadii[' + plN + '];',
+				'varying vec2 vUv;',
+				'varying vec3 vWorldPos;',
+				'varying vec3 vNormal;',
+				'void main() {',
+				'    bool insidePL = false;',
+				'    for (int i = 0; i < ' + plN + '; i++) {',
+				'        if (distance(vWorldPos, plCenters[i]) < plRadii[i]) insidePL = true;',
+				'    }',
+				'    if (!insidePL) discard;',
+				'    vec3 n = gl_FrontFacing ? vNormal : -vNormal;',
+				'    vec3 lightDir = normalize(vec3(-1.0, 1.5, 1.0));',
+				'    float diff = max(dot(n, lightDir), 0.0);',
+				'    float light = 0.35 + 0.65 * diff;',
+				'    vec3 tint = vec3(1.0, 0.75, 0.1);',  // bright amber — permit UNLOCKED (colour-blind safe)
+				'    float a = texture2D(alphaMap, vUv).r;',
+				'    gl_FragColor = vec4(tint * light, a * opacity);',
+				'}'
+			].join('\n'),
+			side: THREE.DoubleSide, // render both faces so inner wall is visible from any viewing angle
+			transparent: true,
+			blending: THREE.AdditiveBlending,
+			depthWrite: false
+		});
+
+		for (var i = 0; i < puls.length; i++) {
+			canonnEd3d_challenge.createSphere(puls[i], pulCapMat);
+		}
+		// PUL geometry is only visible where it is inside a PL sphere — the outer parts are clipped by the shader.
 		
 		var ygmaterial = new THREE.MeshBasicMaterial({
 			color: 0x336600,
