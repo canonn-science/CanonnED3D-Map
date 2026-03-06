@@ -664,7 +664,27 @@ var canonnEd3d_challenge = {
 			radius: 100.0,
 			coords: [1099.23828, -146.67188, -133.58008],
 			name: "Regor Sector"
-			}
+			},
+			// Additional permit locked regions from ha_regions (needs_permit=True)
+			{ radius: 385.0, coords: [5456.35547,  -379.24609, -7706.28711],  name: "NGC 2286 Sector" },
+			{ radius: 150.0, coords: [18594.82031, -174.53125,  7362.21094],  name: "NGC 3603 Sector" },
+			{ radius: 100.0, coords: [-840.65625,  -561.13281,  13361.82812], name: "IC 4673 Sector" },
+			{ radius: 512.0, coords: [-43.0,   155.0,  37500.0], name: "Bleia1" },
+			{ radius: 512.0, coords: [-43.0,   155.0,  37000.0], name: "Bleia2" },
+			{ radius: 512.0, coords: [-43.0,   155.0,  36500.0], name: "Bleia3" },
+			{ radius: 512.0, coords: [450.0,   155.0,  37000.0], name: "Bleia4" },
+			{ radius: 512.0, coords: [-450.0,  155.0,  37000.0], name: "Bleia5" },
+			{ radius: 512.0, coords: [-20070.0,  90.0,  -6930.0], name: "Bovomit" },
+			{ radius: 512.0, coords: [19100.0,   20.0,  21160.0], name: "Dryman" },
+			{ radius: 512.0, coords: [-18860.0, -200.0, 14300.0], name: "Froadik" },
+			{ radius: 512.0, coords: [-23020.0,  -10.0, 24080.0], name: "Hyponia" },
+			{ radius: 512.0, coords: [-1000.0,  -155.0, 53600.0], name: "Praei3" },
+			{ radius: 512.0, coords: [-1000.0,  -155.0, 54000.0], name: "Praei1" },
+			{ radius: 512.0, coords: [-1000.0,  -155.0, 54400.0], name: "Praei2" },
+			{ radius: 512.0, coords: [-1000.0,  -555.0, 54000.0], name: "Praei4" },
+			{ radius: 512.0, coords: [-1000.0,   455.0, 54000.0], name: "Praei5" },
+			{ radius: 512.0, coords: [-500.0,   -100.0, 53500.0], name: "Praei6" },
+			{ radius: 100.0, coords: [-24120.0,   10.0,  -1220.0], name: "Sidgoir" },
 		],
 		hd_soi: [
 			{
