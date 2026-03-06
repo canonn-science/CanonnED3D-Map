@@ -1448,9 +1448,22 @@ var canonnEd3d_challenge = {
 	},
 	init: function () {
 		// Pre-add UIA 1-N hyperdiction categories so HUD is ready before API data arrives
-		for (var i = 1; i <= numberOfUIAs; i++) {
+		var uiaTitanNames = {
+			1: 'Taranis',
+			2: 'Leigong',
+			3: 'Indra',
+			4: 'Oya',
+			5: 'Cocijo',
+			6: 'Thor',
+			7: 'Raijin',
+			8: 'Hadad'
+		};
+		// UIA#9 does not exist; only create category filters for UIA#1..UIA#8
+		for (var i = 1; i <= 8; i++) {
+			var categoryName = 'UIA#' + i;
+			if (uiaTitanNames[i]) categoryName += ' ' + uiaTitanNames[i];
 			canonnEd3d_challenge.systemsData.categories["Hyperdictions"]["30" + i] = {
-				'name': "UIA " + i,
+				'name': categoryName,
 				'color': '999900'
 			};
 		}
