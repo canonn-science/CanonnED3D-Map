@@ -68,11 +68,13 @@ const capi = axios.create({
 	},
 });
 
-// Match a value against a pattern that may use % as a wildcard
+// Match a value against a pattern that may use % as a wildcard.
+// An implicit trailing wildcard is always applied so e.g. "Fumerola Aquatis"
+// matches "Fumerola Aquatis - Cobalt" and "Fumerola Aquatis - Cyan".
 function matchesPattern(value, pattern) {
 	if (!pattern) return true;
 	const regex = new RegExp(
-		'^' + pattern.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/%/g, '.*') + '$',
+		'^' + pattern.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/%/g, '.*') + '.*$',
 		'i'
 	);
 	return regex.test(value);
