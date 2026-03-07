@@ -43,7 +43,6 @@ const colours = [
 
 
 const API_ENDPOINT = 'https://us-central1-canonn-api-236217.cloudfunctions.net/query/codex'
-const API_LIMIT = 1000;
 function getURLParameter(name) {
 	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 }
@@ -69,36 +68,92 @@ const capi = axios.create({
 	},
 });
 
-const getSitesStream = async (type, formatCallback) => {
-	let records = {};
-	let keepGoing = true;
-	let API_START = 0;
-	const COUNT_T = 4;
-	while (keepGoing) {
-		let p = [];
-		for (let i = 0; i < COUNT_T; i++)
-			p.push(reqSites(API_START + i * API_LIMIT, type))
+// Match a value against a pattern that may use % as a wildcard
+function matchesPattern(value, pattern) {
+	if (!pattern) return true;
+	const regex = new RegExp(
+		'^' + pattern.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/%/g, '.*') + '$',
+		'i'
+	);
+	return regex.test(value);
+}
 
-		let count = 0;
-		let responses = await Promise.all(p)
-		let batchData = {};
-		responses.map((response) => {
-			Object.assign(batchData, response.data)
-			for (let system in response.data) {
-				if (response.data[system].codex) count += response.data[system].codex.length
+// Walk the ref hierarchy and return entries whose hud_category/sub_class/english_name
+// match current URL params (% wildcard supported). Only entries with a dump URL are returned.
+function getFilteredDumps(hierarchyData) {
+	let params = {};
+	for (let p in urlParams) {
+		let v = getURLParameter(p);
+		if (v) params[p] = v;
+	}
+	let entries = [];
+	for (let hud_category in hierarchyData) {
+		if (!matchesPattern(hud_category, params.hud_category)) continue;
+		for (let sub_class in hierarchyData[hud_category]) {
+			if (!matchesPattern(sub_class, params.sub_class)) continue;
+			for (let english_name in hierarchyData[hud_category][sub_class]) {
+				if (!matchesPattern(english_name, params.english_name)) continue;
+				let item = hierarchyData[hud_category][sub_class][english_name];
+				if (params.platform && item.platform != params.platform) continue;
+				if (!item.dump) continue;
+				entries.push({ hud_category, sub_class, english_name, dump: item.dump });
 			}
+		}
+	}
+	return entries;
+}
+
+// Parse a dump CSV (no header). Columns: SystemName, X, Y, Z, ...
+function parseDumpCSV(csvText) {
+	return csvText.trim().split('\n')
+		.filter(line => line.trim())
+		.map(line => {
+			const cols = line.split(',');
+			return {
+				name: cols[0].trim().replace(/^"|"$/g, ''),
+				coords: {
+					x: parseFloat(cols[1]),
+					y: parseFloat(cols[2]),
+					z: parseFloat(cols[3])
+				}
+			};
 		})
+		.filter(s => !isNaN(s.coords.x));
+}
 
-		// Process this batch and stream it to the map
-		if (Object.keys(batchData).length > 0) {
-			await formatCallback(batchData);
-		}
+// Fetch the ref hierarchy, filter by URL params, then fetch all matching dump CSVs in parallel batches.
+const loadFromDumps = async () => {
+	let hierarchyResponse;
+	try {
+		hierarchyResponse = await capi({ url: '/ref?hierarchy=1', method: 'get' });
+	} catch (e) {
+		console.log("Error fetching ref hierarchy for dumps:", e);
+		return;
+	}
+	const dumpEntries = getFilteredDumps(hierarchyResponse.data);
+	if (dumpEntries.length === 0) {
+		console.log("No matching dump entries found");
+		return;
+	}
 
-		API_START += API_LIMIT * COUNT_T;
-		if (count < API_LIMIT * COUNT_T) {
-			keepGoing = false;
+	// Pre-assign categories and colors before any concurrent fetching to avoid races
+	let categories = canonnEd3d_codex.systemsData.categories;
+	let colorIdx = 0;
+	for (let entry of dumpEntries) {
+		if (!categories[entry.sub_class]) categories[entry.sub_class] = {};
+		if (!categories[entry.sub_class][entry.english_name]) {
+			categories[entry.sub_class][entry.english_name] = {
+				name: entry.english_name,
+				color: colours[colorIdx % colours.length][0].replace('#', '')
+			};
+			colorIdx++;
 		}
-		// Yield to allow rendering between batches
+	}
+
+	const BATCH_SIZE = 10;
+	for (let i = 0; i < dumpEntries.length; i += BATCH_SIZE) {
+		const batch = dumpEntries.slice(i, i + BATCH_SIZE);
+		await Promise.all(batch.map(entry => canonnEd3d_codex.processDumpEntry(entry)));
 		await new Promise(resolve => setTimeout(resolve, 0));
 	}
 };
@@ -109,17 +164,6 @@ function sortObj(obj) {
 		return result;
 	}, {});
 }
-
-const reqSites = async (API_START, type) => {
-	//console.log("reqSites type: ", type)
-	if (type.indexOf('?') < 0) type += '?'
-	else type += '&'
-	let payload = await capi({
-		url: `/${type}limit=${API_LIMIT}&offset=${API_START}`,
-		method: 'get'
-	});
-	return payload;
-};
 
 const buildDropdownFilter = async (site_type_data) => {
 
@@ -282,61 +326,31 @@ var canonnEd3d_codex = {
 		]
 	},
 
-	formatSitesStream: async function (siteDataBatch) {
-		//get current url params and pass into API
-		let queryParams = {}
-		for (let p in urlParams) {
-			let v = getURLParameter(p)
-			if (p == "english_name") p = "species"
-			if (v) queryParams[p] = v
+	// Fetch one dump CSV and stream its systems onto the map.
+	// Categories must already be registered in systemsData.categories before calling.
+	processDumpEntry: async function (entry) {
+		let csvText;
+		try {
+			const response = await axios.get(entry.dump);
+			csvText = response.data;
+		} catch (e) {
+			console.log("Error fetching dump:", entry.dump, e);
+			return;
 		}
 
-		let categories = canonnEd3d_codex.systemsData.categories || {}
-		let subcategories = {}
-		let batchSystems = []
-		
-		for (let system in siteDataBatch) {
+		const systems = parseDumpCSV(csvText);
+		let batchSystems = [];
+		for (let sys of systems) {
 			let poiSite = {
-				name: system,
-				coords: {
-					x: parseFloat(siteDataBatch[system].coords[0]),
-					y: parseFloat(siteDataBatch[system].coords[1]),
-					z: parseFloat(siteDataBatch[system].coords[2])
-				},
-				infos: edsmLink(system),
-				cat: [],
-			}
-			let codexFound = false;
-			for (let i in siteDataBatch[system].codex) {
-				let codex = siteDataBatch[system].codex[i]
-
-				let category = codex.sub_class
-				let subcategory = codex.english_name
-
-				if (queryParams.platform && codex.platform != queryParams.platform) continue
-				codexFound = true;
-				if (!categories[category]) {
-					categories[category] = {}
-				}
-				if (!subcategories[subcategory]) {
-					subcategories[subcategory] = {}
-					colourkey = Object.keys(subcategories).length % colours.length
-					categories[category][subcategory] = { name: subcategory, color: colours[colourkey][0].replace('#', '') }
-				}
-				poiSite.cat.push([subcategory]);
-				poiSite.infos += signalLink(system, codex.english_name);
-			}
-			// Collect this system if codex entries matched
-			if (codexFound) {
-				batchSystems.push(poiSite);
-				canonnEd3d_codex.systemsData.systems.push(poiSite);
-			}
+				name: sys.name,
+				coords: sys.coords,
+				infos: edsmLink(sys.name) + signalLink(sys.name, entry.english_name),
+				cat: [[entry.english_name]]
+			};
+			batchSystems.push(poiSite);
+			canonnEd3d_codex.systemsData.systems.push(poiSite);
 		}
 
-		Object.assign(canonnEd3d_codex.systemsData.categories, categories)
-
-		// Stream this batch to the map — categories are passed so HUD filters are updated incrementally.
-		// initFilters is now idempotent: existing groups/items are never duplicated.
 		if (batchSystems.length > 0) {
 			Ed3d.addBatch({
 				systems: batchSystems,
@@ -368,20 +382,7 @@ var canonnEd3d_codex = {
 			$('#search input').val('System').on('input', recenterSearch);
 		}, 1000);
 		
-		// Start streaming data immediately after map init
-		//get current url params and pass into API
-		let queryParams = {}
-		for (let p in urlParams) {
-			let v = getURLParameter(p)
-			if (p == "english_name") p = "species"
-			if (v) queryParams[p] = v
-		}
-		let query = "systems";
-		try {
-			if (Object.keys(queryParams).length) query += '?' + $.param(queryParams);
-		} catch (e) {
-			console.log("Error creating queryParams for API: ", e)
-		}
-		getSitesStream(query, canonnEd3d_codex.formatSitesStream.bind(canonnEd3d_codex));
+		// Fetch ref hierarchy, resolve dump URLs, then stream all CSV data onto the map
+		loadFromDumps();
 	},
 };
