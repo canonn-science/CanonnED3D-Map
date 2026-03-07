@@ -72,15 +72,27 @@ var canonnEd3d_route = {
 		}
 		subcategories = {}
 
+		// Deduplicate: for each system keep only the record with the most recent year,
+		// but track the total count of hyperdictions per system
+		let latestBySystem = {};
+		let countBySystem = {};
+		for (var i = 0; i < data.length; i++) {
+			let sys = data[i].system;
+			countBySystem[sys] = (countBySystem[sys] || 0) + 1;
+			if (!latestBySystem[sys] || data[i].year > latestBySystem[sys].year) {
+				latestBySystem[sys] = data[i];
+			}
+		}
+		let deduped = Object.values(latestBySystem);
 
 		// this is assuming data is an array []
-		for (var i = 0; i < data.length; i++) {
+		for (var i = 0; i < deduped.length; i++) {
 			var poiSite = {};
 
 			poiSite['coords'] = {
-				x: parseFloat(data[i].x),
-				y: parseFloat(data[i].y),
-				z: parseFloat(data[i].z),
+				x: parseFloat(deduped[i].x),
+				y: parseFloat(deduped[i].y),
+				z: parseFloat(deduped[i].z),
 			};
 
 			dmerope = Math.sqrt(Math.pow(poiSite.coords.x - merope.coords.x, 2) + Math.pow(poiSite.coords.y - merope.coords.y, 2) + Math.pow(poiSite.coords.z - merope.coords.z, 2))
@@ -89,28 +101,28 @@ var canonnEd3d_route = {
 			dcoalsack = Math.sqrt(Math.pow(poiSite.coords.x - coalsack.coords.x, 2) + Math.pow(poiSite.coords.y - coalsack.coords.y, 2) + Math.pow(poiSite.coords.z - coalsack.coords.z, 2))
 
 			//years as categories
-			category = data[i].year
+			category = deduped[i].year
 			if (!categories[category]) {
 				categories[category] = {}
 			}
 
 			//subcategories by distance to point of reference
 			if (dmerope < dsol & dmerope < dwitchhead) {
-				subcategory = 'Merope ' + data[i].year
+				subcategory = 'Merope ' + deduped[i].year
 				subname = "Merope"
 			}
 			if (dsol < dmerope & dsol < dwitchhead) {
-				subcategory = 'Sol ' + data[i].year
+				subcategory = 'Sol ' + deduped[i].year
 				subname = "Sol"
 			}
 
 			if (dwitchhead < dmerope & dwitchhead < dsol) {
-				subcategory = 'Witchhead ' + data[i].year
+				subcategory = 'Witchhead ' + deduped[i].year
 				subname = "Witchhead"
 			}
 
 			if (dcoalsack < dmerope & dcoalsack < dsol) {
-				subcategory = 'Coalsack ' + data[i].year
+				subcategory = 'Coalsack ' + deduped[i].year
 				subname = "Coalsack"
 			}
 
@@ -137,16 +149,31 @@ var canonnEd3d_route = {
 				categories[category][subcategory] = { name: subname, color: next_colour }
 			}
 
-			poiSite['name'] = data[i].system;
+			poiSite['name'] = deduped[i].system;
+
+			//Build info panel: year, nearest reference, distances in ascending order
+			var refDistances = [
+				{ name: "Merope",     dist: dmerope },
+				{ name: "Sol",        dist: dsol },
+				{ name: "Witchhead",  dist: dwitchhead },
+				{ name: "Coalsack",   dist: dcoalsack },
+			].sort((a, b) => a.dist - b.dist);
+
+			var infoHtml = '<b>Year:</b> ' + deduped[i].year + '<br/>'
+				+ '<b>Nearest:</b> ' + subname + '<br/>'
+				+ '<b>Hyperdictions:</b> ' + countBySystem[deduped[i].system] + '<br/><br/>'
+				+ '<b>Distances:</b><br/>'
+				+ refDistances.map(r => r.name + ': ' + Math.round(r.dist) + ' ly').join('<br/>');
+			poiSite['infos'] = infoHtml;
 
 			//Check Site Type and match categories
 
 			poiSite['cat'] = [subcategory];
 
 			poiSite['coords'] = {
-				x: parseFloat(data[i].x),
-				y: parseFloat(data[i].y),
-				z: parseFloat(data[i].z),
+				x: parseFloat(deduped[i].x),
+				y: parseFloat(deduped[i].y),
+				z: parseFloat(deduped[i].z),
 			};
 
 			// We can then push the site to the object that stores all systems
@@ -198,6 +225,43 @@ var canonnEd3d_route = {
 				cameraPos: [-78.59375 - 1000, -149.625, -340.53125 - 1000],
 				systemColor: '#FF9D00',
 			});
+
+			// Reference system coords keyed by their filter id (the category subcategory name)
+			var refCoords = {
+				"Merope":    { name: "Merope" },
+				"Sol":       { name: "Sol" },
+				"Witchhead": { name: "Witch Head Sector IR-W c1-9" },
+				"Coalsack":  { name: "Musca Dark Region PJ-P b6-1" },
+			};
+
+			// After Ed3d.init has built the filter DOM, add direct click handlers on
+			// the four reference-system items. Direct handlers fire before delegated ones
+			// in jQuery, so stopImmediatePropagation() prevents the HUD's filter-toggle
+			// handler from hiding the systems.
+			setTimeout(function () {
+				$('#filters .map_filter').each(function () {
+					var idCat = $(this).data('filter');
+					if (refCoords[idCat]) {
+						$(this).on('click', function (e) {
+							e.stopImmediatePropagation();
+							// Find the vertex index for this reference system by name
+							var target = null;
+							var targetIndex = -1;
+							var refName = refCoords[idCat].name;
+							for (var vi = 0; vi < System.particleGeo.vertices.length; vi++) {
+								if (System.particleGeo.vertices[vi].name === refName) {
+									target = System.particleGeo.vertices[vi];
+									targetIndex = vi;
+									break;
+								}
+							}
+							if (target !== null) {
+								Action.moveToObj(targetIndex, target);
+							}
+						});
+					}
+				});
+			}, 500);
 		});
 	},
 };
