@@ -3,8 +3,8 @@ colours = [
 	["#F65314", "Red"],
 	["#7CBB00", "Green"],
 	["#00A1F1", "Blue"],
-	["#FFBB00", "Yellow"]/*,
-	["#00FFFF", "Cyan"],
+	["#FFBB00", "Yellow"],
+	["#00FFFF", "Cyan"]/*,
 	["#8D38C9", "Violet"],
 	["#FAEBD7", "AntiqueWhite"],
 	["#46C7C7", "Jellyfish"],
@@ -58,17 +58,19 @@ var canonnEd3d_route = {
 
 
 
-		merope = { name: "Merope", cat: ["Merope"], coords: { x: -78.59375, y: -149.625, z: -340.53125 } }
-		witchhead = { name: "Witch Head Sector IR-W c1-9", cat: ["Witchhead"], coords: { x: 355.3125, y: -425.96875, z: -723.03125 } }
-		sol = { name: "Sol", cat: ["Sol"], coords: { x: 0, y: 0, z: 0 } }
-		coalsack = { name: "Musca Dark Region PJ-P b6-1", cat: ["Coalsack"], coords: { x: 432.625, y: 2.53125, z: 288.6875 } }
+		merope     = { name: "Merope",                       cat: ["Merope"],    coords: { x: -78.59375,  y: -149.625,   z: -340.53125 } }
+		witchhead  = { name: "Witch Head Sector IR-W c1-9",   cat: ["Witchhead"], coords: { x: 355.3125,  y: -425.96875, z: -723.03125 } }
+		sol        = { name: "Sol",                           cat: ["Sol"],       coords: { x: 0,          y: 0,          z: 0 } }
+		coalsack   = { name: "Musca Dark Region PJ-P b6-1",   cat: ["Coalsack"],  coords: { x: 432.625,   y: 2.53125,    z: 288.6875 } }
+		california = { name: "California Sector BA-A e6",     cat: ["California Sector"], coords: { x: -319.8125, y: -216.75,    z: -913.46875 } }
 
 		categories = {}
 		categories["Reference Systems"] = {
-			"Merope": { name: "Merope", color: colours[0][0].replace('#', '') },
-			"Sol": { name: "Sol", color: colours[1][0].replace('#', '') },
-			"Witchhead": { name: "Witch Head Sector IR-W c1-9", color: colours[2][0].replace('#', '') },
-			"Coalsack": { name: "Musca Dark Region PJ-P b6-1", color: colours[3][0].replace('#', '') },
+			"Merope":             { name: "Merope",                     color: colours[0][0].replace('#', '') },
+			"Sol":                { name: "Sol",                        color: colours[1][0].replace('#', '') },
+			"Witchhead":          { name: "Witch Head Sector IR-W c1-9", color: colours[2][0].replace('#', '') },
+			"Coalsack":           { name: "Musca Dark Region PJ-P b6-1", color: colours[3][0].replace('#', '') },
+			"California Sector": { name: "California Sector BA-A e6",  color: colours[4][0].replace('#', '') },
 		}
 		subcategories = {}
 
@@ -95,10 +97,11 @@ var canonnEd3d_route = {
 				z: parseFloat(deduped[i].z),
 			};
 
-			dmerope = Math.sqrt(Math.pow(poiSite.coords.x - merope.coords.x, 2) + Math.pow(poiSite.coords.y - merope.coords.y, 2) + Math.pow(poiSite.coords.z - merope.coords.z, 2))
-			dsol = Math.sqrt(Math.pow(poiSite.coords.x - sol.coords.x, 2) + Math.pow(poiSite.coords.y - sol.coords.y, 2) + Math.pow(poiSite.coords.z - sol.coords.z, 2))
-			dwitchhead = Math.sqrt(Math.pow(poiSite.coords.x - witchhead.coords.x, 2) + Math.pow(poiSite.coords.y - witchhead.coords.y, 2) + Math.pow(poiSite.coords.z - witchhead.coords.z, 2))
-			dcoalsack = Math.sqrt(Math.pow(poiSite.coords.x - coalsack.coords.x, 2) + Math.pow(poiSite.coords.y - coalsack.coords.y, 2) + Math.pow(poiSite.coords.z - coalsack.coords.z, 2))
+			dmerope     = Math.sqrt(Math.pow(poiSite.coords.x - merope.coords.x,     2) + Math.pow(poiSite.coords.y - merope.coords.y,     2) + Math.pow(poiSite.coords.z - merope.coords.z,     2))
+			dsol        = Math.sqrt(Math.pow(poiSite.coords.x - sol.coords.x,        2) + Math.pow(poiSite.coords.y - sol.coords.y,        2) + Math.pow(poiSite.coords.z - sol.coords.z,        2))
+			dwitchhead  = Math.sqrt(Math.pow(poiSite.coords.x - witchhead.coords.x,  2) + Math.pow(poiSite.coords.y - witchhead.coords.y,  2) + Math.pow(poiSite.coords.z - witchhead.coords.z,  2))
+			dcoalsack   = Math.sqrt(Math.pow(poiSite.coords.x - coalsack.coords.x,   2) + Math.pow(poiSite.coords.y - coalsack.coords.y,   2) + Math.pow(poiSite.coords.z - coalsack.coords.z,   2))
+			dcalifornia = Math.sqrt(Math.pow(poiSite.coords.x - california.coords.x, 2) + Math.pow(poiSite.coords.y - california.coords.y, 2) + Math.pow(poiSite.coords.z - california.coords.z, 2))
 
 			//years as categories
 			category = deduped[i].year
@@ -106,25 +109,17 @@ var canonnEd3d_route = {
 				categories[category] = {}
 			}
 
-			//subcategories by distance to point of reference
-			if (dmerope < dsol & dmerope < dwitchhead) {
-				subcategory = 'Merope ' + deduped[i].year
-				subname = "Merope"
-			}
-			if (dsol < dmerope & dsol < dwitchhead) {
-				subcategory = 'Sol ' + deduped[i].year
-				subname = "Sol"
-			}
-
-			if (dwitchhead < dmerope & dwitchhead < dsol) {
-				subcategory = 'Witchhead ' + deduped[i].year
-				subname = "Witchhead"
-			}
-
-			if (dcoalsack < dmerope & dcoalsack < dsol) {
-				subcategory = 'Coalsack ' + deduped[i].year
-				subname = "Coalsack"
-			}
+			//subcategories by closest reference system
+			var allDists = [
+				{ key: 'Merope',            label: 'Merope',            dist: dmerope },
+				{ key: 'Sol',               label: 'Sol',               dist: dsol },
+				{ key: 'Witchhead',         label: 'Witchhead',         dist: dwitchhead },
+				{ key: 'Coalsack',          label: 'Coalsack',          dist: dcoalsack },
+				{ key: 'California Sector', label: 'California Sector', dist: dcalifornia },
+			];
+			allDists.sort((a, b) => a.dist - b.dist);
+			subname     = allDists[0].label;
+			subcategory = allDists[0].label + ' ' + deduped[i].year;
 
 			// Check if subcategory is defined
 			if (typeof subcategory === 'undefined') {
@@ -152,18 +147,13 @@ var canonnEd3d_route = {
 			poiSite['name'] = deduped[i].system;
 
 			//Build info panel: year, nearest reference, distances in ascending order
-			var refDistances = [
-				{ name: "Merope",     dist: dmerope },
-				{ name: "Sol",        dist: dsol },
-				{ name: "Witchhead",  dist: dwitchhead },
-				{ name: "Coalsack",   dist: dcoalsack },
-			].sort((a, b) => a.dist - b.dist);
+			var refDistances = allDists.slice(); // already sorted ascending
 
 			var infoHtml = '<b>Year:</b> ' + deduped[i].year + '<br/>'
 				+ '<b>Nearest:</b> ' + subname + '<br/>'
 				+ '<b>Hyperdictions:</b> ' + countBySystem[deduped[i].system] + '<br/><br/>'
 				+ '<b>Distances:</b><br/>'
-				+ refDistances.map(r => r.name + ': ' + Math.round(r.dist) + ' ly').join('<br/>');
+				+ refDistances.map(r => r.label + ': ' + Math.round(r.dist) + ' ly').join('<br/>');
 			poiSite['infos'] = infoHtml;
 
 			//Check Site Type and match categories
@@ -185,6 +175,7 @@ var canonnEd3d_route = {
 		canonnEd3d_route.systemsData.systems.push(sol);
 		canonnEd3d_route.systemsData.systems.push(witchhead);
 		canonnEd3d_route.systemsData.systems.push(coalsack);
+		canonnEd3d_route.systemsData.systems.push(california);
 
 		// Rebuild categories with Reference Systems first, then years in descending order.
 		// Year keys are prefixed with a zero-width space (\u200B) so JS does not treat them
@@ -228,10 +219,11 @@ var canonnEd3d_route = {
 
 			// Reference system coords keyed by their filter id (the category subcategory name)
 			var refCoords = {
-				"Merope":    { name: "Merope" },
-				"Sol":       { name: "Sol" },
-				"Witchhead": { name: "Witch Head Sector IR-W c1-9" },
-				"Coalsack":  { name: "Musca Dark Region PJ-P b6-1" },
+				"Merope":             { name: "Merope" },
+				"Sol":                { name: "Sol" },
+				"Witchhead":          { name: "Witch Head Sector IR-W c1-9" },
+				"Coalsack":           { name: "Musca Dark Region PJ-P b6-1" },
+				"California Sector": { name: "California Sector BA-A e6" },
 			};
 
 			// After Ed3d.init has built the filter DOM, add direct click handlers on
