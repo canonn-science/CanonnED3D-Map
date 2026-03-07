@@ -159,7 +159,15 @@ var canonnEd3d_route = {
 		canonnEd3d_route.systemsData.systems.push(witchhead);
 		canonnEd3d_route.systemsData.systems.push(coalsack);
 
-		canonnEd3d_route.systemsData.categories = categories
+		// Rebuild categories with Reference Systems first, then years in descending order.
+		// Year keys are prefixed with a zero-width space (\u200B) so JS does not treat them
+		// as integer indices (which would force ascending sort regardless of insertion order).
+		let orderedCategories = { "Reference Systems": categories["Reference Systems"] };
+		Object.keys(categories)
+			.filter(k => k !== "Reference Systems")
+			.sort((a, b) => b - a)
+			.forEach(k => { orderedCategories['\u200B' + k] = categories[k]; });
+		canonnEd3d_route.systemsData.categories = orderedCategories;
 	},
 
 	fetchHyperdictionData: async function (resolvePromise) {
