@@ -561,7 +561,7 @@ var canonnEd3d_route = {
 					withFullscreenToggle: false,
 					withHudPanel: true,
 					hudMultipleSelect: true,
-					effectScaleSystem: [20, 500],
+					effectScaleSystem: [20, 150],
 					startAnim: true,
 					showGalaxyInfos: true,
 					//cameraPos: [canonnEd3d_route.camerapos.x, canonnEd3d_route.camerapos.y, canonnEd3d_route.camerapos.z],

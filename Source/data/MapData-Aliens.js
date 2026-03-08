@@ -271,7 +271,7 @@ var canonnEd3d_aliens = {
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
+				effectScaleSystem: [20, 150],
 				startAnim: false,
 				showGalaxyInfos: true,
 				cameraPos: [25, 14100, -12900],

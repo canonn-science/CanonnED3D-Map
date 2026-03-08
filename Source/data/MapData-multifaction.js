@@ -158,7 +158,7 @@ var canonnEd3d_multifaction = {
 				withFullscreenToggle: false,
 				withHudPanel: true,
 				hudMultipleSelect: true,
-				effectScaleSystem: [20, 500],
+				effectScaleSystem: [20, 100],
 				startAnim: true,
 				showGalaxyInfos: true,
 				systemColor: '#FF9D00',
