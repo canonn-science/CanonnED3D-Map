@@ -1,263 +1,283 @@
-const API_ENDPOINT = `https://api.canonn.tech`;
-const API_LIMIT = 1000;
+// Aliens Combo Map — Guardian + Thargoid + NHSS data sources
 
-const capi = axios.create({
-    baseURL: API_ENDPOINT,
-    headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-    },
-});
+const recenterViewport = (center, distance) => {
+	Ed3d.playerPos = [center.x, center.y, center.z];
+	Ed3d.cameraPos = [
+		center.x + (Math.floor((Math.random() * 100) + 1) - 50),
+		center.y + distance,
+		center.z - distance
+	];
+	Action.moveInitalPosition();
+}
 
-let sites = {
-    btsites: [],
-    gbsites: [],
-    grsites: [],
-    gssites: [],
-    tbsites: [],
-    tssites: []
-};
+recenterSearch = function () {
+	var term = $('#search input').val();
+	if (!term.trim()) return;
 
-const go = async types => {
-    const keys = Object.keys(types);
-    return (await Promise.all(
-        keys.map(type => getSites(type))
-    )).reduce((acc, res, i) => {
-        acc[keys[i]] = res;
-        return acc;
-    }, {});
-};
+	var foundSystem = {};
+	for (key in canonnEd3d_aliens.systemsData.systems) {
+		let system = canonnEd3d_aliens.systemsData.systems[key];
+		if (system.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
+			foundSystem = system;
+			break;
+		}
+	}
+	if (!(Object.keys(foundSystem).length === 0)) {
+		recenterViewport(foundSystem.coords, 100);
+		$('#search input:focus-visible').css("outline-color", "darkgreen");
+	} else {
+		$('#search input:focus-visible').css("outline-color", "red");
+	}
+}
 
-const getSites = async type => {
-    let records = [];
-    let keepGoing = true;
-    let API_START = 0;
-    while (keepGoing) {
-        let response = await reqSites(API_START, type);
-        await records.push.apply(records, response.data);
-        API_START += API_LIMIT;
-        if (response.data.length < API_LIMIT) {
-            keepGoing = false;
-            return records;
-        }
-    }
-};
+var canonnEd3d_aliens = {
 
-const reqSites = async (API_START, type) => {
+	systemsData: {
+		categories: {
+			"Guardians": {
+				"401": { name: "Guardian Ruins",      color: "4488FF" },
+				"501": { name: "Guardian Structures", color: "0055CC" },
+				"601": { name: "Guardian Beacons",   color: "88BBFF" },
+				"701": { name: "Brain Trees",         color: "00AAFF" }
+			},
+			"Thargoids": {
+				"801":  { name: "Thargoid Barnacles",        color: "00CC44" },
+				"900":  { name: "Thargoid Structures",       color: "008800" },
+				"1001": { name: "Non-Human Signal Sources",  color: "44FF88" }
+			}
+		},
+		systems: []
+	},
 
-    let payload = await capi({
-        url: `/${type}?_limit=${API_LIMIT}&_start=${API_START}`,
-        method: 'get'
-    });
+	formatRuins: function (data) {
+		for (let i = 0; i < data.length; i++) {
+			let s = data[i];
+			let name = s["System Name"];
+			if (!name || !name.trim()) continue;
+			let x = parseFloat(String(s["x"]).replace(',', ''));
+			let y = parseFloat(s["y"]);
+			let z = parseFloat(s["z"]);
+			if (isNaN(x) || isNaN(y) || isNaN(z)) continue;
+			canonnEd3d_aliens.systemsData.systems.push({
+				name: name,
+				coords: { x: x, y: y, z: z },
+				infos: s["Site Type"] + (s["Body Name"] ? ' &mdash; ' + s["Body Name"] : '') + '<br>',
+				cat: [401],
+			});
+		}
+	},
 
-    return payload;
-};
+	formatStructures: function (data) {
+		for (let i = 0; i < data.length; i++) {
+			let s = data[i];
+			let name = s["System Name"];
+			if (!name || !name.trim()) continue;
+			let x = parseFloat(String(s["x"]).replace(',', ''));
+			let y = parseFloat(s["y"]);
+			let z = parseFloat(s["z"]);
+			if (isNaN(x) || isNaN(y) || isNaN(z)) continue;
+			let type = s["Site Type"] || 'Unknown';
+			canonnEd3d_aliens.systemsData.systems.push({
+				name: name,
+				coords: { x: x, y: y, z: z },
+				infos: 'Ancient Structure (' + type + ')' + (s["Body Name"] ? '<br>' + s["Body Name"] : '') + '<br>',
+				cat: [501],
+			});
+		}
+	},
 
-var canonnEd3d_guardians = {
+	formatBeacons: function (data) {
+		for (let i = 0; i < data.length; i++) {
+			let s = data[i];
+			let name = s["System Name"];
+			if (!name || !name.trim()) continue;
+			let x = parseFloat(String(s["x"]).replace(',', ''));
+			let y = parseFloat(s["y"]);
+			let z = parseFloat(s["z"]);
+			if (isNaN(x) || isNaN(y) || isNaN(z)) continue;
+			let info = 'Guardian Beacon';
+			if (s["Body Name"]) info += '<br>' + s["Body Name"];
+			if (s["Distance To Arrival"]) info += '<br>' + s["Distance To Arrival"] + ' ls';
+			canonnEd3d_aliens.systemsData.systems.push({
+				name: name,
+				coords: { x: x, y: y, z: z },
+				infos: info + '<br>',
+				cat: [601],
+			});
+		}
+	},
 
-    //Define Categories
-    systemsData: {
-        categories: {
-            'Guardian': {
-                '201': {
-                    name: 'Brain Tree',
-                    color: '0000ff'
-                },
-                "301": {
-                    name: "Beacon",
-                    color: '2222ff'
-                },
-                "401": {
-                    name: "Guardian Ruins - (GR)",
-                    color: '4444ff'
-                },
-                "501": {
-                    name: "Guardian Structures - (GS)",
-                    color: '6666ff'
-                },
-                "511": {
-                    name: "Other",
-                    color: '8888ff'
-                }
-            },
-            "Thargoid": {
-                "601": {
-                    name: "Thargoid Barnacles",
-                    color: '00ff00'
-                },
-                "701": {
-                    name: "Thargoid Suface Sites",
-                    color: '22ff22'
-                },
-                "711": {
-                    name: "Other",
-                    color: '44ff44'
-                }
-            },
-            "Human": {
-                "11": {
-                    name: "INRA Sites",
-                    color: 'ff2222'
-                },
-                "22": {
-                    name: "Sol",
-                    color: "f2fff2"
-                },
+	formatBrainTrees: function (csvText, englishName, cat) {
+		var parsed = Papa.parse(csvText.trim(), { skipEmptyLines: true });
+		var seen = {};
+		for (let i = 0; i < parsed.data.length; i++) {
+			let row = parsed.data[i];
+			let name = row[0];
+			if (!name || !name.trim()) continue;
+			if (seen[name]) continue;
+			seen[name] = true;
+			let x = parseFloat(row[1]);
+			let y = parseFloat(row[2]);
+			let z = parseFloat(row[3]);
+			if (isNaN(x) || isNaN(y) || isNaN(z)) continue;
+			canonnEd3d_aliens.systemsData.systems.push({
+				name: name,
+				coords: { x: x, y: y, z: z },
+				infos: englishName + '<br>',
+				cat: [cat],
+			});
+		}
+	},
 
-            }
+	formatBarnacles: function (csvText, englishName, cat) {
+		var parsed = Papa.parse(csvText.trim(), { skipEmptyLines: true });
+		var seen = {};
+		for (var i = 0; i < parsed.data.length; i++) {
+			var row = parsed.data[i];
+			var name = row[0];
+			if (!name || !name.trim()) continue;
+			if (seen[name]) continue;
+			seen[name] = true;
+			var x = parseFloat(row[1]);
+			var y = parseFloat(row[2]);
+			var z = parseFloat(row[3]);
+			if (isNaN(x) || isNaN(y) || isNaN(z)) continue;
+			canonnEd3d_aliens.systemsData.systems.push({
+				name: name,
+				coords: { x: x, y: y, z: z },
+				infos: englishName + '<br>',
+				cat: [cat],
+			});
+		}
+	},
 
-        },
-        systems: []
-    },
-    siteNames: {},
-    formatUnknown: function (data) {
-        console.log(canonnEd3d_guardians.siteNames)
-        console.log(data)
-        data.forEach(function (site) {
-            if (!canonnEd3d_guardians.siteNames[site.system.toUpperCase()]) {
-                console.log("Not found: " + site.system)
-                var poiSite = {};
-                poiSite['cat'] = [401];
-                poiSite['name'] = site.system;
-                poiSite["coords"] = { x: parseFloat(site.x), y: parseFloat(site.y), z: parseFloat(site.z) }
-                poiSite["infos"] = "Ancient Ruin<br>"
-                canonnEd3d_guardians.systemsData.systems.push(poiSite);
-            }
-        });
+	formatThargoidStructures: function (localSites) {
+		for (var i = 0; i < localSites.length; i++) {
+			var s = localSites[i];
+			if (!s.System || String(s.System).replace(' ', '').length <= 1) continue;
+			var info = 'Thargoid Structure';
+			if (s.Planet) info += '<br>' + s.Planet;
+			if (s.Leviathons) info += '<br>Leviathans: ' + s.Leviathons;
+			if (s["New Type/Sub"]) info += '<br>Type: ' + s["New Type/Sub"];
+			var x = parseFloat(s.x), y = parseFloat(s.y), z = parseFloat(s.z);
+			if (isNaN(x) || isNaN(y) || isNaN(z)) continue;
+			canonnEd3d_aliens.systemsData.systems.push({
+				name: s.System,
+				coords: { x: x, y: y, z: z },
+				infos: info + '<br>',
+				cat: [900],
+			});
+		}
+	},
 
-    },
-    formatINRA: function (data) {
-        console.log(canonnEd3d_guardians.inradata)
-        console.log(data)
-        data.forEach(function (site) {
-            if (!canonnEd3d_guardians.siteNames[site.system.toUpperCase()]) {
-                console.log("Not found: " + site.system)
-                var poiSite = {};
-                if (site.category == "INRA") {
-                    poiSite['cat'] = [11];
-                }
-                if (site.category == "Guardian") {
-                    poiSite['cat'] = [511];
-                }
-                if (site.category == "Thargoid") {
-                    poiSite['cat'] = [711];
-                }
-                if (site.category == "Human" && site.name == "Sol") {
-                    poiSite['cat'] = [22];
-                }
+	streamNHSS: async function () {
+		const NHSS_BASE = 'https://us-central1-canonn-api-236217.cloudfunctions.net/query/thargoid/nhss/systems';
+		const limit = 2000;
+		let offset = 0;
+		let keepGoing = true;
+		while (keepGoing) {
+			try {
+				let response = await fetch(NHSS_BASE + '?limit=' + limit + '&offset=' + offset);
+				let data = await response.json();
+				let pageSystems = [];
+				for (let i = 0; i < data.length; i++) {
+					let s = data[i];
+					let base = {
+						name: s.systemName,
+						coords: { x: parseFloat(s.x), y: parseFloat(s.y), z: parseFloat(s.z) }
+					};
+					let maxThreat = 0;
+					for (let t = 1; t <= 9; t++) {
+						if (s['threat_' + t] > 0) maxThreat = t;
+					}
+					if (maxThreat > 0) {
+						pageSystems.push({
+							name: base.name,
+							coords: base.coords,
+							infos: 'NHSS (max threat ' + maxThreat + ')<br>',
+							cat: [1001]
+						});
+					}
+				}
+				if (pageSystems.length > 0) {
+					Ed3d.addBatch({
+						systems: pageSystems,
+						categories: canonnEd3d_aliens.systemsData.categories
+					});
+				}
+				offset += limit;
+				if (data.length < limit) keepGoing = false;
+			} catch (e) {
+				console.log('Error streaming NHSS data:', e);
+				keepGoing = false;
+			}
+		}
+	},
 
-                poiSite['name'] = site.system;
-                poiSite["coords"] = { x: site.x, y: site.y, z: site.z }
-                if (site.img) {
-                    poiSite["infos"] = '<img src="' + site.img + '">' + site.html
-                } else {
-                    poiSite["infos"] = site.html
-                }
-                canonnEd3d_guardians.systemsData.systems.push(poiSite);
-            }
-        });
+	finishMap: function () {
+		$('#search').css('display', 'block');
+		$('#search input').val('System').on('input', recenterSearch);
+		canonnEd3d_aliens.streamNHSS();
+	},
 
-    },
-    gCloudData: [],
-    inradata: [],
-    parseData: function (url, resolvePromise) {
-        let fetchDataFromApi = async (url, resolvePromise) => {
-            let response = await fetch(url);
-            let result = await response.json();
-            canonnEd3d_guardians.gCloudData = result
-            resolvePromise();
-            console.log("data parsed")
-            return result;
-        }
-        fetchDataFromApi(url, resolvePromise)
+	init: function () {
+		var brainTrees = [
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Biology/2100201.csv', name: 'Roseum Brain Tree',       cat: 701 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Biology/2100202.csv', name: 'Gypseeum Brain Tree',     cat: 701 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Biology/2100203.csv', name: 'Ostrinum Brain Tree',     cat: 701 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Biology/2100204.csv', name: 'Viride Brain Tree',       cat: 701 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Biology/2100205.csv', name: 'Lividum Brain Tree',      cat: 701 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Biology/2100206.csv', name: 'Aureum Brain Tree',       cat: 701 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Biology/2100207.csv', name: 'Puniceum Brain Tree',     cat: 701 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Biology/2100208.csv', name: 'Lindigoticum Brain Tree', cat: 701 },
+		];
 
-        //console.log(data)
+		var barnacles = [
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Thargoid/2100101.csv', name: 'Common Thargoid Barnacle', cat: 801 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Thargoid/2100102.csv', name: 'Large Thargoid Barnacle',  cat: 801 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Thargoid/2100103.csv', name: 'Thargoid Barnacle Barbs',  cat: 801 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Thargoid/2100104.csv', name: 'Thargoid Barnacle Matrix', cat: 801 },
+			{ url: 'https://storage.googleapis.com/canonn-downloads/dumpr/Thargoid/2100105.csv', name: 'Thargoid Mega Barnacles',  cat: 801 },
+		];
 
-    },
-    parseINRA: function (url, resolvePromise) {
-        let fetchDataFromApi = async (url, resolvePromise) => {
-            let response = await fetch(url);
-            let result = await response.json();
-            canonnEd3d_guardians.inradata = result
-            resolvePromise();
-            console.log("data parsed")
-            return result;
-        }
-        fetchDataFromApi(url, resolvePromise)
+		var fetches = [
+			fetch('https://storage.googleapis.com/canonn-downloads/guardian_ruins.json').then(function (r) { return r.json(); }),
+			fetch('https://storage.googleapis.com/canonn-downloads/guardian_structures.json').then(function (r) { return r.json(); }),
+			fetch('https://storage.googleapis.com/canonn-downloads/guardian_beacons.json').then(function (r) { return r.json(); }),
+			fetch('data/surface_sites.json').then(function (r) { return r.json(); }).catch(function () { return []; }),
+		];
+		brainTrees.forEach(function (bt) {
+			fetches.push(fetch(bt.url).then(function (r) { return r.text(); }));
+		});
+		barnacles.forEach(function (b) {
+			fetches.push(fetch(b.url).then(function (r) { return r.text(); }));
+		});
 
-        //console.log(data)
-
-    },
-    formatSites: async function (data, resolvePromise) {
-        sites = await go(data);
-
-        let siteTypes = Object.keys(data);
-
-        for (var i = 0; i < siteTypes.length; i++) {
-            for (var d = 0; d < sites[siteTypes[i]].length; d++) {
-                let siteData = sites[siteTypes[i]];
-                if (siteData[d].system.systemName && siteData[d].system.systemName.replace(' ', '').length > 1) {
-                    var poiSite = {};
-                    poiSite['name'] = siteData[d].system.systemName;
-
-                    //Check Site Type and match categories
-                    if (siteTypes[i] == 'btsites') {
-                        poiSite['cat'] = [201];
-                    } else if (siteTypes[i] == 'gbsites') {
-                        poiSite['cat'] = [301];
-                    } else if (siteTypes[i] == 'grsites') {
-                        poiSite['cat'] = [401];
-                    } else if (siteTypes[i] == 'gssites') {
-                        poiSite['cat'] = [501];
-                    } else if (siteTypes[i] == 'tbsites') {
-                        poiSite['cat'] = [601];
-                    } else if (siteTypes[i] == 'tssites') {
-                        poiSite['cat'] = [701];
-                    }
-                    poiSite['coords'] = {
-                        x: parseFloat(siteData[d].system.edsmCoordX),
-                        y: parseFloat(siteData[d].system.edsmCoordY),
-                        z: parseFloat(siteData[d].system.edsmCoordZ),
-                    };
-
-                    // We can then push the site to the object that stores all systems
-                    canonnEd3d_guardians.systemsData.systems.push(poiSite);
-                }
-            }
-        }
-
-        resolvePromise();
-    },
-
-    init: function () {
-        //Sites Data
-        var p1 = new Promise(function (resolve, reject) {
-            canonnEd3d_guardians.formatSites(sites, resolve);
-        });
-        var p2 = new Promise(function (resolve, reject) {
-            canonnEd3d_guardians.parseData('https://us-central1-canonn-api-236217.cloudfunctions.net/query/get_gr_data', resolve);
-        });
-
-        var p3 = new Promise(function (resolve, reject) {
-            canonnEd3d_guardians.parseINRA('data/csvCache/notable_systems.json', resolve);
-        });
-
-        Promise.all([p1, p2, p3]).then(function () {
-            canonnEd3d_guardians.formatUnknown(canonnEd3d_guardians.gCloudData)
-            canonnEd3d_guardians.formatINRA(canonnEd3d_guardians.inradata)
-            document.getElementById("loading").style.display = "none";
-            Ed3d.init({
-                container: 'edmap',
-                json: canonnEd3d_guardians.systemsData,
-                withFullscreenToggle: false,
-                withHudPanel: true,
-                hudMultipleSelect: true,
-                effectScaleSystem: [20, 500],
-                startAnim: false,
-                showGalaxyInfos: true,
-                cameraPos: [25, 14100, -12900],
-                systemColor: '#FF9D00'
-            });
-        });
-    }
+		Promise.all(fetches).then(function (results) {
+			canonnEd3d_aliens.formatRuins(results[0]);
+			canonnEd3d_aliens.formatStructures(results[1]);
+			canonnEd3d_aliens.formatBeacons(results[2]);
+			canonnEd3d_aliens.formatThargoidStructures(results[3]);
+			for (var i = 0; i < brainTrees.length; i++) {
+				canonnEd3d_aliens.formatBrainTrees(results[4 + i], brainTrees[i].name, brainTrees[i].cat);
+			}
+			for (var i = 0; i < barnacles.length; i++) {
+				canonnEd3d_aliens.formatBarnacles(results[4 + brainTrees.length + i], barnacles[i].name, barnacles[i].cat);
+			}
+			document.getElementById("loading").style.display = "none";
+			Ed3d.init({
+				container: 'edmap',
+				json: canonnEd3d_aliens.systemsData,
+				withFullscreenToggle: false,
+				withHudPanel: true,
+				hudMultipleSelect: true,
+				effectScaleSystem: [20, 500],
+				startAnim: false,
+				showGalaxyInfos: true,
+				cameraPos: [25, 14100, -12900],
+				systemColor: '#FF9D00',
+				finished: canonnEd3d_aliens.finishMap
+			});
+		});
+	}
 };
