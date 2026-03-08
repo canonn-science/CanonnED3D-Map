@@ -1353,7 +1353,7 @@ var canonnEd3d_challenge = {
 				'}'
 			].join('\n'),
 			transparent: true,
-			blending: THREE.AdditiveBlending,
+			blending: THREE.NormalBlending,
 			depthWrite: false
 		});
 
@@ -1408,7 +1408,7 @@ var canonnEd3d_challenge = {
 			].join('\n'),
 			side: THREE.DoubleSide, // render both faces so inner wall is visible from any viewing angle
 			transparent: true,
-			blending: THREE.AdditiveBlending,
+			blending: THREE.NormalBlending,
 			depthWrite: false
 		});
 
