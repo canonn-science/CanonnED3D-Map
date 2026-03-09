@@ -33,6 +33,20 @@ var canonnEd3d_landscape = {
                     name: 'Boxel Coordinates',
                     color: 'FFFFFF'
                 }
+            },
+            'Landscape Signal - Boxel': {
+                '205': {
+                    name: 'Stuemeae UY-S',
+                    color: 'FF44BB'
+                },
+                '206': {
+                    name: 'Stuemeae KM-W',
+                    color: 'FFEE00'
+                },
+                '207': {
+                    name: 'Stuemeae FG-Y',
+                    color: '44AAFF'
+                }
             }
         },
         systems: []
@@ -57,6 +71,11 @@ var canonnEd3d_landscape = {
 			let hasCmdrs = s['CMDRS'] !== undefined && String(s['CMDRS']).trim() !== '';
 			let visited = canonnEd3d_landscape.isVisited(s['Visited']);
 			let cat = hasCmdrs ? [201] : visited ? [202] : [203];
+
+			// Append boxel prefix category as a secondary filter
+			if (name.startsWith('Stuemeae UY-S')) cat.push(205);
+			else if (name.startsWith('Stuemeae KM-W')) cat.push(206);
+			else if (name.startsWith('Stuemeae FG-Y')) cat.push(207);
 
 			let info = '';
 			if (s['Date']) info += '<b>Date:</b> ' + s['Date'] + '<br>';
