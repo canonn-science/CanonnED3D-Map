@@ -21,9 +21,9 @@ var System = {
 
     if (val.coords == undefined) return false;
 
-    var x = parseInt(val.coords.x);
-    var y = parseInt(val.coords.y);
-    var z = -parseInt(val.coords.z); //-- Revert Z coord
+    var x = parseFloat(val.coords.x);
+    var y = parseFloat(val.coords.y);
+    var z = -parseFloat(val.coords.z); //-- Revert Z coord
 
     //--------------------------------------------------------------------------
     //-- Particle for near and far view
