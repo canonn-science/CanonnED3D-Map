@@ -27,6 +27,12 @@ var canonnEd3d_landscape = {
                     name: 'Unvisited',
                     color: 'FF0000'
                 }
+            },
+            'Reference': {
+                '204': {
+                    name: 'Boxel Coordinates',
+                    color: 'FFFFFF'
+                }
             }
         },
         systems: []
@@ -111,6 +117,15 @@ var canonnEd3d_landscape = {
             .then(function (r) { return r.json(); })
             .then(function (data) {
                 canonnEd3d_landscape.formatSystems(data);
+
+                // Manually add the Boxel Coordinates reference point
+                canonnEd3d_landscape.systemsData.systems.push({
+                    name: 'Boxel Coordinates',
+                    coords: { x: 15, y: -25, z: 25895 },
+                    infos: '<b>Type:</b> Reference Point<br><b>Coords:</b> 15 / -25 / 25895<br>',
+                    cat: [204],
+                });
+
                 let cam = canonnEd3d_landscape.calcCamera();
                 document.getElementById('loading').style.display = 'none';
                 Ed3d.init({
@@ -131,6 +146,19 @@ var canonnEd3d_landscape = {
                             Ed3d.material.glow_1.opacity = 0.2;
                             Ed3d.material.glow_1.needsUpdate = true;
                         }
+                        // Add a white ring around the Boxel Coordinates reference point
+                        // ED3D negates the Z axis, so scene Z = -25895
+                        var ringGeo = new THREE.RingGeometry(2, 3, 64);
+                        var ringMat = new THREE.MeshBasicMaterial({
+                            color: 0xFFFFFF,
+                            side: THREE.DoubleSide,
+                            transparent: true,
+                            opacity: 0.75,
+                        });
+                        var ring = new THREE.Mesh(ringGeo, ringMat);
+                        ring.position.set(15, -25, -25895);
+                        ring.rotation.x = Math.PI / 2;
+                        scene.add(ring);
                     },
                 });
             })
