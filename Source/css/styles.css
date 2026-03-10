@@ -24,8 +24,13 @@ body {
   height: 800px;
 }
 
-#hud {
-  transition: width 2s;
+#hud,
+#systemDetails {
+  transition: transform 0.3s ease;
+}
+#hud.hud-collapsed,
+#systemDetails.hud-collapsed {
+  transform: translateX(-100%);
 }
 #hud,
 #systemDetails {
@@ -53,6 +58,51 @@ body {
   background-color: rgba(10,10,10,0.7);
   width: 90%;
   max-width: 1200px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* HUD Panel Toggle Button                                                      */
+/* -------------------------------------------------------------------------- */
+
+#hud-toggle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  cursor: pointer;
+  background: rgba(3, 3, 6, 0.85);
+  border: 1px solid #444;
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  color: #ff8c00;
+  width: 28px;
+  min-height: 60px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: left 0.3s ease, background 0.15s ease, color 0.15s ease;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  /* Ensure large enough touch target on mobile */
+  box-shadow: 2px 0 6px rgba(0,0,0,0.5);
+}
+
+#hud-toggle:hover,
+#hud-toggle:focus {
+  background: rgba(20, 20, 20, 0.95);
+  color: #ffad33;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  #hud-toggle {
+    width: 36px;
+    min-height: 72px;
+    font-size: 1.2rem;
+  }
 }
 
 #systemDetails.popup-detail {

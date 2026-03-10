@@ -94,6 +94,13 @@ var HUD = {
       '</div>'
     );
 
+    // Append HUD toggle button as a sibling to #hud inside the container
+    $('#'+this.container).append(
+      '<button id="hud-toggle" title="Collapse panel" aria-label="Collapse panel" aria-expanded="true">'+
+      '<i class="fa fa-chevron-left"></i>'+
+      '</button>'
+    );
+
     var addClass = (Ed3d.popupDetail ? 'class="popup-detail"' : '');
     $('#'+this.container).append('<div id="systemDetails" style="display:none;"'+addClass+'></div>');
 
@@ -206,6 +213,48 @@ var HUD = {
    *
    */
   'initHudAction' : function() {
+
+    //-- HUD panel toggle button
+    (function() {
+      var $toggle = $('#hud-toggle');
+
+      function getActivePanel() {
+        return $('#systemDetails').is(':visible') ? $('#systemDetails') : $('#hud');
+      }
+
+      function syncTogglePosition(animate) {
+        var $panel     = getActivePanel();
+        var collapsed  = $panel.hasClass('hud-collapsed');
+        var targetLeft = collapsed ? 0 : $panel.outerWidth();
+        if (animate) {
+          $toggle.css('left', targetLeft + 'px');
+        } else {
+          $toggle.css({ transition: 'none', left: targetLeft + 'px' });
+          setTimeout(function() { $toggle.css('transition', ''); }, 50);
+        }
+      }
+
+      // Expose so openHudDetails / closeHudDetails can reposition the button
+      HUD.repositionToggle = function(animate) {
+        syncTogglePosition(animate !== false);
+      };
+
+      // Set initial position without animation
+      syncTogglePosition(false);
+
+      $toggle.on('click touchend', function(e) {
+        e.preventDefault();
+        var $panel   = getActivePanel();
+        var collapsed = $panel.toggleClass('hud-collapsed').hasClass('hud-collapsed');
+        $toggle.attr('aria-expanded', collapsed ? 'false' : 'true');
+        $toggle.attr('title', collapsed ? 'Expand panel' : 'Collapse panel');
+        $toggle.attr('aria-label', collapsed ? 'Expand panel' : 'Collapse panel');
+        $toggle.find('i')
+          .toggleClass('fa-chevron-left', !collapsed)
+          .toggleClass('fa-chevron-right', collapsed);
+        syncTogglePosition(true);
+      });
+    })();
 
     //-- Disable 3D controls when mouse hover the Hud
     $( "canvas" ).hover(
@@ -506,20 +555,34 @@ var HUD = {
    */
   'openHudDetails' : function() {
     $('#hud').hide();
-    $('#systemDetails').show().hover(
+    $('#systemDetails').removeClass('hud-collapsed').show().hover(
       function() {
         controls.enabled = false;
       }, function() {
         controls.enabled = true;
       }
     );
+    // Restore toggle icon to open state and reposition against the detail panel
+    var $toggle = $('#hud-toggle');
+    $toggle.attr('aria-expanded', 'true')
+           .attr('title', 'Collapse panel')
+           .attr('aria-label', 'Collapse panel')
+           .find('i').removeClass('fa-chevron-right').addClass('fa-chevron-left');
+    if (HUD.repositionToggle) HUD.repositionToggle(true);
   },
   /**
    *
    */
   'closeHudDetails' : function() {
-    $('#hud').show();
-    $('#systemDetails').hide();
+    $('#systemDetails').hide().removeClass('hud-collapsed');
+    $('#hud').removeClass('hud-collapsed').show();
+    // Restore toggle icon and reposition against the main hud panel
+    var $toggle = $('#hud-toggle');
+    $toggle.attr('aria-expanded', 'true')
+           .attr('title', 'Collapse panel')
+           .attr('aria-label', 'Collapse panel')
+           .find('i').removeClass('fa-chevron-right').addClass('fa-chevron-left');
+    if (HUD.repositionToggle) HUD.repositionToggle(false);
   },
 
   /**
