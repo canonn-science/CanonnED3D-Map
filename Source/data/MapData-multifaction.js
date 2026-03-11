@@ -79,8 +79,15 @@ var canonnEd3d_multifaction = {
 			return;
 		}
 
+		// Special case: factions=All — plot every faction's systems but only
+		// show filter categories for Canonn and Canonn Deep Space Research.
+		const isAllMode = factionsParam.trim().toLowerCase() === 'all';
+
+		// The factions that always get their own colour-coded filter categories
+		const CATEGORY_FACTIONS = ['Canonn', 'Canonn Deep Space Research'];
+
 		// Build a lookup map of lower-case name -> original requested name
-		const requestedNames = factionsParam.split(',').map(function (s) { return s.trim(); });
+		const requestedNames = isAllMode ? CATEGORY_FACTIONS : factionsParam.split(',').map(function (s) { return s.trim(); });
 		const requestedLower = {};
 		requestedNames.forEach(function (n) { requestedLower[n.toLowerCase()] = n; });
 
@@ -90,109 +97,139 @@ var canonnEd3d_multifaction = {
 				'https://downloads.spansh.co.uk/factions.json.gz'
 			);
 
-			// Filter to only the requested factions (case-insensitive)
-			const matched = allFactions.filter(function (f) {
+			// The factions that get colour-coded filter categories in the sidebar
+			const categoryFactions = allFactions.filter(function (f) {
 				return requestedLower.hasOwnProperty(f.name.toLowerCase());
 			});
 
-			if (matched.length === 0) {
+			if (!isAllMode && categoryFactions.length === 0) {
 				console.warn('multifaction: none of the requested factions were found in the dump.');
 				document.getElementById('loading').style.display = 'none';
 				return;
 			}
 
-			// Build categories and systems per faction
-			matched.forEach(function (faction, idx) {
+			// Build a map of faction name → {controlledKey, presentKey} for the category factions
+			var categoryKeyMap = {};
+			categoryFactions.forEach(function (faction, idx) {
 				const colors = factionColorPairs[idx % factionColorPairs.length];
-				const controlledColor = colors[0];
-				const presentColor = colors[1];
-
-				// Category keys must be unique strings used as 'cat' values on systems
 				const controlledKey = 'f' + idx + 'c';
 				const presentKey    = 'f' + idx + 'p';
 
-				// Create a group named after the faction with two sub-categories
 				canonnEd3d_multifaction.systemsData.categories[faction.name] = {};
 				canonnEd3d_multifaction.systemsData.categories[faction.name][controlledKey] = {
 					name: 'Controlled',
-					color: controlledColor,
+					color: colors[0],
 				};
 				canonnEd3d_multifaction.systemsData.categories[faction.name][presentKey] = {
 					name: 'Present',
-					color: presentColor,
+					color: colors[1],
 				};
+				categoryKeyMap[faction.name.toLowerCase()] = { controlledKey: controlledKey, presentKey: presentKey };
+			});
 
-				// Deduplicate systems by systemId64, preferring isControllingFaction=true
-				var systemMap = {};
+			// In All mode add a catch-all category for every other faction's systems
+			var otherControlledKey = 'other_c';
+			var otherPresentKey    = 'other_p';
+			if (isAllMode) {
+				canonnEd3d_multifaction.systemsData.categories['Other Factions'] = {};
+				canonnEd3d_multifaction.systemsData.categories['Other Factions'][otherControlledKey] = {
+					name: 'Controlled',
+					color: '666666',
+				};
+				canonnEd3d_multifaction.systemsData.categories['Other Factions'][otherPresentKey] = {
+					name: 'Present',
+					color: '444444',
+				};
+			}
+
+			// Which factions to plot on the map:
+			// In All mode → every faction in the dump; otherwise → only category factions
+			var factionsToPlot = isAllMode ? allFactions : categoryFactions;
+
+			// Track plotted systemId64s to deduplicate across factions, keeping the
+			// entry that best represents the system (category faction > other, controlling > present)
+			var systemMap = {}; // systemId64 → poiSite
+
+			factionsToPlot.forEach(function (faction) {
+				var factionKey = faction.name.toLowerCase();
+				var catKeys    = categoryKeyMap[factionKey];
+
 				faction.systems.forEach(function (sys) {
-					var key = String(sys.systemId64);
-					if (!systemMap[key] || sys.isControllingFaction) {
-						systemMap[key] = sys;
-					}
-				});
-
-				Object.values(systemMap).forEach(function (sys) {
+					var sysId        = String(sys.systemId64);
 					var isControlled = sys.isControllingFaction === true;
-					var poiSite = {
-						name: sys.systemName,
-						cat: [isControlled ? controlledKey : presentKey],
-						infos: '<b>' + faction.name + '</b><br>'
-							+ 'Status: ' + (isControlled ? 'Controlling' : 'Present') + '<br>'
-							+ (faction.allegiance ? 'Allegiance: ' + faction.allegiance + '<br>' : '')
-							+ (faction.government  ? 'Government: '  + faction.government  + '<br>' : '')
-							+ '<br>'
-							+ '<a href="https://inara.cz/elite/starsystem/?search='
-							+ encodeURIComponent(sys.systemName)
-							+ '" target="_blank">Inara</a>',
-						coords: {
-							x: sys.coords.x,
-							y: sys.coords.y,
-							z: sys.coords.z,
-						},
-					};
-					canonnEd3d_multifaction.systemsData.systems.push(poiSite);
-				});
-			});
+					var catKey       = catKeys
+						? (isControlled ? catKeys.controlledKey : catKeys.presentKey)
+						: (isAllMode ? (isControlled ? otherControlledKey : otherPresentKey) : null);
 
-			// Build a system→factions index covering every system on the map.
-			// Collect the exact system names as stored in systemsData so the index keys
-			// always match what the 3D engine stores on each clicked vertex.
-			var mapSystemNames = {}; // lowercase → exact stored name
-			canonnEd3d_multifaction.systemsData.systems.forEach(function (sys) {
-				var lo = (sys.name || '').toLowerCase();
-				if (lo) mapSystemNames[lo] = true;
-			});
+					if (!catKey) return; // non-All mode: skip non-category factions
 
-			// factionIdx[systemKey][factionName] = {name, allegiance, government, isControlling}
-			// Using an object keyed by faction name to deduplicate — if the dump has multiple
-			// rows for the same faction+system, prefer isControlling=true over false.
-			var factionIdx = {};
-			allFactions.forEach(function (faction) {
-				if (!faction.systems || !faction.name) return;
-				faction.systems.forEach(function (sys) {
-					var key = (sys.systemName || '').toLowerCase().trim();
-					if (!key || !mapSystemNames[key]) return;
-					if (!factionIdx[key]) factionIdx[key] = {};
-					var existing = factionIdx[key][faction.name];
-					var isControlling = sys.isControllingFaction === true;
-					if (!existing || isControlling) {
-						factionIdx[key][faction.name] = {
-							name:         faction.name,
-							allegiance:   faction.allegiance || '',
-							government:   faction.government  || '',
-							isControlling: isControlling,
+					var existing = systemMap[sysId];
+					// Priority: category faction wins over other; controlling wins over present
+					var priority      = (catKeys ? 2 : 0) + (isControlled ? 1 : 0);
+					var existPriority = existing ? existing._priority : -1;
+
+					if (!existing || priority > existPriority) {
+						systemMap[sysId] = {
+							name: sys.systemName,
+							cat: [catKey],
+							infos: '', // non-undefined so action.class.js calls openHudDetails()
+							coords: { x: sys.coords.x, y: sys.coords.y, z: sys.coords.z },
+							_priority: priority,
 						};
 					}
 				});
 			});
-			// Convert inner objects to arrays
-			var systemFactionIndex = {};
-			Object.keys(factionIdx).forEach(function (sysKey) {
-				systemFactionIndex[sysKey] = Object.values(factionIdx[sysKey]);
-			});
-			canonnEd3d_multifaction.systemFactionIndex = systemFactionIndex;
 
-			console.log('multifaction: faction index built for', Object.keys(factionIdx).length, 'systems');
+			Object.values(systemMap).forEach(function (poi) {
+				delete poi._priority;
+				canonnEd3d_multifaction.systemsData.systems.push(poi);
+			});
+
+			if (isAllMode) {
+				// In All mode the system set is the entire galaxy — building an index for every
+				// system would require storing millions of entries and hang the browser.
+				// Instead, store the faction list and scan it at click time for just the one
+				// clicked system (≤60k factions × short systems arrays ≈ <100 ms).
+				canonnEd3d_multifaction.allFactions = allFactions;
+				canonnEd3d_multifaction.systemFactionIndex = null; // signals click-time scan
+				console.log('multifaction: All mode — using click-time faction scan');
+			} else {
+				// Build a system→factions index covering only the systems on the map.
+				// Collect the exact system names as stored in systemsData so keys always match.
+				var mapSystemNames = {};
+				canonnEd3d_multifaction.systemsData.systems.forEach(function (sys) {
+					var lo = (sys.name || '').toLowerCase();
+					if (lo) mapSystemNames[lo] = true;
+				});
+
+				// factionIdx[systemKey][factionName] = entry — deduplicated, preferring isControlling=true
+				var factionIdx = {};
+				allFactions.forEach(function (faction) {
+					if (!faction.systems || !faction.name) return;
+					faction.systems.forEach(function (sys) {
+						var key = (sys.systemName || '').toLowerCase().trim();
+						if (!key || !mapSystemNames[key]) return;
+						if (!factionIdx[key]) factionIdx[key] = {};
+						var existing = factionIdx[key][faction.name];
+						var isControlling = sys.isControllingFaction === true;
+						if (!existing || isControlling) {
+							factionIdx[key][faction.name] = {
+								name:         faction.name,
+								allegiance:   faction.allegiance || '',
+								government:   faction.government  || '',
+								isControlling: isControlling,
+							};
+						}
+					});
+				});
+				// Convert inner objects to arrays
+				var systemFactionIndex = {};
+				Object.keys(factionIdx).forEach(function (sysKey) {
+					systemFactionIndex[sysKey] = Object.values(factionIdx[sysKey]);
+				});
+				canonnEd3d_multifaction.systemFactionIndex = systemFactionIndex;
+				console.log('multifaction: faction index built for', Object.keys(factionIdx).length, 'systems');
+			}
 
 			document.getElementById('loading').style.display = 'none';
 
@@ -288,7 +325,38 @@ var canonnEd3d_multifaction = {
 		// build a clean panel showing ALL factions in the system, controlling first.
 		HUD.setInfoPanel = function (index, point) {
 			var systemNameLower = (point.name || '').trim().toLowerCase();
-			var entries = (canonnEd3d_multifaction.systemFactionIndex[systemNameLower] || []).slice();
+
+			var entries;
+			if (canonnEd3d_multifaction.systemFactionIndex) {
+				// Normal mode: O(1) index lookup
+				entries = (canonnEd3d_multifaction.systemFactionIndex[systemNameLower] || []).slice();
+			} else {
+				// All mode: scan allFactions for this one system at click time
+				var seen = {};
+				entries = [];
+				(canonnEd3d_multifaction.allFactions || []).forEach(function (faction) {
+					if (!faction.systems || !faction.name) return;
+					for (var i = 0; i < faction.systems.length; i++) {
+						var sys = faction.systems[i];
+						if ((sys.systemName || '').toLowerCase().trim() !== systemNameLower) continue;
+						var isControlling = sys.isControllingFaction === true;
+						if (!seen[faction.name] || isControlling) {
+							seen[faction.name] = true;
+							// Replace existing entry if this one is controlling
+							var existing = entries.findIndex(function (e) { return e.name === faction.name; });
+							var entry = {
+								name:         faction.name,
+								allegiance:   faction.allegiance || '',
+								government:   faction.government  || '',
+								isControlling: isControlling,
+							};
+							if (existing >= 0) entries[existing] = entry;
+							else entries.push(entry);
+						}
+						break; // found this faction's entry for the system
+					}
+				});
+			}
 
 			// Sort: controlling faction(s) first
 			entries.sort(function (a, b) {
