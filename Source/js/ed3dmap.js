@@ -808,6 +808,7 @@ var isFarView = false;
 function enableFarView (scale, withAnim) {
 
   if(isFarView || this.Galaxy == null) return;
+  if(!this.Galaxy.milkyway[0] || !this.Galaxy.milkyway[1]) return;
   if(withAnim == undefined) withAnim = true;
 
   isFarView = true;

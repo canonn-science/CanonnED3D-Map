@@ -82,6 +82,7 @@ var canonnEd3d_multifaction = {
 		// Special case: factions=All — plot every faction's systems but only
 		// show filter categories for Canonn and Canonn Deep Space Research.
 		const isAllMode = factionsParam.trim().toLowerCase() === 'all';
+		canonnEd3d_multifaction.isAllMode = isAllMode;
 
 		// The factions that always get their own colour-coded filter categories
 		const CATEGORY_FACTIONS = ['Canonn', 'Canonn Deep Space Research'];
@@ -240,7 +241,7 @@ var canonnEd3d_multifaction = {
 				withHudPanel: true,
 				hudMultipleSelect: true,
 				effectScaleSystem: [20, 100],
-				startAnim: true,
+				startAnim: !isAllMode,
 				showGalaxyInfos: true,
 				systemColor: '#FF9D00',
 				finished: function () {
@@ -320,6 +321,29 @@ var canonnEd3d_multifaction = {
 	},
 
 	finishMap: function () {
+
+		// In All mode, position the camera above Sol and animate down.
+		// We drive camera/controls directly so OrbitControls registers the
+		// starting state correctly (controls.update()) before the tween fires,
+		// which prevents orientation flipping.
+		if (canonnEd3d_multifaction.isAllMode) {
+			// Snap to far above Sol with a safe orientation
+			camera.position.set(0, 40000, 500);
+			controls.target.set(0, 0, 0);
+			controls.update();
+
+			// Smooth zoom into the bubble
+			var animFrom = { y: 40000, z: 500 };
+			var animTo   = { y: 5000, z: 5000 };
+			Ed3d.tween = new TWEEN.Tween(animFrom, { override: true })
+				.to(animTo, 4000)
+				.easing(TWEEN.Easing.Quadratic.Out)
+				.onUpdate(function () {
+					camera.position.set(0, animFrom.y, animFrom.z);
+					controls.update();
+				})
+				.start();
+		}
 
 		// Completely replace HUD.setInfoPanel for the multifaction map:
 		// build a clean panel showing ALL factions in the system, controlling first.
