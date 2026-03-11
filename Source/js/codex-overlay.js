@@ -5,7 +5,7 @@
  * present (sub_class, hud_category, english_name, platform).
  *
  * Does NOT create dropdown UI — that is only shown on codex.html.
- * Call CanonnCodexOverlay.loadIfNeeded() after the map is initialised.
+ * Triggered automatically from ed3dmap.js loadDatasComplete().
  */
 
 var CanonnCodexOverlay = (function () {

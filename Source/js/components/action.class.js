@@ -14,6 +14,7 @@ var Action = {
   'mouseVector' : null,
   'raycaster' : null,
   'oldSel' : null,
+  'selectedPoint' : null,
   'objHover' : null,
   'mouseUpDownTimer' : null,
   'mouseHoverTimer' : null,
@@ -218,6 +219,14 @@ var Action = {
     var sel = System.particleGeo.vertices[indexPoint];
     this.addCursorOnHover(sel);
 
+    if(this.selectedPoint !== null) {
+      var dx = sel.x - this.selectedPoint.x;
+      var dy = sel.y - this.selectedPoint.y;
+      var dz = sel.z - this.selectedPoint.z;
+      var dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
+      $('.hover-distance').html('<hr>' + sel.name + '<br>' + dist.toFixed(2) + ' ly');
+    }
+
   },
 
   'outOnObj' : function () {
@@ -227,6 +236,7 @@ var Action = {
 
     this.objHover = null;
     this.cursor.hover.visible = false;
+    $('.hover-distance').text('');
 
   },
 
@@ -447,10 +457,11 @@ var Action = {
 
     HUD.setInfoPanel(index, obj);
 
-    if(obj.infos != undefined) HUD.openHudDetails();
+    HUD.openHudDetails();
 
 
     this.oldSel = index;
+    this.selectedPoint = obj;
     var goX = obj.x;
     var goY = obj.y;
     var goZ = obj.z;

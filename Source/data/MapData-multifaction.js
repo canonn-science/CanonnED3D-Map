@@ -425,6 +425,7 @@ var canonnEd3d_multifaction = {
 				'</div>' +
 				'<p id="infos"></p>' +
 				factionHtml +
+				'<div class="hover-distance"></div>' +
 				'<div id="nav"></div>'
 			);
 

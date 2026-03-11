@@ -735,16 +735,17 @@ var HUD = {
 
   'setInfoPanel' : function(index, point) {
 
-    $('#systemDetails').html(
+    var html =
       '<h2>'+point.name+'</h2>'+
       '<div class="coords">'+
-      '  <span>'+point.x+'</span><span>'+point.y+'</span><span>'+(-point.z)+'</span></div>'+
-      '  <p id="infos"></p>'+
+      '  <span>'+point.x+'</span><span>'+point.y+'</span><span>'+(-point.z)+'</span>'+
       '</div>'+
-      (point.infos != undefined ? '<div>'+point.infos+'</div>' : '')+
+      (point.infos != undefined && point.infos !== '' ? '<div>'+point.infos+'</div>' : '')+
+      '<div class="hover-distance"></div>'+
       '<div id="nav">'+
-      '</div>'
-    );
+      '</div>';
+
+    $('#systemDetails').html(html);
 
     //-- Add navigation
 
