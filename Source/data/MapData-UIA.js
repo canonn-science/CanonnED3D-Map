@@ -16,7 +16,7 @@ const gsheetToZuluTimestamp = (gsheetFormat) => {
 		minute: dateform.split(" ")[1].split(":")[1],
 		second: dateform.split(" ")[1].split(":")[2],
 	}
-	zulutimestamp = [ado.year,ado.month,ado.day].join("-")+"T"+[ado.hour,ado.minute,ado.second].join(":")+"Z"
+	zulutimestamp = [ado.year, ado.month, ado.day].join("-") + "T" + [ado.hour, ado.minute, ado.second].join(":") + "Z"
 	return zulutimestamp
 }
 
@@ -90,14 +90,14 @@ var canonnEd3d_challenge = {
 				'name': "Col 70 Sector FY-N c21-3",
 				'infos': "",
 				'url': "",
-				'coords': { x:  687.06250, y: -362.53125, z: -697.06250 },
+				'coords': { x: 687.06250, y: -362.53125, z: -697.06250 },
 				'cat': ["1002"]
 			},
 			{
 				'name': "Robigo",
 				'infos': "",
 				'url': "",
-				'coords': { x:  -303.40625, y: 7.3125, z: -314.15625 },
+				'coords': { x: -303.40625, y: 7.3125, z: -314.15625 },
 				'cat': ["1000"]
 			},
 			{
@@ -125,7 +125,7 @@ var canonnEd3d_challenge = {
 				'name': "PMD2009 48",
 				'infos': 'Tourist Asteroid base',
 				'url': "",
-				'coords': { x: 594.90625, y:  -431.4375 , z: -1071.78125 }, 
+				'coords': { x: 594.90625, y: -431.4375, z: -1071.78125 },
 				'cat': ["1000"]
 			},
 			{
@@ -440,7 +440,7 @@ var canonnEd3d_challenge = {
 					{ 's': "Oochost XM-L c24-1", 'label': "Oochost XM-L c24-1" }
 				]
 			},*/
-			
+
 			/*
 				29/09 maintenance, uia2
 				UIA#2 Oochoss LL-D c1 to Oochoss DY-E b1-0 @ 20:45:29
@@ -514,218 +514,218 @@ var canonnEd3d_challenge = {
 				]
 			},*/
 		],
-		
+
 
 		//permit UNlocked sectors
 		puls: [
 			{
 				radius: 100.0,
-				coords: [726.50391,-365.36328,-1377.93555],
+				coords: [726.50391, -365.36328, -1377.93555],
 				name: "Barnard's Loop Sector"
 			},
 			{
 				radius: 426.0,
-				coords: [1355.99609,-235.59766,-690.91602],
+				coords: [1355.99609, -235.59766, -690.91602],
 				name: "Col 132 Sector"
 			},
 			{
 				radius: 150.0,
-				coords: [942.32812,-198.29688,-365.50586],
+				coords: [942.32812, -198.29688, -365.50586],
 				name: "Col 135 Sector"
 			},
 			{
 				radius: 162.0,
-				coords: [1186.89453,-181.42578,-548.42188],
+				coords: [1186.89453, -181.42578, -548.42188],
 				name: "Col 140 Sector"
 			},
 			{
 				radius: 100.0,
-				coords: [428.26172,-280.66797,-858.96289],
+				coords: [428.26172, -280.66797, -858.96289],
 				name: "Flame Sector"
 			},
 			{
 				radius: 100.0,
-				coords: [411.68359,-272.99219,-811.47461],
+				coords: [411.68359, -272.99219, -811.47461],
 				name: "Horsehead Sector"
 			},
 			{
 				radius: 117.0,
-				coords: [1241.61328,86.52734,-1005.43945],
+				coords: [1241.61328, 86.52734, -1005.43945],
 				name: "M47 Sector"
 			},
 			{
 				radius: 100.0,
-				coords: [665.03125,-395.19922,-1400.55469],
+				coords: [665.03125, -395.19922, -1400.55469],
 				name: "Messier 78 Sector"
 			},
 			{
 				radius: 83.0,
-				coords: [178.12891,-512.99609,-1317.47070],
+				coords: [178.12891, -512.99609, -1317.47070],
 				name: "NGC 1662 Sector"
 			},
 			{
 				radius: 106.0,
-				coords: [578.95703,-423.23828,-1084.28711],
+				coords: [578.95703, -423.23828, -1084.28711],
 				name: "NGC 1981 Sector"
 			},
 			{
 				radius: 100.0,
-				coords: [549.36719,-374.51172,-926.56445],
+				coords: [549.36719, -374.51172, -926.56445],
 				name: "NGC 1999 Sector"
 			},
 			{
 				radius: 154.0,
-				coords: [655.20312,-154.73828,-956.90234],
+				coords: [655.20312, -154.73828, -956.90234],
 				name: "NGC 2232 Sector"
 			},
 			{
 				radius: 100.0,
-				coords: [596.77344,-311.86719,-1340.37305],
+				coords: [596.77344, -311.86719, -1340.37305],
 				name: "Orion Dark Region"
 			},
 			{
 				radius: 100.0,
-				coords: [616.52344,-446.42578,-1107.67383],
+				coords: [616.52344, -446.42578, -1107.67383],
 				name: "Orion Sector"
 			},
 			{
 				radius: 100.0,
-				coords: [586.15625,-425.38281,-1079.56836],
+				coords: [586.15625, -425.38281, -1079.56836],
 				name: "Running Man Sector"
 			},
 			{
 				radius: 100.0,
-				coords: [577.89844,-452.66406,-819.22266],
+				coords: [577.89844, -452.66406, -819.22266],
 				name: "Spirograph Sector"
 			},
 			{
 				radius: 182.0,
-				coords: [594.46875,-431.80859,-1072.44922],
+				coords: [594.46875, -431.80859, -1072.44922],
 				name: "Trapezium Sector"
 			},
 			{
 				radius: 100.0,
-				coords: [991.18750,-121.87109,-51.94531],
+				coords: [991.18750, -121.87109, -51.94531],
 				name: "Vela Dark Region"
 			},
 			{
 				radius: 300.0,
-				coords: [366.92969,-299.39453,-1359.90039],
+				coords: [366.92969, -299.39453, -1359.90039],
 				name: "Col 69 Sector"
 			},
 			{
 				radius: 100.0,
-				coords: [369.41406,-401.57812,-715.72852],
+				coords: [369.41406, -401.57812, -715.72852],
 				name: "Witch Head Sector"
 			}
 		],
 		pls: [
 			{
-			radius: 514.0,
-			coords: [508.68359, -372.59375, -1090.87891],
-			name: "Col 70 Sector"
+				radius: 514.0,
+				coords: [508.68359, -372.59375, -1090.87891],
+				name: "Col 70 Sector"
 			},
 			{
-			radius: 510.0,
-			coords: [851.16406, 83.68359, -2005.22070],
-			name: "NGC 2264 Sector"
+				radius: 510.0,
+				coords: [851.16406, 83.68359, -2005.22070],
+				name: "NGC 2264 Sector"
 			},
 			{
-			radius: 200.0,
-			coords: [608.46094, -404.64453, -1194.16992],
-			name: "Horsehead Dark Region"
+				radius: 200.0,
+				coords: [608.46094, -404.64453, -1194.16992],
+				name: "Horsehead Dark Region"
 			},
 			{
-			radius: 205.0,
-			coords: [11.76172, -508.69531, -1684.84180],
-			name: "NGC 1647 Sector"
+				radius: 205.0,
+				coords: [11.76172, -508.69531, -1684.84180],
+				name: "NGC 1647 Sector"
 			},
 			{
-			radius: 100.0,
-			coords: [855.44141, 84.45312, -2025.11328],
-			name: "Cone Sector"
+				radius: 100.0,
+				coords: [855.44141, 84.45312, -2025.11328],
+				name: "Cone Sector"
 			},
 			{
-			radius: 250.0,
-			coords: [878.88281, -64.39062, -1850.92383],
-			name: "Col 97 Sector"
+				radius: 250.0,
+				coords: [878.88281, -64.39062, -1850.92383],
+				name: "Col 97 Sector"
 			},
 			{
-			radius: 350.0,
-			coords: [1731.03125, -400.21094, -1396.76758],
-			name: "M41 Sector"
+				radius: 350.0,
+				coords: [1731.03125, -400.21094, -1396.76758],
+				name: "M41 Sector"
 			},
 			{
-			radius: 459.0,
-			coords: [1246.80469, -278.00000, -860.11328],
-			name: "Col 121 Sector"
+				radius: 459.0,
+				coords: [1246.80469, -278.00000, -860.11328],
+				name: "Col 121 Sector"
 			},
 			{
-			radius: 100.0,
-			coords: [1099.23828, -146.67188, -133.58008],
-			name: "Regor Sector"
+				radius: 100.0,
+				coords: [1099.23828, -146.67188, -133.58008],
+				name: "Regor Sector"
 			},
 			// Additional permit locked regions from ha_regions (needs_permit=True)
-			{ radius: 385.0, coords: [5456.35547,  -379.24609, -7706.28711],  name: "NGC 2286 Sector" },
-			{ radius: 150.0, coords: [18594.82031, -174.53125,  7362.21094],  name: "NGC 3603 Sector" },
-			{ radius: 100.0, coords: [-840.65625,  -561.13281,  13361.82812], name: "IC 4673 Sector" },
-			{ radius: 512.0, coords: [-43.0,   155.0,  37500.0], name: "Bleia1" },
-			{ radius: 512.0, coords: [-43.0,   155.0,  37000.0], name: "Bleia2" },
-			{ radius: 512.0, coords: [-43.0,   155.0,  36500.0], name: "Bleia3" },
-			{ radius: 512.0, coords: [450.0,   155.0,  37000.0], name: "Bleia4" },
-			{ radius: 512.0, coords: [-450.0,  155.0,  37000.0], name: "Bleia5" },
-			{ radius: 512.0, coords: [-20070.0,  90.0,  -6930.0], name: "Bovomit" },
-			{ radius: 512.0, coords: [19100.0,   20.0,  21160.0], name: "Dryman" },
+			{ radius: 385.0, coords: [5456.35547, -379.24609, -7706.28711], name: "NGC 2286 Sector" },
+			{ radius: 150.0, coords: [18594.82031, -174.53125, 7362.21094], name: "NGC 3603 Sector" },
+			{ radius: 100.0, coords: [-840.65625, -561.13281, 13361.82812], name: "IC 4673 Sector" },
+			{ radius: 512.0, coords: [-43.0, 155.0, 37500.0], name: "Bleia1" },
+			{ radius: 512.0, coords: [-43.0, 155.0, 37000.0], name: "Bleia2" },
+			{ radius: 512.0, coords: [-43.0, 155.0, 36500.0], name: "Bleia3" },
+			{ radius: 512.0, coords: [450.0, 155.0, 37000.0], name: "Bleia4" },
+			{ radius: 512.0, coords: [-450.0, 155.0, 37000.0], name: "Bleia5" },
+			{ radius: 512.0, coords: [-20070.0, 90.0, -6930.0], name: "Bovomit" },
+			{ radius: 512.0, coords: [19100.0, 20.0, 21160.0], name: "Dryman" },
 			{ radius: 512.0, coords: [-18860.0, -200.0, 14300.0], name: "Froadik" },
-			{ radius: 512.0, coords: [-23020.0,  -10.0, 24080.0], name: "Hyponia" },
-			{ radius: 512.0, coords: [-1000.0,  -155.0, 53600.0], name: "Praei3" },
-			{ radius: 512.0, coords: [-1000.0,  -155.0, 54000.0], name: "Praei1" },
-			{ radius: 512.0, coords: [-1000.0,  -155.0, 54400.0], name: "Praei2" },
-			{ radius: 512.0, coords: [-1000.0,  -555.0, 54000.0], name: "Praei4" },
-			{ radius: 512.0, coords: [-1000.0,   455.0, 54000.0], name: "Praei5" },
-			{ radius: 512.0, coords: [-500.0,   -100.0, 53500.0], name: "Praei6" },
-			{ radius: 100.0, coords: [-24120.0,   10.0,  -1220.0], name: "Sidgoir" },
+			{ radius: 512.0, coords: [-23020.0, -10.0, 24080.0], name: "Hyponia" },
+			{ radius: 512.0, coords: [-1000.0, -155.0, 53600.0], name: "Praei3" },
+			{ radius: 512.0, coords: [-1000.0, -155.0, 54000.0], name: "Praei1" },
+			{ radius: 512.0, coords: [-1000.0, -155.0, 54400.0], name: "Praei2" },
+			{ radius: 512.0, coords: [-1000.0, -555.0, 54000.0], name: "Praei4" },
+			{ radius: 512.0, coords: [-1000.0, 455.0, 54000.0], name: "Praei5" },
+			{ radius: 512.0, coords: [-500.0, -100.0, 53500.0], name: "Praei6" },
+			{ radius: 100.0, coords: [-24120.0, 10.0, -1220.0], name: "Sidgoir" },
 		],
 		hd_soi: [
 			{
-			radius: 150.0,
-			coords: [ -78.59375, -149.625, -340.53125],
-			name: "Merope"
+				radius: 150.0,
+				coords: [-78.59375, -149.625, -340.53125],
+				name: "Merope"
 			},
 			{
-			radius: 50.0,
-			coords: [ -41.3125, -58.96875, -354.78125],
-			name: "HIP 22460"
+				radius: 50.0,
+				coords: [-41.3125, -58.96875, -354.78125],
+				name: "HIP 22460"
 			},
 			{
-			radius: 70.0,
-			coords: [ 432.625, 2.53125, 288.6875],
-			name: "Musca Dark Region PJ-P b6-1"
+				radius: 70.0,
+				coords: [432.625, 2.53125, 288.6875],
+				name: "Musca Dark Region PJ-P b6-1"
 			},
 			{
-			radius: 100.0,
-			coords: [ -319.81250, -216.75, -913.46875],
-			name: "California Sector BA-A e6"
+				radius: 100.0,
+				coords: [-319.81250, -216.75, -913.46875],
+				name: "California Sector BA-A e6"
 			},
 			{
-			radius: 120.0,
-			coords: [ 351.96875, -373.46875, -711.09375 ],
-			name: "Shenve"
+				radius: 120.0,
+				coords: [351.96875, -373.46875, -711.09375],
+				name: "Shenve"
 			},
 		],
 		g_soi: [
 			{
-			radius: 750.0,
-			coords: [ 1099.21875, -146.68750, -133.59375],
-			name: "Gamma Velorum"
+				radius: 750.0,
+				coords: [1099.21875, -146.68750, -133.59375],
+				name: "Gamma Velorum"
 			},
-			
+
 		]
 	},
 	formatHDs: async function (hddata, resolvePromise) {
 		// Record current lengths so we can slice only the newly added items for addBatch
 		const prevSystemCount = canonnEd3d_challenge.systemsData.systems.length;
-		const prevRouteCount  = canonnEd3d_challenge.systemsData.routes.length;
+		const prevRouteCount = canonnEd3d_challenge.systemsData.routes.length;
 
 		canonnEd3d_challenge.systemsData.pls.sort((a, b) => (a.radius > b.radius) ? 1 : -1)
 		for (var i = 0; i < canonnEd3d_challenge.systemsData.pls.length; i++) {
@@ -775,15 +775,15 @@ var canonnEd3d_challenge = {
 			try {
 				var resp = await fetch('data/csvCache/uia_waypoints_' + i + '.json');
 				apidata['uia/waypoints/' + i] = await resp.json();
-			} catch(e) {
+			} catch (e) {
 				console.warn('Failed to load uia_waypoints_' + i + '.json', e);
 				apidata['uia/waypoints/' + i] = [];
 			}
 		}
 
 		var wps = []
-		for (var i=1; i<=Object.keys(apidata).length; i++) {
-			var tmpd = apidata["uia/waypoints/"+i]
+		for (var i = 1; i <= Object.keys(apidata).length; i++) {
+			var tmpd = apidata["uia/waypoints/" + i]
 			if (!tmpd || tmpd.length < 1) continue;
 			if (!tmpd[1][1] || tmpd[1][1].length < 1 || tmpd[1][1] == "Placeholder") continue
 			wps.push(tmpd)
@@ -822,7 +822,7 @@ var canonnEd3d_challenge = {
 		var hds = {};
 		for (var d = 0; d < hddata.length; d++) {
 			let hyperData = hddata[d];
-		
+
 			var systemName = hyperData["System"]
 			var destinationName = hyperData["Destination"]
 			//filter by nearest name as provided by plugin
@@ -836,13 +836,13 @@ var canonnEd3d_challenge = {
 			//	continue
 			//}
 
-			if (Object.keys(hds).includes(systemName+":::"+destinationName)) {
-				if (hyperData["Hostile"] == "Y") hds[systemName+":::"+destinationName].hostile = "Y"
+			if (Object.keys(hds).includes(systemName + ":::" + destinationName)) {
+				if (hyperData["Hostile"] == "Y") hds[systemName + ":::" + destinationName].hostile = "Y"
 				continue;
 			}
-			hds[systemName+":::"+destinationName] = hyperData
+			hds[systemName + ":::" + destinationName] = hyperData
 		}
-		
+
 		//then iterate that list without duplicates
 		var maxWPI = 0;
 		for (let systemName in hds) {
@@ -868,7 +868,7 @@ var canonnEd3d_challenge = {
 				y: parseFloat(poi.y),
 				z: parseFloat(poi.z),
 			}
-				
+
 			poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + poi.system + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + poi.system + '" target="_blank" rel="noopener">Signals</a>';
 			var otherSite = {};
 			otherSite['name'] = other.system;
@@ -877,9 +877,9 @@ var canonnEd3d_challenge = {
 				y: parseFloat(other.y),
 				z: parseFloat(other.z),
 			}
-				
+
 			otherSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + other.system + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + other.system + '" target="_blank" rel="noopener">Signals</a>';
-			var waypointIndex=-1;
+			var waypointIndex = -1;
 			//Check Site Type and match categories
 			uialoop:
 			for (var i = 0; i < wps.length; i++) { //uia1-3
@@ -904,8 +904,8 @@ var canonnEd3d_challenge = {
 						var sysdata = wps[i][sysi]
 						if (sysdata["Estimate"] != "F") {
 							const sys_v3 = new THREE.Vector3(parseFloat(sysdata["X"]), parseFloat(sysdata["Y"]), parseFloat(sysdata["Z"]))
-							if (sys_v3.distanceTo(poi_v3)<uia_range || sys_v3.distanceTo(other_v3)<uia_range) {
-								
+							if (sys_v3.distanceTo(poi_v3) < uia_range || sys_v3.distanceTo(other_v3) < uia_range) {
+
 								waypointIndex = i//sysi;
 								break uialoop
 							}
@@ -917,14 +917,13 @@ var canonnEd3d_challenge = {
 			//discard this hyper as it is not affialiated with the UIAs
 			if (waypointIndex == -1) continue
 			//prepare the hyper categories
-			if (waypointIndex>maxWPI) maxWPI = waypointIndex
+			if (waypointIndex > maxWPI) maxWPI = waypointIndex
 			//with this we get increasing amounts of filter categories for the waypoints
-			poiSite['cat'] = ["30"+(1+waypointIndex)];
-			otherSite['cat'] = ["30"+(1+waypointIndex)];
+			poiSite['cat'] = ["30" + (1 + waypointIndex)];
+			otherSite['cat'] = ["30" + (1 + waypointIndex)];
 			poiSite['cat'].push("299")
 			otherSite['cat'].push("299")
-			if (hds[systemName].hostile == "Y")
-			{
+			if (hds[systemName].hostile == "Y") {
 				poiSite['cat'].push("300")
 				otherSite['cat'].push("300")
 			}
@@ -934,23 +933,23 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.systemsData.systems.push(otherSite);
 			canonnEd3d_challenge.addRoute(poiSite.cat, [poiSite.name, other.system])
 		}
-		
+
 		//console.log("global waypoints list:", sites.wps)
 		// Categories for UIA 1-N are pre-added in init() so HUD is ready from the start
 
 		// Batch-add all newly collected waypoints and hyperdictions to the already-running map
 		var newSystems = canonnEd3d_challenge.systemsData.systems.slice(prevSystemCount);
-		var newRoutes  = canonnEd3d_challenge.systemsData.routes.slice(prevRouteCount);
+		var newRoutes = canonnEd3d_challenge.systemsData.routes.slice(prevRouteCount);
 		if (newSystems.length > 0 || newRoutes.length > 0) {
 			Ed3d.addBatch({
-				systems:    newSystems,
-				routes:     newRoutes,
+				systems: newSystems,
+				routes: newRoutes,
 				categories: canonnEd3d_challenge.systemsData.categories
 			});
 		}
 		if (resolvePromise) resolvePromise();
 	},
-	addRoute: (cat, systems, circle=false) => {
+	addRoute: (cat, systems, circle = false) => {
 		var route = {
 			cat: cat,
 			circle: circle,
@@ -999,54 +998,54 @@ var canonnEd3d_challenge = {
 
 				//manage routes
 				var curcase = data[i]["Estimate"];
-				switch (curcase){
+				switch (curcase) {
 					//normal route points
 					case "N":
 						poicat = "101"
 						if (lastcase != "N" && lastdata) {
 							//end last route, start new
-							if (route.points.length>1) canonnEd3d_challenge.systemsData.routes.push(route);
+							if (route.points.length > 1) canonnEd3d_challenge.systemsData.routes.push(route);
 							route = { cat: ["101"], circle: false, points: [] }
 							//connect previous routes to this point
 							//normal routes are exclusive to surroundings, other routes are inclusive
 							if (lastcase == "F") {
-								fakeroute.points.push({s:data[i]["System"]})
+								fakeroute.points.push({ s: data[i]["System"] })
 							}
 							if (lastcase == "Y") {
-								estimateroute.points.push({s:data[i]["System"]})
+								estimateroute.points.push({ s: data[i]["System"] })
 							}
 						}
-						route.points.push({s:data[i]["System"]})
+						route.points.push({ s: data[i]["System"] })
 						break;
 
 					//fake route points for weird behavior
 					case "F":
 						if (lastcase != "F" && lastdata) {
 							//end last route, start new
-							if (fakeroute.points.length>1) canonnEd3d_challenge.systemsData.routes.push(fakeroute);
+							if (fakeroute.points.length > 1) canonnEd3d_challenge.systemsData.routes.push(fakeroute);
 							fakeroute = { cat: ["103"], circle: false, points: [] }
 							//connect previous point to this route, inclusive
-							fakeroute.points.push({s:lastdata["System"]})
+							fakeroute.points.push({ s: lastdata["System"] })
 						}
-						fakeroute.points.push({s:data[i]["System"]})
+						fakeroute.points.push({ s: data[i]["System"] })
 						poicat = "103"
 						break;
 
 					//estimated route points
 					case "Y":
-						if (lastcase != "Y" && lastdata)  {
+						if (lastcase != "Y" && lastdata) {
 							//end last route, start new
-							if (estimateroute.points.length>1) canonnEd3d_challenge.systemsData.routes.push(estimateroute);
+							if (estimateroute.points.length > 1) canonnEd3d_challenge.systemsData.routes.push(estimateroute);
 							estimateroute = { cat: ["102"], circle: false, points: [] }
 							//connect previous fake route to this point
 							if (lastcase == "F") {
-								fakeroute.points.push({s:data[i]["System"]})
+								fakeroute.points.push({ s: data[i]["System"] })
 							} else {
 								//handle the rest inclusively as estimate
-								estimateroute.points.push({s:lastdata["System"]})
+								estimateroute.points.push({ s: lastdata["System"] })
 							}
 						}
-						estimateroute.points.push({s:data[i]["System"]})
+						estimateroute.points.push({ s: data[i]["System"] })
 						poicat = "102"
 						break;
 				}
@@ -1059,7 +1058,7 @@ var canonnEd3d_challenge = {
 				poiSite['name'] = data[i]["System"];
 
 				poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + data[i]["System"] + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + data[i]["System"] + '" target="_blank" rel="noopener">Signals</a>';
-				
+
 				//poiSite['url'] = "https://canonn-science.github.io/canonn-signals/?system=" + poiSite['name']
 				poiSite['coords'] = {
 					x: parseFloat(data[i]["X"]),
@@ -1071,13 +1070,13 @@ var canonnEd3d_challenge = {
 					sumY += poiSite['coords'].y - lastcoords.y
 					sumZ += poiSite['coords'].z - lastcoords.z
 				}
-				
+
 				//Check Site Type and match categories
 				poiSite['cat'] = [poicat]
 				canonnEd3d_challenge.systemsData.systems.push(poiSite);
 
-				if (i==0) firstwp = poiSite
-				
+				if (i == 0) firstwp = poiSite
+
 
 
 				//manage times for the UIA
@@ -1104,9 +1103,9 @@ var canonnEd3d_challenge = {
 			}
 		}
 
-		if (fakeroute.points.length>1) canonnEd3d_challenge.systemsData.routes.push(fakeroute);
-		if (route.points.length>1) canonnEd3d_challenge.systemsData.routes.push(route);
-		if (estimateroute.points.length>1) canonnEd3d_challenge.systemsData.routes.push(estimateroute);
+		if (fakeroute.points.length > 1) canonnEd3d_challenge.systemsData.routes.push(fakeroute);
+		if (route.points.length > 1) canonnEd3d_challenge.systemsData.routes.push(route);
+		if (estimateroute.points.length > 1) canonnEd3d_challenge.systemsData.routes.push(estimateroute);
 
 		//calculating UIA current estimated position
 		if (lastcoords && lastarrivaldate) {
@@ -1116,18 +1115,18 @@ var canonnEd3d_challenge = {
 			const starttime = new Date(lastarrivaldate).getTime()
 			const endtime = new Date(arrivaldate).getTime()
 			const nowtime = new Date().getTime()
-			const timediff = endtime-starttime || 1
-			const nowdiff = nowtime-starttime
-			var percent = nowdiff/timediff
-			if (midptime) percent = percent/2;
-			if (destination_reached && percent>1) percent=1;
+			const timediff = endtime - starttime || 1
+			const nowdiff = nowtime - starttime
+			var percent = nowdiff / timediff
+			if (midptime) percent = percent / 2;
+			if (destination_reached && percent > 1) percent = 1;
 			const vecdiff = end.clone().sub(start)
 			canonnEd3d_challenge.uia.push(start.clone().addScaledVector(vecdiff, percent))
 			console.log("% of the way:", percent, new Date(lastarrivaldate).toString(), new Date(arrivaldate).toString())
-			var lastuia = canonnEd3d_challenge.uia.length-1
-			console.log("current estimated position of the UIA"+(lastuia+1)+": ", percent, canonnEd3d_challenge.uia[lastuia])
+			var lastuia = canonnEd3d_challenge.uia.length - 1
+			console.log("current estimated position of the UIA" + (lastuia + 1) + ": ", percent, canonnEd3d_challenge.uia[lastuia])
 			var uia_poi = {
-				'name': "Unidentified Interstellar Anomaly "+(lastuia+1),
+				'name': "Unidentified Interstellar Anomaly " + (lastuia + 1),
 				'infos': "This is an <strong>estimate</strong> of this UIA's current position.",
 				'url': "",
 				'coords': {
@@ -1143,9 +1142,9 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.uia[lastuia].destination_reached = destination_reached;
 
 			//paint a long line of potential where the UIA is heading, extending to the galaxy edge
-			var meanX = sumX/data.length
-			var meanY = sumY/data.length
-			var meanZ = sumZ/data.length
+			var meanX = sumX / data.length
+			var meanY = sumY / data.length
+			var meanZ = sumZ / data.length
 			const v3_mean = new THREE.Vector3(meanX, meanY, meanZ)
 			v3_mean.normalize()
 
@@ -1153,8 +1152,8 @@ var canonnEd3d_challenge = {
 			var v3_forward = new THREE.Vector3(firstwp.coords.x, firstwp.coords.y, firstwp.coords.z)
 			v3_forward.addScaledVector(v3_mean, -65000)
 			var extension = {
-				'name': "extended mean direction of UIA#"+(lastuia+1),
-				'infos': "Galaxy-edge extension of UIA#"+(lastuia+1)+" mean direction",
+				'name': "extended mean direction of UIA#" + (lastuia + 1),
+				'infos': "Galaxy-edge extension of UIA#" + (lastuia + 1) + " mean direction",
 				'url': "",
 				'coords': { x: v3_forward.x, y: v3_forward.y, z: v3_forward.z },
 				'cat': ["100"]
@@ -1164,13 +1163,13 @@ var canonnEd3d_challenge = {
 				cat: ["100"],
 				circle: false,
 				points: [
-					{s: firstwp.name, value: firstwp.name},
-					{s: extension.name, value: extension.name}
+					{ s: firstwp.name, value: firstwp.name },
+					{ s: extension.name, value: extension.name }
 				]
 			}
 			canonnEd3d_challenge.systemsData.routes.push(meanroute);
 
-			
+
 
 			/* use once to generate poi by times and coords
 			//console.log(lastcoords, lastarrivaldate, arrivalcoords, arrivaldate)
@@ -1197,9 +1196,9 @@ var canonnEd3d_challenge = {
 			if (data[i]["Permit Lock"]) continue
 			if (data[i]["Accuracy"] > 3) continue
 			if (data[i]["Current System"]
-			&& data[i]["Current System"].replace(/\s/g, '').length > 1
-			&& data[i]["Targetted System"]
-			&& data[i]["Targetted System"].replace(/\s/g, '').length > 1) {
+				&& data[i]["Current System"].replace(/\s/g, '').length > 1
+				&& data[i]["Targetted System"]
+				&& data[i]["Targetted System"].replace(/\s/g, '').length > 1) {
 				var route = {};
 				route['points'] = [
 					{ 's': data[i]["Current System"], 'label': data[i]["Current System"] },
@@ -1216,8 +1215,7 @@ var canonnEd3d_challenge = {
 		}
 		let response = await getSystemsEDSM(Object.keys(measystems));
 
-		if (response.data.length <= 0)
-		{
+		if (response.data.length <= 0) {
 			console.log("EDSM debug", response);
 		}
 		for (const index in response.data) {
@@ -1228,7 +1226,7 @@ var canonnEd3d_challenge = {
 		for (let systemName in measystems) {
 			if (!measystems[systemName].name || !measystems[systemName].coords) continue;
 			var poiSite = {};
-			poiSite['name'] = measystems[systemName].name;			
+			poiSite['name'] = measystems[systemName].name;
 			poiSite['infos'] = '<br/><a href="https://www.edsm.net/en/system?systemName=' + poiSite['name'] + '" target="_blank" rel="noopener">EDSM</a><br/><a href="https://canonn-science.github.io/canonn-signals/?system=' + poiSite['name'] + '" target="_blank" rel="noopener">Signals</a>';
 			//poiSite['url'] = "https://canonn-science.github.io/canonn-signals/?system=" + poiSite['name']
 			poiSite['coords'] = {
@@ -1252,7 +1250,7 @@ var canonnEd3d_challenge = {
 			},
 		});
 	},
-	createSphere: function(data, color) {
+	createSphere: function (data, color) {
 		//console.log("making sphere: ", data)
 		var geometry = new THREE.SphereGeometry(data.radius, 40, 20);
 		var sphere = new THREE.Mesh(geometry, color);
@@ -1262,7 +1260,7 @@ var canonnEd3d_challenge = {
 		sphere.clickable = false;
 		scene.add(sphere);
 	},
-	finishMap: function() {
+	finishMap: function () {
 		var redmaterial = new THREE.MeshBasicMaterial({
 			color: 0xFF0000,
 			transparent: true,
@@ -1287,28 +1285,28 @@ var canonnEd3d_challenge = {
 						canonnEd3d_challenge.uia[i].y,
 						canonnEd3d_challenge.uia[i].z
 					],
-					name: "Rogue Signal Source "+ (names[i] || (i+1))
+					name: "Rogue Signal Source " + (names[i] || (i + 1))
 				}, redmaterial)
 			}
 		}
 		// Build sphere arrays for shader-based CSG subtraction.
 		// z is negated to match the Three.js world space convention used in createSphere.
 		var puls = canonnEd3d_challenge.systemsData.puls;
-		var pls  = canonnEd3d_challenge.systemsData.pls;
+		var pls = canonnEd3d_challenge.systemsData.pls;
 
 		var pulCenters = puls.length > 0
-			? puls.map(function(p) { return new THREE.Vector3(p.coords[0], p.coords[1], -p.coords[2]); })
+			? puls.map(function (p) { return new THREE.Vector3(p.coords[0], p.coords[1], -p.coords[2]); })
 			: [new THREE.Vector3(0, 1e9, 0)];
 		var pulRadii = puls.length > 0
-			? puls.map(function(p) { return p.radius; })
+			? puls.map(function (p) { return p.radius; })
 			: [0.0];
 		var pulN = pulCenters.length;
 
 		var plCenters = pls.length > 0
-			? pls.map(function(p) { return new THREE.Vector3(p.coords[0], p.coords[1], -p.coords[2]); })
+			? pls.map(function (p) { return new THREE.Vector3(p.coords[0], p.coords[1], -p.coords[2]); })
 			: [new THREE.Vector3(0, 1e9, 0)];
 		var plRadii = pls.length > 0
-			? pls.map(function(p) { return p.radius; })
+			? pls.map(function (p) { return p.radius; })
 			: [0.0];
 		var plN = plCenters.length;
 
@@ -1316,10 +1314,10 @@ var canonnEd3d_challenge = {
 		// depthWrite: false so the PUL inner cap can show through the holes via additive blending.
 		var plSubtractMat = new THREE.ShaderMaterial({
 			uniforms: {
-				alphaMap:   { type: 't',   value: Ed3d.textures.permit_zone },
-				opacity:    { type: 'f',   value: 0.75 },
+				alphaMap: { type: 't', value: Ed3d.textures.permit_zone },
+				opacity: { type: 'f', value: 0.75 },
 				pulCenters: { type: 'v3v', value: pulCenters },
-				pulRadii:   { type: 'fv1', value: pulRadii }
+				pulRadii: { type: 'fv1', value: pulRadii }
 			},
 			vertexShader: [
 				'varying vec2 vUv;',
@@ -1367,10 +1365,10 @@ var canonnEd3d_challenge = {
 		// Same texture and opacity as the PL shell so the colour matches.
 		var pulCapMat = new THREE.ShaderMaterial({
 			uniforms: {
-				alphaMap:  { type: 't',   value: Ed3d.textures.permit_zone },
-				opacity:   { type: 'f',   value: 0.75 },
+				alphaMap: { type: 't', value: Ed3d.textures.permit_zone },
+				opacity: { type: 'f', value: 0.75 },
 				plCenters: { type: 'v3v', value: plCenters },
-				plRadii:   { type: 'fv1', value: plRadii }
+				plRadii: { type: 'fv1', value: plRadii }
 			},
 			vertexShader: [
 				'varying vec2 vUv;',
@@ -1416,7 +1414,7 @@ var canonnEd3d_challenge = {
 			canonnEd3d_challenge.createSphere(puls[i], pulCapMat);
 		}
 		// PUL geometry is only visible where it is inside a PL sphere — the outer parts are clipped by the shader.
-		
+
 		var ygmaterial = new THREE.MeshBasicMaterial({
 			color: 0x336600,
 			transparent: true,
@@ -1443,7 +1441,7 @@ var canonnEd3d_challenge = {
 		}
 
 		//$("#search").html("<p>Current positions are rough estimates.</p>").css("display", "block").css("color", "#FF4F4F")
-	
+
 		document.getElementById("loading").style.display = "none";
 	},
 	init: function () {
@@ -1479,7 +1477,7 @@ var canonnEd3d_challenge = {
 			startAnim: false,
 			showGalaxyInfos: false,
 			playerPos: [0, 0, 0],
-			cameraPos: [0, 0+1000, 0-1500],
+			cameraPos: [0, 0 + 1000, 0 - 1500],
 			systemColor: '#FF9D00',
 			finished: canonnEd3d_challenge.finishMap
 		});
