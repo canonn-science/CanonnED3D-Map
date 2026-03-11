@@ -267,33 +267,6 @@ const recenterViewport = (center, distance) => {
 	Action.moveInitalPosition();
 }
 
-recenterSearch = function () {
-	var term = $('#search input').val();
-	if (!term.trim()) return;
-
-	var foundSystem = {};
-	for (key in canonnEd3d_codex.systemsData.systems) {
-		let system = canonnEd3d_codex.systemsData.systems[key];
-		if (system.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
-			foundSystem = system;
-			break;
-		}
-	}
-	if (!(Object.keys(foundSystem).length === 0)) {
-		recenterViewport(foundSystem.coords, 100);
-
-		//console.log("addtext", "system_hover", systemname, 0, 4, 0, 3, threeObj);
-		/* how do we get threeObj? they dont have names. would like to show the mouseover text after search recenter
-				HUD.addText(-1, foundSystem.name,
-					0, 4, 0, 3//, foundSystem.coords, true
-				); 
-		//*/
-
-		$('#search input:focus-visible').css("outline-color", "darkgreen")
-	} else {
-		$('#search input:focus-visible').css("outline-color", "red")
-	}
-}
 
 const getCodexMeta = (getHierarchy = true) => {
 	//grabbing categories from /ref api
@@ -378,11 +351,6 @@ var canonnEd3d_codex = {
 		
 		document.getElementById("loading").style.display = "none";
 		getCodexMeta();//adding codex based dropdowns after filter list was built or it will be overwritten
-		
-		setTimeout(() => {
-			$('#search').css('display', 'block');
-			$('#search input').val('System').on('input', recenterSearch);
-		}, 1000);
 		
 		// Fetch ref hierarchy, resolve dump URLs, then stream all CSV data onto the map
 		loadFromDumps();

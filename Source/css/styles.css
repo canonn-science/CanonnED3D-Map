@@ -187,6 +187,54 @@ body {
   clear: both;
 }
 
+/* -------------------------------------------------------------------------- */
+/* System typeahead search                                                      */
+/* -------------------------------------------------------------------------- */
+
+#system-search-wrap {
+  position: relative;
+}
+
+#system-search-results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(3, 3, 6, 0.97);
+  border: 1px solid #444;
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
+
+#system-search-results li {
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  color: #eee;
+  border-bottom: 1px solid #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#system-search-results li:last-child {
+  border-bottom: none;
+}
+
+#system-search-results li:hover,
+#system-search-results li.active {
+  background: rgba(255, 140, 0, 0.18);
+  color: #FF7207;
+}
+
+/* -------------------------------------------------------------------------- */
+
 .map_filter,
 .map_link {
   display: block;
@@ -327,10 +375,6 @@ like a tickmark */
 }
 
 
-
-div#search {
-  display:none;
-}
 
 #hud.enlarge #filters > div.open {
   columns: 250px;

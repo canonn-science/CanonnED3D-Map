@@ -544,7 +544,7 @@ var Action = {
 
     this.cursor.selection.visible = true;
     this.cursor.selection.position.set(x, y, z);
-    this.cursor.hover.scale.set(this.cursorScale, this.cursorScale, this.cursorScale);
+    if(this.cursor.hover !== null) this.cursor.hover.scale.set(this.cursorScale, this.cursorScale, this.cursorScale);
 
   },
 

@@ -10,25 +10,6 @@ const recenterViewport_thargoids = (center, distance) => {
 	Action.moveInitalPosition();
 };
 
-recenterSearch = function () {
-	var term = $('#search input').val();
-	if (!term.trim()) return;
-
-	var foundSystem = {};
-	for (var key in canonnEd3d_thargoids.systemsData.systems) {
-		var system = canonnEd3d_thargoids.systemsData.systems[key];
-		if (system.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
-			foundSystem = system;
-			break;
-		}
-	}
-	if (!(Object.keys(foundSystem).length === 0)) {
-		recenterViewport_thargoids(foundSystem.coords, 100);
-		$('#search input:focus-visible').css("outline-color", "darkgreen");
-	} else {
-		$('#search input:focus-visible').css("outline-color", "red");
-	}
-};
 
 var canonnEd3d_thargoids = {
 
@@ -157,8 +138,6 @@ var canonnEd3d_thargoids = {
 	},
 
 	finishMap: function () {
-		$('#search').css('display', 'block');
-		$('#search input').val('System').on('input', recenterSearch);
 		canonnEd3d_thargoids.streamNHSS();
 	},
 

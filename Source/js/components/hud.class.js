@@ -85,9 +85,12 @@ var HUD = {
       '      <span id="cx"></span><span id="cy"></span><span id="cz"></span></div>'+
       '      <p id="infos"></p>'+
       '    </div>'+
-      '  <div id="search">'+
-      '    <h2>Search</h2>'+
-      '    <input type="text" />'+
+      '  <div id="system-search">'+
+      '    <h2>System Search</h2>'+
+      '    <div id="system-search-wrap">'+
+      '      <input type="text" id="system-search-input" placeholder="System name..." autocomplete="off" />'+
+      '      <ul id="system-search-results"></ul>'+
+      '    </div>'+
       '  </div>'+
       '  <div id="filters">'+
       '  </div>'+
@@ -422,6 +425,8 @@ var HUD = {
       routes[elId].visible = !routes[elId].visible;
     });
 
+    HUD.initSystemSearch();
+
   },
 
 
@@ -502,6 +507,136 @@ var HUD = {
   /**
    * Expand filter
    */
+
+  /**
+   * System typeahead search
+   */
+  'initSystemSearch' : function() {
+
+    var currentSuggestions = [];
+    var debounceTimer = null;
+    var activeIndex = -1;
+
+    function getApiUrl(q) {
+      var encoded = encodeURIComponent(q);
+      if (window.location.hostname === 'map.canonn.tech') {
+        return 'https://spansh.co.uk/api/systems/field_values/system_names?q=' + encoded;
+      }
+      return 'https://us-central1-canonn-api-236217.cloudfunctions.net/query/typeahead?q=' + encoded;
+    }
+
+    function closeResults() {
+      $('#system-search-results').hide().empty();
+      activeIndex = -1;
+    }
+
+    function selectSystem(name) {
+      // Case-insensitive match in fetched suggestions
+      var nameLower = name.toLowerCase();
+      var found = null;
+      for (var i = 0; i < currentSuggestions.length; i++) {
+        if (currentSuggestions[i].name.toLowerCase() === nameLower) {
+          found = currentSuggestions[i];
+          break;
+        }
+      }
+      if (!found) return;
+
+      $('#system-search-input').val(found.name);
+      closeResults();
+
+      // Check if system already exists on the map (case-insensitive)
+      var existingIndex = -1;
+      if (System.particleGeo !== null) {
+        var verts = System.particleGeo.vertices;
+        for (var j = 0; j < verts.length; j++) {
+          if (verts[j].name && verts[j].name.toLowerCase() === nameLower) {
+            existingIndex = j;
+            break;
+          }
+        }
+      }
+
+      var infoHtml = '<a href="https://signals.canonn.tech/?system=' +
+        encodeURIComponent(found.name) + '" target="_blank">View on Signals</a>';
+
+      if (existingIndex >= 0) {
+        // System already on map — navigate to it
+        var selPoint = System.particleGeo.vertices[existingIndex];
+        if (!selPoint.infos) selPoint.infos = infoHtml;
+        Action.moveToObj(existingIndex, selPoint);
+      } else {
+        // System not on map — add it as a new pin then navigate
+        System.create({
+          name: found.name,
+          coords: { x: found.x, y: found.y, z: found.z },
+          infos: infoHtml
+        });
+        System.endParticleSystem();
+        var newIndex = System.particleGeo.vertices.length - 1;
+        var newPoint = System.particleGeo.vertices[newIndex];
+        Action.moveToObj(newIndex, newPoint);
+      }
+    }
+
+    $(document).on('input', '#system-search-input', function() {
+      clearTimeout(debounceTimer);
+      var q = $(this).val().trim();
+      if (q.length < 2) {
+        closeResults();
+        return;
+      }
+      debounceTimer = setTimeout(function() {
+        $.getJSON(getApiUrl(q), function(data) {
+          currentSuggestions = (data && data.min_max) ? data.min_max : [];
+          var values = (data && data.values) ? data.values : [];
+          var $ul = $('#system-search-results');
+          $ul.empty();
+          if (values.length === 0) {
+            $ul.hide();
+            return;
+          }
+          $.each(values, function(i, name) {
+            $('<li/>').text(name).on('click', function() {
+              selectSystem($(this).text());
+            }).appendTo($ul);
+          });
+          activeIndex = -1;
+          $ul.show();
+        });
+      }, 300);
+    });
+
+    $(document).on('keydown', '#system-search-input', function(e) {
+      var $items = $('#system-search-results li');
+      if (!$items.length) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeIndex = Math.min(activeIndex + 1, $items.length - 1);
+        $items.removeClass('active').eq(activeIndex).addClass('active');
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeIndex = Math.max(activeIndex - 1, 0);
+        $items.removeClass('active').eq(activeIndex).addClass('active');
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (activeIndex >= 0) {
+          selectSystem($items.eq(activeIndex).text());
+        } else if ($items.length > 0) {
+          selectSystem($items.first().text());
+        }
+      } else if (e.key === 'Escape') {
+        closeResults();
+      }
+    });
+
+    $(document).on('click', function(e) {
+      if (!$(e.target).closest('#system-search-wrap').length) {
+        closeResults();
+      }
+    });
+
+  },
 
   'expandFilters' : function(groupId) {
 

@@ -10,25 +10,6 @@ const recenterViewport = (center, distance) => {
 	Action.moveInitalPosition();
 }
 
-recenterSearch = function () {
-	var term = $('#search input').val();
-	if (!term.trim()) return;
-
-	var foundSystem = {};
-	for (key in canonnEd3d_aliens.systemsData.systems) {
-		let system = canonnEd3d_aliens.systemsData.systems[key];
-		if (system.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
-			foundSystem = system;
-			break;
-		}
-	}
-	if (!(Object.keys(foundSystem).length === 0)) {
-		recenterViewport(foundSystem.coords, 100);
-		$('#search input:focus-visible').css("outline-color", "darkgreen");
-	} else {
-		$('#search input:focus-visible').css("outline-color", "red");
-	}
-}
 
 var canonnEd3d_aliens = {
 
@@ -215,8 +196,6 @@ var canonnEd3d_aliens = {
 	},
 
 	finishMap: function () {
-		$('#search').css('display', 'block');
-		$('#search input').val('System').on('input', recenterSearch);
 		canonnEd3d_aliens.streamNHSS();
 	},
 
