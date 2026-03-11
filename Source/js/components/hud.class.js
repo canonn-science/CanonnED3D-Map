@@ -519,9 +519,6 @@ var HUD = {
 
     function getApiUrl(q) {
       var encoded = encodeURIComponent(q);
-      if (window.location.hostname === 'map.canonn.tech') {
-        return 'https://spansh.co.uk/api/systems/field_values/system_names?q=' + encoded;
-      }
       return 'https://us-central1-canonn-api-236217.cloudfunctions.net/query/typeahead?q=' + encoded;
     }
 
