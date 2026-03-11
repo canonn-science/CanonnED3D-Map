@@ -647,6 +647,22 @@ var Ed3d = {
       HUD.init();
       this.Action.init();
 
+      // Codex overlay: when codex URL params are present on non-codex pages,
+      // load codex-overlay.js once and overlay the matching data.
+      if (!Ed3d._codexOverlayTriggered &&
+          window.location.pathname.indexOf('codex.html') === -1) {
+          var CODEX_PARAMS = ['sub_class', 'hud_category', 'english_name', 'platform'];
+          var hasCodexParams = CODEX_PARAMS.some(function (p) {
+              return !!(new URLSearchParams(window.location.search).get(p));
+          });
+          if (hasCodexParams) {
+              Ed3d._codexOverlayTriggered = true;
+              $.getScript(Ed3d.basePath + 'js/codex-overlay.js', function () {
+                  CanonnCodexOverlay.loadIfNeeded();
+              });
+          }
+      }
+
   },
 
   /**

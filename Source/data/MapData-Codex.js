@@ -123,11 +123,20 @@ function parseDumpCSV(csvText) {
 		.filter(s => !isNaN(s.coords.x));
 }
 
+// Cached promise for the /ref?hierarchy=1 response — shared by loadFromDumps and getCodexMeta.
+let _hierarchyPromise = null;
+const getHierarchyData = () => {
+	if (!_hierarchyPromise) {
+		_hierarchyPromise = capi({ url: '/ref?hierarchy=1', method: 'get' });
+	}
+	return _hierarchyPromise;
+};
+
 // Fetch the ref hierarchy, filter by URL params, then fetch all matching dump CSVs in parallel batches.
 const loadFromDumps = async () => {
 	let hierarchyResponse;
 	try {
-		hierarchyResponse = await capi({ url: '/ref?hierarchy=1', method: 'get' });
+		hierarchyResponse = await getHierarchyData();
 	} catch (e) {
 		console.log("Error fetching ref hierarchy for dumps:", e);
 		return;
@@ -270,13 +279,12 @@ const recenterViewport = (center, distance) => {
 
 const getCodexMeta = (getHierarchy = true) => {
 	//grabbing categories from /ref api
-	capi({
-		url: "/ref?hierarchy=" + (getHierarchy ? 1 : 0),
-		method: 'get'
-	})
-		.then(buildDropdownFilter, (reason) => {
-			console.log("Error getting hierarchical data: ", reason)
-		});
+	const promise = getHierarchy
+		? getHierarchyData()
+		: capi({ url: '/ref?hierarchy=0', method: 'get' });
+	promise.then(buildDropdownFilter, (reason) => {
+		console.log("Error getting hierarchical data: ", reason);
+	});
 }
 
 var canonnEd3d_codex = {
