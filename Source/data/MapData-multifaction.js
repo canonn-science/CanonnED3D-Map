@@ -33,6 +33,10 @@ var canonnEd3d_multifaction = {
 		routes: [],
 	},
 
+	// Pre-built index: lowercase system name → [{name, allegiance, government, isControlling}]
+	// Populated at load time from the full Spansh dump for fast O(1) click-time lookups.
+	systemFactionIndex: {},
+
 	/**
 	 * Fetch a .json.gz URL and return the parsed JSON using the browser
 	 * DecompressionStream API (supported in Chrome 80+, Firefox 113+, Edge 80+).
@@ -150,6 +154,46 @@ var canonnEd3d_multifaction = {
 				});
 			});
 
+			// Build a system→factions index covering every system on the map.
+			// Collect the exact system names as stored in systemsData so the index keys
+			// always match what the 3D engine stores on each clicked vertex.
+			var mapSystemNames = {}; // lowercase → exact stored name
+			canonnEd3d_multifaction.systemsData.systems.forEach(function (sys) {
+				var lo = (sys.name || '').toLowerCase();
+				if (lo) mapSystemNames[lo] = true;
+			});
+
+			// factionIdx[systemKey][factionName] = {name, allegiance, government, isControlling}
+			// Using an object keyed by faction name to deduplicate — if the dump has multiple
+			// rows for the same faction+system, prefer isControlling=true over false.
+			var factionIdx = {};
+			allFactions.forEach(function (faction) {
+				if (!faction.systems || !faction.name) return;
+				faction.systems.forEach(function (sys) {
+					var key = (sys.systemName || '').toLowerCase().trim();
+					if (!key || !mapSystemNames[key]) return;
+					if (!factionIdx[key]) factionIdx[key] = {};
+					var existing = factionIdx[key][faction.name];
+					var isControlling = sys.isControllingFaction === true;
+					if (!existing || isControlling) {
+						factionIdx[key][faction.name] = {
+							name:         faction.name,
+							allegiance:   faction.allegiance || '',
+							government:   faction.government  || '',
+							isControlling: isControlling,
+						};
+					}
+				});
+			});
+			// Convert inner objects to arrays
+			var systemFactionIndex = {};
+			Object.keys(factionIdx).forEach(function (sysKey) {
+				systemFactionIndex[sysKey] = Object.values(factionIdx[sysKey]);
+			});
+			canonnEd3d_multifaction.systemFactionIndex = systemFactionIndex;
+
+			console.log('multifaction: faction index built for', Object.keys(factionIdx).length, 'systems');
+
 			document.getElementById('loading').style.display = 'none';
 
 			Ed3d.init({
@@ -239,6 +283,66 @@ var canonnEd3d_multifaction = {
 	},
 
 	finishMap: function () {
+
+		// Completely replace HUD.setInfoPanel for the multifaction map:
+		// build a clean panel showing ALL factions in the system, controlling first.
+		HUD.setInfoPanel = function (index, point) {
+			var systemNameLower = (point.name || '').trim().toLowerCase();
+			var entries = (canonnEd3d_multifaction.systemFactionIndex[systemNameLower] || []).slice();
+
+			// Sort: controlling faction(s) first
+			entries.sort(function (a, b) {
+				return (b.isControlling ? 1 : 0) - (a.isControlling ? 1 : 0);
+			});
+
+			// Build faction rows
+			var factionHtml = '';
+			if (entries.length > 0) {
+				factionHtml += '<div style="margin-top:8px;font-size:0.75rem;">';
+				factionHtml += '<div style="color:#aaa;border-bottom:1px solid #444;margin-bottom:5px;padding-bottom:2px;font-size:0.8rem;">Factions in System</div>';
+				entries.forEach(function (f) {
+					var rowStyle = f.isControlling
+						? 'margin-bottom:5px;padding:3px;background:rgba(255,140,0,0.1);border-left:2px solid #ff8c00;padding-left:5px;'
+						: 'margin-bottom:3px;padding-left:7px;';
+					factionHtml += '<div style="' + rowStyle + '">';
+					if (f.isControlling) {
+						factionHtml += '<span style="color:#ff8c00;font-weight:bold;">' + f.name + '</span>';
+						factionHtml += ' <span style="color:#ff8c00;font-size:0.7rem;">(controlling)</span>';
+					} else {
+						factionHtml += '<span>' + f.name + '</span>';
+					}
+					if (f.allegiance) {
+						factionHtml += '<br><span style="color:#888;font-size:0.7rem;">' + f.allegiance;
+						if (f.government) factionHtml += ' &bull; ' + f.government;
+						factionHtml += '</span>';
+					}
+					factionHtml += '</div>';
+				});
+				factionHtml += '</div>';
+			} else {
+				// Fallback: show whatever was in the original infos
+				if (point.infos) factionHtml = '<div style="margin-top:8px;">' + point.infos + '</div>';
+			}
+
+			$('#systemDetails').html(
+				'<h2>' + point.name + '</h2>' +
+				'<div class="coords">' +
+				'  <span>' + point.x + '</span><span>' + point.y + '</span><span>' + (-point.z) + '</span>' +
+				'</div>' +
+				'<p id="infos"></p>' +
+				factionHtml +
+				'<div id="nav"></div>'
+			);
+
+			// Inara link
+			$('#infos').html('<a href="https://inara.cz/elite/starsystem/?search=' +
+				encodeURIComponent(point.name) + '" target="_blank">View on Inara</a>');
+
+			// Nav buttons
+			$('<a/>', { html: '&lt;' }).click(function () { Action.moveNextPrev(index - 1, -1); }).appendTo('#nav');
+			$('<a/>', { html: 'X' }).click(function () { HUD.closeHudDetails(); }).appendTo('#nav');
+			$('<a/>', { html: '&gt;' }).click(function () { Action.moveNextPrev(index + 1,  1); }).appendTo('#nav');
+		};
 		var puls = canonnEd3d_multifaction.permitSpheres.puls;
 		var pls  = canonnEd3d_multifaction.permitSpheres.pls;
 
