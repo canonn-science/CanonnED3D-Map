@@ -325,7 +325,9 @@ var canonnEd3d_multifaction = {
 			}
 
 			$('#systemDetails').html(
-				'<h2>' + point.name + '</h2>' +
+				'<h2><a href="https://inara.cz/elite/starsystem/?search=' +
+				encodeURIComponent(point.name) + '" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted #ff8c00;">' +
+				point.name + '</a></h2>' +
 				'<div class="coords">' +
 				'  <span>' + point.x + '</span><span>' + point.y + '</span><span>' + (-point.z) + '</span>' +
 				'</div>' +
@@ -333,10 +335,6 @@ var canonnEd3d_multifaction = {
 				factionHtml +
 				'<div id="nav"></div>'
 			);
-
-			// Inara link
-			$('#infos').html('<a href="https://inara.cz/elite/starsystem/?search=' +
-				encodeURIComponent(point.name) + '" target="_blank">View on Inara</a>');
 
 			// Nav buttons
 			$('<a/>', { html: '&lt;' }).click(function () { Action.moveNextPrev(index - 1, -1); }).appendTo('#nav');
