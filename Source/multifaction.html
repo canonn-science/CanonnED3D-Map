@@ -41,6 +41,75 @@
       height: 93%;
       z-index: -1;
     }
+
+    /* Faction Search UI — lives inside the HUD #filters panel */
+    #faction-search-container {
+      padding: 0 0 10px 0;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    #faction-search-label {
+      color: #ff8c00;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: block;
+    }
+    #faction-search-input {
+      width: 100%;
+      background: rgba(20, 20, 20, 0.95);
+      border: 1px solid #555;
+      color: #eee;
+      font-size: 0.72rem;
+      padding: 5px 8px;
+      box-sizing: border-box;
+      border-radius: 3px;
+      outline: none;
+    }
+    #faction-search-input:focus {
+      border-color: #ff8c00;
+      box-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
+    }
+    #faction-search-input::placeholder {
+      color: #555;
+    }
+    #faction-search-dropdown {
+      display: none;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 4px;
+      border: 1px solid #3a3a3a;
+      border-radius: 3px;
+      background: rgba(8, 8, 8, 0.98);
+      position: relative;
+      z-index: 1200;
+    }
+    #faction-search-dropdown::-webkit-scrollbar { width: 6px; }
+    #faction-search-dropdown::-webkit-scrollbar-track { background: #111; }
+    #faction-search-dropdown::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+    .faction-search-item {
+      padding: 6px 10px;
+      font-size: 0.67rem;
+      color: #aaa;
+      cursor: pointer;
+      border-bottom: 1px solid #1e1e1e;
+      line-height: 1.4;
+    }
+    .faction-search-item:last-child { border-bottom: none; }
+    .faction-search-item:hover,
+    .faction-search-item.active {
+      background: rgba(255, 140, 0, 0.15);
+      color: #fff;
+    }
+    .faction-search-item strong { color: #ff8c00; }
+    #faction-search-status {
+      font-size: 0.6rem;
+      color: #555;
+      margin-top: 5px;
+      text-align: right;
+      min-height: 0.9rem;
+    }
   </style>
 
   <title>CanonnED3D - Multi-Faction Map</title>

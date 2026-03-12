@@ -98,6 +98,11 @@ var canonnEd3d_multifaction = {
 				'https://downloads.spansh.co.uk/factions.json.gz'
 			);
 
+			// Store all faction names (sorted, case-insensitive) for the search UI
+			canonnEd3d_multifaction.allFactionNames = allFactions
+				.map(function (f) { return f.name; })
+				.sort(function (a, b) { return a.toLowerCase().localeCompare(b.toLowerCase()); });
+
 			// The factions that get colour-coded filter categories in the sidebar
 			const categoryFactions = allFactions.filter(function (f) {
 				return requestedLower.hasOwnProperty(f.name.toLowerCase());
@@ -309,6 +314,152 @@ var canonnEd3d_multifaction = {
 			{ radius: 300.0, coords: [366.92969, -299.39453, -1359.90039],  name: 'Col 69 Sector' },
 			{ radius: 100.0, coords: [369.41406, -401.57812, -715.72852],   name: 'Witch Head Sector' },
 		],
+	},
+
+	addSearchUI: function () {
+		var factionNames = canonnEd3d_multifaction.allFactionNames || [];
+		if (factionNames.length === 0) return;
+
+		// Build the search widget and inject it at the top of the HUD #filters panel
+		var container = document.createElement('div');
+		container.id = 'faction-search-container';
+		container.innerHTML =
+			'<label id="faction-search-label" for="faction-search-input">Add Faction to Map</label>' +
+			'<input id="faction-search-input" type="text" placeholder="Search factions\u2026" autocomplete="off" spellcheck="false">' +
+			'<div id="faction-search-dropdown"></div>' +
+			'<div id="faction-search-status"></div>';
+		var filtersEl = document.getElementById('filters');
+		if (filtersEl) {
+			filtersEl.insertBefore(container, filtersEl.firstChild);
+		} else {
+			document.body.appendChild(container);
+		}
+
+		var input    = document.getElementById('faction-search-input');
+		var dropdown = document.getElementById('faction-search-dropdown');
+		var status   = document.getElementById('faction-search-status');
+		var activeIdx = -1;
+
+		function escapeHtml(str) {
+			return String(str)
+				.replace(/&/g, '&amp;')
+				.replace(/</g, '&lt;')
+				.replace(/>/g, '&gt;');
+		}
+
+		function getItems() {
+			return dropdown.querySelectorAll('.faction-search-item');
+		}
+
+		function setActive(idx) {
+			var items = getItems();
+			items.forEach(function (el, i) {
+				if (i === idx) el.classList.add('active');
+				else           el.classList.remove('active');
+			});
+			activeIdx = idx;
+		}
+
+		function renderDropdown(query) {
+			dropdown.innerHTML = '';
+			activeIdx = -1;
+			var q = query.toLowerCase();
+			if (q.length < 2) {
+				dropdown.style.display = 'none';
+				status.textContent = '';
+				return;
+			}
+			var matches = factionNames.filter(function (name) {
+				return name.toLowerCase().indexOf(q) >= 0;
+			});
+			status.textContent = matches.length === 0
+				? 'No matches'
+				: matches.length + ' faction' + (matches.length === 1 ? '' : 's') + ' found';
+			if (matches.length === 0) {
+				dropdown.style.display = 'none';
+				return;
+			}
+			var shown = matches.slice(0, 20);
+			shown.forEach(function (name) {
+				var item = document.createElement('div');
+				item.className = 'faction-search-item';
+				// Highlight the matched portion (case-insensitive)
+				var lname = name.toLowerCase();
+				var hi    = lname.indexOf(q);
+				item.innerHTML =
+					escapeHtml(name.substring(0, hi)) +
+					'<strong>' + escapeHtml(name.substring(hi, hi + q.length)) + '</strong>' +
+					escapeHtml(name.substring(hi + q.length));
+				item.addEventListener('mousedown', function (e) {
+					e.preventDefault(); // keep focus on input so blur doesn't hide dropdown early
+					canonnEd3d_multifaction.selectFaction(name);
+				});
+				dropdown.appendChild(item);
+			});
+			if (matches.length > 20) {
+				var hint = document.createElement('div');
+				hint.style.cssText = 'padding:4px 10px;font-size:0.6rem;color:#555;text-align:center;border-top:1px solid #222;';
+				hint.textContent = '\u2026and ' + (matches.length - 20) + ' more — refine your search.';
+				dropdown.appendChild(hint);
+			}
+			dropdown.style.display = 'block';
+		}
+
+		input.addEventListener('input', function () {
+			renderDropdown(input.value.trim());
+		});
+
+		input.addEventListener('keydown', function (e) {
+			var items = getItems();
+			if (e.key === 'ArrowDown') {
+				e.preventDefault();
+				setActive(Math.min(activeIdx + 1, items.length - 1));
+			} else if (e.key === 'ArrowUp') {
+				e.preventDefault();
+				setActive(Math.max(activeIdx - 1, 0));
+			} else if (e.key === 'Enter') {
+				if (activeIdx >= 0 && items[activeIdx]) {
+					items[activeIdx].dispatchEvent(new MouseEvent('mousedown'));
+				}
+			} else if (e.key === 'Escape') {
+				dropdown.style.display = 'none';
+				input.value = '';
+				status.textContent = '';
+			}
+		});
+
+		document.addEventListener('click', function (e) {
+			var c = document.getElementById('faction-search-container');
+			if (c && !c.contains(e.target)) {
+				dropdown.style.display = 'none';
+			}
+		});
+	},
+
+	selectFaction: function (factionName) {
+		var currentFactions = getUrlParameter('factions');
+		var parts;
+		if (!currentFactions || currentFactions.toLowerCase() === 'all') {
+			parts = [factionName];
+		} else {
+			parts = currentFactions.split(',').map(function (s) { return s.trim(); });
+			var alreadyPresent = parts.some(function (p) {
+				return p.toLowerCase() === factionName.toLowerCase();
+			});
+			if (alreadyPresent) {
+				var inp = document.getElementById('faction-search-input');
+				var drp = document.getElementById('faction-search-dropdown');
+				var sts = document.getElementById('faction-search-status');
+				if (inp) inp.value = '';
+				if (drp) drp.style.display = 'none';
+				if (sts) sts.textContent = factionName + ' is already on the map.';
+				return;
+			}
+			parts.push(factionName);
+		}
+		// Re-encode each part individually (handles spaces and special chars)
+		var encoded = parts.map(function (p) { return encodeURIComponent(p); }).join(',');
+		location.href = location.pathname + '?factions=' + encoded;
 	},
 
 	createSphere: function (data, material) {
@@ -542,6 +693,9 @@ var canonnEd3d_multifaction = {
 		for (var i = 0; i < puls.length; i++) {
 			canonnEd3d_multifaction.createSphere(puls[i], pulMat);
 		}
+
+		// Add the faction search widget now that the map is ready
+		canonnEd3d_multifaction.addSearchUI();
 	},
 };
 
