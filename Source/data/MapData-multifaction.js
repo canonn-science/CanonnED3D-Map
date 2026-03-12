@@ -234,6 +234,9 @@ var canonnEd3d_multifaction = {
 					systemFactionIndex[sysKey] = Object.values(factionIdx[sysKey]);
 				});
 				canonnEd3d_multifaction.systemFactionIndex = systemFactionIndex;
+				// Also keep allFactions so we can do a click-time scan for any system
+				// that was not plotted (e.g. found via the system search box).
+				canonnEd3d_multifaction.allFactions = allFactions;
 				console.log('multifaction: faction index built for', Object.keys(factionIdx).length, 'systems');
 			}
 
@@ -325,9 +328,10 @@ var canonnEd3d_multifaction = {
 		container.id = 'faction-search-container';
 		container.innerHTML =
 			'<label id="faction-search-label" for="faction-search-input">Add Faction to Map</label>' +
+			'<div id="faction-search-wrap">' +
 			'<input id="faction-search-input" type="text" placeholder="Search factions\u2026" autocomplete="off" spellcheck="false">' +
 			'<div id="faction-search-dropdown"></div>' +
-			'<div id="faction-search-status"></div>';
+			'</div>';
 		var filtersEl = document.getElementById('filters');
 		if (filtersEl) {
 			filtersEl.insertBefore(container, filtersEl.firstChild);
@@ -337,7 +341,6 @@ var canonnEd3d_multifaction = {
 
 		var input    = document.getElementById('faction-search-input');
 		var dropdown = document.getElementById('faction-search-dropdown');
-		var status   = document.getElementById('faction-search-status');
 		var activeIdx = -1;
 
 		function escapeHtml(str) {
@@ -366,15 +369,11 @@ var canonnEd3d_multifaction = {
 			var q = query.toLowerCase();
 			if (q.length < 2) {
 				dropdown.style.display = 'none';
-				status.textContent = '';
 				return;
 			}
 			var matches = factionNames.filter(function (name) {
 				return name.toLowerCase().indexOf(q) >= 0;
 			});
-			status.textContent = matches.length === 0
-				? 'No matches'
-				: matches.length + ' faction' + (matches.length === 1 ? '' : 's') + ' found';
 			if (matches.length === 0) {
 				dropdown.style.display = 'none';
 				return;
@@ -424,7 +423,6 @@ var canonnEd3d_multifaction = {
 			} else if (e.key === 'Escape') {
 				dropdown.style.display = 'none';
 				input.value = '';
-				status.textContent = '';
 			}
 		});
 
@@ -449,10 +447,8 @@ var canonnEd3d_multifaction = {
 			if (alreadyPresent) {
 				var inp = document.getElementById('faction-search-input');
 				var drp = document.getElementById('faction-search-dropdown');
-				var sts = document.getElementById('faction-search-status');
 				if (inp) inp.value = '';
 				if (drp) drp.style.display = 'none';
-				if (sts) sts.textContent = factionName + ' is already on the map.';
 				return;
 			}
 			parts.push(factionName);
@@ -505,6 +501,32 @@ var canonnEd3d_multifaction = {
 			if (canonnEd3d_multifaction.systemFactionIndex) {
 				// Normal mode: O(1) index lookup
 				entries = (canonnEd3d_multifaction.systemFactionIndex[systemNameLower] || []).slice();
+				// Fallback: if not in index (e.g. added via system search), scan allFactions
+				if (entries.length === 0 && canonnEd3d_multifaction.allFactions) {
+					var seen2 = {};
+					entries = [];
+					(canonnEd3d_multifaction.allFactions || []).forEach(function (faction) {
+						if (!faction.systems || !faction.name) return;
+						for (var i = 0; i < faction.systems.length; i++) {
+							var sys = faction.systems[i];
+							if ((sys.systemName || '').toLowerCase().trim() !== systemNameLower) continue;
+							var isControlling = sys.isControllingFaction === true;
+							if (!seen2[faction.name] || isControlling) {
+								seen2[faction.name] = true;
+								var existing2 = entries.findIndex(function (e) { return e.name === faction.name; });
+								var entry2 = {
+									name:          faction.name,
+									allegiance:    faction.allegiance || '',
+									government:    faction.government  || '',
+									isControlling: isControlling,
+								};
+								if (existing2 >= 0) entries[existing2] = entry2;
+								else entries.push(entry2);
+							}
+							break;
+						}
+					});
+				}
 			} else {
 				// All mode: scan allFactions for this one system at click time
 				var seen = {};
