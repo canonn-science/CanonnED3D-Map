@@ -339,6 +339,13 @@ var canonnEd3d_multifaction = {
 			document.body.appendChild(container);
 		}
 
+		// Prevent OrbitControls from capturing pointer events that originate
+		// inside the faction search widget (OrbitControls listens on #edmap,
+		// so any bubbled mousedown from children would start a map drag).
+		['mousedown', 'pointerdown', 'touchstart'].forEach(function (evt) {
+			container.addEventListener(evt, function (e) { e.stopPropagation(); });
+		});
+
 		var input    = document.getElementById('faction-search-input');
 		var dropdown = document.getElementById('faction-search-dropdown');
 		var activeIdx = -1;

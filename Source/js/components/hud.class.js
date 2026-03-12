@@ -276,6 +276,12 @@ var HUD = {
         controls.enabled = true;
       }
     );
+
+    //-- Prevent map drag starting when interacting with the HUD panel
+    $( document ).on('mousedown pointerdown touchstart', '#hud, #systemDetails', function(e) {
+      e.stopPropagation();
+    });
+
     $( "#systemDetails" ).hide();
 
     //-- Add Count filters (initial pass — use updateFilterCounts for subsequent updates)
