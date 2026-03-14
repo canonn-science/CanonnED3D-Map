@@ -268,8 +268,8 @@ var HUD = {
       }
     );
 
-    //-- Disable 3D controls when mouse hover the Hud
-    $( "#hud" ).hover(
+    //-- Disable 3D controls when mouse is over either HUD panel
+    $( "#hud, #systemDetails" ).hover(
       function() {
         controls.enabled = false;
       }, function() {
@@ -277,10 +277,14 @@ var HUD = {
       }
     );
 
-    //-- Prevent map drag starting when interacting with the HUD panel
-    $( document ).on('mousedown pointerdown touchstart', '#hud, #systemDetails', function(e) {
-      e.stopPropagation();
-    });
+    //-- Prevent ALL pointer/scroll/click events from leaking through the HUD
+    //   panels into OrbitControls.  Must be a DIRECT binding (not delegated)
+    //   so stopPropagation fires before the event bubbles to #ed3dmap where
+    //   OrbitControls is registered.
+    $( '#hud, #systemDetails' ).on(
+      'mousedown pointerdown touchstart touchmove touchend wheel click contextmenu',
+      function(e) { e.stopPropagation(); }
+    );
 
     $( "#systemDetails" ).hide();
 

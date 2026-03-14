@@ -45,6 +45,7 @@ body {
   padding: 15px;
   color: #fff;
   z-index: 999;
+  pointer-events: all;
 
   /*border: solid 3px rgba(255, 140, 13, 0.8);*/
   background: rgba(3, 3, 6,0.8);
