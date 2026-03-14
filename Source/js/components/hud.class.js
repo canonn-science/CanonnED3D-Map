@@ -468,6 +468,15 @@ var HUD = {
           events.some(function (e) { return e && typeof e.event === 'string'; });
       }
 
+      function isSpanshSearch(data) {
+        return data &&
+          typeof data.count          === 'number' &&
+          typeof data.from           === 'number' &&
+          typeof data.search_reference === 'string' &&
+          data.reference  !== undefined &&
+          Array.isArray(data.results);
+      }
+
       function isNavRoute(data) {
         return data && data.event === 'NavRoute' &&
           Array.isArray(data.Route) && data.Route.length > 0 &&
@@ -475,6 +484,10 @@ var HUD = {
       }
 
       function handleParsedFile(filename, data, done) {
+        if (isSpanshSearch(data)) {
+          displaySpanshSearch(filename, data, done);
+          return;
+        }
         if (isNavRoute(data)) {
           var jumps = data.Route.map(function (s) {
             return { system: s.StarSystem, x: s.StarPos[0], y: s.StarPos[1], z: s.StarPos[2] };
@@ -630,6 +643,51 @@ var HUD = {
           done();
         }
 
+        addNext();
+      }
+
+      function displaySpanshSearch(filename, data, done) {
+        // Deduplicate by system_name — multiple bodies can share the same system
+        var seen = {};
+        var systems = [];
+        data.results.forEach(function (r) {
+          if (r.system_name && !seen[r.system_name]) {
+            seen[r.system_name] = true;
+            systems.push({ system: r.system_name, x: r.system_x, y: r.system_y, z: r.system_z });
+          }
+        });
+
+        if (systems.length === 0) {
+          addMessage(filename + ': Spansh search result has no systems.', 'error');
+          done(); return;
+        }
+
+        if (!System.particleGeo) System.initParticleSystem();
+
+        var ref = data.reference ? data.reference.name : '';
+        var $status = $('<div class="fu-msg info"></div>').text('Adding systems\u2026');
+        $messages.append($status);
+        $messages.scrollTop($messages[0].scrollHeight);
+
+        var i = 0;
+        function addNext() {
+          if (i < systems.length) {
+            var s = systems[i++];
+            System.create({ name: s.system, coords: { x: s.x, y: s.y, z: s.z } });
+            $status.text('[' + i + '/' + systems.length + '] ' + s.system);
+            $messages.scrollTop($messages[0].scrollHeight);
+            setTimeout(addNext, 0);
+          } else {
+            System.endParticleSystem();
+            $status.removeClass('info').addClass('success')
+              .text(filename + ': Loaded \u2014 ' + systems.length + ' system(s)' +
+                    (ref ? ' near ' + ref : '') + ' (results ' +
+                    data.from + '\u2013' + (data.from + systems.length - 1) +
+                    ' of ' + data.count + ').');
+            $messages.scrollTop($messages[0].scrollHeight);
+            done();
+          }
+        }
         addNext();
       }
 
