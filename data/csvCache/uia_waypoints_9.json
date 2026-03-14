@@ -1,0 +1,36 @@
+[
+  [
+    "WP#", 
+    "System", 
+    "X", 
+    "Y", 
+    "Z", 
+    "Distance", 
+    "Midpoint Time", 
+    "Traversal Speed", 
+    "Traversal Time", 
+    "Avg Speed Ly/h", 
+    "Estimate", 
+    "Update Time", 
+    "Remarks", 
+    "", 
+    "LY - Sol"
+  ], 
+  [
+    "0", 
+    "Placeholder", 
+    "0", 
+    "0", 
+    "0", 
+    "", 
+    "", 
+    "", 
+    "", 
+    "", 
+    "", 
+    "", 
+    "", 
+    "", 
+    "0.00"
+  ]
+]

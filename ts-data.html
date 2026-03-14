@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+
+  <script>
+    window.ga = window.ga || function () {
+      (ga.q = ga.q || []).push(arguments)
+    };
+    ga.l = +new Date;
+    ga('create', 'UA-102148507-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:400" rel="stylesheet" type="text/css" />
+  <script src="/js/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="vendor/papaparse/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.4/randomColor.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/menu.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <!-- Custom CSS -->
+  <style type="text/css">
+    #systemDetails,
+    #hud {
+      width: 350px;
+      overflow-y: auto;
+      max-height: 93vh;
+      padding-right: 10px;
+    }
+
+    #systemDetails img {
+      max-width: calc(100% - 20px);
+      height: auto;
+      margin: 10px 0;
+      border: 1px solid #555;
+      border-radius: 2px;
+      display: block;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    #systemDetails img:hover {
+      opacity: 0.8;
+    }
+
+    #systemDetails h3 {
+      margin-top: 0;
+      font-size: 16px;
+      font-weight: bold;
+      color: #FF9D00;
+      word-wrap: break-word;
+    }
+
+    #systemDetails p {
+      margin: 5px 0;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    #systemDetails div {
+      margin-top: 10px;
+    }
+
+    /* Fullscreen image modal styles */
+    #imageModal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      align-items: center;
+      justify-content: center;
+    }
+
+    #imageModal.active {
+      display: flex;
+    }
+
+    .image-modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      position: relative;
+    }
+
+    .image-modal-content img {
+      max-width: 100%;
+      max-height: 85vh;
+      border: 2px solid #FF9D00;
+      border-radius: 4px;
+    }
+
+    #imageCloseBtn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #FF9D00;
+      border: 1px solid #FF9D00;
+      padding: 10px 15px;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 2px;
+      z-index: 10001;
+    }
+
+    #imageCloseBtn:hover {
+      background-color: #FF9D00;
+      color: #000;
+    }
+
+    #edmap {
+      position: fixed;
+      top: 6%;
+      right: 0;
+      width: 100%;
+      height: 93%;
+      z-index: 1;
+    }
+  </style>
+
+  <title>CanonnED3D - Maps</title>
+
+</head>
+
+<body bgcolor="#000000">
+  <script src="https://www.w3schools.com/lib/w3data.js"></script>
+  <div w3-include-html="include/nav.html"></div>
+
+  <script>
+    w3IncludeHTML();
+  </script>
+
+  <!-- Fullscreen Image Modal -->
+  <div id="imageModal">
+    <button id="imageCloseBtn" title="Close (Esc)">&times;</button>
+    <div class="image-modal-content">
+      <img id="modalImage" src="" alt="Site image">
+    </div>
+  </div>
+
+  <div id="edmap">
+    <div id="loading">
+      <div
+        style="margin-top:24px;padding:14px 32px;background:rgba(30,30,30,0.9);color:#ccc;text-align:center;font-size:16px;border-radius:4px;letter-spacing:1px;">
+        Loading Thargoid Structure sites…</div>
+    </div>
+  </div>
+
+  <!-- ED3D map engine -->
+  <script src="js/ed3dmap.js?v=6"></script>
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+  <!-- Map data for Thargoid Structures (will prefer data/surface_sites.json when present) -->
+  <script src="data/MapData-TS.js"></script>
+  <script>
+    // Fullscreen image viewer functionality
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeBtn = document.getElementById('imageCloseBtn');
+
+    function openImageFullscreen(imageSrc) {
+      modalImage.src = imageSrc;
+      imageModal.classList.add('active');
+    }
+
+    function closeImageFullscreen() {
+      imageModal.classList.remove('active');
+      modalImage.src = '';
+    }
+
+    // Close button click
+    closeBtn.addEventListener('click', closeImageFullscreen);
+
+    // Click outside image to close
+    imageModal.addEventListener('click', function(e) {
+      if (e.target === imageModal) {
+        closeImageFullscreen();
+      }
+    });
+
+    // Escape key to close
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeImageFullscreen();
+      }
+    });
+
+    // Delegate image clicks from dynamically added content
+    document.addEventListener('click', function(e) {
+      if (e.target.tagName === 'IMG' && e.target.closest('#systemDetails')) {
+        openImageFullscreen(e.target.src);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof canonnEd3d_ts !== 'undefined' && typeof Ed3d !== 'undefined') {
+        canonnEd3d_ts.init();
+      }
+    });
+  </script>
+</body>
+
+</html>

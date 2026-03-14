@@ -1,0 +1,6572 @@
+[
+  {
+    "System": "Aries Dark Region AQ-Y d14",
+    "Active": "inactive",
+    "Planet": "4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/nDihvrs.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "1",
+    "x": -159.53125,
+    "y": -144.25,
+    "z": -268.90625
+  },
+  {
+    "System": "Aries Dark Region DB-X d1-63",
+    "Active": "inactive",
+    "Planet": "A 7 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/8Tj0QmJ.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "2",
+    "x": -119.625,
+    "y": -90.84375,
+    "z": -247.03125
+  },
+  {
+    "System": "Aries Dark Region FW-W d1-76",
+    "Active": "inactive",
+    "Planet": "4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/emUlbHP.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "3",
+    "x": -136.75,
+    "y": -130.34375,
+    "z": -207.90625
+  },
+  {
+    "System": "Aries Dark Region GW-W d1-48",
+    "Active": "inactive",
+    "Planet": "6 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/vdlgWhn.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "4",
+    "x": -35.25,
+    "y": -124.3125,
+    "z": -249.5
+  },
+  {
+    "System": "Aries Dark Region GW-W d1-86",
+    "Active": "inactive",
+    "Planet": "1 B",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/1rYRe70.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "5",
+    "x": -21.25,
+    "y": -129.75,
+    "z": -227.875
+  },
+  {
+    "System": "Aries Dark Region OI-T c3-8",
+    "Active": "inactive",
+    "Planet": "1 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/DYPKYxA.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "6",
+    "x": -114.53125,
+    "y": -210.25,
+    "z": -208.25
+  },
+  {
+    "System": "Col 285 Sector BQ-X c1-10",
+    "Active": "inactive",
+    "Planet": "1 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/D7xtvKU.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "7",
+    "x": -172.03125,
+    "y": -61.625,
+    "z": -272.34375
+  },
+  {
+    "System": "Col 285 Sector CV-Y d57",
+    "Active": "inactive",
+    "Planet": "AB 4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/IwtfLHO.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "8",
+    "x": -21.28125,
+    "y": -76.34375,
+    "z": -288.15625
+  },
+  {
+    "System": "Col 285 Sector IL-X c1-16",
+    "Active": "inactive",
+    "Planet": "A 4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/78uQk9Y.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "9",
+    "x": 29.71875,
+    "y": -76.96875,
+    "z": -296.3125
+  },
+  {
+    "System": "HIP 11457",
+    "Active": "inactive",
+    "Planet": "1 C",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/wElRgH4.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "10",
+    "x": -118.21875,
+    "y": -235.3125,
+    "z": -250.78125
+  },
+  {
+    "System": "HIP 19026",
+    "Active": "inactive",
+    "Planet": "B 1 C",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/UcXVdO8.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "11",
+    "x": -117.875,
+    "y": -65.125,
+    "z": -330.90625
+  },
+  {
+    "System": "HIP 22347",
+    "Active": "inactive",
+    "Planet": "4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/5f4Vzk6.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "12",
+    "x": 14.4375,
+    "y": -80.15625,
+    "z": -259.5625
+  },
+  {
+    "System": "Hyades Sector AQ-Y d93",
+    "Active": "inactive",
+    "Planet": "2 B",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Os1F6hw.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "13",
+    "x": -74.59375,
+    "y": -70.9375,
+    "z": -253.96875
+  },
+  {
+    "System": "Hyades Sector DB-X c1-19",
+    "Active": "inactive",
+    "Planet": "8 C",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/aij6dx9.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "14",
+    "x": -79.9375,
+    "y": -88.375,
+    "z": -219.8125
+  },
+  {
+    "System": "Mel 22 Sector AX-A b14-1",
+    "Active": "inactive",
+    "Planet": "1 B",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/lGxry0v.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "15",
+    "x": -164.3125,
+    "y": -237.28125,
+    "z": -319.78125
+  },
+  {
+    "System": "Pleiades Sector GW-W d1-65",
+    "Active": "inactive",
+    "Planet": "10 F",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Lgo0f9F.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "16",
+    "x": -8.9375,
+    "y": -94.6875,
+    "z": -343.96875
+  },
+  {
+    "System": "Pleiades Sector IR-W d1-38",
+    "Active": "inactive",
+    "Planet": "ABCD 1 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/iFFQWFL.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "17",
+    "x": -35.25,
+    "y": -171.8125,
+    "z": -324.4375
+  },
+  {
+    "System": "Pleiades Sector JS-T c3-17",
+    "Active": "inactive",
+    "Planet": "1 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/fqTMrKK.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "18",
+    "x": -122.5,
+    "y": -101.875,
+    "z": -289.75
+  },
+  {
+    "System": "Pleiades Sector KH-V c2-7",
+    "Active": "inactive",
+    "Planet": "7 F",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/XGDFWgv.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "19",
+    "x": 3.8125,
+    "y": -105.09375,
+    "z": -327.96875
+  },
+  {
+    "System": "Pleiades Sector LN-T c3-11",
+    "Active": "inactive",
+    "Planet": "9 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/9CLpNpL.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "20",
+    "x": -124.65625,
+    "y": -113.96875,
+    "z": -282.625
+  },
+  {
+    "System": "Pleiades Sector MX-U d2-63",
+    "Active": "inactive",
+    "Planet": "1 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/c3s3FMV.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "21",
+    "x": -49.84375,
+    "y": -178.84375,
+    "z": -256.6875
+  },
+  {
+    "System": "Pleiades Sector OS-U c2-7",
+    "Active": "inactive",
+    "Planet": "4 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/1IiAQMk.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "22",
+    "x": -68.71875,
+    "y": -229.625,
+    "z": -325.6875
+  },
+  {
+    "System": "Pleiades Sector UZ-X b1-2",
+    "Active": "inactive",
+    "Planet": "A 1 C",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/lAMbcVy.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "23",
+    "x": -129.125,
+    "y": -99.09375,
+    "z": -402.5625
+  },
+  {
+    "System": "Pleiades Sector VK-N b7-0",
+    "Active": "inactive",
+    "Planet": "C 1",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ZweBv8t.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "24",
+    "x": -81.625,
+    "y": -100.21875,
+    "z": -279.375
+  },
+  {
+    "System": "Synuefe UZ-X c17-12",
+    "Active": "inactive",
+    "Planet": "AB 2 A",
+    "Leviathons": "++++++++",
+    "New Type/Sub": "0/A",
+    "Changed": "N",
+    "Old Type/Sub": "0/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ClD0FpT.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "25",
+    "x": 45.40625,
+    "y": -126.5,
+    "z": -288.34375
+  },
+  {
+    "System": "Aries Dark Region IM-V c2-5",
+    "Active": "inactive",
+    "Planet": "12 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/L3To110.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "26",
+    "x": -27.03125,
+    "y": -115.21875,
+    "z": -262.625
+  },
+  {
+    "System": "Aries Dark Region NN-T c3-12",
+    "Active": "inactive",
+    "Planet": "1 D",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/FxA8AJ7.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "27",
+    "x": -83.375,
+    "y": -179.125,
+    "z": -223.4375
+  },
+  {
+    "System": "Col 285 Sector EB-X d1-39",
+    "Active": "inactive",
+    "Planet": "4 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/CnDTlt9.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "28",
+    "x": -157.78125,
+    "y": -83.625,
+    "z": -260.5
+  },
+  {
+    "System": "Col 285 Sector GW-W d1-66",
+    "Active": "inactive",
+    "Planet": "A 3",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/WVfi1Hm.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "29",
+    "x": -180.125,
+    "y": -125.90625,
+    "z": -233.53125
+  },
+  {
+    "System": "Col 285 Sector RI-R b5-3",
+    "Active": "inactive",
+    "Planet": "8 B",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/iGrClQt.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "30",
+    "x": -118.6875,
+    "y": -72.28125,
+    "z": -239.5625
+  },
+  {
+    "System": "HIP 14702",
+    "Active": "inactive",
+    "Planet": "1 C",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ue5J2nj.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "31",
+    "x": -30.21875,
+    "y": -228.84375,
+    "z": -254.1875
+  },
+  {
+    "System": "HIP 17862",
+    "Active": "inactive",
+    "Planet": "11 E",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/P6pDvDY.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "32",
+    "x": -81.4375,
+    "y": -151.90625,
+    "z": -359.59375
+  },
+  {
+    "System": "HIP 20964",
+    "Active": "inactive",
+    "Planet": "3 B",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/xvg5kPc.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "33",
+    "x": -35.78125,
+    "y": -61.375,
+    "z": -245.96875
+  },
+  {
+    "System": "HIP 22851",
+    "Active": "inactive",
+    "Planet": "7 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/YourUh9.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "34",
+    "x": 44.71875,
+    "y": -106.625,
+    "z": -313.21875
+  },
+  {
+    "System": "HIP 24934",
+    "Active": "inactive",
+    "Planet": "A 3 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/wTBLV8x.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "35",
+    "x": -27.28125,
+    "y": -13.84375,
+    "z": -319.90625
+  },
+  {
+    "System": "Pleiades Sector KH-V c2-1",
+    "Active": "inactive",
+    "Planet": "2 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/p1FhVul.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "36",
+    "x": -9.15625,
+    "y": -115.78125,
+    "z": -307.96875
+  },
+  {
+    "System": "Synuefe UZ-X c17-10",
+    "Active": "inactive",
+    "Planet": "1 B",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/eitqLtU.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "37",
+    "x": 46.0625,
+    "y": -114.5,
+    "z": -293.6875
+  },
+  {
+    "System": "Synuefe YP-X c17-8",
+    "Active": "inactive",
+    "Planet": "2 A",
+    "Leviathons": "W",
+    "New Type/Sub": "1/A",
+    "Changed": "N",
+    "Old Type/Sub": "1/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/zc06oCe.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "38",
+    "x": 27.375,
+    "y": -219.0,
+    "z": -271.4375
+  },
+  {
+    "System": "HIP 12916",
+    "Active": "inactive",
+    "Planet": "4 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/9WEPfrJ.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "39",
+    "x": -126.71875,
+    "y": -138.625,
+    "z": -236.875
+  },
+  {
+    "System": "HIP 16692",
+    "Active": "inactive",
+    "Planet": "4 C",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ZtZeZMc.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "40",
+    "x": -109.9375,
+    "y": -61.5625,
+    "z": -235.8125
+  },
+  {
+    "System": "HIP 25274",
+    "Active": "inactive",
+    "Planet": "8 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/IRoanoN.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "41",
+    "x": 18.8125,
+    "y": -39.40625,
+    "z": -320.0
+  },
+  {
+    "System": "Hyades Sector DB-X c1-8",
+    "Active": "inactive",
+    "Planet": "3 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/hX4q72w.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "42",
+    "x": -85.75,
+    "y": -85.375,
+    "z": -219.3125
+  },
+  {
+    "System": "Hyades Sector PC-V b2-3",
+    "Active": "inactive",
+    "Planet": "2 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/z5FaajO.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "43",
+    "x": 13.125,
+    "y": -152.0,
+    "z": -221.96875
+  },
+  {
+    "System": "Hyades Sector XO-A c15",
+    "Active": "inactive",
+    "Planet": "2 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/sPWNKps.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "44",
+    "x": -13.125,
+    "y": -67.875,
+    "z": -275.25
+  },
+  {
+    "System": "Pleiades Sector DG-X c1-11",
+    "Active": "inactive",
+    "Planet": "A 3 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/2zc3m52.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "45",
+    "x": -49.25,
+    "y": -70.4375,
+    "z": -360.8125
+  },
+  {
+    "System": "Pleiades Sector IM-V c2-16",
+    "Active": "inactive",
+    "Planet": "ABC 2 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "1/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/vMfPxl1.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "46",
+    "x": -9.875,
+    "y": -99.53125,
+    "z": -329.03125
+  },
+  {
+    "System": "Aries Dark Region DB-X d1-64",
+    "Active": "inactive",
+    "Planet": "4 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/OyI0ZyA.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "47",
+    "x": -107.5625,
+    "y": -99.90625,
+    "z": -239.25
+  },
+  {
+    "System": "Aries Dark Region FW-W d1-59",
+    "Active": "inactive",
+    "Planet": "A 5 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/k48uMao.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "48",
+    "x": -108.65625,
+    "y": -128.28125,
+    "z": -223.03125
+  },
+  {
+    "System": "Aries Dark Region IH-V c2-9",
+    "Active": "inactive",
+    "Planet": "6 B",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/dcakgJg.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "49",
+    "x": -105.59375,
+    "y": -172.65625,
+    "z": -233.375
+  },
+  {
+    "System": "Aries Dark Region JS-T c3-1",
+    "Active": "inactive",
+    "Planet": "1 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/hA4FzrS.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "50",
+    "x": -166.125,
+    "y": -139.375,
+    "z": -224.875
+  },
+  {
+    "System": "Aries Dark Region JW-W c1-4",
+    "Active": "inactive",
+    "Planet": "7 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/AXv70a0.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "51",
+    "x": -6.21875,
+    "y": -195.53125,
+    "z": -269.71875
+  },
+  {
+    "System": "Aries Dark Region MS-T c3-15",
+    "Active": "inactive",
+    "Planet": "1 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/tv3lXxb.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "52",
+    "x": -57.21875,
+    "y": -134.28125,
+    "z": -215.34375
+  },
+  {
+    "System": "Aries Dark Region MS-T c3-2",
+    "Active": "inactive",
+    "Planet": "A 1 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/i1ei8Dv.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "53",
+    "x": -29.3125,
+    "y": -138.25,
+    "z": -221.90625
+  },
+  {
+    "System": "Col 285 Sector CV-Y d71",
+    "Active": "inactive",
+    "Planet": "5 D",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/I7IysUf.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "54",
+    "x": -45.5625,
+    "y": -31.71875,
+    "z": -324.65625
+  },
+  {
+    "System": "Col 285 Sector IL-X c1-4",
+    "Active": "inactive",
+    "Planet": "A 2 C",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/bmxiwIM.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "55",
+    "x": 30.3125,
+    "y": -65.21875,
+    "z": -294.8125
+  },
+  {
+    "System": "Col 285 Sector YO-Z c19",
+    "Active": "inactive",
+    "Planet": "B 2 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/1ho7Zwb.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "56",
+    "x": -48.3125,
+    "y": -5.5,
+    "z": -334.09375
+  },
+  {
+    "System": "Col 285 Sector ZZ-Y d22",
+    "Active": "inactive",
+    "Planet": "2 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/1tSkuXc.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "57",
+    "x": -71.9375,
+    "y": -1.9375,
+    "z": -330.5625
+  },
+  {
+    "System": "Hind Sector GR-W d1-13",
+    "Active": "inactive",
+    "Planet": "8 H",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/cwEA15d.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "58",
+    "x": -78.28125,
+    "y": -199.59375,
+    "z": -473.1875
+  },
+  {
+    "System": "HIP 11154",
+    "Active": "inactive",
+    "Planet": "B 9 B",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/yN0UYnv.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "59",
+    "x": -104.1875,
+    "y": -195.8125,
+    "z": -206.25
+  },
+  {
+    "System": "HIP 12967",
+    "Active": "inactive",
+    "Planet": "1 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/gvWSyTI.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "60",
+    "x": -152.5625,
+    "y": -98.65625,
+    "z": -237.78125
+  },
+  {
+    "System": "HIP 14756",
+    "Active": "inactive",
+    "Planet": "2 E",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/vJX7kON.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "61",
+    "x": -159.53125,
+    "y": -104.53125,
+    "z": -297.5
+  },
+  {
+    "System": "HIP 14908",
+    "Active": "inactive",
+    "Planet": "A 2 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/z5bTu78.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "62",
+    "x": -74.84375,
+    "y": -127.65625,
+    "z": -218.28125
+  },
+  {
+    "System": "HIP 15134",
+    "Active": "inactive",
+    "Planet": "3 B",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/m7rtgQ9.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "63",
+    "x": -48.09375,
+    "y": -136.65625,
+    "z": -198.8125
+  },
+  {
+    "System": "HIP 16572",
+    "Active": "inactive",
+    "Planet": "A 4 E",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/znKX07W.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "64",
+    "x": -40.4375,
+    "y": -194.5,
+    "z": -300.25
+  },
+  {
+    "System": "HIP 17694",
+    "Active": "inactive",
+    "Planet": "B 7 F",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/TMGyUtR.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "65",
+    "x": -72.25,
+    "y": -152.53125,
+    "z": -338.6875
+  },
+  {
+    "System": "Hyades Sector ZU-Y c16",
+    "Active": "inactive",
+    "Planet": "6 B",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/OeKBBfa.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "66",
+    "x": -75.65625,
+    "y": -72.625,
+    "z": -236.96875
+  },
+  {
+    "System": "Outotz ST-I d9-6",
+    "Active": "inactive",
+    "Planet": "2 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/w4EeL5Y.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "67",
+    "x": 604.15625,
+    "y": 153.59375,
+    "z": -1514.9375
+  },
+  {
+    "System": "Pleiades Sector IR-W d1-61",
+    "Active": "inactive",
+    "Planet": "BC 1 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/2OXVDvr.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "68",
+    "x": -50.09375,
+    "y": -180.84375,
+    "z": -291.46875
+  },
+  {
+    "System": "Synuefe WU-X c17-8",
+    "Active": "inactive",
+    "Planet": "2 A",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "2/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/tZr5gNW.jpeg",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "69",
+    "x": 30.21875,
+    "y": -171.0625,
+    "z": -287.34375
+  },
+  {
+    "System": "HIP 16795",
+    "Active": "active",
+    "Planet": "A 10 F",
+    "Leviathons": "T+R+R",
+    "New Type/Sub": "3/A",
+    "Changed": "N",
+    "Old Type/Sub": "3/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/1xHogFJ.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector DB-X d1-46",
+      "location": null,
+      "x": -170.3125,
+      "y": -157.65625,
+      "z": -433.71875
+    },
+    "MSG2": {
+      "system": "HIP 15889",
+      "location": null,
+      "x": -171.53125,
+      "y": -170.28125,
+      "z": -422.59375
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region CL-Y d53",
+      "location": null,
+      "x": -150.625,
+      "y": -143.71875,
+      "z": -439.625
+    },
+    "ronumber": "70",
+    "x": -149.4375,
+    "y": -167.15625,
+    "z": -432.125
+  },
+  {
+    "System": "Pleiades Sector BG-X c1-10",
+    "Active": "active",
+    "Planet": "14 A",
+    "Leviathons": "T+R+R",
+    "New Type/Sub": "3/A",
+    "Changed": "N",
+    "Old Type/Sub": "3/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/uu8YyLJ.jpeg",
+    "MSG1": {
+      "system": "Jambin",
+      "location": null,
+      "x": 17.71875,
+      "y": 101.15625,
+      "z": 53.625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector JM-W d1-52",
+      "location": null,
+      "x": -93.78125,
+      "y": -198.84375,
+      "z": -332.5625
+    },
+    "MSG3": null,
+    "ronumber": "71",
+    "x": -127.0625,
+    "y": -92.90625,
+    "z": -384.375
+  },
+  {
+    "System": "HIP 19665",
+    "Active": "active",
+    "Planet": "8 B",
+    "Leviathons": "LR++++R",
+    "New Type/Sub": "3/B",
+    "Changed": "N",
+    "Old Type/Sub": "3/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/6t5U5VL.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region QN-T b3-0",
+      "location": null,
+      "x": -40.125,
+      "y": -144.0625,
+      "z": -460.6875
+    },
+    "MSG2": {
+      "system": "HIP 20644",
+      "location": null,
+      "x": -50.34375,
+      "y": -142.375,
+      "z": -465.125
+    },
+    "MSG3": {
+      "system": "Pleiades Sector DQ-Y c4",
+      "location": null,
+      "x": -60.40625,
+      "y": -182.3125,
+      "z": -420.03125
+    },
+    "ronumber": "72",
+    "x": -47.125,
+    "y": -177.75,
+    "z": -457.9375
+  },
+  {
+    "System": "Mel 22 Sector IS-S c4-6",
+    "Active": "active",
+    "Planet": "ABC 2 B",
+    "Leviathons": "LR++++R",
+    "New Type/Sub": "3/B",
+    "Changed": "N",
+    "Old Type/Sub": "3/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/LZzRExx.jpeg",
+    "MSG1": {
+      "system": "Oraon",
+      "location": "Quaglia Dock",
+      "x": 56.5,
+      "y": 96.84375,
+      "z": -47.8125
+    },
+    "MSG2": {
+      "system": "Etain",
+      "location": null,
+      "x": 12.5,
+      "y": 35.03125,
+      "z": -37.1875
+    },
+    "MSG3": null,
+    "ronumber": "73",
+    "x": -135.8125,
+    "y": -36.375,
+    "z": -408.96875
+  },
+  {
+    "System": "Synuefai YQ-X c17-7",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "LR++++R",
+    "New Type/Sub": "3/B",
+    "Changed": "N",
+    "Old Type/Sub": "3/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/q7c12nI.jpeg",
+    "MSG1": {
+      "system": "Synuefai WV-X c17-12",
+      "location": null,
+      "x": -212.71875,
+      "y": -177.75,
+      "z": -293.125
+    },
+    "MSG2": {
+      "system": "Synuefai YQ-X c17-8",
+      "location": null,
+      "x": -192.875,
+      "y": -205.6875,
+      "z": -289.375
+    },
+    "MSG3": {
+      "system": "Aries Dark Region HR-W d1-44",
+      "location": null,
+      "x": -135.71875,
+      "y": -194.6875,
+      "z": -236.5625
+    },
+    "ronumber": "74",
+    "x": -209.15625,
+    "y": -190.78125,
+    "z": -295.0625
+  },
+  {
+    "System": "Mel 22 Sector FM-V d2-38",
+    "Active": "active",
+    "Planet": "A 3 A",
+    "Leviathons": "T+R++F",
+    "New Type/Sub": "3/C",
+    "Changed": "N",
+    "Old Type/Sub": "3/C",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/QrHkx8q.jpeg",
+    "MSG1": {
+      "system": "Punuri",
+      "location": "Shaw Dock",
+      "x": -97.8125,
+      "y": -49.65625,
+      "z": 51.78125
+    },
+    "MSG2": {
+      "system": "HIP 24007",
+      "location": null,
+      "x": -1.5,
+      "y": -52.90625,
+      "z": -347.46875
+    },
+    "MSG3": null,
+    "ronumber": "75",
+    "x": -172.8125,
+    "y": -80.53125,
+    "z": -366.34375
+  },
+  {
+    "System": "Mel 22 Sector MX-U d2-14",
+    "Active": "active",
+    "Planet": "AB 1 A",
+    "Leviathons": "T+R++F",
+    "New Type/Sub": "3/C",
+    "Changed": "N",
+    "Old Type/Sub": "3/C",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/qC31RDJ.jpeg",
+    "MSG1": {
+      "system": "Argestes",
+      "location": null,
+      "x": 21.78125,
+      "y": -20.15625,
+      "z": -58.9375
+    },
+    "MSG2": {
+      "system": "HIP 15329",
+      "location": null,
+      "x": -87.84375,
+      "y": -52.0,
+      "z": -167.375
+    },
+    "MSG3": null,
+    "ronumber": "76",
+    "x": -107.5625,
+    "y": -280.25,
+    "z": -397.5
+  },
+  {
+    "System": "Mel 22 Sector HH-V d2-37",
+    "Active": "active",
+    "Planet": "AB 1 A",
+    "Leviathons": "TL++R",
+    "New Type/Sub": "3/D",
+    "Changed": "N",
+    "Old Type/Sub": "3/D",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/jLR0Dr8.jpeg",
+    "MSG1": {
+      "system": "HIP 17225",
+      "location": null,
+      "x": -86.15625,
+      "y": -165.59375,
+      "z": -356.8125
+    },
+    "MSG2": {
+      "system": "G 69-11",
+      "location": null,
+      "x": -45.34375,
+      "y": -32.09375,
+      "z": -26.5
+    },
+    "MSG3": null,
+    "ronumber": "77",
+    "x": -155.75,
+    "y": -179.3125,
+    "z": -406.6875
+  },
+  {
+    "System": "Mel 22 Sector SK-E b12-1",
+    "Active": "active",
+    "Planet": "2",
+    "Leviathons": "RT+++R",
+    "New Type/Sub": "3/E",
+    "Changed": "N",
+    "Old Type/Sub": "3/E",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/KepPFza.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector CB-O c6-4",
+      "location": null,
+      "x": -122.65625,
+      "y": -267.5,
+      "z": -336.84375
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector JC-V d2-14",
+      "location": null,
+      "x": -174.15625,
+      "y": -200.96875,
+      "z": -361.71875
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector JC-V d2-15",
+      "location": null,
+      "x": -176.09375,
+      "y": -203.34375,
+      "z": -368.65625
+    },
+    "ronumber": "78",
+    "x": -149.3125,
+    "y": -228.09375,
+    "z": -351.25
+  },
+  {
+    "System": "Synuefai UA-Y c17-4",
+    "Active": "active",
+    "Planet": "7 A",
+    "Leviathons": "RTL",
+    "New Type/Sub": "3/F",
+    "Changed": "N",
+    "Old Type/Sub": "3/F",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ZgcjOio.jpeg",
+    "MSG1": {
+      "system": "Synuefai WV-X c17-12",
+      "location": null,
+      "x": -212.71875,
+      "y": -177.75,
+      "z": -293.125
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector LN-T d3-64",
+      "location": null,
+      "x": -214.15625,
+      "y": -136.125,
+      "z": -334.0625
+    },
+    "MSG3": {
+      "system": "Aries Dark Region HR-W d1-54",
+      "location": null,
+      "x": -143.78125,
+      "y": -229.1875,
+      "z": -260.1875
+    },
+    "ronumber": "79",
+    "x": -205.625,
+    "y": -140.9375,
+    "z": -296.40625
+  },
+  {
+    "System": "Taurus Dark Region CL-Y d53",
+    "Active": "active",
+    "Planet": "A 4",
+    "Leviathons": "RT++++F",
+    "New Type/Sub": "3/G",
+    "Changed": "N",
+    "Old Type/Sub": "3/G",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/fK23qed.jpeg",
+    "MSG1": {
+      "system": "HIP 21559",
+      "location": null,
+      "x": -42.09375,
+      "y": -7.40625,
+      "z": -129.5
+    },
+    "MSG2": {
+      "system": "Ceti Sector DL-X b1-6",
+      "location": null,
+      "x": 21.625,
+      "y": -90.1875,
+      "z": -46.375
+    },
+    "MSG3": null,
+    "ronumber": "80",
+    "x": -150.625,
+    "y": -143.71875,
+    "z": -439.625
+  },
+  {
+    "System": "Taurus Dark Region IR-W d1-47",
+    "Active": "active",
+    "Planet": "A 3 A",
+    "Leviathons": "F+R+L",
+    "New Type/Sub": "3/H",
+    "Changed": "N",
+    "Old Type/Sub": "3/H",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/hxrMZ7M.jpeg",
+    "MSG1": {
+      "system": "HIP 21251",
+      "location": null,
+      "x": -2.09375,
+      "y": -143.65625,
+      "z": -413.59375
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region OX-U c2-10",
+      "location": null,
+      "x": 11.71875,
+      "y": -147.65625,
+      "z": -400.25
+    },
+    "MSG3": {
+      "system": "Struve's Lost Sector NN-T c3-6",
+      "location": null,
+      "x": 8.15625,
+      "y": -178.40625,
+      "z": -410.09375
+    },
+    "ronumber": "81",
+    "x": 0.34375,
+    "y": -145.03125,
+    "z": -422.4375
+  },
+  {
+    "System": "Mel 22 Sector JC-V d2-19",
+    "Active": "active",
+    "Planet": "4 B",
+    "Leviathons": "RF++++R",
+    "New Type/Sub": "3/I",
+    "Changed": "N",
+    "Old Type/Sub": "3/I",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/qp8xUGL.jpeg",
+    "MSG1": {
+      "system": "Kareco",
+      "location": null,
+      "x": 20.8125,
+      "y": -109.28125,
+      "z": -22.75
+    },
+    "MSG2": {
+      "system": "Pleiades Sector AB-W b2-4",
+      "location": null,
+      "x": -137.5625,
+      "y": -118.25,
+      "z": -380.4375
+    },
+    "MSG3": null,
+    "ronumber": "82",
+    "x": -203.1875,
+    "y": -219.625,
+    "z": -356.65625
+  },
+  {
+    "System": "Taurus Dark Region QO-Q b5-0",
+    "Active": "active",
+    "Planet": "B 2 A",
+    "Leviathons": "R++F+R",
+    "New Type/Sub": "3/J",
+    "Changed": "N",
+    "Old Type/Sub": "3/J",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Nk7kvMf.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector AV-Y c7",
+      "location": null,
+      "x": -65.0625,
+      "y": -110.625,
+      "z": -424.3125
+    },
+    "MSG2": {
+      "system": "HIP 22375",
+      "location": null,
+      "x": -66.90625,
+      "y": -66.75,
+      "z": -454.25
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region FW-W c1-3",
+      "location": null,
+      "x": -122.34375,
+      "y": -115.78125,
+      "z": -434.53125
+    },
+    "ronumber": "83",
+    "x": -83.75,
+    "y": -84.21875,
+    "z": -419.5625
+  },
+  {
+    "System": "Aries Dark Region DB-X c1-2",
+    "Active": "active",
+    "Planet": "B 1",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/XlDwecH.jpeg",
+    "MSG1": {
+      "system": "Aries Dark Region DB-X c1-7",
+      "location": null,
+      "x": -168.125,
+      "y": -173.90625,
+      "z": -281.15625
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector LN-T d3-60",
+      "location": null,
+      "x": -183.53125,
+      "y": -179.5,
+      "z": -314.375
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector WK-O c6-1",
+      "location": null,
+      "x": -191.90625,
+      "y": -221.3125,
+      "z": -320.375
+    },
+    "ronumber": "84",
+    "x": -182.78125,
+    "y": -172.84375,
+    "z": -293.375
+  },
+  {
+    "System": "Aries Dark Region DB-X c1-7",
+    "Active": "active",
+    "Planet": "A 9 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ne3D3nd.png",
+    "MSG1": {
+      "system": "Aries Dark Region DB-X c1-2",
+      "location": null,
+      "x": -182.78125,
+      "y": -172.84375,
+      "z": -293.375
+    },
+    "MSG2": {
+      "system": "Aries Dark Region AQ-Y d14",
+      "location": null,
+      "x": -159.53125,
+      "y": -144.25,
+      "z": -268.90625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector LN-T d3-60",
+      "location": null,
+      "x": -183.53125,
+      "y": -179.5,
+      "z": -314.375
+    },
+    "ronumber": "85",
+    "x": -168.125,
+    "y": -173.90625,
+    "z": -281.15625
+  },
+  {
+    "System": "Aries Dark Region HR-W c1-1",
+    "Active": "active",
+    "Planet": "8 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/sUeSVWg.jpeg",
+    "MSG1": {
+      "system": "Dulerce",
+      "location": "Kazantsev Dock",
+      "x": 49.03125,
+      "y": 25.6875,
+      "z": -73.0
+    },
+    "MSG2": {
+      "system": "Pleiades Sector LN-T c3-4",
+      "location": null,
+      "x": -110.53125,
+      "y": -120.09375,
+      "z": -282.09375
+    },
+    "MSG3": null,
+    "ronumber": "86",
+    "x": -169.46875,
+    "y": -231.34375,
+    "z": -298.71875
+  },
+  {
+    "System": "Aries Dark Region HR-W d1-34",
+    "Active": "active",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/5uw9THF.jpeg",
+    "MSG1": {
+      "system": "Aries Dark Region VT-R b4-0",
+      "location": null,
+      "x": -61.375,
+      "y": -220.8125,
+      "z": -261.46875
+    },
+    "MSG2": {
+      "system": "Hyades Sector PC-V b2-3",
+      "location": null,
+      "x": 13.125,
+      "y": -152.0,
+      "z": -221.96875
+    },
+    "MSG3": {
+      "system": "Aries Dark Region NN-T c3-12",
+      "location": null,
+      "x": -83.375,
+      "y": -179.125,
+      "z": -223.4375
+    },
+    "ronumber": "87",
+    "x": -69.34375,
+    "y": -197.6875,
+    "z": -253.875
+  },
+  {
+    "System": "Aries Dark Region HR-W d1-44",
+    "Active": "active",
+    "Planet": "B 2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/4QsdewK.jpeg",
+    "MSG1": {
+      "system": "HIP 12916",
+      "location": null,
+      "x": -126.71875,
+      "y": -138.625,
+      "z": -236.875
+    },
+    "MSG2": {
+      "system": "Aries Dark Region JC-V c2-6",
+      "location": null,
+      "x": -154.65625,
+      "y": -222.375,
+      "z": -241.71875
+    },
+    "MSG3": {
+      "system": "Aries Dark Region FW-W d1-76",
+      "location": null,
+      "x": -136.75,
+      "y": -130.34375,
+      "z": -207.90625
+    },
+    "ronumber": "88",
+    "x": -135.71875,
+    "y": -194.6875,
+    "z": -236.5625
+  },
+  {
+    "System": "Aries Dark Region HR-W d1-53",
+    "Active": "active",
+    "Planet": "7 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/64ZzFRW.jpeg",
+    "MSG1": {
+      "system": "Aries Dark Region PY-R b4-1",
+      "location": null,
+      "x": -142.875,
+      "y": -198.15625,
+      "z": -257.1875
+    },
+    "MSG2": {
+      "system": "Aries Dark Region DB-X d1-63",
+      "location": null,
+      "x": -119.625,
+      "y": -90.84375,
+      "z": -247.03125
+    },
+    "MSG3": {
+      "system": "Aries Dark Region JC-V c2-4",
+      "location": null,
+      "x": -152.46875,
+      "y": -220.5,
+      "z": -238.3125
+    },
+    "ronumber": "89",
+    "x": -140.25,
+    "y": -213.25,
+    "z": -253.0625
+  },
+  {
+    "System": "Aries Dark Region HR-W d1-54",
+    "Active": "active",
+    "Planet": "2 C A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/S8sO0gB.jpeg",
+    "MSG1": {
+      "system": "Aries Dark Region HR-W d1-53",
+      "location": null,
+      "x": -140.25,
+      "y": -213.25,
+      "z": -253.0625
+    },
+    "MSG2": {
+      "system": "Aries Dark Region JC-V c2-6",
+      "location": null,
+      "x": -154.65625,
+      "y": -222.375,
+      "z": -241.71875
+    },
+    "MSG3": {
+      "system": "Aries Dark Region MX-U c2-8",
+      "location": null,
+      "x": -142.0,
+      "y": -251.84375,
+      "z": -259.4375
+    },
+    "ronumber": "90",
+    "x": -143.78125,
+    "y": -229.1875,
+    "z": -260.1875
+  },
+  {
+    "System": "Aries Dark Region JC-V c2-6",
+    "Active": "active",
+    "Planet": "A 4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/XheF2jl.jpeg",
+    "MSG1": {
+      "system": "Aries Dark Region HR-W d1-53",
+      "location": null,
+      "x": -140.25,
+      "y": -213.25,
+      "z": -253.0625
+    },
+    "MSG2": {
+      "system": "Aries Dark Region IH-V c2-9",
+      "location": null,
+      "x": -105.59375,
+      "y": -172.65625,
+      "z": -233.375
+    },
+    "MSG3": {
+      "system": "Aries Dark Region PY-R b4-1",
+      "location": null,
+      "x": -142.875,
+      "y": -198.15625,
+      "z": -257.1875
+    },
+    "ronumber": "91",
+    "x": -154.65625,
+    "y": -222.375,
+    "z": -241.71875
+  },
+  {
+    "System": "Aries Dark Region KH-V c2-4",
+    "Active": "active",
+    "Planet": "7 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/4PDDBHR.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector MX-U d2-63",
+      "location": null,
+      "x": -49.84375,
+      "y": -178.84375,
+      "z": -256.6875
+    },
+    "MSG2": {
+      "system": "Aries Dark Region JW-W c1-4",
+      "location": null,
+      "x": -6.21875,
+      "y": -195.53125,
+      "z": -269.71875
+    },
+    "MSG3": {
+      "system": "Aries Dark Region HR-W d1-34",
+      "location": null,
+      "x": -69.34375,
+      "y": -197.6875,
+      "z": -253.875
+    },
+    "ronumber": "92",
+    "x": -33.21875,
+    "y": -180.25,
+    "z": -245.0
+  },
+  {
+    "System": "Aries Dark Region MX-U c2-10",
+    "Active": "active",
+    "Planet": "1 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/4gwnGQH.jpeg",
+    "MSG1": {
+      "system": "Nogambe",
+      "location": null,
+      "x": 121.40625,
+      "y": 9.40625,
+      "z": -76.0
+    },
+    "MSG2": {
+      "system": "HIP 15329",
+      "location": null,
+      "x": -87.84375,
+      "y": -52.0,
+      "z": -167.375
+    },
+    "MSG3": null,
+    "ronumber": "93",
+    "x": -105.5,
+    "y": -235.875,
+    "z": -229.25
+  },
+  {
+    "System": "Aries Dark Region MX-U c2-8",
+    "Active": "active",
+    "Planet": "A 7 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/eTvedGb.jpeg",
+    "MSG1": {
+      "system": "HIP 9141",
+      "location": "Karachkina Orbital",
+      "x": 11.34375,
+      "y": -127.875,
+      "z": -36.28125
+    },
+    "MSG2": {
+      "system": "Hermitage",
+      "location": "Hollis Gateway INRA Base",
+      "x": -28.75,
+      "y": 25.0,
+      "z": 10.4375
+    },
+    "MSG3": null,
+    "ronumber": "94",
+    "x": -142.0,
+    "y": -251.84375,
+    "z": -259.4375
+  },
+  {
+    "System": "Aries Dark Region PY-R b4-1",
+    "Active": "active",
+    "Planet": "A 4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/FuZW3iD.jpeg",
+    "MSG1": {
+      "system": "Gertrud",
+      "location": null,
+      "x": -13.28125,
+      "y": 6.90625,
+      "z": -56.59375
+    },
+    "MSG2": {
+      "system": "Conn",
+      "location": "Almeida Landing INRA Base",
+      "x": -36.59375,
+      "y": -9.1875,
+      "z": -20.5
+    },
+    "MSG3": null,
+    "ronumber": "95",
+    "x": -142.875,
+    "y": -198.15625,
+    "z": -257.1875
+  },
+  {
+    "System": "Aries Dark Region VT-R b4-0",
+    "Active": "active",
+    "Planet": "A 6",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Is825Xr.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector MX-U d2-54",
+      "location": null,
+      "x": -53.34375,
+      "y": -122.53125,
+      "z": -260.28125
+    },
+    "MSG2": {
+      "system": "HIP 14702",
+      "location": null,
+      "x": -30.21875,
+      "y": -228.84375,
+      "z": -254.1875
+    },
+    "MSG3": {
+      "system": "Pleiades Sector MX-U d2-63",
+      "location": null,
+      "x": -49.84375,
+      "y": -178.84375,
+      "z": -256.6875
+    },
+    "ronumber": "96",
+    "x": -61.375,
+    "y": -220.8125,
+    "z": -261.46875
+  },
+  {
+    "System": "Delphi",
+    "Active": "active",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/KAoXJRs.jpeg",
+    "MSG1": {
+      "system": "Bok",
+      "location": null,
+      "x": 84.40625,
+      "y": -44.78125,
+      "z": -21.125
+    },
+    "MSG2": {
+      "system": "Gree",
+      "location": null,
+      "x": -36.5,
+      "y": 65.15625,
+      "z": -45.59375
+    },
+    "MSG3": null,
+    "ronumber": "97",
+    "x": -63.59375,
+    "y": -147.40625,
+    "z": -319.09375
+  },
+  {
+    "System": "HIP 11700",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/hJ0dLc7.jpeg",
+    "MSG1": {
+      "system": "Aries Dark Region MX-U c2-8",
+      "location": null,
+      "x": -142.0,
+      "y": -251.84375,
+      "z": -259.4375
+    },
+    "MSG2": {
+      "system": "HIP 11457",
+      "location": null,
+      "x": -118.21875,
+      "y": -235.3125,
+      "z": -250.78125
+    },
+    "MSG3": {
+      "system": "Aries Dark Region HR-W d1-54",
+      "location": null,
+      "x": -143.78125,
+      "y": -229.1875,
+      "z": -260.1875
+    },
+    "ronumber": "98",
+    "x": -114.53125,
+    "y": -262.96875,
+    "z": -270.71875
+  },
+  {
+    "System": "HIP 11981",
+    "Active": "active",
+    "Planet": "A 5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/qPyznaw.jpeg",
+    "MSG1": {
+      "system": "Aries Dark Region JS-T c3-1",
+      "location": null,
+      "x": -166.125,
+      "y": -139.375,
+      "z": -224.875
+    },
+    "MSG2": {
+      "system": "HIP 12967",
+      "location": null,
+      "x": -152.5625,
+      "y": -98.65625,
+      "z": -237.78125
+    },
+    "MSG3": {
+      "system": "Col 285 Sector GW-W d1-66",
+      "location": null,
+      "x": -180.125,
+      "y": -125.90625,
+      "z": -233.53125
+    },
+    "ronumber": "99",
+    "x": -153.59375,
+    "y": -123.5,
+    "z": -234.4375
+  },
+  {
+    "System": "HIP 14746",
+    "Active": "active",
+    "Planet": "6 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/yXFRZVA.jpeg",
+    "MSG1": {
+      "system": "HIP 15443",
+      "location": null,
+      "x": -8.21875,
+      "y": -259.78125,
+      "z": -284.78125
+    },
+    "MSG2": {
+      "system": "Synuefe MK-M d8-20",
+      "location": null,
+      "x": 2.53125,
+      "y": -266.9375,
+      "z": -307.40625
+    },
+    "MSG3": {
+      "system": "Synuefe CW-V c18-6",
+      "location": null,
+      "x": 19.6875,
+      "y": -223.625,
+      "z": -263.65625
+    },
+    "ronumber": "100",
+    "x": -22.03125,
+    "y": -276.0,
+    "z": -290.375
+  },
+  {
+    "System": "HIP 14909",
+    "Active": "active",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/0aYp1Ub.jpeg",
+    "MSG1": {
+      "system": "Atroco",
+      "location": null,
+      "x": -17.28125,
+      "y": -95.75,
+      "z": 37.65625
+    },
+    "MSG2": {
+      "system": "HIP 20644",
+      "location": null,
+      "x": -50.34375,
+      "y": -142.375,
+      "z": -465.125
+    },
+    "MSG3": {
+      "system": "Pleiades Sector DQ-Y c4",
+      "location": null,
+      "x": -60.40625,
+      "y": -182.3125,
+      "z": -420.03125
+    },
+    "ronumber": "101",
+    "x": -84.375,
+    "y": -259.28125,
+    "z": -358.65625
+  },
+  {
+    "System": "HIP 14969",
+    "Active": "active",
+    "Planet": "CD 2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/xYqn6mC.jpeg",
+    "MSG1": {
+      "system": "Synuefai RK-Y c17-3",
+      "location": null,
+      "x": -180.1875,
+      "y": -64.375,
+      "z": -300.6875
+    },
+    "MSG2": {
+      "system": "Col 285 Sector BQ-X c1-10",
+      "location": null,
+      "x": -172.03125,
+      "y": -61.625,
+      "z": -272.34375
+    },
+    "MSG3": {
+      "system": "Synuefai UZ-M d8-63",
+      "location": null,
+      "x": -198.5625,
+      "y": -99.3125,
+      "z": -269.25
+    },
+    "ronumber": "102",
+    "x": -193.96875,
+    "y": -72.75,
+    "z": -315.09375
+  },
+  {
+    "System": "HIP 15443",
+    "Active": "active",
+    "Planet": "AB 4 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/vQw7m9n.jpeg",
+    "MSG1": {
+      "system": "HIP 14746",
+      "location": null,
+      "x": -22.03125,
+      "y": -276.0,
+      "z": -290.375
+    },
+    "MSG2": {
+      "system": "Synuefe MK-M d8-20",
+      "location": null,
+      "x": 2.53125,
+      "y": -266.9375,
+      "z": -307.40625
+    },
+    "MSG3": {
+      "system": "HIP 14702",
+      "location": null,
+      "x": -30.21875,
+      "y": -228.84375,
+      "z": -254.1875
+    },
+    "ronumber": "103",
+    "x": -8.21875,
+    "y": -259.78125,
+    "z": -284.78125
+  },
+  {
+    "System": "HIP 16704",
+    "Active": "active",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/9oFlkut.jpeg",
+    "MSG1": {
+      "system": "Lusonda",
+      "location": "Lee Orbital",
+      "x": -34.28125,
+      "y": -67.03125,
+      "z": 45.125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector LN-T c3-4",
+      "location": "Planet 2 Crashed Scout",
+      "x": -110.53125,
+      "y": -120.09375,
+      "z": -282.09375
+    },
+    "MSG3": null,
+    "ronumber": "104",
+    "x": -118.4375,
+    "y": -170.78125,
+    "z": -387.375
+  },
+  {
+    "System": "HIP 17837",
+    "Active": "active",
+    "Planet": "A 4 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/dl9hQKb.jpeg",
+    "MSG1": {
+      "system": "Nogambe",
+      "location": null,
+      "x": 121.40625,
+      "y": 9.40625,
+      "z": -76.0
+    },
+    "MSG2": {
+      "system": "Yembo",
+      "location": null,
+      "x": -97.40625,
+      "y": -10.125,
+      "z": 49.8125
+    },
+    "MSG3": null,
+    "ronumber": "105",
+    "x": -52.15625,
+    "y": -130.75,
+    "z": -279.9375
+  },
+  {
+    "System": "HIP 18117",
+    "Active": "active",
+    "Planet": "5 D",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/lvDLEgu.jpeg",
+    "MSG1": {
+      "system": "Struve's Lost Sector OI-T c3-3",
+      "location": null,
+      "x": -32.28125,
+      "y": -219.6875,
+      "z": -405.125
+    },
+    "MSG2": {
+      "system": "HIP 18117",
+      "location": "HIP 18117 5 D",
+      "x": -19.5,
+      "y": -243.46875,
+      "z": -415.28125
+    },
+    "MSG3": {
+      "system": "HIP 18778",
+      "location": null,
+      "x": 11.46875,
+      "y": -236.5625,
+      "z": -398.21875
+    },
+    "ronumber": "106",
+    "x": -19.5,
+    "y": -243.46875,
+    "z": -415.28125
+  },
+  {
+    "System": "HIP 18730",
+    "Active": "active",
+    "Planet": "3 G A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/YgyJvGB.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector MM-V b2-2",
+      "location": null,
+      "x": -21.03125,
+      "y": -179.78125,
+      "z": -383.75
+    },
+    "MSG2": {
+      "system": "HIP 18778",
+      "location": null,
+      "x": 11.46875,
+      "y": -236.5625,
+      "z": -398.21875
+    },
+    "MSG3": {
+      "system": "HIP 19549",
+      "location": null,
+      "x": -29.65625,
+      "y": -169.25,
+      "z": -398.25
+    },
+    "ronumber": "107",
+    "x": -24.125,
+    "y": -186.6875,
+    "z": -369.25
+  },
+  {
+    "System": "HIP 18909",
+    "Active": "active",
+    "Planet": "A 4 E A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/RpuWYmS.jpeg",
+    "MSG1": {
+      "system": "HIP 15134",
+      "location": null,
+      "x": -48.09375,
+      "y": -136.65625,
+      "z": -198.8125
+    },
+    "MSG2": {
+      "system": "Aries Dark Region GW-W d1-86",
+      "location": null,
+      "x": -21.25,
+      "y": -129.75,
+      "z": -227.875
+    },
+    "MSG3": {
+      "system": "Aries Dark Region IM-V c2-5",
+      "location": null,
+      "x": -27.03125,
+      "y": -115.21875,
+      "z": -262.625
+    },
+    "ronumber": "108",
+    "x": -24.5625,
+    "y": -107.3125,
+    "z": -237.75
+  },
+  {
+    "System": "HIP 19549",
+    "Active": "active",
+    "Planet": "A 2 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ZJaNOoF.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector MM-V b2-2",
+      "location": null,
+      "x": -21.03125,
+      "y": -179.78125,
+      "z": -383.75
+    },
+    "MSG2": {
+      "system": "HIP 18730",
+      "location": null,
+      "x": -24.125,
+      "y": -186.6875,
+      "z": -369.25
+    },
+    "MSG3": {
+      "system": "Pleiades Sector DQ-Y c4",
+      "location": null,
+      "x": -60.40625,
+      "y": -182.3125,
+      "z": -420.03125
+    },
+    "ronumber": "109",
+    "x": -29.65625,
+    "y": -169.25,
+    "z": -398.25
+  },
+  {
+    "System": "HIP 20486",
+    "Active": "active",
+    "Planet": "A 3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/TvxQGwR.jpeg",
+    "MSG1": {
+      "system": "Synuefe WU-X c17-8",
+      "location": null,
+      "x": 30.21875,
+      "y": -171.0625,
+      "z": -287.34375
+    },
+    "MSG2": {
+      "system": "Synuefe YP-X c17-1",
+      "location": null,
+      "x": 32.25,
+      "y": -199.34375,
+      "z": -295.40625
+    },
+    "MSG3": {
+      "system": "Synuefe UK-V b35-0",
+      "location": null,
+      "x": 34.53125,
+      "y": -201.53125,
+      "z": -290.59375
+    },
+    "ronumber": "110",
+    "x": 59.78125,
+    "y": -177.34375,
+    "z": -300.21875
+  },
+  {
+    "System": "HIP 20830",
+    "Active": "active",
+    "Planet": "A 8 F",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/t4ut2s3.jpeg",
+    "MSG1": {
+      "system": "HIP 20318",
+      "location": null,
+      "x": 28.375,
+      "y": -196.90625,
+      "z": -400.09375
+    },
+    "MSG2": {
+      "system": "Struve's Lost Sector NN-T c3-1",
+      "location": null,
+      "x": 13.53125,
+      "y": -173.15625,
+      "z": -387.96875
+    },
+    "MSG3": {
+      "system": "Struve's Lost Sector NN-T c3-6",
+      "location": null,
+      "x": 8.15625,
+      "y": -178.40625,
+      "z": -410.09375
+    },
+    "ronumber": "111",
+    "x": 37.78125,
+    "y": -181.21875,
+    "z": -384.09375
+  },
+  {
+    "System": "HIP 20989",
+    "Active": "active",
+    "Planet": "3 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/oVAT6XC.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region BQ-Y c12",
+      "location": null,
+      "x": -106.59375,
+      "y": -120.625,
+      "z": -477.46875
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region DL-Y d54",
+      "location": null,
+      "x": -88.53125,
+      "y": -124.65625,
+      "z": -453.40625
+    },
+    "MSG3": {
+      "system": "HIP 21373",
+      "location": null,
+      "x": -76.6875,
+      "y": -93.03125,
+      "z": -460.65625
+    },
+    "ronumber": "112",
+    "x": -78.96875,
+    "y": -106.40625,
+    "z": -467.6875
+  },
+  {
+    "System": "HIP 21373",
+    "Active": "active",
+    "Planet": "2 F",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/uHtIbId.jpeg",
+    "MSG1": {
+      "system": "Valkups",
+      "location": null,
+      "x": 40.84375,
+      "y": 8.46875,
+      "z": -107.875
+    },
+    "MSG2": {
+      "system": "HIP 16217",
+      "location": "Penal Colony",
+      "x": -107.84375,
+      "y": -155.5625,
+      "z": -333.28125
+    },
+    "MSG3": null,
+    "ronumber": "113",
+    "x": -76.6875,
+    "y": -93.03125,
+    "z": -460.65625
+  },
+  {
+    "System": "HIP 22118",
+    "Active": "active",
+    "Planet": "B 3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/gjmiBWe.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector GW-W d1-65",
+      "location": null,
+      "x": -8.9375,
+      "y": -94.6875,
+      "z": -343.96875
+    },
+    "MSG2": {
+      "system": "HIP 17044",
+      "location": null,
+      "x": -74.25,
+      "y": -129.53125,
+      "z": -283.15625
+    },
+    "MSG3": {
+      "system": "Pleiades Sector KH-V c2-7",
+      "location": null,
+      "x": 3.8125,
+      "y": -105.09375,
+      "z": -327.96875
+    },
+    "ronumber": "114",
+    "x": -7.78125,
+    "y": -92.4375,
+    "z": -349.9375
+  },
+  {
+    "System": "HIP 22382",
+    "Active": "active",
+    "Planet": "5 E",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/449Xo3M.jpeg",
+    "MSG1": {
+      "system": "HIP 23022",
+      "location": null,
+      "x": -30.375,
+      "y": -51.1875,
+      "z": -338.15625
+    },
+    "MSG2": {
+      "system": "Col 285 Sector CV-Y d57",
+      "location": null,
+      "x": -21.28125,
+      "y": -76.34375,
+      "z": -288.15625
+    },
+    "MSG3": {
+      "system": "Col 285 Sector CV-Y d71",
+      "location": null,
+      "x": -45.5625,
+      "y": -31.71875,
+      "z": -324.65625
+    },
+    "ronumber": "115",
+    "x": -28.90625,
+    "y": -60.03125,
+    "z": -315.34375
+  },
+  {
+    "System": "HIP 23022",
+    "Active": "active",
+    "Planet": "B 2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Um471Pz.jpeg",
+    "MSG1": {
+      "system": "Synuefe LD-A c17-3",
+      "location": null,
+      "x": -23.03125,
+      "y": -62.875,
+      "z": -339.375
+    },
+    "MSG2": {
+      "system": "Synuefe LD-A c17-1",
+      "location": null,
+      "x": -20.5625,
+      "y": -61.75,
+      "z": -344.0625
+    },
+    "MSG3": {
+      "system": "Col 285 Sector YO-Z c19",
+      "location": null,
+      "x": -48.3125,
+      "y": -5.5,
+      "z": -334.09375
+    },
+    "ronumber": "116",
+    "x": -30.375,
+    "y": -51.1875,
+    "z": -338.15625
+  },
+  {
+    "System": "HIP 23269",
+    "Active": "active",
+    "Planet": "A 1 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/QcGAaBb.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region DB-X d1-26",
+      "location": null,
+      "x": -69.375,
+      "y": -22.1875,
+      "z": -396.125
+    },
+    "MSG2": {
+      "system": "Wredguia VX-L d7-80",
+      "location": null,
+      "x": -95.375,
+      "y": -12.15625,
+      "z": -371.4375
+    },
+    "MSG3": {
+      "system": "Wregoe RA-W c15-18",
+      "location": null,
+      "x": -17.28125,
+      "y": -19.0625,
+      "z": -379.65625
+    },
+    "ronumber": "117",
+    "x": -63.6875,
+    "y": -33.0,
+    "z": -399.3125
+  },
+  {
+    "System": "HIP 24007",
+    "Active": "active",
+    "Planet": "1 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/xGxA7qb.jpeg",
+    "MSG1": {
+      "system": "Synuefe LD-A c17-1",
+      "location": null,
+      "x": -20.5625,
+      "y": -61.75,
+      "z": -344.0625
+    },
+    "MSG2": {
+      "system": "Synuefe LD-A c17-3",
+      "location": null,
+      "x": -23.03125,
+      "y": -62.875,
+      "z": -339.375
+    },
+    "MSG3": {
+      "system": "HIP 22382",
+      "location": null,
+      "x": -28.90625,
+      "y": -60.03125,
+      "z": -315.34375
+    },
+    "ronumber": "118",
+    "x": -1.5,
+    "y": -52.90625,
+    "z": -347.46875
+  },
+  {
+    "System": "Hyades Sector AQ-Y d81",
+    "Active": "active",
+    "Planet": "AB 3 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/BehFQES.jpeg",
+    "MSG1": {
+      "system": "Zavijah",
+      "location": "Wheelock Ring",
+      "x": 17.375,
+      "y": 31.09375,
+      "z": 0.5625
+    },
+    "MSG2": {
+      "system": "Etain",
+      "location": "The Sanctum",
+      "x": 12.5,
+      "y": 35.03125,
+      "z": -37.1875
+    },
+    "MSG3": null,
+    "ronumber": "119",
+    "x": -83.4375,
+    "y": -82.78125,
+    "z": -244.21875
+  },
+  {
+    "System": "Mel 22 Sector CB-O c6-4",
+    "Active": "active",
+    "Planet": "3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/MJSzcKm.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector OS-U c2-6",
+      "location": null,
+      "x": -104.3125,
+      "y": -239.25,
+      "z": -336.5625
+    },
+    "MSG2": {
+      "system": "HIP 14909",
+      "location": null,
+      "x": -84.375,
+      "y": -259.28125,
+      "z": -358.65625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector SK-E b12-1",
+      "location": null,
+      "x": -149.3125,
+      "y": -228.09375,
+      "z": -351.25
+    },
+    "ronumber": "120",
+    "x": -122.65625,
+    "y": -267.5,
+    "z": -336.84375
+  },
+  {
+    "System": "Mel 22 Sector DG-O c6-0",
+    "Active": "active",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/QQeITyE.jpeg",
+    "MSG1": {
+      "system": "Synuefe MK-M d8-20",
+      "location": null,
+      "x": 2.53125,
+      "y": -266.9375,
+      "z": -307.40625
+    },
+    "MSG2": {
+      "system": "HIP 15443",
+      "location": null,
+      "x": -8.21875,
+      "y": -259.78125,
+      "z": -284.78125
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector BV-P c5-2",
+      "location": null,
+      "x": -11.0,
+      "y": -270.625,
+      "z": -363.21875
+    },
+    "ronumber": "121",
+    "x": 5.6875,
+    "y": -256.8125,
+    "z": -323.5625
+  },
+  {
+    "System": "Mel 22 Sector HH-V d2-53",
+    "Active": "active",
+    "Planet": "1 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/5CVSiP8.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region MY-R b4-1",
+      "location": null,
+      "x": -159.875,
+      "y": -117.53125,
+      "z": -427.8125
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector JX-T c3-9",
+      "location": null,
+      "x": -183.8125,
+      "y": -152.25,
+      "z": -432.5
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region CL-Y d53",
+      "location": null,
+      "x": -150.625,
+      "y": -143.71875,
+      "z": -439.625
+    },
+    "ronumber": "122",
+    "x": -170.3125,
+    "y": -126.46875,
+    "z": -423.0625
+  },
+  {
+    "System": "Mel 22 Sector LN-T d3-60",
+    "Active": "active",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/kiblM9G.jpeg",
+    "MSG1": {
+      "system": "Aries Dark Region DB-X c1-2",
+      "location": null,
+      "x": -182.78125,
+      "y": -172.84375,
+      "z": -293.375
+    },
+    "MSG2": {
+      "system": "Synuefai YQ-X c17-7",
+      "location": null,
+      "x": -209.15625,
+      "y": -190.78125,
+      "z": -295.0625
+    },
+    "MSG3": {
+      "system": "Synuefai WV-X c17-12",
+      "location": null,
+      "x": -212.71875,
+      "y": -177.75,
+      "z": -293.125
+    },
+    "ronumber": "123",
+    "x": -183.53125,
+    "y": -179.5,
+    "z": -314.375
+  },
+  {
+    "System": "Mel 22 Sector NX-U d2-27",
+    "Active": "active",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/odVHNKd.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector NX-U d2-31",
+      "location": null,
+      "x": -64.40625,
+      "y": -269.5625,
+      "z": -373.59375
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector ZU-P c5-1",
+      "location": null,
+      "x": -75.4375,
+      "y": -284.5,
+      "z": -361.8125
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector YU-F b11-1",
+      "location": null,
+      "x": -33.96875,
+      "y": -268.4375,
+      "z": -384.53125
+    },
+    "ronumber": "124",
+    "x": -57.125,
+    "y": -274.71875,
+    "z": -373.6875
+  },
+  {
+    "System": "Mel 22 Sector UT-R c4-4",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/UrnGy3Q.jpeg",
+    "MSG1": {
+      "system": "HR 3499",
+      "location": "Goddard Hub",
+      "x": 13.59375,
+      "y": 58.0625,
+      "z": -70.6875
+    },
+    "MSG2": {
+      "system": "Synuefai UA-Y c17-4",
+      "location": null,
+      "x": -205.625,
+      "y": -140.9375,
+      "z": -296.40625
+    },
+    "MSG3": null,
+    "ronumber": "125",
+    "x": -35.5625,
+    "y": -260.03125,
+    "z": -390.625
+  },
+  {
+    "System": "Pleiades Sector BG-X c1-14",
+    "Active": "active",
+    "Planet": "5 D",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/UrE5mZj.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector BG-X c1-10",
+      "location": null,
+      "x": -127.0625,
+      "y": -92.90625,
+      "z": -384.375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector UZ-X b1-2",
+      "location": null,
+      "x": -129.125,
+      "y": -99.09375,
+      "z": -402.5625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector FM-V d2-38",
+      "location": null,
+      "x": -172.8125,
+      "y": -80.53125,
+      "z": -366.34375
+    },
+    "ronumber": "126",
+    "x": -133.78125,
+    "y": -71.96875,
+    "z": -373.3125
+  },
+  {
+    "System": "Pleiades Sector DG-X c1-14",
+    "Active": "active",
+    "Planet": "AB 1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/d5Gatzb.jpeg",
+    "MSG1": {
+      "system": "HIP 22334",
+      "location": null,
+      "x": -24.03125,
+      "y": -85.5,
+      "z": -393.78125
+    },
+    "MSG2": {
+      "system": "HIP 24934",
+      "location": null,
+      "x": -27.28125,
+      "y": -13.84375,
+      "z": -319.90625
+    },
+    "MSG3": {
+      "system": "HIP 21348",
+      "location": null,
+      "x": -26.84375,
+      "y": -107.90625,
+      "z": -379.40625
+    },
+    "ronumber": "127",
+    "x": -45.625,
+    "y": -80.78125,
+    "z": -376.4375
+  },
+  {
+    "System": "Pleiades Sector EB-X c1-2",
+    "Active": "active",
+    "Planet": "ABC 3 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/u59t7pa.jpeg",
+    "MSG1": {
+      "system": "HIP 17862",
+      "location": null,
+      "x": -81.4375,
+      "y": -151.90625,
+      "z": -359.59375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector AV-Y c7",
+      "location": null,
+      "x": -65.0625,
+      "y": -110.625,
+      "z": -424.3125
+    },
+    "MSG3": {
+      "system": "HIP 20859",
+      "location": null,
+      "x": -31.15625,
+      "y": -120.65625,
+      "z": -384.5
+    },
+    "ronumber": "128",
+    "x": -82.65625,
+    "y": -121.15625,
+    "z": -380.125
+  },
+  {
+    "System": "Pleiades Sector EC-U b3-0",
+    "Active": "active",
+    "Planet": "4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/S2KcIPF.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector OO-Q c5-6",
+      "location": null,
+      "x": -190.78125,
+      "y": -143.75,
+      "z": -354.46875
+    },
+    "MSG2": {
+      "system": "Pleiades Sector KT-Q b5-3",
+      "location": null,
+      "x": -169.71875,
+      "y": -116.6875,
+      "z": -322.3125
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector NT-Q c5-11",
+      "location": null,
+      "x": -174.0625,
+      "y": -104.96875,
+      "z": -372.625
+    },
+    "ronumber": "129",
+    "x": -166.4375,
+    "y": -132.78125,
+    "z": -351.46875
+  },
+  {
+    "System": "Pleiades Sector FW-W d1-37",
+    "Active": "active",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/h039pnD.jpeg",
+    "MSG1": {
+      "system": "HIP 18909",
+      "location": null,
+      "x": -24.5625,
+      "y": -107.3125,
+      "z": -237.75
+    },
+    "MSG2": {
+      "system": "HIP 14908",
+      "location": null,
+      "x": -74.84375,
+      "y": -127.65625,
+      "z": -218.28125
+    },
+    "MSG3": {
+      "system": "HIP 20964",
+      "location": null,
+      "x": -35.78125,
+      "y": -61.375,
+      "z": -245.96875
+    },
+    "ronumber": "130",
+    "x": -79.6875,
+    "y": -79.28125,
+    "z": -279.5625
+  },
+  {
+    "System": "Pleiades Sector GW-W d1-54",
+    "Active": "active",
+    "Planet": "2 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/lQjWFyN.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector OY-R c4-19",
+      "location": null,
+      "x": -73.8125,
+      "y": -98.625,
+      "z": -262.3125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector LS-T c3-2",
+      "location": null,
+      "x": -58.96875,
+      "y": -81.5625,
+      "z": -296.53125
+    },
+    "MSG3": {
+      "system": "HIP 22347",
+      "location": null,
+      "x": 14.4375,
+      "y": -80.15625,
+      "z": -259.5625
+    },
+    "ronumber": "131",
+    "x": -46.625,
+    "y": -91.6875,
+    "z": -271.03125
+  },
+  {
+    "System": "Pleiades Sector HH-V c2-13",
+    "Active": "active",
+    "Planet": "A 1 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/fn1mkEX.jpeg",
+    "MSG1": {
+      "system": "Pemepatung",
+      "location": null,
+      "x": 75.46875,
+      "y": -69.4375,
+      "z": -76.9375
+    },
+    "MSG2": {
+      "system": "Alnath",
+      "location": "INRA Base Klatt Enterprises",
+      "x": -3.875,
+      "y": -7.375,
+      "z": -133.65625
+    },
+    "MSG3": null,
+    "ronumber": "132",
+    "x": -134.875,
+    "y": -139.375,
+    "z": -327.90625
+  },
+  {
+    "System": "Pleiades Sector HH-V c2-6",
+    "Active": "active",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/vh9pUdZ.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector HR-W d1-57",
+      "location": null,
+      "x": -86.40625,
+      "y": -125.15625,
+      "z": -301.84375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector JC-V d2-62",
+      "location": null,
+      "x": -82.1875,
+      "y": -100.9375,
+      "z": -260.59375
+    },
+    "MSG3": {
+      "system": "Pleiades Sector JC-V c2-9",
+      "location": null,
+      "x": -131.40625,
+      "y": -150.8125,
+      "z": -343.625
+    },
+    "ronumber": "133",
+    "x": -112.3125,
+    "y": -127.125,
+    "z": -318.84375
+  },
+  {
+    "System": "Pleiades Sector IH-V c2-3",
+    "Active": "active",
+    "Planet": "1 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Jjd3k7c.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector HH-V c2-6",
+      "location": null,
+      "x": -112.3125,
+      "y": -127.125,
+      "z": -318.84375
+    },
+    "MSG2": {
+      "system": "Delphi",
+      "location": null,
+      "x": -63.59375,
+      "y": -147.40625,
+      "z": -319.09375
+    },
+    "MSG3": {
+      "system": "HIP 17694",
+      "location": null,
+      "x": -72.25,
+      "y": -152.53125,
+      "z": -338.6875
+    },
+    "ronumber": "134",
+    "x": -91.28125,
+    "y": -114.625,
+    "z": -323.75
+  },
+  {
+    "System": "Pleiades Sector IR-W d1-76",
+    "Active": "active",
+    "Planet": "B 3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/XKM9cMw.jpeg",
+    "MSG1": {
+      "system": "CW Ursae Majoris",
+      "location": "Halley Port",
+      "x": 2.65625,
+      "y": 36.78125,
+      "z": -14.90625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector LN-T c3-4",
+      "location": null,
+      "x": -110.53125,
+      "y": -120.09375,
+      "z": -282.09375
+    },
+    "MSG3": null,
+    "ronumber": "135",
+    "x": -40.8125,
+    "y": -124.5625,
+    "z": -325.375
+  },
+  {
+    "System": "Pleiades Sector IX-S b4-1",
+    "Active": "active",
+    "Planet": "10 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/z4DEydv.jpeg",
+    "MSG1": {
+      "system": "HIP 23022",
+      "location": null,
+      "x": -30.375,
+      "y": -51.1875,
+      "z": -338.15625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector DG-X c1-14",
+      "location": null,
+      "x": -45.625,
+      "y": -80.78125,
+      "z": -376.4375
+    },
+    "MSG3": {
+      "system": "HIP 22382",
+      "location": null,
+      "x": -28.90625,
+      "y": -60.03125,
+      "z": -315.34375
+    },
+    "ronumber": "136",
+    "x": -60.78125,
+    "y": -79.53125,
+    "z": -344.90625
+  },
+  {
+    "System": "Pleiades Sector JC-V c2-9",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ZuD5EDn.jpeg",
+    "MSG1": {
+      "system": "Mentor",
+      "location": "Lasswitz Terminal",
+      "x": -27.65625,
+      "y": -3.5,
+      "z": -85.53125
+    },
+    "MSG2": {
+      "system": "HIP 12099",
+      "location": null,
+      "x": -101.90625,
+      "y": -95.46875,
+      "z": -165.59375
+    },
+    "MSG3": {
+      "system": "12 Trianguli",
+      "location": null,
+      "x": -77.15625,
+      "y": -76.8125,
+      "z": -120.6875
+    },
+    "ronumber": "137",
+    "x": -131.40625,
+    "y": -150.8125,
+    "z": -343.625
+  },
+  {
+    "System": "Pleiades Sector JM-W d1-52",
+    "Active": "active",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/T3wQOWi.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector OD-S b4-1",
+      "location": null,
+      "x": -93.40625,
+      "y": -164.0,
+      "z": -341.59375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector OS-U c2-7",
+      "location": null,
+      "x": -68.71875,
+      "y": -229.625,
+      "z": -325.6875
+    },
+    "MSG3": {
+      "system": "Pleiades Sector OS-U c2-6",
+      "location": null,
+      "x": -104.3125,
+      "y": -239.25,
+      "z": -336.5625
+    },
+    "ronumber": "138",
+    "x": -93.78125,
+    "y": -198.84375,
+    "z": -332.5625
+  },
+  {
+    "System": "Pleiades Sector KH-V c2-3",
+    "Active": "active",
+    "Planet": "3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/o0Wefgz.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector HR-W d1-17",
+      "location": null,
+      "x": -84.875,
+      "y": -123.8125,
+      "z": -315.25
+    },
+    "MSG2": {
+      "system": "Wolf 636",
+      "location": null,
+      "x": -8.75,
+      "y": 11.90625,
+      "z": 31.125
+    },
+    "MSG3": null,
+    "ronumber": "139",
+    "x": -23.1875,
+    "y": -115.375,
+    "z": -339.6875
+  },
+  {
+    "System": "Pleiades Sector KM-W d1-40",
+    "Active": "active",
+    "Planet": "B 10 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/25hKb3R.jpeg",
+    "MSG1": {
+      "system": "HIP 16572",
+      "location": null,
+      "x": -40.4375,
+      "y": -194.5,
+      "z": -300.25
+    },
+    "MSG2": {
+      "system": "Pleiades Sector OS-U c2-7",
+      "location": null,
+      "x": -68.71875,
+      "y": -229.625,
+      "z": -325.6875
+    },
+    "MSG3": {
+      "system": "HIP 18368",
+      "location": null,
+      "x": 0.25,
+      "y": -174.8125,
+      "z": -286.46875
+    },
+    "ronumber": "140",
+    "x": -33.0,
+    "y": -211.9375,
+    "z": -327.75
+  },
+  {
+    "System": "Pleiades Sector LS-T c3-2",
+    "Active": "active",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/JVOSruZ.jpeg",
+    "MSG1": {
+      "system": "Hyades Sector DB-X c1-19",
+      "location": null,
+      "x": -79.9375,
+      "y": -88.375,
+      "z": -219.8125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector GW-W d1-54",
+      "location": null,
+      "x": -46.625,
+      "y": -91.6875,
+      "z": -271.03125
+    },
+    "MSG3": {
+      "system": "Pleiades Sector FW-W d1-37",
+      "location": null,
+      "x": -79.6875,
+      "y": -79.28125,
+      "z": -279.5625
+    },
+    "ronumber": "141",
+    "x": -58.96875,
+    "y": -81.5625,
+    "z": -296.53125
+  },
+  {
+    "System": "Pleiades Sector LX-U c2-2",
+    "Active": "active",
+    "Planet": "AB 4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/6SyNNjG.jpeg",
+    "MSG1": {
+      "system": "Merope",
+      "location": "Distress Call",
+      "x": -78.59375,
+      "y": -149.625,
+      "z": -340.53125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector XE-Q b5-2",
+      "location": null,
+      "x": -43.84375,
+      "y": -176.875,
+      "z": -311.90625
+    },
+    "MSG3": null,
+    "ronumber": "142",
+    "x": -134.53125,
+    "y": -189.28125,
+    "z": -317.0
+  },
+  {
+    "System": "Pleiades Sector MC-V c2-0",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/f6hMls1.jpeg",
+    "MSG1": {
+      "system": "Synuefe UZ-X c17-10",
+      "location": null,
+      "x": 46.0625,
+      "y": -114.5,
+      "z": -293.6875
+    },
+    "MSG2": {
+      "system": "Pleiades Sector MC-V c2-8",
+      "location": null,
+      "x": 3.46875,
+      "y": -159.59375,
+      "z": -313.84375
+    },
+    "MSG3": {
+      "system": "HIP 20785",
+      "location": null,
+      "x": -20.75,
+      "y": -106.3125,
+      "z": -318.34375
+    },
+    "ronumber": "143",
+    "x": -5.125,
+    "y": -168.34375,
+    "z": -343.875
+  },
+  {
+    "System": "Pleiades Sector MC-V c2-6",
+    "Active": "active",
+    "Planet": "B 4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/OtirOKt.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector MC-V c2-8",
+      "location": null,
+      "x": 3.46875,
+      "y": -159.59375,
+      "z": -313.84375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector MC-V c2-0",
+      "location": null,
+      "x": -5.125,
+      "y": -168.34375,
+      "z": -343.875
+    },
+    "MSG3": {
+      "system": "Synuefe JU-M d8-50",
+      "location": null,
+      "x": 44.6875,
+      "y": -149.0,
+      "z": -326.84375
+    },
+    "ronumber": "144",
+    "x": 6.84375,
+    "y": -152.09375,
+    "z": -327.25
+  },
+  {
+    "System": "Pleiades Sector MC-V c2-8",
+    "Active": "active",
+    "Planet": "8 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/2eiuq78.jpeg",
+    "MSG1": {
+      "system": "Synuefe TF-U b36-2",
+      "location": null,
+      "x": 47.125,
+      "y": -135.6875,
+      "z": -282.0
+    },
+    "MSG2": {
+      "system": "HIP 18368",
+      "location": null,
+      "x": 0.25,
+      "y": -174.8125,
+      "z": -286.46875
+    },
+    "MSG3": {
+      "system": "Pleiades Sector MC-V c2-0",
+      "location": null,
+      "x": -5.125,
+      "y": -168.34375,
+      "z": -343.875
+    },
+    "ronumber": "145",
+    "x": 3.46875,
+    "y": -159.59375,
+    "z": -313.84375
+  },
+  {
+    "System": "Pleiades Sector MX-U d2-54",
+    "Active": "active",
+    "Planet": "4 E",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ia9urZS.jpeg",
+    "MSG1": {
+      "system": "Aries Dark Region GW-W d1-48",
+      "location": null,
+      "x": -35.25,
+      "y": -124.3125,
+      "z": -249.5
+    },
+    "MSG2": {
+      "system": "HIP 17837",
+      "location": null,
+      "x": -52.15625,
+      "y": -130.75,
+      "z": -279.9375
+    },
+    "MSG3": {
+      "system": "HIP 16440",
+      "location": null,
+      "x": -74.375,
+      "y": -133.0,
+      "z": -267.34375
+    },
+    "ronumber": "146",
+    "x": -53.34375,
+    "y": -122.53125,
+    "z": -260.28125
+  },
+  {
+    "System": "Pleiades Sector OD-S b4-1",
+    "Active": "active",
+    "Planet": "2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/e55TkQH.jpeg",
+    "MSG1": {
+      "system": "Magec",
+      "location": "Xiaoguan Hub",
+      "x": -32.875,
+      "y": 36.15625,
+      "z": 15.5
+    },
+    "MSG2": {
+      "system": "Nu-1 Columbae",
+      "location": null,
+      "x": 90.0,
+      "y": -58.65625,
+      "z": -70.3125
+    },
+    "MSG3": null,
+    "ronumber": "147",
+    "x": -93.40625,
+    "y": -164.0,
+    "z": -341.59375
+  },
+  {
+    "System": "Pleiades Sector OY-R c4-19",
+    "Active": "active",
+    "Planet": "A 3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/umft4F9.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector VK-N b7-0",
+      "location": null,
+      "x": -81.625,
+      "y": -100.21875,
+      "z": -279.375
+    },
+    "MSG2": {
+      "system": "Hyades Sector AQ-Y d81",
+      "location": null,
+      "x": -83.4375,
+      "y": -82.78125,
+      "z": -244.21875
+    },
+    "MSG3": {
+      "system": "Col 285 Sector RI-R b5-3",
+      "location": null,
+      "x": -118.6875,
+      "y": -72.28125,
+      "z": -239.5625
+    },
+    "ronumber": "148",
+    "x": -73.8125,
+    "y": -98.625,
+    "z": -262.3125
+  },
+  {
+    "System": "Pleiades Sector WE-Q b5-2",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/IlAIjhw.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector IR-W d1-61",
+      "location": null,
+      "x": -50.09375,
+      "y": -180.84375,
+      "z": -291.46875
+    },
+    "MSG2": {
+      "system": "HIP 16572",
+      "location": null,
+      "x": -40.4375,
+      "y": -194.5,
+      "z": -300.25
+    },
+    "MSG3": {
+      "system": "Pleiades Sector IR-W d1-38",
+      "location": null,
+      "x": -35.25,
+      "y": -171.8125,
+      "z": -324.4375
+    },
+    "ronumber": "149",
+    "x": -52.59375,
+    "y": -180.46875,
+    "z": -306.4375
+  },
+  {
+    "System": "Synuefai RK-Y c17-3",
+    "Active": "active",
+    "Planet": "A 1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/OXxBUaC.jpeg",
+    "MSG1": {
+      "system": "HIP 14969",
+      "location": null,
+      "x": -193.96875,
+      "y": -72.75,
+      "z": -315.09375
+    },
+    "MSG2": {
+      "system": "HIP 16692",
+      "location": null,
+      "x": -109.9375,
+      "y": -61.5625,
+      "z": -235.8125
+    },
+    "MSG3": {
+      "system": "HIP 14756",
+      "location": null,
+      "x": -159.53125,
+      "y": -104.53125,
+      "z": -297.5
+    },
+    "ronumber": "150",
+    "x": -180.1875,
+    "y": -64.375,
+    "z": -300.6875
+  },
+  {
+    "System": "Synuefai UZ-M d8-63",
+    "Active": "active",
+    "Planet": "B 1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/GM1nuZ4.jpeg",
+    "MSG1": {
+      "system": "Col 285 Sector EB-X d1-39",
+      "location": null,
+      "x": -157.78125,
+      "y": -83.625,
+      "z": -260.5
+    },
+    "MSG2": {
+      "system": "Col 285 Sector BQ-X c1-10",
+      "location": null,
+      "x": -172.03125,
+      "y": -61.625,
+      "z": -272.34375
+    },
+    "MSG3": {
+      "system": "Col 285 Sector GW-W d1-66",
+      "location": null,
+      "x": -180.125,
+      "y": -125.90625,
+      "z": -233.53125
+    },
+    "ronumber": "151",
+    "x": -198.5625,
+    "y": -99.3125,
+    "z": -269.25
+  },
+  {
+    "System": "Synuefai WV-X c17-12",
+    "Active": "active",
+    "Planet": "2 B",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/SUSiUv2.jpeg",
+    "MSG1": {
+      "system": "Synuefai YQ-X c17-7",
+      "location": null,
+      "x": -209.15625,
+      "y": -190.78125,
+      "z": -295.0625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector KT-Q b5-3",
+      "location": null,
+      "x": -169.71875,
+      "y": -116.6875,
+      "z": -322.3125
+    },
+    "MSG3": {
+      "system": "Synuefai YQ-X c17-8",
+      "location": null,
+      "x": -192.875,
+      "y": -205.6875,
+      "z": -289.375
+    },
+    "ronumber": "152",
+    "x": -212.71875,
+    "y": -177.75,
+    "z": -293.125
+  },
+  {
+    "System": "Synuefe CW-V c18-6",
+    "Active": "active",
+    "Planet": "A 3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/TTGvlXD.jpeg",
+    "MSG1": {
+      "system": "Synuefe YP-X c17-8",
+      "location": null,
+      "x": 27.375,
+      "y": -219.0,
+      "z": -271.4375
+    },
+    "MSG2": {
+      "system": "Synuefe OV-K d9-56",
+      "location": null,
+      "x": 11.3125,
+      "y": -208.5,
+      "z": -256.34375
+    },
+    "MSG3": {
+      "system": "Synuefe UK-V b35-0",
+      "location": null,
+      "x": 34.53125,
+      "y": -201.53125,
+      "z": -290.59375
+    },
+    "ronumber": "153",
+    "x": 19.6875,
+    "y": -223.625,
+    "z": -263.65625
+  },
+  {
+    "System": "Synuefe HZ-M d8-69",
+    "Active": "active",
+    "Planet": "B 7 F",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/pUA24ct.jpeg",
+    "MSG1": {
+      "system": "RMK 6",
+      "location": "Zudov Hub",
+      "x": 98.375,
+      "y": -30.03125,
+      "z": -10.8125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector PN-T b3-0",
+      "location": null,
+      "x": -79.53125,
+      "y": -199.9375,
+      "z": -361.59375
+    },
+    "MSG3": null,
+    "ronumber": "154",
+    "x": 28.03125,
+    "y": -89.375,
+    "z": -338.6875
+  },
+  {
+    "System": "Synuefe JU-M d8-50",
+    "Active": "active",
+    "Planet": "5 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/xjdqEoJ.jpeg",
+    "MSG1": {
+      "system": "Synuefe RT-Z c16-13",
+      "location": null,
+      "x": 56.9375,
+      "y": -142.03125,
+      "z": -339.9375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector MC-V c2-6",
+      "location": null,
+      "x": 6.84375,
+      "y": -152.09375,
+      "z": -327.25
+    },
+    "MSG3": {
+      "system": "HIP 20486",
+      "location": null,
+      "x": 59.78125,
+      "y": -177.34375,
+      "z": -300.21875
+    },
+    "ronumber": "155",
+    "x": 44.6875,
+    "y": -149.0,
+    "z": -326.84375
+  },
+  {
+    "System": "Synuefe LD-A c17-1",
+    "Active": "active",
+    "Planet": "B 1 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/n9mjiko.jpeg",
+    "MSG1": {
+      "system": "Synuefe LD-A c17-3",
+      "location": null,
+      "x": -23.03125,
+      "y": -62.875,
+      "z": -339.375
+    },
+    "MSG2": {
+      "system": "HIP 25274",
+      "location": null,
+      "x": 18.8125,
+      "y": -39.40625,
+      "z": -320.0
+    },
+    "MSG3": {
+      "system": "Col 285 Sector IL-X c1-4",
+      "location": null,
+      "x": 30.3125,
+      "y": -65.21875,
+      "z": -294.8125
+    },
+    "ronumber": "156",
+    "x": -20.5625,
+    "y": -61.75,
+    "z": -344.0625
+  },
+  {
+    "System": "Synuefe LD-A c17-3",
+    "Active": "active",
+    "Planet": "AB 2 F",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/hpf9fpw.jpeg",
+    "MSG1": {
+      "system": "Synuefe LD-A c17-1",
+      "location": null,
+      "x": -20.5625,
+      "y": -61.75,
+      "z": -344.0625
+    },
+    "MSG2": {
+      "system": "HIP 22118",
+      "location": null,
+      "x": -7.78125,
+      "y": -92.4375,
+      "z": -349.9375
+    },
+    "MSG3": {
+      "system": "Pleiades Sector IM-V c2-16",
+      "location": null,
+      "x": -9.875,
+      "y": -99.53125,
+      "z": -329.03125
+    },
+    "ronumber": "157",
+    "x": -23.03125,
+    "y": -62.875,
+    "z": -339.375
+  },
+  {
+    "System": "Synuefe MK-M d8-20",
+    "Active": "active",
+    "Planet": "A 2 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Jcw1sEw.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector KM-W d1-40",
+      "location": null,
+      "x": -33.0,
+      "y": -211.9375,
+      "z": -327.75
+    },
+    "MSG2": {
+      "system": "HIP 15443",
+      "location": null,
+      "x": -8.21875,
+      "y": -259.78125,
+      "z": -284.78125
+    },
+    "MSG3": {
+      "system": "HIP 14746",
+      "location": null,
+      "x": -22.03125,
+      "y": -276.0,
+      "z": -290.375
+    },
+    "ronumber": "158",
+    "x": 2.53125,
+    "y": -266.9375,
+    "z": -307.40625
+  },
+  {
+    "System": "Synuefe OV-K d9-56",
+    "Active": "active",
+    "Planet": "9 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/cHontI2.jpeg",
+    "MSG1": {
+      "system": "Synuefe YP-X c17-1",
+      "location": null,
+      "x": 32.25,
+      "y": -199.34375,
+      "z": -295.40625
+    },
+    "MSG2": {
+      "system": "Synuefe CW-V c18-6",
+      "location": null,
+      "x": 19.6875,
+      "y": -223.625,
+      "z": -263.65625
+    },
+    "MSG3": {
+      "system": "HIP 18368",
+      "location": null,
+      "x": 0.25,
+      "y": -174.8125,
+      "z": -286.46875
+    },
+    "ronumber": "159",
+    "x": 11.3125,
+    "y": -208.5,
+    "z": -256.34375
+  },
+  {
+    "System": "Synuefe RT-Z c16-13",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/K5leZBF.jpeg",
+    "MSG1": {
+      "system": "Synuefe JU-M d8-50",
+      "location": null,
+      "x": 44.6875,
+      "y": -149.0,
+      "z": -326.84375
+    },
+    "MSG2": {
+      "system": "HIP 22851",
+      "location": null,
+      "x": 44.71875,
+      "y": -106.625,
+      "z": -313.21875
+    },
+    "MSG3": {
+      "system": "Pleiades Sector MC-V c2-6",
+      "location": null,
+      "x": 6.84375,
+      "y": -152.09375,
+      "z": -327.25
+    },
+    "ronumber": "160",
+    "x": 56.9375,
+    "y": -142.03125,
+    "z": -339.9375
+  },
+  {
+    "System": "Synuefe UK-V b35-0",
+    "Active": "active",
+    "Planet": "A 4 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/thbbHj7.jpeg",
+    "MSG1": {
+      "system": "Synuefe CW-V c18-6",
+      "location": null,
+      "x": 19.6875,
+      "y": -223.625,
+      "z": -263.65625
+    },
+    "MSG2": {
+      "system": "Synuefe YP-X c17-1",
+      "location": null,
+      "x": 32.25,
+      "y": -199.34375,
+      "z": -295.40625
+    },
+    "MSG3": {
+      "system": "Synuefe RT-Z c16-13",
+      "location": null,
+      "x": 56.9375,
+      "y": -142.03125,
+      "z": -339.9375
+    },
+    "ronumber": "161",
+    "x": 34.53125,
+    "y": -201.53125,
+    "z": -290.59375
+  },
+  {
+    "System": "Synuefe YP-X c17-1",
+    "Active": "active",
+    "Planet": "5 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/DWWOjm8.jpeg",
+    "MSG1": {
+      "system": "Synuefe UK-V b35-0",
+      "location": null,
+      "x": 34.53125,
+      "y": -201.53125,
+      "z": -290.59375
+    },
+    "MSG2": {
+      "system": "Synuefe OV-K d9-56",
+      "location": null,
+      "x": 11.3125,
+      "y": -208.5,
+      "z": -256.34375
+    },
+    "MSG3": {
+      "system": "Synuefe YP-X c17-8",
+      "location": null,
+      "x": 27.375,
+      "y": -219.0,
+      "z": -271.4375
+    },
+    "ronumber": "162",
+    "x": 32.25,
+    "y": -199.34375,
+    "z": -295.40625
+  },
+  {
+    "System": "Taurus Dark Region CQ-Y d31",
+    "Active": "active",
+    "Planet": "3 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/I7vVP7o.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region BV-Y c11",
+      "location": null,
+      "x": -34.53125,
+      "y": -104.71875,
+      "z": -468.84375
+    },
+    "MSG2": {
+      "system": "HIP 22375",
+      "location": null,
+      "x": -66.90625,
+      "y": -66.75,
+      "z": -454.25
+    },
+    "MSG3": {
+      "system": "Pleiades Sector ZZ-Y c14",
+      "location": null,
+      "x": -38.1875,
+      "y": -100.25,
+      "z": -411.5625
+    },
+    "ronumber": "163",
+    "x": -40.9375,
+    "y": -90.09375,
+    "z": -446.375
+  },
+  {
+    "System": "Taurus Dark Region DB-X d1-26",
+    "Active": "active",
+    "Planet": "6 E A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/6URcUDq.jpeg",
+    "MSG1": {
+      "system": "HIP 23269",
+      "location": null,
+      "x": -63.6875,
+      "y": -33.0,
+      "z": -399.3125
+    },
+    "MSG2": {
+      "system": "Wredguia VX-L d7-80",
+      "location": null,
+      "x": -95.375,
+      "y": -12.15625,
+      "z": -371.4375
+    },
+    "MSG3": {
+      "system": "Wregoe RA-W c15-18",
+      "location": null,
+      "x": -17.28125,
+      "y": -19.0625,
+      "z": -379.65625
+    },
+    "ronumber": "164",
+    "x": -69.375,
+    "y": -22.1875,
+    "z": -396.125
+  },
+  {
+    "System": "Taurus Dark Region DL-Y d54",
+    "Active": "active",
+    "Planet": "ABC 1 C",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/o3XWyob.jpeg",
+    "MSG1": {
+      "system": "HIP 20989",
+      "location": null,
+      "x": -78.96875,
+      "y": -106.40625,
+      "z": -467.6875
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region BQ-Y c12",
+      "location": null,
+      "x": -106.59375,
+      "y": -120.625,
+      "z": -477.46875
+    },
+    "MSG3": {
+      "system": "HIP 21373",
+      "location": null,
+      "x": -76.6875,
+      "y": -93.03125,
+      "z": -460.65625
+    },
+    "ronumber": "165",
+    "x": -88.53125,
+    "y": -124.65625,
+    "z": -453.40625
+  },
+  {
+    "System": "Taurus Dark Region JH-V c2-9",
+    "Active": "active",
+    "Planet": "AB 1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/5LhpZ6s.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region CQ-Y d36",
+      "location": null,
+      "x": 5.0,
+      "y": -94.625,
+      "z": -435.0
+    },
+    "MSG2": {
+      "system": "Pleiades Sector ZZ-Y c14",
+      "location": null,
+      "x": -38.1875,
+      "y": -100.25,
+      "z": -411.5625
+    },
+    "MSG3": {
+      "system": "HIP 22743",
+      "location": null,
+      "x": -11.34375,
+      "y": -86.5,
+      "z": -399.84375
+    },
+    "ronumber": "166",
+    "x": -35.125,
+    "y": -77.3125,
+    "z": -408.3125
+  },
+  {
+    "System": "Wredguia VX-L d7-80",
+    "Active": "active",
+    "Planet": "5 F",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/mlWAl9l.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region DB-X d1-26",
+      "location": null,
+      "x": -69.375,
+      "y": -22.1875,
+      "z": -396.125
+    },
+    "MSG2": {
+      "system": "HIP 23269",
+      "location": null,
+      "x": -63.6875,
+      "y": -33.0,
+      "z": -399.3125
+    },
+    "MSG3": {
+      "system": "Col 285 Sector ZZ-Y d22",
+      "location": null,
+      "x": -71.9375,
+      "y": -1.9375,
+      "z": -330.5625
+    },
+    "ronumber": "167",
+    "x": -95.375,
+    "y": -12.15625,
+    "z": -371.4375
+  },
+  {
+    "System": "Wregoe RA-W c15-18",
+    "Active": "active",
+    "Planet": "A 1 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/5p9EFiH.jpeg",
+    "MSG1": {
+      "system": "Kamadhenu",
+      "location": null,
+      "x": 110.0,
+      "y": -99.96875,
+      "z": -13.375
+    },
+    "MSG2": {
+      "system": "HIP 16217",
+      "location": null,
+      "x": -107.84375,
+      "y": -155.5625,
+      "z": -333.28125
+    },
+    "MSG3": null,
+    "ronumber": "168",
+    "x": -17.28125,
+    "y": -19.0625,
+    "z": -379.65625
+  },
+  {
+    "System": "HIP 22711",
+    "Active": "active",
+    "Planet": "7 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "4/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/HqORXZn.jpeg",
+    "MSG1": {
+      "system": "HIP 22460",
+      "location": null,
+      "x": -41.3125,
+      "y": -58.96875,
+      "z": -354.78125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector DG-X c1-11",
+      "location": null,
+      "x": -49.25,
+      "y": -70.4375,
+      "z": -360.8125
+    },
+    "MSG3": null,
+    "ronumber": "169",
+    "x": -35.75,
+    "y": -60.84375,
+    "z": -366.90625
+  },
+  {
+    "System": "HIP 16440",
+    "Active": "active",
+    "Planet": "1 E",
+    "Leviathons": "RT+R+R",
+    "New Type/Sub": "4/B",
+    "Changed": "N",
+    "Old Type/Sub": "4/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ptmGCXU.jpeg",
+    "MSG1": {
+      "system": "Nauni",
+      "location": null,
+      "x": -33.5,
+      "y": -70.1875,
+      "z": -162.1875
+    },
+    "MSG2": {
+      "system": "HIP 12099",
+      "location": null,
+      "x": -101.90625,
+      "y": -95.46875,
+      "z": -165.59375
+    },
+    "MSG3": null,
+    "ronumber": "170",
+    "x": -74.375,
+    "y": -133.0,
+    "z": -267.34375
+  },
+  {
+    "System": "HIP 18778",
+    "Active": "active",
+    "Planet": "A 2 A",
+    "Leviathons": "RT+R+R",
+    "New Type/Sub": "4/B",
+    "Changed": "N",
+    "Old Type/Sub": "4/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/AQMgTBn.jpeg",
+    "MSG1": {
+      "system": "HIP 18117",
+      "location": null,
+      "x": -19.5,
+      "y": -243.46875,
+      "z": -415.28125
+    },
+    "MSG2": {
+      "system": "HIP 20318",
+      "location": null,
+      "x": 28.375,
+      "y": -196.90625,
+      "z": -400.09375
+    },
+    "MSG3": {
+      "system": "Struve's Lost Sector OI-T c3-3",
+      "location": null,
+      "x": -32.28125,
+      "y": -219.6875,
+      "z": -405.125
+    },
+    "ronumber": "171",
+    "x": 11.46875,
+    "y": -236.5625,
+    "z": -398.21875
+  },
+  {
+    "System": "HIP 22375",
+    "Active": "active",
+    "Planet": "3 A",
+    "Leviathons": "RT+R+R",
+    "New Type/Sub": "4/B",
+    "Changed": "N",
+    "Old Type/Sub": "4/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/3I2bKHy.jpeg",
+    "MSG1": {
+      "system": "Iota Pictoris A",
+      "location": "Barmin Dock",
+      "x": 92.75,
+      "y": -76.21875,
+      "z": -14.46875
+    },
+    "MSG2": {
+      "system": "Opet",
+      "location": "Henry Class Megaship",
+      "x": 87.25,
+      "y": -85.71875,
+      "z": -51.5
+    },
+    "MSG3": null,
+    "ronumber": "172",
+    "x": -66.90625,
+    "y": -66.75,
+    "z": -454.25
+  },
+  {
+    "System": "Struve's Lost Sector OI-T c3-3",
+    "Active": "active",
+    "Planet": "2 B",
+    "Leviathons": "RT+R+R",
+    "New Type/Sub": "4/B",
+    "Changed": "Y",
+    "Old Type/Sub": "4/Q",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ld6626A.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector GG-Y d33",
+      "location": null,
+      "x": -37.5,
+      "y": -204.25,
+      "z": -386.3125
+    },
+    "MSG2": {
+      "system": "HIP 18117",
+      "location": null,
+      "x": -19.5,
+      "y": -243.46875,
+      "z": -415.28125
+    },
+    "MSG3": {
+      "system": "Pleiades Sector DQ-Y c4",
+      "location": null,
+      "x": -60.40625,
+      "y": -182.3125,
+      "z": -420.03125
+    },
+    "ronumber": "173",
+    "x": -32.28125,
+    "y": -219.6875,
+    "z": -405.125
+  },
+  {
+    "System": "HIP 21251",
+    "Active": "active",
+    "Planet": "A 8 C",
+    "Leviathons": "LR+RF",
+    "New Type/Sub": "4/C",
+    "Changed": "N",
+    "Old Type/Sub": "4/C",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/YZ048Oj.jpeg",
+    "MSG1": {
+      "system": "Outotz QJ-O c20-0",
+      "location": null,
+      "x": 670.71875,
+      "y": 240.1875,
+      "z": -1439.28125
+    },
+    "MSG2": {
+      "system": "Outotz PX-J b51-0",
+      "location": null,
+      "x": 609.78125,
+      "y": 285.40625,
+      "z": -1238.59375
+    },
+    "MSG3": null,
+    "ronumber": "174",
+    "x": -2.09375,
+    "y": -143.65625,
+    "z": -413.59375
+  },
+  {
+    "System": "HIP 17044",
+    "Active": "active",
+    "Planet": "1 B",
+    "Leviathons": "LR+RF",
+    "New Type/Sub": "4/C",
+    "Changed": "N",
+    "Old Type/Sub": "4/C",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/c2zWzag.jpeg",
+    "MSG1": {
+      "system": "Aries Dark Region KH-V c2-4",
+      "location": null,
+      "x": -33.21875,
+      "y": -180.25,
+      "z": -245.0
+    },
+    "MSG2": {
+      "system": "HIP 17837",
+      "location": null,
+      "x": -52.15625,
+      "y": -130.75,
+      "z": -279.9375
+    },
+    "MSG3": {
+      "system": "HIP 11981",
+      "location": null,
+      "x": -153.59375,
+      "y": -123.5,
+      "z": -234.4375
+    },
+    "ronumber": "175",
+    "x": -74.25,
+    "y": -129.53125,
+    "z": -283.15625
+  },
+  {
+    "System": "Mel 22 Sector NT-Q c5-11",
+    "Active": "active",
+    "Planet": "8 A",
+    "Leviathons": "LR+RF",
+    "New Type/Sub": "4/C",
+    "Changed": "N",
+    "Old Type/Sub": "4/C",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Vi4xIwy.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector ZM-H b11-3",
+      "location": null,
+      "x": -171.0625,
+      "y": -92.09375,
+      "z": -382.75
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector FM-V d2-38",
+      "location": null,
+      "x": -172.8125,
+      "y": -80.53125,
+      "z": -366.34375
+    },
+    "MSG3": {
+      "system": "HIP 14756",
+      "location": null,
+      "x": -159.53125,
+      "y": -104.53125,
+      "z": -297.5
+    },
+    "ronumber": "176",
+    "x": -174.0625,
+    "y": -104.96875,
+    "z": -372.625
+  },
+  {
+    "System": "HIP 19266",
+    "Active": "active",
+    "Planet": "6 A",
+    "Leviathons": "RF+R++R",
+    "New Type/Sub": "4/D",
+    "Changed": "N",
+    "Old Type/Sub": "4/D",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/i8ZcRtY.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector MC-V d2-19",
+      "location": null,
+      "x": 31.5625,
+      "y": -231.6875,
+      "z": -351.4375
+    },
+    "MSG2": {
+      "system": "HIP 20830",
+      "location": null,
+      "x": 37.78125,
+      "y": -181.21875,
+      "z": -384.09375
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector DG-O c6-0",
+      "location": null,
+      "x": 5.6875,
+      "y": -256.8125,
+      "z": -323.5625
+    },
+    "ronumber": "177",
+    "x": 45.25,
+    "y": -223.28125,
+    "z": -346.84375
+  },
+  {
+    "System": "HIP 20859",
+    "Active": "active",
+    "Planet": "A 1 A",
+    "Leviathons": "RF+R++R",
+    "New Type/Sub": "4/D",
+    "Changed": "Y",
+    "Old Type/Sub": "4/N",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/YBONFwO.jpeg",
+    "MSG1": {
+      "system": "Agastani",
+      "location": null,
+      "x": 22.375,
+      "y": -17.6875,
+      "z": -7.78125
+    },
+    "MSG2": {
+      "system": "HIP 16613",
+      "location": null,
+      "x": -63.9375,
+      "y": -186.6875,
+      "z": -325.4375
+    },
+    "MSG3": null,
+    "ronumber": "178",
+    "x": -31.15625,
+    "y": -120.65625,
+    "z": -384.5
+  },
+  {
+    "System": "Pleiades Sector OS-U c2-6",
+    "Active": "active",
+    "Planet": "A 5 B",
+    "Leviathons": "RF+R++R",
+    "New Type/Sub": "4/D",
+    "Changed": "N",
+    "Old Type/Sub": "4/D",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/P1LPo1i.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector CB-O c6-4",
+      "location": null,
+      "x": -122.65625,
+      "y": -267.5,
+      "z": -336.84375
+    },
+    "MSG2": {
+      "system": "HIP 14909",
+      "location": null,
+      "x": -84.375,
+      "y": -259.28125,
+      "z": -358.65625
+    },
+    "MSG3": {
+      "system": "Pleiades Sector KM-W d1-40",
+      "location": null,
+      "x": -33.0,
+      "y": -211.9375,
+      "z": -327.75
+    },
+    "ronumber": "179",
+    "x": -104.3125,
+    "y": -239.25,
+    "z": -336.5625
+  },
+  {
+    "System": "HIP 20318",
+    "Active": "active",
+    "Planet": "3 A",
+    "Leviathons": "RTL++R",
+    "New Type/Sub": "4/E",
+    "Changed": "N",
+    "Old Type/Sub": "4/E",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/vLUGIUr.jpeg",
+    "MSG1": {
+      "system": "HIP 20830",
+      "location": null,
+      "x": 37.78125,
+      "y": -181.21875,
+      "z": -384.09375
+    },
+    "MSG2": {
+      "system": "Struve's Lost Sector NN-T c3-6",
+      "location": null,
+      "x": 8.15625,
+      "y": -178.40625,
+      "z": -410.09375
+    },
+    "MSG3": {
+      "system": "Struve's Lost Sector NN-T c3-1",
+      "location": null,
+      "x": 13.53125,
+      "y": -173.15625,
+      "z": -387.96875
+    },
+    "ronumber": "180",
+    "x": 28.375,
+    "y": -196.90625,
+    "z": -400.09375
+  },
+  {
+    "System": "HIP 21348",
+    "Active": "active",
+    "Planet": "A 2 B",
+    "Leviathons": "RTLR",
+    "New Type/Sub": "4/F",
+    "Changed": "N",
+    "Old Type/Sub": "4/F",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/tUsNLXm.jpeg",
+    "MSG1": {
+      "system": "HIP 20859",
+      "location": null,
+      "x": -31.15625,
+      "y": -120.65625,
+      "z": -384.5
+    },
+    "MSG2": {
+      "system": "HIP 22334",
+      "location": null,
+      "x": -24.03125,
+      "y": -85.5,
+      "z": -393.78125
+    },
+    "MSG3": {
+      "system": "Pleiades Sector DG-X c1-14",
+      "location": null,
+      "x": -45.625,
+      "y": -80.78125,
+      "z": -376.4375
+    },
+    "ronumber": "181",
+    "x": -26.84375,
+    "y": -107.90625,
+    "z": -379.40625
+  },
+  {
+    "System": "Struve's Lost Sector NN-T c3-6",
+    "Active": "active",
+    "Planet": "1 C",
+    "Leviathons": "RTLR",
+    "New Type/Sub": "4/F",
+    "Changed": "N",
+    "Old Type/Sub": "4/F",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/uR1cKJ6.jpeg",
+    "MSG1": {
+      "system": "Struve's Lost Sector NN-T c3-1",
+      "location": null,
+      "x": 13.53125,
+      "y": -173.15625,
+      "z": -387.96875
+    },
+    "MSG2": {
+      "system": "HIP 20318",
+      "location": null,
+      "x": 28.375,
+      "y": -196.90625,
+      "z": -400.09375
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region OX-U c2-10",
+      "location": null,
+      "x": 11.71875,
+      "y": -147.65625,
+      "z": -400.25
+    },
+    "ronumber": "182",
+    "x": 8.15625,
+    "y": -178.40625,
+    "z": -410.09375
+  },
+  {
+    "System": "Mel 22 Sector DB-X d1-46",
+    "Active": "active",
+    "Planet": "A 8 A",
+    "Leviathons": "RTL+++F",
+    "New Type/Sub": "4/G",
+    "Changed": "N",
+    "Old Type/Sub": "4/G",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/y08jn3V.jpeg",
+    "MSG1": {
+      "system": "Deciat",
+      "location": null,
+      "x": 122.625,
+      "y": -0.8125,
+      "z": -47.28125
+    },
+    "MSG2": {
+      "system": "Deciat",
+      "location": null,
+      "x": 122.625,
+      "y": -0.8125,
+      "z": -47.28125
+    },
+    "MSG3": null,
+    "ronumber": "183",
+    "x": -170.3125,
+    "y": -157.65625,
+    "z": -433.71875
+  },
+  {
+    "System": "Pleiades Sector AV-Y c7",
+    "Active": "active",
+    "Planet": "1 B",
+    "Leviathons": "RTL+++F",
+    "New Type/Sub": "4/G",
+    "Changed": "N",
+    "Old Type/Sub": "4/G",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/PnCjwsW.jpeg",
+    "MSG1": {
+      "system": "Dhanhopi",
+      "location": null,
+      "x": -6.90625,
+      "y": 79.625,
+      "z": -27.625
+    },
+    "MSG2": {
+      "system": "HIP 19026",
+      "location": null,
+      "x": -117.875,
+      "y": -65.125,
+      "z": -330.90625
+    },
+    "MSG3": null,
+    "ronumber": "184",
+    "x": -65.0625,
+    "y": -110.625,
+    "z": -424.3125
+  },
+  {
+    "System": "Mel 22 Sector FM-V d2-67",
+    "Active": "active",
+    "Planet": "2 A",
+    "Leviathons": "RT+R++F",
+    "New Type/Sub": "4/H",
+    "Changed": "N",
+    "Old Type/Sub": "4/H",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/iWL9eW4.jpeg",
+    "MSG1": {
+      "system": "63 G. Capricorni",
+      "location": "Skvortsov Orbital",
+      "x": -19.1875,
+      "y": -44.8125,
+      "z": 52.53125
+    },
+    "MSG2": {
+      "system": "HIP 16795",
+      "location": null,
+      "x": -149.4375,
+      "y": -167.15625,
+      "z": -432.125
+    },
+    "MSG3": null,
+    "ronumber": "185",
+    "x": -202.09375,
+    "y": -81.78125,
+    "z": -365.5
+  },
+  {
+    "System": "Mel 22 Sector UE-G b11-0",
+    "Active": "active",
+    "Planet": "A 2",
+    "Leviathons": "RT+R++F",
+    "New Type/Sub": "4/H",
+    "Changed": "Y",
+    "Old Type/Sub": "4/P",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/eVTW4Vp.jpeg",
+    "MSG1": {
+      "system": "Ross 129",
+      "location": null,
+      "x": 41.9375,
+      "y": 74.65625,
+      "z": 3.4375
+    },
+    "MSG2": {
+      "system": "Aries Dark Region DB-X d1-64",
+      "location": null,
+      "x": -107.5625,
+      "y": -99.90625,
+      "z": -239.25
+    },
+    "MSG3": null,
+    "ronumber": "186",
+    "x": -39.5,
+    "y": -239.625,
+    "z": -380.625
+  },
+  {
+    "System": "Mel 22 Sector ZU-P c5-1",
+    "Active": "active",
+    "Planet": "4 A",
+    "Leviathons": "RF+R+L",
+    "New Type/Sub": "4/I",
+    "Changed": "N",
+    "Old Type/Sub": "4/I",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Nx6b03z.jpeg",
+    "MSG1": {
+      "system": "LHS 2524",
+      "location": null,
+      "x": 57.59375,
+      "y": 96.6875,
+      "z": 15.9375
+    },
+    "MSG2": {
+      "system": "HIP 14702",
+      "location": null,
+      "x": -30.21875,
+      "y": -228.84375,
+      "z": -254.1875
+    },
+    "MSG3": null,
+    "ronumber": "187",
+    "x": -75.4375,
+    "y": -284.5,
+    "z": -361.8125
+  },
+  {
+    "System": "Synuefai YQ-X c17-8",
+    "Active": "active",
+    "Planet": "3 A",
+    "Leviathons": "LR++F+R",
+    "New Type/Sub": "4/J",
+    "Changed": "N",
+    "Old Type/Sub": "4/J",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/g47yftM.jpeg",
+    "MSG1": {
+      "system": "Synuefai YQ-X c17-7",
+      "location": null,
+      "x": -209.15625,
+      "y": -190.78125,
+      "z": -295.0625
+    },
+    "MSG2": {
+      "system": "Synuefai UA-Y c17-4",
+      "location": null,
+      "x": -205.625,
+      "y": -140.9375,
+      "z": -296.40625
+    },
+    "MSG3": {
+      "system": "Aries Dark Region DB-X c1-2",
+      "location": null,
+      "x": -182.78125,
+      "y": -172.84375,
+      "z": -293.375
+    },
+    "ronumber": "188",
+    "x": -192.875,
+    "y": -205.6875,
+    "z": -289.375
+  },
+  {
+    "System": "Taurus Dark Region CQ-Y d36",
+    "Active": "active",
+    "Planet": "7 A",
+    "Leviathons": "RF++T+R",
+    "New Type/Sub": "4/K",
+    "Changed": "N",
+    "Old Type/Sub": "4/K",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/hsv9dR6.jpeg",
+    "MSG1": {
+      "system": "HIP 22743",
+      "location": null,
+      "x": -11.34375,
+      "y": -86.5,
+      "z": -399.84375
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region CQ-Y d31",
+      "location": null,
+      "x": -40.9375,
+      "y": -90.09375,
+      "z": -446.375
+    },
+    "MSG3": {
+      "system": "Pleiades Sector ZZ-Y c14",
+      "location": null,
+      "x": -38.1875,
+      "y": -100.25,
+      "z": -411.5625
+    },
+    "ronumber": "189",
+    "x": 5.0,
+    "y": -94.625,
+    "z": -435.0
+  },
+  {
+    "System": "Mel 22 Sector JC-V d2-41",
+    "Active": "active",
+    "Planet": "A 1 A",
+    "Leviathons": "LR+R++R",
+    "New Type/Sub": "4/L",
+    "Changed": "N",
+    "Old Type/Sub": "4/L",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/8FGmatl.jpeg",
+    "MSG1": {
+      "system": "Oraon",
+      "location": "Quaglia Dock",
+      "x": 56.5,
+      "y": 96.84375,
+      "z": -47.8125
+    },
+    "MSG2": {
+      "system": "Etain",
+      "location": null,
+      "x": 12.5,
+      "y": 35.03125,
+      "z": -37.1875
+    },
+    "MSG3": null,
+    "ronumber": "190",
+    "x": -189.84375,
+    "y": -214.71875,
+    "z": -350.8125
+  },
+  {
+    "System": "Taurus Dark Region QN-T b3-0",
+    "Active": "active",
+    "Planet": "1 B",
+    "Leviathons": "LR+R++R",
+    "New Type/Sub": "4/L",
+    "Changed": "N",
+    "Old Type/Sub": "4/L",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Kf3BCx0.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region BV-Y c11",
+      "location": null,
+      "x": -34.53125,
+      "y": -104.71875,
+      "z": -468.84375
+    },
+    "MSG2": {
+      "system": "HIP 19665",
+      "location": null,
+      "x": -47.125,
+      "y": -177.75,
+      "z": -457.9375
+    },
+    "MSG3": {
+      "system": "HIP 20644",
+      "location": null,
+      "x": -50.34375,
+      "y": -142.375,
+      "z": -465.125
+    },
+    "ronumber": "191",
+    "x": -40.125,
+    "y": -144.0625,
+    "z": -460.6875
+  },
+  {
+    "System": "HIP 15889",
+    "Active": "active",
+    "Planet": "11 B",
+    "Leviathons": "RF++TL",
+    "New Type/Sub": "4/M",
+    "Changed": "N",
+    "Old Type/Sub": "4/M",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/cLBOobj.jpeg",
+    "MSG1": {
+      "system": "HIP 16704",
+      "location": null,
+      "x": -118.4375,
+      "y": -170.78125,
+      "z": -387.375
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector JX-T c3-9",
+      "location": null,
+      "x": -183.8125,
+      "y": -152.25,
+      "z": -432.5
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector HH-V d2-37",
+      "location": null,
+      "x": -155.75,
+      "y": -179.3125,
+      "z": -406.6875
+    },
+    "ronumber": "192",
+    "x": -171.53125,
+    "y": -170.28125,
+    "z": -422.59375
+  },
+  {
+    "System": "Mel 22 Sector IO-G b11-1",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "TLR++F",
+    "New Type/Sub": "4/N",
+    "Changed": "Y",
+    "Old Type/Sub": "4/O",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/BnKaYeG.jpeg",
+    "MSG1": {
+      "system": "Brib",
+      "location": "Dominique Holdings",
+      "x": 90.65625,
+      "y": -106.5,
+      "z": 11.25
+    },
+    "MSG2": {
+      "system": "Pleiades Sector JC-U b3-2",
+      "location": "Bugged TL",
+      "x": -73.625,
+      "y": -135.75,
+      "z": -359.71875
+    },
+    "MSG3": null,
+    "ronumber": "193",
+    "x": -198.09375,
+    "y": -202.34375,
+    "z": -381.90625
+  },
+  {
+    "System": "Taurus Dark Region OX-U c2-10",
+    "Active": "active",
+    "Planet": "4 B",
+    "Leviathons": "TLR+R",
+    "New Type/Sub": "4/O",
+    "Changed": "Y",
+    "Old Type/Sub": "4/R",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/5FnDAPn.jpeg",
+    "MSG1": {
+      "system": "HIP 21251",
+      "location": null,
+      "x": -2.09375,
+      "y": -143.65625,
+      "z": -413.59375
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region IR-W d1-47",
+      "location": null,
+      "x": 0.34375,
+      "y": -145.03125,
+      "z": -422.4375
+    },
+    "MSG3": {
+      "system": "Struve's Lost Sector NN-T c3-1",
+      "location": null,
+      "x": 13.53125,
+      "y": -173.15625,
+      "z": -387.96875
+    },
+    "ronumber": "194",
+    "x": 11.71875,
+    "y": -147.65625,
+    "z": -400.25
+  },
+  {
+    "System": "HIP 20644",
+    "Active": "active",
+    "Planet": "A 2 D",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/1qQYJvD.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region BV-Y c11",
+      "location": null,
+      "x": -34.53125,
+      "y": -104.71875,
+      "z": -468.84375
+    },
+    "MSG2": {
+      "system": "Hind Sector GR-W d1-13",
+      "location": null,
+      "x": -78.28125,
+      "y": -199.59375,
+      "z": -473.1875
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region QN-T b3-0",
+      "location": null,
+      "x": -40.125,
+      "y": -144.0625,
+      "z": -460.6875
+    },
+    "ronumber": "195",
+    "x": -50.34375,
+    "y": -142.375,
+    "z": -465.125
+  },
+  {
+    "System": "HIP 20785",
+    "Active": "active",
+    "Planet": "6 B",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/KfzAchJ.jpeg",
+    "MSG1": {
+      "system": "Otherni",
+      "location": "Ryazanski Enterprise",
+      "x": 73.71875,
+      "y": -62.5,
+      "z": -61.125
+    },
+    "MSG2": {
+      "system": "HIP 19792",
+      "location": null,
+      "x": -70.15625,
+      "y": -103.21875,
+      "z": -355.84375
+    },
+    "MSG3": null,
+    "ronumber": "196",
+    "x": -20.75,
+    "y": -106.3125,
+    "z": -318.34375
+  },
+  {
+    "System": "Mel 22 Sector BV-P c5-2",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/hrLiiNg.jpeg",
+    "MSG1": {
+      "system": "HIP 30045",
+      "location": null,
+      "x": 109.0625,
+      "y": -48.0625,
+      "z": -50.75
+    },
+    "MSG2": {
+      "system": "HIP 16217",
+      "location": null,
+      "x": -107.84375,
+      "y": -155.5625,
+      "z": -333.28125
+    },
+    "MSG3": null,
+    "ronumber": "197",
+    "x": -11.0,
+    "y": -270.625,
+    "z": -363.21875
+  },
+  {
+    "System": "Mel 22 Sector JX-T c3-9",
+    "Active": "active",
+    "Planet": "6 A",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ywNz0OS.jpeg",
+    "MSG1": {
+      "system": "Dulerce",
+      "location": null,
+      "x": 49.03125,
+      "y": 25.6875,
+      "z": -73.0
+    },
+    "MSG2": {
+      "system": "HIP 7158",
+      "location": null,
+      "x": -3.78125,
+      "y": -143.84375,
+      "z": -33.8125
+    },
+    "MSG3": null,
+    "ronumber": "198",
+    "x": -183.8125,
+    "y": -152.25,
+    "z": -432.5
+  },
+  {
+    "System": "Mel 22 Sector LN-T d3-64",
+    "Active": "active",
+    "Planet": "ABC 1 C",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Om0l0Mf.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector OO-Q c5-6",
+      "location": null,
+      "x": -190.78125,
+      "y": -143.75,
+      "z": -354.46875
+    },
+    "MSG2": {
+      "system": "Synuefai UA-Y c17-4",
+      "location": null,
+      "x": -205.625,
+      "y": -140.9375,
+      "z": -296.40625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector OO-Q c5-10",
+      "location": null,
+      "x": -219.6875,
+      "y": -112.28125,
+      "z": -369.0
+    },
+    "ronumber": "199",
+    "x": -214.15625,
+    "y": -136.125,
+    "z": -334.0625
+  },
+  {
+    "System": "Mel 22 Sector OY-R c4-5",
+    "Active": "active",
+    "Planet": "2 A",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/MHJLG83.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector JC-V d2-14",
+      "location": null,
+      "x": -174.15625,
+      "y": -200.96875,
+      "z": -361.71875
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector JC-V d2-15",
+      "location": null,
+      "x": -176.09375,
+      "y": -203.34375,
+      "z": -368.65625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector IO-G b11-1",
+      "location": null,
+      "x": -198.09375,
+      "y": -202.34375,
+      "z": -381.90625
+    },
+    "ronumber": "200",
+    "x": -194.375,
+    "y": -207.0,
+    "z": -388.65625
+  },
+  {
+    "System": "Pleiades Sector KT-Q b5-3",
+    "Active": "active",
+    "Planet": "5 A",
+    "Leviathons": "RTLR+R",
+    "New Type/Sub": "5/A",
+    "Changed": "N",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/9OYYUq1.jpeg",
+    "MSG1": {
+      "system": "HIP 19026",
+      "location": null,
+      "x": -117.875,
+      "y": -65.125,
+      "z": -330.90625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector EC-U b3-0",
+      "location": null,
+      "x": -166.4375,
+      "y": -132.78125,
+      "z": -351.46875
+    },
+    "MSG3": {
+      "system": "Hyades Sector XO-A c15",
+      "location": null,
+      "x": -13.125,
+      "y": -67.875,
+      "z": -275.25
+    },
+    "ronumber": "201",
+    "x": -169.71875,
+    "y": -116.6875,
+    "z": -322.3125
+  },
+  {
+    "System": "Taurus Dark Region FW-W c1-3",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "RTL++RF",
+    "New Type/Sub": "5/B",
+    "Changed": "N",
+    "Old Type/Sub": "5/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/xZghKf6.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector IS-S c4-6",
+      "location": null,
+      "x": -135.8125,
+      "y": -36.375,
+      "z": -408.96875
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region OJ-Q b5-3",
+      "location": null,
+      "x": -151.34375,
+      "y": -93.65625,
+      "z": -423.96875
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region DL-Y d54",
+      "location": null,
+      "x": -88.53125,
+      "y": -124.65625,
+      "z": -453.40625
+    },
+    "ronumber": "202",
+    "x": -122.34375,
+    "y": -115.78125,
+    "z": -434.53125
+  },
+  {
+    "System": "Mel 22 Sector KC-V d2-28",
+    "Active": "active",
+    "Planet": "1 C",
+    "Leviathons": "RTL++RF",
+    "New Type/Sub": "5/B",
+    "Changed": "N",
+    "Old Type/Sub": "5/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/sdhuWbE.jpeg",
+    "MSG1": {
+      "system": "Outotz ST-I d9-6",
+      "location": null,
+      "x": 604.15625,
+      "y": 153.59375,
+      "z": -1514.9375
+    },
+    "MSG2": {
+      "system": "HIP 17862",
+      "location": null,
+      "x": -81.4375,
+      "y": -151.90625,
+      "z": -359.59375
+    },
+    "MSG3": null,
+    "ronumber": "203",
+    "x": -78.4375,
+    "y": -258.25,
+    "z": -404.0625
+  },
+  {
+    "System": "Mel 22 Sector OO-Q c5-10",
+    "Active": "active",
+    "Planet": "7 B",
+    "Leviathons": "RTL++RF",
+    "New Type/Sub": "5/B",
+    "Changed": "N",
+    "Old Type/Sub": "5/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/GjNZa5P.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector OO-Q c5-6",
+      "location": null,
+      "x": -190.78125,
+      "y": -143.75,
+      "z": -354.46875
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector LN-T d3-64",
+      "location": null,
+      "x": -214.15625,
+      "y": -136.125,
+      "z": -334.0625
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector FM-V d2-67",
+      "location": null,
+      "x": -202.09375,
+      "y": -81.78125,
+      "z": -365.5
+    },
+    "ronumber": "204",
+    "x": -219.6875,
+    "y": -112.28125,
+    "z": -369.0
+  },
+  {
+    "System": "Mel 22 Sector WK-O c6-1",
+    "Active": "active",
+    "Planet": "5 C",
+    "Leviathons": "RTL++RF",
+    "New Type/Sub": "5/B",
+    "Changed": "N",
+    "Old Type/Sub": "5/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/AypdGRv.jpeg",
+    "MSG1": {
+      "system": "LHS 6187",
+      "location": "Hooke Gateway",
+      "x": 77.6875,
+      "y": 73.0,
+      "z": -24.1875
+    },
+    "MSG2": {
+      "system": "HIP 20644",
+      "location": null,
+      "x": -50.34375,
+      "y": -142.375,
+      "z": -465.125
+    },
+    "MSG3": null,
+    "ronumber": "205",
+    "x": -191.90625,
+    "y": -221.3125,
+    "z": -320.375
+  },
+  {
+    "System": "Taurus Dark Region BQ-Y c12",
+    "Active": "active",
+    "Planet": "2 A",
+    "Leviathons": "RTL++RF",
+    "New Type/Sub": "5/B",
+    "Changed": "N",
+    "Old Type/Sub": "5/B",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/HjP2eAC.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region DL-Y d54",
+      "location": null,
+      "x": -88.53125,
+      "y": -124.65625,
+      "z": -453.40625
+    },
+    "MSG2": {
+      "system": "HIP 20989",
+      "location": null,
+      "x": -78.96875,
+      "y": -106.40625,
+      "z": -467.6875
+    },
+    "MSG3": {
+      "system": "HIP 21373",
+      "location": null,
+      "x": -76.6875,
+      "y": -93.03125,
+      "z": -460.65625
+    },
+    "ronumber": "206",
+    "x": -106.59375,
+    "y": -120.625,
+    "z": -477.46875
+  },
+  {
+    "System": "Mel 22 Sector MC-V d2-19",
+    "Active": "active",
+    "Planet": "BC 1 B",
+    "Leviathons": "RT+R+RF",
+    "New Type/Sub": "5/C",
+    "Changed": "N",
+    "Old Type/Sub": "5/C",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/9I90rhY.jpeg",
+    "MSG1": {
+      "system": "Wayutabal",
+      "location": "Kaiser Terminal",
+      "x": 101.3125,
+      "y": -81.90625,
+      "z": -9.09375
+    },
+    "MSG2": {
+      "system": "Ngaiawang",
+      "location": "Dornier Terminal",
+      "x": 62.375,
+      "y": -89.90625,
+      "z": -13.0
+    },
+    "MSG3": null,
+    "ronumber": "207",
+    "x": 31.5625,
+    "y": -231.6875,
+    "z": -351.4375
+  },
+  {
+    "System": "Mel 22 Sector ZM-H b11-3",
+    "Active": "active",
+    "Planet": "B 3",
+    "Leviathons": "RT+R+RF",
+    "New Type/Sub": "5/C",
+    "Changed": "N",
+    "Old Type/Sub": "5/C",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/BUzejsa.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector NT-Q c5-11",
+      "location": null,
+      "x": -174.0625,
+      "y": -104.96875,
+      "z": -372.625
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector FM-V d2-38",
+      "location": null,
+      "x": -172.8125,
+      "y": -80.53125,
+      "z": -366.34375
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector FM-V d2-67",
+      "location": null,
+      "x": -202.09375,
+      "y": -81.78125,
+      "z": -365.5
+    },
+    "ronumber": "208",
+    "x": -171.0625,
+    "y": -92.09375,
+    "z": -382.75
+  },
+  {
+    "System": "Pleiades Sector EL-Y d23",
+    "Active": "active",
+    "Planet": "ABCD 1 A",
+    "Leviathons": "RT+R+RF",
+    "New Type/Sub": "5/C",
+    "Changed": "N",
+    "Old Type/Sub": "5/C",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/WCycZ18.jpeg",
+    "MSG1": {
+      "system": "HIP 20859",
+      "location": null,
+      "x": -31.15625,
+      "y": -120.65625,
+      "z": -384.5
+    },
+    "MSG2": {
+      "system": "Pleiades Sector IX-S b4-1",
+      "location": null,
+      "x": -60.78125,
+      "y": -79.53125,
+      "z": -344.90625
+    },
+    "MSG3": {
+      "system": "Pleiades Sector AV-Y c7",
+      "location": null,
+      "x": -65.0625,
+      "y": -110.625,
+      "z": -424.3125
+    },
+    "ronumber": "209",
+    "x": -39.625,
+    "y": -133.125,
+    "z": -410.625
+  },
+  {
+    "System": "Pleiades Sector MM-V b2-2",
+    "Active": "active",
+    "Planet": "1 B",
+    "Leviathons": "RT+R+RF",
+    "New Type/Sub": "5/C",
+    "Changed": "N",
+    "Old Type/Sub": "5/C",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/RXpILgq.jpeg",
+    "MSG1": {
+      "system": "HIP 18730",
+      "location": null,
+      "x": -24.125,
+      "y": -186.6875,
+      "z": -369.25
+    },
+    "MSG2": {
+      "system": "HIP 19549",
+      "location": null,
+      "x": -29.65625,
+      "y": -169.25,
+      "z": -398.25
+    },
+    "MSG3": {
+      "system": "Pleiades Sector GG-Y d33",
+      "location": null,
+      "x": -37.5,
+      "y": -204.25,
+      "z": -386.3125
+    },
+    "ronumber": "210",
+    "x": -21.03125,
+    "y": -179.78125,
+    "z": -383.75
+  },
+  {
+    "System": "Taurus Dark Region MY-R b4-1",
+    "Active": "active",
+    "Planet": "1 B",
+    "Leviathons": "RT+R+RF",
+    "New Type/Sub": "5/C",
+    "Changed": "N",
+    "Old Type/Sub": "5/C",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/3d49JF9.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector HH-V d2-53",
+      "location": null,
+      "x": -170.3125,
+      "y": -126.46875,
+      "z": -423.0625
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector FH-U c3-9",
+      "location": null,
+      "x": -172.0625,
+      "y": -104.4375,
+      "z": -446.34375
+    },
+    "MSG3": {
+      "system": "Taurus Dark Region CL-Y d53",
+      "location": null,
+      "x": -150.625,
+      "y": -143.71875,
+      "z": -439.625
+    },
+    "ronumber": "211",
+    "x": -159.875,
+    "y": -117.53125,
+    "z": -427.8125
+  },
+  {
+    "System": "Pleiades Sector DQ-Y c4",
+    "Active": "active",
+    "Planet": "6 A",
+    "Leviathons": "TLR+RF",
+    "New Type/Sub": "5/D",
+    "Changed": "N",
+    "Old Type/Sub": "5/D",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ayujQxf.jpeg",
+    "MSG1": {
+      "system": "HIP 19792",
+      "location": null,
+      "x": -70.15625,
+      "y": -103.21875,
+      "z": -355.84375
+    },
+    "MSG2": {
+      "system": "Dhanhopi",
+      "location": "Plucker Enterprise",
+      "x": -6.90625,
+      "y": 79.625,
+      "z": -27.625
+    },
+    "MSG3": null,
+    "ronumber": "212",
+    "x": -60.40625,
+    "y": -182.3125,
+    "z": -420.03125
+  },
+  {
+    "System": "Struve's Lost Sector NN-T c3-1",
+    "Active": "active",
+    "Planet": "ABCD 1 A",
+    "Leviathons": "TLR+RF",
+    "New Type/Sub": "5/D",
+    "Changed": "N",
+    "Old Type/Sub": "5/D",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/Im1jyWd.jpeg",
+    "MSG1": {
+      "system": "Di Jian",
+      "location": "Preuss Terminal",
+      "x": -16.5625,
+      "y": 108.25,
+      "z": 5.34375
+    },
+    "MSG2": {
+      "system": "Pleiades Sector JN-S b4-3",
+      "location": null,
+      "x": -112.78125,
+      "y": -109.03125,
+      "z": -333.71875
+    },
+    "MSG3": null,
+    "ronumber": "213",
+    "x": 13.53125,
+    "y": -173.15625,
+    "z": -387.96875
+  },
+  {
+    "System": "HIP 22334",
+    "Active": "active",
+    "Planet": "1 D",
+    "Leviathons": "RTLR++F",
+    "New Type/Sub": "5/E",
+    "Changed": "Y",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/bMGPNLU.jpeg",
+    "MSG1": {
+      "system": "HIP 22743",
+      "location": null,
+      "x": -11.34375,
+      "y": -86.5,
+      "z": -399.84375
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region JH-V c2-9",
+      "location": null,
+      "x": -35.125,
+      "y": -77.3125,
+      "z": -408.3125
+    },
+    "MSG3": {
+      "system": "HIP 21348",
+      "location": null,
+      "x": -26.84375,
+      "y": -107.90625,
+      "z": -379.40625
+    },
+    "ronumber": "214",
+    "x": -24.03125,
+    "y": -85.5,
+    "z": -393.78125
+  },
+  {
+    "System": "Mel 22 Sector NX-U d2-31",
+    "Active": "active",
+    "Planet": "3 A",
+    "Leviathons": "RTLR++F",
+    "New Type/Sub": "5/E",
+    "Changed": "Y",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/QGfQbNv.jpeg",
+    "MSG1": {
+      "system": "Outotz ST-I d9-6",
+      "location": null,
+      "x": 604.15625,
+      "y": 153.59375,
+      "z": -1514.9375
+    },
+    "MSG2": {
+      "system": "Outotz ZC-Y c28-2",
+      "location": null,
+      "x": 460.84375,
+      "y": 150.53125,
+      "z": -1094.40625
+    },
+    "MSG3": null,
+    "ronumber": "215",
+    "x": -64.40625,
+    "y": -269.5625,
+    "z": -373.59375
+  },
+  {
+    "System": "Mel 22 Sector OO-Q c5-6",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "RTLR++F",
+    "New Type/Sub": "5/E",
+    "Changed": "Y",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/yv96mIN.jpeg",
+    "MSG1": {
+      "system": "12 Trianguli",
+      "location": null,
+      "x": -77.15625,
+      "y": -76.8125,
+      "z": -120.6875
+    },
+    "MSG2": {
+      "system": "Tascheter Sector CL-Y d115",
+      "location": null,
+      "x": -3.5625,
+      "y": -15.5,
+      "z": -88.90625
+    },
+    "MSG3": null,
+    "ronumber": "216",
+    "x": -190.78125,
+    "y": -143.75,
+    "z": -354.46875
+  },
+  {
+    "System": "HIP 15746",
+    "Active": "active",
+    "Planet": "AB 1 B",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/vxLZo0d.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector LN-T c3-11",
+      "location": null,
+      "x": -124.65625,
+      "y": -113.96875,
+      "z": -282.625
+    },
+    "MSG2": {
+      "system": "HIP 16704",
+      "location": null,
+      "x": -118.4375,
+      "y": -170.78125,
+      "z": -387.375
+    },
+    "MSG3": {
+      "system": "Pleiades Sector EC-U b3-0",
+      "location": null,
+      "x": -166.4375,
+      "y": -132.78125,
+      "z": -351.46875
+    },
+    "ronumber": "217",
+    "x": -143.9375,
+    "y": -159.15625,
+    "z": -367.15625
+  },
+  {
+    "System": "HIP 16985",
+    "Active": "active",
+    "Planet": "A 4 E",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/jr0ilNV.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector UE-G b11-0",
+      "location": null,
+      "x": -39.5,
+      "y": -239.625,
+      "z": -380.625
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector BV-P c5-2",
+      "location": null,
+      "x": -11.0,
+      "y": -270.625,
+      "z": -363.21875
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector KC-V d2-28",
+      "location": null,
+      "x": -78.4375,
+      "y": -258.25,
+      "z": -404.0625
+    },
+    "ronumber": "218",
+    "x": -54.59375,
+    "y": -242.15625,
+    "z": -401.5
+  },
+  {
+    "System": "HIP 18368",
+    "Active": "active",
+    "Planet": "2 H",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/ULuooz7.jpeg",
+    "MSG1": {
+      "system": "Byeru Bese",
+      "location": "Garnier Station",
+      "x": -55.84375,
+      "y": -91.03125,
+      "z": 45.1875
+    },
+    "MSG2": {
+      "system": "12 Trianguli",
+      "location": null,
+      "x": -77.15625,
+      "y": -76.8125,
+      "z": -120.6875
+    },
+    "MSG3": null,
+    "ronumber": "219",
+    "x": 0.25,
+    "y": -174.8125,
+    "z": -286.46875
+  },
+  {
+    "System": "HIP 22743",
+    "Active": "active",
+    "Planet": "B 1 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/AfcaPeg.jpeg",
+    "MSG1": {
+      "system": "LDS 883",
+      "location": "Smith Reserve",
+      "x": -28.71875,
+      "y": -35.71875,
+      "z": -61.4375
+    },
+    "MSG2": {
+      "system": "Bhal",
+      "location": "Dionysus Class Wrecked Megaship near AB 3",
+      "x": -87.03125,
+      "y": -71.6875,
+      "z": -134.65625
+    },
+    "MSG3": null,
+    "ronumber": "220",
+    "x": -11.34375,
+    "y": -86.5,
+    "z": -399.84375
+  },
+  {
+    "System": "Mel 22 Sector FH-U c3-9",
+    "Active": "active",
+    "Planet": "A 1 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/PSwQ4Rv.jpeg",
+    "MSG1": {
+      "system": "Oitbi",
+      "location": "Wiener City",
+      "x": -44.09375,
+      "y": -74.1875,
+      "z": 87.40625
+    },
+    "MSG2": {
+      "system": "HIP 23022",
+      "location": null,
+      "x": -30.375,
+      "y": -51.1875,
+      "z": -338.15625
+    },
+    "MSG3": null,
+    "ronumber": "221",
+    "x": -172.0625,
+    "y": -104.4375,
+    "z": -446.34375
+  },
+  {
+    "System": "Mel 22 Sector JC-V d2-14",
+    "Active": "active",
+    "Planet": "A 4 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/LSIM1hQ.jpeg",
+    "MSG1": {
+      "system": "Ngaiawang",
+      "location": "Bellmarsh class megaship wreck",
+      "x": 62.375,
+      "y": -89.90625,
+      "z": -13.0
+    },
+    "MSG2": {
+      "system": "Pleiades Sector IH-V c2-16",
+      "location": "unknown target",
+      "x": -92.0,
+      "y": -143.5,
+      "z": -341.3125
+    },
+    "MSG3": null,
+    "ronumber": "222",
+    "x": -174.15625,
+    "y": -200.96875,
+    "z": -361.71875
+  },
+  {
+    "System": "Mel 22 Sector JC-V d2-15",
+    "Active": "active",
+    "Planet": "ABC 1 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/dlSvJ6x.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector JC-V d2-14",
+      "location": null,
+      "x": -174.15625,
+      "y": -200.96875,
+      "z": -361.71875
+    },
+    "MSG2": {
+      "system": "Mel 22 Sector JC-V d2-41",
+      "location": null,
+      "x": -189.84375,
+      "y": -214.71875,
+      "z": -350.8125
+    },
+    "MSG3": {
+      "system": "Mel 22 Sector IO-G b11-1",
+      "location": null,
+      "x": -198.09375,
+      "y": -202.34375,
+      "z": -381.90625
+    },
+    "ronumber": "223",
+    "x": -176.09375,
+    "y": -203.34375,
+    "z": -368.65625
+  },
+  {
+    "System": "Mel 22 Sector TT-R c4-2",
+    "Active": "active",
+    "Planet": "3 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/lqCbOsB.jpeg",
+    "MSG1": {
+      "system": "HR 1257",
+      "location": "Jakobi Platform",
+      "x": 13.65625,
+      "y": -64.84375,
+      "z": -94.5625
+    },
+    "MSG2": {
+      "system": "LP 389-95",
+      "location": "Velasquez INRA base",
+      "x": 98.84375,
+      "y": 7.0,
+      "z": -7.71875
+    },
+    "MSG3": null,
+    "ronumber": "224",
+    "x": -97.375,
+    "y": -255.21875,
+    "z": -419.78125
+  },
+  {
+    "System": "Mel 22 Sector YU-F b11-1",
+    "Active": "active",
+    "Planet": "AB 5 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/nk1yMPn.jpeg",
+    "MSG1": {
+      "system": "Outotz EH-M d7-5",
+      "location": "EE Gnosis",
+      "x": 134.375,
+      "y": 208.40625,
+      "z": -1664.6875
+    },
+    "MSG2": {
+      "system": "Outotz SU-W b57-0",
+      "location": null,
+      "x": 459.125,
+      "y": 200.34375,
+      "z": -1100.59375
+    },
+    "MSG3": null,
+    "ronumber": "225",
+    "x": -33.96875,
+    "y": -268.4375,
+    "z": -384.53125
+  },
+  {
+    "System": "Pleiades Sector GG-Y d33",
+    "Active": "active",
+    "Planet": "3 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/HVpo1Xh.jpeg",
+    "MSG1": {
+      "system": "Pleiades Sector LY-Q b5-2",
+      "location": null,
+      "x": -121.59375,
+      "y": -85.78125,
+      "z": -306.34375
+    },
+    "MSG2": {
+      "system": "Kung Mu",
+      "location": "Foda Port",
+      "x": -92.8125,
+      "y": -16.21875,
+      "z": -35.65625
+    },
+    "MSG3": null,
+    "ronumber": "226",
+    "x": -37.5,
+    "y": -204.25,
+    "z": -386.3125
+  },
+  {
+    "System": "Pleiades Sector ZZ-Y c14",
+    "Active": "active",
+    "Planet": "A 1 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/bXyS9DH.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region JH-V c2-9",
+      "location": null,
+      "x": -35.125,
+      "y": -77.3125,
+      "z": -408.3125
+    },
+    "MSG2": {
+      "system": "Pleiades Sector IX-S b4-1",
+      "location": null,
+      "x": -60.78125,
+      "y": -79.53125,
+      "z": -344.90625
+    },
+    "MSG3": {
+      "system": "Pleiades Sector AV-Y c7",
+      "location": null,
+      "x": -65.0625,
+      "y": -110.625,
+      "z": -424.3125
+    },
+    "ronumber": "227",
+    "x": -38.1875,
+    "y": -100.25,
+    "z": -411.5625
+  },
+  {
+    "System": "Taurus Dark Region BV-Y c11",
+    "Active": "active",
+    "Planet": "8 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/5k3iWXC.jpeg",
+    "MSG1": {
+      "system": "Taurus Dark Region CQ-Y d31",
+      "location": null,
+      "x": -40.9375,
+      "y": -90.09375,
+      "z": -446.375
+    },
+    "MSG2": {
+      "system": "Taurus Dark Region QN-T b3-0",
+      "location": null,
+      "x": -40.125,
+      "y": -144.0625,
+      "z": -460.6875
+    },
+    "MSG3": {
+      "system": "HIP 20644",
+      "location": null,
+      "x": -50.34375,
+      "y": -142.375,
+      "z": -465.125
+    },
+    "ronumber": "228",
+    "x": -34.53125,
+    "y": -104.71875,
+    "z": -468.84375
+  },
+  {
+    "System": "Wredguia UB-W c15-0",
+    "Active": "active",
+    "Planet": "1 A",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "6/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/qBMwb3u.jpeg",
+    "MSG1": {
+      "system": "Mel 22 Sector IS-S c4-6",
+      "location": null,
+      "x": -135.8125,
+      "y": -36.375,
+      "z": -408.96875
+    },
+    "MSG2": {
+      "system": "Pleiades Sector BG-X c1-14",
+      "location": null,
+      "x": -133.78125,
+      "y": -71.96875,
+      "z": -373.3125
+    },
+    "MSG3": {
+      "system": "Wredguia VX-L d7-80",
+      "location": null,
+      "x": -95.375,
+      "y": -12.15625,
+      "z": -371.4375
+    },
+    "ronumber": "229",
+    "x": -142.5625,
+    "y": -24.75,
+    "z": -380.90625
+  },
+  {
+    "System": "Mel 22 Sector JC-V d2-31",
+    "Active": "active",
+    "Planet": "A 16 B",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "Y",
+    "Old Type/Sub": "5/A",
+    "Aerials": "https://storage.googleapis.com/canonn-downloads/ThargoidSites/xRX6Z4p.jpeg",
+    "MSG1": {
+      "system": "Thraskias",
+      "location": "Pettit Ring",
+      "x": 46.71875,
+      "y": 46.625,
+      "z": -1.65625
+    },
+    "MSG2": {
+      "system": "Pleiades Sector JN-S b4-3",
+      "location": null,
+      "x": -112.78125,
+      "y": -109.03125,
+      "z": -333.71875
+    },
+    "MSG3": null,
+    "ronumber": "230",
+    "x": -158.59375,
+    "y": -232.78125,
+    "z": -392.96875
+  },
+  {
+    "System": "HIP 22460",
+    "Active": "active",
+    "Planet": "10 B",
+    "Leviathons": "RTLR+RF",
+    "New Type/Sub": "6/A",
+    "Changed": "N",
+    "Old Type/Sub": "n/a",
+    "Aerials": "",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "231",
+    "x": -41.3125,
+    "y": -58.96875,
+    "z": -354.78125
+  },
+  {
+    "System": "HIP 22460",
+    "Active": "inactive",
+    "Planet": "10 B",
+    "Leviathons": "W+++T",
+    "New Type/Sub": "2/A",
+    "Changed": "N",
+    "Old Type/Sub": "n/a",
+    "Aerials": "",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "232",
+    "x": -41.3125,
+    "y": -58.96875,
+    "z": -354.78125
+  },
+  {
+    "System": "Synuefe OY-Z c16-4",
+    "Active": "inactive",
+    "Planet": "1 A",
+    "Leviathons": "T",
+    "New Type/Sub": "1/B",
+    "Changed": "N",
+    "Old Type/Sub": "n/a",
+    "Aerials": "",
+    "MSG1": null,
+    "MSG2": null,
+    "MSG3": null,
+    "ronumber": "233",
+    "x": 46.09375,
+    "y": -79.4375,
+    "z": -321.71875
+  },
+  {
+    "System": "Synuefe XV-B b33-4",
+    "Active": "active",
+    "Planet": "3 A",
+    "Leviathons": "WF++T+L",
+    "New Type/Sub": "4/A",
+    "Changed": "N",
+    "Old Type/Sub": "n/a",
+    "Aerials": "",
+    "MSG1": {
+      "system": "Synuefe HZ-M d8-69",
+      "location": null,
+      "x": 28.03125,
+      "y": -89.375,
+      "z": -338.6875
+    },
+    "MSG2": {
+      "system": "Synuefe OY-Z c16-4",
+      "location": null,
+      "x": 46.09375,
+      "y": -79.4375,
+      "z": -321.71875
+    },
+    "MSG3": {
+      "system": "HIP 22851",
+      "location": null,
+      "x": 44.71875,
+      "y": -106.625,
+      "z": -313.21875
+    },
+    "ronumber": "234",
+    "x": 45.46875,
+    "y": -75.5,
+    "z": -351.53125
+  }
+]
