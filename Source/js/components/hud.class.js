@@ -468,7 +468,22 @@ var HUD = {
           events.some(function (e) { return e && typeof e.event === 'string'; });
       }
 
+      function isNavRoute(data) {
+        return data && data.event === 'NavRoute' &&
+          Array.isArray(data.Route) && data.Route.length > 0 &&
+          Array.isArray(data.Route[0].StarPos);
+      }
+
       function handleParsedFile(filename, data, done) {
+        if (isNavRoute(data)) {
+          var jumps = data.Route.map(function (s) {
+            return { system: s.StarSystem, x: s.StarPos[0], y: s.StarPos[1], z: s.StarPos[2] };
+          });
+          var from = jumps[0].system;
+          var to   = jumps[jumps.length - 1].system;
+          displaySpanshRoute(filename, from, to, jumps, done);
+          return;
+        }
         if (isSpanshRoute(data)) {
           if (data.state !== 'completed' || data.status !== 'ok') {
             addMessage(filename + ': Spansh route is not yet completed (state: ' + data.state + ').', 'error');
@@ -514,6 +529,12 @@ var HUD = {
         // Try JSONL first
         var events = parseJsonl(text);
         if (isJournalJsonl(events)) {
+          // A single NavRoute event parses as a one-element JSONL array but
+          // should be handled as a plain JSON object, not a journal log.
+          if (events.length === 1 && isNavRoute(events[0])) {
+            handleParsedFile(filename, events[0], done);
+            return;
+          }
           handleJournalEvents(filename, events, done);
           return;
         }
