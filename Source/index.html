@@ -40,6 +40,68 @@
       height: 93%;
       z-index: -1;
     }
+
+    /* Faction Search UI — lives inside the HUD #filters panel */
+    #faction-search-container {
+      padding: 0 0 10px 0;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    #faction-search-wrap {
+      position: relative;
+    }
+    #faction-search-label {
+      color: #ff8c00;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: block;
+    }
+    #faction-search-input {
+      border: solid 1px #fff;
+      padding: 4px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      font-size: 0.7rem;
+      outline: none;
+    }
+    #faction-search-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(3, 3, 6, 0.97);
+      border: 1px solid #444;
+      list-style: none;
+      margin: 2px 0 0;
+      padding: 0;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 1200;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    }
+    .faction-search-item {
+      padding: 5px 8px;
+      cursor: pointer;
+      font-size: 0.7rem;
+      color: #eee;
+      border-bottom: 1px solid #1a1a1a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .faction-search-item:last-child { border-bottom: none; }
+    .faction-search-item:hover,
+    .faction-search-item.active {
+      background: rgba(255, 140, 0, 0.18);
+      color: #FF7207;
+    }
+    .faction-search-item strong { font-weight: bold; }
   </style>
 
   <title>CanonnED3D - Maps</title>
