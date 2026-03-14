@@ -189,6 +189,155 @@ body {
 }
 
 /* -------------------------------------------------------------------------- */
+/* File Upload Button & Dialog                                                  */
+/* -------------------------------------------------------------------------- */
+
+#system-search-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  margin: 0 0 5px;
+}
+#system-search-heading h2 {
+  border-bottom: none;
+  margin: 0;
+  flex: 1;
+}
+#file-upload-btn {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0 0 0 6px;
+  line-height: 1;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+#file-upload-btn:hover {
+  color: #ff8c00;
+}
+
+#file-upload-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+}
+#file-upload-overlay.active {
+  display: flex;
+}
+#file-upload-dialog {
+  background: rgba(10,10,14,0.97);
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 24px 28px;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+  font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
+  color: #eee;
+  position: relative;
+}
+#file-upload-dialog h3 {
+  color: #ff8c00;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px;
+}
+#file-upload-dialog p {
+  font-size: 0.7rem;
+  color: #aaa;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+#file-upload-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0;
+}
+#file-upload-close:hover { color: #ff8c00; }
+#file-upload-drop {
+  border: 2px dashed #444;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #666;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  margin-bottom: 10px;
+  display: block;
+}
+#file-upload-drop.drag-over,
+#file-upload-drop:hover {
+  border-color: #ff8c00;
+  color: #ff8c00;
+}
+#file-upload-drop.loading {
+  border-color: #ffad33;
+  color: #ffad33;
+  cursor: default;
+}
+#file-upload-drop .fa { font-size: 1.8rem; display: block; margin-bottom: 8px; }
+#file-upload-input { display: none; }
+@keyframes fu-spin { to { transform: rotate(360deg); } }
+.fu-spinner {
+  display: inline-block;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 3px solid rgba(255,140,0,0.25);
+  border-top-color: #ff8c00;
+  border-radius: 50%;
+  animation: fu-spin 0.75s linear infinite;
+  margin-bottom: 8px;
+}
+#file-upload-messages {
+  margin-top: 12px;
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 0.65rem;
+}
+.fu-msg {
+  padding: 4px 6px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+}
+.fu-msg.success { background: rgba(0,180,80,0.15); color: #5eda8e; }
+.fu-msg.error   { background: rgba(200,30,30,0.15); color: #f07070; }
+.fu-msg.info    { background: rgba(255,140,0,0.08);  color: #ffad33; }
+.fu-done-btn {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px 10px;
+  background: rgba(0,180,80,0.15);
+  border: 1px solid #5eda8e;
+  border-radius: 3px;
+  color: #5eda8e;
+  font-size: 0.7rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.15s;
+}
+.fu-done-btn:hover {
+  background: rgba(0,180,80,0.3);
+}
+
+/* -------------------------------------------------------------------------- */
 /* System typeahead search                                                      */
 /* -------------------------------------------------------------------------- */
 

@@ -1,4 +1,4 @@
-
+﻿
 var HUD = {
 
   'container' : null,
@@ -11,7 +11,7 @@ var HUD = {
   'init' : function() {
 
     if (this.initialized) {
-      // Just refresh the counts — don't re-bind events or re-init controls
+      // Just refresh the counts â€” don't re-bind events or re-init controls
       this.updateFilterCounts();
       return;
     }
@@ -24,7 +24,7 @@ var HUD = {
 
   /**
    * Update the (count) suffix on each filter label in place.
-   * Safe to call repeatedly — replaces any existing count span.
+   * Safe to call repeatedly â€” replaces any existing count span.
    */
   'updateFilterCounts' : function() {
     $('.map_filter').each(function() {
@@ -86,7 +86,7 @@ var HUD = {
       '      <p id="infos"></p>'+
       '    </div>'+
       '  <div id="system-search">'+
-      '    <h2>System Search</h2>'+
+      '    <div id="system-search-heading"><h2>System Search</h2><button id="file-upload-btn" title="Upload route / journal files"><i class="fa fa-folder-open"></i></button></div>'+
       '    <div id="system-search-wrap">'+
       '      <input type="text" id="system-search-input" placeholder="System name..." autocomplete="off" />'+
       '      <ul id="system-search-results"></ul>'+
@@ -288,7 +288,390 @@ var HUD = {
 
     $( "#systemDetails" ).hide();
 
-    //-- Add Count filters (initial pass — use updateFilterCounts for subsequent updates)
+    // -----------------------------------------------------------------------
+    // File Upload Dialog
+    // -----------------------------------------------------------------------
+    (function () {
+
+      // Inject overlay once into the map container
+      if (!document.getElementById('file-upload-overlay')) {
+        var overlay = document.createElement('div');
+        overlay.id = 'file-upload-overlay';
+        overlay.innerHTML =
+          '<div id="file-upload-dialog">' +
+          '  <button id="file-upload-close" title="Close">&times;</button>' +
+          '  <h3>Upload Files</h3>' +
+          '  <p>Upload your journals or other JSON files that contain system names and coordinates and these will be displayed on the map.</p>' +
+          '  <label id="file-upload-drop" for="file-upload-input">' +
+          '    <i class="fa fa-cloud-upload"></i>' +
+          '    Click or drag &amp; drop JSON files here' +
+          '    <input id="file-upload-input" type="file" accept=".json,application/json" multiple>' +
+          '  </label>' +
+          '  <div id="file-upload-messages"></div>' +
+          '</div>';
+        document.getElementById('ed3dmap').appendChild(overlay);
+      }
+
+      var $overlay  = $('#file-upload-overlay');
+      var $drop     = $('#file-upload-drop');
+      var $input    = $('#file-upload-input');
+      var $messages = $('#file-upload-messages');
+      var routeCounter = 0;
+
+      function openDialog() {
+        $overlay.addClass('active');
+      }
+      function closeDialog() {
+        $overlay.removeClass('active');
+      }
+
+      $('#file-upload-btn').on('click', function (e) {
+        e.stopPropagation();
+        openDialog();
+      });
+      $('#file-upload-close').on('click', function (e) {
+        e.stopPropagation();
+        closeDialog();
+      });
+      $overlay.on('click', function (e) {
+        if (e.target === this) closeDialog();
+      });
+
+      // Prevent overlay pointer events leaking to the map
+      $overlay.on('mousedown pointerdown touchstart wheel click contextmenu', function (e) {
+        e.stopPropagation();
+      });
+
+      // Drag & drop styling
+      $drop.on('dragover dragenter', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).addClass('drag-over');
+      });
+      $drop.on('dragleave dragend drop', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).removeClass('drag-over');
+      });
+      $drop.on('drop', function (e) {
+        var files = e.originalEvent.dataTransfer.files;
+        processFiles(files);
+      });
+      // No manual click handler needed â€” the <label for> wires the input natively.
+      $input.on('change', function () {
+        processFiles(this.files);
+        this.value = '';
+      });
+
+      function addMessage(text, type) {
+        var $m = $('<div class="fu-msg ' + (type || 'info') + '"></div>').text(text);
+        $messages.append($m);
+        $messages.scrollTop($messages[0].scrollHeight);
+      }
+
+      function setDropLoading(on) {
+        if (on) {
+          $drop.addClass('loading');
+          $drop.find('.fa').hide();
+          if (!$drop.find('.fu-spinner').length) {
+            $drop.prepend('<span class="fu-spinner"></span><br>');
+          }
+          $drop.find('.fu-spinner').show();
+        } else {
+          $drop.removeClass('loading');
+          $drop.find('.fu-spinner').remove();
+          $drop.find('.fa').show();
+        }
+      }
+
+      var pendingFiles = 0;
+
+      function processFiles(files) {
+        if (!files || files.length === 0) return;
+        pendingFiles += files.length;
+        setDropLoading(true);
+        for (var i = 0; i < files.length; i++) {
+          (function (file) {
+            addMessage('Reading ' + file.name + '\u2026', 'info');
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+              processRawText(file.name, evt.target.result, fileDone);
+            };
+            reader.onerror = function () {
+              addMessage(file.name + ': Failed to read file.', 'error');
+              fileDone();
+            };
+            reader.readAsText(file);
+
+            function fileDone() {
+              if (--pendingFiles === 0) {
+                setDropLoading(false);
+                var $btn = $('<button class="fu-done-btn">\u2713 Done - click here to close<\/button>');
+                $btn.on('click', closeDialog);
+                $messages.append($btn);
+                $messages.scrollTop($messages[0].scrollHeight);
+              }
+            }
+          })(files[i]);
+        }
+      }
+
+      function isSpanshRoute(data) {
+        return data &&
+          typeof data.job       === 'string' &&
+          typeof data.state     === 'string' &&
+          typeof data.status    === 'string' &&
+          data.parameters !== undefined &&
+          data.result     !== undefined;
+      }
+
+      // A small palette of distinct colours for per-commander routes
+      var CMDR_PALETTE = [
+        0xFF9D00, 0x00BFFF, 0x7FFF00, 0xFF69B4, 0xDA70D6,
+        0x40E0D0, 0xFF6347, 0xADFF2F, 0xFFD700, 0x87CEEB
+      ];
+      var cmdrColorMap  = {};  // cmdrName -> THREE.Color hex
+      var cmdrColorIdx  = 0;
+
+      function cmdrColor(name) {
+        if (!cmdrColorMap[name]) {
+          cmdrColorMap[name] = CMDR_PALETTE[cmdrColorIdx % CMDR_PALETTE.length];
+          cmdrColorIdx++;
+        }
+        return cmdrColorMap[name];
+      }
+
+      function parseJsonl(text) {
+        // JSONL: one JSON object per line, blank lines ignored.
+        // Also handles the "pretty-printed objects run together" format in the
+        // sample (no comma between top-level objects, just whitespace).
+        var lines = text.split('\n');
+        var results = [];
+        var buf = '';
+        for (var i = 0; i < lines.length; i++) {
+          var l = lines[i].trim();
+          if (!l) continue;
+          buf += l;
+          try {
+            results.push(JSON.parse(buf));
+            buf = '';
+          } catch (e) {
+            // incomplete yet – accumulate more lines
+          }
+        }
+        return results;
+      }
+
+      function isJournalJsonl(events) {
+        // Must be an array of objects and at least one must have an "event" field
+        return Array.isArray(events) && events.length > 0 &&
+          events.some(function (e) { return e && typeof e.event === 'string'; });
+      }
+
+      function handleParsedFile(filename, data, done) {
+        if (isSpanshRoute(data)) {
+          if (data.state !== 'completed' || data.status !== 'ok') {
+            addMessage(filename + ': Spansh route is not yet completed (state: ' + data.state + ').', 'error');
+            done();
+            return;
+          }
+
+          // Determine from/to — may be in result or parameters depending on format
+          var fromSys = (data.result && data.result.source_system) ||
+                        (data.parameters && data.parameters.source_system) || '';
+          var toSys   = (data.result && data.result.destination_system) ||
+                        (data.parameters && data.parameters.destination_system) || '';
+
+          // Format A: result.system_jumps — each jump has a 'system' field
+          var jumps = data.result && data.result.system_jumps;
+
+          // Format B: result.jumps — each jump has a 'name' field; normalise to format A
+          if (!jumps || jumps.length === 0) {
+            var rawJumps = data.result && data.result.jumps;
+            if (rawJumps && rawJumps.length > 0) {
+              jumps = rawJumps.map(function (j) {
+                return { system: j.name, x: j.x, y: j.y, z: j.z };
+              });
+            }
+          }
+
+          if (!jumps || jumps.length === 0) {
+            addMessage(filename + ': Spansh route has no system jumps.', 'error');
+            done();
+            return;
+          }
+          displaySpanshRoute(filename, fromSys, toSys, jumps, done);
+        } else {
+          addMessage(filename + ': Unrecognised file format. Expected a Spansh neutron-router route JSON.', 'error');
+          done();
+        }
+      }
+
+      // Overridden below to also handle raw JSONL text
+      var _handleParsedFile = handleParsedFile;
+
+      function processRawText(filename, text, done) {
+        // Try JSONL first
+        var events = parseJsonl(text);
+        if (isJournalJsonl(events)) {
+          handleJournalEvents(filename, events, done);
+          return;
+        }
+        // Fall back to standard JSON object
+        var data;
+        try { data = JSON.parse(text); } catch (e) {
+          addMessage(filename + ': Not valid JSON \u2014 ' + e.message, 'error');
+          done(); return;
+        }
+        handleParsedFile(filename, data, done);
+      }
+
+      function handleJournalEvents(filename, events, done) {
+        // Collect per-commander system lists
+        var cmdrs = {};          // name -> [{ system, x, y, z }]
+        var currentCmdr = 'Unknown';
+
+        events.forEach(function (ev) {
+          if (!ev || typeof ev.event !== 'string') return;
+          if (ev.event === 'Commander' && ev.Name) {
+            currentCmdr = ev.Name;
+          }
+          if ((ev.event === 'FSDJump' || ev.event === 'Location' || ev.event === 'CarrierJump') &&
+              ev.StarSystem && Array.isArray(ev.StarPos) && ev.StarPos.length === 3) {
+            if (!cmdrs[currentCmdr]) cmdrs[currentCmdr] = [];
+            var last = cmdrs[currentCmdr];
+            // Deduplicate consecutive identical systems
+            if (!last.length || last[last.length - 1].system !== ev.StarSystem) {
+              last.push({ system: ev.StarSystem, x: ev.StarPos[0], y: ev.StarPos[1], z: ev.StarPos[2] });
+            }
+          }
+        });
+
+        var cmdrNames = Object.keys(cmdrs);
+        if (cmdrNames.length === 0) {
+          addMessage(filename + ': No FSDJump/Location events with coordinates found.', 'error');
+          done(); return;
+        }
+
+        // Display each commander sequentially
+        var ci = 0;
+        function nextCmdr() {
+          if (ci >= cmdrNames.length) { done(); return; }
+          var cmdrName = cmdrNames[ci++];
+          var systems  = cmdrs[cmdrName];
+          addMessage(filename + ' \u2014 Commander ' + cmdrName + ': ' + systems.length + ' systems.', 'info');
+          displayJournalRoute(filename, cmdrName, systems, nextCmdr);
+        }
+        nextCmdr();
+      }
+
+      function displayJournalRoute(filename, cmdrName, systems, done) {
+        var idx   = ++routeCounter;
+        var name  = 'journal-route-' + idx;
+        var color = cmdrColor(cmdrName);
+
+        if (!System.particleGeo) System.initParticleSystem();
+
+        var $status = $('<div class="fu-msg info"></div>').text('Adding ' + cmdrName + '\u2026');
+        $messages.append($status);
+        $messages.scrollTop($messages[0].scrollHeight);
+
+        var i = 0;
+        function addNext() {
+          if (i < systems.length) {
+            var s = systems[i++];
+            System.create({ name: s.system, coords: { x: s.x, y: s.y, z: s.z } });
+            $status.text('[' + i + '/' + systems.length + '] ' + cmdrName + ': ' + s.system);
+            $messages.scrollTop($messages[0].scrollHeight);
+            setTimeout(addNext, 0);
+          } else {
+            finishJournalRoute();
+          }
+        }
+
+        function finishJournalRoute() {
+          System.endParticleSystem();
+
+          if (systems.length > 1) {
+            var geo = new THREE.Geometry();
+            systems.forEach(function (s) {
+              geo.vertices.push(new THREE.Vector3(s.x, s.y, -s.z));
+            });
+            var lineMat = new THREE.LineBasicMaterial({ color: color });
+            var line    = new THREE.Line(geo, lineMat);
+            line.name   = name;
+            scene.add(line);
+          }
+
+          $status.removeClass('info').addClass('success')
+            .text(cmdrName + ': ' + systems.length + ' systems plotted.');
+          $messages.scrollTop($messages[0].scrollHeight);
+          done();
+        }
+
+        addNext();
+      }
+
+      function displaySpanshRoute(filename, from, to, jumps, done) {
+        var idx  = ++routeCounter;
+        var name = 'spansh-route-' + idx;
+
+        // Ensure the particle system is ready (it should be after initial load)
+        if (!System.particleGeo) System.initParticleSystem();
+
+        // Live status line that updates with each system name
+        var $status = $('<div class="fu-msg info"></div>').text('Adding systems\u2026');
+        $messages.append($status);
+        $messages.scrollTop($messages[0].scrollHeight);
+
+        // Add systems one at a time yielding to the browser between each so
+        // the status line and spinner actually repaint.
+        var i = 0;
+        function addNext() {
+          if (i < jumps.length) {
+            var jump = jumps[i++];
+            System.create({
+              name: jump.system,
+              coords: { x: jump.x, y: jump.y, z: jump.z }
+            });
+            $status.text('[' + i + '/' + jumps.length + '] ' + jump.system);
+            $messages.scrollTop($messages[0].scrollHeight);
+            setTimeout(addNext, 0);
+          } else {
+            // All systems added â€” flush particles and draw the route line
+            finishRoute();
+          }
+        }
+
+        function finishRoute() {
+          // Flush particles first so the new systems appear
+          System.endParticleSystem();
+
+          // Build a line through all jump coordinates.
+          // The scene uses negated Z (same convention as System.create).
+          var geo = new THREE.Geometry();
+          jumps.forEach(function (jump) {
+            geo.vertices.push(new THREE.Vector3(jump.x, jump.y, -jump.z));
+          });
+
+          var lineMat = new THREE.LineBasicMaterial({ color: 0xFF9D00 });
+          var line = new THREE.Line(geo, lineMat);
+          line.name = name;
+          scene.add(line);
+
+          // Replace the live status line with a final success message
+          $status.removeClass('info').addClass('success')
+            .text(filename + ': Loaded \u2014 ' + jumps.length + ' jumps from \u201c' + from + '\u201d to \u201c' + to + '\u201d.');
+          $messages.scrollTop($messages[0].scrollHeight);
+          done();
+        }
+
+        addNext();
+      }
+
+    })();
+
+    //-- Add Count filters (initial pass â€” use updateFilterCounts for subsequent updates)
     HUD.updateFilterCounts();
 
     //-- Add map filters (delegated so dynamically-added filters also respond)
@@ -441,7 +824,7 @@ var HUD = {
 
 
   /**
-   * Init filter list — safe to call multiple times with growing category sets.
+   * Init filter list â€” safe to call multiple times with growing category sets.
    * New groups and items are appended; existing ones are skipped.
    */
 
@@ -449,7 +832,7 @@ var HUD = {
 
     Loader.update('HUD Filter...');
 
-    // Ensure we have a stable map of typeFilter → groupId so we can
+    // Ensure we have a stable map of typeFilter â†’ groupId so we can
     // append new items into the correct existing group on subsequent calls.
     if (!HUD.filterGroupIds) HUD.filterGroupIds = {};
     var grpNb = Object.keys(HUD.filterGroupIds).length + 1;
@@ -568,12 +951,12 @@ var HUD = {
         encodeURIComponent(found.name) + '" target="_blank">View on Signals</a>';
 
       if (existingIndex >= 0) {
-        // System already on map — navigate to it
+        // System already on map â€” navigate to it
         var selPoint = System.particleGeo.vertices[existingIndex];
         if (!selPoint.infos) selPoint.infos = infoHtml;
         Action.moveToObj(existingIndex, selPoint);
       } else {
-        // System not on map — add it as a new pin then navigate
+        // System not on map â€” add it as a new pin then navigate
         System.create({
           name: found.name,
           coords: { x: found.x, y: found.y, z: found.z },
@@ -833,3 +1216,4 @@ var HUD = {
 
   }
 }
+
